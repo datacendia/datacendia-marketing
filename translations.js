@@ -60,6 +60,8 @@ const translations = {
     roiMetricsDesc: "Real-time ROI tracking with decision speed metrics, confidence scoring, dissent tracking, and audit packet generation. Prove the value of AI-assisted decisions.",
     sovereignArchTitle: "Sovereign Architecture",
     sovereignArchDesc: "11 enterprise-grade patterns: Data Diode, Local RLHF, Decision DNA, Shadow Council, Deterministic Replay, QR Air-Gap Bridge, Canary Tripwires, TPM Attestation, Time-Lock, Federated Mesh, and Portable USB Instance.",
+    cendiaApotheosisTitle: "CendiaApotheosis™",
+    cendiaApotheosisDesc: "Nightly red-teaming that attacks your own AI. Auto-patching, pattern banning, and continuous upskilling. Your AI gets stronger while you sleep.",
     // Matrix Cards
     sovereigntyMatrixTitle: "Sovereignty Matrix",
     sovereigntyMatrixDesc: "How much control do I actually have?",
