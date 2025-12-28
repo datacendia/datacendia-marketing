@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>War Game Simulations — Datacendia | Real Scenarios, Real Data</title>
+  <meta name="description" content="War game simulations using real public data from corporate disasters. See how The Council analyzes SVB collapse, Boeing 737 MAX, Wirecard fraud, and more.">
+  <meta name="keywords" content="enterprise AI simulation, war game scenarios, risk analysis, SVB collapse analysis, Boeing 737 MAX, corporate disaster analysis, decision intelligence">
+  <meta name="author" content="Datacendia">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="War Game Simulations — Datacendia">
+  <meta property="og:description" content="Real scenarios. Real data. See how sovereign intelligence would have changed the outcome.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://datacendia.com/wargames.html">
+  <meta property="og:image" content="https://datacendia.com/og-image.png">
+  <meta property="og:site_name" content="Datacendia">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="War Game Simulations — Datacendia">
+  <meta name="twitter:description" content="Real scenarios. Real data. Corporate disasters replayed through The Council.">
+  <meta name="twitter:image" content="https://datacendia.com/og-image.png">
+  <link rel="canonical" href="https://datacendia.com/wargames.html">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <meta name="theme-color" content="#0a0a0a">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .page-container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 80px 24px;
+    }
+    .page-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+    .page-icon {
+      font-size: 2rem;
+      margin-bottom: 16px;
+    }
+    .page-title {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 300;
+      color: var(--color-text);
+      margin-bottom: 12px;
+    }
+    .page-subtitle {
+      font-size: 0.85rem;
+      color: var(--color-text-dim);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .wargame-intro {
+      background: var(--color-card-bg);
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      padding: 32px;
+      margin-bottom: 32px;
+    }
+    .wargame-intro p {
+      font-size: 0.9rem;
+      color: var(--color-text-muted);
+      line-height: 1.7;
+    }
+    .wargame-intro strong {
+      color: var(--color-text);
+    }
+    .wargame-card {
+      background: var(--color-card-bg);
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      padding: 32px;
+      margin-bottom: 24px;
+    }
+    .wargame-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 20px;
+      gap: 16px;
+    }
+    .wargame-title-group {
+      flex: 1;
+    }
+    .wargame-label {
+      font-size: 0.65rem;
+      font-weight: 500;
+      color: var(--color-gold);
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      margin-bottom: 8px;
+    }
+    .wargame-title {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      font-weight: 400;
+      color: var(--color-text);
+      margin-bottom: 4px;
+    }
+    .wargame-meta {
+      font-size: 0.75rem;
+      color: var(--color-text-dim);
+    }
+    .wargame-loss {
+      text-align: right;
+    }
+    .wargame-loss-label {
+      font-size: 0.65rem;
+      color: var(--color-text-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+    .wargame-loss-value {
+      font-family: var(--font-mono);
+      font-size: 1.1rem;
+      color: #e74c3c;
+      font-weight: 500;
+    }
+    .wargame-scenario {
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+      border-radius: 6px;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+    .wargame-scenario h4 {
+      font-size: 0.7rem;
+      font-weight: 500;
+      color: var(--color-text-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 12px;
+    }
+    .wargame-scenario p {
+      font-size: 0.85rem;
+      color: var(--color-text-muted);
+      line-height: 1.6;
+    }
+    .council-analysis {
+      margin-bottom: 20px;
+    }
+    .council-analysis h4 {
+      font-size: 0.7rem;
+      font-weight: 500;
+      color: var(--color-gold);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 16px;
+    }
+    .agent-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+    .agent-item {
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+      border-radius: 6px;
+      padding: 16px;
+    }
+    .agent-name {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--color-gold);
+      margin-bottom: 8px;
+    }
+    .agent-finding {
+      font-size: 0.8rem;
+      color: var(--color-text-muted);
+      line-height: 1.5;
+    }
+    .veto-box {
+      background: linear-gradient(135deg, rgba(231, 76, 60, 0.1) 0%, rgba(231, 76, 60, 0.02) 100%);
+      border: 1px solid rgba(231, 76, 60, 0.3);
+      border-radius: 6px;
+      padding: 16px 20px;
+      margin-bottom: 20px;
+    }
+    .veto-box h4 {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: #e74c3c;
+      margin-bottom: 8px;
+    }
+    .veto-box p {
+      font-size: 0.85rem;
+      color: var(--color-text-muted);
+      line-height: 1.5;
+    }
+    .outcome-box {
+      background: linear-gradient(135deg, rgba(46, 204, 113, 0.1) 0%, rgba(46, 204, 113, 0.02) 100%);
+      border: 1px solid rgba(46, 204, 113, 0.3);
+      border-radius: 6px;
+      padding: 16px 20px;
+    }
+    .outcome-box h4 {
+      font-size: 0.7rem;
+      font-weight: 500;
+      color: #2ecc71;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 8px;
+    }
+    .outcome-box p {
+      font-size: 0.85rem;
+      color: var(--color-text-muted);
+      line-height: 1.5;
+    }
+    .data-sources {
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid var(--color-border);
+    }
+    .data-sources h4 {
+      font-size: 0.65rem;
+      font-weight: 500;
+      color: var(--color-text-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 8px;
+    }
+    .data-sources p {
+      font-size: 0.75rem;
+      color: var(--color-text-dim);
+      line-height: 1.5;
+    }
+    .cta-section {
+      text-align: center;
+      padding: 48px 32px;
+      background: var(--color-card-bg);
+      border: 1px solid var(--color-gold);
+      border-radius: 8px;
+      margin-top: 40px;
+    }
+    .cta-section h2 {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: var(--color-text);
+      margin-bottom: 12px;
+    }
+    .cta-section p {
+      font-size: 0.9rem;
+      color: var(--color-text-muted);
+      margin-bottom: 24px;
+    }
+    .cta-section a {
+      display: inline-block;
+      padding: 14px 28px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--color-bg);
+      background: var(--color-gold);
+      border-radius: 4px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+    .cta-section a:hover {
+      background: var(--color-gold-hover);
+    }
+    .back-link {
+      display: inline-block;
+      margin-bottom: 32px;
+      font-size: 0.75rem;
+      color: var(--color-text-dim);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+    .back-link:hover {
+      color: var(--color-gold);
+    }
+    @media (max-width: 600px) {
+      .wargame-header {
+        flex-direction: column;
+      }
+      .wargame-loss {
+        text-align: left;
+      }
+      .agent-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="page-container">
+      <div class="page-top-bar">
+        <a href="index.html" class="back-link">← Return to Datacendia</a>
+        <div class="lang-selector">
+          <button class="lang-btn"><span class="lang-current">English</span> ▾</button>
+          <div class="lang-dropdown">
+            <button onclick="setLanguage('en')">English</button>
+            <button onclick="setLanguage('es')">Español</button>
+            <button onclick="setLanguage('fr')">Français</button>
+            <button onclick="setLanguage('de')">Deutsch</button>
+            <button onclick="setLanguage('pt')">Português</button>
+            <button onclick="setLanguage('it')">Italiano</button>
+            <button onclick="setLanguage('ja')">日本語</button>
+            <button onclick="setLanguage('ko')">한국어</button>
+            <button onclick="setLanguage('zh')">中文</button>
+            <button onclick="setLanguage('ar')">العربية</button>
+            <button onclick="setLanguage('hi')">हिन्दी</button>
+          </div>
+        </div>
+      </div>
+      <nav class="main-nav">
+        <a href="index.html">Home</a>
+        <a href="resources/index.html">Resources</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="pilot.html">Pilot Program</a>
+        <a href="trust.html">Trust</a>
+        <a href="briefing.html">Request Briefing</a>
+      </nav>
+      
+      <div class="page-header">
+        <div class="page-icon">⚔️</div>
+        <h1 class="page-title">War Game Simulations</h1>
+        <p class="page-subtitle">Real scenarios. Real public data. See how The Council would have analyzed corporate disasters before they became disasters.</p>
+      </div>
+
+      <div class="wargame-intro">
+        <p>
+          These are not hypotheticals. Each simulation uses <strong>publicly available data</strong> — SEC filings, earnings calls, news reports, and regulatory documents — that existed <em>before</em> the disaster. We feed this data to The Council and ask: <strong>"Would you have approved this decision?"</strong>
+        </p>
+      </div>
+
+      <!-- War Game 1: SVB Collapse -->
+      <div class="wargame-card">
+        <div class="wargame-header">
+          <div class="wargame-title-group">
+            <div class="wargame-label">Banking / Treasury Risk</div>
+            <h3 class="wargame-title">Silicon Valley Bank Collapse</h3>
+            <p class="wargame-meta">March 2023 · 48-hour bank run · FDIC receivership</p>
+          </div>
+          <div class="wargame-loss">
+            <div class="wargame-loss-label">Total Loss</div>
+            <div class="wargame-loss-value">$209B</div>
+          </div>
+        </div>
+        
+        <div class="wargame-scenario">
+          <h4>The Decision Under Analysis</h4>
+          <p>Q4 2021: SVB Treasury team proposes extending duration on the Held-to-Maturity (HTM) securities portfolio to capture yield in a low-rate environment. The portfolio grows from $49B to $91B in long-dated bonds. No interest rate hedges are purchased.</p>
+        </div>
+
+        <div class="council-analysis">
+          <h4>The Council's Analysis</h4>
+          <div class="agent-grid">
+            <div class="agent-item">
+              <div class="agent-name">CFO Agent</div>
+              <div class="agent-finding">HTM classification masks $15B+ unrealized losses from balance sheet. If forced to sell, capital ratios collapse below regulatory minimums.</div>
+            </div>
+            <div class="agent-item">
+              <div class="agent-name">Risk Agent</div>
+              <div class="agent-finding">Deposit base is 97% uninsured. Concentration in tech/VC sector creates correlated withdrawal risk. Duration mismatch: 3.6yr assets vs. overnight liabilities.</div>
+            </div>
+            <div class="agent-item">
+              <div class="agent-name">RedTeam Agent</div>
+              <div class="agent-finding">Simulated scenario: Fed raises rates 400bps over 18 months. Result: $17B unrealized loss, negative tangible equity, bank failure within 72 hours of deposit acceleration.</div>
+            </div>
+            <div class="agent-item">
+              <div class="agent-name">Compliance Agent</div>
+              <div class="agent-finding">No regulatory breach at time of decision. However, 10-K risk disclosures understate interest rate sensitivity. Potential securities law exposure if losses crystallize.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="veto-box">
+          <h4>CendiaVeto Triggered</h4>
+          <p><strong>Rationale:</strong> Unhedged duration risk exceeds policy limits. Concentration of uninsured deposits creates liquidity risk that cannot be mitigated by Fed discount window (stigma effect). Recommendation: Cap HTM portfolio at $60B, purchase interest rate swaps, diversify deposit base.</p>
+        </div>
+
+        <div class="outcome-box">
+          <h4>Sovereign Alternate History</h4>
+          <p>With hedges in place and diversified funding, SVB survives the 2022-2023 rate cycle with ~$800M in hedge gains offsetting HTM losses. No bank run. No FDIC receivership. Estimated value preserved: <strong>$16B+ in equity value</strong>.</p>
+        </div>
+
+        <div class="data-sources">
+          <h4>Public Data Sources Used</h4>
+          <p>SVB 10-K (2021, 2022), FDIC Call Reports, Federal Reserve H.15 yield curve data, Pitchbook VC funding data, Twitter/X sentiment analysis (March 9-10, 2023).</p>
+        </div>
+      </div>
+
+      <!-- War Game 2: Boeing 737 MAX -->
+      <div class="wargame-card">
+        <div class="wargame-header">
+          <div class="wargame-title-group">
+            <div class="wargame-label">Aerospace / Safety Engineering</div>
+            <h3 class="wargame-title">Boeing 737 MAX MCAS Failures</h3>
+            <p class="wargame-meta">2018-2019 · Lion Air 610 & Ethiopian 302 · 346 fatalities</p>
+          </div>
+          <div class="wargame-loss">
+            <div class="wargame-loss-label">Total Cost</div>
+            <div class="wargame-loss-value">$20B+</div>
+          </div>
+        </div>
+        
+        <div class="wargame-scenario">
+          <h4>The Decision Under Analysis</h4>
+          <p>2015-2016: Boeing engineering team proposes MCAS (Maneuvering Characteristics Augmentation System) to compensate for aerodynamic changes from larger engines. System relies on single Angle of Attack (AOA) sensor. Pilot training classified as "Level B" (iPad course, no simulator time) to maintain 737 type rating compatibility.</p>
+        </div>
+
+        <div class="council-analysis">
+          <h4>The Council's Analysis</h4>
+          <div class="agent-grid">
+            <div class="agent-item">
+              <div class="agent-name">Risk Agent</div>
+              <div class="agent-finding">Single-point-of-failure architecture. AOA sensor failure rate: ~1 per 100,000 flight hours. With 4,000+ aircraft planned, statistical certainty of multiple sensor failures over fleet life.</div>
+            </div>
+            <div class="agent-item">
+              <div class="agent-name">RedTeam Agent</div>
+              <div class="agent-finding">Simulated: AOA sensor failure at V2+10 on takeoff. MCAS activates, pushes nose down. Pilot has 10 seconds to diagnose and disable. Failure rate in simulator: 67% of pilots could not recover.</div>
+            </div>
+            <div class="agent-item">
+              <div class="agent-name">Compliance Agent</div>
+              <div class="agent-finding">FAA delegation allows Boeing self-certification. MCAS authority increased from 0.6° to 2.5° without updated safety analysis. Potential violation of 14 CFR 25.1309 (catastrophic failure probability).</div>
+            </div>
+            <div class="agent-item">
+              <div class="agent-name">Mirror Agent (Pilot)</div>
+              <div class="agent-finding">Pilots not informed of MCAS existence. Runaway stabilizer checklist does not address MCAS-specific behavior. Training gap creates "automation surprise" risk.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="veto-box">
+          <h4>CendiaVeto Triggered</h4>
+          <p><strong>Rationale:</strong> Single-sensor architecture for flight-critical system violates fundamental safety engineering principles. Pilot training inadequate for system complexity. Recommendation: Dual AOA sensor requirement, disagree light standard, Level D simulator training mandatory.</p>
+        </div>
+
+        <div class="outcome-box">
+          <h4>Sovereign Alternate History</h4>
+          <p>With dual-sensor architecture and proper training, MCAS performs as designed safety system. No crashes. No 20-month grounding. No $20B in settlements, lost orders, and production delays. <strong>346 lives preserved.</strong></p>
+        </div>
+
+        <div class="data-sources">
+          <h4>Public Data Sources Used</h4>
+          <p>House Transportation Committee Report (2020), JATR Report, Lion Air KNKT Final Report, Ethiopian AIB Report, Boeing internal emails (Congressional exhibits), FAA TARAM safety assessments.</p>
+        </div>
+      </div>
+
+      <!-- War Game 3: Wirecard -->
+      <div class="wargame-card">
+        <div class="wargame-header">
+          <div class="wargame-title-group">
+            <div class="wargame-label">Financial Services / Fraud Detection</div>
+            <h3 class="wargame-title">Wirecard Accounting Fraud</h3>
+            <p class="wargame-meta">2015-2020 · €1.9B "missing" · CEO arrested</p>
+          </div>
+          <div class="wargame-loss">
+            <div class="wargame-loss-label">Investor Loss</div>
+            <div class="wargame-loss-value">€24B</div>
+          </div>
+        </div>
+        
+        <div class="wargame-scenario">
+          <h4>The Decision Under Analysis</h4>
+          <p>Q2 2019: Institutional investor (pension fund) considers €50M position in Wirecard AG following strong earnings. FT has published allegations of accounting irregularities in Asia operations, but Wirecard denies and threatens legal action. EY has issued clean audits for 10+ years.</p>
+        </div>
+
+        <div class="council-analysis">
+          <h4>The Council's Analysis</h4>
+          <div class="agent-grid">
+            <div class="agent-item">
+              <div class="agent-name">Analyst Agent</div>
+              <div class="agent-finding">Third-party acquiring (TPA) revenue in Asia represents 50%+ of EBITDA but only 5% of transaction volume. Margin profile (30%+) inconsistent with industry benchmarks (3-5%).</div>
+            </div>
+            <div class="agent-item">
+              <div class="agent-name">Risk Agent</div>
+              <div class="agent-finding">TPA partners are shell companies in Philippines and Singapore. €1.9B in "escrow" cannot be independently verified. Auditor has not physically confirmed cash balances.</div>
+            </div>
+            <div class="agent-item">
+              <div class="agent-name">RedTeam Agent</div>
+              <div class="agent-finding">Scenario: TPA revenue is fabricated. If removed, Wirecard is unprofitable and insolvent. Probability assessment: 73% likelihood of material fraud based on forensic accounting indicators.</div>
+            </div>
+            <div class="agent-item">
+              <div class="agent-name">Compliance Agent</div>
+              <div class="agent-finding">BaFin (German regulator) has banned short-selling of Wirecard stock — regulatory capture risk. Legal threats against journalists indicate potential obstruction pattern.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="veto-box">
+          <h4>CendiaVeto Triggered</h4>
+          <p><strong>Rationale:</strong> Unverifiable cash balances in opaque jurisdictions. Margin profile statistically inconsistent with disclosed business model. Aggressive legal posture toward journalists is fraud indicator. Recommendation: Do not invest. If existing position, exit immediately.</p>
+        </div>
+
+        <div class="outcome-box">
+          <h4>Sovereign Alternate History</h4>
+          <p>Pension fund avoids €50M loss. Portfolio reallocated to diversified fintech ETF. 18 months later, Wirecard stock goes to zero. <strong>€50M in beneficiary assets preserved.</strong></p>
+        </div>
+
+        <div class="data-sources">
+          <h4>Public Data Sources Used</h4>
+          <p>Financial Times investigative series (2015-2019), Wirecard AG Annual Reports, EY audit opinions, BaFin regulatory filings, Philippine SEC corporate records, Singapore ACRA filings.</p>
+        </div>
+      </div>
+
+      <!-- War Game 4: Theranos -->
+      <div class="wargame-card">
+        <div class="wargame-header">
+          <div class="wargame-title-group">
+            <div class="wargame-label">Healthcare / Due Diligence</div>
+            <h3 class="wargame-title">Theranos Investment Due Diligence</h3>
+            <p class="wargame-meta">2013-2015 · $700M raised · Technology never worked</p>
+          </div>
+          <div class="wargame-loss">
+            <div class="wargame-loss-label">Investor Loss</div>
+            <div class="wargame-loss-value">$600M+</div>
+          </div>
+        </div>
+        
+        <div class="wargame-scenario">
+          <h4>The Decision Under Analysis</h4>
+          <p>Q3 2014: Family office considers $25M investment in Theranos Series C at $9B valuation. Company claims revolutionary blood testing from finger prick. Board includes Henry Kissinger, George Shultz, James Mattis. Walgreens partnership announced.</p>
+        </div>
+
+        <div class="council-analysis">
+          <h4>The Council's Analysis</h4>
+          <div class="agent-grid">
+            <div class="agent-item">
+              <div class="agent-name">Analyst Agent</div>
+              <div class="agent-finding">No peer-reviewed publications validating technology. No FDA 510(k) clearances for proprietary device. Lab operations run on modified Siemens machines, not "Edison" device.</div>
+            </div>
+            <div class="agent-item">
+              <div class="agent-name">Risk Agent</div>
+              <div class="agent-finding">Board composition: Zero healthcare/diagnostics expertise. Red flag: experienced operators avoid, celebrity/political figures accept. Classic "affinity fraud" pattern.</div>
+            </div>
+            <div class="agent-item">
+              <div class="agent-name">RedTeam Agent</div>
+              <div class="agent-finding">Technical due diligence blocked. "Trade secret" justification used to prevent independent validation. Scenario: Technology doesn't work. Probability: 89% based on missing technical validation.</div>
+            </div>
+            <div class="agent-item">
+              <div class="agent-name">Compliance Agent</div>
+              <div class="agent-finding">CLIA lab certification obtained, but proficiency testing results not disclosed. CMS inspection records requested but not provided. Potential regulatory violations if results are inaccurate.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="veto-box">
+          <h4>CendiaVeto Triggered</h4>
+          <p><strong>Rationale:</strong> No independent technical validation. Refusal of due diligence access. Board lacks domain expertise. Recommendation: Pass on investment. Require peer-reviewed validation and FDA clearance before any future consideration.</p>
+        </div>
+
+        <div class="outcome-box">
+          <h4>Sovereign Alternate History</h4>
+          <p>Family office declines investment. Capital redeployed to validated diagnostics companies (Exact Sciences, Guardant Health). 5 years later, Theranos dissolved, founder convicted. <strong>$25M preserved, opportunity cost avoided.</strong></p>
+        </div>
+
+        <div class="data-sources">
+          <h4>Public Data Sources Used</h4>
+          <p>Theranos investor presentations (leaked), CMS inspection reports (2015-2016), FDA warning letters, John Carreyrou WSJ articles (2015), Patent filings (USPTO), Board member disclosures.</p>
+        </div>
+      </div>
+
+      <div class="cta-section">
+        <h2>Run Your Own War Game</h2>
+        <p>Bring us your strategic decision. We'll stress-test it with The Council using your real data — before it becomes a case study for someone else.</p>
+        <a href="briefing.html">Request a War Game Session</a>
+        <p style="font-family: var(--font-mono); font-size: 0.7rem; color: #2ecc71; margin-top: 24px; letter-spacing: 0.05em;">SYSTEM STATUS: AIR-GAP READY · NO TRACKER PIXELS DETECTED</p>
+      </div>
+
+    </div>
+  </div>
+  <script src="translations.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

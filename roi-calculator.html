@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ROI Calculator | Datacendia</title>
+  <meta name="description" content="Calculate your ROI with Datacendia. See how much you can save compared to traditional BI tools, consulting firms, and manual decision processes.">
+  <meta name="keywords" content="Datacendia ROI, enterprise AI ROI, decision intelligence cost savings, BI replacement cost">
+  <meta name="author" content="Datacendia">
+  <meta name="robots" content="index, follow">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .calculator-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+    .calc-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      margin-top: 2rem;
+    }
+    @media (max-width: 900px) {
+      .calc-grid { grid-template-columns: 1fr; }
+    }
+    .input-section {
+      background: linear-gradient(135deg, rgba(6, 182, 212, 0.05) 0%, rgba(59, 130, 246, 0.05) 100%);
+      border: 1px solid rgba(6, 182, 212, 0.2);
+      border-radius: 16px;
+      padding: 2rem;
+    }
+    .input-section h2 {
+      color: var(--color-cyan);
+      margin-bottom: 1.5rem;
+      font-size: 1.25rem;
+    }
+    .input-group {
+      margin-bottom: 1.5rem;
+    }
+    .input-group label {
+      display: block;
+      color: var(--color-text);
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+    }
+    .input-group .hint {
+      font-size: 0.75rem;
+      color: var(--color-text-muted);
+      margin-top: 0.25rem;
+    }
+    .input-group input, .input-group select {
+      width: 100%;
+      padding: 12px 16px;
+      background: rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      color: white;
+      font-size: 1rem;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .input-group input:focus, .input-group select:focus {
+      outline: none;
+      border-color: var(--color-cyan);
+    }
+    .input-group input[type="range"] {
+      padding: 0;
+      height: 8px;
+      -webkit-appearance: none;
+      background: rgba(255,255,255,0.1);
+      border-radius: 4px;
+    }
+    .input-group input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 20px;
+      height: 20px;
+      background: var(--color-cyan);
+      border-radius: 50%;
+      cursor: pointer;
+    }
+    .range-value {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.8rem;
+      color: var(--color-text-muted);
+      margin-top: 0.5rem;
+    }
+    .results-section {
+      background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(6, 182, 212, 0.1) 100%);
+      border: 2px solid rgba(16, 185, 129, 0.3);
+      border-radius: 16px;
+      padding: 2rem;
+    }
+    .results-section h2 {
+      color: #10b981;
+      margin-bottom: 1.5rem;
+      font-size: 1.25rem;
+    }
+    .result-card {
+      background: rgba(0, 0, 0, 0.3);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+    .result-card.highlight {
+      background: linear-gradient(135deg, rgba(16, 185, 129, 0.2) 0%, rgba(6, 182, 212, 0.2) 100%);
+      border: 1px solid rgba(16, 185, 129, 0.4);
+    }
+    .result-label {
+      font-size: 0.85rem;
+      color: var(--color-text-muted);
+      margin-bottom: 0.5rem;
+    }
+    .result-value {
+      font-size: 2.5rem;
+      font-weight: 700;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .result-value.positive { color: #10b981; }
+    .result-value.negative { color: #ef4444; }
+    .result-value.neutral { color: var(--color-cyan); }
+    .result-sub {
+      font-size: 0.8rem;
+      color: var(--color-text-dim);
+      margin-top: 0.25rem;
+    }
+    .breakdown {
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+    .breakdown h3 {
+      font-size: 1rem;
+      color: var(--color-text);
+      margin-bottom: 1rem;
+    }
+    .breakdown-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      font-size: 0.9rem;
+    }
+    .breakdown-row .label { color: var(--color-text-dim); }
+    .breakdown-row .value { color: var(--color-text); font-family: 'JetBrains Mono', monospace; }
+    .breakdown-row.total {
+      border-top: 2px solid rgba(255,255,255,0.2);
+      border-bottom: none;
+      font-weight: 600;
+      margin-top: 0.5rem;
+      padding-top: 1rem;
+    }
+    .cta-section {
+      margin-top: 2rem;
+      text-align: center;
+    }
+    .assumptions {
+      margin-top: 3rem;
+      padding: 1.5rem;
+      background: rgba(0,0,0,0.2);
+      border-radius: 12px;
+      font-size: 0.8rem;
+      color: var(--color-text-muted);
+    }
+    .assumptions h4 {
+      color: var(--color-text-dim);
+      margin-bottom: 0.75rem;
+    }
+    .assumptions ul {
+      list-style: disc;
+      padding-left: 1.5rem;
+    }
+    .assumptions li {
+      margin-bottom: 0.25rem;
+    }
+    .tier-badge {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+    .tier-starter { background: rgba(6, 182, 212, 0.2); color: var(--color-cyan); }
+    .tier-professional { background: rgba(59, 130, 246, 0.2); color: #3b82f6; }
+    .tier-enterprise { background: rgba(139, 92, 246, 0.2); color: #8b5cf6; }
+    .tier-sovereign { background: rgba(212, 175, 55, 0.2); color: var(--color-gold); }
+    .payback-bar {
+      height: 8px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 4px;
+      margin-top: 0.5rem;
+      overflow: hidden;
+    }
+    .payback-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #10b981 0%, var(--color-cyan) 100%);
+      border-radius: 4px;
+      transition: width 0.5s ease;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header>
+      <div class="header-top">
+        <a href="index.html" style="text-decoration: none;"><h1 class="logo">DATACENDIA</h1></a>
+        <div class="lang-selector">
+          <button class="lang-btn"><span class="lang-current">English</span> ▾</button>
+        </div>
+      </div>
+      <p class="tagline-sub">Sovereign Intelligence Platform</p>
+      <nav class="main-nav">
+        <a href="demos.html">Demos</a>
+        <a href="resources/index.html">Resources</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="pilot.html">Pilot Program</a>
+        <a href="trust.html">Trust</a>
+        <a href="briefing.html">Request Briefing</a>
+      </nav>
+    </header>
+
+    <div class="calculator-container">
+      <div class="page-header" style="text-align: center; margin-bottom: 2rem;">
+        <div class="page-icon">💰</div>
+        <h1 class="page-title">ROI Calculator</h1>
+        <p class="page-subtitle">See how Datacendia compares to your current decision-making costs</p>
+      </div>
+
+      <div class="calc-grid">
+        <!-- Input Section -->
+        <div class="input-section">
+          <h2>📊 Your Organization</h2>
+
+          <div class="input-group">
+            <label>Industry Vertical</label>
+            <select id="vertical" onchange="calculate()">
+              <option value="financial">Financial Services</option>
+              <option value="healthcare">Healthcare / Life Sciences</option>
+              <option value="manufacturing">Manufacturing / Supply Chain</option>
+              <option value="technology">Technology / SaaS</option>
+              <option value="energy">Energy / Utilities</option>
+              <option value="government">Government / Public Sector</option>
+              <option value="aerospace">Aerospace / Defense</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+
+          <div class="input-group">
+            <label>Annual Revenue</label>
+            <select id="revenue" onchange="calculate()">
+              <option value="50">$10M - $50M</option>
+              <option value="250" selected>$50M - $500M</option>
+              <option value="1000">$500M - $2B</option>
+              <option value="5000">$2B - $10B</option>
+              <option value="20000">$10B+</option>
+            </select>
+          </div>
+
+          <div class="input-group">
+            <label>Number of Strategic Decisions per Year</label>
+            <input type="range" id="decisions" min="10" max="500" value="100" onchange="calculate()" oninput="updateDecisionLabel()">
+            <div class="range-value">
+              <span>10</span>
+              <span id="decisionLabel">100 decisions</span>
+              <span>500</span>
+            </div>
+            <p class="hint">M&A, product launches, major investments, regulatory responses, etc.</p>
+          </div>
+
+          <div class="input-group">
+            <label>Average Decision Value (Impact)</label>
+            <select id="decisionValue" onchange="calculate()">
+              <option value="100000">$100K average impact</option>
+              <option value="500000" selected>$500K average impact</option>
+              <option value="1000000">$1M average impact</option>
+              <option value="5000000">$5M average impact</option>
+              <option value="10000000">$10M+ average impact</option>
+            </select>
+          </div>
+
+          <h2 style="margin-top: 2rem;">💸 Current Costs</h2>
+
+          <div class="input-group">
+            <label>BI/Analytics Tools (Annual)</label>
+            <select id="biCost" onchange="calculate()">
+              <option value="50000">~$50K (Basic tools)</option>
+              <option value="150000" selected>~$150K (Enterprise BI)</option>
+              <option value="500000">~$500K (Premium suite)</option>
+              <option value="1000000">~$1M+ (Full stack)</option>
+            </select>
+            <p class="hint">Tableau, Power BI, Looker, Snowflake, etc.</p>
+          </div>
+
+          <div class="input-group">
+            <label>Consulting Spend (Annual)</label>
+            <select id="consultingCost" onchange="calculate()">
+              <option value="0">$0 (In-house only)</option>
+              <option value="200000">~$200K</option>
+              <option value="500000" selected>~$500K</option>
+              <option value="1000000">~$1M</option>
+              <option value="2000000">~$2M+</option>
+            </select>
+            <p class="hint">McKinsey, BCG, Deloitte, boutique firms</p>
+          </div>
+
+          <div class="input-group">
+            <label>Internal Analytics Team Size</label>
+            <select id="teamSize" onchange="calculate()">
+              <option value="2">2-5 people</option>
+              <option value="5" selected>5-10 people</option>
+              <option value="15">10-20 people</option>
+              <option value="30">20-50 people</option>
+              <option value="75">50+ people</option>
+            </select>
+            <p class="hint">Data analysts, scientists, BI developers</p>
+          </div>
+
+          <div class="input-group">
+            <label>Compliance/Audit Preparation (Annual)</label>
+            <select id="complianceCost" onchange="calculate()">
+              <option value="50000">~$50K</option>
+              <option value="150000" selected>~$150K</option>
+              <option value="300000">~$300K</option>
+              <option value="500000">~$500K+</option>
+            </select>
+            <p class="hint">SOC 2, regulatory filings, audit prep</p>
+          </div>
+        </div>
+
+        <!-- Results Section -->
+        <div class="results-section">
+          <h2>📈 Your ROI with Datacendia</h2>
+
+          <div id="tierBadge" class="tier-badge tier-professional">Professional Tier Recommended</div>
+
+          <div class="result-card highlight">
+            <div class="result-label">Annual Net Savings</div>
+            <div class="result-value positive" id="netSavings">$847,000</div>
+            <div class="result-sub">After Datacendia investment</div>
+          </div>
+
+          <div class="result-card">
+            <div class="result-label">ROI</div>
+            <div class="result-value neutral" id="roiPercent">565%</div>
+            <div class="result-sub">Return on investment</div>
+          </div>
+
+          <div class="result-card">
+            <div class="result-label">Payback Period</div>
+            <div class="result-value neutral" id="payback">2.1 months</div>
+            <div class="payback-bar"><div class="payback-fill" id="paybackBar" style="width: 17%"></div></div>
+          </div>
+
+          <div class="breakdown">
+            <h3>Cost Breakdown</h3>
+            
+            <div class="breakdown-row">
+              <span class="label">Current BI Tools</span>
+              <span class="value" id="currentBI">$150,000</span>
+            </div>
+            <div class="breakdown-row">
+              <span class="label">Consulting Spend</span>
+              <span class="value" id="currentConsulting">$500,000</span>
+            </div>
+            <div class="breakdown-row">
+              <span class="label">Team Cost (est.)</span>
+              <span class="value" id="currentTeam">$875,000</span>
+            </div>
+            <div class="breakdown-row">
+              <span class="label">Compliance Prep</span>
+              <span class="value" id="currentCompliance">$150,000</span>
+            </div>
+            <div class="breakdown-row total">
+              <span class="label">Total Current Cost</span>
+              <span class="value" id="totalCurrent">$1,675,000</span>
+            </div>
+
+            <h3 style="margin-top: 1.5rem;">With Datacendia</h3>
+            
+            <div class="breakdown-row">
+              <span class="label">Datacendia License</span>
+              <span class="value" id="datacendiaLicense">$150,000</span>
+            </div>
+            <div class="breakdown-row">
+              <span class="label">BI Tools (reduced)</span>
+              <span class="value" id="reducedBI">$75,000</span>
+            </div>
+            <div class="breakdown-row">
+              <span class="label">Consulting (reduced)</span>
+              <span class="value" id="reducedConsulting">$150,000</span>
+            </div>
+            <div class="breakdown-row">
+              <span class="label">Team (optimized)</span>
+              <span class="value" id="reducedTeam">$525,000</span>
+            </div>
+            <div class="breakdown-row">
+              <span class="label">Compliance (automated)</span>
+              <span class="value" id="reducedCompliance">$30,000</span>
+            </div>
+            <div class="breakdown-row total">
+              <span class="label">Total With Datacendia</span>
+              <span class="value" id="totalDatacendia">$930,000</span>
+            </div>
+          </div>
+
+          <div class="cta-section">
+            <a href="briefing.html" class="cta-btn">Get Custom ROI Analysis →</a>
+            <p style="font-size: 0.8rem; color: var(--color-text-muted); margin-top: 1rem;">
+              Our team will build a detailed model for your specific situation
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Value Multipliers -->
+      <div style="margin-top: 3rem; text-align: center;">
+        <h2 style="color: var(--color-text); margin-bottom: 2rem;">Potential Additional Value</h2>
+        <p style="color: var(--color-text-muted); margin-bottom: 1.5rem; font-size: 0.9rem;">These benefits are expected but not yet validated with customer data. We're seeking pilot partners to measure real impact.</p>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem;">
+          <div class="result-card">
+            <div class="result-label">Decision Quality</div>
+            <div class="result-value neutral">TBD</div>
+            <div class="result-sub">Multi-agent deliberation surfaces blind spots</div>
+          </div>
+          <div class="result-card">
+            <div class="result-label">Decision Speed</div>
+            <div class="result-value neutral">TBD</div>
+            <div class="result-sub">Automated analysis vs. manual review</div>
+          </div>
+          <div class="result-card">
+            <div class="result-label">Audit Prep Time</div>
+            <div class="result-value neutral">TBD</div>
+            <div class="result-sub">Evidence packets generated automatically</div>
+          </div>
+          <div class="result-card">
+            <div class="result-label">Risk Mitigation</div>
+            <div class="result-value neutral">TBD</div>
+            <div class="result-sub">Dissent capture prevents groupthink</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Assumptions -->
+      <div class="assumptions">
+        <h4>⚠️ Important: These Are Estimates, Not Proven Results</h4>
+        <ul>
+          <li><strong>We're a new platform without customer validation data yet.</strong></li>
+          <li>Team cost estimated at $175K fully-loaded per analyst/data scientist</li>
+          <li>BI tool reduction: 50% — <em>estimate based on feature overlap, not measured</em></li>
+          <li>Consulting reduction: 70% — <em>estimate based on automation potential, not measured</em></li>
+          <li>Team optimization: 40% — <em>estimate based on workflow analysis, not measured</em></li>
+          <li>Compliance automation: 80% — <em>estimate based on CendiaWitness capabilities, not measured</em></li>
+          <li>Tier recommendations based on company size and decision volume</li>
+          <li><strong>Actual savings will vary significantly. Join our pilot program to measure real ROI.</strong></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function formatCurrency(num) {
+      if (num >= 1000000) {
+        return '$' + (num / 1000000).toFixed(1) + 'M';
+      }
+      return '$' + num.toLocaleString();
+    }
+
+    function updateDecisionLabel() {
+      const decisions = document.getElementById('decisions').value;
+      document.getElementById('decisionLabel').textContent = decisions + ' decisions';
+    }
+
+    function calculate() {
+      // Get inputs
+      const vertical = document.getElementById('vertical').value;
+      const revenue = parseInt(document.getElementById('revenue').value);
+      const decisions = parseInt(document.getElementById('decisions').value);
+      const decisionValue = parseInt(document.getElementById('decisionValue').value);
+      const biCost = parseInt(document.getElementById('biCost').value);
+      const consultingCost = parseInt(document.getElementById('consultingCost').value);
+      const teamSize = parseInt(document.getElementById('teamSize').value);
+      const complianceCost = parseInt(document.getElementById('complianceCost').value);
+
+      // Calculate team cost
+      const avgSalary = 175000;
+      const teamCost = teamSize * avgSalary;
+
+      // Total current cost
+      const totalCurrent = biCost + consultingCost + teamCost + complianceCost;
+
+      // Determine recommended tier
+      let tier, tierClass, datacendiaLicense;
+      if (revenue <= 50) {
+        tier = 'Starter';
+        tierClass = 'tier-starter';
+        datacendiaLicense = 60000;
+      } else if (revenue <= 500) {
+        tier = 'Professional';
+        tierClass = 'tier-professional';
+        datacendiaLicense = 150000;
+      } else if (revenue <= 5000) {
+        tier = 'Enterprise';
+        tierClass = 'tier-enterprise';
+        datacendiaLicense = 300000;
+      } else {
+        tier = 'Sovereign';
+        tierClass = 'tier-sovereign';
+        datacendiaLicense = 500000;
+      }
+
+      // Adjust for high-compliance verticals
+      if (['aerospace', 'government', 'healthcare'].includes(vertical) && tier !== 'Sovereign') {
+        datacendiaLicense *= 1.2; // Compliance add-ons
+      }
+
+      // Calculate reductions
+      const reducedBI = biCost * 0.5;
+      const reducedConsulting = consultingCost * 0.3;
+      const reducedTeam = teamCost * 0.6;
+      const reducedCompliance = complianceCost * 0.2;
+
+      // Total with Datacendia
+      const totalDatacendia = datacendiaLicense + reducedBI + reducedConsulting + reducedTeam + reducedCompliance;
+
+      // Net savings
+      const netSavings = totalCurrent - totalDatacendia;
+
+      // ROI
+      const roi = ((netSavings / datacendiaLicense) * 100).toFixed(0);
+
+      // Payback period (in months)
+      const monthlySavings = netSavings / 12;
+      const paybackMonths = datacendiaLicense / monthlySavings;
+
+      // Update UI
+      document.getElementById('tierBadge').textContent = tier + ' Tier Recommended';
+      document.getElementById('tierBadge').className = 'tier-badge ' + tierClass;
+
+      document.getElementById('netSavings').textContent = formatCurrency(Math.round(netSavings));
+      document.getElementById('netSavings').className = 'result-value ' + (netSavings > 0 ? 'positive' : 'negative');
+
+      document.getElementById('roiPercent').textContent = roi + '%';
+      document.getElementById('payback').textContent = paybackMonths.toFixed(1) + ' months';
+      document.getElementById('paybackBar').style.width = Math.min(100, (paybackMonths / 12) * 100) + '%';
+
+      // Breakdown
+      document.getElementById('currentBI').textContent = formatCurrency(biCost);
+      document.getElementById('currentConsulting').textContent = formatCurrency(consultingCost);
+      document.getElementById('currentTeam').textContent = formatCurrency(teamCost);
+      document.getElementById('currentCompliance').textContent = formatCurrency(complianceCost);
+      document.getElementById('totalCurrent').textContent = formatCurrency(totalCurrent);
+
+      document.getElementById('datacendiaLicense').textContent = formatCurrency(Math.round(datacendiaLicense));
+      document.getElementById('reducedBI').textContent = formatCurrency(Math.round(reducedBI));
+      document.getElementById('reducedConsulting').textContent = formatCurrency(Math.round(reducedConsulting));
+      document.getElementById('reducedTeam').textContent = formatCurrency(Math.round(reducedTeam));
+      document.getElementById('reducedCompliance').textContent = formatCurrency(Math.round(reducedCompliance));
+      document.getElementById('totalDatacendia').textContent = formatCurrency(Math.round(totalDatacendia));
+    }
+
+    // Initial calculation
+    calculate();
+  </script>
+</body>
+</html>

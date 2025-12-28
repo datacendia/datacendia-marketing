@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>企业数据主权完整指南 (2025) | Datacendia</title>
+  <meta name="description" content="受监管企业的数据主权完整指南。">
+  <link rel="canonical" href="https://datacendia.com/resources/data-sovereignty-guide.zh.html">
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500;family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-top">
+        <a href="../index.html" style="text-decoration: none;"><h1 class="logo">DATACENDIA</h1></a>
+        <div class="lang-selector">
+          <button class="lang-btn"><span class="lang-current">中文</span> ▾</button>
+          <div class="lang-dropdown">
+            <button onclick="setLanguage('en')">English</button>
+            <button onclick="setLanguage('es')">Español</button>
+            <button onclick="setLanguage('fr')">Français</button>
+            <button onclick="setLanguage('de')">Deutsch</button>
+            <button onclick="setLanguage('pt')">Português</button>
+            <button onclick="setLanguage('it')">Italiano</button>
+            <button onclick="setLanguage('ja')">日本語</button>
+            <button onclick="setLanguage('ko')">한국어</button>
+            <button onclick="setLanguage('zh')">中文</button>
+            <button onclick="setLanguage('ar')">العربية</button>
+            <button onclick="setLanguage('hi')">हिन्दी</button>
+          </div>
+        </div>
+      </div>
+      <p class="tagline-sub" data-i18n="tagline">主权智能平台</p>
+      <nav class="main-nav">
+        <a href="../index.html" data-i18n="navHome">首页</a>
+        <a href="./" data-i18n="navResources">资源</a>
+        <a href="../pricing.html" data-i18n="navPricing">定价</a>
+        <a href="../pilot.html" data-i18n="navPilot">试点计划</a>
+        <a href="../trust.html" data-i18n="navTrust">信任</a>
+        <a href="../briefing.html" data-i18n="navBriefing">申请简报</a>
+      </nav>
+    </header>
+    <div class="article-container">
+      <article class="article-header">
+        <div class="article-meta-top">
+          <span>📖 18分钟阅读</span><span>•</span><span>2025年12月23日更新</span><span>•</span><span>数据主权</span>
+        </div>
+        <h1 class="article-title">企业数据主权完整指南</h1>
+        <p class="article-subtitle">2025年受监管企业需要了解的数据主权全部内容：法律框架、技术实施、行业要求以及2030年前主权智能的未来。</p>
+      </article>
+      <div class="table-of-contents">
+        <div class="toc-title">目录</div>
+        <ul class="toc-list">
+          <li><a href="#what-is">1. 什么是数据主权？</a></li>
+          <li><a href="#why-matters">2. 为什么数据主权现在很重要</a></li>
+          <li><a href="#terminology">3. 数据主权 vs. 数据驻留 vs. 数据本地化</a></li>
+          <li><a href="#legal">4. 推动主权要求的法律框架</a></li>
+          <li><a href="#industry">5. 行业特定要求</a></li>
+          <li><a href="#technical">6. 技术实施方法</a></li>
+          <li><a href="#ai-specific">7. AI特定的主权问题</a></li>
+          <li><a href="#challenges">8. 常见合规挑战</a></li>
+          <li><a href="#checklist">9. 数据主权实施清单</a></li>
+          <li><a href="#myths">10. 常见误区澄清</a></li>
+          <li><a href="#future">11. 数据主权的未来（2025-2030）</a></li>
+          <li><a href="#faq">12. 常见问题</a></li>
+        </ul>
+      </div>
+      <div class="article-content">
+        <h2 id="what-is">什么是数据主权？</h2>
+        <div class="definition-box">
+          <h4>定义</h4>
+          <p><strong>数据主权</strong>是指数字数据受其存储、处理或访问所在国家或司法管辖区的法律和治理结构约束的原则。</p>
+        </div>
+        <p>从本质上讲，数据主权解决了一个根本问题：<strong>谁对您组织的数据拥有最终控制权？</strong></p>
+        <p>数据主权重要的原因：</p>
+        <ul>
+          <li><strong>监管合规：</strong>许多行业面临关于数据存储位置和访问权限的严格要求</li>
+          <li><strong>法律管辖权：</strong>存储在外国的数据可能受到外国法律请求的约束</li>
+          <li><strong>国家安全：</strong>政府越来越将数据视为需要保护免受外国访问的战略基础设施</li>
+          <li><strong>竞争优势：</strong>组织希望防止竞争对手或外国政府访问专有信息</li>
+          <li><strong>客户信任：</strong>受监管行业的客户要求证明其数据不会未经授权跨越边境</li>
+        </ul>
+        <h2 id="why-matters">为什么数据主权现在很重要</h2>
+        <h3>云悖论</h3>
+        <p>云计算承诺了效率和规模，但引入了根本性的紧张关系：您的数据存在于他人的基础设施上，在他人的国家，受他人的法律管辖。</p>
+        <h3>地缘政治分裂</h3>
+        <p>全球互联网正在分裂成区域数字领土。中国有防火长城。欧盟有GDPR。俄罗斯要求俄罗斯公民的数据存储在俄罗斯境内。</p>
+        <h3>AI维度</h3>
+        <p>AI引入了新的主权风险。当您向ChatGPT、Claude或任何云AI服务发送数据时，您正在将该数据暴露给供应商的系统。</p>
+        <h2 id="terminology">数据主权 vs. 数据驻留 vs. 数据本地化</h2>
+        <table class="comparison-table">
+          <thead><tr><th>术语</th><th>定义</th><th>示例</th></tr></thead>
+          <tbody>
+            <tr><td><strong>数据主权</strong></td><td>数据受其所在司法管辖区的法律约束</td><td>在美国处理的欧盟公民数据受GDPR约束</td></tr>
+            <tr><td><strong>数据驻留</strong></td><td>数据必须物理存在于特定地理边界内</td><td>俄罗斯公民数据在俄罗斯境内的服务器上</td></tr>
+            <tr><td><strong>数据本地化</strong></td><td>数据必须仅在特定司法管辖区内存储、处理和访问</td><td>美国机密国防数据在气隙网络上</td></tr>
+          </tbody>
+        </table>
+        <h2 id="legal">推动主权要求的法律框架</h2>
+        <h3>GDPR（欧盟通用数据保护条例）</h3>
+        <p>全球最具影响力的数据保护法。限制向没有"充分"数据保护的国家传输数据。</p>
+        <h3>美国CLOUD法案</h3>
+        <p>允许美国执法机构强制美国公司提交数据——即使数据存储在美国境外。</p>
+        <div class="warning-box">
+          <p><strong>关键含义：</strong>如果您使用AWS、Azure、Google Cloud，无论数据在地理上存储在哪里，您的数据都可能受到美国政府访问请求的约束。</p>
+        </div>
+        <h2 id="industry">行业特定要求</h2>
+        <h3>金融服务</h3>
+        <p>银行面临来自美联储、OCC、FDIC、EBA和巴塞尔委员会的分层主权要求。</p>
+        <h3>医疗保健</h3>
+        <p>HIPAA（美国）和GDPR（欧盟）对健康数据施加严格要求。</p>
+        <h3>国防和航空航天</h3>
+        <p>ITAR和CMMC要求数据保留在美国境内的气隙网络上。</p>
+        <h2 id="technical">技术实施方法</h2>
+        <table class="comparison-table">
+          <thead><tr><th>模型</th><th>主权级别</th><th>用例</th></tr></thead>
+          <tbody>
+            <tr><td><strong>公有云SaaS</strong></td><td>低</td><td>非监管数据</td></tr>
+            <tr><td><strong>区域云</strong></td><td>中</td><td>GDPR合规</td></tr>
+            <tr><td><strong>私有云（VPC）</strong></td><td>中高</td><td>金融服务</td></tr>
+            <tr><td><strong>本地部署</strong></td><td>高</td><td>银行、政府</td></tr>
+            <tr><td><strong>气隙</strong></td><td>完全</td><td>国防、机密</td></tr>
+          </tbody>
+        </table>
+        <h2 id="ai-specific">AI特定的主权问题</h2>
+        <p>AI系统引入了独特的挑战。即使供应商说不会，您的数据也可能被用于模型训练。</p>
+        <h3>解决方案：主权AI部署</h3>
+        <ul>
+          <li><strong>本地模型：</strong>在您自己的硬件上部署模型</li>
+          <li><strong>气隙运营：</strong>无需互联网连接</li>
+          <li><strong>本地数据处理：</strong>一切都保留在内部</li>
+        </ul>
+        <p>这就是为什么<a href="index.html" style="color: var(--color-gold);">Datacendia</a>专为本地和气隙部署而设计。</p>
+        <h2 id="challenges">常见合规挑战</h2>
+        <p><strong>挑战1：</strong>CLOUD法案与GDPR冲突</p>
+        <p><strong>挑战2：</strong>专有API导致的供应商锁定</p>
+        <p><strong>挑战3：</strong>性能与合规的平衡</p>
+        <h2 id="checklist">数据主权实施清单</h2>
+        <div class="checklist">
+          <h4>评估阶段</h4>
+          <ul>
+            <li>按敏感度分类数据</li>
+            <li>映射数据流</li>
+            <li>识别适用法规</li>
+            <li>记录云供应商</li>
+          </ul>
+        </div>
+        <h2 id="myths">常见误区澄清</h2>
+        <p><strong>误区1：</strong>"SOC 2 = 主权合规"——错误</p>
+        <p><strong>误区2：</strong>"数据在欧盟 = GDPR合规"——如果供应商是美国的则错误</p>
+        <p><strong>误区3：</strong>"加密解决一切"——只有在您控制密钥的情况下</p>
+        <h2 id="future">数据主权的未来（2025-2030）</h2>
+        <p><strong>趋势1：</strong>数字边界强化</p>
+        <p><strong>趋势2：</strong>AI主权成为强制性要求</p>
+        <p><strong>趋势3：</strong>主权成为竞争优势</p>
+        <h2 id="faq">常见问题</h2>
+        <div class="faq-section">
+          <div class="faq-item">
+            <div class="faq-question">数据主权和数据隐私有什么区别？</div>
+            <div class="faq-answer">隐私是防止未经授权的访问。主权是关于哪个法律管辖权适用。</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">使用AWS/Azure/Google Cloud还能保持主权吗？</div>
+            <div class="faq-answer">基本驻留可以。真正的主权不行——美国供应商受CLOUD法案约束。</div>
+          </div>
+        </div>
+        <div class="cta-box">
+          <h3>需要数据主权方面的帮助？</h3>
+          <p>安排主权评估以评估您的合规状况。</p>
+          <a href="../briefing.html" class="cta-btn">申请评估 →</a>
+          <a href="sovereignty-matrix.html" class="cta-btn">比较模型 →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="../translations.js?v=6"></script>
+  <script src="../app.js"></script>
+</body>
+</html>

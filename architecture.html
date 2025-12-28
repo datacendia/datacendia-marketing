@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Datacendia Cortex™ Architecture | 8 Pillars of Sovereign Intelligence</title>
+  <meta name="description" content="Technical architecture of the Datacendia Cortex™ — the proprietary decision operating system with 8 strategic pillars: CendiaAgents, CendiaEthics, CendiaGuard, CendiaLineage, CendiaHelm, CendiaPredict, CendiaFlow, and CendiaHealth.">
+  <meta name="keywords" content="Datacendia Cortex, enterprise AI architecture, multi-agent AI, CendiaAgents, CendiaGuard, CendiaChronos, sovereign AI, decision operating system, air-gapped AI">
+  <meta name="author" content="Datacendia">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Datacendia Cortex™ Architecture">
+  <meta property="og:description" content="The 8 pillars of sovereign enterprise intelligence — proprietary IP at every layer.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://datacendia.com/architecture.html">
+  <meta property="og:image" content="https://datacendia.com/og-image.png">
+  <meta property="og:site_name" content="Datacendia">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Datacendia Cortex™ Architecture">
+  <meta name="twitter:description" content="The 8 pillars of sovereign enterprise intelligence.">
+  <meta name="twitter:image" content="https://datacendia.com/og-image.png">
+  <link rel="canonical" href="https://datacendia.com/architecture.html">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <meta name="theme-color" content="#0a0a0a">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .page-container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 80px 24px;
+    }
+    .page-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+    .page-icon {
+      font-size: 2rem;
+      margin-bottom: 16px;
+    }
+    .page-title {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 300;
+      color: var(--color-text);
+      margin-bottom: 12px;
+    }
+    .page-subtitle {
+      font-size: 0.85rem;
+      color: var(--color-text-dim);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .cortex-intro {
+      background: var(--color-card-bg);
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      padding: 32px;
+      margin-bottom: 32px;
+      text-align: center;
+    }
+    .cortex-intro p {
+      font-size: 0.9rem;
+      color: var(--color-text-muted);
+      line-height: 1.7;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .cortex-intro strong {
+      color: var(--color-text);
+    }
+    .pillar-section {
+      background: var(--color-card-bg);
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      padding: 32px;
+      margin-bottom: 24px;
+    }
+    .pillar-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+    .pillar-number {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--color-gold);
+      color: var(--color-bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      font-weight: 600;
+      flex-shrink: 0;
+    }
+    .pillar-title-group {
+      flex: 1;
+    }
+    .pillar-name {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 400;
+      color: var(--color-text);
+      margin-bottom: 2px;
+    }
+    .pillar-tagline {
+      font-size: 0.75rem;
+      color: var(--color-gold);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+    .pillar-desc {
+      font-size: 0.85rem;
+      color: var(--color-text-muted);
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+    .module-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 12px;
+    }
+    .module-item {
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+      border-radius: 6px;
+      padding: 16px;
+    }
+    .module-name {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--color-gold);
+      margin-bottom: 6px;
+    }
+    .module-desc {
+      font-size: 0.75rem;
+      color: var(--color-text-dim);
+      line-height: 1.5;
+    }
+    .moat-section {
+      background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(212, 175, 55, 0.02) 100%);
+      border: 1px solid var(--color-gold);
+      border-radius: 8px;
+      padding: 32px;
+      margin-top: 40px;
+      margin-bottom: 24px;
+    }
+    .moat-section h2 {
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--color-gold);
+      margin-bottom: 16px;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+    }
+    .moat-section p {
+      font-size: 0.85rem;
+      color: var(--color-text-muted);
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+    .moat-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 12px;
+    }
+    .moat-item {
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+      border-radius: 6px;
+      padding: 16px;
+      text-align: center;
+    }
+    .moat-item-name {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      color: var(--color-gold);
+      margin-bottom: 4px;
+    }
+    .moat-item-pillar {
+      font-size: 0.7rem;
+      color: var(--color-text-dim);
+    }
+    .contact-box {
+      text-align: center;
+      padding: 32px;
+      background: var(--color-bg-elevated);
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      margin-top: 40px;
+    }
+    .contact-box p {
+      font-size: 0.9rem;
+      color: var(--color-text-muted);
+      margin-bottom: 16px;
+    }
+    .contact-box a {
+      color: var(--color-gold);
+      text-decoration: none;
+    }
+    .contact-box a:hover {
+      text-decoration: underline;
+    }
+    .back-link {
+      display: inline-block;
+      margin-bottom: 32px;
+      font-size: 0.75rem;
+      color: var(--color-text-dim);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+    .back-link:hover {
+      color: var(--color-gold);
+    }
+    @media (max-width: 600px) {
+      .pillar-header {
+        flex-direction: column;
+        text-align: center;
+      }
+      .module-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="page-container">
+      <div class="page-top-bar">
+        <a href="index.html" class="back-link">← Return to Datacendia</a>
+        <div class="lang-selector">
+          <button class="lang-btn"><span class="lang-current">English</span> ▾</button>
+          <div class="lang-dropdown">
+            <button onclick="setLanguage('en')">English</button>
+            <button onclick="setLanguage('es')">Español</button>
+            <button onclick="setLanguage('fr')">Français</button>
+            <button onclick="setLanguage('de')">Deutsch</button>
+            <button onclick="setLanguage('pt')">Português</button>
+            <button onclick="setLanguage('it')">Italiano</button>
+            <button onclick="setLanguage('ja')">日本語</button>
+            <button onclick="setLanguage('ko')">한국어</button>
+            <button onclick="setLanguage('zh')">中文</button>
+            <button onclick="setLanguage('ar')">العربية</button>
+            <button onclick="setLanguage('hi')">हिन्दी</button>
+          </div>
+        </div>
+      </div>
+      <nav class="main-nav">
+        <a href="index.html">Home</a>
+        <a href="resources/index.html">Resources</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="pilot.html">Pilot Program</a>
+        <a href="trust.html">Trust</a>
+        <a href="briefing.html">Request Briefing</a>
+      </nav>
+      
+      <div class="page-header">
+        <div class="page-icon">🧠</div>
+        <h1 class="page-title">The Datacendia Cortex™</h1>
+        <p class="page-subtitle">A decision operating system built on 8 proprietary pillars. Not a wrapper. Not an API proxy. A complete cognitive infrastructure for sovereign enterprises.</p>
+      </div>
+
+      <div class="cortex-intro">
+        <p>
+          The Cortex™ is the architectural foundation of Datacendia — mapping <strong>proprietary sub-modules</strong> under <strong>8 Strategic Pillars</strong>. Each pillar addresses a distinct enterprise requirement: cognition, ethics, security, provenance, interface, prediction, execution, and reliability. Together, they form a defensible moat that transforms raw data into auditable, sovereign decisions.
+        </p>
+      </div>
+
+      <!-- Pillar 1: CendiaAgents -->
+      <div class="pillar-section">
+        <div class="pillar-header">
+          <div class="pillar-number">1</div>
+          <div class="pillar-title-group">
+            <h2 class="pillar-name">CendiaAgents™</h2>
+            <p class="pillar-tagline">The Cognitive Engine</p>
+          </div>
+        </div>
+        <p class="pillar-desc">
+          The orchestration layer where "The Council" lives. Multiple specialized agents deliberate, dissent, and converge on decisions — institutionalizing debate rather than hiding disagreement.
+        </p>
+        <div class="module-grid">
+          <div class="module-item">
+            <div class="module-name">The Council</div>
+            <div class="module-desc">Multi-agent environment where deliberation occurs. Agents represent CFO, CISO, Risk, Strategy, and other stakeholder perspectives.</div>
+          </div>
+          <div class="module-item">
+            <div class="module-name">RedTeam Module</div>
+            <div class="module-desc">Project HUME. Adversarial agent that challenges consensus, probing for blind spots and failure modes.</div>
+          </div>
+          <div class="module-item">
+            <div class="module-name">Analyst Module</div>
+            <div class="module-desc">Project SMITH. Strategic growth and efficiency optimizer. Synthesizes data into actionable intelligence.</div>
+          </div>
+          <div class="module-item">
+            <div class="module-name">Mirror Module</div>
+            <div class="module-desc">Stakeholder simulation agent. Models customer, employee, and regulator perspectives before they become problems.</div>
+          </div>
+          <div class="module-item">
+            <div class="module-name">Synthesis Engine</div>
+            <div class="module-desc">Meta-model that resolves agent conflict into a final, defensible recommendation with full lineage.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pillar 2: CendiaEthics -->
+      <div class="pillar-section">
+        <div class="pillar-header">
+          <div class="pillar-number">2</div>
+          <div class="pillar-title-group">
+            <h2 class="pillar-name">CendiaEthics™</h2>
+            <p class="pillar-tagline">The Conscience</p>
+          </div>
+        </div>
+        <p class="pillar-desc">
+          The governance layer that prevents liability. Binary logic gates and impartial observers that block actions before they create exposure.
+        </p>
+        <div class="module-grid">
+          <div class="module-item">
+            <div class="module-name">CendiaVeto™</div>
+            <div class="module-desc">The Kill Switch. Binary logic gate that blocks actions violating risk policy. No override without human approval + audit trail.</div>
+          </div>
+          <div class="module-item">
+            <div class="module-name">The Spectator</div>
+            <div class="module-desc">"Impartial Observer" module (Adam Smith's model). Flags reputational and ethical risks before execution.</div>
+          </div>
+          <div class="module-item">
+            <div class="module-name">Compliance Oracle</div>
+            <div class="module-desc">Real-time lookup of regulatory texts — GDPR, Basel III, HIPAA, internal bylaws. Updated continuously.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pillar 3: CendiaGuard -->
+      <div class="pillar-section">
+        <div class="pillar-header">
+          <div class="pillar-number">3</div>
+          <div class="pillar-title-group">
+            <h2 class="pillar-name">CendiaGuard™</h2>
+            <p class="pillar-tagline">The Shield</p>
+          </div>
+        </div>
+        <p class="pillar-desc">
+          The security layer protecting sovereignty. Cryptographic audit trails, PII stripping, air-gap protocols, and discovery risk minimization.
+        </p>
+        <div class="module-grid">
+          <div class="module-item">
+            <div class="module-name">CendiaWitness™</div>
+            <div class="module-desc">Immutable ledger. Cryptographically hashes every decision for audit. Tamper-evident chain of custody.</div>
+          </div>
+          <div class="module-item">
+            <div class="module-name">Anonymizer Cortex</div>
+            <div class="module-desc">Strips PII before it enters the context window. Data minimization by design.</div>
+          </div>
+          <div class="module-item">
+            <div class="module-name">Air-Gap Protocol</div>
+            <div class="module-desc">Manages secure, unidirectional data flow. Optical diode logic for classified environments.</div>
+          </div>
+          <div class="module-item">
+            <div class="module-name">Shadow Mode Shredder</div>
+            <div class="module-desc">Cryptographically deletes non-essential "thought processes" to minimize discovery risk in litigation.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pillar 4: CendiaLineage -->
+      <div class="pillar-section">
+        <div class="pillar-header">
+          <div class="pillar-number">4</div>
+          <div class="pillar-title-group">
+            <h2 class="pillar-name">CendiaLineage™</h2>
+            <p class="pillar-tagline">The Truth</p>
+          </div>
+        </div>
+        <p class="pillar-desc">
+          The memory and provenance layer. Every decision traces back to its source. Every source traces back to its origin. Complete data lineage.
+        </p>
+        <div class="module-grid">
+          <div class="module-item">
+            <div class="module-name">CendiaChronos™</div>
+            <div class="module-desc">Time-travel engine. Replays state at T-1 to prove why a decision was made at that moment in time.</div>
+          </div>
+          <div class="module-item">
+            <div class="module-name">Knowledge Graph</div>
+            <div class="module-desc">Maps relationships between entities. "CEO" connects to "Risk Policy A" connects to "Regulatory Filing B".</div>
+          </div>
+          <div class="module-item">
+            <div class="module-name">Source Attribution</div>
+            <div class="module-desc">Tags every token with its origin. "CRM Record #1234" or "SEC Filing 10-K Page 47".</div>
+          </div>
+          <div class="module-item">
+            <div class="module-name">Data Broker</div>
+            <div class="module-desc">Central nervous system. Routes data between storage, agents, and outputs with full audit trail.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pillar 5: CendiaHelm -->
+      <div class="pillar-section">
+        <div class="pillar-header">
+          <div class="pillar-number">5</div>
+          <div class="pillar-title-group">
+            <h2 class="pillar-name">CendiaHelm™</h2>
+            <p class="pillar-tagline">The Interface</p>
+          </div>
+        </div>
+        <p class="pillar-desc">
+          The command and control layer. Translates human intent into system actions and formats sovereign outputs for any downstream requirement.
+        </p>
+        <div class="module-grid">
+          <div class="module-item">
+            <div class="module-name">NLP Command Processor</div>
+            <div class="module-desc">Translates natural language intent into structured system actions. No code required.</div>
+          </div>
+          <div class="module-item">
+            <div class="module-name">Voice Biometrics</div>
+            <div class="module-desc">Verifies operator identity via voice (optional). Multi-factor authentication for high-stakes decisions.</div>
+          </div>
+          <div class="module-item">
+            <div class="module-name">Sovereign Response Generator</div>
+            <div class="module-desc">Formats final output into required templates — PDF, JSON, email, regulatory filing format.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pillar 6: CendiaPredict -->
+      <div class="pillar-section">
+        <div class="pillar-header">
+          <div class="pillar-number">6</div>
+          <div class="pillar-title-group">
+            <h2 class="pillar-name">CendiaPredict™</h2>
+            <p class="pillar-tagline">The Foresight</p>
+          </div>
+        </div>
+        <p class="pillar-desc">
+          The forecasting and simulation layer. Runs "what if" scenarios before you commit. Quantifies risk across divergent futures.
+        </p>
+        <div class="module-grid">
+          <div class="module-item">
+            <div class="module-name">Scenario Simulator</div>
+            <div class="module-desc">Monte Carlo simulations based on agent debates. Thousands of futures, ranked by probability and impact.</div>
+          </div>
+          <div class="module-item">
+            <div class="module-name">Trend Extrapolator</div>
+            <div class="module-desc">Projects current data lines forward. Identifies inflection points and emerging risks before they materialize.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pillar 7: CendiaFlow -->
+      <div class="pillar-section">
+        <div class="pillar-header">
+          <div class="pillar-number">7</div>
+          <div class="pillar-title-group">
+            <h2 class="pillar-name">CendiaFlow™</h2>
+            <p class="pillar-tagline">The Hands</p>
+          </div>
+        </div>
+        <p class="pillar-desc">
+          The execution and automation layer. When the Council decides, CendiaFlow acts — but only after CendiaVeto™ approval.
+        </p>
+        <div class="module-grid">
+          <div class="module-item">
+            <div class="module-name">The Actuator</div>
+            <div class="module-desc">Authorized to act: call APIs, send emails, trigger workflows. Active only after ethics gate approval.</div>
+          </div>
+          <div class="module-item">
+            <div class="module-name">Connector Mesh</div>
+            <div class="module-desc">Pre-built sovereign integrations. ERP, CRM, banking core, HRIS. No data leaves customer perimeter.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pillar 8: CendiaHealth -->
+      <div class="pillar-section">
+        <div class="pillar-header">
+          <div class="pillar-number">8</div>
+          <div class="pillar-title-group">
+            <h2 class="pillar-name">CendiaHealth™</h2>
+            <p class="pillar-tagline">The Pulse</p>
+          </div>
+        </div>
+        <p class="pillar-desc">
+          The system reliability layer. Continuous monitoring to ensure agents stay calibrated, resources stay available, and drift gets caught early.
+        </p>
+        <div class="module-grid">
+          <div class="module-item">
+            <div class="module-name">Drift Detector</div>
+            <div class="module-desc">Monitors if models deviate from baseline behavior. Alerts before degradation becomes liability.</div>
+          </div>
+          <div class="module-item">
+            <div class="module-name">Agent Sanity Check</div>
+            <div class="module-desc">Periodic tests against "Ground Truth" datasets. Catches hallucination before it reaches production.</div>
+          </div>
+          <div class="module-item">
+            <div class="module-name">Resource Monitor</div>
+            <div class="module-desc">Manages VRAM/compute load on local hardware. Prevents resource starvation in air-gapped deployments.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- The Moat -->
+      <div class="moat-section">
+        <h2>The Defensive Moat</h2>
+        <p>
+          If asked "What is your IP?", point to these four proprietary engines. They are what make Datacendia a <strong>Decision Operating System</strong> — not just a wrapper around third-party APIs.
+        </p>
+        <div class="moat-list">
+          <div class="moat-item">
+            <div class="moat-item-name">CendiaVeto™</div>
+            <div class="moat-item-pillar">Ethics Pillar</div>
+          </div>
+          <div class="moat-item">
+            <div class="moat-item-name">CendiaWitness™</div>
+            <div class="moat-item-pillar">Guard Pillar</div>
+          </div>
+          <div class="moat-item">
+            <div class="moat-item-name">CendiaChronos™</div>
+            <div class="moat-item-pillar">Lineage Pillar</div>
+          </div>
+          <div class="moat-item">
+            <div class="moat-item-name">The Council</div>
+            <div class="moat-item-pillar">Agents Pillar</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-box">
+        <p>Ready to see the Cortex™ in action?</p>
+        <p><a href="briefing.html">Request a Technical Briefing</a> · <a href="pilot.html">Explore the Pilot Program</a></p>
+        <p style="font-family: var(--font-mono); font-size: 0.7rem; color: #2ecc71; margin-top: 16px; letter-spacing: 0.05em;">SYSTEM STATUS: AIR-GAP READY · NO TRACKER PIXELS DETECTED</p>
+      </div>
+    </div>
+  </div>
+  <script src="translations.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page Not Found — Datacendia | 404 Error</title>
+  <meta name="description" content="The page you're looking for doesn't exist or has been moved. Return to Datacendia's Sovereign Intelligence Platform.">
+  <meta name="robots" content="noindex, follow">
+  <meta property="og:title" content="Page Not Found — Datacendia">
+  <meta property="og:description" content="The page you're looking for doesn't exist. Return to Datacendia.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Datacendia">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <meta name="theme-color" content="#0a0a0a">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .error-container {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 24px;
+    }
+    .error-code {
+      font-family: var(--font-mono);
+      font-size: 4rem;
+      font-weight: 500;
+      color: var(--color-gold);
+      margin-bottom: 16px;
+    }
+    .error-title {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 300;
+      color: var(--color-text);
+      margin-bottom: 12px;
+    }
+    .error-message {
+      font-size: 0.9rem;
+      color: var(--color-text-dim);
+      margin-bottom: 32px;
+      max-width: 400px;
+    }
+    .error-links {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .error-link {
+      padding: 12px 24px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      color: var(--color-gold);
+      background: transparent;
+      border: 1px solid var(--color-gold);
+      border-radius: 4px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+    .error-link:hover {
+      background: var(--color-gold);
+      color: var(--color-bg);
+    }
+    .error-link.secondary {
+      border-color: var(--color-border);
+      color: var(--color-text-muted);
+    }
+    .error-link.secondary:hover {
+      border-color: var(--color-text-muted);
+      background: var(--color-card-bg);
+      color: var(--color-text);
+    }
+  </style>
+</head>
+<body>
+  <div class="error-container">
+    <div class="lang-selector" style="position: absolute; top: 24px; right: 24px;">
+      <button class="lang-btn"><span class="lang-current">English</span> ▾</button>
+      <div class="lang-dropdown">
+        <button onclick="setLanguage('en')">English</button>
+        <button onclick="setLanguage('es')">Español</button>
+        <button onclick="setLanguage('fr')">Français</button>
+        <button onclick="setLanguage('de')">Deutsch</button>
+        <button onclick="setLanguage('pt')">Português</button>
+        <button onclick="setLanguage('it')">Italiano</button>
+        <button onclick="setLanguage('ja')">日本語</button>
+        <button onclick="setLanguage('ko')">한국어</button>
+        <button onclick="setLanguage('zh')">中文</button>
+        <button onclick="setLanguage('ar')">العربية</button>
+        <button onclick="setLanguage('hi')">हिन्दी</button>
+      </div>
+    </div>
+    <div class="error-code">404</div>
+    <h1 class="error-title" data-i18n="pageNotFound">Page Not Found</h1>
+    <p class="error-message" data-i18n="pageNotFoundDesc">The page you're looking for doesn't exist or has been moved. Let's get you back on track.</p>
+    <div class="error-links">
+      <a href="index.html" class="error-link" data-i18n="returnHome">Return Home</a>
+      <a href="briefing.html" class="error-link secondary" data-i18n="requestBriefing">Request Briefing</a>
+    </div>
+  </div>
+  <script src="translations.js?v=6"></script>
+  <script src="app.js"></script>
+</body>
+</html>

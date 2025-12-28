@@ -1,0 +1,426 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="sitemap.xsl"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+                            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+  
+  <!-- Homepage - Highest Priority -->
+  <url>
+    <loc>https://datacendia.com/</loc>
+    <lastmod>2025-12-23T09:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://datacendia.com/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://datacendia.com/es/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://datacendia.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://datacendia.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://datacendia.com/pt/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://datacendia.com/it/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://datacendia.com/ja/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://datacendia.com/ko/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://datacendia.com/zh/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://datacendia.com/ar/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://datacendia.com/hi/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://datacendia.com/"/>
+    <image:image>
+      <image:loc>https://datacendia.com/og-image.png</image:loc>
+      <image:title>Datacendia Sovereign Intelligence Platform</image:title>
+      <image:caption>Enterprise AI decision intelligence with full sovereignty and audit trails</image:caption>
+    </image:image>
+  </url>
+  
+  <!-- Request Briefing - High Priority Conversion Page -->
+  <url>
+    <loc>https://datacendia.com/briefing.html</loc>
+    <lastmod>2025-12-23T09:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://datacendia.com/briefing.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://datacendia.com/briefing.html"/>
+  </url>
+  
+  <!-- Pricing - High Priority Commercial Page -->
+  <url>
+    <loc>https://datacendia.com/pricing.html</loc>
+    <lastmod>2025-12-23T09:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://datacendia.com/pricing.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://datacendia.com/pricing.html"/>
+  </url>
+  
+  <!-- Pilot Program - High Priority Conversion Page -->
+  <url>
+    <loc>https://datacendia.com/pilot.html</loc>
+    <lastmod>2025-12-23T09:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://datacendia.com/pilot.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://datacendia.com/pilot.html"/>
+  </url>
+  
+  <!-- Trust Center - Important for Enterprise Buyers -->
+  <url>
+    <loc>https://datacendia.com/trust.html</loc>
+    <lastmod>2025-12-23T09:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://datacendia.com/trust.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://datacendia.com/trust.html"/>
+  </url>
+  
+  <!-- Leadership / Team Page -->
+  <url>
+    <loc>https://datacendia.com/team.html</loc>
+    <lastmod>2025-12-26T09:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://datacendia.com/team.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://datacendia.com/team.html"/>
+  </url>
+  
+  <!-- Architecture / Cortex Page -->
+  <url>
+    <loc>https://datacendia.com/architecture.html</loc>
+    <lastmod>2025-12-26T09:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://datacendia.com/architecture.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://datacendia.com/architecture.html"/>
+  </url>
+  
+  <!-- Architecture Protocol - Technical Bible -->
+  <url>
+    <loc>https://datacendia.com/protocol.html</loc>
+    <lastmod>2025-12-26T09:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://datacendia.com/protocol.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://datacendia.com/protocol.html"/>
+  </url>
+  
+  <!-- War Game Simulations -->
+  <url>
+    <loc>https://datacendia.com/wargames.html</loc>
+    <lastmod>2025-12-26T09:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://datacendia.com/wargames.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://datacendia.com/wargames.html"/>
+  </url>
+  
+  <!-- Security Control Mapping (SOC 2 + NIST 800-53) -->
+  <url>
+    <loc>https://datacendia.com/security-controls.html</loc>
+    <lastmod>2025-12-26T09:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://datacendia.com/security-controls.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://datacendia.com/security-controls.html"/>
+  </url>
+  
+  <!-- Privacy Policy - Legal/Compliance -->
+  <url>
+    <loc>https://datacendia.com/privacy.html</loc>
+    <lastmod>2025-12-24T09:00:00+00:00</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://datacendia.com/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://datacendia.com/privacy.html"/>
+  </url>
+  
+  <!-- Terms of Use - Legal/Compliance -->
+  <url>
+    <loc>https://datacendia.com/terms.html</loc>
+    <lastmod>2025-12-24T09:00:00+00:00</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://datacendia.com/terms.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://datacendia.com/terms.html"/>
+  </url>
+  
+  <!-- Resources Section -->
+  <url>
+    <loc>https://datacendia.com/resources/</loc>
+    <lastmod>2025-12-23T09:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://datacendia.com/resources/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://datacendia.com/resources/"/>
+  </url>
+  
+  <!-- Data Sovereignty Guide - With Language Versions -->
+  <url>
+    <loc>https://datacendia.com/resources/data-sovereignty-guide.html</loc>
+    <lastmod>2025-12-24T04:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://datacendia.com/resources/data-sovereignty-guide.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://datacendia.com/resources/data-sovereignty-guide.es.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://datacendia.com/resources/data-sovereignty-guide.fr.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://datacendia.com/resources/data-sovereignty-guide.de.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://datacendia.com/resources/data-sovereignty-guide.pt.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://datacendia.com/resources/data-sovereignty-guide.it.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://datacendia.com/resources/data-sovereignty-guide.ja.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://datacendia.com/resources/data-sovereignty-guide.ko.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://datacendia.com/resources/data-sovereignty-guide.zh.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://datacendia.com/resources/data-sovereignty-guide.ar.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://datacendia.com/resources/data-sovereignty-guide.hi.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://datacendia.com/resources/data-sovereignty-guide.html"/>
+  </url>
+  
+  <!-- Data Sovereignty Guide - Spanish -->
+  <url>
+    <loc>https://datacendia.com/resources/data-sovereignty-guide.es.html</loc>
+    <lastmod>2025-12-24T04:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://datacendia.com/resources/data-sovereignty-guide.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://datacendia.com/resources/data-sovereignty-guide.es.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://datacendia.com/resources/data-sovereignty-guide.html"/>
+  </url>
+  
+  <!-- Data Sovereignty Guide - French -->
+  <url>
+    <loc>https://datacendia.com/resources/data-sovereignty-guide.fr.html</loc>
+    <lastmod>2025-12-24T04:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://datacendia.com/resources/data-sovereignty-guide.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://datacendia.com/resources/data-sovereignty-guide.fr.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://datacendia.com/resources/data-sovereignty-guide.html"/>
+  </url>
+  
+  <!-- Data Sovereignty Guide - German -->
+  <url>
+    <loc>https://datacendia.com/resources/data-sovereignty-guide.de.html</loc>
+    <lastmod>2025-12-24T04:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://datacendia.com/resources/data-sovereignty-guide.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://datacendia.com/resources/data-sovereignty-guide.de.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://datacendia.com/resources/data-sovereignty-guide.html"/>
+  </url>
+  
+  <!-- Data Sovereignty Guide - Portuguese -->
+  <url>
+    <loc>https://datacendia.com/resources/data-sovereignty-guide.pt.html</loc>
+    <lastmod>2025-12-24T04:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://datacendia.com/resources/data-sovereignty-guide.html"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://datacendia.com/resources/data-sovereignty-guide.pt.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://datacendia.com/resources/data-sovereignty-guide.html"/>
+  </url>
+  
+  <!-- Data Sovereignty Guide - Italian -->
+  <url>
+    <loc>https://datacendia.com/resources/data-sovereignty-guide.it.html</loc>
+    <lastmod>2025-12-24T04:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://datacendia.com/resources/data-sovereignty-guide.html"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://datacendia.com/resources/data-sovereignty-guide.it.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://datacendia.com/resources/data-sovereignty-guide.html"/>
+  </url>
+  
+  <!-- Data Sovereignty Guide - Japanese -->
+  <url>
+    <loc>https://datacendia.com/resources/data-sovereignty-guide.ja.html</loc>
+    <lastmod>2025-12-24T04:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://datacendia.com/resources/data-sovereignty-guide.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://datacendia.com/resources/data-sovereignty-guide.ja.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://datacendia.com/resources/data-sovereignty-guide.html"/>
+  </url>
+  
+  <!-- Data Sovereignty Guide - Korean -->
+  <url>
+    <loc>https://datacendia.com/resources/data-sovereignty-guide.ko.html</loc>
+    <lastmod>2025-12-24T04:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://datacendia.com/resources/data-sovereignty-guide.html"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://datacendia.com/resources/data-sovereignty-guide.ko.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://datacendia.com/resources/data-sovereignty-guide.html"/>
+  </url>
+  
+  <!-- Data Sovereignty Guide - Chinese -->
+  <url>
+    <loc>https://datacendia.com/resources/data-sovereignty-guide.zh.html</loc>
+    <lastmod>2025-12-24T04:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://datacendia.com/resources/data-sovereignty-guide.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://datacendia.com/resources/data-sovereignty-guide.zh.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://datacendia.com/resources/data-sovereignty-guide.html"/>
+  </url>
+  
+  <!-- Data Sovereignty Guide - Arabic -->
+  <url>
+    <loc>https://datacendia.com/resources/data-sovereignty-guide.ar.html</loc>
+    <lastmod>2025-12-24T04:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://datacendia.com/resources/data-sovereignty-guide.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://datacendia.com/resources/data-sovereignty-guide.ar.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://datacendia.com/resources/data-sovereignty-guide.html"/>
+  </url>
+  
+  <!-- Data Sovereignty Guide - Hindi -->
+  <url>
+    <loc>https://datacendia.com/resources/data-sovereignty-guide.hi.html</loc>
+    <lastmod>2025-12-24T04:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://datacendia.com/resources/data-sovereignty-guide.html"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://datacendia.com/resources/data-sovereignty-guide.hi.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://datacendia.com/resources/data-sovereignty-guide.html"/>
+  </url>
+  
+  <!-- The Council - Multi-Agent AI -->
+  <url>
+    <loc>https://datacendia.com/resources/the-council.html</loc>
+    <lastmod>2025-12-23T09:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://datacendia.com/resources/the-council.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://datacendia.com/resources/the-council.html"/>
+  </url>
+  
+  <!-- Enterprise AI Compliance -->
+  <url>
+    <loc>https://datacendia.com/resources/compliance.html</loc>
+    <lastmod>2025-12-23T09:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://datacendia.com/resources/compliance.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://datacendia.com/resources/compliance.html"/>
+  </url>
+  
+  <!-- Air-Gapped Deployment Guide -->
+  <url>
+    <loc>https://datacendia.com/resources/air-gapped-deployment.html</loc>
+    <lastmod>2025-12-23T09:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://datacendia.com/resources/air-gapped-deployment.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://datacendia.com/resources/air-gapped-deployment.html"/>
+  </url>
+  
+  <!-- Sovereignty Matrix -->
+  <url>
+    <loc>https://datacendia.com/resources/sovereignty-matrix.html</loc>
+    <lastmod>2025-12-23T09:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://datacendia.com/resources/sovereignty-matrix.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://datacendia.com/resources/sovereignty-matrix.html"/>
+  </url>
+  
+  <!-- Language-Specific Landing Pages -->
+  <url>
+    <loc>https://datacendia.com/de/</loc>
+    <lastmod>2025-12-24T09:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://datacendia.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://datacendia.com/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://datacendia.com/"/>
+  </url>
+  
+  <url>
+    <loc>https://datacendia.com/ja/</loc>
+    <lastmod>2025-12-24T09:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://datacendia.com/ja/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://datacendia.com/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://datacendia.com/"/>
+  </url>
+  
+  <url>
+    <loc>https://datacendia.com/zh/</loc>
+    <lastmod>2025-12-24T09:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://datacendia.com/zh/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://datacendia.com/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://datacendia.com/"/>
+  </url>
+  
+  <url>
+    <loc>https://datacendia.com/ar/</loc>
+    <lastmod>2025-12-24T09:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://datacendia.com/ar/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://datacendia.com/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://datacendia.com/"/>
+  </url>
+  
+  <url>
+    <loc>https://datacendia.com/es/</loc>
+    <lastmod>2025-12-24T09:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://datacendia.com/es/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://datacendia.com/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://datacendia.com/"/>
+  </url>
+  
+  <url>
+    <loc>https://datacendia.com/fr/</loc>
+    <lastmod>2025-12-24T09:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://datacendia.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://datacendia.com/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://datacendia.com/"/>
+  </url>
+  
+  <url>
+    <loc>https://datacendia.com/pt/</loc>
+    <lastmod>2025-12-24T09:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://datacendia.com/pt/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://datacendia.com/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://datacendia.com/"/>
+  </url>
+  
+  <url>
+    <loc>https://datacendia.com/it/</loc>
+    <lastmod>2025-12-24T09:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://datacendia.com/it/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://datacendia.com/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://datacendia.com/"/>
+  </url>
+  
+  <url>
+    <loc>https://datacendia.com/ko/</loc>
+    <lastmod>2025-12-24T09:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://datacendia.com/ko/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://datacendia.com/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://datacendia.com/"/>
+  </url>
+  
+  <url>
+    <loc>https://datacendia.com/hi/</loc>
+    <lastmod>2025-12-24T09:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://datacendia.com/hi/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://datacendia.com/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://datacendia.com/"/>
+  </url>
+  
+</urlset>

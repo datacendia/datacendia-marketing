@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Case Studies | Datacendia</title>
+  <meta name="description" content="See how enterprises use Datacendia for sovereign decision intelligence. Real results from real organizations.">
+  <meta name="author" content="Datacendia">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .case-studies-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    .case-study-card {
+      background: linear-gradient(135deg, rgba(6, 182, 212, 0.05) 0%, rgba(59, 130, 246, 0.05) 100%);
+      border: 1px solid rgba(6, 182, 212, 0.2);
+      border-radius: 16px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+    .case-study-card:hover {
+      border-color: rgba(6, 182, 212, 0.5);
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+    .case-study-header {
+      padding: 2rem;
+      background: linear-gradient(135deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.1) 100%);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    .case-study-logo {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+    .case-study-industry {
+      display: inline-block;
+      padding: 4px 12px;
+      background: rgba(6, 182, 212, 0.1);
+      border: 1px solid rgba(6, 182, 212, 0.3);
+      border-radius: 20px;
+      font-size: 0.75rem;
+      color: var(--color-cyan);
+      margin-bottom: 0.75rem;
+    }
+    .case-study-company {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: white;
+      margin-bottom: 0.5rem;
+    }
+    .case-study-tagline {
+      font-size: 0.9rem;
+      color: var(--color-text-dim);
+    }
+    .case-study-content {
+      padding: 2rem;
+    }
+    .case-study-metrics {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .metric {
+      text-align: center;
+      padding: 1rem;
+      background: rgba(0,0,0,0.2);
+      border-radius: 8px;
+    }
+    .metric-value {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #10b981;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .metric-label {
+      font-size: 0.7rem;
+      color: var(--color-text-muted);
+      margin-top: 0.25rem;
+    }
+    .case-study-quote {
+      font-style: italic;
+      color: var(--color-text-dim);
+      padding: 1rem;
+      border-left: 3px solid var(--color-cyan);
+      margin: 1.5rem 0;
+      font-size: 0.9rem;
+    }
+    .case-study-quote cite {
+      display: block;
+      margin-top: 0.75rem;
+      font-style: normal;
+      color: var(--color-text-muted);
+      font-size: 0.8rem;
+    }
+    .read-more-btn {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      background: rgba(6, 182, 212, 0.1);
+      border: 1px solid rgba(6, 182, 212, 0.3);
+      border-radius: 8px;
+      color: var(--color-cyan);
+      text-align: center;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+    .read-more-btn:hover {
+      background: rgba(6, 182, 212, 0.2);
+      border-color: var(--color-cyan);
+    }
+    .featured-case-study {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+    }
+    .featured-case-study .case-study-header {
+      border-bottom: none;
+      border-right: 1px solid rgba(255,255,255,0.05);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    @media (max-width: 768px) {
+      .featured-case-study {
+        grid-template-columns: 1fr;
+      }
+      .case-study-metrics {
+        grid-template-columns: 1fr;
+      }
+    }
+    .coming-soon-card {
+      background: linear-gradient(135deg, rgba(212, 175, 55, 0.05) 0%, rgba(212, 175, 55, 0.02) 100%);
+      border: 2px dashed rgba(212, 175, 55, 0.3);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 400px;
+      text-align: center;
+      padding: 2rem;
+    }
+    .coming-soon-card h3 {
+      color: var(--color-gold);
+      margin-bottom: 1rem;
+    }
+    .coming-soon-card p {
+      color: var(--color-text-muted);
+      margin-bottom: 1.5rem;
+    }
+    .pilot-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      background: linear-gradient(135deg, var(--color-gold) 0%, #b8860b 100%);
+      border: none;
+      border-radius: 8px;
+      color: black;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    .pilot-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header>
+      <div class="header-top">
+        <a href="index.html" style="text-decoration: none;"><h1 class="logo">DATACENDIA</h1></a>
+      </div>
+      <p class="tagline-sub">Sovereign Intelligence Platform</p>
+      <nav class="main-nav">
+        <a href="demos.html">Demos</a>
+        <a href="resources/index.html">Resources</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="pilot.html">Pilot Program</a>
+        <a href="trust.html">Trust</a>
+        <a href="briefing.html">Request Briefing</a>
+      </nav>
+    </header>
+
+    <div class="page-container">
+      <div class="page-header" style="text-align: center;">
+        <div class="page-icon">📊</div>
+        <h1 class="page-title">Case Studies</h1>
+        <p class="page-subtitle">Real results from organizations using Datacendia for sovereign decision intelligence</p>
+      </div>
+
+      <!-- Honesty Notice -->
+      <div style="background: rgba(234, 179, 8, 0.1); border: 1px solid rgba(234, 179, 8, 0.3); border-radius: 12px; padding: 2rem; margin-bottom: 3rem; text-align: center;">
+        <h3 style="color: #eab308; margin-bottom: 1rem;">🚧 We're a New Platform</h3>
+        <p style="color: var(--color-text-dim);">
+          We don't have customer case studies yet because we're honest about where we are. 
+          We're actively seeking pilot partners to create real results we can share.
+        </p>
+      </div>
+
+      <div class="case-studies-grid">
+
+        <!-- What We Can Demonstrate -->
+        <div class="case-study-card">
+          <div class="case-study-header">
+            <div class="case-study-logo">✅</div>
+            <span class="case-study-industry">Platform Capability</span>
+            <h3 class="case-study-company">What We Can Prove Today</h3>
+            <p class="case-study-tagline">Real technology, working now</p>
+          </div>
+          <div class="case-study-content">
+            <ul style="color: var(--color-text-dim); text-align: left; line-height: 1.8;">
+              <li>Multi-agent AI deliberation with real LLM calls</li>
+              <li>Cryptographic signing of all decisions (KMS/HSM)</li>
+              <li>Merkle tree integrity proofs</li>
+              <li>Air-gapped deployment capability</li>
+              <li>100+ language translation</li>
+              <li>Full audit trail exports</li>
+            </ul>
+            <a href="demos.html" class="read-more-btn">See Live Demos →</a>
+          </div>
+        </div>
+
+        <!-- What We're Building -->
+        <div class="case-study-card">
+          <div class="case-study-header">
+            <div class="case-study-logo">🔨</div>
+            <span class="case-study-industry">In Development</span>
+            <h3 class="case-study-company">What We're Building</h3>
+            <p class="case-study-tagline">Roadmap transparency</p>
+          </div>
+          <div class="case-study-content">
+            <ul style="color: var(--color-text-dim); text-align: left; line-height: 1.8;">
+              <li>ML forecasting with real training data (FRED)</li>
+              <li>SOC 2 Type II audit (target Q2 2026)</li>
+              <li>Production deployments with real customers</li>
+              <li>Validated ROI metrics from pilots</li>
+            </ul>
+            <a href="protocol.html" class="read-more-btn">See Full Roadmap →</a>
+          </div>
+        </div>
+
+        <!-- Be the First Case Study -->
+        <div class="case-study-card coming-soon-card">
+          <div class="case-study-logo">🚀</div>
+          <h3>Be Our Next Case Study</h3>
+          <p>Join our pilot program and get featured here with your results.</p>
+          <ul style="text-align: left; color: var(--color-text-dim); font-size: 0.9rem; margin-bottom: 1.5rem;">
+            <li>60-day pilot at reduced rate</li>
+            <li>Dedicated success manager</li>
+            <li>Custom ROI analysis</li>
+            <li>Published case study (optional)</li>
+          </ul>
+          <a href="pilot.html" class="pilot-cta">Join Pilot Program →</a>
+        </div>
+
+      </div>
+
+      <!-- CTA -->
+      <div class="cta-box" style="margin-top: 4rem;">
+        <h3>Be Part of Our Story</h3>
+        <p>We're looking for pilot partners who want real results, not marketing fluff.</p>
+        <a href="briefing.html" class="cta-btn">Request Briefing →</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

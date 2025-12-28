@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Demos | Datacendia</title>
+  <meta name="description" content="Watch Datacendia product demos. See the sovereign enterprise intelligence platform in action - multi-agent deliberation, audit compliance, and industry-specific deployments.">
+  <meta name="keywords" content="Datacendia demo, enterprise AI demo, multi-agent AI demo, sovereign AI demo, product walkthrough">
+  <meta name="author" content="Datacendia">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Product Demos | Datacendia">
+  <meta property="og:description" content="See Datacendia in action. Watch demos of multi-agent deliberation, audit compliance, and sovereign deployment.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://datacendia.com/demos.html">
+  <link rel="canonical" href="https://datacendia.com/demos.html">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .demo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    .demo-card {
+      background: linear-gradient(135deg, rgba(6, 182, 212, 0.05) 0%, rgba(59, 130, 246, 0.05) 100%);
+      border: 1px solid rgba(6, 182, 212, 0.2);
+      border-radius: 16px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+    .demo-card:hover {
+      border-color: rgba(6, 182, 212, 0.5);
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+    .demo-thumbnail {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16/9;
+      background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .demo-thumbnail-icon {
+      font-size: 4rem;
+      opacity: 0.8;
+    }
+    .demo-thumbnail video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .demo-play-btn {
+      position: absolute;
+      width: 80px;
+      height: 80px;
+      background: rgba(6, 182, 212, 0.9);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 10px 30px rgba(6, 182, 212, 0.4);
+    }
+    .demo-play-btn:hover {
+      transform: scale(1.1);
+      background: rgba(6, 182, 212, 1);
+    }
+    .demo-play-btn svg {
+      width: 32px;
+      height: 32px;
+      fill: white;
+      margin-left: 4px;
+    }
+    .demo-content {
+      padding: 1.5rem;
+    }
+    .demo-badge {
+      display: inline-block;
+      padding: 4px 12px;
+      background: rgba(6, 182, 212, 0.1);
+      border: 1px solid rgba(6, 182, 212, 0.3);
+      border-radius: 20px;
+      font-size: 0.75rem;
+      color: var(--color-cyan);
+      margin-bottom: 0.75rem;
+    }
+    .demo-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: white;
+      margin-bottom: 0.5rem;
+    }
+    .demo-description {
+      font-size: 0.9rem;
+      color: var(--color-text-dim);
+      margin-bottom: 1rem;
+      line-height: 1.6;
+    }
+    .demo-meta {
+      display: flex;
+      gap: 1rem;
+      font-size: 0.8rem;
+      color: var(--color-text-muted);
+    }
+    .demo-meta span {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .featured-demo {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      padding: 2rem;
+      background: linear-gradient(135deg, rgba(6, 182, 212, 0.1) 0%, rgba(59, 130, 246, 0.1) 100%);
+      border: 2px solid rgba(6, 182, 212, 0.3);
+    }
+    .featured-demo .demo-thumbnail {
+      aspect-ratio: 16/9;
+      border-radius: 12px;
+    }
+    .featured-demo .demo-content {
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .featured-label {
+      color: var(--color-gold);
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.5rem;
+    }
+    .featured-demo .demo-title {
+      font-size: 1.75rem;
+    }
+    .featured-demo .demo-description {
+      font-size: 1rem;
+    }
+    .watch-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      background: linear-gradient(135deg, var(--color-cyan) 0%, #3b82f6 100%);
+      border: none;
+      border-radius: 8px;
+      color: white;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin-top: 1rem;
+    }
+    .watch-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(6, 182, 212, 0.3);
+    }
+    @media (max-width: 768px) {
+      .featured-demo {
+        grid-template-columns: 1fr;
+      }
+      .demo-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .video-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.95);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+    .video-modal.active {
+      display: flex;
+    }
+    .video-modal-content {
+      position: relative;
+      width: 100%;
+      max-width: 1200px;
+      aspect-ratio: 16/9;
+      background: #000;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .video-modal-close {
+      position: absolute;
+      top: -40px;
+      right: 0;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 2rem;
+      cursor: pointer;
+      padding: 8px;
+    }
+    .coming-soon-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-gold);
+      font-weight: 600;
+      font-size: 1.25rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header>
+      <div class="header-top">
+        <a href="index.html" style="text-decoration: none;"><h1 class="logo" aria-label="Datacendia - Sovereign Enterprise Intelligence Platform">DATACENDIA</h1></a>
+        <div class="lang-selector">
+          <button class="lang-btn"><span class="lang-current">English</span> ▾</button>
+          <div class="lang-dropdown">
+            <button onclick="setLanguage('en')">English</button>
+            <button onclick="setLanguage('es')">Español</button>
+            <button onclick="setLanguage('fr')">Français</button>
+            <button onclick="setLanguage('de')">Deutsch</button>
+            <button onclick="setLanguage('pt')">Português</button>
+            <button onclick="setLanguage('it')">Italiano</button>
+            <button onclick="setLanguage('ja')">日本語</button>
+            <button onclick="setLanguage('ko')">한국어</button>
+            <button onclick="setLanguage('zh')">中文</button>
+            <button onclick="setLanguage('ar')">العربية</button>
+            <button onclick="setLanguage('hi')">हिन्दी</button>
+          </div>
+        </div>
+      </div>
+      <p class="tagline-sub" data-i18n="tagline">Sovereign Intelligence Platform</p>
+      <nav class="main-nav">
+        <a href="index.html" data-i18n="navHome">Home</a>
+        <a href="resources/index.html" data-i18n="navResources">Resources</a>
+        <a href="pricing.html" data-i18n="navPricing">Pricing</a>
+        <a href="pilot.html" data-i18n="navPilot">Pilot Program</a>
+        <a href="trust.html" data-i18n="navTrust">Trust</a>
+        <a href="briefing.html" data-i18n="navBriefing">Request Briefing</a>
+      </nav>
+    </header>
+
+    <div class="page-container">
+      
+      <div class="page-header">
+        <div class="page-icon">🎬</div>
+        <h1 class="page-title">Product Demos</h1>
+        <p class="page-subtitle">See Datacendia in action. Watch guided walkthroughs of our sovereign enterprise intelligence platform.</p>
+      </div>
+
+      <div class="demo-grid">
+        <!-- Featured Demo -->
+        <div class="demo-card featured-demo">
+          <div class="demo-thumbnail">
+            <span class="demo-thumbnail-icon">🎯</span>
+            <div class="demo-play-btn" onclick="openVideo('executive-overview')">
+              <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+          </div>
+          <div class="demo-content">
+            <div class="featured-label">★ Featured Demo</div>
+            <h3 class="demo-title">Executive Overview</h3>
+            <p class="demo-description">
+              A 5-minute introduction to Datacendia for C-Suite and Board members. 
+              See how multi-agent deliberation transforms enterprise decision-making with 
+              full accountability and audit trails.
+            </p>
+            <div class="demo-meta">
+              <span>⏱️ 5 minutes</span>
+              <span>👥 C-Suite, Board</span>
+            </div>
+            <button class="watch-btn" onclick="openVideo('executive-overview')">
+              ▶ Watch Demo
+            </button>
+          </div>
+        </div>
+
+        <!-- Demo 2: Council in Action -->
+        <div class="demo-card">
+          <div class="demo-thumbnail">
+            <span class="demo-thumbnail-icon">🏛️</span>
+            <div class="demo-play-btn" onclick="openVideo('council-in-action')">
+              <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+          </div>
+          <div class="demo-content">
+            <span class="demo-badge">Most Popular</span>
+            <h3 class="demo-title">The Council in Action</h3>
+            <p class="demo-description">
+              Watch 14 specialized AI agents debate a real M&A decision. See how CFO, CISO, Legal, 
+              and Risk agents analyze, argue, and synthesize recommendations.
+            </p>
+            <div class="demo-meta">
+              <span>⏱️ 15 minutes</span>
+              <span>👥 Strategy Teams</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Demo 3: Audit & Compliance -->
+        <div class="demo-card">
+          <div class="demo-thumbnail">
+            <span class="demo-thumbnail-icon">📋</span>
+            <div class="demo-play-btn" onclick="openVideo('audit-compliance')">
+              <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+          </div>
+          <div class="demo-content">
+            <span class="demo-badge">For Compliance</span>
+            <h3 class="demo-title">Audit & Compliance</h3>
+            <p class="demo-description">
+              Generate cryptographically signed evidence packets for SOC 2, ISO 27001, and 
+              regulatory audits. See the immutable ledger and tamper-evident exports.
+            </p>
+            <div class="demo-meta">
+              <span>⏱️ 10 minutes</span>
+              <span>👥 CISO, Legal</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Demo 4: Industry Verticals -->
+        <div class="demo-card">
+          <div class="demo-thumbnail">
+            <span class="demo-thumbnail-icon">🏢</span>
+            <div class="demo-play-btn" onclick="openVideo('industry-verticals')">
+              <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+          </div>
+          <div class="demo-content">
+            <span class="demo-badge">Industry Focus</span>
+            <h3 class="demo-title">Industry Verticals</h3>
+            <p class="demo-description">
+              See how Datacendia adapts to Healthcare, Financial Services, and Aerospace/Defense. 
+              Different services, different compliance frameworks, same powerful platform.
+            </p>
+            <div class="demo-meta">
+              <span>⏱️ 10 minutes</span>
+              <span>👥 Domain Experts</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Demo 5: Technical Deep-Dive -->
+        <div class="demo-card">
+          <div class="demo-thumbnail">
+            <span class="demo-thumbnail-icon">⚙️</span>
+            <div class="demo-play-btn" onclick="openVideo('technical-deep-dive')">
+              <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+          </div>
+          <div class="demo-content">
+            <span class="demo-badge">Technical</span>
+            <h3 class="demo-title">Technical Deep-Dive</h3>
+            <p class="demo-description">
+              Architecture, deployment options, integrations, and security controls. 
+              For IT teams, enterprise architects, and security reviewers.
+            </p>
+            <div class="demo-meta">
+              <span>⏱️ 20 minutes</span>
+              <span>👥 IT, Architects</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- CTA -->
+      <div class="cta-box" style="margin-top: 4rem;">
+        <h3>Ready to See It Live?</h3>
+        <p>Request a personalized demo with your own data and use cases.</p>
+        <a href="briefing.html" class="cta-btn">Request Live Demo →</a>
+      </div>
+
+      <!-- Additional Resources -->
+      <div class="content-section" style="text-align: center; margin-top: 80px; padding-top: 40px; border-top: 1px solid var(--color-border);">
+        <p style="font-size: 0.85rem; color: var(--color-text-dim);">
+          Want to learn more? See our <a href="resources/the-council.html" style="color: var(--color-gold);">Council documentation</a> or <a href="resources/integration-honesty-matrix.html" style="color: var(--color-gold);">integration capabilities</a>.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Video Modal -->
+  <div class="video-modal" id="videoModal">
+    <div class="video-modal-content">
+      <button class="video-modal-close" onclick="closeVideo()">×</button>
+      <div id="videoContainer">
+        <!-- Video will be inserted here -->
+        <div class="coming-soon-overlay" id="comingSoonOverlay">
+          🎬 Demo video coming soon!<br>
+          <span style="font-size: 0.9rem; font-weight: normal; opacity: 0.7;">Request a live demo in the meantime.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="translations.js?v=6"></script>
+  <script src="app.js"></script>
+  <script>
+    // Video modal functionality
+    function openVideo(demoId) {
+      const modal = document.getElementById('videoModal');
+      const container = document.getElementById('videoContainer');
+      const overlay = document.getElementById('comingSoonOverlay');
+      
+      // For now, show coming soon overlay
+      // When videos are ready, replace with actual video embed
+      overlay.style.display = 'flex';
+      
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeVideo() {
+      const modal = document.getElementById('videoModal');
+      modal.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    // Close on escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeVideo();
+    });
+
+    // Close on backdrop click
+    document.getElementById('videoModal').addEventListener('click', (e) => {
+      if (e.target.id === 'videoModal') closeVideo();
+    });
+  </script>
+</body>
+</html>

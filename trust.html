@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trust Center — Datacendia | Security, Compliance & Data Handling</title>
+  <meta name="description" content="Datacendia Trust Center: security posture, deployment options (private VPC, on-premises, air-gapped), compliance roadmap (SOC 2 Type II, ISO 27001, GDPR, FedRAMP), data handling policies, and subprocessor information.">
+  <meta name="keywords" content="enterprise AI security, SOC 2 compliance, ISO 27001, GDPR compliance, FedRAMP, air-gapped deployment, data sovereignty, enterprise data handling, AI security posture, compliance roadmap">
+  <meta name="author" content="Datacendia">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Trust Center — Datacendia">
+  <meta property="og:description" content="Security posture, deployment options, and compliance roadmap for Datacendia's Sovereign Intelligence Platform.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://datacendia.com/trust.html">
+  <meta property="og:image" content="https://datacendia.com/og-image.png">
+  <meta property="og:site_name" content="Datacendia">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Trust Center — Datacendia">
+  <meta name="twitter:description" content="Security posture, deployment options, and compliance roadmap for enterprise AI.">
+  <meta name="twitter:image" content="https://datacendia.com/og-image.png">
+  <link rel="canonical" href="https://datacendia.com/trust.html">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <meta name="theme-color" content="#0a0a0a">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Trust Center",
+    "description": "Datacendia security posture, deployment options, and compliance roadmap",
+    "url": "https://datacendia.com/trust.html",
+    "mainEntity": {
+      "@type": "Organization",
+      "name": "Datacendia",
+      "url": "https://datacendia.com"
+    }
+  }
+  </script>
+  <style>
+    .page-container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 80px 24px;
+    }
+    .page-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+    .page-icon {
+      font-size: 2rem;
+      margin-bottom: 16px;
+    }
+    .page-title {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 300;
+      color: var(--color-text);
+      margin-bottom: 12px;
+    }
+    .page-subtitle {
+      font-size: 0.85rem;
+      color: var(--color-text-dim);
+      max-width: 500px;
+      margin: 0 auto;
+    }
+    .trust-section {
+      background: var(--color-card-bg);
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      padding: 32px;
+      margin-bottom: 24px;
+    }
+    .trust-section h2 {
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--color-gold);
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+    }
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+    .trust-item {
+      padding: 16px;
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+      border-radius: 6px;
+    }
+    .trust-item-title {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--color-text);
+      margin-bottom: 8px;
+    }
+    .trust-item-desc {
+      font-size: 0.8rem;
+      color: var(--color-text-muted);
+      line-height: 1.5;
+    }
+    .trust-item-status {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      padding: 4px 8px;
+      border-radius: 4px;
+      margin-top: 8px;
+    }
+    .status-live {
+      background: var(--color-green-dim);
+      color: var(--color-green);
+    }
+    .status-progress {
+      background: var(--color-amber-dim);
+      color: var(--color-amber);
+    }
+    .status-roadmap {
+      background: var(--color-tag-bg);
+      color: var(--color-text-dim);
+    }
+    .deployment-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .deployment-table th,
+    .deployment-table td {
+      padding: 12px 16px;
+      text-align: left;
+      font-size: 0.8rem;
+      border-bottom: 1px solid var(--color-border);
+    }
+    .deployment-table th {
+      color: var(--color-text-dim);
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-size: 0.7rem;
+    }
+    .deployment-table td {
+      color: var(--color-text-muted);
+    }
+    .deployment-table td:first-child {
+      color: var(--color-text);
+      font-weight: 500;
+    }
+    .data-list {
+      list-style: none;
+      padding: 0;
+    }
+    .data-list li {
+      display: flex;
+      justify-content: space-between;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--color-border);
+      font-size: 0.85rem;
+    }
+    .data-list li:last-child {
+      border-bottom: none;
+    }
+    .data-label {
+      color: var(--color-text-muted);
+    }
+    .data-value {
+      color: var(--color-text);
+      font-weight: 500;
+    }
+    .contact-box {
+      text-align: center;
+      padding: 32px;
+      background: var(--color-bg-elevated);
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      margin-top: 40px;
+    }
+    .contact-box p {
+      font-size: 0.9rem;
+      color: var(--color-text-muted);
+      margin-bottom: 16px;
+    }
+    .contact-box a {
+      color: var(--color-gold);
+      text-decoration: none;
+    }
+    .contact-box a:hover {
+      text-decoration: underline;
+    }
+    .back-link {
+      display: inline-block;
+      margin-bottom: 32px;
+      font-size: 0.75rem;
+      color: var(--color-text-dim);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+    .back-link:hover {
+      color: var(--color-gold);
+    }
+    @media (max-width: 600px) {
+      .trust-grid {
+        grid-template-columns: 1fr;
+      }
+      .deployment-table {
+        font-size: 0.75rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="page-container">
+      <div class="page-top-bar">
+        <a href="index.html" class="back-link" data-i18n="returnToDatacendia">← Return to Datacendia</a>
+        <div class="lang-selector">
+          <button class="lang-btn"><span class="lang-current">English</span> ▾</button>
+          <div class="lang-dropdown">
+            <button onclick="setLanguage('en')">English</button>
+            <button onclick="setLanguage('es')">Español</button>
+            <button onclick="setLanguage('fr')">Français</button>
+            <button onclick="setLanguage('de')">Deutsch</button>
+            <button onclick="setLanguage('pt')">Português</button>
+            <button onclick="setLanguage('it')">Italiano</button>
+            <button onclick="setLanguage('ja')">日本語</button>
+            <button onclick="setLanguage('ko')">한국어</button>
+            <button onclick="setLanguage('zh')">中文</button>
+            <button onclick="setLanguage('ar')">العربية</button>
+            <button onclick="setLanguage('hi')">हिन्दी</button>
+          </div>
+        </div>
+      </div>
+      <nav class="main-nav">
+        <a href="index.html" data-i18n="navHome">Home</a>
+        <a href="resources/index.html" data-i18n="navResources">Resources</a>
+        <a href="pricing.html" data-i18n="navPricing">Pricing</a>
+        <a href="pilot.html" data-i18n="navPilot">Pilot Program</a>
+        <a href="trust.html" class="active" data-i18n="navTrust">Trust</a>
+        <a href="briefing.html" data-i18n="navBriefing">Request Briefing</a>
+      </nav>
+      
+      <div class="page-header">
+        <div class="page-icon">🛡️</div>
+        <h1 class="page-title" data-i18n="trustCenterTitle">Trust Center</h1>
+        <p class="page-subtitle" data-i18n="trustCenterSubtitle">Our security posture, deployment options, and compliance roadmap — documented honestly.</p>
+      </div>
+
+      <div class="trust-section">
+        <h2 data-i18n="deploymentOptions">Deployment Options</h2>
+        <table class="deployment-table">
+          <thead>
+            <tr>
+              <th data-i18n="mode">Mode</th>
+              <th data-i18n="dataLocation">Data Location</th>
+              <th data-i18n="ourAccess">Our Access</th>
+              <th data-i18n="setupTime">Setup Time</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td data-i18n="privateCloudMode">Private Cloud</td>
+              <td data-i18n="yourVpc">Your VPC</td>
+              <td data-i18n="metadataOnly">Metadata only</td>
+              <td data-i18n="days">Days</td>
+            </tr>
+            <tr>
+              <td data-i18n="onPremises">On-Premises</td>
+              <td data-i18n="yourDataCenter">Your data center</td>
+              <td data-i18n="none">None</td>
+              <td data-i18n="weeks">Weeks</td>
+            </tr>
+            <tr>
+              <td data-i18n="airGappedMode">Air-Gapped</td>
+              <td data-i18n="isolatedNetwork">Isolated network</td>
+              <td data-i18n="none">None</td>
+              <td data-i18n="weeksPlus">Weeks+</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="trust-section">
+        <h2 data-i18n="dataHandling">Data Handling</h2>
+        <ul class="data-list">
+          <li>
+            <span class="data-label" data-i18n="dataIngested">Data ingested</span>
+            <span class="data-value" data-i18n="dataIngestedDesc">Read-only from your sources; we don't modify origin systems</span>
+          </li>
+          <li>
+            <span class="data-label" data-i18n="dataStored">Data stored</span>
+            <span class="data-value" data-i18n="dataStoredDesc">Evidence ledger + decision artifacts (encrypted at rest)</span>
+          </li>
+          <li>
+            <span class="data-label" data-i18n="dataRetention">Data retention</span>
+            <span class="data-value" data-i18n="dataRetentionDesc">Configurable; default 90 days for logs, indefinite for audit ledger</span>
+          </li>
+          <li>
+            <span class="data-label" data-i18n="dataExport">Data export</span>
+            <span class="data-value" data-i18n="dataExportDesc">Full export available anytime (JSON, PDF, raw artifacts)</span>
+          </li>
+          <li>
+            <span class="data-label" data-i18n="trainingOnData">Training on customer data</span>
+            <span class="data-value" data-i18n="trainingOnDataDesc">Never. Your data is not used for model training.</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="trust-section">
+        <h2 data-i18n="complianceRoadmap">Compliance Roadmap</h2>
+        <p style="font-size: 0.7rem; color: var(--color-text-dim); margin-bottom: 16px;">Last updated: 2025-12-23</p>
+        <div class="trust-grid">
+          <div class="trust-item">
+            <div class="trust-item-title">SOC 2 Type II</div>
+            <div class="trust-item-desc" data-i18n="soc2Desc">Control mapping complete. Evidence collection in progress.</div>
+            <span class="trust-item-status status-progress" data-i18n="soc2Status">Target Q2 2026 (as of Dec 2025)</span>
+          </div>
+          <div class="trust-item">
+            <div class="trust-item-title">ISO 27001</div>
+            <div class="trust-item-desc" data-i18n="iso27001Desc">Gap assessment complete. Implementation roadmap defined.</div>
+            <span class="trust-item-status status-roadmap" data-i18n="iso27001Status">Target H2 2026 (as of Dec 2025)</span>
+          </div>
+          <div class="trust-item">
+            <div class="trust-item-title">GDPR</div>
+            <div class="trust-item-desc" data-i18n="gdprDesc">Data processing controls implemented. DPA available on request.</div>
+            <span class="trust-item-status status-live" data-i18n="gdprStatus">Aligned</span>
+          </div>
+          <div class="trust-item">
+            <div class="trust-item-title">FedRAMP</div>
+            <div class="trust-item-desc" data-i18n="fedRampDesc">Architecture designed to FedRAMP Moderate controls.</div>
+            <span class="trust-item-status status-roadmap" data-i18n="fedRampStatus">Control-Ready</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="trust-section">
+        <h2 data-i18n="subprocessors">Subprocessors</h2>
+        <p style="font-size: 0.85rem; color: var(--color-text-muted); line-height: 1.6;">
+          <strong style="color: var(--color-text);" data-i18n="subprocessorsOnPrem">Private Cloud / On-Prem / Air-Gapped:</strong> <span data-i18n="subprocessorsOnPremDesc">No subprocessors. All processing occurs within your environment.</span>
+        </p>
+      </div>
+
+      <div class="trust-section">
+        <h2>Distribution vs Data Processing</h2>
+        <p style="font-size: 0.85rem; color: var(--color-text-muted); line-height: 1.6; margin-bottom: 16px;">
+          Datacendia separates <strong style="color: var(--color-text);">software distribution</strong> from <strong style="color: var(--color-text);">data processing</strong>:
+        </p>
+        <ul class="data-list">
+          <li>
+            <span class="data-label">Software distribution</span>
+            <span class="data-value">Available via AWS Marketplace (procurement/delivery channel only)</span>
+          </li>
+          <li>
+            <span class="data-label">Runtime location</span>
+            <span class="data-value">Your infrastructure (on-prem, private cloud, or air-gapped)</span>
+          </li>
+          <li>
+            <span class="data-label">Customer data hosting</span>
+            <span class="data-value">Never hosted by Datacendia — stays in your environment</span>
+          </li>
+          <li>
+            <span class="data-label">Air-gapped updates</span>
+            <span class="data-value">Offline install bundles available; no outbound connectivity required</span>
+          </li>
+          <li>
+            <span class="data-label">Telemetry / call-home</span>
+            <span class="data-value">None required; license validation supports offline mode</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="trust-section">
+        <h2>Retention & Deletion</h2>
+        <p style="font-size: 0.85rem; color: var(--color-text-muted); line-height: 1.6; margin-bottom: 16px;">
+          Retention policies are configurable per deployment. Default settings:
+        </p>
+        <ul class="data-list">
+          <li>
+            <span class="data-label">Operational logs</span>
+            <span class="data-value">90 days default (configurable 30–365 days)</span>
+          </li>
+          <li>
+            <span class="data-label">Audit ledger (decisions)</span>
+            <span class="data-value">Immutable by design; retention customer-controlled</span>
+          </li>
+          <li>
+            <span class="data-label">Evidence packets</span>
+            <span class="data-value">Retained until customer-initiated purge</span>
+          </li>
+          <li>
+            <span class="data-label">Personal data separation</span>
+            <span class="data-value">PII can be purged independently of audit metadata</span>
+          </li>
+          <li>
+            <span class="data-label">Customer-controlled deletion</span>
+            <span class="data-value">Full data export + deletion available on request</span>
+          </li>
+        </ul>
+        <p style="font-size: 0.75rem; color: var(--color-text-dim); margin-top: 12px;">
+          Note: "Immutable" refers to tamper-evidence (append-only with cryptographic hashing), not inability to delete. Customers can purge data per their retention schedules while maintaining audit integrity hashes.
+        </p>
+      </div>
+
+      <div class="trust-section">
+        <h2>Shared Responsibility Model</h2>
+        <p style="font-size: 0.85rem; color: var(--color-text-muted); line-height: 1.6; margin-bottom: 16px;">
+          Security responsibilities vary by deployment mode:
+        </p>
+        <table class="deployment-table">
+          <thead>
+            <tr>
+              <th>Responsibility</th>
+              <th>Air-Gapped / On-Prem</th>
+              <th>Private Cloud (VPC)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Infrastructure security</td>
+              <td>Customer</td>
+              <td>Customer + Cloud Provider</td>
+            </tr>
+            <tr>
+              <td>Network security</td>
+              <td>Customer</td>
+              <td>Customer</td>
+            </tr>
+            <tr>
+              <td>Identity & access (IAM)</td>
+              <td>Customer</td>
+              <td>Customer</td>
+            </tr>
+            <tr>
+              <td>Encryption keys (KMS/HSM)</td>
+              <td>Customer</td>
+              <td>Customer</td>
+            </tr>
+            <tr>
+              <td>Application updates</td>
+              <td>Customer (offline bundles)</td>
+              <td>Customer (with Datacendia support)</td>
+            </tr>
+            <tr>
+              <td>Application security</td>
+              <td>Datacendia</td>
+              <td>Datacendia</td>
+            </tr>
+            <tr>
+              <td>Vulnerability patching</td>
+              <td>Datacendia (provides patches)</td>
+              <td>Datacendia (provides patches)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="trust-section" id="vulnerability-disclosure">
+        <h2>Vulnerability Disclosure Policy</h2>
+        <p style="font-size: 0.85rem; color: var(--color-text-muted); line-height: 1.6; margin-bottom: 16px;">
+          We appreciate responsible disclosure of security vulnerabilities.
+        </p>
+        <ul class="data-list">
+          <li>
+            <span class="data-label">Report to</span>
+            <span class="data-value"><a href="mailto:security@datacendia.com" style="color: var(--color-gold);">security@datacendia.com</a></span>
+          </li>
+          <li>
+            <span class="data-label">Acknowledgment</span>
+            <span class="data-value">Within 48 hours</span>
+          </li>
+          <li>
+            <span class="data-label">Status updates</span>
+            <span class="data-value">Regular updates during remediation</span>
+          </li>
+          <li>
+            <span class="data-label">Safe harbor</span>
+            <span class="data-value">No legal action for good-faith research</span>
+          </li>
+        </ul>
+        <p style="font-size: 0.75rem; color: var(--color-text-dim); margin-top: 12px;">
+          See <a href="/.well-known/security.txt" style="color: var(--color-gold);">security.txt</a> for machine-readable disclosure information.
+        </p>
+      </div>
+
+      <div class="contact-box">
+        <p data-i18n="securityContact">Need to complete a security questionnaire or schedule a security review?</p>
+        <p><a href="mailto:contact@datacendia.com">contact@datacendia.com</a></p>
+        <p style="font-family: var(--font-mono); font-size: 0.7rem; color: #2ecc71; margin-top: 16px; letter-spacing: 0.05em;">SYSTEM STATUS: AIR-GAP READY · NO TRACKER PIXELS DETECTED</p>
+      </div>
+    </div>
+  </div>
+  <script src="translations.js?v=6"></script>
+  <script src="app.js"></script>
+</body>
+</html>

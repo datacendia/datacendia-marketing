@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sovereign Architecture & Control Mapping — Datacendia</title>
+  <meta name="description" content="Datacendia security control mapping aligned with SOC 2 Type II (TSC 2017) and NIST 800-53. Architecture-ready documentation for enterprise security review.">
+  <meta name="keywords" content="SOC 2 controls, NIST 800-53, enterprise security, air-gapped AI, sovereign architecture, security control mapping">
+  <meta name="author" content="Datacendia">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Sovereign Architecture & Control Mapping — Datacendia">
+  <meta property="og:description" content="SOC 2 Type II and NIST 800-53 alignment for sovereign enterprise AI.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://datacendia.com/security-controls.html">
+  <meta property="og:image" content="https://datacendia.com/og-image.png">
+  <meta property="og:site_name" content="Datacendia">
+  <link rel="canonical" href="https://datacendia.com/security-controls.html">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <meta name="theme-color" content="#0a0a0a">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .page-container {
+      max-width: 950px;
+      margin: 0 auto;
+      padding: 80px 24px;
+    }
+    .page-header {
+      text-align: center;
+      margin-bottom: 48px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid var(--color-border);
+    }
+    .page-icon {
+      font-size: 2rem;
+      margin-bottom: 16px;
+    }
+    .page-title {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 300;
+      color: var(--color-text);
+      margin-bottom: 8px;
+    }
+    .page-subtitle {
+      font-size: 0.9rem;
+      color: var(--color-text-muted);
+      margin-bottom: 16px;
+    }
+    .status-badge {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      padding: 6px 12px;
+      background: linear-gradient(135deg, rgba(212, 175, 55, 0.15) 0%, rgba(212, 175, 55, 0.05) 100%);
+      border: 1px solid var(--color-gold);
+      border-radius: 4px;
+      color: var(--color-gold);
+    }
+    .intro-box {
+      background: var(--color-card-bg);
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      padding: 24px 32px;
+      margin-bottom: 48px;
+      text-align: center;
+    }
+    .intro-box p {
+      font-size: 0.9rem;
+      color: var(--color-text-muted);
+      line-height: 1.7;
+      font-style: italic;
+    }
+    .control-section {
+      margin-bottom: 48px;
+    }
+    .section-header {
+      margin-bottom: 24px;
+    }
+    .section-number {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--color-gold);
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      margin-bottom: 8px;
+    }
+    .section-title {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      font-weight: 400;
+      color: var(--color-text);
+      margin-bottom: 8px;
+    }
+    .section-desc {
+      font-size: 0.85rem;
+      color: var(--color-text-dim);
+    }
+    .control-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--color-card-bg);
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .control-table thead {
+      background: var(--color-bg);
+    }
+    .control-table th {
+      text-align: left;
+      font-size: 0.65rem;
+      font-weight: 500;
+      color: var(--color-text-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--color-border);
+    }
+    .control-table th:first-child {
+      width: 100px;
+    }
+    .control-table th:nth-child(2) {
+      width: 200px;
+    }
+    .control-table td {
+      padding: 20px;
+      border-bottom: 1px solid var(--color-border);
+      vertical-align: top;
+    }
+    .control-table tr:last-child td {
+      border-bottom: none;
+    }
+    .control-id {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      color: var(--color-gold);
+      font-weight: 500;
+    }
+    .control-req {
+      font-size: 0.85rem;
+      color: var(--color-text);
+      font-weight: 500;
+      margin-bottom: 4px;
+    }
+    .control-req-desc {
+      font-size: 0.8rem;
+      color: var(--color-text-dim);
+    }
+    .control-impl {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--color-text-muted);
+      line-height: 1.6;
+    }
+    .control-impl strong {
+      color: var(--color-gold);
+      font-weight: 500;
+    }
+    .shared-responsibility {
+      background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(212, 175, 55, 0.02) 100%);
+      border: 1px solid var(--color-gold);
+      border-radius: 8px;
+      padding: 32px;
+      margin-top: 48px;
+    }
+    .shared-responsibility h2 {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: var(--color-text);
+      margin-bottom: 24px;
+    }
+    .responsibility-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+    .responsibility-col h3 {
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--color-gold);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 12px;
+    }
+    .responsibility-col ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .responsibility-col li {
+      font-size: 0.85rem;
+      color: var(--color-text-muted);
+      padding: 8px 0;
+      border-bottom: 1px solid var(--color-border);
+    }
+    .responsibility-col li:last-child {
+      border-bottom: none;
+    }
+    .version-footer {
+      text-align: center;
+      margin-top: 48px;
+      padding-top: 32px;
+      border-top: 1px solid var(--color-border);
+    }
+    .version-footer p {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--color-text-dim);
+    }
+    .back-link {
+      display: inline-block;
+      margin-bottom: 32px;
+      font-size: 0.75rem;
+      color: var(--color-text-dim);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+    .back-link:hover {
+      color: var(--color-gold);
+    }
+    @media (max-width: 768px) {
+      .control-table {
+        display: block;
+        overflow-x: auto;
+      }
+      .responsibility-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .physics-callout {
+      background: linear-gradient(135deg, rgba(46, 204, 113, 0.12) 0%, rgba(46, 204, 113, 0.03) 100%);
+      border: 1px solid rgba(46, 204, 113, 0.4);
+      border-radius: 8px;
+      padding: 32px;
+      margin-bottom: 48px;
+    }
+    .physics-callout h2 {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: #2ecc71;
+      margin-bottom: 16px;
+    }
+    .physics-callout p {
+      font-size: 0.9rem;
+      color: var(--color-text-muted);
+      line-height: 1.7;
+      margin-bottom: 12px;
+    }
+    .physics-callout p:last-child {
+      margin-bottom: 0;
+    }
+    .physics-callout strong {
+      color: var(--color-text);
+    }
+    .physics-callout em {
+      color: #2ecc71;
+      font-style: normal;
+      font-weight: 500;
+    }
+    .warranty-section {
+      background: var(--color-card-bg);
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      padding: 32px;
+      margin-top: 48px;
+      margin-bottom: 48px;
+    }
+    .warranty-section h2 {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: var(--color-text);
+      margin-bottom: 8px;
+    }
+    .warranty-section .section-desc {
+      margin-bottom: 24px;
+    }
+    .warranty-box {
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+      border-radius: 6px;
+      padding: 24px;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--color-text-muted);
+      line-height: 1.7;
+    }
+    .warranty-box strong {
+      color: var(--color-gold);
+    }
+    .roadmap-section {
+      background: linear-gradient(135deg, rgba(212, 175, 55, 0.08) 0%, rgba(212, 175, 55, 0.02) 100%);
+      border: 1px solid var(--color-gold-border);
+      border-radius: 8px;
+      padding: 24px 32px;
+      margin-bottom: 48px;
+    }
+    .roadmap-section h3 {
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--color-gold);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 12px;
+    }
+    .roadmap-section p {
+      font-size: 0.85rem;
+      color: var(--color-text-muted);
+      line-height: 1.6;
+    }
+    .roadmap-section strong {
+      color: var(--color-text);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="page-container">
+      <div class="page-top-bar">
+        <a href="index.html" class="back-link">← Return to Datacendia</a>
+        <div class="lang-selector">
+          <button class="lang-btn"><span class="lang-current">English</span> ▾</button>
+          <div class="lang-dropdown">
+            <button onclick="setLanguage('en')">English</button>
+            <button onclick="setLanguage('es')">Español</button>
+            <button onclick="setLanguage('fr')">Français</button>
+            <button onclick="setLanguage('de')">Deutsch</button>
+            <button onclick="setLanguage('pt')">Português</button>
+            <button onclick="setLanguage('it')">Italiano</button>
+            <button onclick="setLanguage('ja')">日本語</button>
+            <button onclick="setLanguage('ko')">한국어</button>
+            <button onclick="setLanguage('zh')">中文</button>
+            <button onclick="setLanguage('ar')">العربية</button>
+            <button onclick="setLanguage('hi')">हिन्दी</button>
+          </div>
+        </div>
+      </div>
+      <nav class="main-nav">
+        <a href="index.html">Home</a>
+        <a href="resources/index.html">Resources</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="pilot.html">Pilot Program</a>
+        <a href="trust.html">Trust</a>
+        <a href="briefing.html">Request Briefing</a>
+      </nav>
+      
+      <div class="page-header">
+        <div class="page-icon">🛡️</div>
+        <h1 class="page-title">Datacendia Sovereign Architecture & Control Mapping</h1>
+        <p class="page-subtitle">Alignment with SOC 2 Type II (TSC 2017) and NIST 800-53</p>
+        <span class="status-badge">Status: Architecture-Ready (Pre-Audit)</span>
+      </div>
+
+      <div class="intro-box">
+        <p>This document provides detailed control mapping for enterprise security review. Formal SOC 2 Type II attestation is in progress (target Q2 2026).</p>
+      </div>
+
+      <!-- Architecture Context -->
+      <div class="physics-callout">
+        <h2>Why Sovereign Architecture Changes the Security Model</h2>
+        <p>
+          Traditional SOC 2 validates that a <strong>SaaS vendor protects customer data in their custody</strong>. It answers: "Can we trust this company with our information?"
+        </p>
+        <p>
+          Datacendia deploys on <em>your infrastructure</em>. In on-prem and air-gapped configurations, customer data never enters Datacendia systems—changing the trust model fundamentally. Your security team controls the perimeter, the keys, and the audit logs.
+        </p>
+        <p>
+          This document maps our software controls to SOC 2 and NIST 800-53 frameworks, demonstrating alignment with enterprise security requirements. For clients requiring formal third-party attestation, we are pursuing SOC 2 Type II certification (see roadmap below).
+        </p>
+      </div>
+
+      <!-- SOC 2 Roadmap -->
+      <div class="roadmap-section">
+        <h3>Formal Audit Roadmap</h3>
+        <p>
+          Datacendia is in the <strong>SOC 2 Readiness Phase</strong> with control mapping complete. We have engaged a compliance automation partner and are targeting a <strong>SOC 2 Type II audit in Q2 2026</strong>. In the interim, this Control Mapping serves as our self-attestation of architecture compliance.
+        </p>
+      </div>
+
+      <!-- Section 1: Core Security Controls (CC Series) -->
+      <div class="control-section">
+        <div class="section-header">
+          <div class="section-number">Section 1</div>
+          <h2 class="section-title">Core Security Controls</h2>
+          <p class="section-desc">SOC 2 - CC Series · Protecting the system against unauthorized access</p>
+        </div>
+        <table class="control-table">
+          <thead>
+            <tr>
+              <th>Control ID</th>
+              <th>Requirement</th>
+              <th>Datacendia Sovereign Implementation</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="control-id">CC6.1</span></td>
+              <td>
+                <div class="control-req">Logical Access Security</div>
+                <div class="control-req-desc">Restrict access to authorized users only.</div>
+              </td>
+              <td class="control-impl">
+                <strong>Physical Air-Gap & Local Auth:</strong> System runs on client-controlled hardware ("Your Metal"). No cloud login portal exists. Access is governed by client's local Active Directory (LDAP/SAML) via the CendiaHelm interface.
+              </td>
+            </tr>
+            <tr>
+              <td><span class="control-id">CC6.7</span></td>
+              <td>
+                <div class="control-req">Data Transmission</div>
+                <div class="control-req-desc">Protect data during transmission.</div>
+              </td>
+              <td class="control-impl">
+                <strong>Optical Diode Protocol:</strong> Data ingestion is unidirectional. The Air-Gap Protocol ensures no data exfiltrates to public internet. All internal agent-to-agent traffic occurs over local encrypted memory buses, not HTTP.
+              </td>
+            </tr>
+            <tr>
+              <td><span class="control-id">CC7.1</span></td>
+              <td>
+                <div class="control-req">Detection of Anomalies</div>
+                <div class="control-req-desc">Monitor for malicious activity.</div>
+              </td>
+              <td class="control-impl">
+                <strong>CendiaHealth Drift Detector:</strong> Continuous monitoring of agent behavior against baseline logic. RedTeam Module actively probes for hallucinations or logic drift during deliberation.
+              </td>
+            </tr>
+            <tr>
+              <td><span class="control-id">CC8.1</span></td>
+              <td>
+                <div class="control-req">Change Management</div>
+                <div class="control-req-desc">Authorize changes to software/data.</div>
+              </td>
+              <td class="control-impl">
+                <strong>Immutable Model Weights:</strong> Core model weights are hash-verified at boot. Any modification to the inference engine triggers a CendiaGuard lockout until re-authorized by an admin key.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Section 2: Confidentiality Controls -->
+      <div class="control-section">
+        <div class="section-header">
+          <div class="section-number">Section 2</div>
+          <h2 class="section-title">Confidentiality Controls</h2>
+          <p class="section-desc">SOC 2 - C Series · How do you keep secrets? (Critical for Banks/Defense)</p>
+        </div>
+        <table class="control-table">
+          <thead>
+            <tr>
+              <th>Control ID</th>
+              <th>Requirement</th>
+              <th>Datacendia Sovereign Implementation</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="control-id">C1.1</span></td>
+              <td>
+                <div class="control-req">Confidentiality of Data</div>
+                <div class="control-req-desc">Identify and protect sensitive data.</div>
+              </td>
+              <td class="control-impl">
+                <strong>CendiaAnonymizer Cortex:</strong> PII is stripped/masked before entering the context window. Shadow Mode Shredder cryptographically deletes temporary deliberation logs (RAM) after the final decision is reached.
+              </td>
+            </tr>
+            <tr>
+              <td><span class="control-id">C1.2</span></td>
+              <td>
+                <div class="control-req">Disposal of Data</div>
+                <div class="control-req-desc">Securely destroy data when no longer needed.</div>
+              </td>
+              <td class="control-impl">
+                <strong>Ephemeral Inference:</strong> "Shadow Mode" data exists only in volatile RAM. Upon session termination, the memory space is overwritten. Only the final CendiaWitness evidence packet is written to disk.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Section 3: Processing Integrity Controls -->
+      <div class="control-section">
+        <div class="section-header">
+          <div class="section-number">Section 3</div>
+          <h2 class="section-title">Processing Integrity Controls</h2>
+          <p class="section-desc">SOC 2 - PI Series · Proving your AI isn't just making things up (Critical for Decision Intelligence)</p>
+        </div>
+        <table class="control-table">
+          <thead>
+            <tr>
+              <th>Control ID</th>
+              <th>Requirement</th>
+              <th>Datacendia Sovereign Implementation</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="control-id">PI1.1</span></td>
+              <td>
+                <div class="control-req">Completeness & Accuracy</div>
+                <div class="control-req-desc">Ensure processing is valid and complete.</div>
+              </td>
+              <td class="control-impl">
+                <strong>CendiaLineage Source Attribution:</strong> Every output token is tagged with its source data ID. CendiaChronos allows replay of the exact system state at T-1 to verify the input data matched the decision.
+              </td>
+            </tr>
+            <tr>
+              <td><span class="control-id">PI1.2</span></td>
+              <td>
+                <div class="control-req">Error Handling</div>
+                <div class="control-req-desc">Detect and manage processing errors.</div>
+              </td>
+              <td class="control-impl">
+                <strong>CendiaVeto Governance Gate:</strong> A deterministic logic layer (not LLM-based) that blocks any output violating hard-coded risk policies (e.g., "Loan APR > 15%").
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Section 4: NIST 800-53 Mapping -->
+      <div class="control-section">
+        <div class="section-header">
+          <div class="section-number">Section 4</div>
+          <h2 class="section-title">NIST 800-53 Mapping</h2>
+          <p class="section-desc">For Defense & Government Clients</p>
+        </div>
+        <table class="control-table">
+          <thead>
+            <tr>
+              <th>NIST Control</th>
+              <th>Requirement</th>
+              <th>Datacendia Implementation</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="control-id">AC-3</span></td>
+              <td>
+                <div class="control-req">Access Enforcement</div>
+              </td>
+              <td class="control-impl">
+                <strong>Sovereign Deployment:</strong> Client owns the hardware. Datacendia has zero remote access/backdoor capability.
+              </td>
+            </tr>
+            <tr>
+              <td><span class="control-id">AU-3</span></td>
+              <td>
+                <div class="control-req">Content of Audit Records</div>
+              </td>
+              <td class="control-impl">
+                <strong>CendiaWitness Ledger:</strong> Logs user ID, timestamp, agent votes, dissent logs, and final output hash.
+              </td>
+            </tr>
+            <tr>
+              <td><span class="control-id">SC-7</span></td>
+              <td>
+                <div class="control-req">Boundary Protection</div>
+              </td>
+              <td class="control-impl">
+                <strong>Air-Gap Ready:</strong> Architecture supports total physical isolation (SCIF compatible).
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Section 5: Shared Responsibility -->
+      <div class="shared-responsibility">
+        <h2>Shared Responsibility Model</h2>
+        <p style="font-size: 0.85rem; color: var(--color-text-dim); margin-bottom: 24px; font-style: italic;">"We build the vault, you hold the key."</p>
+        <div class="responsibility-grid">
+          <div class="responsibility-col">
+            <h3>Datacendia Responsibility</h3>
+            <ul>
+              <li>Integrity of the software code</li>
+              <li>Agent logic architecture</li>
+              <li>Evidence generation (CendiaWitness)</li>
+              <li>Vulnerability patching (releases)</li>
+              <li>Documentation accuracy</li>
+            </ul>
+          </div>
+          <div class="responsibility-col">
+            <h3>Client Responsibility</h3>
+            <ul>
+              <li>Physical security of the hardware ("The Metal")</li>
+              <li>Operating system patching</li>
+              <li>Local user access management</li>
+              <li>Network perimeter security</li>
+              <li>Backup and disaster recovery</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 6: Contractual Warranty -->
+      <div class="warranty-section">
+        <h2>Contractual No-Access Warranty</h2>
+        <p class="section-desc">For clients requiring formal legal assurance, we offer the following warranty clause for inclusion in your Master Services Agreement. This provides legal recourse superior to an audit opinion.</p>
+        <div class="warranty-box">
+          <strong>SECTION X. DATA SOVEREIGNTY WARRANTY</strong><br><br>
+          Licensor represents and warrants that:<br><br>
+          (a) The Software operates exclusively on hardware owned or controlled by Licensee ("Client Infrastructure");<br><br>
+          (b) Licensor has designed the Software with <strong>no remote access capabilities</strong>, no telemetry transmission, and no data exfiltration pathways to Licensor systems or any third party;<br><br>
+          (c) Licensor personnel have <strong>no ability to access, view, copy, or retrieve</strong> any Licensee Data processed by the Software, whether through technical means, administrative backdoors, or otherwise;<br><br>
+          (d) All encryption keys used by the Software are generated, stored, and controlled exclusively by Licensee using Licensee's key management infrastructure;<br><br>
+          (e) In the event of any breach of the foregoing warranties, Licensee shall be entitled to immediate termination, full refund of fees paid, and pursuit of damages under applicable law.<br><br>
+          <strong>This warranty survives termination of the Agreement.</strong>
+        </div>
+      </div>
+
+      <div class="version-footer">
+        <p>Datacendia_Security_Control_Map_v1.0 · December 2025</p>
+        <p style="margin-top: 8px;"><a href="mailto:security@datacendia.com" style="color: var(--color-gold); text-decoration: none;">security@datacendia.com</a> · <a href="trust.html" style="color: var(--color-gold); text-decoration: none;">Trust Center</a> · <a href="protocol.html" style="color: var(--color-gold); text-decoration: none;">Architecture Protocol</a></p>
+        <p style="font-family: var(--font-mono); font-size: 0.7rem; color: #2ecc71; margin-top: 16px; letter-spacing: 0.05em;">SYSTEM STATUS: AIR-GAP READY · NO TRACKER PIXELS DETECTED</p>
+      </div>
+
+    </div>
+  </div>
+  <script src="translations.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

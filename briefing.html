@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Request Sensitive Briefing — Datacendia | Enterprise AI Security Consultation</title>
+  <meta name="description" content="Request a confidential technical briefing on Datacendia's Sovereign Intelligence Platform. Tailored to your security requirements—enterprise, critical infrastructure, or air-gapped deployments.">
+  <meta name="keywords" content="enterprise AI briefing, sovereign AI consultation, air-gapped AI deployment, secure AI platform, enterprise security briefing, AI infrastructure consultation">
+  <meta name="author" content="Datacendia">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Request Sensitive Briefing — Datacendia">
+  <meta property="og:description" content="Request a confidential technical briefing on sovereign AI infrastructure tailored to your security requirements.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://datacendia.com/briefing.html">
+  <meta property="og:image" content="https://datacendia.com/og-image.png">
+  <meta property="og:site_name" content="Datacendia">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Request Sensitive Briefing — Datacendia">
+  <meta name="twitter:description" content="Request a confidential technical briefing on sovereign AI infrastructure.">
+  <meta name="twitter:image" content="https://datacendia.com/og-image.png">
+  <link rel="canonical" href="https://datacendia.com/briefing.html">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <meta name="theme-color" content="#0a0a0a">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "name": "Request Sensitive Briefing",
+    "description": "Request a confidential technical briefing on Datacendia's Sovereign Intelligence Platform",
+    "url": "https://datacendia.com/briefing.html",
+    "mainEntity": {
+      "@type": "Organization",
+      "name": "Datacendia",
+      "url": "https://datacendia.com"
+    }
+  }
+  </script>
+  <style>
+    .briefing-container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 80px 24px;
+    }
+
+    .briefing-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .briefing-icon {
+      font-size: 2rem;
+      margin-bottom: 16px;
+    }
+
+    .briefing-title {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 300;
+      color: var(--color-text);
+      margin-bottom: 12px;
+    }
+
+    .briefing-subtitle {
+      font-size: 0.85rem;
+      color: var(--color-text-dim);
+      line-height: 1.6;
+    }
+
+    .briefing-form {
+      background: var(--color-card-bg);
+      border: 1px solid var(--color-border);
+      padding: 40px;
+      border-radius: 8px;
+    }
+
+    .form-group {
+      margin-bottom: 24px;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--color-text-muted);
+      margin-bottom: 8px;
+    }
+
+    .form-input,
+    .form-select,
+    .form-textarea {
+      width: 100%;
+      padding: 12px 16px;
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+      color: var(--color-text);
+      border-radius: 4px;
+      transition: border-color 0.2s ease;
+    }
+
+    .form-input:focus,
+    .form-select:focus,
+    .form-textarea:focus {
+      outline: none;
+      border-color: var(--color-gold);
+    }
+
+    .form-select {
+      cursor: pointer;
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23888' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 16px center;
+    }
+
+    .form-select option {
+      background: var(--color-bg);
+      color: var(--color-text);
+    }
+
+    .form-textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .submit-btn {
+      width: 100%;
+      padding: 16px 24px;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      background: transparent;
+      border: 1px solid var(--color-gold);
+      color: var(--color-gold);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      margin-top: 16px;
+    }
+
+    .submit-btn:hover {
+      background: var(--color-gold-dim);
+    }
+
+    .classification-note {
+      font-size: 0.7rem;
+      color: var(--color-text-dim);
+      font-style: italic;
+      margin-top: 8px;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-bottom: 32px;
+      font-size: 0.75rem;
+      color: var(--color-text-dim);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .back-link:hover {
+      color: var(--color-gold);
+    }
+
+    .security-badge {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 24px;
+      padding-top: 24px;
+      border-top: 1px solid var(--color-border);
+      font-size: 0.7rem;
+      color: var(--color-text-dim);
+    }
+
+    .security-badge span {
+      color: var(--color-green);
+    }
+
+    .submit-btn:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    .form-status {
+      text-align: center;
+      padding: 20px;
+      border-radius: 6px;
+      margin-top: 16px;
+      font-size: 0.85rem;
+    }
+
+    .form-status.success {
+      background: var(--color-green-dim);
+      color: var(--color-green);
+      border: 1px solid var(--color-green);
+    }
+
+    .form-status.error {
+      background: var(--color-red-dim);
+      color: var(--color-red);
+      border: 1px solid var(--color-red);
+    }
+
+    .form-hidden {
+      display: none;
+    }
+
+    @media (max-width: 600px) {
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+      
+      .briefing-form {
+        padding: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="briefing-container">
+      <div class="page-top-bar">
+        <a href="index.html" class="back-link" data-i18n="returnToDatacendia">← Return to Datacendia</a>
+        <div class="lang-selector">
+          <button class="lang-btn"><span class="lang-current">English</span> ▾</button>
+          <div class="lang-dropdown">
+            <button onclick="setLanguage('en')">English</button>
+            <button onclick="setLanguage('es')">Español</button>
+            <button onclick="setLanguage('fr')">Français</button>
+            <button onclick="setLanguage('de')">Deutsch</button>
+            <button onclick="setLanguage('pt')">Português</button>
+            <button onclick="setLanguage('it')">Italiano</button>
+            <button onclick="setLanguage('ja')">日本語</button>
+            <button onclick="setLanguage('ko')">한국어</button>
+            <button onclick="setLanguage('zh')">中文</button>
+            <button onclick="setLanguage('ar')">العربية</button>
+            <button onclick="setLanguage('hi')">हिन्दी</button>
+          </div>
+        </div>
+      </div>
+      <nav class="main-nav">
+        <a href="index.html" data-i18n="navHome">Home</a>
+        <a href="resources/index.html" data-i18n="navResources">Resources</a>
+        <a href="pricing.html" data-i18n="navPricing">Pricing</a>
+        <a href="pilot.html" data-i18n="navPilot">Pilot Program</a>
+        <a href="trust.html" data-i18n="navTrust">Trust</a>
+        <a href="briefing.html" class="active" data-i18n="navBriefing">Request Briefing</a>
+      </nav>
+      
+      <div class="briefing-header">
+        <div class="briefing-icon">🔒</div>
+        <h1 class="briefing-title" data-i18n="requestSensitiveBriefing">Request Sensitive Briefing</h1>
+        <p class="briefing-subtitle" data-i18n="briefingSubtitle">This is not a sales call. This is a technical briefing on sovereign AI infrastructure, tailored to your security requirements.</p>
+      </div>
+
+      <form class="briefing-form" id="briefing-form" action="https://formspree.io/f/xrezegnn" method="POST">
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="name" data-i18n="formName">Name</label>
+            <input type="text" id="name" name="name" class="form-input" required placeholder="Full name" data-i18n-placeholder="placeholderFullName">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="title" data-i18n="formTitle">Title</label>
+            <input type="text" id="title" name="title" class="form-input" required placeholder="e.g., CISO, VP Engineering" data-i18n-placeholder="placeholderTitle">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="organization" data-i18n="formOrganization">Organization</label>
+          <input type="text" id="organization" name="organization" class="form-input" required placeholder="Company or agency name" data-i18n-placeholder="placeholderOrganization">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="email" data-i18n="formSecureEmail">Secure Email</label>
+          <input type="email" id="email" name="email" class="form-input" required placeholder="work@organization.com" data-i18n-placeholder="placeholderEmail">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="environment" data-i18n="formSecurityEnvironment">Security Environment</label>
+          <select id="environment" name="environment" class="form-select" required>
+            <option value="" disabled selected data-i18n="selectEnvironment">Select your environment</option>
+            <option value="enterprise" data-i18n="envEnterprise">Enterprise (Networked)</option>
+            <option value="critical-infrastructure" data-i18n="envCriticalInfra">Critical Infrastructure (Private VPC)</option>
+            <option value="sovereign" data-i18n="envSovereign">Sovereign / Air-Gapped (Offline)</option>
+          </select>
+          <p class="classification-note" data-i18n="formEnvironmentNote">This helps us prepare appropriate deployment options.</p>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="context" data-i18n="formBriefingContext">Briefing Context (Optional)</label>
+          <textarea id="context" name="context" class="form-textarea" placeholder="What specific capabilities or deployment scenarios are you evaluating?" data-i18n-placeholder="placeholderContext"></textarea>
+        </div>
+
+        <button type="submit" class="submit-btn" id="submit-btn" data-i18n="initializeBriefing">Initialize Briefing Protocol →</button>
+
+        <div id="form-status" class="form-status form-hidden"></div>
+
+        <div class="security-badge">
+          <span>🔒</span> <span data-i18n="securityBadgeText">TLS-encrypted submission • No tracking • No marketing follow-ups</span>
+        </div>
+      </form>
+
+      <script>
+        const form = document.getElementById('briefing-form');
+        const submitBtn = document.getElementById('submit-btn');
+        const statusDiv = document.getElementById('form-status');
+
+        const getTranslation = (key, fallback) => {
+          const lang = localStorage.getItem('datacendia-lang') || 'en';
+          const t = (typeof translations !== 'undefined' && translations[lang]) ? translations[lang] : null;
+          return (t && t[key]) ? t[key] : fallback;
+        };
+
+        form.addEventListener('submit', async (e) => {
+          e.preventDefault();
+          
+          submitBtn.disabled = true;
+          submitBtn.textContent = getTranslation('briefingTransmitting', 'Transmitting...');
+          statusDiv.className = 'form-status form-hidden';
+
+          const formData = new FormData(form);
+
+          try {
+            const response = await fetch(form.action, {
+              method: 'POST',
+              body: formData,
+              headers: { 'Accept': 'application/json' }
+            });
+
+            if (response.ok) {
+              statusDiv.textContent = getTranslation(
+                'briefingRequestReceived',
+                'Briefing request received. We will contact you within 48 hours via your provided email.'
+              );
+              statusDiv.className = 'form-status success';
+              form.reset();
+            } else {
+              throw new Error('Submission failed');
+            }
+          } catch (error) {
+            statusDiv.textContent = getTranslation(
+              'briefingSubmissionFailed',
+              'Submission failed. Please email contact@datacendia.com directly.'
+            );
+            statusDiv.className = 'form-status error';
+          } finally {
+            submitBtn.disabled = false;
+            submitBtn.textContent = getTranslation('initializeBriefing', 'Initialize Briefing Protocol →');
+          }
+        });
+      </script>
+    </div>
+  </div>
+  <script src="translations.js?v=6"></script>
+  <script src="app.js"></script>
+</body>
+</html>

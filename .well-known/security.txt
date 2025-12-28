@@ -1,0 +1,22 @@
+# Datacendia Security Contact
+# https://securitytxt.org/
+
+Contact: mailto:security@datacendia.com
+Contact: mailto:contact@datacendia.com
+Expires: 2026-12-31T23:59:00.000Z
+Preferred-Languages: en
+Canonical: https://datacendia.com/.well-known/security.txt
+
+# Vulnerability Disclosure Policy
+Policy: https://datacendia.com/trust.html#vulnerability-disclosure
+
+# We appreciate responsible disclosure of security vulnerabilities.
+# Please report security issues to security@datacendia.com.
+# We commit to acknowledging reports within 48 hours and providing
+# regular updates on remediation progress.
+
+# Safe Harbor
+# We will not pursue legal action against security researchers who:
+# - Make good faith efforts to avoid privacy violations and data destruction
+# - Only interact with accounts they own or have explicit permission to test
+# - Report vulnerabilities promptly and do not publicly disclose before remediation

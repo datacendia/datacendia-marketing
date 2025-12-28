@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pricing — Datacendia | Enterprise AI Platform Licensing & Deployment Options</title>
+  <meta name="description" content="Datacendia enterprise pricing: 90-day pilot program, production deployment, and sovereign tier options. Deploy air-gapped, on-premises, or private cloud. AWS, Azure, GCP marketplace available. Procurement-ready for regulated enterprise.">
+  <meta name="keywords" content="enterprise AI pricing, sovereign AI cost, on-premises AI deployment, air-gapped AI pricing, enterprise software licensing, AI platform pricing, AWS marketplace AI, Azure marketplace AI, government AI pricing">
+  <meta name="author" content="Datacendia">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Pricing — Datacendia Enterprise AI Platform">
+  <meta property="og:description" content="Enterprise pricing for sovereign AI. Pilot programs from $35K, production licenses from $60K/year. Deploy anywhere.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://datacendia.com/pricing.html">
+  <meta property="og:image" content="https://datacendia.com/og-image.png">
+  <meta property="og:site_name" content="Datacendia">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Pricing — Datacendia Enterprise AI Platform">
+  <meta name="twitter:description" content="Enterprise pricing for sovereign AI. Pilot programs, production licenses, and sovereign tier options.">
+  <meta name="twitter:image" content="https://datacendia.com/og-image.png">
+  <link rel="canonical" href="https://datacendia.com/pricing.html">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <meta name="theme-color" content="#0a0a0a">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "PriceSpecification",
+    "name": "Datacendia Enterprise Pricing",
+    "description": "Enterprise AI platform licensing options including pilot programs and production deployments",
+    "url": "https://datacendia.com/pricing.html",
+    "priceCurrency": "USD",
+    "price": "60000",
+    "unitText": "per year"
+  }
+  </script>
+  <style>
+    .page-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 80px 24px;
+    }
+    .page-header {
+      text-align: center;
+      margin-bottom: 64px;
+    }
+    .page-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 5vw, 2.5rem);
+      font-weight: 300;
+      color: var(--color-text);
+      margin-bottom: 16px;
+    }
+    .page-subtitle {
+      font-size: 1rem;
+      color: var(--color-text-muted);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .back-link {
+      display: inline-block;
+      margin-bottom: 32px;
+      font-size: 0.75rem;
+      color: var(--color-text-dim);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+    .back-link:hover {
+      color: var(--color-gold);
+    }
+
+    /* Pricing Tiers */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin-bottom: 80px;
+    }
+    .pricing-card {
+      background: var(--color-card-bg);
+      border: 1px solid var(--color-border);
+      border-radius: 12px;
+      padding: 32px 28px;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.3s ease;
+    }
+    .pricing-card:hover {
+      border-color: var(--color-gold-border);
+      transform: translateY(-4px);
+    }
+    .pricing-card.featured {
+      border-color: var(--color-gold);
+      background: linear-gradient(180deg, rgba(201, 162, 39, 0.08) 0%, var(--color-card-bg) 100%);
+    }
+    .tier-label {
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--color-gold);
+      margin-bottom: 8px;
+    }
+    .tier-name {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: var(--color-text);
+      margin-bottom: 8px;
+    }
+    .tier-tagline {
+      font-size: 0.8rem;
+      color: var(--color-text-dim);
+      margin-bottom: 24px;
+      min-height: 40px;
+    }
+    .tier-price {
+      font-family: var(--font-mono);
+      font-size: 1.75rem;
+      font-weight: 500;
+      color: var(--color-text);
+      margin-bottom: 4px;
+    }
+    .tier-price-note {
+      font-size: 0.7rem;
+      color: var(--color-text-dim);
+      margin-bottom: 24px;
+    }
+    .tier-features {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 32px 0;
+      flex-grow: 1;
+    }
+    .tier-features li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 10px 0;
+      font-size: 0.85rem;
+      color: var(--color-text-muted);
+      border-bottom: 1px solid var(--color-border);
+    }
+    .tier-features li:last-child {
+      border-bottom: none;
+    }
+    .tier-features li::before {
+      content: '✓';
+      color: var(--color-gold);
+      font-weight: 600;
+      flex-shrink: 0;
+    }
+    .tier-cta {
+      display: block;
+      text-align: center;
+      padding: 14px 24px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--color-gold);
+      background: transparent;
+      border: 1px solid var(--color-gold);
+      border-radius: 4px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+    .tier-cta:hover {
+      background: var(--color-gold);
+      color: var(--color-bg);
+    }
+    .tier-cta.primary {
+      background: var(--color-gold);
+      color: var(--color-bg);
+    }
+    .tier-cta.primary:hover {
+      background: #d4ad2e;
+    }
+
+    /* Procurement Section */
+    .procurement-section {
+      background: var(--color-bg-elevated);
+      border: 1px solid var(--color-border);
+      border-radius: 12px;
+      padding: 48px;
+      margin-bottom: 80px;
+    }
+    .procurement-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .procurement-header h2 {
+      font-family: var(--font-display);
+      font-size: 1.75rem;
+      font-weight: 400;
+      color: var(--color-text);
+      margin-bottom: 12px;
+    }
+    .procurement-header p {
+      font-size: 0.9rem;
+      color: var(--color-text-muted);
+    }
+    .procurement-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+    .procurement-item {
+      text-align: center;
+    }
+    .procurement-icon {
+      font-size: 1.5rem;
+      margin-bottom: 16px;
+    }
+    .procurement-title {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--color-text);
+      margin-bottom: 12px;
+    }
+    .procurement-desc {
+      font-size: 0.8rem;
+      color: var(--color-text-dim);
+      line-height: 1.6;
+    }
+
+    /* Trust Badges / Deployment Logos */
+    .deployment-section {
+      text-align: center;
+      margin-bottom: 80px;
+    }
+    .deployment-label {
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--color-text-dim);
+      margin-bottom: 24px;
+    }
+    .deployment-logos {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 32px;
+      flex-wrap: wrap;
+      margin-bottom: 32px;
+    }
+    .deployment-logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px 24px;
+      background: var(--color-card-bg);
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      min-width: 120px;
+      transition: all 0.2s ease;
+    }
+    .deployment-logo:hover {
+      border-color: var(--color-gold-border);
+    }
+    .deployment-logo span {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--color-text-muted);
+      letter-spacing: 0.05em;
+    }
+    .marketplace-section {
+      margin-top: 40px;
+      padding-top: 40px;
+      border-top: 1px solid var(--color-border);
+    }
+    .marketplace-logos {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .marketplace-logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 20px;
+      background: var(--color-card-bg);
+      border: 1px solid var(--color-gold-border);
+      border-radius: 6px;
+    }
+    .marketplace-logo span {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--color-gold);
+    }
+
+    /* Final CTA */
+    .final-cta {
+      text-align: center;
+      padding: 60px 40px;
+      background: var(--color-card-bg);
+      border: 1px solid var(--color-border);
+      border-radius: 12px;
+    }
+    .final-cta h2 {
+      font-family: var(--font-display);
+      font-size: 1.75rem;
+      font-weight: 400;
+      color: var(--color-text);
+      margin-bottom: 16px;
+    }
+    .final-cta p {
+      font-size: 0.9rem;
+      color: var(--color-text-muted);
+      margin-bottom: 32px;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .cta-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .cta-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      color: var(--color-gold);
+      background: transparent;
+      border: 1px solid var(--color-gold);
+      border-radius: 4px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+    .cta-button:hover {
+      background: var(--color-gold);
+      color: var(--color-bg);
+    }
+    .cta-button.secondary {
+      border-color: var(--color-border);
+      color: var(--color-text-muted);
+    }
+    .cta-button.secondary:hover {
+      border-color: var(--color-text-muted);
+      background: var(--color-card-bg);
+      color: var(--color-text);
+    }
+
+    /* Responsive */
+    @media (max-width: 1100px) {
+      .pricing-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (max-width: 700px) {
+      .pricing-grid {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .procurement-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+    }
+    @media (max-width: 600px) {
+      .page-container {
+        padding: 48px 20px;
+      }
+      .procurement-section {
+        padding: 32px 24px;
+      }
+      .deployment-logos {
+        gap: 16px;
+      }
+      .deployment-logo {
+        min-width: 100px;
+        padding: 12px 16px;
+      }
+      .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+      .cta-button {
+        width: 100%;
+        max-width: 280px;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="page-container">
+      <div class="page-top-bar">
+        <a href="index.html" class="back-link" data-i18n="returnToDatacendia">← Return to Datacendia</a>
+        <div class="lang-selector">
+          <button class="lang-btn"><span class="lang-current">English</span> ▾</button>
+          <div class="lang-dropdown">
+            <button onclick="setLanguage('en')">English</button>
+            <button onclick="setLanguage('es')">Español</button>
+            <button onclick="setLanguage('fr')">Français</button>
+            <button onclick="setLanguage('de')">Deutsch</button>
+            <button onclick="setLanguage('pt')">Português</button>
+            <button onclick="setLanguage('it')">Italiano</button>
+            <button onclick="setLanguage('ja')">日本語</button>
+            <button onclick="setLanguage('ko')">한국어</button>
+            <button onclick="setLanguage('zh')">中文</button>
+            <button onclick="setLanguage('ar')">العربية</button>
+            <button onclick="setLanguage('hi')">हिन्दी</button>
+          </div>
+        </div>
+      </div>
+      <nav class="main-nav">
+        <a href="index.html" data-i18n="navHome">Home</a>
+        <a href="resources/index.html" data-i18n="navResources">Resources</a>
+        <a href="pricing.html" class="active" data-i18n="navPricing">Pricing</a>
+        <a href="pilot.html" data-i18n="navPilot">Pilot Program</a>
+        <a href="trust.html" data-i18n="navTrust">Trust</a>
+        <a href="briefing.html" data-i18n="navBriefing">Request Briefing</a>
+      </nav>
+      
+      <div class="page-header">
+        <h1 class="page-title" data-i18n="sovereignIntelligenceArch">Sovereign Intelligence Architecture</h1>
+        <p class="page-subtitle" data-i18n="pricingSubtitle">Deploy air-gapped, on-premise, or in your private cloud. Procurement-ready for regulated enterprise.</p>
+      </div>
+
+      <!-- Pricing Tiers -->
+      <div class="pricing-grid">
+        <!-- Sandbox Wargame (Lite) -->
+        <div class="pricing-card">
+          <div class="tier-label">Quick Validation</div>
+          <h2 class="tier-name">Sandbox Wargame</h2>
+          <p class="tier-tagline">2-Week Technical Evaluation</p>
+          <div class="tier-price">$5,000</div>
+          <div class="tier-price-note">Fixed Fee · Applies to Pilot</div>
+          <ul class="tier-features">
+            <li>Single Strategic Question</li>
+            <li>4 Core Agents (Analyst, Risk, Strategy, Arbiter)</li>
+            <li>Datacendia-Hosted Sandbox</li>
+            <li>Sample Data or Your Test Data</li>
+            <li>2 Live Sessions with Architect</li>
+            <li>Decision Trace Export (PDF/JSON)</li>
+          </ul>
+          <a href="briefing.html" class="tier-cta">Request Sandbox</a>
+        </div>
+
+        <!-- Pilot Program -->
+        <div class="pricing-card">
+          <div class="tier-label" data-i18n="proofOfValue">Proof of Value</div>
+          <h2 class="tier-name" data-i18n="pilotProgram">Pilot Program</h2>
+          <p class="tier-tagline" data-i18n="ninetyDayDeployment">90-Day "Live Fire" Deployment</p>
+          <div class="tier-price">$35,000</div>
+          <div class="tier-price-note" data-i18n="oneTimeFixed">One-Time Fixed Fee · Money-Back Guarantee</div>
+          <ul class="tier-features">
+            <li data-i18n="singleUseCase">Single Use Case (e.g., M&A Due Diligence)</li>
+            <li data-i18n="coreAgents8">8 Core Agents</li>
+            <li data-i18n="ninetyDayLog">90-Day Evidence Log</li>
+            <li data-i18n="cloudOrOnPrem">Cloud or On-Prem Deployment</li>
+            <li data-i18n="weeklySyncCalls">Weekly Sync Calls</li>
+            <li data-i18n="fullDataPortability">Full Data Portability</li>
+          </ul>
+          <a href="pilot.html" class="tier-cta" data-i18n="applyForPilot">Apply for Pilot</a>
+        </div>
+
+        <!-- Enterprise License -->
+        <div class="pricing-card featured">
+          <div class="tier-label" data-i18n="productionDeployment">Production Deployment</div>
+          <h2 class="tier-name" data-i18n="enterpriseLicense">Enterprise License</h2>
+          <p class="tier-tagline" data-i18n="fullDeptRollout">Full Department Rollout</p>
+          <div class="tier-price" data-i18n="customAnnualLicensing">Custom Annual Licensing</div>
+          <div class="tier-price-note" data-i18n="startsAt60k">Starts at $60k/year</div>
+          <ul class="tier-features">
+            <li data-i18n="fullVertical">Full Vertical (e.g., Healthcare, Finance)</li>
+            <li data-i18n="coreAgents14">14 Core Agents</li>
+            <li data-i18n="unlimitedDeliberations">Unlimited Deliberations</li>
+            <li data-i18n="standardSupport">Standard Support (Business Hours)</li>
+            <li data-i18n="privateCloudOnPrem">Private Cloud or On-Prem</li>
+            <li data-i18n="quarterlyReviews">Quarterly Business Reviews</li>
+          </ul>
+          <a href="briefing.html" class="tier-cta primary" data-i18n="requestQuote">Request Quote</a>
+        </div>
+
+        <!-- Sovereign Tier -->
+        <div class="pricing-card">
+          <div class="tier-label" data-i18n="defenseNationalSecurity">Defense & National Security</div>
+          <h2 class="tier-name" data-i18n="sovereignTier">Sovereign Tier</h2>
+          <p class="tier-tagline" data-i18n="airGappedHardware">Air-Gapped. Hardware-Rooted Trust.</p>
+          <div class="tier-price" data-i18n="classifiedPricing">Classified Pricing</div>
+          <div class="tier-price-note" data-i18n="contactForBriefing">Available under NDA · Requires eligibility screening</div>
+          <ul class="tier-features">
+            <li data-i18n="airGappedOffline">Air-Gapped / Offline Capable</li>
+            <li data-i18n="fullSourceEscrow">Full Source Code Escrow</li>
+            <li data-i18n="hardwareRootedTrust">Hardware-Rooted Trust (TPM)</li>
+            <li data-i18n="dedicatedEngineer">24/7 Dedicated Engineer</li>
+            <li data-i18n="onSiteSupport">On-Site Deployment Support</li>
+            <li data-i18n="customAgentTraining">Custom Agent Training</li>
+          </ul>
+          <a href="briefing.html" class="tier-cta" data-i18n="verifyClearance">Verify Clearance</a>
+        </div>
+      </div>
+
+      <!-- Procurement Accelerator -->
+      <div class="procurement-section">
+        <div class="procurement-header">
+          <h2 data-i18n="streamlinedProcurement">Streamlined Procurement</h2>
+          <p data-i18n="procurementDesc">We've removed the friction. Here's how enterprise buyers acquire Datacendia.</p>
+        </div>
+        <div class="procurement-grid">
+          <div class="procurement-item">
+            <div class="procurement-icon">☁️</div>
+            <div class="procurement-title" data-i18n="cloudMarketplace">Cloud Marketplace</div>
+            <p class="procurement-desc" data-i18n="cloudMarketplaceDesc">Buy Datacendia using your committed AWS or Azure spend. We support Private Offers to bypass vendor onboarding.</p>
+          </div>
+          <div class="procurement-item">
+            <div class="procurement-icon">🏛️</div>
+            <div class="procurement-title" data-i18n="govDefense">Gov / Defense</div>
+            <p class="procurement-desc" data-i18n="govDefenseDesc">FedRAMP Moderate (In Process) & CAGE Code available for government contracting. IL4/IL5 pathway documented.</p>
+          </div>
+          <div class="procurement-item">
+            <div class="procurement-icon">📋</div>
+            <div class="procurement-title" data-i18n="standardTerms">Standard Terms</div>
+            <p class="procurement-desc" data-i18n="standardTermsDesc">Industry-standard EULAs to speed up legal review. Net 30 / Net 45 terms accepted via Wire or ACH.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Deployment Logos -->
+      <div class="deployment-section">
+        <div class="deployment-label" data-i18n="deployableOn">Deployable On</div>
+        <div class="deployment-logos">
+          <div class="deployment-logo">
+            <span>AWS</span>
+          </div>
+          <div class="deployment-logo">
+            <span>Azure</span>
+          </div>
+          <div class="deployment-logo">
+            <span>Google Cloud</span>
+          </div>
+          <div class="deployment-logo">
+            <span>Kubernetes</span>
+          </div>
+          <div class="deployment-logo">
+            <span>OpenShift</span>
+          </div>
+        </div>
+
+        <div class="marketplace-section">
+          <div class="deployment-label" data-i18n="procureVia">Procure Via</div>
+          <div class="marketplace-logos">
+            <div class="marketplace-logo">
+              <span>AWS Marketplace</span>
+            </div>
+            <div class="marketplace-logo">
+              <span>Azure Marketplace</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Final CTA -->
+      <div class="final-cta">
+        <h2 data-i18n="dontBelieveHype">Don't believe the hype. Audit the evidence.</h2>
+        <p data-i18n="pilotGuaranteeDesc">Deploy Datacendia for 90 days on a single strategic problem. If the Council doesn't identify at least 3 critical risks you missed, we refund the pilot fee.</p>
+        <div class="cta-buttons">
+          <a href="pilot.html" class="cta-button"><span data-i18n="applyForPilot">Apply for Pilot</span> →</a>
+          <a href="briefing.html" class="cta-button secondary" data-i18n="requestBriefing">Request Briefing</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <script src="translations.js?v=6"></script>
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>기업을 위한 데이터 주권 완전 가이드 (2025) | Datacendia</title>
+  <meta name="description" content="규제 대상 기업을 위한 데이터 주권 완전 가이드.">
+  <link rel="canonical" href="https://datacendia.com/resources/data-sovereignty-guide.ko.html">
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500;family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-top">
+        <a href="../index.html" style="text-decoration: none;"><h1 class="logo">DATACENDIA</h1></a>
+        <div class="lang-selector">
+          <button class="lang-btn"><span class="lang-current">한국어</span> ▾</button>
+          <div class="lang-dropdown">
+            <button onclick="setLanguage('en')">English</button>
+            <button onclick="setLanguage('es')">Español</button>
+            <button onclick="setLanguage('fr')">Français</button>
+            <button onclick="setLanguage('de')">Deutsch</button>
+            <button onclick="setLanguage('pt')">Português</button>
+            <button onclick="setLanguage('it')">Italiano</button>
+            <button onclick="setLanguage('ja')">日本語</button>
+            <button onclick="setLanguage('ko')">한국어</button>
+            <button onclick="setLanguage('zh')">中文</button>
+            <button onclick="setLanguage('ar')">العربية</button>
+            <button onclick="setLanguage('hi')">हिन्दी</button>
+          </div>
+        </div>
+      </div>
+      <p class="tagline-sub" data-i18n="tagline">주권 인텔리전스 플랫폼</p>
+      <nav class="main-nav">
+        <a href="../index.html" data-i18n="navHome">홈</a>
+        <a href="./" data-i18n="navResources">리소스</a>
+        <a href="../pricing.html" data-i18n="navPricing">가격</a>
+        <a href="../pilot.html" data-i18n="navPilot">파일럿 프로그램</a>
+        <a href="../trust.html" data-i18n="navTrust">신뢰</a>
+        <a href="../briefing.html" data-i18n="navBriefing">브리핑 요청</a>
+      </nav>
+    </header>
+    <div class="article-container">
+      <article class="article-header">
+        <div class="article-meta-top">
+          <span>📖 18분 읽기</span><span>•</span><span>2025년 12월 23일 업데이트</span><span>•</span><span>데이터 주권</span>
+        </div>
+        <h1 class="article-title">기업을 위한 데이터 주권 완전 가이드</h1>
+        <p class="article-subtitle">2025년 데이터 주권에 대해 규제 대상 기업이 알아야 할 모든 것: 법적 프레임워크, 기술 구현, 산업 요구사항, 2030년까지의 주권 인텔리전스의 미래.</p>
+      </article>
+      <div class="table-of-contents">
+        <div class="toc-title">목차</div>
+        <ul class="toc-list">
+          <li><a href="#what-is">1. 데이터 주권이란?</a></li>
+          <li><a href="#why-matters">2. 데이터 주권이 지금 중요한 이유</a></li>
+          <li><a href="#terminology">3. 데이터 주권 vs. 데이터 거주 vs. 데이터 로컬라이제이션</a></li>
+          <li><a href="#legal">4. 주권 요구사항을 주도하는 법적 프레임워크</a></li>
+          <li><a href="#industry">5. 산업별 요구사항</a></li>
+          <li><a href="#technical">6. 기술 구현 접근법</a></li>
+          <li><a href="#ai-specific">7. AI 특정 주권 우려사항</a></li>
+          <li><a href="#challenges">8. 일반적인 컴플라이언스 과제</a></li>
+          <li><a href="#checklist">9. 데이터 주권 구현 체크리스트</a></li>
+          <li><a href="#myths">10. 일반적인 오해 해소</a></li>
+          <li><a href="#future">11. 데이터 주권의 미래 (2025-2030)</a></li>
+          <li><a href="#faq">12. 자주 묻는 질문</a></li>
+        </ul>
+      </div>
+      <div class="article-content">
+        <h2 id="what-is">데이터 주권이란?</h2>
+        <div class="definition-box">
+          <h4>정의</h4>
+          <p><strong>데이터 주권</strong>은 디지털 데이터가 저장, 처리 또는 액세스되는 국가 또는 관할권의 법률 및 거버넌스 구조의 적용을 받는다는 원칙입니다.</p>
+        </div>
+        <p>본질적으로 데이터 주권은 근본적인 질문을 다룹니다: <strong>조직의 데이터에 대한 궁극적인 통제권은 누구에게 있는가?</strong></p>
+        <p>데이터 주권이 중요한 이유:</p>
+        <ul>
+          <li><strong>규제 컴플라이언스:</strong> 많은 산업이 데이터 저장 위치와 액세스 권한에 대한 엄격한 요구사항에 직면</li>
+          <li><strong>법적 관할권:</strong> 외국에 저장된 데이터는 외국의 법적 요청 대상이 될 수 있음</li>
+          <li><strong>국가 안보:</strong> 정부는 데이터를 외국 접근으로부터 보호가 필요한 전략적 인프라로 간주</li>
+          <li><strong>경쟁 우위:</strong> 조직은 경쟁자나 외국 정부가 독점 정보에 접근하는 것을 방지하고자 함</li>
+          <li><strong>고객 신뢰:</strong> 규제 산업의 고객은 데이터가 승인 없이 국경을 넘지 않는다는 증거를 요구</li>
+        </ul>
+        <h2 id="why-matters">데이터 주권이 지금 중요한 이유</h2>
+        <h3>클라우드 패러독스</h3>
+        <p>클라우드 컴퓨팅은 효율성과 확장성을 약속했지만 근본적인 긴장을 도입했습니다: 귀하의 데이터는 다른 사람의 인프라, 다른 사람의 국가, 다른 사람의 법적 관할권에 존재합니다.</p>
+        <h3>지정학적 분열</h3>
+        <p>글로벌 인터넷이 지역 디지털 영역으로 분열되고 있습니다. 중국에는 만리방화벽이 있습니다. EU에는 GDPR이 있습니다. 러시아는 러시아 시민의 데이터를 러시아 영토에 저장하도록 요구합니다.</p>
+        <h3>AI 차원</h3>
+        <p>AI는 새로운 주권 위험을 도입합니다. ChatGPT, Claude 또는 클라우드 AI 서비스에 데이터를 보내면 해당 데이터를 벤더의 시스템에 노출하게 됩니다.</p>
+        <h2 id="terminology">데이터 주권 vs. 데이터 거주 vs. 데이터 로컬라이제이션</h2>
+        <table class="comparison-table">
+          <thead><tr><th>용어</th><th>정의</th><th>예시</th></tr></thead>
+          <tbody>
+            <tr><td><strong>데이터 주권</strong></td><td>데이터는 그것이 존재하는 관할권의 법률 적용을 받음</td><td>미국에서 처리된 EU 시민 데이터는 GDPR 적용</td></tr>
+            <tr><td><strong>데이터 거주</strong></td><td>데이터는 특정 지리적 경계 내에 물리적으로 존재해야 함</td><td>러시아 시민 데이터는 러시아 내 서버에</td></tr>
+            <tr><td><strong>데이터 로컬라이제이션</strong></td><td>데이터는 특정 관할권 내에서만 저장, 처리 및 액세스되어야 함</td><td>미국 기밀 국방 데이터는 에어갭 네트워크에</td></tr>
+          </tbody>
+        </table>
+        <h2 id="legal">주권 요구사항을 주도하는 법적 프레임워크</h2>
+        <h3>GDPR (EU 일반 데이터 보호 규정)</h3>
+        <p>전 세계적으로 가장 영향력 있는 데이터 보호법. "적절한" 데이터 보호가 없는 국가로의 데이터 전송을 제한합니다.</p>
+        <h3>미국 CLOUD 법</h3>
+        <p>미국 법 집행 기관이 미국 기업에 데이터 제출을 강제할 수 있도록 허용합니다—데이터가 미국 외부에 저장되어 있더라도.</p>
+        <div class="warning-box">
+          <p><strong>중요한 의미:</strong> AWS, Azure, Google Cloud를 사용하는 경우, 데이터가 지리적으로 어디에 저장되어 있든 미국 정부 액세스 요청의 대상이 될 수 있습니다.</p>
+        </div>
+        <h2 id="industry">산업별 요구사항</h2>
+        <h3>금융 서비스</h3>
+        <p>은행은 연방준비제도, OCC, FDIC, EBA, 바젤 위원회로부터 계층화된 주권 요구사항에 직면합니다.</p>
+        <h3>헬스케어</h3>
+        <p>HIPAA(미국)와 GDPR(EU)은 건강 데이터에 엄격한 요구사항을 부과합니다.</p>
+        <h3>국방 및 항공우주</h3>
+        <p>ITAR과 CMMC는 데이터가 미국 내 에어갭 네트워크에 남아 있어야 함을 요구합니다.</p>
+        <h2 id="technical">기술 구현 접근법</h2>
+        <table class="comparison-table">
+          <thead><tr><th>모델</th><th>주권 수준</th><th>사용 사례</th></tr></thead>
+          <tbody>
+            <tr><td><strong>퍼블릭 클라우드 SaaS</strong></td><td>낮음</td><td>비규제 데이터</td></tr>
+            <tr><td><strong>리전 클라우드</strong></td><td>중간</td><td>GDPR 컴플라이언스</td></tr>
+            <tr><td><strong>프라이빗 클라우드 (VPC)</strong></td><td>중간-높음</td><td>금융 서비스</td></tr>
+            <tr><td><strong>온프레미스</strong></td><td>높음</td><td>은행, 정부</td></tr>
+            <tr><td><strong>에어갭</strong></td><td>완전</td><td>국방, 기밀</td></tr>
+          </tbody>
+        </table>
+        <h2 id="ai-specific">AI 특정 주권 우려사항</h2>
+        <p>AI 시스템은 고유한 과제를 도입합니다. 벤더가 하지 않겠다고 해도 귀하의 데이터가 모델 훈련에 사용될 수 있습니다.</p>
+        <h3>솔루션: 주권 AI 배포</h3>
+        <ul>
+          <li><strong>온프레미스 모델:</strong> 자체 하드웨어에 모델 배포</li>
+          <li><strong>에어갭 운영:</strong> 인터넷 연결 불필요</li>
+          <li><strong>로컬 데이터 처리:</strong> 모든 것이 내부에 유지</li>
+        </ul>
+        <p>이것이 <a href="index.html" style="color: var(--color-gold);">Datacendia</a>가 온프레미스 및 에어갭 배포용으로 설계된 이유입니다.</p>
+        <h2 id="challenges">일반적인 컴플라이언스 과제</h2>
+        <p><strong>과제 1:</strong> CLOUD 법 vs. GDPR 충돌</p>
+        <p><strong>과제 2:</strong> 독점 API로 인한 벤더 종속</p>
+        <p><strong>과제 3:</strong> 성능 vs. 컴플라이언스</p>
+        <h2 id="checklist">데이터 주권 구현 체크리스트</h2>
+        <div class="checklist">
+          <h4>평가 단계</h4>
+          <ul>
+            <li>민감도별로 데이터 분류</li>
+            <li>데이터 흐름 매핑</li>
+            <li>적용 가능한 규정 식별</li>
+            <li>클라우드 벤더 문서화</li>
+          </ul>
+        </div>
+        <h2 id="myths">일반적인 오해 해소</h2>
+        <p><strong>오해 1:</strong> "SOC 2 = 주권 컴플라이언스" — 거짓</p>
+        <p><strong>오해 2:</strong> "EU에 데이터 = GDPR 컴플라이언스" — 벤더가 미국인 경우 거짓</p>
+        <p><strong>오해 3:</strong> "암호화가 모든 것을 해결" — 키를 통제하는 경우에만</p>
+        <h2 id="future">데이터 주권의 미래 (2025-2030)</h2>
+        <p><strong>트렌드 1:</strong> 디지털 국경 강화</p>
+        <p><strong>트렌드 2:</strong> AI 주권 의무화</p>
+        <p><strong>트렌드 3:</strong> 주권이 경쟁 우위로</p>
+        <h2 id="faq">자주 묻는 질문</h2>
+        <div class="faq-section">
+          <div class="faq-item">
+            <div class="faq-question">데이터 주권과 데이터 프라이버시의 차이점은?</div>
+            <div class="faq-answer">프라이버시는 무단 액세스로부터 보호. 주권은 어떤 법적 관할권이 적용되는지에 관한 것.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">AWS/Azure/Google Cloud를 사용하면서 주권을 유지할 수 있나요?</div>
+            <div class="faq-answer">기본 거주에는 가능. 진정한 주권에는 불가—미국 벤더는 CLOUD 법 적용 대상.</div>
+          </div>
+        </div>
+        <div class="cta-box">
+          <h3>데이터 주권에 도움이 필요하신가요?</h3>
+          <p>컴플라이언스 상태를 평가하기 위한 주권 평가를 예약하세요.</p>
+          <a href="../briefing.html" class="cta-btn">평가 요청 →</a>
+          <a href="sovereignty-matrix.html" class="cta-btn">모델 비교 →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="../translations.js?v=6"></script>
+  <script src="../app.js"></script>
+</body>
+</html>
