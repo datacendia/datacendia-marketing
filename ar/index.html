@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>منصة سيادة البيانات الذكية | Air-Gapped AI للشرق الأوسط | Datacendia</title>
-  <meta name="description" content="منصة ذكاء اصطناعي سيادية للمؤسسات في دول مجلس التعاون الخليجي. متوافق مع PDPL السعودية وقوانين الإمارات. نشر محلي/air-gapped بدون تعرض لـ CLOUD Act.">
-  <meta name="keywords" content="سيادة البيانات, PDPL السعودية, حماية البيانات الإماراتية, Air-Gapped AI, ذكاء اصطناعي محلي, صناديق الثروة السيادية, مجلس التعاون الخليجي">
+  <title>منصة الذكاء السيادي للمؤسسات | Air-Gapped AI | Datacendia</title>
+  <meta name="description" content="منصة ذكاء اصطناعي سيادية للمؤسسات تعمل على بنيتك التحتية. ذكاء اصطناعي Air-Gapped وقابل للتدقيق للبنوك ومقاولي الدفاع والصناعات المنظمة.">
+  <meta name="keywords" content="سيادة البيانات, PDPL السعودية, حماية البيانات الإماراتية, Air-Gapped AI, ذكاء اصطناعي محلي">
   <meta name="author" content="Datacendia">
   <meta name="robots" content="index, follow">
-  <meta property="og:title" content="منصة سيادة البيانات الذكية | Datacendia">
-  <meta property="og:description" content="ذكاء اصطناعي سيادي لمؤسسات الخليج. PDPL متوافق. نشر على بنيتكم التحتية.">
+  <meta property="og:title" content="منصة الذكاء السيادي للمؤسسات | Datacendia">
+  <meta property="og:description" content="ذكاء اصطناعي سيادي لمؤسسات الخليج. متوافق مع PDPL. نشر على بنيتكم التحتية.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://datacendia.com/ar/">
   <meta property="og:image" content="https://datacendia.com/og-image.png">
@@ -24,151 +24,218 @@
     body { direction: rtl; text-align: right; }
     .header-top { flex-direction: row-reverse; }
     .main-nav { direction: rtl; }
-    .case-grid, .compliance-grid { direction: rtl; }
-    .region-hero, .sovereignty-definition, .trust-layer { text-align: right; }
-    .cta-section { text-align: center; }
+    .architecture-flow { flex-direction: row-reverse; }
+    .arch-arrow { transform: scaleX(-1); }
+    .showcase-item.reverse { flex-direction: row; }
+    .showcase-item:not(.reverse) { flex-direction: row-reverse; }
+    .matrix-row { direction: rtl; }
+    .back-btn { direction: rtl; }
+    .footer-ctas { direction: rtl; }
   </style>
 </head>
 <body>
   <div class="container">
     <header>
       <div class="header-top">
-        <h1 class="logo"><span class="brand-name">DATACENDIA</span><span class="sr-only"> — منصة سيادة البيانات الذكية</span></h1>
+        <h1 class="logo"><span class="brand-name">DATACENDIA</span></h1>
         <div class="lang-selector">
           <button class="lang-btn"><span class="lang-current">العربية</span> ▾</button>
           <div class="lang-dropdown">
             <a href="/">English</a>
+            <a href="/es/">Español</a>
+            <a href="/fr/">Français</a>
+            <a href="/de/">Deutsch</a>
+            <a href="/pt/">Português</a>
+            <a href="/it/">Italiano</a>
+            <a href="/ja/">日本語</a>
+            <a href="/ko/">한국어</a>
+            <a href="/zh/">中文</a>
             <a href="/ar/" class="active">العربية</a>
             <a href="/hi/">हिन्दी</a>
           </div>
         </div>
       </div>
-      <p class="tagline">منصة سيادة البيانات الذكية</p>
+      <p class="tagline-sub" data-i18n="tagline">منصة سيادة البيانات الذكية</p>
       <nav class="main-nav">
-        <a href="/pricing.html?lang=ar">الأسعار</a>
-        <a href="/pilot.html?lang=ar">البرنامج التجريبي</a>
-        <a href="/trust.html?lang=ar">مركز الثقة</a>
-        <a href="/resources/index.html?lang=ar">الموارد</a>
-        <a href="/briefing.html?lang=ar" class="nav-cta">طلب إحاطة</a>
+        <a href="/demos.html?lang=ar" data-i18n="navDemos">العروض التوضيحية</a>
+        <a href="/case-studies.html?lang=ar" data-i18n="navCaseStudies">دراسات الحالة</a>
+        <a href="/pricing.html?lang=ar" data-i18n="navPricing">التسعير</a>
+        <a href="/roi-calculator.html?lang=ar" data-i18n="navROI">حاسبة ROI</a>
+        <a href="/pilot.html?lang=ar" data-i18n="navPilot">البرنامج التجريبي</a>
+        <a href="/briefing.html?lang=ar" data-i18n="navBriefing">طلب إحاطة</a>
       </nav>
     </header>
 
-    <!-- Arabic Market Hero -->
-    <div class="region-hero">
-      <div class="region-badge">🇸🇦🇦🇪 لمنطقة الخليج</div>
-      <h2 class="region-headline">لماذا تحتاج مؤسسات الخليج إلى ذكاء اصطناعي سيادي</h2>
-      <p class="region-subhead">في عصر التحول الرقمي، تتطلب رؤية 2030 ورؤية الإمارات حلولاً تقنية سيادية. Datacendia يعمل على <em>بنيتكم</em> التحتية — بياناتكم لا تغادر حدودكم أبداً.</p>
-    </div>
-
-    <!-- Sovereignty Definition -->
+    <main>
     <div class="sovereignty-definition">
-      <h2 class="sovereignty-title">ما هي سيادة البيانات في الذكاء الاصطناعي؟</h2>
-      <p class="sovereignty-text"><strong>سيادة البيانات</strong> تعني أن الذكاء الاصطناعي الخاص بك يعمل على <em>بنيتك</em> التحتية (محلي، سحابة خاصة، أو بيئة معزولة Air-Gapped)، ومفاتيح التشفير تبقى في <em>نظام إدارة المفاتيح/وحدة الأمان</em> الخاص بك، وكل قرار يُسجل عبر المداولة متعددة الوكلاء في سجل غير قابل للتغيير <em>تتحكم</em> فيه أنت. متوافق مع PDPL السعودي. متوافق مع قوانين الإمارات. لا مخاطر CLOUD Act.</p>
+      <h2 class="sovereignty-title" data-i18n="whatIsSovereignty">ما هي سيادة البيانات في الذكاء الاصطناعي؟</h2>
+      <p class="sovereignty-text" data-i18n-html="sovereigntyDefinition"></p>
+      <p class="sovereignty-contact">أسئلة؟ <a href="mailto:contact@datacendia.com">contact@datacendia.com</a></p>
     </div>
 
-    <!-- Trust Layer -->
     <div class="trust-layer">
-      <p class="trust-what">تحويل البيانات والذكاء الاصطناعي إلى قرارات قابلة للتفسير والتدقيق — على بنيتك التحتية، تحت سيطرتك.</p>
-      <p class="trust-what-sub">ليس BI. ليس واجهة برمجة ذكاء اصطناعي أخرى. طبقة قرارات تثبت لماذا قررت ما قررته.</p>
+      <p class="trust-what" data-i18n="trustWhat">تحويل البيانات والذكاء الاصطناعي إلى قرارات قابلة للتفسير والتدقيق</p>
+      <div class="trust-metrics">
+        <div class="trust-metric">
+          <span class="number">1,464</span>
+          <span class="label" data-i18n="automatedChecks">فحوصات آلية</span>
+        </div>
+        <div class="trust-metric">
+          <span class="number">45</span>
+          <span class="label" data-i18n="councilAgents">وكلاء المجلس</span>
+        </div>
+        <div class="trust-metric">
+          <span class="number">16</span>
+          <span class="label" data-i18n="securityTests">اختبارات الأمان</span>
+        </div>
+        <div class="trust-metric">
+          <span class="number">4</span>
+          <span class="label" data-i18n="deploymentModes">أوضاع النشر</span>
+        </div>
+      </div>
+      <p class="compliance-status" data-i18n="complianceStatus"></p>
+      <p class="trust-footnote" data-i18n="trustFootnote"></p>
+      <div class="standards-bar">
+        <span class="standards-label" data-i18n="architectedFor">مصمم لـ:</span>
+        <div class="standards-badges">
+          <span class="standard-badge">NIST 800-53</span>
+          <span class="standard-badge">GDPR</span>
+          <span class="standard-badge">ISO 27001</span>
+        </div>
+      </div>
     </div>
 
-    <!-- GCC-Specific Use Cases -->
-    <div class="region-cases">
-      <h2 class="section-headline">حالات استخدام لمنطقة الخليج</h2>
+    <div class="product-showcase">
+      <div class="showcase-header">
+        <p class="section-label" data-i18n="theInterface">الواجهة</p>
+        <h2 class="section-headline" data-i18n="strategicWargaming">ألعاب الحرب الاستراتيجية. مرئية.</h2>
+        <p class="showcase-sub" data-i18n="showcaseSub">لا تتنبأ بالمستقبل فقط. تنقل فيه.</p>
+      </div>
       
-      <div class="case-grid">
-        <div class="case-card">
-          <div class="case-icon">🏛️</div>
-          <h3>صناديق الثروة السيادية</h3>
-          <p>تحليل الاستثمارات وإدارة المحافظ مع سيادة كاملة على البيانات. قرارات استثمارية مدعومة بالذكاء الاصطناعي دون تعريض البيانات الحساسة لمخاطر خارجية.</p>
-          <div class="case-example">
-            <strong>مثال:</strong> صندوق ثروة سيادي يستخدم Datacendia لتحليل الفرص الاستثمارية بشكل كامل على البنية التحتية المحلية، مع سجل تدقيق كامل لكل قرار.
+      <div class="showcase-grid">
+        <div class="showcase-item">
+          <div class="showcase-visual">
+            <video src="/assets/videos/CendiaChronos.mp4" class="app-screenshot" autoplay loop muted playsinline></video>
+          </div>
+          <div class="showcase-text">
+            <h3 data-i18n="cendiaChronosTitle">CendiaChronos™</h3>
+            <p data-i18n="cendiaChronosDesc"></p>
           </div>
         </div>
 
-        <div class="case-card">
-          <div class="case-icon">🏦</div>
-          <h3>البنوك والمؤسسات المالية</h3>
-          <p>قرارات ائتمانية ومكافحة غسيل الأموال متوافقة مع متطلبات البنك المركزي. مسار تدقيق كامل لكل قرار.</p>
-          <div class="case-example">
-            <strong>مثال:</strong> بنك إسلامي يستخدم Datacendia لتقييم المخاطر الائتمانية مع ضمان توافق القرارات مع أحكام الشريعة ومتطلبات الرقابة.
+        <div class="showcase-item reverse">
+          <div class="showcase-visual">
+            <video src="/assets/videos/Council.mp4" class="app-screenshot" autoplay loop muted playsinline></video>
+          </div>
+          <div class="showcase-text">
+            <h3 data-i18n="theCouncilShowcaseTitle">المجلس™</h3>
+            <p data-i18n="theCouncilShowcaseDesc"></p>
           </div>
         </div>
 
-        <div class="case-card">
-          <div class="case-icon">⛽</div>
-          <h3>النفط والغاز والطاقة</h3>
-          <p>تحليلات تشغيلية وصيانة تنبؤية لقطاع الطاقة. بيانات الإنتاج والعمليات تبقى محمية بالكامل.</p>
-          <div class="case-example">
-            <strong>مثال:</strong> شركة نفط وطنية تشغل Datacendia في بيئة معزولة لتحسين عمليات الإنتاج وتحليل البيانات الجيولوجية.
+        <div class="showcase-item">
+          <div class="showcase-visual"><div class="feature-icon-large">🦋</div></div>
+          <div class="showcase-text">
+            <h3 data-i18n="cendiaCascadeTitle">CendiaCascade™</h3>
+            <p data-i18n="cendiaCascadeDesc"></p>
           </div>
         </div>
 
-        <div class="case-card">
-          <div class="case-icon">🏥</div>
-          <h3>الرعاية الصحية</h3>
-          <p>تحليل البيانات الصحية مع الحفاظ على خصوصية المرضى. متوافق مع قوانين حماية البيانات الصحية المحلية.</p>
-          <div class="case-example">
-            <strong>مثال:</strong> مستشفى حكومي يستخدم Datacendia لتحليل بيانات المرضى محلياً لتحسين جودة الرعاية دون نقل البيانات خارج المنشأة.
+        <div class="showcase-item reverse">
+          <div class="showcase-visual"><div class="feature-icon-large">🌐</div></div>
+          <div class="showcase-text">
+            <h3 data-i18n="cendiaOmniTranslateTitle">CendiaOmniTranslate™</h3>
+            <p data-i18n="cendiaOmniTranslateDesc"></p>
+          </div>
+        </div>
+
+        <div class="showcase-item">
+          <div class="showcase-visual"><div class="feature-icon-large">🔒</div></div>
+          <div class="showcase-text">
+            <h3 data-i18n="zeroCopyTitle">هندسة بيانات بدون نسخ</h3>
+            <p data-i18n="zeroCopyDesc"></p>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Regulatory Compliance -->
-    <div class="compliance-section">
-      <h2 class="section-headline">الامتثال التنظيمي</h2>
-      <div class="compliance-grid">
-        <div class="compliance-item">
-          <div class="compliance-badge">PDPL</div>
-          <p>متوافق مع نظام حماية البيانات الشخصية السعودي. البيانات تبقى داخل المملكة.</p>
+    <div class="tabs-wrapper">
+      <div class="tabs">
+        <button class="tab active" data-tab="overview" data-i18n="honestyMatrices">مصفوفات الصدق</button>
+        <button class="tab" data-tab="manifesto" data-i18n="theManifesto">البيان</button>
+      </div>
+      <div class="sub-tabs" id="sub-nav">
+        <button class="sub-tab" data-tab="sovereignty" data-i18n="sovereignty">السيادة</button>
+        <button class="sub-tab" data-tab="governance" data-i18n="aiGovernance">حوكمة AI</button>
+        <button class="sub-tab" data-tab="council" data-i18n="theCouncil">المجلس</button>
+        <button class="sub-tab" data-tab="integrations" data-i18n="integrations">التكاملات</button>
+        <button class="sub-tab" data-tab="limitations" data-i18n="limitations">القيود</button>
+      </div>
+    </div>
+
+    <div class="tab-content active" id="overview">
+      <p class="section-label" data-i18n="honestyMatrices">مصفوفات الصدق</p>
+      <h2 class="section-headline" data-i18n="mostVendorsHide">معظم الموردين يخفون هذا. نحن نقود به.</h2>
+      <div class="matrices-grid">
+        <div class="matrix-card" data-target="sovereignty">
+          <div class="matrix-icon">🏛️</div>
+          <h3 class="matrix-title" data-i18n="sovereigntyMatrixTitle">مصفوفة السيادة</h3>
+          <p class="matrix-desc" data-i18n="sovereigntyMatrixDesc"></p>
         </div>
-        <div class="compliance-item">
-          <div class="compliance-badge">الإمارات</div>
-          <p>متوافق مع قانون حماية البيانات الإماراتي وقوانين أبوظبي العالمي.</p>
+        <div class="matrix-card" data-target="governance">
+          <div class="matrix-icon">🤖</div>
+          <h3 class="matrix-title" data-i18n="aiGovernanceTitle">فحص واقع حوكمة AI</h3>
+          <p class="matrix-desc" data-i18n="aiGovernanceDesc"></p>
         </div>
-        <div class="compliance-item">
-          <div class="compliance-badge">CLOUD Act</div>
-          <p>لا تعرض في النشر المحلي/air-gapped — بياناتكم تبقى في بنيتكم التحتية.</p>
+        <div class="matrix-card" data-target="integrations">
+          <div class="matrix-icon">🔌</div>
+          <h3 class="matrix-title" data-i18n="integrationMatrixTitle">مصفوفة صدق التكامل</h3>
+          <p class="matrix-desc" data-i18n="integrationMatrixDesc"></p>
         </div>
-        <div class="compliance-item">
-          <div class="compliance-badge">البنك المركزي</div>
-          <p>متوافق مع متطلبات البنوك المركزية الخليجية للتقنية المالية والذكاء الاصطناعي.</p>
+        <div class="matrix-card" data-target="limitations">
+          <div class="matrix-icon">🚫</div>
+          <h3 class="matrix-title" data-i18n="limitationsTitle">ما لا يمكننا فعله</h3>
+          <p class="matrix-desc" data-i18n="limitationsDesc"></p>
         </div>
       </div>
     </div>
 
-    <!-- CTA Section -->
-    <div class="cta-section">
-      <h2>هل أنتم مستعدون للذكاء الاصطناعي السيادي؟</h2>
-      <p>احجزوا إحاطة تقنية مع فريقنا. سنوضح كيف يعمل Datacendia على بنيتكم التحتية.</p>
-      <a href="/briefing.html" class="cta-button">طلب إحاطة تقنية ←</a>
-      <p class="cta-note">أو تواصلوا معنا مباشرة: <a href="mailto:contact@datacendia.com">contact@datacendia.com</a></p>
+    <div class="tab-content" id="manifesto">
+      <p class="manifesto-proof" data-i18n="manifestoProof"></p>
+      <h2 class="manifesto-headline" data-i18n="manifestoHeadline"></h2>
+      <p class="manifesto-subhead" data-i18n="manifestoSubhead"></p>
+      <p class="manifesto-statement" data-i18n="manifestoStatement"></p>
+      <p class="beliefs-label" data-i18n="weBelieve">نؤمن</p>
+      <div class="beliefs">
+        <div class="belief"><span class="belief-num">1.</span><span class="belief-text" data-i18n="belief1"></span></div>
+        <div class="belief"><span class="belief-num">2.</span><span class="belief-text" data-i18n="belief2"></span></div>
+        <div class="belief"><span class="belief-num">3.</span><span class="belief-text" data-i18n="belief3"></span></div>
+        <div class="belief"><span class="belief-num">4.</span><span class="belief-text" data-i18n="belief4"></span></div>
+        <div class="belief"><span class="belief-num">5.</span><span class="belief-text" data-i18n="belief5"></span></div>
+      </div>
+      <p class="manifesto-closing" data-i18n="manifestoClosing"></p>
     </div>
+    </main>
 
-    <!-- Footer -->
     <footer>
-      <div class="footer-content">
-        <div class="footer-section">
-          <p class="footer-brand">DATACENDIA</p>
-          <p class="footer-tagline">منصة سيادة البيانات الذكية</p>
-        </div>
-        <div class="footer-section">
-          <p class="footer-links">
-            <a href="/ar/">الرئيسية</a> ·
-            <a href="/trust.html">مركز الثقة</a> ·
-            <a href="/resources/index.html">الموارد</a> ·
-            <a href="/briefing.html">اتصل بنا</a>
-          </p>
-        </div>
-        <div class="footer-section">
-          <p class="footer-legal">© 2025 Datacendia. جميع الحقوق محفوظة.</p>
-          <p style="font-family: monospace; font-size: 0.7rem; color: #2ecc71; margin-top: 16px; letter-spacing: 0.05em;">حالة النظام: AIR-GAP READY · لا توجد بكسلات تتبع</p>
-        </div>
+    <div class="footer-section">
+      <div class="footer-ctas">
+        <a href="/briefing.html?lang=ar" class="cta-button"><span data-i18n="requestBriefing">طلب إحاطة</span> ←</a>
+        <a href="/pilot.html?lang=ar" class="cta-button secondary" data-i18n="applyForPilot">التقدم للتجربة</a>
+        <a href="/pricing.html?lang=ar" class="cta-button secondary" data-i18n="pricing">التسعير</a>
+        <a href="/trust.html?lang=ar" class="cta-button secondary" data-i18n="trustCenter">مركز الثقة</a>
       </div>
+      <p class="footer-contact"><a href="mailto:contact@datacendia.com">contact@datacendia.com</a> · <a href="/privacy.html?lang=ar" data-i18n="privacy">الخصوصية</a> · <a href="/terms.html?lang=ar" data-i18n="terms">الشروط</a></p>
+      <p class="footer-status">حالة النظام: AIR-GAP READY</p>
+    </div>
     </footer>
   </div>
+
   <script src="/translations.js"></script>
-  <script>localStorage.setItem('datacendia-lang', 'ar');</script>
+  <script src="/app.js"></script>
+  <script>
+    localStorage.setItem('datacendia-lang', 'ar');
+    if (typeof setLanguage === 'function') setLanguage('ar');
+  </script>
 </body>
 </html>

@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>气隙部署指南 | 离线企业智能 | Datacendia</title>
+  <meta name="description" content="在气隙环境中部署AI的完整技术指南。面向国防承包商、机密系统和关键基础设施的离线AI平台。">
+  <meta name="author" content="Datacendia">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://datacendia.com/resources/air-gapped-deployment.zh.html">
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-top">
+        <a href="../zh/" style="text-decoration: none;"><h1 class="logo">DATACENDIA</h1></a>
+        <div class="lang-selector">
+          <button class="lang-btn"><span class="lang-current">中文</span> ▾</button>
+          <div class="lang-dropdown">
+            <a href="air-gapped-deployment.html">English</a>
+            <a href="air-gapped-deployment.es.html">Español</a>
+            <a href="air-gapped-deployment.fr.html">Français</a>
+            <a href="air-gapped-deployment.de.html">Deutsch</a>
+            <a href="air-gapped-deployment.pt.html">Português</a>
+            <a href="air-gapped-deployment.it.html">Italiano</a>
+            <a href="air-gapped-deployment.ja.html">日本語</a>
+            <a href="air-gapped-deployment.ko.html">한국어</a>
+            <a href="air-gapped-deployment.zh.html" class="active">中文</a>
+            <a href="air-gapped-deployment.ar.html">العربية</a>
+            <a href="air-gapped-deployment.hi.html">हिन्दी</a>
+          </div>
+        </div>
+      </div>
+      <p class="tagline-sub">主权智能平台</p>
+      <nav class="main-nav">
+        <a href="../zh/">首页</a>
+        <a href="./" class="active">资源</a>
+        <a href="../pricing.html?lang=zh">定价</a>
+        <a href="../pilot.html?lang=zh">试点计划</a>
+        <a href="../trust.html?lang=zh">信任</a>
+        <a href="../briefing.html?lang=zh">请求简报</a>
+      </nav>
+    </header>
+
+    <div class="page-container">
+      <div class="page-header">
+        <div class="page-icon">🔒</div>
+        <h1 class="page-title">气隙部署指南</h1>
+        <p class="page-subtitle">在完全隔离的网络中部署企业AI。无需互联网连接。专为国防承包商、机密系统和关键基础设施构建。</p>
+      </div>
+
+      <div class="content-section">
+        <h2>什么是气隙部署？</h2>
+        <p>气隙部署意味着Datacendia完全在您的隔离网络内运行，零外部连接。无互联网访问。无云API。无数据离开您的基础设施。这是唯一满足ITAR、机密处理和关键基础设施安全要求的部署模型。</p>
+
+        <p><strong>气隙 vs. VPN或防火墙网络：</strong> VPN或防火墙保护的网络仍然有互联网连接——只是受到限制。气隙意味着物理隔离：没有连接到外部系统的网络电缆，没有无线，没有蜂窝网络。如果网络可以到达互联网（即使通过多个跳转），它就不是气隙的。</p>
+
+        <div class="warning-box">
+          <p><strong>重要：</strong> 气隙部署在运营上比云或VPC部署更复杂。问题不是使用云AI是否更容易——问题是您的监管要求、威胁模型或数据分类是否允许您接受外部连接的风险。</p>
+        </div>
+      </div>
+
+      <div class="content-section">
+        <h2>谁需要气隙部署？</h2>
+
+        <h3>国防承包商</h3>
+        <p>处理ITAR控制技术数据、CUI或机密信息的组织不能使用云AI。出口管制法规（ITAR、EAR）禁止外国访问技术数据，美国云提供商可能受到外国政府法律请求的约束。</p>
+        <ul>
+          <li>ITAR合规（国际武器贸易条例）</li>
+          <li>机密项目数据（SECRET、TOP SECRET、SCI）</li>
+          <li>CMMC 3级要求</li>
+          <li>国防工业基地（DIB）供应链保护</li>
+        </ul>
+
+        <h3>关键基础设施</h3>
+        <p>电网、水处理设施、运输系统和电信网络被指定为关键基础设施。气隙部署防止对手访问控制系统和运营数据。</p>
+        <ul>
+          <li>SCADA / ICS网络隔离</li>
+          <li>核设施运营（NRC要求）</li>
+          <li>电网管理（NERC CIP）</li>
+          <li>供水/污水处理设施</li>
+        </ul>
+
+        <h3>情报界</h3>
+        <p>IC机构处理不能暴露给外部系统的机密情报。气隙部署使SIGINT、HUMINT和其他机密来源的AI分析成为可能。</p>
+        <ul>
+          <li>机密情报分析</li>
+          <li>IC ITE（情报界信息技术企业）</li>
+          <li>SIPRNet / JWICS部署</li>
+          <li>分区信息处理</li>
+        </ul>
+
+        <h3>高价值商业</h3>
+        <p>一些商业组织出于竞争或知识产权保护原因选择气隙部署，即使没有监管要求。</p>
+        <ul>
+          <li>制药研发（专利前药物候选）</li>
+          <li>制造业商业秘密</li>
+          <li>金融交易算法</li>
+          <li>并购尽职调查（敏感交易数据）</li>
+        </ul>
+      </div>
+
+      <div class="content-section">
+        <h2>基础设施要求</h2>
+
+        <div class="requirements-box">
+          <h4>最低系统要求</h4>
+          <div class="requirements-grid">
+            <div class="requirement-item">
+              <div class="requirement-label">计算</div>
+              <div class="requirement-value">16核（推荐32核）</div>
+            </div>
+            <div class="requirement-item">
+              <div class="requirement-label">内存</div>
+              <div class="requirement-value">64GB RAM（推荐128GB）</div>
+            </div>
+            <div class="requirement-item">
+              <div class="requirement-label">存储</div>
+              <div class="requirement-value">最低500GB SSD（推荐2TB+）</div>
+            </div>
+            <div class="requirement-item">
+              <div class="requirement-label">操作系统</div>
+              <div class="requirement-value">Ubuntu 22.04 LTS或RHEL 8+</div>
+            </div>
+            <div class="requirement-item">
+              <div class="requirement-label">网络</div>
+              <div class="requirement-value">仅内部（无外部连接）</div>
+            </div>
+            <div class="requirement-item">
+              <div class="requirement-label">GPU</div>
+              <div class="requirement-value">可选（NVIDIA T4或更好用于加速）</div>
+            </div>
+          </div>
+        </div>
+
+        <p><strong>规模指南：</strong> 上述要求支持10-20个并发用户和中等数据量。对于更大的部署（100+用户，10TB+数据），请联系我们进行架构审查。</p>
+
+        <div class="info-box">
+          <p><strong>虚拟机 vs. 裸机：</strong> Datacendia可以在VMware ESXi、Hyper-V或KVM虚拟机上运行。但是，为了获得最大性能和GPU加速，建议裸机部署。如果使用带GPU的VM，请确保您的虚拟机管理程序支持GPU直通。</p>
+        </div>
+      </div>
+
+      <div class="content-section">
+        <h2>部署流程</h2>
+
+        <div class="deployment-step">
+          <h4>步骤1：部署前评估（第1周）</h4>
+          <p><strong>目标：</strong> 验证基础设施就绪状态并识别依赖项。</p>
+          <ul>
+            <li>审计现有隔离网络架构</li>
+            <li>识别内部数据源（数据库、文件共享、应用程序）</li>
+            <li>确定批准的安全介质用于文件传输（USB、DVD、内部SneakerNet）</li>
+            <li>定义用户访问和身份验证要求（LDAP、CAC/PIV、SAML）</li>
+            <li>审查运营手册和变更管理程序</li>
+          </ul>
+        </div>
+
+        <div class="deployment-step">
+          <h4>步骤2：包传输（第2周）</h4>
+          <p><strong>目标：</strong> 将Datacendia安装包移动到气隙环境。</p>
+          <ul>
+            <li>Datacendia以压缩存档（.tar.gz）形式提供安装包</li>
+            <li>包经过加密签名（提供GPG签名）</li>
+            <li>按照您组织的数据传输程序通过批准的安全介质传输</li>
+            <li>使用提供的校验和和签名验证包完整性</li>
+          </ul>
+          <p><strong>典型包大小：</strong> 2-5GB压缩（模型、应用代码、依赖项）</p>
+        </div>
+
+        <div class="deployment-step">
+          <h4>步骤3：安装（第2-3周）</h4>
+          <p><strong>目标：</strong> 在隔离基础设施上安装Datacendia。</p>
+          <ul>
+            <li>将安装包解压到目标服务器</li>
+            <li>运行自动安装脚本（验证依赖项，配置服务）</li>
+            <li>初始化数据库（嵌入式PostgreSQL或连接到现有数据库）</li>
+            <li>配置身份验证集成（LDAP、Active Directory、SAML IdP）</li>
+            <li>为内部HTTPS设置TLS证书</li>
+          </ul>
+          <p><strong>安装时间：</strong> 4-8小时（取决于基础设施复杂性）</p>
+        </div>
+
+        <div class="deployment-step">
+          <h4>步骤4：数据连接器配置（第3-4周）</h4>
+          <p><strong>目标：</strong> 将Datacendia连接到内部数据源。</p>
+          <ul>
+            <li>配置数据库连接器（PostgreSQL、Oracle、SQL Server等）</li>
+            <li>设置文件共享访问（NFS、SMB/CIFS）</li>
+            <li>与内部API集成（REST、SOAP）</li>
+            <li>测试数据摄取并验证连接性</li>
+            <li>配置数据同步的刷新计划</li>
+          </ul>
+        </div>
+
+        <div class="deployment-step">
+          <h4>步骤5：测试和验证（第4-5周）</h4>
+          <p><strong>目标：</strong> 验证安装并确认没有外部依赖项。</p>
+          <ul>
+            <li>网络隔离测试（确认没有尝试出站连接）</li>
+            <li>与试点组进行用户验收测试</li>
+            <li>负载下的性能基准测试</li>
+            <li>故障转移和恢复测试</li>
+            <li>文档交接和操作员培训</li>
+          </ul>
+        </div>
+
+        <div class="deployment-step">
+          <h4>步骤6：生产上线（第5-6周）</h4>
+          <p><strong>目标：</strong> 部署到生产用户并建立持续运营。</p>
+          <ul>
+            <li>将试点配置迁移到生产</li>
+            <li>用户入职和培训会议</li>
+            <li>建立监控和运营程序</li>
+            <li>记录常见场景的运行手册</li>
+          </ul>
+        </div>
+
+        <p><strong>总部署时间线：</strong> 从基础设施评估到生产4-6周。时间线假设基础设施可用且您的团队有专门资源用于部署。</p>
+      </div>
+
+      <div class="content-section">
+        <h2>更新和维护</h2>
+
+        <h3>气隙环境中更新的工作方式</h3>
+        <p>Datacendia无法像云软件一样自动更新。更新以离线包的形式通过批准的安全介质传输。</p>
+
+        <p><strong>更新流程：</strong></p>
+        <ol>
+          <li>Datacendia发布更新包（每季度或根据安全补丁需要）</li>
+          <li>客户从Datacendia客户门户下载更新包（从连接的系统）</li>
+          <li>客户通过批准的介质将包传输到气隙环境</li>
+          <li>客户使用GPG密钥验证包签名</li>
+          <li>客户在维护窗口期间运行更新脚本</li>
+          <li>系统在应用更新前自动备份当前版本</li>
+          <li>更新应用，服务重启，运行验证测试</li>
+        </ol>
+
+        <div class="info-box">
+          <p><strong>更新频率：</strong> 主要版本：每季度。安全补丁：根据需要（通常每季度1-3次）。您控制何时应用更新——没有强制更新。</p>
+        </div>
+
+        <h3>回滚能力</h3>
+        <p>如果更新导致问题，Datacendia支持一键回滚到以前的版本。回滚期间所有数据和配置都会保留。</p>
+
+        <h3>长期支持</h3>
+        <p>Datacendia为无法频繁更新的客户提供长期支持（LTS）版本。LTS版本在18个月内接收安全补丁，而不强制功能升级。</p>
+      </div>
+
+      <div class="content-section">
+        <h2>运营考虑</h2>
+
+        <h3>与云部署的权衡</h3>
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th>方面</th>
+              <th>云SaaS</th>
+              <th>气隙</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>设置时间</td>
+              <td>小时</td>
+              <td>周</td>
+            </tr>
+            <tr>
+              <td>更新</td>
+              <td>自动</td>
+              <td>手动（离线包）</td>
+            </tr>
+            <tr>
+              <td>运营负担</td>
+              <td>低（我们管理）</td>
+              <td>高（您管理）</td>
+            </tr>
+            <tr>
+              <td>支持响应</td>
+              <td>可远程访问</td>
+              <td>仅文档+屏幕共享</td>
+            </tr>
+            <tr>
+              <td>数据主权</td>
+              <td>部分</td>
+              <td>完全</td>
+            </tr>
+            <tr>
+              <td>合规选项</td>
+              <td>SOC 2、GDPR、HIPAA</td>
+              <td>ITAR、机密、CMMC、全部</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3>人员要求</h3>
+        <p>气隙部署需要内部技术人员来管理系统。推荐团队：</p>
+        <ul>
+          <li><strong>系统管理员（0.5 FTE）：</strong> 操作系统补丁、监控、用户管理</li>
+          <li><strong>DBA（0.25 FTE）：</strong> 数据库维护、备份管理</li>
+          <li><strong>网络工程师（按需）：</strong> 连接故障排除、性能优化</li>
+          <li><strong>应用所有者（0.25 FTE）：</strong> 用户支持、配置更改、数据连接器管理</li>
+        </ul>
+
+        <h3>支持模式</h3>
+        <p>Datacendia通过以下方式为气隙部署提供支持：</p>
+        <ul>
+          <li>文档门户（可从连接的系统访问）</li>
+          <li>屏幕共享会话（非侵入式，视觉故障排除）</li>
+          <li>电子邮件和电话支持</li>
+          <li>与客户成功团队的季度检查</li>
+        </ul>
+        <p>我们无法远程访问气隙系统，因此故障排除依赖于您的团队提供日志、截图和配置详情。</p>
+      </div>
+
+      <div class="content-section">
+        <h2>常见问题</h2>
+
+        <h3>Datacendia可以在SIPRNet或JWICS上工作吗？</h3>
+        <p>是的。Datacendia在架构上设计用于在机密网络上部署，包括SIPRNet（SECRET）和JWICS（TOP SECRET/SCI）。部署遵循相同的离线包传输流程，通过批准的机密介质处理程序。<strong>我们正在寻找有机密网络需求的试点合作伙伴。</strong></p>
+
+        <h3>初始部署后如何添加新数据源？</h3>
+        <p>数据连接器可以通过Datacendia管理界面配置。除非连接到初始安装中未包含的新数据库类型，否则不需要外部包。</p>
+
+        <h3>如果我的气隙系统发生故障怎么办？</h3>
+        <p>Datacendia支持具有自动故障转移的高可用性（HA）配置。在HA模式下，如果主节点发生故障，辅助节点将在15分钟内接管。您管理HA基础设施（我们提供配置指导）。</p>
+
+        <h3>我可以使用自己的AI模型而不是Datacendia的模型吗？</h3>
+        <p>是的。Datacendia支持异构LLM部署。您可以部署自己的微调模型（与HuggingFace Transformers格式兼容）与Datacendia的模型一起或代替它们。</p>
+
+        <h3>气隙部署的费用是多少？</h3>
+        <p>气隙部署定价从每年15万美元起（相比云SaaS的7.5万美元）。溢价涵盖离线更新包、扩展支持模式和复杂部署的架构咨询。查看<a href="../pricing.html?lang=zh" style="color: var(--color-gold);">定价详情</a>。</p>
+      </div>
+
+      <div class="cta-box">
+        <h3>气隙部署咨询</h3>
+        <p>安排架构审查以评估您环境的气隙部署。</p>
+        <a href="../briefing.html?lang=zh" class="cta-btn">请求简报 →</a>
+      </div>
+
+      <div class="content-section" style="text-align: center; margin-top: 80px; padding-top: 40px; border-top: 1px solid var(--color-border);">
+        <p style="font-size: 0.85rem; color: var(--color-text-dim);">
+          了解更多关于<a href="sovereignty-matrix.html" style="color: var(--color-gold);">主权部署选项</a>或探索<a href="compliance.html" style="color: var(--color-gold);">合规框架</a>。
+        </p>
+      </div>
+    </div>
+  </div>
+  <script src="../translations.js"></script>
+  <script src="../app.js"></script>
+</body>
+</html>

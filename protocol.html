@@ -310,7 +310,7 @@
         <div class="page-icon">📜</div>
         <h1 class="page-title">Architecture Protocol</h1>
         <p class="page-subtitle">The definitive technical specification for the Datacendia Cortex. This document serves as the authoritative reference for system architecture, data flows, security boundaries, and integration protocols.</p>
-        <span class="version-badge">Version 1.0 · December 2025</span>
+        <span class="version-badge">Version 1.0 · January 2026</span>
       </div>
 
       <div class="toc">
@@ -433,7 +433,7 @@
           <h3>3.3 CendiaGuard (The Shield)</h3>
           <p>The security layer protecting sovereignty.</p>
           <table class="spec-table">
-            <tr><td>CendiaWitness</td><td>Immutable audit ledger. Cryptographic hashing (SHA-256) of every decision. Merkle tree structure for efficient verification.</td></tr>
+            <tr><td>Decision DNA</td><td>Immutable audit ledger. Cryptographic hashing (SHA-256) of every decision. Merkle tree structure for efficient verification.</td></tr>
             <tr><td>Anonymizer Cortex</td><td>PII stripping before context window ingestion. Configurable rules. Supports GDPR Article 17 (right to erasure).</td></tr>
             <tr><td>Air-Gap Protocol</td><td>Unidirectional data flow management. Optical diode logic for classified environments. No outbound connections required.</td></tr>
             <tr><td>Shadow Mode Shredder</td><td>Cryptographic deletion of intermediate "thought processes." Minimizes discovery risk in litigation.</td></tr>
@@ -531,7 +531,7 @@
           <ul>
             <li>Identifies and tags PII using configurable rules</li>
             <li>Strips or pseudonymizes sensitive fields before context window</li>
-            <li>Logs all transformations to CendiaWitness</li>
+            <li>Logs all transformations to Decision DNA</li>
           </ul>
 
           <h3>4.2 Processing Phase</h3>
@@ -560,7 +560,7 @@
 
           <div class="callout warning-callout">
             <div class="callout-title">Critical Constraint</div>
-            <p>If CendiaVeto blocks a recommendation, no output is produced until human override with explicit justification. The override itself is logged to CendiaWitness with the approver's identity.</p>
+            <p>If CendiaVeto blocks a recommendation, no output is produced until human override with explicit justification. The override itself is logged to Decision DNA with the approver's identity.</p>
           </div>
 
           <h3>4.5 Output Phase</h3>
@@ -729,7 +729,7 @@
 }</pre>
           </div>
 
-          <h3>7.2 CendiaWitness Ledger</h3>
+          <h3>7.2 Decision DNA Ledger</h3>
           <p>The Witness ledger is an append-only data structure with Merkle tree verification:</p>
           <ul>
             <li>Each Decision Trace is hashed and appended</li>
@@ -781,7 +781,7 @@
           <p>The Cortex deploys as a set of containerized services:</p>
           <ul>
             <li><strong>cortex-core:</strong> Main application (CendiaAgents, CendiaEthics)</li>
-            <li><strong>cortex-guard:</strong> Security services (CendiaGuard, CendiaWitness)</li>
+            <li><strong>cortex-guard:</strong> Security services (CendiaGuard, Decision DNA)</li>
             <li><strong>cortex-lineage:</strong> Data services (CendiaLineage, CendiaChronos)</li>
             <li><strong>cortex-health:</strong> Monitoring (CendiaHealth)</li>
             <li><strong>cortex-inference:</strong> Model serving (GPU-bound)</li>

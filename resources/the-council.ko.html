@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>더 카운슬: 멀티 에이전트 AI 심의 | Datacendia</title>
+  <meta name="description" content="14개의 전문 AI 에이전트가 기업 의사결정을 토론하여 수십억 달러의 실수를 방지하는 방법. 설명 가능하고 책임 있는 의사결정 인텔리전스를 위한 멀티 에이전트 심의 시스템.">
+  <meta name="author" content="Datacendia">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://datacendia.com/resources/the-council.ko.html">
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-top">
+        <a href="../ko/" style="text-decoration: none;"><h1 class="logo">DATACENDIA</h1></a>
+        <div class="lang-selector">
+          <button class="lang-btn"><span class="lang-current">한국어</span> ▾</button>
+          <div class="lang-dropdown">
+            <a href="the-council.html">English</a>
+            <a href="the-council.es.html">Español</a>
+            <a href="the-council.fr.html">Français</a>
+            <a href="the-council.de.html">Deutsch</a>
+            <a href="the-council.pt.html">Português</a>
+            <a href="the-council.it.html">Italiano</a>
+            <a href="the-council.ja.html">日本語</a>
+            <a href="the-council.ko.html" class="active">한국어</a>
+            <a href="the-council.zh.html">中文</a>
+            <a href="the-council.ar.html">العربية</a>
+            <a href="the-council.hi.html">हिन्दी</a>
+          </div>
+        </div>
+      </div>
+      <p class="tagline-sub">소버린 인텔리전스 플랫폼</p>
+      <nav class="main-nav">
+        <a href="../ko/">홈</a>
+        <a href="./" class="active">리소스</a>
+        <a href="../pricing.html?lang=ko">가격</a>
+        <a href="../pilot.html?lang=ko">파일럿 프로그램</a>
+        <a href="../trust.html?lang=ko">신뢰</a>
+        <a href="../briefing.html?lang=ko">브리핑 요청</a>
+      </nav>
+    </header>
+
+    <div class="page-container">
+      <div class="page-header">
+        <div class="page-icon">⚖️</div>
+        <h1 class="page-title">더 카운슬</h1>
+        <p class="page-subtitle">멀티 에이전트 심의. 단일 모델이 아닌—도전하고, 이의를 제기하고, 감사 가능한 권고를 생성하는 전문화된 역할의 오케스트레이션 시스템.</p>
+      </div>
+
+      <div class="content-section">
+        <h2>단일 AI 모델이 고위험 의사결정에서 실패하는 이유</h2>
+        <p>단일 모델 채팅은 유용할 수 있지만, 고위험 기업 의사결정은 예측 가능한 이유로 실패합니다:</p>
+        <ul>
+          <li><strong>환각 위험:</strong> LLM은 특히 엣지 케이스나 불완전한 데이터를 다룰 때 그럴듯하게 들리는 거짓을 자신 있게 생성합니다</li>
+          <li><strong>단일 관점 편향:</strong> 하나의 데이터셋으로 훈련된 하나의 모델은 하나의 관점을 생성하며, 자신의 가정을 의심할 수 없습니다</li>
+          <li><strong>내부 검증 없음:</strong> 적대적 도전 없이 모델은 두 번째 눈이 잡을 명백한 문제를 놓칩니다</li>
+          <li><strong>추적 불가능한 추론:</strong> 단일 모델이 실수를 하면 로직이 어디서 무너졌는지 추적할 수 없습니다</li>
+          <li><strong>책임 공백:</strong> 결정이 실패하면 누가 책임지나요? 모델? 프롬프트 엔지니어? 그것을 신뢰한 경영진?</li>
+        </ul>
+        <p>이것이 규제 산업이 출력이 거버넌스되고, 검토 가능하고, 증거화될 수 있지 않는 한 중요한 결정에 AI 챗봇을 제한하는 이유입니다.</p>
+      </div>
+
+      <div class="content-section">
+        <h2>더 카운슬 작동 방식</h2>
+        <p>더 카운슬은 전문 AI 에이전트가 구조화된 라운드에서 귀하의 결정을 토론하는 멀티 에이전트 심의 시스템입니다. 각 에이전트는 특정 역할, 지식 도메인 및 도전 권한을 가집니다. 합의에 도달하거나 불일치를 에스컬레이션할 때까지 분석, 논쟁 및 종합합니다.</p>
+        <p style="background: rgba(6, 182, 212, 0.1); border-left: 3px solid var(--color-cyan); padding: 12px 16px; margin: 16px 0; font-size: 0.9rem;"><strong>참고:</strong> 에이전트는 구성 가능한 모델 스택을 공유하는 역할(CFO, 법무, 리스크 등)이며, 14개의 다른 기반 모델이 아닙니다. 어떤 에이전트가 참여하고 어떤 로컬 LLM이 그들을 구동하는지 구성할 수 있습니다.</p>
+
+        <h3>심의 프로세스</h3>
+        <p>더 카운슬에 결정을 제출하면 다음이 발생합니다:</p>
+
+        <ol style="list-style: decimal; padding-left: 40px; margin: 24px 0;">
+          <li style="margin-bottom: 16px;"><strong>데이터 수집:</strong> 분석가 에이전트가 모든 관련 데이터(문서, 과거 결정, 외부 신호)를 수집합니다</li>
+          <li style="margin-bottom: 16px;"><strong>초기 분석:</strong> 전문 에이전트(CFO, CISO, 법무, 리스크)가 각자의 도메인 관점에서 독립적으로 결정을 분석합니다</li>
+          <li style="margin-bottom: 16px;"><strong>적대적 도전:</strong> 레드팀이 의도적으로 분석을 공격하여 최악의 시나리오와 규제 차단을 시뮬레이션합니다</li>
+          <li style="margin-bottom: 16px;"><strong>토론 라운드:</strong> 에이전트가 구조화된 라운드에서 논쟁을 교환하며 귀하의 데이터에서 특정 증거를 인용합니다</li>
+          <li style="margin-bottom: 16px;"><strong>이의 추적:</strong> CendiaDissent™가 모든 불일치, 누가 어떤 입장을 취했는지, 그 이유를 기록합니다</li>
+          <li style="margin-bottom: 16px;"><strong>종합:</strong> 중재자 에이전트가 모든 논쟁을 평가하고 검증 가능한 결정 추적이 포함된 최종 권고를 생성합니다</li>
+          <li style="margin-bottom: 16px;"><strong>인간 검토:</strong> 종합, 모든 반대 의견, 결정 추적(입력, 인용, 도구 호출, 승인)을 받습니다</li>
+        </ol>
+
+        <p>단일 모델 채팅과 달리 더 카운슬은 불확실성을 표면화하고 억제하도록 설계되었습니다: 에이전트는 증거를 인용해야 하고, 불일치는 보존되며, 출력에는 검증 가능한 결정 추적이 포함됩니다.</p>
+      </div>
+
+      <div class="content-section" style="background: linear-gradient(135deg, rgba(6, 182, 212, 0.05) 0%, rgba(59, 130, 246, 0.05) 100%); border: 1px solid rgba(6, 182, 212, 0.2); border-radius: 12px; padding: 2rem;">
+        <h2 style="color: var(--color-cyan);">📦 받는 것 (결정 패킷)</h2>
+        <p style="color: var(--color-text-dim); margin-bottom: 1.5rem;">각 카운슬 심의는 다음을 포함하는 내보내기 가능한 결정 패킷을 생성합니다:</p>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
+          <div style="background: rgba(0,0,0,0.2); border-radius: 8px; padding: 1rem;">
+            <h4 style="color: var(--color-text); margin-bottom: 0.5rem;">📊 권고</h4>
+            <ul style="color: var(--color-text-dim); font-size: 0.85rem; margin: 0; padding-left: 1.25rem;">
+              <li>신뢰 구간이 포함된 최종 권고</li>
+              <li>주요 가정 및 임계값</li>
+              <li>권고가 변경되는 조건</li>
+            </ul>
+          </div>
+          <div style="background: rgba(0,0,0,0.2); border-radius: 8px; padding: 1rem;">
+            <h4 style="color: var(--color-text); margin-bottom: 0.5rem;">📚 증거 인용</h4>
+            <ul style="color: var(--color-text-dim); font-size: 0.85rem; margin: 0; padding-left: 1.25rem;">
+              <li>소스 문서 + 타임스탬프</li>
+              <li>각 주장에 대한 검색 컨텍스트</li>
+              <li>데이터 출처 체인</li>
+            </ul>
+          </div>
+          <div style="background: rgba(0,0,0,0.2); border-radius: 8px; padding: 1rem;">
+            <h4 style="color: var(--color-text); margin-bottom: 0.5rem;">⚠️ 이의 로그</h4>
+            <ul style="color: var(--color-text-dim); font-size: 0.85rem; margin: 0; padding-left: 1.25rem;">
+              <li>어떤 에이전트가 이의를 제기했고 왜</li>
+              <li>각 측이 인용한 증거</li>
+              <li>입장을 바꾸는 데 필요한 것</li>
+            </ul>
+          </div>
+          <div style="background: rgba(0,0,0,0.2); border-radius: 8px; padding: 1rem;">
+            <h4 style="color: var(--color-text); margin-bottom: 0.5rem;">🔧 도구 호출 추적</h4>
+            <ul style="color: var(--color-text-dim); font-size: 0.85rem; margin: 0; padding-left: 1.25rem;">
+              <li>어떤 도구가 언제, 어떤 입력으로 실행되었는지</li>
+              <li>생성된 중간 아티팩트</li>
+              <li>기록된 외부 시스템 호출</li>
+            </ul>
+          </div>
+          <div style="background: rgba(0,0,0,0.2); border-radius: 8px; padding: 1rem;">
+            <h4 style="color: var(--color-text); margin-bottom: 0.5rem;">✅ 승인</h4>
+            <ul style="color: var(--color-text-dim); font-size: 0.85rem; margin: 0; padding-left: 1.25rem;">
+              <li>인간 검토 서명</li>
+              <li>통과/실패한 정책 게이트</li>
+              <li>에스컬레이션 결정</li>
+            </ul>
+          </div>
+          <div style="background: rgba(0,0,0,0.2); border-radius: 8px; padding: 1rem;">
+            <h4 style="color: var(--color-text); margin-bottom: 0.5rem;">🔐 무결성</h4>
+            <ul style="color: var(--color-text-dim); font-size: 0.85rem; margin: 0; padding-left: 1.25rem;">
+              <li>실행 ID + 타임스탬프</li>
+              <li>아티팩트 해시 매니페스트</li>
+              <li>선택적 암호화 서명 (KMS/HSM)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="content-section">
+        <h2>에이전트 소개</h2>
+        <div class="agent-grid">
+          <div class="agent-card">
+            <div class="agent-icon">📊</div>
+            <div class="agent-name">분석가</div>
+            <div class="agent-role">패턴 인식, 데이터 종합, 과거 트렌드 분석</div>
+          </div>
+          <div class="agent-card">
+            <div class="agent-icon">🔴</div>
+            <div class="agent-name">레드팀</div>
+            <div class="agent-role">적대적 도전, 최악의 시나리오, 공격 표면 매핑</div>
+          </div>
+          <div class="agent-card">
+            <div class="agent-icon">⚖️</div>
+            <div class="agent-name">중재자</div>
+            <div class="agent-role">최종 종합, 갈등 해결, 결정 권고</div>
+          </div>
+          <div class="agent-card">
+            <div class="agent-icon">🔗</div>
+            <div class="agent-name">유니온</div>
+            <div class="agent-role">외부 신호 통합, 시장 컨텍스트, 경쟁 인텔리전스</div>
+          </div>
+          <div class="agent-card">
+            <div class="agent-icon">💰</div>
+            <div class="agent-name">CFO</div>
+            <div class="agent-role">재무 모델링, ROI 분석, 비용-편익 평가</div>
+          </div>
+          <div class="agent-card">
+            <div class="agent-icon">🔒</div>
+            <div class="agent-name">CISO</div>
+            <div class="agent-role">보안 영향, 컴플라이언스 위험, 데이터 노출 분석</div>
+          </div>
+          <div class="agent-card">
+            <div class="agent-icon">⚖️</div>
+            <div class="agent-name">법무</div>
+            <div class="agent-role">규제 컴플라이언스, 계약 위험, 법적 선례</div>
+          </div>
+          <div class="agent-card">
+            <div class="agent-icon">📈</div>
+            <div class="agent-name">전략</div>
+            <div class="agent-role">장기 포지셔닝, 경쟁 역학, 시장 타이밍</div>
+          </div>
+          <div class="agent-card">
+            <div class="agent-icon">⚠️</div>
+            <div class="agent-name">리스크</div>
+            <div class="agent-role">기업 위험 평가, 실패 모드 분석, 완화 전략</div>
+          </div>
+          <div class="agent-card">
+            <div class="agent-icon">🏗️</div>
+            <div class="agent-name">운영</div>
+            <div class="agent-role">구현 가능성, 리소스 요구사항, 일정 현실성 점검</div>
+          </div>
+          <div class="agent-card">
+            <div class="agent-icon">👥</div>
+            <div class="agent-name">HR</div>
+            <div class="agent-role">인재 영향, 조직 변화, 문화적 고려사항</div>
+          </div>
+          <div class="agent-card">
+            <div class="agent-icon">🌍</div>
+            <div class="agent-name">ESG</div>
+            <div class="agent-role">환경 영향, 사회적 책임, 거버넌스 정렬</div>
+          </div>
+          <div class="agent-card">
+            <div class="agent-icon">🎯</div>
+            <div class="agent-name">제품</div>
+            <div class="agent-role">고객 영향, 기능 우선순위, 제품-시장 적합성</div>
+          </div>
+          <div class="agent-card">
+            <div class="agent-icon">🔧</div>
+            <div class="agent-name">엔지니어링</div>
+            <div class="agent-role">기술적 실현 가능성, 아키텍처 영향, 기술 부채 평가</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="content-section">
+        <h2>실제 시나리오</h2>
+        
+        <div class="scenario-box">
+          <h4>미션 1: M&A 거래</h4>
+          <p><strong>컨텍스트:</strong> 투자팀이 2억 달러에 SaaS 회사를 인수하려 합니다. 재무는 견고해 보이지만 뭔가 이상합니다.</p>
+          
+          <div class="scenario-step">
+            <div class="scenario-step-icon">📊</div>
+            <div class="scenario-step-content">
+              <div class="scenario-step-label">분석가</div>
+              <div class="scenario-step-text">데이터룸에서 5,000개 PDF를 수집하고 수익 집중(3개 고객에서 70%)을 식별</div>
+            </div>
+          </div>
+
+          <div class="scenario-step">
+            <div class="scenario-step-icon">🔴</div>
+            <div class="scenario-step-content">
+              <div class="scenario-step-label">레드팀</div>
+              <div class="scenario-step-text">규제 차단을 시뮬레이션—공개되지 않은 EU 시장의 독점 금지 문제 발견</div>
+            </div>
+          </div>
+
+          <div class="scenario-step">
+            <div class="scenario-step-icon">💰</div>
+            <div class="scenario-step-content">
+              <div class="scenario-step-label">CFO</div>
+              <div class="scenario-step-text">고객 이탈 시나리오 모델링—상위 3개가 떠나면 회사 가치 60% 하락</div>
+            </div>
+          </div>
+
+          <div class="scenario-step">
+            <div class="scenario-step-icon">⚖️</div>
+            <div class="scenario-step-content">
+              <div class="scenario-step-label">중재자</div>
+              <div class="scenario-step-text">결과 종합 → 고객 유지 보증이 포함된 1억 2천만 달러 제안 또는 철수 권고</div>
+            </div>
+          </div>
+
+          <p style="margin-top: 24px;"><strong>결과:</strong> 완전한 추론 체인이 포함된 위험 조정 제안 가격. 8천만 달러 과다 지불 방지.</p>
+        </div>
+
+        <div class="scenario-box">
+          <h4>미션 2: 공급망 충격</h4>
+          <p><strong>컨텍스트:</strong> 주요 반도체 공급업체가 6개월 지연을 발표했습니다. 30일 후 생산 중단.</p>
+          
+          <div class="scenario-step">
+            <div class="scenario-step-icon">📊</div>
+            <div class="scenario-step-content">
+              <div class="scenario-step-label">분석가</div>
+              <div class="scenario-step-text">3개 계층에 걸쳐 벤더 의존성 매핑—12개 대체 공급업체 식별</div>
+            </div>
+          </div>
+
+          <div class="scenario-step">
+            <div class="scenario-step-icon">🔗</div>
+            <div class="scenario-step-content">
+              <div class="scenario-step-label">유니온</div>
+              <div class="scenario-step-text">4개 대체 공급업체의 노동 파업 + 대상 지역의 항구 혼잡 플래그</div>
+            </div>
+          </div>
+
+          <div class="scenario-step">
+            <div class="scenario-step-icon">🔴</div>
+            <div class="scenario-step-content">
+              <div class="scenario-step-label">레드팀</div>
+              <div class="scenario-step-text">대체 경로 스트레스 테스트—3개 공급업체도 지연된 부품 사용 발견</div>
+            </div>
+          </div>
+
+          <div class="scenario-step">
+            <div class="scenario-step-icon">⚖️</div>
+            <div class="scenario-step-content">
+              <div class="scenario-step-label">중재자</div>
+              <div class="scenario-step-text">10일 긴급 배송 트리거가 포함된 이중 소싱 전략 권고</div>
+            </div>
+          </div>
+
+          <p style="margin-top: 24px;"><strong>결과:</strong> 비상 트리거가 포함된 재라우팅 전략. 완전 중단 대신 5% 비용 증가로 생산 계속.</p>
+        </div>
+      </div>
+
+      <div class="content-section">
+        <h2>비교: 단일 모델 vs. 멀티 에이전트</h2>
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th>기능</th>
+              <th>단일 AI 모델</th>
+              <th>더 카운슬</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>적대적 도전</td>
+              <td>없음</td>
+              <td class="highlight-col">내장 레드팀</td>
+            </tr>
+            <tr>
+              <td>이의 추적</td>
+              <td>없음</td>
+              <td class="highlight-col">CendiaDissent™</td>
+            </tr>
+            <tr>
+              <td>추론 투명성</td>
+              <td>요약만</td>
+              <td class="highlight-col">전체 토론 기록</td>
+            </tr>
+            <tr>
+              <td>환각 방지</td>
+              <td>프롬프트 엔지니어링</td>
+              <td class="highlight-col">멀티 에이전트 팩트체크</td>
+            </tr>
+            <tr>
+              <td>책임</td>
+              <td>불명확</td>
+              <td class="highlight-col">에이전트별 귀속</td>
+            </tr>
+            <tr>
+              <td>규제 감사 추적</td>
+              <td>프롬프트 + 응답</td>
+              <td class="highlight-col">완전한 심의 패킷</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="content-section">
+        <h2>에이전트가 이의를 제기할 때: CendiaDissent™</h2>
+        <p>모든 결정이 만장일치 합의에 도달하는 것은 아닙니다. 에이전트가 근본적으로 이의를 제기할 때 더 카운슬은 갈등을 숨기지 않고 문서화합니다.</p>
+        
+        <p><strong>CendiaDissent</strong>는 모든 불일치를 추적합니다:</p>
+        <ul>
+          <li>어떤 에이전트가 이의를 제기했는지</li>
+          <li>어떤 입장을 취했는지</li>
+          <li>각자가 인용한 증거</li>
+          <li>왜 합의에 도달하지 못했는지</li>
+          <li>정렬을 위해 무엇이 변해야 하는지</li>
+        </ul>
+
+        <div class="info-box">
+          <p><strong>왜 중요한가:</strong> 감사인이 "이 결정이 내려지기 전에 누군가 의문을 제기했나요?"라고 물으면, 어떤 우려가 누구에 의해 제기되었고 왜 해결되었거나 되지 않았는지 정확히 보여주는 암호화 서명 가능한 이의 기록(고객 소유 키 / KMS-HSM 통합 가능)을 제출할 수 있습니다.</p>
+        </div>
+
+        <p>고위험 결정에서 문서화된 이의는 버그가 아니라 실사의 증거입니다.</p>
+      </div>
+
+      <div class="content-section">
+        <h2>자주 묻는 질문</h2>
+        
+        <h3>여러 ChatGPT 프롬프트를 사용하는 것과 어떻게 다른가요?</h3>
+        <p>다른 페르소나로 여러 ChatGPT 프롬프트를 하면 여러 독립적인 답변을 얻지만 토론, 종합, 적대적 도전은 없습니다. 카운슬 에이전트는 서로 적극적으로 논쟁하고, 상충하는 증거를 인용하고, 해결을 강제합니다. 토론 기록은 어디서 불일치가 발생했고 어떻게 해결되었는지 또는 왜 해결되지 못했는지 보여줍니다.</p>
+
+        <h3>어떤 에이전트가 참여하는지 맞춤 설정할 수 있나요?</h3>
+        <p>예. 특정 결정 유형에 특정 에이전트를 활성화할 수 있습니다. M&A 결정은 CFO, 법무, 리스크, 레드팀, 중재자를 사용할 수 있습니다. 제품 로드맵 결정은 제품, 엔지니어링, 전략, 고객 성공을 사용할 수 있습니다. 더 카운슬은 결정 컨텍스트에 적응합니다.</p>
+
+        <h3>심의에 얼마나 걸리나요?</h3>
+        <p>일반적인 범위: 간단한 결정(벤더 계약 승인/거부): 2-5분. 복잡한 결정(5,000개 문서가 있는 M&A 거래): 30-90분. 실제 시간은 모델 크기, 컨텍스트 길이, 검색 깊이, 문서 볼륨에 따라 다릅니다.</p>
+
+        <h3>더 카운슬이 잘못된 결론에 도달하면 어떻게 되나요?</h3>
+        <p>어떤 에이전트가 어떤 증거를 기반으로 어떤 주장을 했는지 보여주는 결정 추적이 있습니다. 단일 모델 채팅에서는 오류가 불투명하지만, 로직이 어디서 무너졌는지 정확히 추적할 수 있습니다. 이 추적 가능성은 감사와 검토를 가능하게 합니다.</p>
+
+        <h3>더 카운슬은 에어갭 환경에서 작동하나요?</h3>
+        <p>예. 더 카운슬은 전적으로 귀하의 인프라 내에서 실행됩니다. 벤더 클라우드 LLM 의존성 없음—심의는 귀하의 환경 내 로컬 모델(예: Ollama)에 대해 실행됩니다. 이는 데이터가 네트워크를 떠날 수 없는 기밀 결정이나 규제 환경에 중요합니다.</p>
+      </div>
+
+      <div class="content-section" style="background: linear-gradient(135deg, rgba(239, 68, 68, 0.05) 0%, rgba(239, 68, 68, 0.02) 100%); border: 1px solid rgba(239, 68, 68, 0.2); border-radius: 12px; padding: 2rem; margin-top: 3rem;">
+        <h2 style="color: #ef4444;">⚠️ 제한 사항 및 정직한 공개</h2>
+        <p style="color: var(--color-text-dim); margin-bottom: 1.5rem;">투명성의 정신으로, 더 카운슬이 <em>아닌</em> 것을 보여드립니다:</p>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
+          <div>
+            <h3 style="font-size: 1rem; color: var(--color-text); margin-bottom: 0.5rem;">더 카운슬이 아닌 것</h3>
+            <ul style="color: var(--color-text-dim); font-size: 0.9rem;">
+              <li style="margin-bottom: 0.5rem;"><strong>인간 대체나 자동 조종이 아님</strong> — 승인과 정책 게이트는 여전히 필요</li>
+              <li style="margin-bottom: 0.5rem;"><strong>결정론적이지 않음</strong> — 출력이 달라질 수 있음; 재현 가능한 실행 ID와 증거 내보내기 제공</li>
+              <li style="margin-bottom: 0.5rem;"><strong>"14개의 별도 모델"이 아님</strong> — 구성 가능한 모델 스택(로컬 우선) 사용, 14개의 별도 "두뇌" 아님</li>
+              <li style="margin-bottom: 0.5rem;"><strong>보장되지 않음</strong> — 데이터 품질, 통합, 권한에 의해 제한됨</li>
+              <li style="margin-bottom: 0.5rem;"><strong>마법이 아님</strong> — 증거가 포함된 거버넌스 인식 자동화</li>
+            </ul>
+          </div>
+          
+          <div>
+            <h3 style="font-size: 1rem; color: var(--color-text); margin-bottom: 0.5rem;">기술 요구사항</h3>
+            <ul style="color: var(--color-text-dim); font-size: 0.9rem;">
+              <li style="margin-bottom: 0.5rem;"><strong>로컬 LLM 권장</strong> — GPU 선호 (Qwen 2.5, Llama 3, Mistral이 있는 Ollama)</li>
+              <li style="margin-bottom: 0.5rem;"><strong>GPU:</strong> 반응형 멀티 스텝 워크플로우에 16GB+ VRAM 권장</li>
+              <li style="margin-bottom: 0.5rem;"><strong>시스템:</strong> 32GB+ RAM, 최신 CPU, SSD 스토리지</li>
+              <li style="margin-bottom: 0.5rem;"><strong>성능은 다양</strong> 모델 크기, 컨텍스트 길이, 검색 깊이, 도구 호출에 따라</li>
+            </ul>
+          </div>
+          
+          <div>
+            <h3 style="font-size: 1rem; color: var(--color-text); margin-bottom: 0.5rem;">잘 작동할 때</h3>
+            <ul style="color: var(--color-text-dim); font-size: 0.9rem;">
+              <li style="margin-bottom: 0.5rem;">✅ 구조화된 시나리오 (정의된 제약, 결과, 임계값)</li>
+              <li style="margin-bottom: 0.5rem;">✅ M&A / 실사 워크플로우</li>
+              <li style="margin-bottom: 0.5rem;">✅ 위험 분석 및 거버넌스 검토</li>
+              <li style="margin-bottom: 0.5rem;">✅ 문서와 정책에 기반한 컴플라이언스 응답</li>
+            </ul>
+          </div>
+          
+          <div>
+            <h3 style="font-size: 1rem; color: var(--color-text); margin-bottom: 0.5rem;">어려울 수 있을 때</h3>
+            <ul style="color: var(--color-text-dim); font-size: 0.9rem;">
+              <li style="margin-bottom: 0.5rem;">❌ 관련 증거가 없는 새로운 엣지 케이스</li>
+              <li style="margin-bottom: 0.5rem;">❌ 큐레이션된 소스가 없는 고도로 전문화된 도메인</li>
+              <li style="margin-bottom: 0.5rem;">❌ 라이브 통합이 없는 실시간 결정</li>
+              <li style="margin-bottom: 0.5rem;">❌ 인간 판단이 필요한 주관적/가치 기반 선택</li>
+            </ul>
+            <p style="color: var(--color-cyan); font-size: 0.8rem; margin-top: 0.75rem;"><strong>완화:</strong> 소스 추가, 정책 정의, 시스템 통합, 승인 요구</p>
+          </div>
+        </div>
+
+        <div style="margin-top: 1.5rem; padding: 1rem; background: rgba(0,0,0,0.2); border-radius: 8px;">
+          <p style="color: var(--color-text-dim); font-size: 0.85rem; margin: 0;">
+            <strong style="color: var(--color-gold);">결론:</strong> 인간 판단을 강화—대체하지 않음. 출력에는 내보내기 가능한 결정 추적(입력, 소스, 적용된 정책, 승인, 실행 ID)이 포함됨.
+          </p>
+        </div>
+      </div>
+
+      <div class="content-section" style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.05) 0%, rgba(16, 185, 129, 0.02) 100%); border: 1px solid rgba(16, 185, 129, 0.2); border-radius: 12px; padding: 2rem; margin-top: 1.5rem;">
+        <h2 style="color: #10b981;">🛡️ 위험을 줄이는 방법</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-top: 1rem;">
+          <div style="text-align: center; padding: 1rem;">
+            <div style="font-size: 2rem; margin-bottom: 0.5rem;">🔐</div>
+            <h4 style="color: var(--color-text); font-size: 0.9rem; margin-bottom: 0.25rem;">정책 게이트 + RBAC</h4>
+            <p style="color: var(--color-text-muted); font-size: 0.8rem;">각 단계에서 역할 기반 액세스 제어 및 정책 적용</p>
+          </div>
+          <div style="text-align: center; padding: 1rem;">
+            <div style="font-size: 2rem; margin-bottom: 0.5rem;">📚</div>
+            <h4 style="color: var(--color-text); font-size: 0.9rem; margin-bottom: 0.25rem;">증거 인용</h4>
+            <p style="color: var(--color-text-muted); font-size: 0.8rem;">각 주장에 대한 소스 귀속이 포함된 검색 그라운딩</p>
+          </div>
+          <div style="text-align: center; padding: 1rem;">
+            <div style="font-size: 2rem; margin-bottom: 0.5rem;">✋</div>
+            <h4 style="color: var(--color-text); font-size: 0.9rem; margin-bottom: 0.25rem;">인간 승인</h4>
+            <p style="color: var(--color-text-muted); font-size: 0.8rem;">고위험 결정에 대한 거부권 및 필수 서명</p>
+          </div>
+          <div style="text-align: center; padding: 1rem;">
+            <div style="font-size: 2rem; margin-bottom: 0.5rem;">📦</div>
+            <h4 style="color: var(--color-text); font-size: 0.9rem; margin-bottom: 0.25rem;">결정 내보내기</h4>
+            <p style="color: var(--color-text-muted); font-size: 0.8rem;">전체 심의 추적, 실행 ID, 아티팩트가 포함된 감사 패킷</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="cta-box">
+        <h3>더 카운슬 작동 보기</h3>
+        <p>귀하의 결정 시나리오에 대한 라이브 멀티 에이전트 심의를 보려면 기술 브리핑을 요청하세요.</p>
+        <a href="../briefing.html?lang=ko" class="cta-btn">브리핑 요청 →</a>
+      </div>
+
+      <div class="content-section" style="text-align: center; margin-top: 80px; padding-top: 40px; border-top: 1px solid var(--color-border);">
+        <p style="font-size: 0.85rem; color: var(--color-text-dim);">
+          인프라에 관심이 있으신가요? <a href="sovereignty-matrix.html" style="color: var(--color-gold);">소버린 배포 옵션</a> 또는 <a href="compliance.html" style="color: var(--color-gold);">컴플라이언스 프레임워크 매핑</a>을 확인하세요.
+        </p>
+      </div>
+    </div>
+  </div>
+  <script src="../translations.js"></script>
+  <script src="../app.js"></script>
+</body>
+</html>

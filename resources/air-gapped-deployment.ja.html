@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>エアギャップ展開ガイド | オフライン企業インテリジェンス | Datacendia</title>
+  <meta name="description" content="エアギャップ環境でのAI展開の完全な技術ガイド。防衛請負業者、機密システム、重要インフラ向けのオフラインAIプラットフォーム。">
+  <meta name="author" content="Datacendia">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://datacendia.com/resources/air-gapped-deployment.ja.html">
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-top">
+        <a href="../ja/" style="text-decoration: none;"><h1 class="logo">DATACENDIA</h1></a>
+        <div class="lang-selector">
+          <button class="lang-btn"><span class="lang-current">日本語</span> ▾</button>
+          <div class="lang-dropdown">
+            <a href="air-gapped-deployment.html">English</a>
+            <a href="air-gapped-deployment.es.html">Español</a>
+            <a href="air-gapped-deployment.fr.html">Français</a>
+            <a href="air-gapped-deployment.de.html">Deutsch</a>
+            <a href="air-gapped-deployment.pt.html">Português</a>
+            <a href="air-gapped-deployment.it.html">Italiano</a>
+            <a href="air-gapped-deployment.ja.html" class="active">日本語</a>
+            <a href="air-gapped-deployment.ko.html">한국어</a>
+            <a href="air-gapped-deployment.zh.html">中文</a>
+            <a href="air-gapped-deployment.ar.html">العربية</a>
+            <a href="air-gapped-deployment.hi.html">हिन्दी</a>
+          </div>
+        </div>
+      </div>
+      <p class="tagline-sub">ソブリンインテリジェンスプラットフォーム</p>
+      <nav class="main-nav">
+        <a href="../ja/">ホーム</a>
+        <a href="./" class="active">リソース</a>
+        <a href="../pricing.html?lang=ja">料金</a>
+        <a href="../pilot.html?lang=ja">パイロットプログラム</a>
+        <a href="../trust.html?lang=ja">信頼</a>
+        <a href="../briefing.html?lang=ja">ブリーフィング依頼</a>
+      </nav>
+    </header>
+
+    <div class="page-container">
+      <div class="page-header">
+        <div class="page-icon">🔒</div>
+        <h1 class="page-title">エアギャップ展開ガイド</h1>
+        <p class="page-subtitle">完全に隔離されたネットワークで企業AIを展開。インターネット接続不要。防衛請負業者、機密システム、重要インフラ向けに構築。</p>
+      </div>
+
+      <div class="content-section">
+        <h2>エアギャップ展開とは？</h2>
+        <p>エアギャップ展開とは、Datacendiaが外部接続ゼロで完全に隔離されたネットワーク内で動作することを意味します。インターネットアクセスなし。クラウドAPIなし。データがインフラストラクチャから出ることなし。これはITAR、機密処理、重要インフラのセキュリティ要件を満たす唯一の展開モデルです。</p>
+
+        <p><strong>エアギャップ vs. VPNまたはファイアウォール保護ネットワーク：</strong> VPNまたはファイアウォール保護ネットワークはまだインターネット接続があります—制限されているだけです。エアギャップとは物理的に隔離されていることを意味します：外部システムに接続するネットワークケーブルなし、ワイヤレスなし、セルラーなし。ネットワークがインターネットに到達できる場合（複数のホップを経由しても）、それはエアギャップではありません。</p>
+
+        <div class="warning-box">
+          <p><strong>重要：</strong> エアギャップ展開はクラウドやVPC展開よりも運用上複雑です。問題はクラウドAIを使用する方が簡単かどうかではありません—問題は、規制要件、脅威モデル、またはデータ分類が外部接続のリスクを受け入れることを許可するかどうかです。</p>
+        </div>
+      </div>
+
+      <div class="content-section">
+        <h2>誰がエアギャップ展開を必要とするか？</h2>
+
+        <h3>防衛請負業者</h3>
+        <p>ITAR管理技術データ、CUI、または機密情報を扱う組織はクラウドAIを使用できません。輸出管理規制（ITAR、EAR）は技術データへの外国アクセスを禁止しており、米国ベースのクラウドプロバイダーは外国政府の法的要求の対象となる可能性があります。</p>
+        <ul>
+          <li>ITARコンプライアンス（国際武器取引規制）</li>
+          <li>機密プログラムデータ（SECRET、TOP SECRET、SCI）</li>
+          <li>CMMCレベル3要件</li>
+          <li>防衛産業基盤（DIB）サプライチェーン保護</li>
+        </ul>
+
+        <h3>重要インフラ</h3>
+        <p>電力網、水処理施設、輸送システム、通信ネットワークは重要インフラに指定されています。エアギャップ展開は制御システムと運用データへの敵対者のアクセスを防ぎます。</p>
+        <ul>
+          <li>SCADA / ICSネットワーク隔離</li>
+          <li>原子力施設運用（NRC要件）</li>
+          <li>電力網管理（NERC CIP）</li>
+          <li>上下水道ユーティリティ</li>
+        </ul>
+
+        <h3>インテリジェンスコミュニティ</h3>
+        <p>IC機関は外部システムに公開できない機密インテリジェンスを処理します。エアギャップ展開はSIGINT、HUMINT、その他の機密ソースのAI分析を可能にします。</p>
+        <ul>
+          <li>機密インテリジェンス分析</li>
+          <li>IC ITE（インテリジェンスコミュニティ情報技術エンタープライズ）</li>
+          <li>SIPRNet / JWICS展開</li>
+          <li>区分化情報の取り扱い</li>
+        </ul>
+
+        <h3>高価値商用</h3>
+        <p>一部の商用組織は、規制要件がなくても、競争保護またはIP保護の理由でエアギャップ展開を選択します。</p>
+        <ul>
+          <li>製薬R&D（特許前の医薬品候補）</li>
+          <li>製造業の営業秘密</li>
+          <li>金融取引アルゴリズム</li>
+          <li>M&Aデューデリジェンス（機密取引データ）</li>
+        </ul>
+      </div>
+
+      <div class="content-section">
+        <h2>インフラストラクチャ要件</h2>
+
+        <div class="requirements-box">
+          <h4>最小システム要件</h4>
+          <div class="requirements-grid">
+            <div class="requirement-item">
+              <div class="requirement-label">コンピュート</div>
+              <div class="requirement-value">16コア（32推奨）</div>
+            </div>
+            <div class="requirement-item">
+              <div class="requirement-label">メモリ</div>
+              <div class="requirement-value">64GB RAM（128GB推奨）</div>
+            </div>
+            <div class="requirement-item">
+              <div class="requirement-label">ストレージ</div>
+              <div class="requirement-value">500GB SSD最小（2TB+推奨）</div>
+            </div>
+            <div class="requirement-item">
+              <div class="requirement-label">オペレーティングシステム</div>
+              <div class="requirement-value">Ubuntu 22.04 LTSまたはRHEL 8+</div>
+            </div>
+            <div class="requirement-item">
+              <div class="requirement-label">ネットワーク</div>
+              <div class="requirement-value">内部のみ（外部接続なし）</div>
+            </div>
+            <div class="requirement-item">
+              <div class="requirement-label">GPU</div>
+              <div class="requirement-value">オプション（アクセラレーション用NVIDIA T4以上）</div>
+            </div>
+          </div>
+        </div>
+
+        <p><strong>サイジングガイダンス：</strong> 上記の要件は、中程度のデータ量で10-20の同時ユーザーをサポートします。より大規模な展開（100+ユーザー、10TB+データ）については、アーキテクチャレビューのためにお問い合わせください。</p>
+
+        <div class="info-box">
+          <p><strong>仮想マシン vs. ベアメタル：</strong> DatacendiaはVMware ESXi、Hyper-V、またはKVM仮想マシンで実行できます。ただし、最大のパフォーマンスとGPUアクセラレーションには、ベアメタル展開が推奨されます。GPUを使用するVMを使用する場合は、ハイパーバイザーがGPUパススルーをサポートしていることを確認してください。</p>
+        </div>
+      </div>
+
+      <div class="content-section">
+        <h2>展開プロセス</h2>
+
+        <div class="deployment-step">
+          <h4>ステップ1：展開前評価（第1週）</h4>
+          <p><strong>目的：</strong> インフラストラクチャの準備状況を検証し、依存関係を特定する。</p>
+          <ul>
+            <li>既存の隔離ネットワークアーキテクチャを監査</li>
+            <li>内部データソースを特定（データベース、ファイル共有、アプリケーション）</li>
+            <li>ファイル転送用の承認済みセキュアメディアを決定（USB、DVD、内部SneakerNet）</li>
+            <li>ユーザーアクセスと認証要件を定義（LDAP、CAC/PIV、SAML）</li>
+            <li>運用ランブックと変更管理手順をレビュー</li>
+          </ul>
+        </div>
+
+        <div class="deployment-step">
+          <h4>ステップ2：パッケージ転送（第2週）</h4>
+          <p><strong>目的：</strong> Datacendiaインストールパッケージをエアギャップ環境に移動する。</p>
+          <ul>
+            <li>Datacendiaは圧縮アーカイブ（.tar.gz）としてインストールパッケージを提供</li>
+            <li>パッケージは暗号署名されています（GPG署名提供）</li>
+            <li>組織のデータ転送手順に従って承認済みセキュアメディア経由で転送</li>
+            <li>提供されたチェックサムと署名を使用してパッケージの整合性を検証</li>
+          </ul>
+          <p><strong>典型的なパッケージサイズ：</strong> 2-5GB圧縮（モデル、アプリケーションコード、依存関係）</p>
+        </div>
+
+        <div class="deployment-step">
+          <h4>ステップ3：インストール（第2-3週）</h4>
+          <p><strong>目的：</strong> 隔離インフラストラクチャにDatacendiaをインストールする。</p>
+          <ul>
+            <li>ターゲットサーバーにインストールパッケージを展開</li>
+            <li>自動インストールスクリプトを実行（依存関係を検証、サービスを構成）</li>
+            <li>データベースを初期化（組み込みPostgreSQLまたは既存データベースに接続）</li>
+            <li>認証統合を構成（LDAP、Active Directory、SAML IdP）</li>
+            <li>内部HTTPS用のTLS証明書を設定</li>
+          </ul>
+          <p><strong>インストール時間：</strong> 4-8時間（インフラストラクチャの複雑さによる）</p>
+        </div>
+
+        <div class="deployment-step">
+          <h4>ステップ4：データコネクタ構成（第3-4週）</h4>
+          <p><strong>目的：</strong> Datacendiaを内部データソースに接続する。</p>
+          <ul>
+            <li>データベースコネクタを構成（PostgreSQL、Oracle、SQL Serverなど）</li>
+            <li>ファイル共有アクセスを設定（NFS、SMB/CIFS）</li>
+            <li>内部APIと統合（REST、SOAP）</li>
+            <li>データ取り込みをテストし、接続性を検証</li>
+            <li>データ同期のための更新スケジュールを構成</li>
+          </ul>
+        </div>
+
+        <div class="deployment-step">
+          <h4>ステップ5：テストと検証（第4-5週）</h4>
+          <p><strong>目的：</strong> インストールを検証し、外部依存関係がないことを確認する。</p>
+          <ul>
+            <li>ネットワーク隔離テスト（アウトバウンド接続が試行されていないことを確認）</li>
+            <li>パイロットグループでのユーザー受け入れテスト</li>
+            <li>負荷下でのパフォーマンスベンチマーク</li>
+            <li>フェイルオーバーとリカバリテスト</li>
+            <li>ドキュメント引き渡しとオペレータートレーニング</li>
+          </ul>
+        </div>
+
+        <div class="deployment-step">
+          <h4>ステップ6：本番ロールアウト（第5-6週）</h4>
+          <p><strong>目的：</strong> 本番ユーザーに展開し、継続的な運用を確立する。</p>
+          <ul>
+            <li>パイロット構成を本番に移行</li>
+            <li>ユーザーオンボーディングとトレーニングセッション</li>
+            <li>監視と運用手順を確立</li>
+            <li>一般的なシナリオのランブックを文書化</li>
+          </ul>
+        </div>
+
+        <p><strong>総展開タイムライン：</strong> インフラストラクチャ評価から本番まで4-6週間。タイムラインはインフラストラクチャが利用可能で、チームが展開に専念するリソースを持っていることを前提としています。</p>
+      </div>
+
+      <div class="content-section">
+        <h2>アップデートとメンテナンス</h2>
+
+        <h3>エアギャップ環境でのアップデートの仕組み</h3>
+        <p>Datacendiaはクラウドソフトウェアのように自動更新できません。アップデートは承認済みセキュアメディア経由で転送されるオフラインパッケージとして配信されます。</p>
+
+        <p><strong>アップデートプロセス：</strong></p>
+        <ol>
+          <li>Datacendiaがアップデートパッケージをリリース（四半期ごと、またはセキュリティパッチの必要に応じて）</li>
+          <li>顧客がDatacendiaカスタマーポータルからアップデートパッケージをダウンロード（接続システムから）</li>
+          <li>顧客が承認済みメディア経由でパッケージをエアギャップ環境に転送</li>
+          <li>顧客がGPGキーを使用してパッケージ署名を検証</li>
+          <li>顧客がメンテナンスウィンドウ中にアップデートスクリプトを実行</li>
+          <li>システムがアップデート適用前に現在のバージョンを自動バックアップ</li>
+          <li>アップデートが適用され、サービスが再起動し、検証テストが実行される</li>
+        </ol>
+
+        <div class="info-box">
+          <p><strong>アップデート頻度：</strong> メジャーリリース：四半期ごと。セキュリティパッチ：必要に応じて（通常四半期あたり1-3回）。アップデートをいつ適用するかはお客様が管理します—強制アップデートはありません。</p>
+        </div>
+
+        <h3>ロールバック機能</h3>
+        <p>アップデートが問題を引き起こした場合、Datacendiaは1コマンドで前のバージョンへのロールバックをサポートします。ロールバック中にすべてのデータと構成が保持されます。</p>
+
+        <h3>長期サポート</h3>
+        <p>Datacendiaは頻繁にアップデートできない顧客向けに長期サポート（LTS）バージョンを提供します。LTSバージョンは機能アップグレードを強制することなく18か月間セキュリティパッチを受け取ります。</p>
+      </div>
+
+      <div class="content-section">
+        <h2>運用上の考慮事項</h2>
+
+        <h3>クラウド展開との比較</h3>
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th>側面</th>
+              <th>クラウドSaaS</th>
+              <th>エアギャップ</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>セットアップ時間</td>
+              <td>時間</td>
+              <td>週</td>
+            </tr>
+            <tr>
+              <td>アップデート</td>
+              <td>自動</td>
+              <td>手動（オフラインパッケージ）</td>
+            </tr>
+            <tr>
+              <td>運用負荷</td>
+              <td>低（当社が管理）</td>
+              <td>高（お客様が管理）</td>
+            </tr>
+            <tr>
+              <td>サポート対応</td>
+              <td>リモートアクセス可能</td>
+              <td>ドキュメント+画面共有のみ</td>
+            </tr>
+            <tr>
+              <td>データ主権</td>
+              <td>部分的</td>
+              <td>完全</td>
+            </tr>
+            <tr>
+              <td>コンプライアンスオプション</td>
+              <td>SOC 2、GDPR、HIPAA</td>
+              <td>ITAR、機密、CMMC、すべて</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3>人員要件</h3>
+        <p>エアギャップ展開にはシステムを管理する社内技術スタッフが必要です。推奨チーム：</p>
+        <ul>
+          <li><strong>システム管理者（0.5 FTE）：</strong> OSパッチ、監視、ユーザー管理</li>
+          <li><strong>DBA（0.25 FTE）：</strong> データベースメンテナンス、バックアップ管理</li>
+          <li><strong>ネットワークエンジニア（必要に応じて）：</strong> 接続性のトラブルシューティング、パフォーマンス最適化</li>
+          <li><strong>アプリケーションオーナー（0.25 FTE）：</strong> ユーザーサポート、構成変更、データコネクタ管理</li>
+        </ul>
+
+        <h3>サポートモデル</h3>
+        <p>Datacendiaはエアギャップ展開のサポートを以下を通じて提供します：</p>
+        <ul>
+          <li>ドキュメントポータル（接続システムからアクセス可能）</li>
+          <li>画面共有セッション（非侵入型、視覚的トラブルシューティング）</li>
+          <li>メールおよび電話サポート</li>
+          <li>カスタマーサクセスチームとの四半期チェックイン</li>
+        </ul>
+        <p>エアギャップシステムにリモートアクセスできないため、トラブルシューティングはお客様のチームがログ、スクリーンショット、構成詳細を提供することに依存します。</p>
+      </div>
+
+      <div class="content-section">
+        <h2>よくある質問</h2>
+
+        <h3>DatacendiaはSIPRNetまたはJWICSで動作しますか？</h3>
+        <p>はい。DatacendiaはSIPRNet（SECRET）およびJWICS（TOP SECRET/SCI）を含む機密ネットワークでの展開向けにアーキテクチャ設計されています。展開は承認済み機密メディア取り扱い手順を通じて同じオフラインパッケージ転送プロセスに従います。<strong>機密ネットワーク要件を持つパイロットパートナーを募集しています。</strong></p>
+
+        <h3>初期展開後に新しいデータソースを追加するにはどうすればよいですか？</h3>
+        <p>データコネクタはDatacendia管理インターフェースを通じて構成できます。初期インストールに含まれていない新しいデータベースタイプに接続しない限り、外部パッケージは必要ありません。</p>
+
+        <h3>エアギャップシステムが故障した場合はどうなりますか？</h3>
+        <p>Datacendiaは自動フェイルオーバーを備えた高可用性（HA）構成をサポートしています。HAモードでは、プライマリノードが故障した場合、セカンダリノードが15分以内に引き継ぎます。お客様がHAインフラストラクチャを管理します（当社が構成ガイダンスを提供）。</p>
+
+        <h3>Datacendiaのモデルの代わりに自分のAIモデルを使用できますか？</h3>
+        <p>はい。Datacendiaは異種LLM展開をサポートしています。Datacendiaのモデルと一緒に、または代わりに、独自のファインチューニングモデル（HuggingFace Transformers形式と互換性あり）を展開できます。</p>
+
+        <h3>エアギャップ展開の費用はいくらですか？</h3>
+        <p>エアギャップ展開の価格は年間$150Kから始まります（クラウドSaaSの$75Kに対して）。プレミアムはオフラインアップデートパッケージ、拡張サポートモデル、複雑な展開のためのアーキテクチャコンサルティングをカバーします。<a href="../pricing.html?lang=ja" style="color: var(--color-gold);">価格詳細</a>をご覧ください。</p>
+      </div>
+
+      <div class="cta-box">
+        <h3>エアギャップ展開コンサルテーション</h3>
+        <p>お客様の環境でのエアギャップ展開を評価するためのアーキテクチャレビューをスケジュールしてください。</p>
+        <a href="../briefing.html?lang=ja" class="cta-btn">ブリーフィングを依頼 →</a>
+      </div>
+
+      <div class="content-section" style="text-align: center; margin-top: 80px; padding-top: 40px; border-top: 1px solid var(--color-border);">
+        <p style="font-size: 0.85rem; color: var(--color-text-dim);">
+          <a href="sovereignty-matrix.html" style="color: var(--color-gold);">ソブリン展開オプション</a>の詳細を学ぶか、<a href="compliance.html" style="color: var(--color-gold);">コンプライアンスフレームワーク</a>を探索してください。
+        </p>
+      </div>
+    </div>
+  </div>
+  <script src="../translations.js"></script>
+  <script src="../app.js"></script>
+</body>
+</html>

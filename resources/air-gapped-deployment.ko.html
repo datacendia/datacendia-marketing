@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>에어갭 배포 가이드 | 오프라인 기업 인텔리전스 | Datacendia</title>
+  <meta name="description" content="에어갭 환경에서 AI를 배포하기 위한 완전한 기술 가이드. 방위 계약업체, 기밀 시스템 및 중요 인프라를 위한 오프라인 AI 플랫폼.">
+  <meta name="author" content="Datacendia">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://datacendia.com/resources/air-gapped-deployment.ko.html">
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-top">
+        <a href="../ko/" style="text-decoration: none;"><h1 class="logo">DATACENDIA</h1></a>
+        <div class="lang-selector">
+          <button class="lang-btn"><span class="lang-current">한국어</span> ▾</button>
+          <div class="lang-dropdown">
+            <a href="air-gapped-deployment.html">English</a>
+            <a href="air-gapped-deployment.es.html">Español</a>
+            <a href="air-gapped-deployment.fr.html">Français</a>
+            <a href="air-gapped-deployment.de.html">Deutsch</a>
+            <a href="air-gapped-deployment.pt.html">Português</a>
+            <a href="air-gapped-deployment.it.html">Italiano</a>
+            <a href="air-gapped-deployment.ja.html">日本語</a>
+            <a href="air-gapped-deployment.ko.html" class="active">한국어</a>
+            <a href="air-gapped-deployment.zh.html">中文</a>
+            <a href="air-gapped-deployment.ar.html">العربية</a>
+            <a href="air-gapped-deployment.hi.html">हिन्दी</a>
+          </div>
+        </div>
+      </div>
+      <p class="tagline-sub">소버린 인텔리전스 플랫폼</p>
+      <nav class="main-nav">
+        <a href="../ko/">홈</a>
+        <a href="./" class="active">리소스</a>
+        <a href="../pricing.html?lang=ko">가격</a>
+        <a href="../pilot.html?lang=ko">파일럿 프로그램</a>
+        <a href="../trust.html?lang=ko">신뢰</a>
+        <a href="../briefing.html?lang=ko">브리핑 요청</a>
+      </nav>
+    </header>
+
+    <div class="page-container">
+      <div class="page-header">
+        <div class="page-icon">🔒</div>
+        <h1 class="page-title">에어갭 배포 가이드</h1>
+        <p class="page-subtitle">완전히 격리된 네트워크에서 기업 AI를 배포하세요. 인터넷 연결이 필요하지 않습니다. 방위 계약업체, 기밀 시스템 및 중요 인프라를 위해 구축되었습니다.</p>
+      </div>
+
+      <div class="content-section">
+        <h2>에어갭 배포란?</h2>
+        <p>에어갭 배포는 Datacendia가 외부 연결 없이 완전히 격리된 네트워크 내에서 실행됨을 의미합니다. 인터넷 액세스 없음. 클라우드 API 없음. 인프라에서 데이터가 나가지 않음. 이것은 ITAR, 기밀 처리 및 중요 인프라 보안 요구 사항을 충족하는 유일한 배포 모델입니다.</p>
+
+        <p><strong>에어갭 vs. VPN 또는 방화벽 네트워크:</strong> VPN 또는 방화벽으로 보호되는 네트워크는 여전히 인터넷 연결이 있습니다—단지 제한되어 있을 뿐입니다. 에어갭은 물리적으로 격리됨을 의미합니다: 외부 시스템에 연결하는 네트워크 케이블 없음, 무선 없음, 셀룰러 없음. 네트워크가 인터넷에 도달할 수 있다면(여러 홉을 통해서라도), 에어갭이 아닙니다.</p>
+
+        <div class="warning-box">
+          <p><strong>중요:</strong> 에어갭 배포는 클라우드 또는 VPC 배포보다 운영상 더 복잡합니다. 문제는 클라우드 AI를 사용하는 것이 더 쉬운지가 아닙니다—문제는 규제 요구 사항, 위협 모델 또는 데이터 분류가 외부 연결의 위험을 수용할 수 있는지입니다.</p>
+        </div>
+      </div>
+
+      <div class="content-section">
+        <h2>누가 에어갭 배포가 필요한가?</h2>
+
+        <h3>방위 계약업체</h3>
+        <p>ITAR 통제 기술 데이터, CUI 또는 기밀 정보를 처리하는 조직은 클라우드 AI를 사용할 수 없습니다. 수출 통제 규정(ITAR, EAR)은 기술 데이터에 대한 외국 접근을 금지하며, 미국 기반 클라우드 제공업체는 외국 정부의 법적 요청 대상이 될 수 있습니다.</p>
+        <ul>
+          <li>ITAR 준수(국제 무기 거래 규정)</li>
+          <li>기밀 프로그램 데이터(SECRET, TOP SECRET, SCI)</li>
+          <li>CMMC 레벨 3 요구 사항</li>
+          <li>방위 산업 기반(DIB) 공급망 보호</li>
+        </ul>
+
+        <h3>중요 인프라</h3>
+        <p>전력망, 수처리 시설, 운송 시스템 및 통신 네트워크는 중요 인프라로 지정됩니다. 에어갭 배포는 제어 시스템 및 운영 데이터에 대한 적대적 접근을 방지합니다.</p>
+        <ul>
+          <li>SCADA / ICS 네트워크 격리</li>
+          <li>원자력 시설 운영(NRC 요구 사항)</li>
+          <li>전력망 관리(NERC CIP)</li>
+          <li>상하수도 유틸리티</li>
+        </ul>
+
+        <h3>정보 커뮤니티</h3>
+        <p>IC 기관은 외부 시스템에 노출될 수 없는 기밀 정보를 처리합니다. 에어갭 배포는 SIGINT, HUMINT 및 기타 기밀 소스의 AI 분석을 가능하게 합니다.</p>
+        <ul>
+          <li>기밀 정보 분석</li>
+          <li>IC ITE(정보 커뮤니티 정보 기술 엔터프라이즈)</li>
+          <li>SIPRNet / JWICS 배포</li>
+          <li>구획화된 정보 처리</li>
+        </ul>
+
+        <h3>고가치 상업</h3>
+        <p>일부 상업 조직은 규제 요구 사항이 없더라도 경쟁 또는 IP 보호 이유로 에어갭 배포를 선택합니다.</p>
+        <ul>
+          <li>제약 R&D(특허 전 약물 후보)</li>
+          <li>제조 영업 비밀</li>
+          <li>금융 거래 알고리즘</li>
+          <li>M&A 실사(민감한 거래 데이터)</li>
+        </ul>
+      </div>
+
+      <div class="content-section">
+        <h2>인프라 요구 사항</h2>
+
+        <div class="requirements-box">
+          <h4>최소 시스템 요구 사항</h4>
+          <div class="requirements-grid">
+            <div class="requirement-item">
+              <div class="requirement-label">컴퓨팅</div>
+              <div class="requirement-value">16코어(32 권장)</div>
+            </div>
+            <div class="requirement-item">
+              <div class="requirement-label">메모리</div>
+              <div class="requirement-value">64GB RAM(128GB 권장)</div>
+            </div>
+            <div class="requirement-item">
+              <div class="requirement-label">스토리지</div>
+              <div class="requirement-value">500GB SSD 최소(2TB+ 권장)</div>
+            </div>
+            <div class="requirement-item">
+              <div class="requirement-label">운영 체제</div>
+              <div class="requirement-value">Ubuntu 22.04 LTS 또는 RHEL 8+</div>
+            </div>
+            <div class="requirement-item">
+              <div class="requirement-label">네트워크</div>
+              <div class="requirement-value">내부 전용(외부 연결 없음)</div>
+            </div>
+            <div class="requirement-item">
+              <div class="requirement-label">GPU</div>
+              <div class="requirement-value">선택 사항(가속용 NVIDIA T4 이상)</div>
+            </div>
+          </div>
+        </div>
+
+        <p><strong>사이징 가이드:</strong> 위의 요구 사항은 중간 데이터 볼륨으로 10-20명의 동시 사용자를 지원합니다. 더 큰 배포(100+ 사용자, 10TB+ 데이터)의 경우 아키텍처 검토를 위해 문의하세요.</p>
+
+        <div class="info-box">
+          <p><strong>가상 머신 vs. 베어 메탈:</strong> Datacendia는 VMware ESXi, Hyper-V 또는 KVM 가상 머신에서 실행할 수 있습니다. 그러나 최대 성능과 GPU 가속을 위해서는 베어 메탈 배포가 권장됩니다. GPU가 있는 VM을 사용하는 경우 하이퍼바이저가 GPU 패스스루를 지원하는지 확인하세요.</p>
+        </div>
+      </div>
+
+      <div class="content-section">
+        <h2>배포 프로세스</h2>
+
+        <div class="deployment-step">
+          <h4>1단계: 배포 전 평가(1주차)</h4>
+          <p><strong>목표:</strong> 인프라 준비 상태를 검증하고 종속성을 식별합니다.</p>
+          <ul>
+            <li>기존 격리 네트워크 아키텍처 감사</li>
+            <li>내부 데이터 소스 식별(데이터베이스, 파일 공유, 애플리케이션)</li>
+            <li>파일 전송을 위한 승인된 보안 미디어 결정(USB, DVD, 내부 SneakerNet)</li>
+            <li>사용자 액세스 및 인증 요구 사항 정의(LDAP, CAC/PIV, SAML)</li>
+            <li>운영 런북 및 변경 관리 절차 검토</li>
+          </ul>
+        </div>
+
+        <div class="deployment-step">
+          <h4>2단계: 패키지 전송(2주차)</h4>
+          <p><strong>목표:</strong> Datacendia 설치 패키지를 에어갭 환경으로 이동합니다.</p>
+          <ul>
+            <li>Datacendia는 압축 아카이브(.tar.gz)로 설치 패키지를 제공합니다</li>
+            <li>패키지는 암호화 서명됩니다(GPG 서명 제공)</li>
+            <li>조직의 데이터 전송 절차에 따라 승인된 보안 미디어를 통해 전송</li>
+            <li>제공된 체크섬과 서명을 사용하여 패키지 무결성 확인</li>
+          </ul>
+          <p><strong>일반적인 패키지 크기:</strong> 2-5GB 압축(모델, 애플리케이션 코드, 종속성)</p>
+        </div>
+
+        <div class="deployment-step">
+          <h4>3단계: 설치(2-3주차)</h4>
+          <p><strong>목표:</strong> 격리된 인프라에 Datacendia를 설치합니다.</p>
+          <ul>
+            <li>대상 서버에 설치 패키지 추출</li>
+            <li>자동화된 설치 스크립트 실행(종속성 검증, 서비스 구성)</li>
+            <li>데이터베이스 초기화(내장 PostgreSQL 또는 기존 데이터베이스에 연결)</li>
+            <li>인증 통합 구성(LDAP, Active Directory, SAML IdP)</li>
+            <li>내부 HTTPS용 TLS 인증서 설정</li>
+          </ul>
+          <p><strong>설치 시간:</strong> 4-8시간(인프라 복잡성에 따라 다름)</p>
+        </div>
+
+        <div class="deployment-step">
+          <h4>4단계: 데이터 커넥터 구성(3-4주차)</h4>
+          <p><strong>목표:</strong> Datacendia를 내부 데이터 소스에 연결합니다.</p>
+          <ul>
+            <li>데이터베이스 커넥터 구성(PostgreSQL, Oracle, SQL Server 등)</li>
+            <li>파일 공유 액세스 설정(NFS, SMB/CIFS)</li>
+            <li>내부 API와 통합(REST, SOAP)</li>
+            <li>데이터 수집 테스트 및 연결 검증</li>
+            <li>데이터 동기화를 위한 새로 고침 일정 구성</li>
+          </ul>
+        </div>
+
+        <div class="deployment-step">
+          <h4>5단계: 테스트 및 검증(4-5주차)</h4>
+          <p><strong>목표:</strong> 설치를 검증하고 외부 종속성이 없는지 확인합니다.</p>
+          <ul>
+            <li>네트워크 격리 테스트(아웃바운드 연결 시도가 없는지 확인)</li>
+            <li>파일럿 그룹과 사용자 수락 테스트</li>
+            <li>부하 하에서 성능 벤치마킹</li>
+            <li>장애 조치 및 복구 테스트</li>
+            <li>문서 인계 및 운영자 교육</li>
+          </ul>
+        </div>
+
+        <div class="deployment-step">
+          <h4>6단계: 프로덕션 롤아웃(5-6주차)</h4>
+          <p><strong>목표:</strong> 프로덕션 사용자에게 배포하고 지속적인 운영을 수립합니다.</p>
+          <ul>
+            <li>파일럿 구성을 프로덕션으로 마이그레이션</li>
+            <li>사용자 온보딩 및 교육 세션</li>
+            <li>모니터링 및 운영 절차 수립</li>
+            <li>일반적인 시나리오에 대한 런북 문서화</li>
+          </ul>
+        </div>
+
+        <p><strong>총 배포 타임라인:</strong> 인프라 평가부터 프로덕션까지 4-6주. 타임라인은 인프라가 사용 가능하고 팀이 배포에 전용 리소스를 가지고 있다고 가정합니다.</p>
+      </div>
+
+      <div class="content-section">
+        <h2>업데이트 및 유지 관리</h2>
+
+        <h3>에어갭 환경에서 업데이트 작동 방식</h3>
+        <p>Datacendia는 클라우드 소프트웨어처럼 자동 업데이트할 수 없습니다. 업데이트는 승인된 보안 미디어를 통해 전송되는 오프라인 패키지로 제공됩니다.</p>
+
+        <p><strong>업데이트 프로세스:</strong></p>
+        <ol>
+          <li>Datacendia가 업데이트 패키지 릴리스(분기별 또는 보안 패치 필요 시)</li>
+          <li>고객이 Datacendia 고객 포털에서 업데이트 패키지 다운로드(연결된 시스템에서)</li>
+          <li>고객이 승인된 미디어를 통해 패키지를 에어갭 환경으로 전송</li>
+          <li>고객이 GPG 키를 사용하여 패키지 서명 검증</li>
+          <li>고객이 유지 관리 기간 동안 업데이트 스크립트 실행</li>
+          <li>시스템이 업데이트 적용 전 현재 버전을 자동 백업</li>
+          <li>업데이트 적용, 서비스 재시작, 검증 테스트 실행</li>
+        </ol>
+
+        <div class="info-box">
+          <p><strong>업데이트 빈도:</strong> 주요 릴리스: 분기별. 보안 패치: 필요 시(일반적으로 분기당 1-3회). 업데이트 적용 시기는 고객이 제어합니다—강제 업데이트가 없습니다.</p>
+        </div>
+
+        <h3>롤백 기능</h3>
+        <p>업데이트가 문제를 일으키면 Datacendia는 한 명령으로 이전 버전으로 롤백을 지원합니다. 롤백 중 모든 데이터와 구성이 보존됩니다.</p>
+
+        <h3>장기 지원</h3>
+        <p>Datacendia는 자주 업데이트할 수 없는 고객을 위해 장기 지원(LTS) 버전을 제공합니다. LTS 버전은 기능 업그레이드를 강제하지 않고 18개월 동안 보안 패치를 받습니다.</p>
+      </div>
+
+      <div class="content-section">
+        <h2>운영 고려 사항</h2>
+
+        <h3>클라우드 배포와의 비교</h3>
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th>측면</th>
+              <th>클라우드 SaaS</th>
+              <th>에어갭</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>설정 시간</td>
+              <td>시간</td>
+              <td>주</td>
+            </tr>
+            <tr>
+              <td>업데이트</td>
+              <td>자동</td>
+              <td>수동(오프라인 패키지)</td>
+            </tr>
+            <tr>
+              <td>운영 부담</td>
+              <td>낮음(우리가 관리)</td>
+              <td>높음(고객이 관리)</td>
+            </tr>
+            <tr>
+              <td>지원 응답</td>
+              <td>원격 액세스 가능</td>
+              <td>문서 + 화면 공유만</td>
+            </tr>
+            <tr>
+              <td>데이터 주권</td>
+              <td>부분적</td>
+              <td>완전</td>
+            </tr>
+            <tr>
+              <td>컴플라이언스 옵션</td>
+              <td>SOC 2, GDPR, HIPAA</td>
+              <td>ITAR, 기밀, CMMC, 모두</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3>인력 요구 사항</h3>
+        <p>에어갭 배포는 시스템을 관리할 사내 기술 직원이 필요합니다. 권장 팀:</p>
+        <ul>
+          <li><strong>시스템 관리자(0.5 FTE):</strong> OS 패치, 모니터링, 사용자 관리</li>
+          <li><strong>DBA(0.25 FTE):</strong> 데이터베이스 유지 관리, 백업 관리</li>
+          <li><strong>네트워크 엔지니어(필요 시):</strong> 연결 문제 해결, 성능 최적화</li>
+          <li><strong>애플리케이션 소유자(0.25 FTE):</strong> 사용자 지원, 구성 변경, 데이터 커넥터 관리</li>
+        </ul>
+
+        <h3>지원 모델</h3>
+        <p>Datacendia는 에어갭 배포에 대한 지원을 다음을 통해 제공합니다:</p>
+        <ul>
+          <li>문서 포털(연결된 시스템에서 액세스 가능)</li>
+          <li>화면 공유 세션(비침습적, 시각적 문제 해결)</li>
+          <li>이메일 및 전화 지원</li>
+          <li>고객 성공 팀과의 분기별 체크인</li>
+        </ul>
+        <p>에어갭 시스템에 원격으로 액세스할 수 없으므로 문제 해결은 팀이 로그, 스크린샷 및 구성 세부 정보를 제공하는 것에 의존합니다.</p>
+      </div>
+
+      <div class="content-section">
+        <h2>자주 묻는 질문</h2>
+
+        <h3>Datacendia가 SIPRNet 또는 JWICS에서 작동할 수 있나요?</h3>
+        <p>예. Datacendia는 SIPRNet(SECRET) 및 JWICS(TOP SECRET/SCI)를 포함한 기밀 네트워크에서의 배포를 위해 아키텍처적으로 설계되었습니다. 배포는 승인된 기밀 미디어 처리 절차를 통해 동일한 오프라인 패키지 전송 프로세스를 따릅니다. <strong>기밀 네트워크 요구 사항이 있는 파일럿 파트너를 찾고 있습니다.</strong></p>
+
+        <h3>초기 배포 후 새 데이터 소스를 어떻게 추가하나요?</h3>
+        <p>데이터 커넥터는 Datacendia 관리 인터페이스를 통해 구성할 수 있습니다. 초기 설치에 포함되지 않은 새 데이터베이스 유형에 연결하지 않는 한 외부 패키지가 필요하지 않습니다.</p>
+
+        <h3>에어갭 시스템이 실패하면 어떻게 되나요?</h3>
+        <p>Datacendia는 자동 장애 조치가 있는 고가용성(HA) 구성을 지원합니다. HA 모드에서 기본 노드가 실패하면 보조 노드가 15분 이내에 인계합니다. 고객이 HA 인프라를 관리합니다(우리가 구성 지침을 제공).</p>
+
+        <h3>Datacendia 모델 대신 내 AI 모델을 사용할 수 있나요?</h3>
+        <p>예. Datacendia는 이기종 LLM 배포를 지원합니다. Datacendia 모델과 함께 또는 대신 자체 파인튜닝 모델(HuggingFace Transformers 형식과 호환)을 배포할 수 있습니다.</p>
+
+        <h3>에어갭 배포 비용은 얼마인가요?</h3>
+        <p>에어갭 배포 가격은 연간 $150K부터 시작합니다(클라우드 SaaS $75K 대비). 프리미엄은 오프라인 업데이트 패키지, 확장 지원 모델 및 복잡한 배포를 위한 아키텍처 컨설팅을 포함합니다. <a href="../pricing.html?lang=ko" style="color: var(--color-gold);">가격 세부 정보</a>를 참조하세요.</p>
+      </div>
+
+      <div class="cta-box">
+        <h3>에어갭 배포 상담</h3>
+        <p>환경에 대한 에어갭 배포를 평가하기 위한 아키텍처 검토를 예약하세요.</p>
+        <a href="../briefing.html?lang=ko" class="cta-btn">브리핑 요청 →</a>
+      </div>
+
+      <div class="content-section" style="text-align: center; margin-top: 80px; padding-top: 40px; border-top: 1px solid var(--color-border);">
+        <p style="font-size: 0.85rem; color: var(--color-text-dim);">
+          <a href="sovereignty-matrix.html" style="color: var(--color-gold);">소버린 배포 옵션</a>에 대해 자세히 알아보거나 <a href="compliance.html" style="color: var(--color-gold);">컴플라이언스 프레임워크</a>를 탐색하세요.
+        </p>
+      </div>
+    </div>
+  </div>
+  <script src="../translations.js"></script>
+  <script src="../app.js"></script>
+</body>
+</html>

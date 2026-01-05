@@ -248,6 +248,42 @@
         <p class="page-subtitle" data-i18n="trustCenterSubtitle">Our security posture, deployment options, and compliance roadmap — documented honestly.</p>
       </div>
 
+      <!-- Verified Build Status -->
+      <div class="trust-section" style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(6, 182, 212, 0.05) 100%); border-color: rgba(16, 185, 129, 0.3);">
+        <h2 style="color: #10b981;">✅ Verified Build Status</h2>
+        <p style="color: var(--color-text-dim); margin-bottom: 1.5rem;">These metrics are verifiable by running <code style="background: rgba(0,0,0,0.3); padding: 2px 6px; border-radius: 4px;">npm test</code> in our repository.</p>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem;">
+          <div style="text-align: center; padding: 1rem; background: rgba(0,0,0,0.2); border-radius: 8px;">
+            <div style="font-size: 2rem; font-weight: 700; color: #10b981;">1,464</div>
+            <div style="font-size: 0.75rem; color: var(--color-text-muted);">Automated Tests</div>
+          </div>
+          <div style="text-align: center; padding: 1rem; background: rgba(0,0,0,0.2); border-radius: 8px;">
+            <div style="font-size: 2rem; font-weight: 700; color: #10b981;">100%</div>
+            <div style="font-size: 0.75rem; color: var(--color-text-muted);">Pass Rate</div>
+          </div>
+          <div style="text-align: center; padding: 1rem; background: rgba(0,0,0,0.2); border-radius: 8px;">
+            <div style="font-size: 2rem; font-weight: 700; color: #10b981;">45</div>
+            <div style="font-size: 0.75rem; color: var(--color-text-muted);">AI Council Agents</div>
+          </div>
+          <div style="text-align: center; padding: 1rem; background: rgba(0,0,0,0.2); border-radius: 8px;">
+            <div style="font-size: 2rem; font-weight: 700; color: #10b981;">26</div>
+            <div style="font-size: 0.75rem; color: var(--color-text-muted);">Languages</div>
+          </div>
+        </div>
+        <details style="margin-top: 1.5rem;">
+          <summary style="cursor: pointer; color: var(--color-gold); font-size: 0.85rem;">View Security Test Details</summary>
+          <ul style="margin-top: 1rem; color: var(--color-text-dim); font-size: 0.85rem; line-height: 1.8;">
+            <li><strong>Prompt Injection:</strong> CendiaGuard™ blocks malicious prompts ✓</li>
+            <li><strong>Jailbreak Attempts:</strong> DAN/evil mode attacks refused ✓</li>
+            <li><strong>Data Extraction:</strong> System prompt revelation blocked ✓</li>
+            <li><strong>Bias Testing:</strong> 11 tests for discrimination, fraud, ethics ✓</li>
+            <li><strong>Air-Gap Verification:</strong> 11 tests confirm zero external calls ✓</li>
+            <li><strong>Rubric-Based Consistency:</strong> LLM nondeterminism tolerance validated ✓</li>
+          </ul>
+        </details>
+        <p style="margin-top: 1rem; font-size: 0.75rem; color: var(--color-text-muted);">Last verified: January 3, 2026 · <a href="https://github.com/datacendia" style="color: var(--color-gold);">View on GitHub</a></p>
+      </div>
+
       <div class="trust-section">
         <h2 data-i18n="deploymentOptions">Deployment Options</h2>
         <table class="deployment-table">
@@ -310,17 +346,17 @@
 
       <div class="trust-section">
         <h2 data-i18n="complianceRoadmap">Compliance Roadmap</h2>
-        <p style="font-size: 0.7rem; color: var(--color-text-dim); margin-bottom: 16px;">Last updated: 2025-12-23</p>
+        <p style="font-size: 0.7rem; color: var(--color-text-dim); margin-bottom: 16px;">Last updated: 2026-01-03</p>
         <div class="trust-grid">
           <div class="trust-item">
             <div class="trust-item-title">SOC 2 Type II</div>
             <div class="trust-item-desc" data-i18n="soc2Desc">Control mapping complete. Evidence collection in progress.</div>
-            <span class="trust-item-status status-progress" data-i18n="soc2Status">Target Q2 2026 (as of Dec 2025)</span>
+            <span class="trust-item-status status-progress" data-i18n="soc2Status">Target Q2 2026 (as of Jan 2026)</span>
           </div>
           <div class="trust-item">
             <div class="trust-item-title">ISO 27001</div>
             <div class="trust-item-desc" data-i18n="iso27001Desc">Gap assessment complete. Implementation roadmap defined.</div>
-            <span class="trust-item-status status-roadmap" data-i18n="iso27001Status">Target H2 2026 (as of Dec 2025)</span>
+            <span class="trust-item-status status-roadmap" data-i18n="iso27001Status">Target H2 2026 (as of Jan 2026)</span>
           </div>
           <div class="trust-item">
             <div class="trust-item-title">GDPR</div>
@@ -400,6 +436,99 @@
         </ul>
         <p style="font-size: 0.75rem; color: var(--color-text-dim); margin-top: 12px;">
           Note: "Immutable" refers to tamper-evidence (append-only with cryptographic hashing), not inability to delete. Customers can purge data per their retention schedules while maintaining audit integrity hashes.
+        </p>
+      </div>
+
+      <!-- CendiaNotary - Cryptographic Signing Authority -->
+      <div class="trust-section" id="notary" style="background: linear-gradient(135deg, rgba(251, 191, 36, 0.1) 0%, rgba(245, 158, 11, 0.05) 100%); border-color: rgba(251, 191, 36, 0.3);">
+        <h2 style="color: #fbbf24;">✍️ CendiaNotary™ — Cryptographic Signing Authority</h2>
+        <p style="font-size: 0.9rem; color: var(--color-text-muted); line-height: 1.6; margin-bottom: 1.5rem;">
+          Every decision, every audit entry, every evidence packet is cryptographically signed with <strong style="color: var(--color-text);">your keys</strong>. 
+          We never see them. Non-repudiation guaranteed.
+        </p>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-bottom: 1.5rem;">
+          <div style="padding: 1rem; background: rgba(0,0,0,0.2); border-radius: 8px; border-left: 3px solid #fbbf24;">
+            <div style="font-weight: 600; color: var(--color-text); margin-bottom: 0.5rem;">AWS KMS</div>
+            <div style="font-size: 0.8rem; color: var(--color-text-muted);">Native integration with AWS Key Management Service</div>
+          </div>
+          <div style="padding: 1rem; background: rgba(0,0,0,0.2); border-radius: 8px; border-left: 3px solid #fbbf24;">
+            <div style="font-weight: 600; color: var(--color-text); margin-bottom: 0.5rem;">Azure Key Vault</div>
+            <div style="font-size: 0.8rem; color: var(--color-text-muted);">Full support for Azure's managed HSM service</div>
+          </div>
+          <div style="padding: 1rem; background: rgba(0,0,0,0.2); border-radius: 8px; border-left: 3px solid #fbbf24;">
+            <div style="font-weight: 600; color: var(--color-text); margin-bottom: 0.5rem;">HashiCorp Vault</div>
+            <div style="font-size: 0.8rem; color: var(--color-text-muted);">Enterprise secrets management integration</div>
+          </div>
+          <div style="padding: 1rem; background: rgba(0,0,0,0.2); border-radius: 8px; border-left: 3px solid #fbbf24;">
+            <div style="font-weight: 600; color: var(--color-text); margin-bottom: 0.5rem;">Local Air-Gapped</div>
+            <div style="font-size: 0.8rem; color: var(--color-text-muted);">File-based keys for fully isolated deployments</div>
+          </div>
+        </div>
+        <details>
+          <summary style="cursor: pointer; color: var(--color-gold); font-size: 0.85rem;">What CendiaNotary Signs</summary>
+          <ul style="margin-top: 1rem; color: var(--color-text-dim); font-size: 0.85rem; line-height: 1.8;">
+            <li><strong>Decision Packets:</strong> Every Council deliberation outcome</li>
+            <li><strong>Audit Ledger Entries:</strong> Append-only log with chain integrity</li>
+            <li><strong>Evidence Bundles:</strong> Compliance exports for regulators</li>
+            <li><strong>Test Reports:</strong> Signed verification of system health</li>
+          </ul>
+        </details>
+        <p style="margin-top: 1rem; font-size: 0.75rem; color: var(--color-text-dim);">
+          <strong>Zero-Trust Principle:</strong> Datacendia never has access to your signing keys. All cryptographic operations occur within your infrastructure.
+        </p>
+      </div>
+
+      <!-- CendiaVault - Unified Evidence Storage -->
+      <div class="trust-section" id="vault" style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(20, 184, 166, 0.05) 100%); border-color: rgba(16, 185, 129, 0.3);">
+        <h2 style="color: #10b981;">🏛️ CendiaVault™ — Unified Evidence Storage</h2>
+        <p style="font-size: 0.9rem; color: var(--color-text-muted); line-height: 1.6; margin-bottom: 1.5rem;">
+          All decision artifacts, audit trails, and compliance evidence in one searchable, retention-compliant vault. 
+          Immutable storage with legal hold support.
+        </p>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; margin-bottom: 1.5rem;">
+          <div style="text-align: center; padding: 1rem; background: rgba(0,0,0,0.2); border-radius: 8px;">
+            <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">📋</div>
+            <div style="font-weight: 600; color: var(--color-text); font-size: 0.9rem;">Decision Packets</div>
+            <div style="font-size: 0.75rem; color: var(--color-text-muted);">Council deliberation outcomes</div>
+          </div>
+          <div style="text-align: center; padding: 1rem; background: rgba(0,0,0,0.2); border-radius: 8px;">
+            <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">📜</div>
+            <div style="font-weight: 600; color: var(--color-text); font-size: 0.9rem;">Audit Ledger</div>
+            <div style="font-size: 0.75rem; color: var(--color-text-muted);">Immutable action log</div>
+          </div>
+          <div style="text-align: center; padding: 1rem; background: rgba(0,0,0,0.2); border-radius: 8px;">
+            <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">📦</div>
+            <div style="font-weight: 600; color: var(--color-text); font-size: 0.9rem;">Evidence Bundles</div>
+            <div style="font-size: 0.75rem; color: var(--color-text-muted);">Regulator-ready exports</div>
+          </div>
+          <div style="text-align: center; padding: 1rem; background: rgba(0,0,0,0.2); border-radius: 8px;">
+            <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">📄</div>
+            <div style="font-weight: 600; color: var(--color-text); font-size: 0.9rem;">Signed Reports</div>
+            <div style="font-size: 0.75rem; color: var(--color-text-muted);">Test & compliance PDFs</div>
+          </div>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem;">
+          <div style="padding: 1rem; background: rgba(0,0,0,0.2); border-radius: 8px;">
+            <div style="font-weight: 600; color: #10b981; margin-bottom: 0.5rem;">Retention Policies</div>
+            <ul style="font-size: 0.8rem; color: var(--color-text-muted); margin: 0; padding-left: 1.2rem;">
+              <li>Standard: 7 years (regulatory default)</li>
+              <li>Extended: 10 years (financial services)</li>
+              <li>Permanent: Legal hold / litigation</li>
+              <li>Custom: Per your compliance requirements</li>
+            </ul>
+          </div>
+          <div style="padding: 1rem; background: rgba(0,0,0,0.2); border-radius: 8px;">
+            <div style="font-weight: 600; color: #10b981; margin-bottom: 0.5rem;">Integrity Guarantees</div>
+            <ul style="font-size: 0.8rem; color: var(--color-text-muted); margin: 0; padding-left: 1.2rem;">
+              <li>SHA-256 content hashing</li>
+              <li>CendiaNotary™ signatures</li>
+              <li>Merkle tree verification</li>
+              <li>Tamper-evident append-only design</li>
+            </ul>
+          </div>
+        </div>
+        <p style="margin-top: 1rem; font-size: 0.75rem; color: var(--color-text-dim);">
+          <strong>Legal Hold:</strong> Artifacts can be placed on litigation hold, preventing deletion regardless of retention policy. Release requires explicit authorization.
         </p>
       </div>
 

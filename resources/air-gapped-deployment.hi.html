@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>एयर-गैप्ड डिप्लॉयमेंट गाइड | Datacendia</title>
+  <meta name="description" content="एयर-गैप्ड वातावरण में AI डिप्लॉय करने के लिए तकनीकी गाइड।">
+  <meta name="author" content="Datacendia">
+  <link rel="canonical" href="https://datacendia.com/resources/air-gapped-deployment.hi.html">
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-top">
+        <a href="../hi/" style="text-decoration: none;"><h1 class="logo">DATACENDIA</h1></a>
+        <div class="lang-selector">
+          <button class="lang-btn"><span class="lang-current">हिन्दी</span> ▾</button>
+          <div class="lang-dropdown">
+            <a href="air-gapped-deployment.html">English</a>
+            <a href="air-gapped-deployment.es.html">Español</a>
+            <a href="air-gapped-deployment.fr.html">Français</a>
+            <a href="air-gapped-deployment.de.html">Deutsch</a>
+            <a href="air-gapped-deployment.pt.html">Português</a>
+            <a href="air-gapped-deployment.it.html">Italiano</a>
+            <a href="air-gapped-deployment.ja.html">日本語</a>
+            <a href="air-gapped-deployment.ko.html">한국어</a>
+            <a href="air-gapped-deployment.zh.html">中文</a>
+            <a href="air-gapped-deployment.ar.html">العربية</a>
+            <a href="air-gapped-deployment.hi.html" class="active">हिन्दी</a>
+          </div>
+        </div>
+      </div>
+      <p class="tagline-sub">सॉवरेन इंटेलिजेंस प्लेटफॉर्म</p>
+      <nav class="main-nav">
+        <a href="../hi/">होम</a>
+        <a href="./" class="active">संसाधन</a>
+        <a href="../pricing.html?lang=hi">मूल्य निर्धारण</a>
+        <a href="../pilot.html?lang=hi">पायलट प्रोग्राम</a>
+        <a href="../trust.html?lang=hi">विश्वास</a>
+        <a href="../briefing.html?lang=hi">ब्रीफिंग अनुरोध</a>
+      </nav>
+    </header>
+
+    <div class="page-container">
+      <div class="page-header">
+        <div class="page-icon">🔒</div>
+        <h1 class="page-title">एयर-गैप्ड डिप्लॉयमेंट गाइड</h1>
+        <p class="page-subtitle">पूरी तरह से अलग नेटवर्क में एंटरप्राइज AI डिप्लॉय करें। इंटरनेट कनेक्टिविटी की आवश्यकता नहीं।</p>
+      </div>
+
+      <div class="content-section">
+        <h2>एयर-गैप्ड डिप्लॉयमेंट क्या है?</h2>
+        <p>एयर-गैप्ड डिप्लॉयमेंट का मतलब है कि Datacendia पूरी तरह से आपके अलग नेटवर्क के भीतर शून्य बाहरी कनेक्टिविटी के साथ चलता है। कोई इंटरनेट एक्सेस नहीं। कोई क्लाउड API नहीं। कोई डेटा आपके बुनियादी ढांचे से बाहर नहीं जाता।</p>
+        <div class="warning-box">
+          <p><strong>महत्वपूर्ण:</strong> एयर-गैप्ड डिप्लॉयमेंट क्लाउड या VPC डिप्लॉयमेंट की तुलना में संचालन में अधिक जटिल है।</p>
+        </div>
+      </div>
+
+      <div class="content-section">
+        <h2>किसे एयर-गैप्ड डिप्लॉयमेंट चाहिए?</h2>
+        <h3>रक्षा ठेकेदार</h3>
+        <p>ITAR-नियंत्रित तकनीकी डेटा, CUI, या वर्गीकृत जानकारी को संभालने वाले संगठन।</p>
+        <h3>महत्वपूर्ण बुनियादी ढांचा</h3>
+        <p>पावर ग्रिड, जल उपचार सुविधाएं, परिवहन प्रणालियां।</p>
+        <h3>खुफिया समुदाय</h3>
+        <p>वर्गीकृत खुफिया जानकारी को संसाधित करने वाली IC एजेंसियां।</p>
+      </div>
+
+      <div class="content-section">
+        <h2>बुनियादी ढांचा आवश्यकताएं</h2>
+        <div class="requirements-box">
+          <h4>न्यूनतम सिस्टम आवश्यकताएं</h4>
+          <div class="requirements-grid">
+            <div class="requirement-item">
+              <div class="requirement-label">कंप्यूट</div>
+              <div class="requirement-value">16 कोर (32 अनुशंसित)</div>
+            </div>
+            <div class="requirement-item">
+              <div class="requirement-label">मेमोरी</div>
+              <div class="requirement-value">64GB RAM (128GB अनुशंसित)</div>
+            </div>
+            <div class="requirement-item">
+              <div class="requirement-label">स्टोरेज</div>
+              <div class="requirement-value">500GB SSD न्यूनतम</div>
+            </div>
+            <div class="requirement-item">
+              <div class="requirement-label">ऑपरेटिंग सिस्टम</div>
+              <div class="requirement-value">Ubuntu 22.04 LTS या RHEL 8+</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="content-section">
+        <h2>डिप्लॉयमेंट प्रक्रिया</h2>
+        <p><strong>चरण 1:</strong> पूर्व-डिप्लॉयमेंट मूल्यांकन (सप्ताह 1)</p>
+        <p><strong>चरण 2:</strong> पैकेज स्थानांतरण (सप्ताह 2)</p>
+        <p><strong>चरण 3:</strong> इंस्टॉलेशन (सप्ताह 2-3)</p>
+        <p><strong>चरण 4:</strong> डेटा कनेक्टर कॉन्फ़िगरेशन (सप्ताह 3-4)</p>
+        <p><strong>चरण 5:</strong> परीक्षण और सत्यापन (सप्ताह 4-5)</p>
+        <p><strong>चरण 6:</strong> प्रोडक्शन रोलआउट (सप्ताह 5-6)</p>
+        <p><strong>कुल टाइमलाइन:</strong> 4-6 सप्ताह</p>
+      </div>
+
+      <div class="content-section">
+        <h2>अपडेट और रखरखाव</h2>
+        <p>अपडेट स्वीकृत सुरक्षित मीडिया के माध्यम से ऑफ़लाइन पैकेज के रूप में वितरित किए जाते हैं। त्रैमासिक प्रमुख रिलीज़। आवश्यकतानुसार सुरक्षा पैच।</p>
+      </div>
+
+      <div class="content-section">
+        <h2>परिचालन संबंधी विचार</h2>
+        <table class="comparison-table">
+          <thead>
+            <tr><th>पहलू</th><th>क्लाउड SaaS</th><th>एयर-गैप्ड</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>सेटअप समय</td><td>घंटे</td><td>सप्ताह</td></tr>
+            <tr><td>अपडेट</td><td>स्वचालित</td><td>मैनुअल</td></tr>
+            <tr><td>डेटा संप्रभुता</td><td>आंशिक</td><td>पूर्ण</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="content-section">
+        <h2>अक्सर पूछे जाने वाले प्रश्न</h2>
+        <h3>Datacendia SIPRNet या JWICS पर काम कर सकता है?</h3>
+        <p>हाँ। Datacendia वर्गीकृत नेटवर्क पर डिप्लॉयमेंट के लिए आर्किटेक्चरली डिज़ाइन किया गया है।</p>
+        <h3>एयर-गैप्ड डिप्लॉयमेंट की लागत कितनी है?</h3>
+        <p>$150K वार्षिक से शुरू (क्लाउड SaaS के $75K की तुलना में)।</p>
+      </div>
+
+      <div class="cta-box">
+        <h3>एयर-गैप्ड डिप्लॉयमेंट परामर्श</h3>
+        <p>अपने वातावरण के लिए एयर-गैप्ड डिप्लॉयमेंट का मूल्यांकन करने के लिए आर्किटेक्चर समीक्षा शेड्यूल करें।</p>
+        <a href="../briefing.html?lang=hi" class="cta-btn">ब्रीफिंग अनुरोध करें →</a>
+      </div>
+
+      <div class="content-section" style="text-align: center; margin-top: 80px; padding-top: 40px; border-top: 1px solid var(--color-border);">
+        <p style="font-size: 0.85rem; color: var(--color-text-dim);">
+          <a href="sovereignty-matrix.html" style="color: var(--color-gold);">सॉवरेन डिप्लॉयमेंट विकल्प</a> या <a href="compliance.html" style="color: var(--color-gold);">अनुपालन फ्रेमवर्क</a> के बारे में जानें।
+        </p>
+      </div>
+    </div>
+  </div>
+  <script src="../translations.js"></script>
+  <script src="../app.js"></script>
+</body>
+</html>

@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ザ・カウンシル：マルチエージェントAI審議 | Datacendia</title>
+  <meta name="description" content="14の専門AIエージェントが企業の意思決定を議論し、数十億ドルの失敗を防ぐ方法。説明可能で責任ある意思決定インテリジェンスのためのマルチエージェント審議システム。">
+  <meta name="author" content="Datacendia">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://datacendia.com/resources/the-council.ja.html">
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-top">
+        <a href="../ja/" style="text-decoration: none;"><h1 class="logo">DATACENDIA</h1></a>
+        <div class="lang-selector">
+          <button class="lang-btn"><span class="lang-current">日本語</span> ▾</button>
+          <div class="lang-dropdown">
+            <a href="the-council.html">English</a>
+            <a href="the-council.es.html">Español</a>
+            <a href="the-council.fr.html">Français</a>
+            <a href="the-council.de.html">Deutsch</a>
+            <a href="the-council.pt.html">Português</a>
+            <a href="the-council.it.html">Italiano</a>
+            <a href="the-council.ja.html" class="active">日本語</a>
+            <a href="the-council.ko.html">한국어</a>
+            <a href="the-council.zh.html">中文</a>
+            <a href="the-council.ar.html">العربية</a>
+            <a href="the-council.hi.html">हिन्दी</a>
+          </div>
+        </div>
+      </div>
+      <p class="tagline-sub">ソブリンインテリジェンスプラットフォーム</p>
+      <nav class="main-nav">
+        <a href="../ja/">ホーム</a>
+        <a href="./" class="active">リソース</a>
+        <a href="../pricing.html?lang=ja">料金</a>
+        <a href="../pilot.html?lang=ja">パイロットプログラム</a>
+        <a href="../trust.html?lang=ja">信頼</a>
+        <a href="../briefing.html?lang=ja">ブリーフィング依頼</a>
+      </nav>
+    </header>
+
+    <div class="page-container">
+      <div class="page-header">
+        <div class="page-icon">⚖️</div>
+        <h1 class="page-title">ザ・カウンシル</h1>
+        <p class="page-subtitle">マルチエージェント審議。単一モデルではなく、挑戦し、異議を唱え、監査可能な推奨を生成する専門的な役割のオーケストレーションシステム。</p>
+      </div>
+
+      <div class="content-section">
+        <h2>なぜ単一AIモデルはハイリスク意思決定で失敗するのか</h2>
+        <p>単一モデルのチャットは便利ですが、ハイリスクな企業意思決定は予測可能な理由で失敗します：</p>
+        <ul>
+          <li><strong>ハルシネーションリスク：</strong> LLMはエッジケースや不完全なデータを扱う際、もっともらしく聞こえる虚偽を自信を持って生成します</li>
+          <li><strong>単一視点バイアス：</strong> 1つのデータセットで訓練された1つのモデルは1つの視点を生成し、自身の仮定を疑うことができません</li>
+          <li><strong>内部検証なし：</strong> 敵対的な挑戦がなければ、モデルは第二の目が見つけるような明らかな問題を見逃します</li>
+          <li><strong>追跡不可能な推論：</strong> 単一モデルがミスをした場合、どこでロジックが崩れたか追跡できません</li>
+          <li><strong>責任の空白：</strong> 決定が失敗した場合、誰が責任を負うのか？モデル？プロンプトエンジニア？それを信頼した経営者？</li>
+        </ul>
+        <p>これが、規制産業がAIチャットボットを重要な決定に制限する理由です—出力がガバナンスされ、レビュー可能で、証拠化できない限り。</p>
+      </div>
+
+      <div class="content-section">
+        <h2>ザ・カウンシルの仕組み</h2>
+        <p>ザ・カウンシルは、専門AIエージェントが構造化されたラウンドであなたの決定を議論するマルチエージェント審議システムです。各エージェントには特定の役割、知識ドメイン、挑戦マンデートがあります。彼らはコンセンサスに達するか、不一致をエスカレートするまで分析、議論、統合します。</p>
+        <p style="background: rgba(6, 182, 212, 0.1); border-left: 3px solid var(--color-cyan); padding: 12px 16px; margin: 16px 0; font-size: 0.9rem;"><strong>注：</strong> エージェントは設定可能なモデルスタックを共有する役割（CFO、法務、リスクなど）であり、14の異なる基盤モデルではありません。どのエージェントが参加し、どのローカルLLMがそれらを動かすかを設定できます。</p>
+
+        <h3>審議プロセス</h3>
+        <p>ザ・カウンシルに決定を提出すると、以下のことが起こります：</p>
+
+        <ol style="list-style: decimal; padding-left: 40px; margin: 24px 0;">
+          <li style="margin-bottom: 16px;"><strong>データ取り込み：</strong> アナリストエージェントがすべての関連データ（文書、過去の決定、外部シグナル）を取り込みます</li>
+          <li style="margin-bottom: 16px;"><strong>初期分析：</strong> 専門エージェント（CFO、CISO、法務、リスク）がそれぞれのドメイン視点から独立して決定を分析します</li>
+          <li style="margin-bottom: 16px;"><strong>敵対的挑戦：</strong> レッドチームが意図的に分析を攻撃し、最悪のシナリオと規制ブロックをシミュレートします</li>
+          <li style="margin-bottom: 16px;"><strong>討論ラウンド：</strong> エージェントが構造化されたラウンドで議論を交換し、あなたのデータから特定の証拠を引用します</li>
+          <li style="margin-bottom: 16px;"><strong>異議追跡：</strong> CendiaDissent™がすべての不一致、誰がどの立場を取ったか、その理由を記録します</li>
+          <li style="margin-bottom: 16px;"><strong>統合：</strong> アービターエージェントがすべての議論を評価し、検証可能な決定トレースを持つ最終推奨を生成します</li>
+          <li style="margin-bottom: 16px;"><strong>人間によるレビュー：</strong> 統合、すべての反対意見、決定トレース（入力、引用、ツール呼び出し、承認）を受け取ります</li>
+        </ol>
+
+        <p>単一モデルのチャットとは異なり、ザ・カウンシルは不確実性を表面化し封じ込めるように設計されています：エージェントは証拠を引用する必要があり、不一致は保存され、出力には検証可能な決定トレースが付属します。</p>
+      </div>
+
+      <div class="content-section" style="background: linear-gradient(135deg, rgba(6, 182, 212, 0.05) 0%, rgba(59, 130, 246, 0.05) 100%); border: 1px solid rgba(6, 182, 212, 0.2); border-radius: 12px; padding: 2rem;">
+        <h2 style="color: var(--color-cyan);">📦 受け取るもの（決定パケット）</h2>
+        <p style="color: var(--color-text-dim); margin-bottom: 1.5rem;">各カウンシル審議は以下を含むエクスポート可能な決定パケットを生成します：</p>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
+          <div style="background: rgba(0,0,0,0.2); border-radius: 8px; padding: 1rem;">
+            <h4 style="color: var(--color-text); margin-bottom: 0.5rem;">📊 推奨</h4>
+            <ul style="color: var(--color-text-dim); font-size: 0.85rem; margin: 0; padding-left: 1.25rem;">
+              <li>信頼区間付きの最終推奨</li>
+              <li>主要な仮定と閾値</li>
+              <li>推奨が変わる条件</li>
+            </ul>
+          </div>
+          <div style="background: rgba(0,0,0,0.2); border-radius: 8px; padding: 1rem;">
+            <h4 style="color: var(--color-text); margin-bottom: 0.5rem;">📚 証拠引用</h4>
+            <ul style="color: var(--color-text-dim); font-size: 0.85rem; margin: 0; padding-left: 1.25rem;">
+              <li>ソース文書 + タイムスタンプ</li>
+              <li>各主張の検索コンテキスト</li>
+              <li>データ出所チェーン</li>
+            </ul>
+          </div>
+          <div style="background: rgba(0,0,0,0.2); border-radius: 8px; padding: 1rem;">
+            <h4 style="color: var(--color-text); margin-bottom: 0.5rem;">⚠️ 異議ログ</h4>
+            <ul style="color: var(--color-text-dim); font-size: 0.85rem; margin: 0; padding-left: 1.25rem;">
+              <li>どのエージェントが異議を唱え、なぜか</li>
+              <li>各側が引用した証拠</li>
+              <li>立場を変えるために必要なこと</li>
+            </ul>
+          </div>
+          <div style="background: rgba(0,0,0,0.2); border-radius: 8px; padding: 1rem;">
+            <h4 style="color: var(--color-text); margin-bottom: 0.5rem;">🔧 ツール呼び出しトレース</h4>
+            <ul style="color: var(--color-text-dim); font-size: 0.85rem; margin: 0; padding-left: 1.25rem;">
+              <li>どのツールがいつ、どの入力で実行されたか</li>
+              <li>生成された中間成果物</li>
+              <li>記録された外部システム呼び出し</li>
+            </ul>
+          </div>
+          <div style="background: rgba(0,0,0,0.2); border-radius: 8px; padding: 1rem;">
+            <h4 style="color: var(--color-text); margin-bottom: 0.5rem;">✅ 承認</h4>
+            <ul style="color: var(--color-text-dim); font-size: 0.85rem; margin: 0; padding-left: 1.25rem;">
+              <li>人間によるレビュー署名</li>
+              <li>通過/失敗したポリシーゲート</li>
+              <li>エスカレーション決定</li>
+            </ul>
+          </div>
+          <div style="background: rgba(0,0,0,0.2); border-radius: 8px; padding: 1rem;">
+            <h4 style="color: var(--color-text); margin-bottom: 0.5rem;">🔐 完全性</h4>
+            <ul style="color: var(--color-text-dim); font-size: 0.85rem; margin: 0; padding-left: 1.25rem;">
+              <li>実行ID + タイムスタンプ</li>
+              <li>成果物ハッシュのマニフェスト</li>
+              <li>オプションの暗号署名（KMS/HSM）</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="content-section">
+        <h2>エージェントの紹介</h2>
+        <div class="agent-grid">
+          <div class="agent-card">
+            <div class="agent-icon">📊</div>
+            <div class="agent-name">アナリスト</div>
+            <div class="agent-role">パターン認識、データ統合、過去のトレンド分析</div>
+          </div>
+          <div class="agent-card">
+            <div class="agent-icon">🔴</div>
+            <div class="agent-name">レッドチーム</div>
+            <div class="agent-role">敵対的挑戦、最悪のシナリオ、攻撃面マッピング</div>
+          </div>
+          <div class="agent-card">
+            <div class="agent-icon">⚖️</div>
+            <div class="agent-name">アービター</div>
+            <div class="agent-role">最終統合、紛争解決、決定推奨</div>
+          </div>
+          <div class="agent-card">
+            <div class="agent-icon">🔗</div>
+            <div class="agent-name">ユニオン</div>
+            <div class="agent-role">外部シグナル統合、市場コンテキスト、競合インテリジェンス</div>
+          </div>
+          <div class="agent-card">
+            <div class="agent-icon">💰</div>
+            <div class="agent-name">CFO</div>
+            <div class="agent-role">財務モデリング、ROI分析、費用対効果評価</div>
+          </div>
+          <div class="agent-card">
+            <div class="agent-icon">🔒</div>
+            <div class="agent-name">CISO</div>
+            <div class="agent-role">セキュリティへの影響、コンプライアンスリスク、データ露出分析</div>
+          </div>
+          <div class="agent-card">
+            <div class="agent-icon">⚖️</div>
+            <div class="agent-name">法務</div>
+            <div class="agent-role">規制コンプライアンス、契約リスク、法的先例</div>
+          </div>
+          <div class="agent-card">
+            <div class="agent-icon">📈</div>
+            <div class="agent-name">戦略</div>
+            <div class="agent-role">長期ポジショニング、競争ダイナミクス、市場タイミング</div>
+          </div>
+          <div class="agent-card">
+            <div class="agent-icon">⚠️</div>
+            <div class="agent-name">リスク</div>
+            <div class="agent-role">企業リスク評価、故障モード分析、緩和戦略</div>
+          </div>
+          <div class="agent-card">
+            <div class="agent-icon">🏗️</div>
+            <div class="agent-name">オペレーション</div>
+            <div class="agent-role">実装可能性、リソース要件、タイムラインの現実性チェック</div>
+          </div>
+          <div class="agent-card">
+            <div class="agent-icon">👥</div>
+            <div class="agent-name">HR</div>
+            <div class="agent-role">人材への影響、組織変革、文化的考慮事項</div>
+          </div>
+          <div class="agent-card">
+            <div class="agent-icon">🌍</div>
+            <div class="agent-name">ESG</div>
+            <div class="agent-role">環境への影響、社会的責任、ガバナンスの整合性</div>
+          </div>
+          <div class="agent-card">
+            <div class="agent-icon">🎯</div>
+            <div class="agent-name">プロダクト</div>
+            <div class="agent-role">顧客への影響、機能優先順位付け、プロダクトマーケットフィット</div>
+          </div>
+          <div class="agent-card">
+            <div class="agent-icon">🔧</div>
+            <div class="agent-name">エンジニアリング</div>
+            <div class="agent-role">技術的実現可能性、アーキテクチャへの影響、技術的負債評価</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="content-section">
+        <h2>実世界のシナリオ</h2>
+        
+        <div class="scenario-box">
+          <h4>ミッション1：M&A案件</h4>
+          <p><strong>コンテキスト：</strong> 投資チームが2億ドルでSaaS企業を買収したいと考えています。財務は堅調に見えますが、何かがおかしい。</p>
+          
+          <div class="scenario-step">
+            <div class="scenario-step-icon">📊</div>
+            <div class="scenario-step-content">
+              <div class="scenario-step-label">アナリスト</div>
+              <div class="scenario-step-text">データルームから5,000のPDFを取り込み、収益集中（3顧客から70%）を特定</div>
+            </div>
+          </div>
+
+          <div class="scenario-step">
+            <div class="scenario-step-icon">🔴</div>
+            <div class="scenario-step-content">
+              <div class="scenario-step-label">レッドチーム</div>
+              <div class="scenario-step-text">規制ブロックをシミュレート—開示されていないEU市場での独占禁止問題を発見</div>
+            </div>
+          </div>
+
+          <div class="scenario-step">
+            <div class="scenario-step-icon">💰</div>
+            <div class="scenario-step-content">
+              <div class="scenario-step-label">CFO</div>
+              <div class="scenario-step-text">顧客離脱シナリオをモデル化—トップ3が離脱すると企業価値が60%下落</div>
+            </div>
+          </div>
+
+          <div class="scenario-step">
+            <div class="scenario-step-icon">⚖️</div>
+            <div class="scenario-step-content">
+              <div class="scenario-step-label">アービター</div>
+              <div class="scenario-step-text">調査結果を統合 → 顧客維持保証付き1億2000万ドルのオファー、または撤退を推奨</div>
+            </div>
+          </div>
+
+          <p style="margin-top: 24px;"><strong>結果：</strong> 完全な推論チェーン付きのリスク調整済みオファー価格。8000万ドルの過払いを回避。</p>
+        </div>
+
+        <div class="scenario-box">
+          <h4>ミッション2：サプライチェーンショック</h4>
+          <p><strong>コンテキスト：</strong> 主要な半導体サプライヤーが6ヶ月の遅延を発表。30日後に生産停止。</p>
+          
+          <div class="scenario-step">
+            <div class="scenario-step-icon">📊</div>
+            <div class="scenario-step-content">
+              <div class="scenario-step-label">アナリスト</div>
+              <div class="scenario-step-text">3層にわたるベンダー依存関係をマッピング—12の代替サプライヤーを特定</div>
+            </div>
+          </div>
+
+          <div class="scenario-step">
+            <div class="scenario-step-icon">🔗</div>
+            <div class="scenario-step-content">
+              <div class="scenario-step-label">ユニオン</div>
+              <div class="scenario-step-text">4つの代替サプライヤーでの労働ストライキ + ターゲット地域での港湾混雑をフラグ</div>
+            </div>
+          </div>
+
+          <div class="scenario-step">
+            <div class="scenario-step-icon">🔴</div>
+            <div class="scenario-step-content">
+              <div class="scenario-step-label">レッドチーム</div>
+              <div class="scenario-step-text">代替ルートをストレステスト—3つのサプライヤーも遅延コンポーネントを使用していることを発見</div>
+            </div>
+          </div>
+
+          <div class="scenario-step">
+            <div class="scenario-step-icon">⚖️</div>
+            <div class="scenario-step-content">
+              <div class="scenario-step-label">アービター</div>
+              <div class="scenario-step-text">10日間の緊急出荷トリガー付きデュアルソーシング戦略を推奨</div>
+            </div>
+          </div>
+
+          <p style="margin-top: 24px;"><strong>結果：</strong> コンティンジェンシートリガー付きの再ルーティング戦略。完全停止ではなく5%のコスト増で生産継続。</p>
+        </div>
+      </div>
+
+      <div class="content-section">
+        <h2>比較：単一モデル vs. マルチエージェント</h2>
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th>機能</th>
+              <th>単一AIモデル</th>
+              <th>ザ・カウンシル</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>敵対的挑戦</td>
+              <td>なし</td>
+              <td class="highlight-col">組み込みレッドチーム</td>
+            </tr>
+            <tr>
+              <td>異議追跡</td>
+              <td>なし</td>
+              <td class="highlight-col">CendiaDissent™</td>
+            </tr>
+            <tr>
+              <td>推論の透明性</td>
+              <td>要約のみ</td>
+              <td class="highlight-col">完全な討論トランスクリプト</td>
+            </tr>
+            <tr>
+              <td>ハルシネーション防止</td>
+              <td>プロンプトエンジニアリング</td>
+              <td class="highlight-col">マルチエージェントファクトチェック</td>
+            </tr>
+            <tr>
+              <td>責任</td>
+              <td>不明確</td>
+              <td class="highlight-col">エージェント固有の帰属</td>
+            </tr>
+            <tr>
+              <td>規制監査証跡</td>
+              <td>プロンプト + 応答</td>
+              <td class="highlight-col">完全な審議パケット</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="content-section">
+        <h2>エージェントが異議を唱えるとき：CendiaDissent™</h2>
+        <p>すべての決定が全会一致のコンセンサスに達するわけではありません。エージェントが根本的に異議を唱える場合、ザ・カウンシルは対立を隠さず、文書化します。</p>
+        
+        <p><strong>CendiaDissent</strong>はすべての不一致を追跡します：</p>
+        <ul>
+          <li>どのエージェントが異議を唱えたか</li>
+          <li>どの立場を取ったか</li>
+          <li>各自が引用した証拠</li>
+          <li>なぜコンセンサスに達しなかったか</li>
+          <li>整合のために何が変わる必要があるか</li>
+        </ul>
+
+        <div class="info-box">
+          <p><strong>なぜこれが重要か：</strong> 監査人が「この決定が下される前に誰かが疑問を呈しましたか？」と尋ねたとき、どの懸念が誰によって提起され、なぜ対処されたか、されなかったかを正確に示す暗号署名可能な異議記録（顧客所有のキー / KMS-HSM統合利用可能）を渡すことができます。</p>
+        </div>
+
+        <p>ハイリスクの決定では、文書化された異議はバグではなく、デューデリジェンスの証拠です。</p>
+      </div>
+
+      <div class="content-section">
+        <h2>よくある質問</h2>
+        
+        <h3>複数のChatGPTプロンプトを使用するのとどう違いますか？</h3>
+        <p>異なるペルソナで複数のChatGPTプロンプトを行うと、複数の独立した回答が得られますが、討論、統合、敵対的挑戦はありません。カウンシルのエージェントは互いに積極的に議論し、矛盾する証拠を引用し、解決を強制します。討論トランスクリプトは、どこで不一致が発生し、どのように解決されたか、またはなぜ解決できなかったかを示します。</p>
+
+        <h3>どのエージェントが参加するかカスタマイズできますか？</h3>
+        <p>はい。特定の決定タイプに特定のエージェントをアクティブ化できます。M&A決定ではCFO、法務、リスク、レッドチーム、アービターを使用できます。製品ロードマップ決定ではプロダクト、エンジニアリング、戦略、カスタマーサクセスを使用できます。ザ・カウンシルは決定コンテキストに適応します。</p>
+
+        <h3>審議にはどのくらい時間がかかりますか？</h3>
+        <p>典型的な範囲：シンプルな決定（ベンダー契約の承認/却下）：2-5分。複雑な決定（5,000文書のM&A案件）：30-90分。実際の時間はモデルサイズ、コンテキスト長、検索深度、文書量に依存します。</p>
+
+        <h3>ザ・カウンシルが間違った結論に達した場合はどうなりますか？</h3>
+        <p>どのエージェントがどの証拠に基づいてどの主張をしたかを示す決定トレースがあります。単一モデルのチャットではエラーが不透明ですが、どこでロジックが崩れたかを正確に追跡できます。この追跡可能性により監査とレビューが可能になります。</p>
+
+        <h3>ザ・カウンシルはエアギャップ環境で動作しますか？</h3>
+        <p>はい。ザ・カウンシルは完全にあなたのインフラストラクチャ内で実行されます。ベンダークラウドLLMへの依存なし—審議はあなたの環境内のローカルモデル（例：Ollama）に対して実行されます。これは、データがネットワークを離れることができない機密決定や規制環境にとって重要です。</p>
+      </div>
+
+      <div class="content-section" style="background: linear-gradient(135deg, rgba(239, 68, 68, 0.05) 0%, rgba(239, 68, 68, 0.02) 100%); border: 1px solid rgba(239, 68, 68, 0.2); border-radius: 12px; padding: 2rem; margin-top: 3rem;">
+        <h2 style="color: #ef4444;">⚠️ 制限事項と正直な開示</h2>
+        <p style="color: var(--color-text-dim); margin-bottom: 1.5rem;">透明性の精神で、ザ・カウンシルが<em>ではない</em>ものを示します：</p>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
+          <div>
+            <h3 style="font-size: 1rem; color: var(--color-text); margin-bottom: 0.5rem;">ザ・カウンシルではないもの</h3>
+            <ul style="color: var(--color-text-dim); font-size: 0.9rem;">
+              <li style="margin-bottom: 0.5rem;"><strong>人間の代替やオートパイロットではない</strong> — 承認とポリシーゲートは引き続き必要</li>
+              <li style="margin-bottom: 0.5rem;"><strong>決定論的ではない</strong> — 出力は変動する可能性があり、再現可能な実行IDと証拠エクスポートを提供</li>
+              <li style="margin-bottom: 0.5rem;"><strong>「14の別々のモデル」ではない</strong> — 設定可能なモデルスタック（ローカルファースト）を使用、14の別々の「脳」ではない</li>
+              <li style="margin-bottom: 0.5rem;"><strong>保証されていない</strong> — データ品質、統合、権限によって制約される</li>
+              <li style="margin-bottom: 0.5rem;"><strong>魔法ではない</strong> — 証拠付きのガバナンス対応自動化</li>
+            </ul>
+          </div>
+          
+          <div>
+            <h3 style="font-size: 1rem; color: var(--color-text); margin-bottom: 0.5rem;">技術要件</h3>
+            <ul style="color: var(--color-text-dim); font-size: 0.9rem;">
+              <li style="margin-bottom: 0.5rem;"><strong>ローカルLLM推奨</strong> — GPU推奨（Qwen 2.5、Llama 3、Mistral搭載のOllama）</li>
+              <li style="margin-bottom: 0.5rem;"><strong>GPU：</strong> レスポンシブなマルチステップワークフローには16GB+ VRAM推奨</li>
+              <li style="margin-bottom: 0.5rem;"><strong>システム：</strong> 32GB+ RAM、最新CPU、SSDストレージ</li>
+              <li style="margin-bottom: 0.5rem;"><strong>パフォーマンスは変動</strong> モデルサイズ、コンテキスト長、検索深度、ツール呼び出しによる</li>
+            </ul>
+          </div>
+          
+          <div>
+            <h3 style="font-size: 1rem; color: var(--color-text); margin-bottom: 0.5rem;">うまく機能する場合</h3>
+            <ul style="color: var(--color-text-dim); font-size: 0.9rem;">
+              <li style="margin-bottom: 0.5rem;">✅ 構造化されたシナリオ（定義された制約、結果、閾値）</li>
+              <li style="margin-bottom: 0.5rem;">✅ M&A / デューデリジェンスワークフロー</li>
+              <li style="margin-bottom: 0.5rem;">✅ リスク分析とガバナンスレビュー</li>
+              <li style="margin-bottom: 0.5rem;">✅ 文書とポリシーに基づくコンプライアンス対応</li>
+            </ul>
+          </div>
+          
+          <div>
+            <h3 style="font-size: 1rem; color: var(--color-text); margin-bottom: 0.5rem;">困難な場合</h3>
+            <ul style="color: var(--color-text-dim); font-size: 0.9rem;">
+              <li style="margin-bottom: 0.5rem;">❌ 関連証拠のない新しいエッジケース</li>
+              <li style="margin-bottom: 0.5rem;">❌ キュレートされたソースのない高度に専門化されたドメイン</li>
+              <li style="margin-bottom: 0.5rem;">❌ ライブ統合のないリアルタイム決定</li>
+              <li style="margin-bottom: 0.5rem;">❌ 人間の判断を必要とする主観的/価値観ベースの選択</li>
+            </ul>
+            <p style="color: var(--color-cyan); font-size: 0.8rem; margin-top: 0.75rem;"><strong>緩和策：</strong> ソースを追加、ポリシーを定義、システムを統合、承認を要求</p>
+          </div>
+        </div>
+
+        <div style="margin-top: 1.5rem; padding: 1rem; background: rgba(0,0,0,0.2); border-radius: 8px;">
+          <p style="color: var(--color-text-dim); font-size: 0.85rem; margin: 0;">
+            <strong style="color: var(--color-gold);">結論：</strong> 人間の判断を強化—置き換えない。出力にはエクスポート可能な決定トレース（入力、ソース、適用されたポリシー、承認、実行ID）が付属。
+          </p>
+        </div>
+      </div>
+
+      <div class="content-section" style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.05) 0%, rgba(16, 185, 129, 0.02) 100%); border: 1px solid rgba(16, 185, 129, 0.2); border-radius: 12px; padding: 2rem; margin-top: 1.5rem;">
+        <h2 style="color: #10b981;">🛡️ リスクを軽減する方法</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-top: 1rem;">
+          <div style="text-align: center; padding: 1rem;">
+            <div style="font-size: 2rem; margin-bottom: 0.5rem;">🔐</div>
+            <h4 style="color: var(--color-text); font-size: 0.9rem; margin-bottom: 0.25rem;">ポリシーゲート + RBAC</h4>
+            <p style="color: var(--color-text-muted); font-size: 0.8rem;">各ステップでのロールベースのアクセス制御とポリシー適用</p>
+          </div>
+          <div style="text-align: center; padding: 1rem;">
+            <div style="font-size: 2rem; margin-bottom: 0.5rem;">📚</div>
+            <h4 style="color: var(--color-text); font-size: 0.9rem; margin-bottom: 0.25rem;">証拠引用</h4>
+            <p style="color: var(--color-text-muted); font-size: 0.8rem;">各主張のソース帰属付き検索グラウンディング</p>
+          </div>
+          <div style="text-align: center; padding: 1rem;">
+            <div style="font-size: 2rem; margin-bottom: 0.5rem;">✋</div>
+            <h4 style="color: var(--color-text); font-size: 0.9rem; margin-bottom: 0.25rem;">人間による承認</h4>
+            <p style="color: var(--color-text-muted); font-size: 0.8rem;">ハイリスク決定に対する拒否権と必須署名</p>
+          </div>
+          <div style="text-align: center; padding: 1rem;">
+            <div style="font-size: 2rem; margin-bottom: 0.5rem;">📦</div>
+            <h4 style="color: var(--color-text); font-size: 0.9rem; margin-bottom: 0.25rem;">決定エクスポート</h4>
+            <p style="color: var(--color-text-muted); font-size: 0.8rem;">完全な審議トレース、実行ID、成果物を含む監査パケット</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="cta-box">
+        <h3>ザ・カウンシルの動作を見る</h3>
+        <p>あなたの決定シナリオでのライブマルチエージェント審議を見るためのテクニカルブリーフィングをリクエストしてください。</p>
+        <a href="../briefing.html?lang=ja" class="cta-btn">ブリーフィングを依頼 →</a>
+      </div>
+
+      <div class="content-section" style="text-align: center; margin-top: 80px; padding-top: 40px; border-top: 1px solid var(--color-border);">
+        <p style="font-size: 0.85rem; color: var(--color-text-dim);">
+          インフラストラクチャに興味がありますか？<a href="sovereignty-matrix.html" style="color: var(--color-gold);">ソブリンデプロイメントオプション</a>または<a href="compliance.html" style="color: var(--color-gold);">コンプライアンスフレームワークマッピング</a>をご覧ください。
+        </p>
+      </div>
+    </div>
+  </div>
+  <script src="../translations.js"></script>
+  <script src="../app.js"></script>
+</body>
+</html>

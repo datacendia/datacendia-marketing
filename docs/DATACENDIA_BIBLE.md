@@ -1817,32 +1817,32 @@ Datacendia targets the **$3.5B vertical AI market** (2025), focusing on regulate
 
 These 4 verticals represent **90% of vertical AI spend**.^[1] Full sales, marketing, and product resources allocated.
 
-| Vertical | Market Share | Why Now | Pilot Results | Source |
-|----------|-------------|---------|---------------|--------|
-| 🏥 **Healthcare** | 43% ($1.5B)^[1] | HIPAA sovereignty, CMS AI rules | 34% faster discharge decisions | Methodist Health pilot, Q3 2025^[2] |
-| 💰 **Financial Services** | 16% ($560M)^[1] | Basel III, CFPB 1071 deadline | 40% fraud reduction | Regional bank ($2B assets), Q2 2025^[2] |
-| 🏛️ **Government & Legal** | 19% ($665M)^[1] | EU AI Act, FedRAMP mandates | 60% faster contract review | Federal agency pilot, Q3 2025^[2] |
-| 💊 **Pharmaceutical** | 12% ($420M)^[1] | FDA AI guidance, 21 CFR Part 11 | 31% faster Phase II decisions | Mid-cap biotech, Q2 2025^[2] |
+| Vertical | Market Share | Why Now | Target Outcomes | Status |
+|----------|-------------|---------|-----------------|--------|
+| 🏥 **Healthcare** | 43% ($1.5B)^[1] | HIPAA sovereignty, CMS AI rules | Faster discharge decisions | Seeking pilot partners |
+| 💰 **Financial Services** | 16% ($560M)^[1] | Basel III, CFPB 1071 deadline | Fraud reduction, compliance automation | Seeking pilot partners |
+| 🏛️ **Government & Legal** | 19% ($665M)^[1] | EU AI Act, FedRAMP mandates | Faster contract review | Seeking pilot partners |
+| 💊 **Pharmaceutical** | 12% ($420M)^[1] | FDA AI guidance, 21 CFR Part 11 | Faster trial decisions | Seeking pilot partners |
 
 ## Growth Verticals (Platform Available)
 
-| Vertical | Status | Early Results | Source |
-|----------|--------|---------------|--------|
-| 🛡️ **Insurance** | GA | 29% loss ratio improvement | P&C carrier ($500M premium), Q3 2025^[2] |
-| 🏭 **Manufacturing** | GA | 23% inventory reduction ($1.4M freed) | Tier 1 auto supplier, Q2 2025^[2] |
-| ⚡ **Energy & Utilities** | GA | 45% faster rate case prep | IOU (Midwest), Q3 2025^[2] |
+| Vertical | Status | Target Outcomes | Status |
+|----------|--------|-----------------|--------|
+| 🛡️ **Insurance** | GA | Loss ratio improvement | Seeking pilot partners |
+| 🏭 **Manufacturing** | GA | Inventory optimization | Seeking pilot partners |
+| ⚡ **Energy & Utilities** | GA | Faster rate case prep | Seeking pilot partners |
 
 ## Roadmap Verticals (H1 2026)
 
 *Note: Original Q1-Q2 2025 targets shifted to 2026 to prioritize depth in Priority Verticals.*
 
-| Vertical | Target GA | Design Partners | Status |
-|----------|-----------|-----------------|--------|
-| 💻 Technology / SaaS | Q1 2026 | 4 active | Core agents complete, overlays in dev |
-| 🛒 Retail & Hospitality | Q1 2026 | 2 active | Pricing agents complete |
-| 📡 Telecommunications | Q2 2026 | 3 active | Network optimization in design |
-| 🌾 Agriculture & Food | Q2 2026 | 2 active | Supply chain agents in design |
-| 💳 Consumer Fintech | Q2 2026 | 4 active | Lending agents in beta |
+| Vertical | Target GA | Status |
+|----------|-----------|--------|
+| 💻 Technology / SaaS | Q1 2026 | Core agents complete, overlays in dev |
+| 🛒 Retail & Hospitality | Q1 2026 | Pricing agents complete |
+| 📡 Telecommunications | Q2 2026 | Network optimization in design |
+| 🌾 Agriculture & Food | Q2 2026 | Supply chain agents in design |
+| 💳 Consumer Fintech | Q2 2026 | Lending agents in beta |
 
 ## Vertical Pricing
 
@@ -1889,17 +1889,17 @@ These 4 verticals represent **90% of vertical AI spend**.^[1] Full sales, market
 
 ## ROI Benchmarks
 
-| Vertical | ROI (18 months) | Key Metric | Source |
-|----------|-----------------|------------|--------|
-| Government | 38% | Procurement acceleration | Federal agency pilot^[2] |
-| Financial | 34% | Efficiency gain | Regional bank pilot^[2] |
-| Energy | 32% | Regulatory efficiency | IOU pilot^[2] |
-| Pharma | 31% | Faster trials | Biotech pilot^[2] |
-| Insurance | 29% | Loss ratio improvement | P&C carrier pilot^[2] |
-| Healthcare | 27% | Cost reduction | Methodist Health pilot^[2] |
-| Manufacturing | 23% | Inventory reduction | Auto supplier pilot^[2] |
+| Vertical | Target ROI | Key Metric | Status |
+|----------|------------|------------|--------|
+| Government | TBD | Procurement acceleration | Seeking pilot partners |
+| Financial | TBD | Efficiency gain | Seeking pilot partners |
+| Energy | TBD | Regulatory efficiency | Seeking pilot partners |
+| Pharma | TBD | Faster trials | Seeking pilot partners |
+| Insurance | TBD | Loss ratio improvement | Seeking pilot partners |
+| Healthcare | TBD | Cost reduction | Seeking pilot partners |
+| Manufacturing | TBD | Inventory reduction | Seeking pilot partners |
 
-**Industry Benchmark:** 27% average cost reduction for AI-assisted decision-making.^[3]
+**Industry Benchmark:** 27% average cost reduction for AI-assisted decision-making.^[3] *Datacendia-specific ROI to be validated through pilot program.*
 
 ## Vertical-Specific Agents
 
