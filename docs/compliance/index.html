@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Compliance Documentation — Datacendia</title>
+  <meta name="description" content="Datacendia compliance documentation: Security Whitepaper, Data Processing Agreement, Vulnerability Disclosure Policy, and self-assessment reports for SOC 2, HIPAA, and CIS Controls.">
+  <link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../styles.css">
+  <style>
+    .compliance-container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 80px 24px;
+    }
+    .compliance-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+    .compliance-title {
+      font-family: var(--font-display);
+      font-size: 2.5rem;
+      font-weight: 300;
+      color: var(--color-text);
+      margin-bottom: 16px;
+    }
+    .compliance-subtitle {
+      font-size: 1rem;
+      color: var(--color-text-muted);
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+    .compliance-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      margin-bottom: 48px;
+    }
+    .compliance-card {
+      background: var(--color-card-bg);
+      border: 1px solid var(--color-border);
+      border-radius: 12px;
+      padding: 28px;
+      transition: border-color 0.2s ease, transform 0.2s ease;
+    }
+    .compliance-card:hover {
+      border-color: var(--color-gold);
+      transform: translateY(-2px);
+    }
+    .card-icon {
+      font-size: 2rem;
+      margin-bottom: 16px;
+    }
+    .card-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--color-text);
+      margin-bottom: 8px;
+    }
+    .card-desc {
+      font-size: 0.85rem;
+      color: var(--color-text-muted);
+      line-height: 1.5;
+      margin-bottom: 16px;
+    }
+    .card-status {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 500;
+      padding: 4px 10px;
+      border-radius: 4px;
+      margin-bottom: 12px;
+    }
+    .status-public {
+      background: rgba(16, 185, 129, 0.15);
+      color: #10b981;
+    }
+    .status-request {
+      background: rgba(251, 191, 36, 0.15);
+      color: #fbbf24;
+    }
+    .card-link {
+      display: inline-block;
+      font-size: 0.85rem;
+      color: var(--color-gold);
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .card-link:hover {
+      text-decoration: underline;
+    }
+    .approach-section {
+      background: var(--color-card-bg);
+      border: 1px solid var(--color-border);
+      border-radius: 12px;
+      padding: 32px;
+      margin-bottom: 48px;
+    }
+    .approach-title {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--color-gold);
+      margin-bottom: 20px;
+    }
+    .approach-list {
+      list-style: none;
+      padding: 0;
+    }
+    .approach-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--color-border);
+      font-size: 0.9rem;
+      color: var(--color-text-muted);
+    }
+    .approach-list li:last-child {
+      border-bottom: none;
+    }
+    .approach-list li strong {
+      color: var(--color-text);
+    }
+    .approach-icon {
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+    .contact-section {
+      text-align: center;
+      padding: 32px;
+      background: var(--color-bg-elevated);
+      border: 1px solid var(--color-border);
+      border-radius: 12px;
+    }
+    .contact-section p {
+      font-size: 0.95rem;
+      color: var(--color-text-muted);
+      margin-bottom: 16px;
+    }
+    .contact-section a {
+      color: var(--color-gold);
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .contact-section a:hover {
+      text-decoration: underline;
+    }
+    .back-link {
+      display: inline-block;
+      margin-bottom: 32px;
+      font-size: 0.8rem;
+      color: var(--color-text-dim);
+      text-decoration: none;
+    }
+    .back-link:hover {
+      color: var(--color-gold);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="compliance-container">
+      <a href="../../index.html" class="back-link">← Return to Datacendia</a>
+      
+      <div class="compliance-header">
+        <h1 class="compliance-title">Compliance Documentation</h1>
+        <p class="compliance-subtitle">
+          We believe in transparency. These documents describe our actual security controls, 
+          not marketing claims. Formal certifications are available upon enterprise contract.
+        </p>
+      </div>
+
+      <div class="compliance-grid">
+        <!-- Security Whitepaper -->
+        <div class="compliance-card">
+          <div class="card-icon">🛡️</div>
+          <div class="card-title">Security Whitepaper</div>
+          <div class="card-desc">
+            Comprehensive overview of our security architecture, encryption, access controls, 
+            and deployment models.
+          </div>
+          <span class="card-status status-public">Public</span><br>
+          <a href="SECURITY_WHITEPAPER.html" class="card-link">Read Whitepaper →</a>
+        </div>
+
+        <!-- Vulnerability Disclosure -->
+        <div class="compliance-card">
+          <div class="card-icon">🔐</div>
+          <div class="card-title">Vulnerability Disclosure Policy</div>
+          <div class="card-desc">
+            How to responsibly report security vulnerabilities. Safe harbor provisions 
+            and researcher recognition program.
+          </div>
+          <span class="card-status status-public">Public</span><br>
+          <a href="VULNERABILITY_DISCLOSURE_POLICY.html" class="card-link">View Policy →</a>
+        </div>
+
+        <!-- DPA -->
+        <div class="compliance-card">
+          <div class="card-icon">📋</div>
+          <div class="card-title">Data Processing Agreement</div>
+          <div class="card-desc">
+            GDPR-compliant DPA template with Standard Contractual Clauses reference 
+            for international data transfers.
+          </div>
+          <span class="card-status status-request">On Request</span><br>
+          <a href="mailto:compliance@datacendia.com?subject=DPA%20Request" class="card-link">Request DPA →</a>
+        </div>
+
+        <!-- SOC 2 -->
+        <div class="compliance-card">
+          <div class="card-icon">✅</div>
+          <div class="card-title">SOC 2 Readiness Assessment</div>
+          <div class="card-desc">
+            Self-assessment against SOC 2 Type II Trust Service Criteria. 
+            85% of controls implemented.
+          </div>
+          <span class="card-status status-request">On Request</span><br>
+          <a href="mailto:compliance@datacendia.com?subject=SOC2%20Assessment%20Request" class="card-link">Request Assessment →</a>
+        </div>
+
+        <!-- HIPAA -->
+        <div class="compliance-card">
+          <div class="card-icon">🏥</div>
+          <div class="card-title">HIPAA Self-Assessment</div>
+          <div class="card-desc">
+            Security Rule alignment assessment. BAA template available for 
+            healthcare customers.
+          </div>
+          <span class="card-status status-request">On Request</span><br>
+          <a href="mailto:compliance@datacendia.com?subject=HIPAA%20Assessment%20Request" class="card-link">Request Assessment →</a>
+        </div>
+
+        <!-- CIS Controls -->
+        <div class="compliance-card">
+          <div class="card-icon">📊</div>
+          <div class="card-title">CIS Controls Assessment</div>
+          <div class="card-desc">
+            Implementation status against CIS Controls v8. 
+            82% of IG2 controls implemented.
+          </div>
+          <span class="card-status status-request">On Request</span><br>
+          <a href="mailto:compliance@datacendia.com?subject=CIS%20Assessment%20Request" class="card-link">Request Assessment →</a>
+        </div>
+      </div>
+
+      <div class="approach-section">
+        <h2 class="approach-title">Our Approach to Compliance</h2>
+        <ul class="approach-list">
+          <li>
+            <span class="approach-icon">🏗️</span>
+            <div>
+              <strong>Architecture First</strong><br>
+              We implement security controls that align with major frameworks (SOC 2, ISO 27001, HIPAA, NIST) 
+              from the start, not as an afterthought.
+            </div>
+          </li>
+          <li>
+            <span class="approach-icon">📄</span>
+            <div>
+              <strong>Documentation Ready</strong><br>
+              Self-assessments and control mappings are available for customer security reviews. 
+              We don't hide behind "trust us."
+            </div>
+          </li>
+          <li>
+            <span class="approach-icon">🎯</span>
+            <div>
+              <strong>Certification on Demand</strong><br>
+              Formal audits (SOC 2 Type II, ISO 27001) are available when enterprise contracts 
+              justify the investment. We won't pretend to have certifications we don't.
+            </div>
+          </li>
+          <li>
+            <span class="approach-icon">🔍</span>
+            <div>
+              <strong>Customer Security Reviews</strong><br>
+              We support customer-led security assessments, penetration tests, and vendor questionnaires. 
+              Your security team can verify our claims.
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="contact-section">
+        <p>
+          <strong>Need compliance documentation for your procurement process?</strong><br>
+          We're happy to provide detailed responses to security questionnaires and support your due diligence.
+        </p>
+        <p>
+          <a href="mailto:compliance@datacendia.com">compliance@datacendia.com</a>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <script src="../../translations.js"></script>
+  <script src="../../app.js"></script>
+</body>
+</html>
