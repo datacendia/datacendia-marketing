@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Industry Verticals | Datacendia — Sovereign AI for Healthcare, Finance, Legal, Government</title>
+  <meta name="description" content="Datacendia industry-specific AI solutions for Healthcare, Financial Services, Legal/Law Firms, Government, Insurance, and more. Compliance-ready, privilege-preserving, audit-grade decision intelligence.">
+  <meta name="keywords" content="healthcare AI, legal AI, financial services AI, government AI, law firm AI, HIPAA compliant AI, ABA compliant AI, FedRAMP AI, sovereign AI verticals">
+  <meta name="author" content="Datacendia">
+  <meta name="robots" content="index, follow">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .verticals-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    .vertical-card {
+      background: linear-gradient(135deg, rgba(6, 182, 212, 0.05) 0%, rgba(59, 130, 246, 0.05) 100%);
+      border: 1px solid rgba(6, 182, 212, 0.2);
+      border-radius: 16px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+    .vertical-card:hover {
+      border-color: rgba(6, 182, 212, 0.5);
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+    .vertical-card.priority {
+      border-color: rgba(212, 175, 55, 0.4);
+    }
+    .vertical-card.priority:hover {
+      border-color: rgba(212, 175, 55, 0.7);
+    }
+    .vertical-header {
+      padding: 2rem;
+      background: linear-gradient(135deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.1) 100%);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    .vertical-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+    .vertical-tier {
+      display: inline-block;
+      padding: 4px 12px;
+      background: rgba(6, 182, 212, 0.1);
+      border: 1px solid rgba(6, 182, 212, 0.3);
+      border-radius: 20px;
+      font-size: 0.75rem;
+      color: var(--color-cyan);
+      margin-bottom: 0.75rem;
+    }
+    .vertical-tier.priority {
+      background: rgba(212, 175, 55, 0.1);
+      border-color: rgba(212, 175, 55, 0.3);
+      color: var(--color-gold);
+    }
+    .vertical-name {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: white;
+      margin-bottom: 0.5rem;
+    }
+    .vertical-tagline {
+      font-size: 0.9rem;
+      color: var(--color-text-dim);
+    }
+    .vertical-content {
+      padding: 2rem;
+    }
+    .vertical-compliance {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .compliance-badge {
+      padding: 4px 10px;
+      background: rgba(16, 185, 129, 0.1);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      border-radius: 6px;
+      font-size: 0.7rem;
+      color: #10b981;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .vertical-agents {
+      margin-bottom: 1.5rem;
+    }
+    .vertical-agents-title {
+      font-size: 0.8rem;
+      color: var(--color-text-muted);
+      margin-bottom: 0.5rem;
+    }
+    .vertical-agents-list {
+      font-size: 0.85rem;
+      color: var(--color-text-dim);
+      line-height: 1.6;
+    }
+    .vertical-metric {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem;
+      background: rgba(0,0,0,0.2);
+      border-radius: 8px;
+      margin-bottom: 1rem;
+    }
+    .metric-value {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #10b981;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .metric-label {
+      font-size: 0.8rem;
+      color: var(--color-text-muted);
+    }
+    .vertical-cta {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      background: rgba(6, 182, 212, 0.1);
+      border: 1px solid rgba(6, 182, 212, 0.3);
+      border-radius: 8px;
+      color: var(--color-cyan);
+      text-align: center;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+    .vertical-cta:hover {
+      background: rgba(6, 182, 212, 0.2);
+      border-color: var(--color-cyan);
+    }
+    .tier-section {
+      margin-top: 4rem;
+    }
+    .tier-label {
+      font-size: 0.8rem;
+      color: var(--color-gold);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+    .tier-title {
+      font-size: 1.8rem;
+      color: white;
+      margin-bottom: 0.5rem;
+    }
+    .tier-desc {
+      color: var(--color-text-dim);
+      margin-bottom: 2rem;
+    }
+    .new-badge {
+      display: inline-block;
+      padding: 2px 8px;
+      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+      border-radius: 4px;
+      font-size: 0.65rem;
+      color: white;
+      font-weight: 600;
+      margin-left: 8px;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header>
+      <div class="header-top">
+        <a href="index.html" style="text-decoration: none;"><h1 class="logo">DATACENDIA</h1></a>
+      </div>
+      <p class="tagline-sub">Sovereign Intelligence Platform</p>
+      <nav class="main-nav">
+        <a href="demos.html">Demos</a>
+        <a href="case-studies.html">Case Studies</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="pilot.html">Pilot Program</a>
+        <a href="briefing.html">Request Briefing</a>
+      </nav>
+    </header>
+
+    <div class="page-container">
+      <div class="page-header" style="text-align: center;">
+        <div class="page-icon">🏭</div>
+        <h1 class="page-title">Industry Verticals</h1>
+        <p class="page-subtitle">Datacendia customizes for your industry — compliance frameworks, specialized agents, and domain-specific use cases built in.</p>
+      </div>
+
+      <!-- Tier 1: Priority Verticals -->
+      <div class="tier-section">
+        <p class="tier-label">Tier 1 — Priority Verticals</p>
+        <h2 class="tier-title">Production-Ready Industries</h2>
+        <p class="tier-desc">Full compliance frameworks, specialized AI agents, and industry-specific integrations.</p>
+
+        <div class="verticals-grid">
+
+          <!-- Healthcare -->
+          <div class="vertical-card priority">
+            <div class="vertical-header">
+              <div class="vertical-icon">🏥</div>
+              <span class="vertical-tier priority">Priority</span>
+              <h3 class="vertical-name">Healthcare / Health Systems</h3>
+              <p class="vertical-tagline">HIPAA-compliant clinical decision intelligence with CMS AI transparency</p>
+            </div>
+            <div class="vertical-content">
+              <div class="vertical-compliance">
+                <span class="compliance-badge">HIPAA</span>
+                <span class="compliance-badge">HITECH</span>
+                <span class="compliance-badge">Joint Commission</span>
+                <span class="compliance-badge">CMS CoPs</span>
+              </div>
+              <div class="vertical-agents">
+                <p class="vertical-agents-title">Specialized Agents</p>
+                <p class="vertical-agents-list">CMIO, Patient Safety Officer, Healthcare Compliance, Clinical Operations, Revenue Cycle, Quality Officer</p>
+              </div>
+              <div class="vertical-metric">
+                <span class="metric-value">34%</span>
+                <span class="metric-label">Faster discharge planning (projected)</span>
+              </div>
+              <a href="briefing.html?vertical=healthcare" class="vertical-cta">Request Healthcare Briefing →</a>
+            </div>
+          </div>
+
+          <!-- Financial Services -->
+          <div class="vertical-card priority">
+            <div class="vertical-header">
+              <div class="vertical-icon">💰</div>
+              <span class="vertical-tier priority">Priority</span>
+              <h3 class="vertical-name">Financial Services</h3>
+              <p class="vertical-tagline">SOX, Basel III/IV, and AML/BSA compliant decision intelligence</p>
+            </div>
+            <div class="vertical-content">
+              <div class="vertical-compliance">
+                <span class="compliance-badge">SOX</span>
+                <span class="compliance-badge">Basel III/IV</span>
+                <span class="compliance-badge">AML/BSA</span>
+                <span class="compliance-badge">GDPR</span>
+              </div>
+              <div class="vertical-agents">
+                <p class="vertical-agents-title">Specialized Agents</p>
+                <p class="vertical-agents-list">Risk Sentinel, Alpha Hunter, Compliance Guardian, Market Pulse, Credit Analyst, Treasury Ops</p>
+              </div>
+              <div class="vertical-metric">
+                <span class="metric-value">40%</span>
+                <span class="metric-label">Fraud detection improvement (projected)</span>
+              </div>
+              <a href="briefing.html?vertical=financial" class="vertical-cta">Request Financial Briefing →</a>
+            </div>
+          </div>
+
+          <!-- Legal / Law Firms - NEW -->
+          <div class="vertical-card priority">
+            <div class="vertical-header">
+              <div class="vertical-icon">⚖️</div>
+              <span class="vertical-tier priority">Priority</span>
+              <h3 class="vertical-name">Legal / Law Firms <span class="new-badge">NEW</span></h3>
+              <p class="vertical-tagline">Privilege-preserving AI with audit-grade decision packets for legal practice</p>
+            </div>
+            <div class="vertical-content">
+              <div class="vertical-compliance">
+                <span class="compliance-badge">ABA Model Rules</span>
+                <span class="compliance-badge">Rule 1.6</span>
+                <span class="compliance-badge">SRA (UK)</span>
+                <span class="compliance-badge">GDPR</span>
+              </div>
+              <div class="vertical-agents">
+                <p class="vertical-agents-title">Specialized Agents (14 total)</p>
+                <p class="vertical-agents-list">Matter Lead, Research Counsel, Contract Counsel, Litigation Strategist, Risk Counsel, Opposing Counsel (Red Team), Privilege Officer, Evidence Officer + 6 optional specialists</p>
+              </div>
+              <div class="vertical-metric">
+                <span class="metric-value">40%</span>
+                <span class="metric-label">Faster due diligence (projected)</span>
+              </div>
+              <p style="font-size: 0.8rem; color: var(--color-text-muted); margin-bottom: 1rem;">
+                <strong>Case Law Ingestion:</strong> Ingest prior cases, statutes, firm precedent. Citation enforcement — no source, no claim.
+              </p>
+              <a href="briefing.html?vertical=legal" class="vertical-cta">Request Legal Briefing →</a>
+            </div>
+          </div>
+
+          <!-- Government -->
+          <div class="vertical-card priority">
+            <div class="vertical-header">
+              <div class="vertical-icon">🏛️</div>
+              <span class="vertical-tier priority">Priority</span>
+              <h3 class="vertical-name">Government</h3>
+              <p class="vertical-tagline">Sovereign AI for policy, procurement, and public sector intelligence</p>
+            </div>
+            <div class="vertical-content">
+              <div class="vertical-compliance">
+                <span class="compliance-badge">FedRAMP</span>
+                <span class="compliance-badge">FISMA</span>
+                <span class="compliance-badge">EU AI Act</span>
+                <span class="compliance-badge">FOIA</span>
+              </div>
+              <div class="vertical-agents">
+                <p class="vertical-agents-title">Specialized Agents</p>
+                <p class="vertical-agents-list">Policy Analyst, Procurement Officer, Ethics Officer, Compliance Lead, Budget Analyst, Security Officer</p>
+              </div>
+              <div class="vertical-metric">
+                <span class="metric-value">60%</span>
+                <span class="metric-label">Faster contract review (projected)</span>
+              </div>
+              <a href="briefing.html?vertical=government" class="vertical-cta">Request Government Briefing →</a>
+            </div>
+          </div>
+
+          <!-- Insurance -->
+          <div class="vertical-card priority">
+            <div class="vertical-header">
+              <div class="vertical-icon">🛡️</div>
+              <span class="vertical-tier priority">Priority</span>
+              <h3 class="vertical-name">Insurance</h3>
+              <p class="vertical-tagline">Underwriting optimization and claims intelligence across 50+ jurisdictions</p>
+            </div>
+            <div class="vertical-content">
+              <div class="vertical-compliance">
+                <span class="compliance-badge">NAIC</span>
+                <span class="compliance-badge">Solvency II</span>
+                <span class="compliance-badge">GDPR</span>
+                <span class="compliance-badge">State Regs</span>
+              </div>
+              <div class="vertical-agents">
+                <p class="vertical-agents-title">Specialized Agents</p>
+                <p class="vertical-agents-list">Chief Actuary, Underwriting Manager, Claims Director, Risk Manager, Fraud Investigator</p>
+              </div>
+              <div class="vertical-metric">
+                <span class="metric-value">29%</span>
+                <span class="metric-label">Loss ratio improvement (projected)</span>
+              </div>
+              <a href="briefing.html?vertical=insurance" class="vertical-cta">Request Insurance Briefing →</a>
+            </div>
+          </div>
+
+          <!-- Pharmaceutical -->
+          <div class="vertical-card priority">
+            <div class="vertical-header">
+              <div class="vertical-icon">💊</div>
+              <span class="vertical-tier priority">Priority</span>
+              <h3 class="vertical-name">Pharmaceutical</h3>
+              <p class="vertical-tagline">FDA 21 CFR Part 11 compliant clinical trial and regulatory intelligence</p>
+            </div>
+            <div class="vertical-content">
+              <div class="vertical-compliance">
+                <span class="compliance-badge">FDA 21 CFR 11</span>
+                <span class="compliance-badge">GxP</span>
+                <span class="compliance-badge">ICH</span>
+                <span class="compliance-badge">EMA</span>
+              </div>
+              <div class="vertical-agents">
+                <p class="vertical-agents-title">Specialized Agents</p>
+                <p class="vertical-agents-list">Regulatory Affairs, Clinical Operations, Pharmacovigilance, Quality Assurance, Medical Affairs</p>
+              </div>
+              <div class="vertical-metric">
+                <span class="metric-value">25%</span>
+                <span class="metric-label">Faster regulatory submission (projected)</span>
+              </div>
+              <a href="briefing.html?vertical=pharmaceutical" class="vertical-cta">Request Pharma Briefing →</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Tier 2: Growth Verticals -->
+      <div class="tier-section">
+        <p class="tier-label">Tier 2 — Growth Verticals</p>
+        <h2 class="tier-title">Expanding Industries</h2>
+        <p class="tier-desc">Core platform with industry-specific agent configurations. Full compliance frameworks in development.</p>
+
+        <div class="verticals-grid">
+          <div class="vertical-card">
+            <div class="vertical-header">
+              <div class="vertical-icon">🏭</div>
+              <span class="vertical-tier">Growth</span>
+              <h3 class="vertical-name">Manufacturing</h3>
+              <p class="vertical-tagline">Supply chain optimization and quality intelligence</p>
+            </div>
+            <div class="vertical-content">
+              <a href="briefing.html?vertical=manufacturing" class="vertical-cta">Request Briefing →</a>
+            </div>
+          </div>
+
+          <div class="vertical-card">
+            <div class="vertical-header">
+              <div class="vertical-icon">⚡</div>
+              <span class="vertical-tier">Growth</span>
+              <h3 class="vertical-name">Energy & Utilities</h3>
+              <p class="vertical-tagline">Grid optimization and regulatory compliance</p>
+            </div>
+            <div class="vertical-content">
+              <a href="briefing.html?vertical=energy" class="vertical-cta">Request Briefing →</a>
+            </div>
+          </div>
+
+          <div class="vertical-card">
+            <div class="vertical-header">
+              <div class="vertical-icon">💻</div>
+              <span class="vertical-tier">Growth</span>
+              <h3 class="vertical-name">Technology</h3>
+              <p class="vertical-tagline">Product strategy and engineering intelligence</p>
+            </div>
+            <div class="vertical-content">
+              <a href="briefing.html?vertical=technology" class="vertical-cta">Request Briefing →</a>
+            </div>
+          </div>
+
+          <div class="vertical-card">
+            <div class="vertical-header">
+              <div class="vertical-icon">🛒</div>
+              <span class="vertical-tier">Growth</span>
+              <h3 class="vertical-name">Retail & Hospitality</h3>
+              <p class="vertical-tagline">Customer experience and operations intelligence</p>
+            </div>
+            <div class="vertical-content">
+              <a href="briefing.html?vertical=retail" class="vertical-cta">Request Briefing →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Legal Vertical Deep Dive -->
+      <div class="tier-section" style="background: linear-gradient(135deg, rgba(212, 175, 55, 0.05) 0%, rgba(212, 175, 55, 0.02) 100%); border: 1px solid rgba(212, 175, 55, 0.2); border-radius: 16px; padding: 3rem; margin-top: 4rem;">
+        <p class="tier-label">Featured Vertical</p>
+        <h2 class="tier-title">⚖️ Legal / Law Firms — The AI Lawyers Are Actually Allowed to Use</h2>
+        <p class="tier-desc">On-premise legal decision intelligence with defensible audit trails. Attorney-client privilege preserved. Every citation verified.</p>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 2rem;">
+          <div>
+            <h4 style="color: var(--color-gold); margin-bottom: 1rem;">Why Law Firms Need Sovereign AI</h4>
+            <ul style="color: var(--color-text-dim); line-height: 1.8; font-size: 0.9rem;">
+              <li><strong>Privilege Preservation:</strong> On-prem deployment means client data never leaves your control</li>
+              <li><strong>Citation Enforcement:</strong> No-source-no-claim — every legal assertion must cite ingested authority</li>
+              <li><strong>Audit-Grade Packets:</strong> Defensible work product trail for malpractice protection</li>
+              <li><strong>Red Team Testing:</strong> Opposing Counsel agent stress-tests every recommendation</li>
+            </ul>
+          </div>
+          <div>
+            <h4 style="color: var(--color-gold); margin-bottom: 1rem;">Case Law Ingestion</h4>
+            <ul style="color: var(--color-text-dim); line-height: 1.8; font-size: 0.9rem;">
+              <li>Ingest prior cases, statutes, regulations, firm precedent</li>
+              <li>Jurisdiction tagging (Federal, State, International)</li>
+              <li>Research Counsel only cites from your ingested library</li>
+              <li>Westlaw/LexisNexis export integration</li>
+            </ul>
+          </div>
+          <div>
+            <h4 style="color: var(--color-gold); margin-bottom: 1rem;">Agent Presets</h4>
+            <ul style="color: var(--color-text-dim); line-height: 1.8; font-size: 0.9rem;">
+              <li><strong>Contract Review:</strong> Playbook enforcement, fallback language</li>
+              <li><strong>High-Stakes Negotiation:</strong> Adversarial testing included</li>
+              <li><strong>Litigation Prep:</strong> Case theory, depositions, trial prep</li>
+              <li><strong>M&A Due Diligence:</strong> Data room summarization, risk flagging</li>
+            </ul>
+          </div>
+          <div>
+            <h4 style="color: var(--color-gold); margin-bottom: 1rem;">Pricing</h4>
+            <ul style="color: var(--color-text-dim); line-height: 1.8; font-size: 0.9rem;">
+              <li><strong>Pilot:</strong> $35,000 (one matter end-to-end)</li>
+              <li><strong>Practice Group:</strong> $120k–$250k/year</li>
+              <li><strong>Firm Enterprise:</strong> $300k–$750k/year</li>
+              <li><strong>Sovereign/Air-Gapped:</strong> $1M+ (SCIF-ready)</li>
+            </ul>
+          </div>
+        </div>
+        
+        <div style="margin-top: 2rem; text-align: center;">
+          <a href="briefing.html?vertical=legal" class="cta-button" style="display: inline-block; padding: 16px 32px; background: linear-gradient(135deg, var(--color-gold) 0%, #b8860b 100%); color: black; text-decoration: none; border-radius: 8px; font-weight: 600;">Request Legal Vertical Briefing →</a>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="cta-box" style="margin-top: 4rem;">
+        <h3>Don't See Your Industry?</h3>
+        <p>Datacendia's core platform works across industries. We can configure agents and compliance frameworks for your specific needs.</p>
+        <a href="briefing.html" class="cta-btn">Request Custom Briefing →</a>
+      </div>
+    </div>
+
+    <footer>
+      <div class="footer-section">
+        <p class="footer-contact"><a href="mailto:contact@datacendia.com">contact@datacendia.com</a> · <a href="team.html">Leadership</a> · <a href="pricing.html">Pricing</a> · <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a></p>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
