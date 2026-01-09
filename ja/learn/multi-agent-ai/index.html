@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>マルチエージェントAIとは？ | Datacendia</title>
+  <meta name="description" content="マルチエージェントAIは、より良い意思決定のために協力、議論、審議する複数の専門エージェントを使用します。">
+  <meta property="og:title" content="マルチエージェントAIとは？">
+  <meta property="og:description" content="マルチエージェントAIは、より良い意思決定のために協力、議論、審議する複数の専門エージェントを使用します。">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://datacendia.com/ja/learn/multi-agent-ai/">
+  <meta property="og:image" content="https://datacendia.com/og-image.png">
+  <meta property="og:site_name" content="Datacendia">
+  <meta property="og:locale" content="ja_JP">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://datacendia.com/og-image.png">
+  <link rel="canonical" href="https://datacendia.com/ja/learn/multi-agent-ai/">
+  <link rel="alternate" hreflang="en" href="https://datacendia.com/learn/multi-agent-ai/">
+  <link rel="alternate" hreflang="es" href="https://datacendia.com/es/learn/multi-agent-ai/">
+  <link rel="alternate" hreflang="fr" href="https://datacendia.com/fr/learn/multi-agent-ai/">
+  <link rel="alternate" hreflang="de" href="https://datacendia.com/de/learn/multi-agent-ai/">
+  <link rel="alternate" hreflang="pt" href="https://datacendia.com/pt/learn/multi-agent-ai/">
+  <link rel="alternate" hreflang="it" href="https://datacendia.com/it/learn/multi-agent-ai/">
+  <link rel="alternate" hreflang="ja" href="https://datacendia.com/ja/learn/multi-agent-ai/">
+  <link rel="alternate" hreflang="ko" href="https://datacendia.com/ko/learn/multi-agent-ai/">
+  <link rel="alternate" hreflang="zh" href="https://datacendia.com/zh/learn/multi-agent-ai/">
+  <link rel="alternate" hreflang="ar" href="https://datacendia.com/ar/learn/multi-agent-ai/">
+  <link rel="alternate" hreflang="hi" href="https://datacendia.com/hi/learn/multi-agent-ai/">
+  <link rel="alternate" hreflang="x-default" href="https://datacendia.com/learn/multi-agent-ai/">
+  <link rel="canonical" href="https://datacendia.com/ja/learn/multi-agent-ai/">
+  <link rel="icon" type="image/svg+xml" href="../../../assets/favicon.svg">
+  <link rel="stylesheet" href="../../../styles.css">
+  <style>
+    .learn-container { max-width: 800px; margin: 0 auto; padding: 60px 24px 80px; }
+    .learn-title { font-family: var(--font-display); font-size: 2.25rem; font-weight: 300; color: var(--color-text); margin-bottom: 16px; }
+    .learn-subtitle { font-size: 1.1rem; color: var(--color-text-muted); margin-bottom: 32px; line-height: 1.6; }
+    .learn-content h2 { font-family: var(--font-display); font-size: 1.5rem; color: var(--color-text); margin: 48px 0 16px; padding-top: 24px; border-top: 1px solid var(--color-border); }
+    .learn-content p, .learn-content li { font-size: 0.95rem; color: var(--color-text-muted); line-height: 1.8; }
+    .learn-content ul { margin: 16px 0 24px 24px; }
+    .definition-box { background: var(--color-card-bg); border: 1px solid var(--color-gold); border-radius: 8px; padding: 24px; margin: 24px 0; }
+    .comparison-table { width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 0.85rem; }
+    .comparison-table th, .comparison-table td { border: 1px solid var(--color-border); padding: 12px; text-align: left; }
+    .comparison-table th { background: var(--color-card-bg); color: var(--color-text); }
+    .cta-box { background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(212, 175, 55, 0.02) 100%); border: 1px solid var(--color-gold); border-radius: 8px; padding: 32px; margin-top: 48px; text-align: center; }
+    .cta-button { display: inline-block; background: var(--color-gold); color: var(--color-bg); padding: 12px 32px; border-radius: 6px; text-decoration: none; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-top"><a href="../../" style="text-decoration: none;"><h1 class="logo"><span class="brand-name">DATACENDIA</span></h1></a></div>
+      <nav class="main-nav">
+        <a href="../../../demos.html?lang=ja">デモ</a>
+        <a href="../../../verticals.html?lang=ja">業界</a>
+        <a href="../">学ぶ</a>
+        <a href="../../../pricing.html?lang=ja">価格</a>
+        <a href="../../../briefing.html?lang=ja">ブリーフィング依頼</a>
+      </nav>
+    </header>
+    <main class="learn-container">
+      <article>
+        <h1 class="learn-title">マルチエージェントAIとは？</h1>
+        <p class="learn-subtitle">マルチエージェントAIシステムは、経営チームのように協力、議論、審議する複数の専門AIエージェントを使用します。</p>
+        <div class="definition-box"><p><strong>マルチエージェントAI：</strong>それぞれ専門的な能力を持つ複数の自律的なAIエージェントが協力して複雑な問題を解決するアーキテクチャ。</p></div>
+        <div class="learn-content">
+          <h2>なぜ複数のAIエージェントを使用するのか？</h2>
+          <ul>
+            <li><strong>視点バイアス</strong> — 単一モデルは1つの目標に最適化し、重要な考慮事項を見落とす可能性</li>
+            <li><strong>盲点</strong> — モデルはトレーニング経験外のパターンを見逃す可能性</li>
+            <li><strong>過信</strong> — モデルは不確実性が高くても自信を持った回答をすることが多い</li>
+          </ul>
+          <h2>エージェントの種類</h2>
+          <table class="comparison-table">
+            <tr><th>エージェント種類</th><th>役割</th><th>視点</th></tr>
+            <tr><td>アナリストエージェント</td><td>データ分析</td><td>データは何を示しているか？</td></tr>
+            <tr><td>リスクエージェント</td><td>リスク特定</td><td>何が問題になりうるか？</td></tr>
+            <tr><td>戦略エージェント</td><td>目標最適化</td><td>何が目標を前進させるか？</td></tr>
+            <tr><td>コンプライアンスエージェント</td><td>規制確認</td><td>これは許可されているか？</td></tr>
+            <tr><td>調停エージェント</td><td>統合と解決</td><td>最良の全体的決定は？</td></tr>
+          </table>
+          <h2>規制産業向けのメリット</h2>
+          <ul>
+            <li><strong>説明可能性の向上</strong> — 議論形式が自然言語での推論を提供</li>
+            <li><strong>意思決定品質の向上</strong> — 複数の視点がエラーを捕捉</li>
+            <li><strong>組み込みコンプライアンス</strong> — 専用ガバナンスエージェント</li>
+          </ul>
+          <div class="cta-box">
+            <h3>マルチエージェントAIを体験</h3>
+            <p>DatacendiaのCouncilは、完全な監査証跡で審議する専門エージェントを使用します。</p>
+            <a href="../../../briefing.html?lang=ja" class="cta-button">技術ブリーフィングを依頼</a>
+          </div>
+        </div>
+      </article>
+    </main>
+    <footer style="text-align: center; padding: 40px 24px; border-top: 1px solid var(--color-border);"><p style="font-size: 0.75rem; color: var(--color-text-dim);">© 2026 Datacendia</p></footer>
+  </div>
+</body>
+</html>

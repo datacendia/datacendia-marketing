@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manifesto | Datacendia</title>
+  <meta name="description" content="The Datacendia Manifesto: Our principles on sovereign AI, radical transparency, and building technology that serves enterprises without compromising their autonomy.">
+  <meta name="keywords" content="AI manifesto, sovereign AI, enterprise AI principles, data sovereignty, transparent AI, ethical AI">
+  <meta name="author" content="Datacendia">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Manifesto | Datacendia">
+  <meta property="og:description" content="Our principles on sovereign AI, radical transparency, and building technology that serves enterprises without compromising their autonomy.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://datacendia.com/manifesto.html">
+  <link rel="canonical" href="https://datacendia.com/manifesto.html">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-top">
+        <a href="index.html" style="text-decoration: none;"><h1 class="logo">DATACENDIA</h1></a>
+        <div class="lang-selector">
+          <button class="lang-btn"><span class="lang-current">English</span> ▾</button>
+          <div class="lang-dropdown">
+            <button onclick="setLanguage('en')">English</button>
+            <button onclick="setLanguage('es')">Español</button>
+            <button onclick="setLanguage('fr')">Français</button>
+            <button onclick="setLanguage('de')">Deutsch</button>
+            <button onclick="setLanguage('pt')">Português</button>
+            <button onclick="setLanguage('it')">Italiano</button>
+            <button onclick="setLanguage('ja')">日本語</button>
+            <button onclick="setLanguage('ko')">한국어</button>
+            <button onclick="setLanguage('zh')">中文</button>
+            <button onclick="setLanguage('ar')">العربية</button>
+            <button onclick="setLanguage('hi')">हिन्दी</button>
+          </div>
+        </div>
+      </div>
+      <p class="tagline-sub" data-i18n="tagline">Sovereign Intelligence Platform</p>
+      <nav class="main-nav">
+        <a href="manifesto.html" data-i18n="navManifesto">Manifesto</a>
+        <a href="resources/integration-honesty-matrix.html" data-i18n="navHonestyMatrix">Honesty Matrix</a>
+        <a href="resources/sovereignty-matrix.html" data-i18n="navSovereigntyMatrix">Sovereignty Matrix</a>
+        <a href="demos.html" data-i18n="navDemos">Demos</a>
+        <a href="case-studies.html" data-i18n="navCaseStudies">Case Studies</a>
+        <a href="pricing.html" data-i18n="navPricing">Pricing</a>
+        <a href="briefing.html" data-i18n="navBriefing">Request Briefing</a>
+      </nav>
+    </header>
+
+    <div class="page-container">
+      
+      <div class="page-header">
+        <div class="page-icon">📜</div>
+        <h1 class="page-title">The Datacendia Manifesto</h1>
+        <p class="page-subtitle">Principles for building sovereign enterprise intelligence</p>
+      </div>
+
+      <div class="content-section">
+        <h2>I. Your Data, Your Infrastructure, Your Control</h2>
+        <p>Enterprise AI should not require surrendering your most sensitive data to third-party clouds. We build software that runs within <em>your</em> infrastructure—on-prem, private cloud, or air-gapped. Data egress is disabled by default and controlled by you. Encryption keys remain under customer control (KMS/HSM where available).</p>
+        <p style="margin-top: 1rem; font-size: 0.95rem; opacity: 0.9;">Deployment mode determines data residency and vendor access; our default posture is customer-controlled processing with air-gapped support where required.</p>
+      </div>
+
+      <div class="content-section">
+        <h2>II. Radical Transparency Over Marketing Theater</h2>
+        <p>The enterprise software industry is plagued by inflated claims, hidden limitations, and "contact sales" obscuring basic information. We reject this.</p>
+        <ul>
+          <li><strong>Public pricing.</strong> No "request a quote" games. Our pricing is on the website.</li>
+          <li><strong>Honesty matrices.</strong> We document what works, what's planned, and what we won't build.</li>
+          <li><strong>No vanity metrics.</strong> When we cite numbers, we explain methodology and limitations.</li>
+          <li><strong>Compliance status, not badges.</strong> We state where we are in certification processes, not what we hope to achieve.</li>
+          <li><strong>Clear scoping.</strong> What is included vs. paid services is documented upfront.</li>
+        </ul>
+      </div>
+
+      <div class="content-section">
+        <h2>III. Decisions Must Be Explainable</h2>
+        <p>AI that cannot explain its reasoning is AI that cannot be trusted in regulated environments. Every decision in Datacendia produces:</p>
+        <ul>
+          <li><strong>Evidence packets</strong> documenting inputs, evidence sources, policies applied, tool actions, outputs, and run IDs</li>
+          <li><strong>Cryptographic signatures</strong> proving data integrity</li>
+          <li><strong>Immutable audit trails</strong> exportable in standard formats</li>
+          <li><strong>Dissent records</strong> showing when AI agents disagreed and why</li>
+        </ul>
+        <p>If we can't explain it, we don't ship it.</p>
+      </div>
+
+      <div class="content-section">
+        <h2>IV. Portability and Low Switching Costs</h2>
+        <p>Your investment in understanding and configuring an enterprise platform should not create lock-in. We design for portability:</p>
+        <ul>
+          <li><strong>Standard export formats</strong> for all data, configurations, and artifacts</li>
+          <li><strong>Open, documented interfaces</strong> for integration and automation</li>
+          <li><strong>No required vendor cloud dependency</strong> for core runtime operation</li>
+          <li><strong>Your fine-tuning artifacts, training data, and prompt libraries</strong>—all exportable. For customer-owned local models, model artifacts can be exported; for third-party hosted models, configuration and fine-tuning artifacts are exportable.</li>
+        </ul>
+      </div>
+
+      <div class="content-section">
+        <h2>V. Security Is Architecture, Not Afterthought</h2>
+        <p>Air-gapped deployment is a first-class citizen, not a checkbox feature. We architect for the assumption that:</p>
+        <ul>
+          <li>Assume breach (zero-trust posture)</li>
+          <li>Updates must work offline</li>
+          <li>Telemetry is disabled by default. It can only be enabled by explicit customer configuration, and is fully documented. No telemetry is transmitted from air-gapped deployments.</li>
+          <li>Defense-in-depth beats perimeter security</li>
+        </ul>
+      </div>
+
+      <div class="content-section">
+        <h2>VI. Multi-Agent Deliberation Over Single-Model Answers</h2>
+        <p>Complex enterprise decisions deserve more than a single model's output. Our Council architecture orchestrates multiple specialized AI agents that:</p>
+        <ul>
+          <li><strong>Challenge</strong> each other's reasoning</li>
+          <li><strong>Dissent</strong> when evidence conflicts</li>
+          <li><strong>Document</strong> the deliberation process</li>
+          <li><strong>Produce</strong> auditable recommendations, not black-box answers</li>
+        </ul>
+        <p style="margin-top: 1rem; font-size: 0.95rem; opacity: 0.9;">Agents are roles; they may share a configurable model stack.</p>
+      </div>
+
+      <div class="content-section">
+        <h2>VII. Build for the Regulator in the Room</h2>
+        <p>Regulated industries face auditors, examiners, and compliance reviews. We build as if the regulator is watching—because they are. This means:</p>
+        <ul>
+          <li>Evidence trails mapped to SOC 2 / ISO 27001 and aligned with NIST 800-53 control families</li>
+          <li>Export formats that auditors actually understand</li>
+          <li>Documentation that supports evidence collection for control effectiveness</li>
+        </ul>
+      </div>
+
+      <div class="content-section">
+        <h2>VIII. Honest About Our Limitations</h2>
+        <p>We are a specialized engineering team focused on sovereignty. We will not pretend to be a massive generalist vendor.</p>
+        <ul>
+          <li><strong>SOC 2 Type II:</strong> In progress, target Q2 2026</li>
+          <li><strong>ISO 27001:</strong> Roadmap 2026</li>
+          <li><strong>Customer references:</strong> Available subject to customer approval / NDA</li>
+          <li><strong>What we don't do well yet:</strong> See our Integration Honesty Matrix</li>
+        </ul>
+        <p>Target dates are estimates; we publish changes transparently. We'd rather lose a deal than oversell a capability.</p>
+      </div>
+
+      <div class="content-section">
+        <h2>IX. Customer-Owned Verification</h2>
+        <p>Trust but verify. We provide verification steps so customers (or auditors) can independently validate exports, signatures, hashes, and policy enforcement.</p>
+        <p>This converts "trust us" into "verify us."</p>
+      </div>
+
+      <div class="content-section" style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 2rem; margin-top: 2rem;">
+        <p style="font-style: italic; opacity: 0.8;">This manifesto is a living document. Last updated: December 2025.</p>
+        <p><a href="briefing.html" class="cta-button">Discuss Our Principles →</a></p>
+      </div>
+
+    </div>
+
+    <footer>
+      <nav class="footer-nav">
+        <a href="team.html">Team</a>
+        <a href="protocol.html">Protocol</a>
+        <a href="wargames.html">War Games</a>
+        <a href="security-controls.html">Security</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+        <a href="https://www.linkedin.com/company/datacendia/" target="_blank" rel="noopener">LinkedIn</a>
+      </nav>
+      <p class="copyright">© 2025 Datacendia. Sovereign Intelligence Platform.</p>
+    </footer>
+  </div>
+
+  <script src="i18n.js"></script>
+</body>
+</html>

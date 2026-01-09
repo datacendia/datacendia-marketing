@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EU AI Act Compliance Guide for Enterprises | Requirements, Timeline, Penalties | Datacendia</title>
+  <meta name="description" content="Complete EU AI Act compliance guide for enterprises. Understand risk classifications, transparency requirements, audit obligations, penalties, and implementation timelines for AI systems.">
+  <meta name="keywords" content="EU AI Act, AI Act compliance, EU AI regulation, high-risk AI, AI transparency, AI audit requirements, AI governance, GPAI, foundation models regulation">
+  <meta name="author" content="Datacendia">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:0">
+  <meta name="googlebot" content="index, follow">
+  <meta property="og:title" content="EU AI Act Compliance Guide for Enterprises">
+  <meta property="og:description" content="Complete guide to EU AI Act requirements, risk classifications, timelines, and penalties for enterprise AI systems.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://datacendia.com/learn/eu-ai-act-compliance/">
+  <meta property="og:image" content="https://datacendia.com/og-image.png">
+  <meta property="og:site_name" content="Datacendia">
+  <meta property="article:published_time" content="2025-08-15">
+  <meta property="article:modified_time" content="2026-01-09">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="EU AI Act Compliance Guide for Enterprises">
+  <meta name="twitter:description" content="Complete guide to EU AI Act requirements, risk classifications, timelines, and penalties.">
+  <meta name="twitter:image" content="https://datacendia.com/og-image.png">
+  <link rel="canonical" href="https://datacendia.com/learn/eu-ai-act-compliance/">
+  <link rel="alternate" hreflang="en" href="https://datacendia.com/learn/eu-ai-act-compliance/">
+  <link rel="alternate" hreflang="es" href="https://datacendia.com/es/learn/eu-ai-act-compliance/">
+  <link rel="alternate" hreflang="fr" href="https://datacendia.com/fr/learn/eu-ai-act-compliance/">
+  <link rel="alternate" hreflang="de" href="https://datacendia.com/de/learn/eu-ai-act-compliance/">
+  <link rel="alternate" hreflang="pt" href="https://datacendia.com/pt/learn/eu-ai-act-compliance/">
+  <link rel="alternate" hreflang="it" href="https://datacendia.com/it/learn/eu-ai-act-compliance/">
+  <link rel="alternate" hreflang="ja" href="https://datacendia.com/ja/learn/eu-ai-act-compliance/">
+  <link rel="alternate" hreflang="ko" href="https://datacendia.com/ko/learn/eu-ai-act-compliance/">
+  <link rel="alternate" hreflang="zh" href="https://datacendia.com/zh/learn/eu-ai-act-compliance/">
+  <link rel="alternate" hreflang="ar" href="https://datacendia.com/ar/learn/eu-ai-act-compliance/">
+  <link rel="alternate" hreflang="hi" href="https://datacendia.com/hi/learn/eu-ai-act-compliance/">
+  <link rel="alternate" hreflang="x-default" href="https://datacendia.com/learn/eu-ai-act-compliance/">
+  <link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg">
+  <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+  <meta name="theme-color" content="#0a0a0a">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../styles.css">
+  <style>
+    .learn-container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 60px 24px 80px;
+    }
+    .learn-breadcrumb {
+      font-size: 0.75rem;
+      color: var(--color-text-dim);
+      margin-bottom: 24px;
+    }
+    .learn-breadcrumb a {
+      color: var(--color-text-dim);
+      text-decoration: none;
+    }
+    .learn-breadcrumb a:hover {
+      color: var(--color-gold);
+    }
+    .learn-meta {
+      display: flex;
+      gap: 24px;
+      font-size: 0.75rem;
+      color: var(--color-text-dim);
+      margin-bottom: 32px;
+      flex-wrap: wrap;
+    }
+    .learn-meta time {
+      color: var(--color-text-muted);
+    }
+    .learn-title {
+      font-family: var(--font-display);
+      font-size: 2.25rem;
+      font-weight: 300;
+      color: var(--color-text);
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+    .learn-subtitle {
+      font-size: 1.1rem;
+      color: var(--color-text-muted);
+      margin-bottom: 32px;
+      line-height: 1.6;
+    }
+    .learn-content h2 {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: var(--color-text);
+      margin: 48px 0 16px;
+      padding-top: 24px;
+      border-top: 1px solid var(--color-border);
+    }
+    .learn-content h3 {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 400;
+      color: var(--color-text);
+      margin: 32px 0 12px;
+    }
+    .learn-content p {
+      font-size: 0.95rem;
+      color: var(--color-text-muted);
+      line-height: 1.8;
+      margin-bottom: 16px;
+    }
+    .learn-content ul, .learn-content ol {
+      margin: 16px 0 24px 24px;
+      color: var(--color-text-muted);
+    }
+    .learn-content li {
+      font-size: 0.95rem;
+      line-height: 1.7;
+      margin-bottom: 8px;
+    }
+    .learn-content strong {
+      color: var(--color-text);
+    }
+    .definition-box {
+      background: var(--color-card-bg);
+      border: 1px solid var(--color-gold);
+      border-radius: 8px;
+      padding: 24px;
+      margin: 24px 0;
+    }
+    .definition-box p {
+      font-size: 1rem;
+      color: var(--color-text);
+      margin: 0;
+    }
+    .comparison-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 24px 0;
+      font-size: 0.85rem;
+    }
+    .comparison-table th {
+      background: var(--color-card-bg);
+      border: 1px solid var(--color-border);
+      padding: 12px 16px;
+      text-align: left;
+      font-weight: 500;
+      color: var(--color-text);
+    }
+    .comparison-table td {
+      border: 1px solid var(--color-border);
+      padding: 12px 16px;
+      color: var(--color-text-muted);
+    }
+    .comparison-table tr:nth-child(even) {
+      background: rgba(255,255,255,0.02);
+    }
+    .faq-section {
+      margin-top: 48px;
+    }
+    .faq-item {
+      border-bottom: 1px solid var(--color-border);
+      padding: 24px 0;
+    }
+    .faq-question {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 400;
+      color: var(--color-text);
+      margin-bottom: 12px;
+    }
+    .faq-answer {
+      font-size: 0.9rem;
+      color: var(--color-text-muted);
+      line-height: 1.7;
+    }
+    .cta-box {
+      background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(212, 175, 55, 0.02) 100%);
+      border: 1px solid var(--color-gold);
+      border-radius: 8px;
+      padding: 32px;
+      margin-top: 48px;
+      text-align: center;
+    }
+    .cta-box h3 {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      color: var(--color-text);
+      margin-bottom: 12px;
+    }
+    .cta-box p {
+      font-size: 0.9rem;
+      color: var(--color-text-muted);
+      margin-bottom: 20px;
+    }
+    .cta-button {
+      display: inline-block;
+      background: var(--color-gold);
+      color: var(--color-bg);
+      padding: 12px 32px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      transition: opacity 0.2s;
+    }
+    .cta-button:hover {
+      opacity: 0.9;
+    }
+    .related-links {
+      margin-top: 48px;
+      padding-top: 32px;
+      border-top: 1px solid var(--color-border);
+    }
+    .related-links h3 {
+      font-size: 0.85rem;
+      color: var(--color-text-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 16px;
+    }
+    .related-links ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .related-links li {
+      margin-bottom: 8px;
+    }
+    .related-links a {
+      color: var(--color-gold);
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+    .related-links a:hover {
+      text-decoration: underline;
+    }
+    .timeline-item {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 20px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--color-border);
+    }
+    .timeline-date {
+      flex-shrink: 0;
+      width: 100px;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--color-gold);
+    }
+    .timeline-content {
+      flex: 1;
+    }
+    .timeline-title {
+      font-weight: 500;
+      color: var(--color-text);
+      margin-bottom: 4px;
+      font-size: 0.9rem;
+    }
+    .timeline-desc {
+      font-size: 0.85rem;
+      color: var(--color-text-muted);
+    }
+    .warning-box {
+      background: rgba(220, 53, 69, 0.1);
+      border: 1px solid rgba(220, 53, 69, 0.3);
+      border-radius: 8px;
+      padding: 20px;
+      margin: 24px 0;
+    }
+    .warning-box p {
+      color: var(--color-text);
+      margin: 0;
+      font-size: 0.9rem;
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "EU AI Act Compliance Guide for Enterprises",
+    "description": "Complete EU AI Act compliance guide. Understand risk classifications, transparency requirements, audit obligations, penalties, and implementation timelines.",
+    "author": {
+      "@type": "Organization",
+      "name": "Datacendia",
+      "url": "https://datacendia.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Datacendia",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://datacendia.com/assets/logo.svg"
+      }
+    },
+    "datePublished": "2025-08-15",
+    "dateModified": "2026-01-09",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://datacendia.com/learn/eu-ai-act-compliance/"
+    },
+    "image": "https://datacendia.com/og-image.png"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is the EU AI Act?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The EU AI Act is the world's first comprehensive legal framework regulating artificial intelligence. It classifies AI systems by risk level and imposes requirements ranging from transparency obligations to outright bans, with penalties up to €35 million or 7% of global revenue."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "When does the EU AI Act take effect?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The EU AI Act entered into force August 1, 2024. Prohibited AI practices apply from February 2025. GPAI (foundation model) rules apply from August 2025. High-risk AI system requirements apply from August 2026. Full enforcement begins August 2027."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What are high-risk AI systems under the EU AI Act?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "High-risk AI systems include those used for: biometric identification, critical infrastructure management, education and vocational training access, employment and worker management, access to essential services (credit, insurance), law enforcement, migration and border control, and administration of justice."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What are the penalties for EU AI Act violations?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Penalties scale by violation severity: up to €35 million or 7% of global turnover for prohibited practices, up to €15 million or 3% for high-risk violations, and up to €7.5 million or 1.5% for providing incorrect information. For SMEs, lower caps apply."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does the EU AI Act apply to companies outside Europe?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. The EU AI Act applies to any company that places AI systems on the EU market or whose AI outputs are used within the EU, regardless of where the company is headquartered. This extraterritorial scope is similar to GDPR."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-top">
+        <a href="../../" style="text-decoration: none;"><h1 class="logo"><span class="brand-name">DATACENDIA</span></h1></a>
+      </div>
+      <nav class="main-nav">
+        <a href="../../demos.html" data-i18n="navDemos">Demos</a>
+        <a href="../../verticals.html" data-i18n="navVerticals">Industries</a>
+        <a href="../" data-i18n="navLearn">Learn</a>
+        <a href="../../pricing.html" data-i18n="navPricing">Pricing</a>
+        <a href="../../briefing.html" data-i18n="navBriefing">Request Briefing</a>
+      </nav>
+    </header>
+
+    <main class="learn-container">
+      <nav class="learn-breadcrumb">
+        <a href="../../">Home</a> / <a href="../">Learn</a> / EU AI Act Compliance
+      </nav>
+
+      <article>
+        <h1 class="learn-title">EU AI Act Compliance Guide</h1>
+        <p class="learn-subtitle">The EU AI Act is the world's first comprehensive AI regulation. This guide covers risk classifications, compliance requirements, enforcement timelines, and penalties — everything enterprises need to prepare for the new regulatory landscape.</p>
+        
+        <div class="learn-meta">
+          <span>Last updated: <time datetime="2026-01-09">January 9, 2026</time></span>
+          <span>18 min read</span>
+          <span>By Datacendia Research</span>
+        </div>
+
+        <div class="definition-box">
+          <p><strong>EU AI Act</strong>: Regulation (EU) 2024/1689 establishing harmonized rules on artificial intelligence. It classifies AI systems into risk categories (unacceptable, high, limited, minimal) and imposes corresponding obligations. Penalties reach €35 million or 7% of global turnover. Full enforcement begins August 2027.</p>
+        </div>
+
+        <div class="learn-content">
+          <h2>What is the EU AI Act?</h2>
+          <p>The EU AI Act is the world's first comprehensive legal framework specifically regulating artificial intelligence. Adopted in March 2024 and entered into force August 1, 2024, it establishes a risk-based approach to AI governance.</p>
+          <p>Key principles:</p>
+          <ul>
+            <li><strong>Risk-based regulation</strong> — Requirements scale with potential harm</li>
+            <li><strong>Technology-neutral</strong> — Applies to all AI techniques, not specific technologies</li>
+            <li><strong>Extraterritorial scope</strong> — Applies to any AI affecting EU residents</li>
+            <li><strong>Human oversight</strong> — High-risk AI must enable human intervention</li>
+            <li><strong>Transparency</strong> — Users must know when they're interacting with AI</li>
+          </ul>
+
+          <div class="warning-box">
+            <p><strong>Note:</strong> The EU AI Act is now in force. Prohibited practices became enforceable February 2, 2025. High-risk AI requirements become enforceable August 2, 2026. Companies operating in the EU must act now.</p>
+          </div>
+
+          <h2>EU AI Act Implementation Timeline</h2>
+          
+          <div class="timeline-item">
+            <div class="timeline-date">Aug 1, 2024</div>
+            <div class="timeline-content">
+              <div class="timeline-title">Entry into Force</div>
+              <div class="timeline-desc">EU AI Act officially becomes law</div>
+            </div>
+          </div>
+          
+          <div class="timeline-item">
+            <div class="timeline-date">Feb 2, 2025</div>
+            <div class="timeline-content">
+              <div class="timeline-title">Prohibited Practices Apply</div>
+              <div class="timeline-desc">Bans on social scoring, real-time biometric identification (with exceptions), manipulation, and exploitation</div>
+            </div>
+          </div>
+          
+          <div class="timeline-item">
+            <div class="timeline-date">Aug 2, 2025</div>
+            <div class="timeline-content">
+              <div class="timeline-title">GPAI Rules Apply</div>
+              <div class="timeline-desc">General-purpose AI (foundation models) must comply with transparency and systemic risk requirements</div>
+            </div>
+          </div>
+          
+          <div class="timeline-item">
+            <div class="timeline-date">Aug 2, 2026</div>
+            <div class="timeline-content">
+              <div class="timeline-title">High-Risk AI Requirements</div>
+              <div class="timeline-desc">Full compliance required for high-risk AI systems including risk management, data governance, transparency, and human oversight</div>
+            </div>
+          </div>
+          
+          <div class="timeline-item">
+            <div class="timeline-date">Aug 2, 2027</div>
+            <div class="timeline-content">
+              <div class="timeline-title">Full Enforcement</div>
+              <div class="timeline-desc">All provisions apply including to AI systems in Annex I (now Annex III)</div>
+            </div>
+          </div>
+
+          <h2>How Does the EU AI Act Classify Risk?</h2>
+          <p>The Act uses a four-tier risk classification:</p>
+
+          <table class="comparison-table">
+            <thead>
+              <tr>
+                <th>Risk Level</th>
+                <th>Examples</th>
+                <th>Obligations</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Unacceptable Risk</strong><br>(Prohibited)</td>
+                <td>Social scoring, real-time biometric ID in public (with exceptions), subliminal manipulation, exploitation of vulnerabilities</td>
+                <td>Banned outright</td>
+              </tr>
+              <tr>
+                <td><strong>High Risk</strong></td>
+                <td>Credit scoring, employment decisions, critical infrastructure, education access, law enforcement, migration</td>
+                <td>Full compliance: risk management, data governance, transparency, human oversight, accuracy, robustness, cybersecurity</td>
+              </tr>
+              <tr>
+                <td><strong>Limited Risk</strong></td>
+                <td>Chatbots, emotion recognition, deepfake generators</td>
+                <td>Transparency: users must be informed they're interacting with AI</td>
+              </tr>
+              <tr>
+                <td><strong>Minimal Risk</strong></td>
+                <td>Spam filters, AI in video games, inventory management</td>
+                <td>No specific obligations (voluntary codes of conduct encouraged)</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h2>What Are High-Risk AI Systems?</h2>
+          <p>Annex III of the EU AI Act specifies high-risk use cases. If your AI system falls into these categories, you must comply with extensive requirements:</p>
+
+          <table class="comparison-table">
+            <thead>
+              <tr>
+                <th>Domain</th>
+                <th>High-Risk Applications</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Biometrics</td>
+                <td>Remote biometric identification, biometric categorization, emotion recognition in workplace/education</td>
+              </tr>
+              <tr>
+                <td>Critical Infrastructure</td>
+                <td>Safety components for road traffic, water/gas/electricity supply, digital infrastructure</td>
+              </tr>
+              <tr>
+                <td>Education</td>
+                <td>Admissions decisions, learning assessment, proctoring, adaptive learning that affects outcomes</td>
+              </tr>
+              <tr>
+                <td>Employment</td>
+                <td>CV screening, hiring decisions, task allocation, performance monitoring, promotion/termination</td>
+              </tr>
+              <tr>
+                <td>Essential Services</td>
+                <td>Credit scoring, insurance pricing, emergency services dispatch, benefit eligibility</td>
+              </tr>
+              <tr>
+                <td>Law Enforcement</td>
+                <td>Risk assessment, polygraphs, evidence evaluation, profiling, crime prediction</td>
+              </tr>
+              <tr>
+                <td>Migration & Border</td>
+                <td>Visa/asylum application assessment, security risk assessment, document verification</td>
+              </tr>
+              <tr>
+                <td>Justice & Democracy</td>
+                <td>Legal research assistance, sentencing support, election influence detection</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h2>What Are the Requirements for High-Risk AI?</h2>
+          <p>High-risk AI systems must satisfy these requirements before being placed on the EU market:</p>
+
+          <h3>1. Risk Management System (Article 9)</h3>
+          <ul>
+            <li>Establish and maintain a risk management system throughout AI lifecycle</li>
+            <li>Identify and analyze known and foreseeable risks</li>
+            <li>Estimate and evaluate risks from intended use and misuse</li>
+            <li>Adopt risk mitigation measures</li>
+            <li>Test to ensure residual risk is acceptable</li>
+          </ul>
+
+          <h3>2. Data Governance (Article 10)</h3>
+          <ul>
+            <li>Training data must be relevant, representative, and error-free</li>
+            <li>Examine data for biases that could affect health, safety, or fundamental rights</li>
+            <li>Document data sources, preparation methods, and assumptions</li>
+          </ul>
+
+          <h3>3. Technical Documentation (Article 11)</h3>
+          <ul>
+            <li>General description of the AI system</li>
+            <li>Detailed description of development process</li>
+            <li>Information about monitoring, functioning, and control</li>
+            <li>Risk management documentation</li>
+            <li>Standards applied</li>
+          </ul>
+
+          <h3>4. Record-Keeping / Logging (Article 12)</h3>
+          <ul>
+            <li>Automatic logging of events while system operates</li>
+            <li>Logs must enable tracing of system operation</li>
+            <li>Retention period appropriate to purpose</li>
+            <li>Logs must facilitate post-market monitoring</li>
+          </ul>
+
+          <h3>5. Transparency (Article 13)</h3>
+          <ul>
+            <li>Clear instructions for deployers</li>
+            <li>Information about capabilities and limitations</li>
+            <li>Expected accuracy levels and known failure conditions</li>
+            <li>Human oversight measures needed</li>
+          </ul>
+
+          <h3>6. Human Oversight (Article 14)</h3>
+          <ul>
+            <li>Enable human oversight during operation</li>
+            <li>Allow humans to understand system capabilities and limitations</li>
+            <li>Enable humans to correctly interpret outputs</li>
+            <li>Allow humans to override or interrupt the system</li>
+          </ul>
+
+          <h3>7. Accuracy, Robustness, Cybersecurity (Article 15)</h3>
+          <ul>
+            <li>Achieve appropriate levels of accuracy for intended purpose</li>
+            <li>Be resilient to errors, faults, and inconsistencies</li>
+            <li>Be robust against attempts to alter outputs or behavior</li>
+            <li>Implement cybersecurity measures appropriate to risks</li>
+          </ul>
+
+          <h2>What About General-Purpose AI (GPAI)?</h2>
+          <p>The EU AI Act includes special rules for General-Purpose AI models (like GPT-4, Claude, Gemini):</p>
+
+          <table class="comparison-table">
+            <thead>
+              <tr>
+                <th>Requirement</th>
+                <th>Standard GPAI</th>
+                <th>GPAI with Systemic Risk</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Technical documentation</td>
+                <td>Required</td>
+                <td>Required</td>
+              </tr>
+              <tr>
+                <td>Copyright compliance info</td>
+                <td>Required</td>
+                <td>Required</td>
+              </tr>
+              <tr>
+                <td>Summary of training data</td>
+                <td>Required</td>
+                <td>Required</td>
+              </tr>
+              <tr>
+                <td>Model evaluation</td>
+                <td>Basic</td>
+                <td>Adversarial testing, red teaming</td>
+              </tr>
+              <tr>
+                <td>Systemic risk assessment</td>
+                <td>Not required</td>
+                <td>Required</td>
+              </tr>
+              <tr>
+                <td>Incident reporting</td>
+                <td>Not required</td>
+                <td>Required</td>
+              </tr>
+              <tr>
+                <td>Cybersecurity measures</td>
+                <td>Basic</td>
+                <td>Enhanced</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <p><strong>Systemic risk threshold:</strong> GPAI with training compute &gt; 10^25 FLOPs is presumed to have systemic risk (currently applies to frontier models like GPT-4, Claude 3, Gemini Ultra).</p>
+
+          <h2>What Are the Penalties?</h2>
+          <p>The EU AI Act has significant penalties, similar in scale to GDPR:</p>
+
+          <table class="comparison-table">
+            <thead>
+              <tr>
+                <th>Violation</th>
+                <th>Maximum Penalty</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Prohibited AI practices</td>
+                <td>€35 million or 7% of global turnover (whichever is higher)</td>
+              </tr>
+              <tr>
+                <td>High-risk AI requirements</td>
+                <td>€15 million or 3% of global turnover</td>
+              </tr>
+              <tr>
+                <td>Incorrect information to authorities</td>
+                <td>€7.5 million or 1.5% of global turnover</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <p>For SMEs and startups, penalty caps are calculated as the lower of the percentage or fixed amount.</p>
+
+          <h2>How Do You Prepare for EU AI Act Compliance?</h2>
+          
+          <h3>Step 1: Inventory Your AI Systems</h3>
+          <p>Identify all AI systems in use or development. Include third-party AI components. Document purpose, users, and data.</p>
+          
+          <h3>Step 2: Classify by Risk</h3>
+          <p>Map each system to the Act's risk categories. High-risk systems need full compliance programs. Document your classification rationale.</p>
+          
+          <h3>Step 3: Gap Analysis</h3>
+          <p>For high-risk systems, assess current state against each Article 9-15 requirement. Identify gaps in documentation, logging, oversight, and testing.</p>
+          
+          <h3>Step 4: Remediation Plan</h3>
+          <p>Prioritize gaps by enforcement timeline and risk. Establish accountability (who owns each requirement). Budget for compliance activities.</p>
+          
+          <h3>Step 5: Implement Controls</h3>
+          <ul>
+            <li>Build or enhance risk management processes</li>
+            <li>Implement logging and audit trail capabilities</li>
+            <li>Create technical documentation</li>
+            <li>Establish human oversight mechanisms</li>
+            <li>Test for accuracy, robustness, and bias</li>
+          </ul>
+          
+          <h3>Step 6: Ongoing Governance</h3>
+          <p>Establish post-market monitoring. Plan for periodic reassessment. Train staff on AI governance requirements.</p>
+
+          <h2>Does the EU AI Act Apply Outside Europe?</h2>
+          <p>Yes. The Act has extraterritorial scope similar to GDPR:</p>
+          <ul>
+            <li><strong>Providers</strong> placing AI on the EU market — regardless of where they're based</li>
+            <li><strong>Deployers</strong> using AI systems within the EU</li>
+            <li><strong>Providers and deployers</strong> outside EU whose AI output is used in the EU</li>
+            <li><strong>Importers and distributors</strong> placing AI systems on EU market</li>
+          </ul>
+          <p>If you have EU customers or your AI outputs affect EU residents, you're likely in scope.</p>
+
+          <section class="faq-section">
+            <h2>Frequently Asked Questions</h2>
+            
+            <div class="faq-item">
+              <h3 class="faq-question">What is the EU AI Act?</h3>
+              <p class="faq-answer">The EU AI Act is the world's first comprehensive legal framework regulating artificial intelligence. It classifies AI systems by risk level and imposes requirements ranging from transparency obligations to outright bans, with penalties up to €35 million or 7% of global revenue.</p>
+            </div>
+            
+            <div class="faq-item">
+              <h3 class="faq-question">When does the EU AI Act take effect?</h3>
+              <p class="faq-answer">The EU AI Act entered into force August 1, 2024. Prohibited AI practices apply from February 2025. GPAI (foundation model) rules apply from August 2025. High-risk AI system requirements apply from August 2026. Full enforcement begins August 2027.</p>
+            </div>
+            
+            <div class="faq-item">
+              <h3 class="faq-question">What are high-risk AI systems under the EU AI Act?</h3>
+              <p class="faq-answer">High-risk AI systems include those used for: biometric identification, critical infrastructure management, education and vocational training access, employment and worker management, access to essential services (credit, insurance), law enforcement, migration and border control, and administration of justice.</p>
+            </div>
+            
+            <div class="faq-item">
+              <h3 class="faq-question">What are the penalties for EU AI Act violations?</h3>
+              <p class="faq-answer">Penalties scale by violation severity: up to €35 million or 7% of global turnover for prohibited practices, up to €15 million or 3% for high-risk violations, and up to €7.5 million or 1.5% for providing incorrect information. For SMEs, lower caps apply.</p>
+            </div>
+            
+            <div class="faq-item">
+              <h3 class="faq-question">Does the EU AI Act apply to companies outside Europe?</h3>
+              <p class="faq-answer">Yes. The EU AI Act applies to any company that places AI systems on the EU market or whose AI outputs are used within the EU, regardless of where the company is headquartered. This extraterritorial scope is similar to GDPR.</p>
+            </div>
+          </section>
+
+          <div class="cta-box">
+            <h3>Build EU AI Act-Ready AI Systems</h3>
+            <p>Datacendia provides built-in compliance for high-risk AI: immutable audit trails, human oversight workflows, risk documentation, and transparency reporting.</p>
+            <a href="../../briefing.html" class="cta-button">Request a Compliance Briefing</a>
+          </div>
+
+          <nav class="related-links">
+            <h3>Related Topics</h3>
+            <ul>
+              <li><a href="../decision-intelligence/">What is Decision Intelligence?</a></li>
+              <li><a href="../ai-audit-trail/">What is an AI Audit Trail?</a></li>
+              <li><a href="../sovereign-ai/">What is Sovereign AI?</a></li>
+              <li><a href="../multi-agent-ai/">Multi-Agent AI Systems Explained</a></li>
+            </ul>
+          </nav>
+        </div>
+      </article>
+    </main>
+
+    <footer style="text-align: center; padding: 40px 24px; border-top: 1px solid var(--color-border); margin-top: 60px;">
+      <p style="font-size: 0.75rem; color: var(--color-text-dim);">© 2026 Datacendia. Sovereign Enterprise Intelligence.</p>
+      <p style="font-size: 0.7rem; color: var(--color-text-dim); margin-top: 8px;">
+        <a href="../../privacy.html" style="color: var(--color-text-dim);">Privacy</a> · 
+        <a href="../../terms.html" style="color: var(--color-text-dim);">Terms</a> · 
+        <a href="../../security.txt" style="color: var(--color-text-dim);">Security</a>
+      </p>
+    </footer>
+  </div>
+  <script src="../../translations.js"></script>
+  <script src="../../app.js"></script>
+</body>
+</html>

@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guía de Cumplimiento de la Ley de IA de la UE | Datacendia</title>
+  <meta name="description" content="Guía completa de la Ley de IA de la UE para empresas. Clasificaciones de riesgo, requisitos, cronogramas de aplicación y multas de hasta €35M o 7% de ingresos.">
+  <meta name="keywords" content="Ley IA UE, EU AI Act, cumplimiento IA, regulación IA, IA de alto riesgo, gobernanza IA europea">
+  <meta name="author" content="Datacendia">
+  <meta property="og:title" content="Guía de Cumplimiento de la Ley de IA de la UE">
+  <meta property="og:description" content="Todo lo que las empresas necesitan saber sobre la primera regulación integral de IA del mundo.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://datacendia.com/es/learn/eu-ai-act-compliance/">
+  <meta property="og:locale" content="es_ES">
+  <link rel="canonical" href="https://datacendia.com/es/learn/eu-ai-act-compliance/">
+  <link rel="alternate" hreflang="en" href="https://datacendia.com/learn/eu-ai-act-compliance/">
+  <link rel="alternate" hreflang="es" href="https://datacendia.com/es/learn/eu-ai-act-compliance/">
+  <link rel="alternate" hreflang="fr" href="https://datacendia.com/fr/learn/eu-ai-act-compliance/">
+  <link rel="alternate" hreflang="de" href="https://datacendia.com/de/learn/eu-ai-act-compliance/">
+  <link rel="alternate" hreflang="pt" href="https://datacendia.com/pt/learn/eu-ai-act-compliance/">
+  <link rel="alternate" hreflang="it" href="https://datacendia.com/it/learn/eu-ai-act-compliance/">
+  <link rel="alternate" hreflang="ja" href="https://datacendia.com/ja/learn/eu-ai-act-compliance/">
+  <link rel="alternate" hreflang="ko" href="https://datacendia.com/ko/learn/eu-ai-act-compliance/">
+  <link rel="alternate" hreflang="zh" href="https://datacendia.com/zh/learn/eu-ai-act-compliance/">
+  <link rel="alternate" hreflang="ar" href="https://datacendia.com/ar/learn/eu-ai-act-compliance/">
+  <link rel="alternate" hreflang="hi" href="https://datacendia.com/hi/learn/eu-ai-act-compliance/">
+  <link rel="alternate" hreflang="x-default" href="https://datacendia.com/learn/eu-ai-act-compliance/">
+  <link rel="icon" type="image/svg+xml" href="../../../assets/favicon.svg">
+  <meta name="theme-color" content="#0a0a0a">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../styles.css">
+  <style>
+    .learn-container { max-width: 800px; margin: 0 auto; padding: 60px 24px 80px; }
+    .learn-breadcrumb { font-size: 0.75rem; color: var(--color-text-dim); margin-bottom: 24px; }
+    .learn-breadcrumb a { color: var(--color-text-dim); text-decoration: none; }
+    .learn-title { font-family: var(--font-display); font-size: 2.25rem; font-weight: 300; color: var(--color-text); margin-bottom: 16px; }
+    .learn-subtitle { font-size: 1.1rem; color: var(--color-text-muted); margin-bottom: 32px; line-height: 1.6; }
+    .learn-meta { display: flex; gap: 24px; font-size: 0.75rem; color: var(--color-text-dim); margin-bottom: 32px; }
+    .learn-content h2 { font-family: var(--font-display); font-size: 1.5rem; font-weight: 400; color: var(--color-text); margin: 48px 0 16px; padding-top: 24px; border-top: 1px solid var(--color-border); }
+    .learn-content h3 { font-family: var(--font-display); font-size: 1.15rem; font-weight: 400; color: var(--color-text); margin: 32px 0 12px; }
+    .learn-content p { font-size: 0.95rem; color: var(--color-text-muted); line-height: 1.8; margin-bottom: 16px; }
+    .learn-content ul { margin: 16px 0 24px 24px; color: var(--color-text-muted); }
+    .learn-content li { font-size: 0.95rem; line-height: 1.7; margin-bottom: 8px; }
+    .learn-content strong { color: var(--color-text); }
+    .definition-box { background: var(--color-card-bg); border: 1px solid var(--color-gold); border-radius: 8px; padding: 24px; margin: 24px 0; }
+    .definition-box p { font-size: 1rem; color: var(--color-text); margin: 0; }
+    .comparison-table { width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 0.85rem; }
+    .comparison-table th { background: var(--color-card-bg); border: 1px solid var(--color-border); padding: 12px; text-align: left; color: var(--color-text); }
+    .comparison-table td { border: 1px solid var(--color-border); padding: 12px; color: var(--color-text-muted); }
+    .timeline-box { background: var(--color-card-bg); border: 1px solid var(--color-border); border-radius: 8px; padding: 24px; margin: 24px 0; }
+    .timeline-item { display: flex; gap: 16px; margin-bottom: 16px; }
+    .timeline-date { font-weight: 500; color: var(--color-gold); min-width: 120px; }
+    .timeline-event { color: var(--color-text-muted); }
+    .cta-box { background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(212, 175, 55, 0.02) 100%); border: 1px solid var(--color-gold); border-radius: 8px; padding: 32px; margin-top: 48px; text-align: center; }
+    .cta-box h3 { font-family: var(--font-display); font-size: 1.25rem; color: var(--color-text); margin-bottom: 12px; }
+    .cta-button { display: inline-block; background: var(--color-gold); color: var(--color-bg); padding: 12px 32px; border-radius: 6px; text-decoration: none; font-size: 0.85rem; }
+    .related-links { margin-top: 48px; padding-top: 32px; border-top: 1px solid var(--color-border); }
+    .related-links h3 { font-size: 0.85rem; color: var(--color-text-dim); text-transform: uppercase; margin-bottom: 16px; }
+    .related-links ul { list-style: none; margin: 0; padding: 0; }
+    .related-links a { color: var(--color-gold); text-decoration: none; font-size: 0.9rem; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-top">
+        <a href="../../" style="text-decoration: none;"><h1 class="logo"><span class="brand-name">DATACENDIA</span></h1></a>
+      </div>
+      <nav class="main-nav">
+        <a href="../../../demos.html?lang=es">Demos</a>
+        <a href="../../../verticals.html?lang=es">Industrias</a>
+        <a href="../">Aprender</a>
+        <a href="../../../pricing.html?lang=es">Precios</a>
+        <a href="../../../briefing.html?lang=es">Solicitar Briefing</a>
+      </nav>
+    </header>
+
+    <main class="learn-container">
+      <nav class="learn-breadcrumb">
+        <a href="../../">Inicio</a> / <a href="../">Aprender</a> / Ley de IA de la UE
+      </nav>
+
+      <article>
+        <h1 class="learn-title">Guía de Cumplimiento de la Ley de IA de la UE</h1>
+        <p class="learn-subtitle">La Ley de IA de la UE es el primer marco legal integral del mundo que regula la inteligencia artificial. Clasifica los sistemas de IA por nivel de riesgo e impone requisitos que van desde obligaciones de transparencia hasta prohibiciones absolutas.</p>
+        
+        <div class="learn-meta">
+          <span>Última actualización: 9 de enero de 2026</span>
+          <span>18 min de lectura</span>
+          <span>Por Datacendia Research</span>
+        </div>
+
+        <div class="definition-box">
+          <p><strong>Ley de IA de la UE:</strong> Reglamento (UE) 2024/1689 que establece reglas armonizadas sobre inteligencia artificial. Entró en vigor el 1 de agosto de 2024, con implementación gradual hasta 2027. Las multas alcanzan hasta €35 millones o el 7% de los ingresos globales anuales.</p>
+        </div>
+
+        <div class="learn-content">
+          <h2>Cronología de Implementación</h2>
+          <div class="timeline-box">
+            <div class="timeline-item">
+              <span class="timeline-date">Ago 2024</span>
+              <span class="timeline-event">Entrada en vigor de la Ley de IA de la UE</span>
+            </div>
+            <div class="timeline-item">
+              <span class="timeline-date">Feb 2025</span>
+              <span class="timeline-event">Prohibiciones de prácticas de IA inaceptables en vigor</span>
+            </div>
+            <div class="timeline-item">
+              <span class="timeline-date">Ago 2025</span>
+              <span class="timeline-event">Reglas de IA de propósito general (modelos fundacionales) aplicables</span>
+            </div>
+            <div class="timeline-item">
+              <span class="timeline-date">Ago 2026</span>
+              <span class="timeline-event">Requisitos para sistemas de IA de alto riesgo aplicables</span>
+            </div>
+            <div class="timeline-item">
+              <span class="timeline-date">Ago 2027</span>
+              <span class="timeline-event">Aplicación completa de todas las disposiciones</span>
+            </div>
+          </div>
+
+          <h2>Clasificación por Nivel de Riesgo</h2>
+          <p>La Ley de IA de la UE categoriza los sistemas de IA en cuatro niveles de riesgo:</p>
+          
+          <table class="comparison-table">
+            <thead>
+              <tr>
+                <th>Nivel de Riesgo</th>
+                <th>Requisitos</th>
+                <th>Ejemplos</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Inaceptable</strong></td>
+                <td>Prohibido</td>
+                <td>Puntuación social, manipulación subliminal, vigilancia biométrica masiva</td>
+              </tr>
+              <tr>
+                <td><strong>Alto Riesgo</strong></td>
+                <td>Requisitos estrictos de cumplimiento</td>
+                <td>Crédito, contratación, educación, atención médica, aplicación de la ley</td>
+              </tr>
+              <tr>
+                <td><strong>Riesgo Limitado</strong></td>
+                <td>Obligaciones de transparencia</td>
+                <td>Chatbots, deepfakes, sistemas de recomendación</td>
+              </tr>
+              <tr>
+                <td><strong>Riesgo Mínimo</strong></td>
+                <td>Sin requisitos específicos</td>
+                <td>Filtros de spam, videojuegos con IA</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h2>¿Qué Son los Sistemas de IA de Alto Riesgo?</h2>
+          <p>Los sistemas de IA de alto riesgo incluyen aquellos utilizados para:</p>
+          <ul>
+            <li><strong>Identificación biométrica</strong> — Identificación remota en tiempo real o posterior</li>
+            <li><strong>Infraestructura crítica</strong> — Gestión de energía, agua, tráfico</li>
+            <li><strong>Educación</strong> — Puntuación de exámenes, admisión a instituciones educativas</li>
+            <li><strong>Empleo</strong> — Selección de candidatos, evaluación de desempeño, despidos</li>
+            <li><strong>Servicios esenciales</strong> — Calificación crediticia, seguros, servicios públicos</li>
+            <li><strong>Aplicación de la ley</strong> — Evaluación de riesgos, detección de emociones</li>
+            <li><strong>Migración</strong> — Procesamiento de visados, control de fronteras</li>
+            <li><strong>Justicia</strong> — Asistencia en interpretación de hechos y aplicación de la ley</li>
+          </ul>
+
+          <h2>Requisitos para Sistemas de Alto Riesgo</h2>
+          <p>Los sistemas de IA de alto riesgo deben cumplir:</p>
+          
+          <h3>1. Gestión de Riesgos</h3>
+          <p>Sistema de gestión de riesgos durante todo el ciclo de vida del sistema de IA.</p>
+          
+          <h3>2. Gobernanza de Datos</h3>
+          <p>Prácticas de gobernanza de datos para datos de entrenamiento, validación y prueba.</p>
+          
+          <h3>3. Documentación Técnica</h3>
+          <p>Documentación técnica detallada antes de la comercialización.</p>
+          
+          <h3>4. Registro de Eventos</h3>
+          <p>Registro automático de eventos durante la operación del sistema.</p>
+          
+          <h3>5. Transparencia</h3>
+          <p>Instrucciones de uso claras para los desplegadores.</p>
+          
+          <h3>6. Supervisión Humana</h3>
+          <p>Diseño que permita supervisión humana efectiva.</p>
+          
+          <h3>7. Precisión y Robustez</h3>
+          <p>Niveles apropiados de precisión, robustez y ciberseguridad.</p>
+
+          <h2>Sanciones por Incumplimiento</h2>
+          <table class="comparison-table">
+            <thead>
+              <tr>
+                <th>Infracción</th>
+                <th>Multa Máxima</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Prácticas de IA prohibidas</td>
+                <td>€35M o 7% de ingresos globales</td>
+              </tr>
+              <tr>
+                <td>Incumplimiento de requisitos de alto riesgo</td>
+                <td>€15M o 3% de ingresos globales</td>
+              </tr>
+              <tr>
+                <td>Información incorrecta a autoridades</td>
+                <td>€7.5M o 1% de ingresos globales</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h2>Cómo Prepararse para el Cumplimiento</h2>
+          <ul>
+            <li><strong>Inventariar sistemas de IA</strong> — Identificar todos los sistemas de IA en uso o desarrollo</li>
+            <li><strong>Clasificar por riesgo</strong> — Determinar la categoría de riesgo de cada sistema</li>
+            <li><strong>Análisis de brechas</strong> — Comparar prácticas actuales con requisitos de la Ley</li>
+            <li><strong>Implementar controles</strong> — Gestión de riesgos, documentación, logging, supervisión humana</li>
+            <li><strong>Preparar documentación</strong> — Documentación técnica y evaluaciones de conformidad</li>
+            <li><strong>Capacitar equipos</strong> — Formación en requisitos de la Ley de IA de la UE</li>
+          </ul>
+
+          <div class="cta-box">
+            <h3>Cumpla con la Ley de IA de la UE</h3>
+            <p>Datacendia proporciona pistas de auditoría inmutables, explicabilidad y supervisión humana — requisitos fundamentales de la Ley de IA de la UE — por diseño.</p>
+            <a href="../../../briefing.html?lang=es" class="cta-button">Solicitar Evaluación de Cumplimiento</a>
+          </div>
+
+          <nav class="related-links">
+            <h3>Temas Relacionados</h3>
+            <ul>
+              <li><a href="../ai-audit-trail/">¿Qué es una Pista de Auditoría de IA?</a></li>
+              <li><a href="../decision-intelligence/">¿Qué es la Inteligencia de Decisiones?</a></li>
+              <li><a href="../sovereign-ai/">¿Qué es la IA Soberana?</a></li>
+            </ul>
+          </nav>
+        </div>
+      </article>
+    </main>
+
+    <footer style="text-align: center; padding: 40px 24px; border-top: 1px solid var(--color-border); margin-top: 60px;">
+      <p style="font-size: 0.75rem; color: var(--color-text-dim);">© 2026 Datacendia. Inteligencia Empresarial Soberana.</p>
+    </footer>
+  </div>
+  <script src="../../../translations.js"></script>
+  <script src="../../../app.js"></script>
+</body>
+</html>

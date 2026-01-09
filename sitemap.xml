@@ -860,105 +860,720 @@
     <priority>0.6</priority>
   </url>
   
-  <!-- Language-Specific Landing Pages -->
-  <url>
-    <loc>https://datacendia.com/de/</loc>
-    <lastmod>2026-01-05T02:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="de" href="https://datacendia.com/de/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://datacendia.com/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://datacendia.com/"/>
-  </url>
-  
-  <url>
-    <loc>https://datacendia.com/ja/</loc>
-    <lastmod>2026-01-05T02:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="ja" href="https://datacendia.com/ja/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://datacendia.com/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://datacendia.com/"/>
-  </url>
-  
-  <url>
-    <loc>https://datacendia.com/zh/</loc>
-    <lastmod>2026-01-05T02:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://datacendia.com/zh/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://datacendia.com/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://datacendia.com/"/>
-  </url>
-  
-  <url>
-    <loc>https://datacendia.com/ar/</loc>
-    <lastmod>2026-01-05T02:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://datacendia.com/ar/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://datacendia.com/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://datacendia.com/"/>
-  </url>
-  
+  <!-- Translated Homepages - With Full Hreflang Annotations -->
   <url>
     <loc>https://datacendia.com/es/</loc>
-    <lastmod>2026-01-05T02:00:00+00:00</lastmod>
+    <lastmod>2026-01-09T18:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="es" href="https://datacendia.com/es/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://datacendia.com/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://datacendia.com/es/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://datacendia.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://datacendia.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://datacendia.com/pt/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://datacendia.com/it/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://datacendia.com/ja/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://datacendia.com/ko/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://datacendia.com/zh/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://datacendia.com/ar/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://datacendia.com/hi/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://datacendia.com/"/>
   </url>
   
   <url>
     <loc>https://datacendia.com/fr/</loc>
-    <lastmod>2026-01-05T02:00:00+00:00</lastmod>
+    <lastmod>2026-01-09T18:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://datacendia.com/fr/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://datacendia.com/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://datacendia.com/es/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://datacendia.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://datacendia.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://datacendia.com/pt/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://datacendia.com/it/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://datacendia.com/ja/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://datacendia.com/ko/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://datacendia.com/zh/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://datacendia.com/ar/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://datacendia.com/hi/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://datacendia.com/"/>
+  </url>
+  
+  <url>
+    <loc>https://datacendia.com/de/</loc>
+    <lastmod>2026-01-09T18:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://datacendia.com/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://datacendia.com/es/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://datacendia.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://datacendia.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://datacendia.com/pt/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://datacendia.com/it/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://datacendia.com/ja/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://datacendia.com/ko/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://datacendia.com/zh/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://datacendia.com/ar/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://datacendia.com/hi/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://datacendia.com/"/>
   </url>
   
   <url>
     <loc>https://datacendia.com/pt/</loc>
-    <lastmod>2026-01-05T02:00:00+00:00</lastmod>
+    <lastmod>2026-01-09T18:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="pt" href="https://datacendia.com/pt/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://datacendia.com/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://datacendia.com/es/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://datacendia.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://datacendia.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://datacendia.com/pt/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://datacendia.com/it/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://datacendia.com/ja/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://datacendia.com/ko/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://datacendia.com/zh/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://datacendia.com/ar/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://datacendia.com/hi/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://datacendia.com/"/>
   </url>
   
   <url>
     <loc>https://datacendia.com/it/</loc>
-    <lastmod>2026-01-05T02:00:00+00:00</lastmod>
+    <lastmod>2026-01-09T18:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="it" href="https://datacendia.com/it/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://datacendia.com/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://datacendia.com/es/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://datacendia.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://datacendia.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://datacendia.com/pt/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://datacendia.com/it/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://datacendia.com/ja/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://datacendia.com/ko/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://datacendia.com/zh/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://datacendia.com/ar/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://datacendia.com/hi/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://datacendia.com/"/>
+  </url>
+  
+  <url>
+    <loc>https://datacendia.com/ja/</loc>
+    <lastmod>2026-01-09T18:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://datacendia.com/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://datacendia.com/es/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://datacendia.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://datacendia.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://datacendia.com/pt/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://datacendia.com/it/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://datacendia.com/ja/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://datacendia.com/ko/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://datacendia.com/zh/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://datacendia.com/ar/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://datacendia.com/hi/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://datacendia.com/"/>
   </url>
   
   <url>
     <loc>https://datacendia.com/ko/</loc>
-    <lastmod>2026-01-05T02:00:00+00:00</lastmod>
+    <lastmod>2026-01-09T18:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="ko" href="https://datacendia.com/ko/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://datacendia.com/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://datacendia.com/es/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://datacendia.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://datacendia.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://datacendia.com/pt/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://datacendia.com/it/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://datacendia.com/ja/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://datacendia.com/ko/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://datacendia.com/zh/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://datacendia.com/ar/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://datacendia.com/hi/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://datacendia.com/"/>
+  </url>
+  
+  <url>
+    <loc>https://datacendia.com/zh/</loc>
+    <lastmod>2026-01-09T18:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://datacendia.com/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://datacendia.com/es/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://datacendia.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://datacendia.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://datacendia.com/pt/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://datacendia.com/it/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://datacendia.com/ja/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://datacendia.com/ko/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://datacendia.com/zh/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://datacendia.com/ar/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://datacendia.com/hi/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://datacendia.com/"/>
+  </url>
+  
+  <url>
+    <loc>https://datacendia.com/ar/</loc>
+    <lastmod>2026-01-09T18:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://datacendia.com/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://datacendia.com/es/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://datacendia.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://datacendia.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://datacendia.com/pt/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://datacendia.com/it/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://datacendia.com/ja/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://datacendia.com/ko/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://datacendia.com/zh/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://datacendia.com/ar/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://datacendia.com/hi/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://datacendia.com/"/>
   </url>
   
   <url>
     <loc>https://datacendia.com/hi/</loc>
-    <lastmod>2026-01-05T02:00:00+00:00</lastmod>
+    <lastmod>2026-01-09T18:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="hi" href="https://datacendia.com/hi/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://datacendia.com/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://datacendia.com/es/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://datacendia.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://datacendia.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://datacendia.com/pt/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://datacendia.com/it/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://datacendia.com/ja/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://datacendia.com/ko/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://datacendia.com/zh/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://datacendia.com/ar/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://datacendia.com/hi/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://datacendia.com/"/>
   </url>
   
+  <!-- Learn Hub - With Full Hreflang Annotations -->
+  <url>
+    <loc>https://datacendia.com/learn/</loc>
+    <lastmod>2026-01-09T18:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://datacendia.com/learn/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://datacendia.com/es/learn/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://datacendia.com/fr/learn/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://datacendia.com/de/learn/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://datacendia.com/pt/learn/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://datacendia.com/it/learn/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://datacendia.com/ja/learn/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://datacendia.com/ko/learn/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://datacendia.com/zh/learn/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://datacendia.com/ar/learn/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://datacendia.com/hi/learn/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://datacendia.com/learn/"/>
+  </url>
+  
+  <url>
+    <loc>https://datacendia.com/learn/decision-intelligence/</loc>
+    <lastmod>2026-01-09T18:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://datacendia.com/learn/decision-intelligence/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://datacendia.com/es/learn/decision-intelligence/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://datacendia.com/fr/learn/decision-intelligence/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://datacendia.com/de/learn/decision-intelligence/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://datacendia.com/pt/learn/decision-intelligence/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://datacendia.com/it/learn/decision-intelligence/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://datacendia.com/ja/learn/decision-intelligence/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://datacendia.com/ko/learn/decision-intelligence/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://datacendia.com/zh/learn/decision-intelligence/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://datacendia.com/ar/learn/decision-intelligence/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://datacendia.com/hi/learn/decision-intelligence/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://datacendia.com/learn/decision-intelligence/"/>
+  </url>
+  
+  <url>
+    <loc>https://datacendia.com/learn/ai-audit-trail/</loc>
+    <lastmod>2026-01-09T18:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://datacendia.com/learn/ai-audit-trail/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://datacendia.com/es/learn/ai-audit-trail/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://datacendia.com/fr/learn/ai-audit-trail/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://datacendia.com/de/learn/ai-audit-trail/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://datacendia.com/pt/learn/ai-audit-trail/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://datacendia.com/it/learn/ai-audit-trail/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://datacendia.com/ja/learn/ai-audit-trail/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://datacendia.com/ko/learn/ai-audit-trail/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://datacendia.com/zh/learn/ai-audit-trail/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://datacendia.com/ar/learn/ai-audit-trail/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://datacendia.com/hi/learn/ai-audit-trail/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://datacendia.com/learn/ai-audit-trail/"/>
+  </url>
+  
+  <url>
+    <loc>https://datacendia.com/learn/sovereign-ai/</loc>
+    <lastmod>2026-01-09T18:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://datacendia.com/learn/sovereign-ai/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://datacendia.com/es/learn/sovereign-ai/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://datacendia.com/fr/learn/sovereign-ai/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://datacendia.com/de/learn/sovereign-ai/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://datacendia.com/pt/learn/sovereign-ai/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://datacendia.com/it/learn/sovereign-ai/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://datacendia.com/ja/learn/sovereign-ai/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://datacendia.com/ko/learn/sovereign-ai/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://datacendia.com/zh/learn/sovereign-ai/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://datacendia.com/ar/learn/sovereign-ai/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://datacendia.com/hi/learn/sovereign-ai/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://datacendia.com/learn/sovereign-ai/"/>
+  </url>
+  
+  <url>
+    <loc>https://datacendia.com/learn/multi-agent-ai/</loc>
+    <lastmod>2026-01-09T18:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://datacendia.com/learn/multi-agent-ai/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://datacendia.com/es/learn/multi-agent-ai/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://datacendia.com/fr/learn/multi-agent-ai/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://datacendia.com/de/learn/multi-agent-ai/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://datacendia.com/pt/learn/multi-agent-ai/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://datacendia.com/it/learn/multi-agent-ai/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://datacendia.com/ja/learn/multi-agent-ai/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://datacendia.com/ko/learn/multi-agent-ai/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://datacendia.com/zh/learn/multi-agent-ai/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://datacendia.com/ar/learn/multi-agent-ai/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://datacendia.com/hi/learn/multi-agent-ai/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://datacendia.com/learn/multi-agent-ai/"/>
+  </url>
+  
+  <url>
+    <loc>https://datacendia.com/learn/eu-ai-act-compliance/</loc>
+    <lastmod>2026-01-09T18:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://datacendia.com/learn/eu-ai-act-compliance/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://datacendia.com/es/learn/eu-ai-act-compliance/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://datacendia.com/fr/learn/eu-ai-act-compliance/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://datacendia.com/de/learn/eu-ai-act-compliance/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://datacendia.com/pt/learn/eu-ai-act-compliance/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://datacendia.com/it/learn/eu-ai-act-compliance/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://datacendia.com/ja/learn/eu-ai-act-compliance/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://datacendia.com/ko/learn/eu-ai-act-compliance/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://datacendia.com/zh/learn/eu-ai-act-compliance/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://datacendia.com/ar/learn/eu-ai-act-compliance/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://datacendia.com/hi/learn/eu-ai-act-compliance/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://datacendia.com/learn/eu-ai-act-compliance/"/>
+  </url>
+
+  <!-- Translated Learn Pages - Spanish -->
+  <url>
+    <loc>https://datacendia.com/es/learn/</loc>
+    <lastmod>2026-01-09T18:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://datacendia.com/learn/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://datacendia.com/es/learn/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://datacendia.com/learn/"/>
+  </url>
+  <url>
+    <loc>https://datacendia.com/es/learn/decision-intelligence/</loc>
+    <lastmod>2026-01-09T18:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://datacendia.com/es/learn/ai-audit-trail/</loc>
+    <lastmod>2026-01-09T18:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://datacendia.com/es/learn/sovereign-ai/</loc>
+    <lastmod>2026-01-09T18:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://datacendia.com/es/learn/multi-agent-ai/</loc>
+    <lastmod>2026-01-09T18:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://datacendia.com/es/learn/eu-ai-act-compliance/</loc>
+    <lastmod>2026-01-09T18:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Translated Learn Pages - French -->
+  <url>
+    <loc>https://datacendia.com/fr/learn/</loc>
+    <lastmod>2026-01-09T18:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://datacendia.com/learn/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://datacendia.com/fr/learn/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://datacendia.com/learn/"/>
+  </url>
+  <url>
+    <loc>https://datacendia.com/fr/learn/decision-intelligence/</loc>
+    <lastmod>2026-01-09T18:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://datacendia.com/fr/learn/ai-audit-trail/</loc>
+    <lastmod>2026-01-09T18:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://datacendia.com/fr/learn/sovereign-ai/</loc>
+    <lastmod>2026-01-09T18:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://datacendia.com/fr/learn/multi-agent-ai/</loc>
+    <lastmod>2026-01-09T18:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://datacendia.com/fr/learn/eu-ai-act-compliance/</loc>
+    <lastmod>2026-01-09T18:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Translated Learn Pages - German -->
+  <url>
+    <loc>https://datacendia.com/de/learn/</loc>
+    <lastmod>2026-01-09T18:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://datacendia.com/learn/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://datacendia.com/de/learn/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://datacendia.com/learn/"/>
+  </url>
+  <url>
+    <loc>https://datacendia.com/de/learn/decision-intelligence/</loc>
+    <lastmod>2026-01-09T18:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://datacendia.com/de/learn/ai-audit-trail/</loc>
+    <lastmod>2026-01-09T18:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://datacendia.com/de/learn/sovereign-ai/</loc>
+    <lastmod>2026-01-09T18:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://datacendia.com/de/learn/multi-agent-ai/</loc>
+    <lastmod>2026-01-09T18:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://datacendia.com/de/learn/eu-ai-act-compliance/</loc>
+    <lastmod>2026-01-09T18:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Translated Learn Pages - Portuguese -->
+  <url>
+    <loc>https://datacendia.com/pt/learn/</loc>
+    <lastmod>2026-01-09T18:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://datacendia.com/learn/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://datacendia.com/pt/learn/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://datacendia.com/learn/"/>
+  </url>
+  <url>
+    <loc>https://datacendia.com/pt/learn/decision-intelligence/</loc>
+    <lastmod>2026-01-09T18:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://datacendia.com/pt/learn/ai-audit-trail/</loc>
+    <lastmod>2026-01-09T18:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://datacendia.com/pt/learn/sovereign-ai/</loc>
+    <lastmod>2026-01-09T18:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://datacendia.com/pt/learn/multi-agent-ai/</loc>
+    <lastmod>2026-01-09T18:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://datacendia.com/pt/learn/eu-ai-act-compliance/</loc>
+    <lastmod>2026-01-09T18:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Translated Learn Pages - Italian -->
+  <url>
+    <loc>https://datacendia.com/it/learn/</loc>
+    <lastmod>2026-01-09T18:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://datacendia.com/learn/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://datacendia.com/it/learn/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://datacendia.com/learn/"/>
+  </url>
+  <url>
+    <loc>https://datacendia.com/it/learn/decision-intelligence/</loc>
+    <lastmod>2026-01-09T18:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://datacendia.com/it/learn/ai-audit-trail/</loc>
+    <lastmod>2026-01-09T18:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://datacendia.com/it/learn/sovereign-ai/</loc>
+    <lastmod>2026-01-09T18:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://datacendia.com/it/learn/multi-agent-ai/</loc>
+    <lastmod>2026-01-09T18:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://datacendia.com/it/learn/eu-ai-act-compliance/</loc>
+    <lastmod>2026-01-09T18:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Translated Learn Pages - Japanese -->
+  <url>
+    <loc>https://datacendia.com/ja/learn/</loc>
+    <lastmod>2026-01-09T18:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://datacendia.com/learn/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://datacendia.com/ja/learn/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://datacendia.com/learn/"/>
+  </url>
+  <url>
+    <loc>https://datacendia.com/ja/learn/decision-intelligence/</loc>
+    <lastmod>2026-01-09T18:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://datacendia.com/ja/learn/ai-audit-trail/</loc>
+    <lastmod>2026-01-09T18:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://datacendia.com/ja/learn/sovereign-ai/</loc>
+    <lastmod>2026-01-09T18:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://datacendia.com/ja/learn/multi-agent-ai/</loc>
+    <lastmod>2026-01-09T18:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://datacendia.com/ja/learn/eu-ai-act-compliance/</loc>
+    <lastmod>2026-01-09T18:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Translated Learn Pages - Korean -->
+  <url>
+    <loc>https://datacendia.com/ko/learn/</loc>
+    <lastmod>2026-01-09T18:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://datacendia.com/learn/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://datacendia.com/ko/learn/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://datacendia.com/learn/"/>
+  </url>
+  <url>
+    <loc>https://datacendia.com/ko/learn/decision-intelligence/</loc>
+    <lastmod>2026-01-09T18:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://datacendia.com/ko/learn/ai-audit-trail/</loc>
+    <lastmod>2026-01-09T18:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://datacendia.com/ko/learn/sovereign-ai/</loc>
+    <lastmod>2026-01-09T18:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://datacendia.com/ko/learn/multi-agent-ai/</loc>
+    <lastmod>2026-01-09T18:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://datacendia.com/ko/learn/eu-ai-act-compliance/</loc>
+    <lastmod>2026-01-09T18:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Translated Learn Pages - Chinese -->
+  <url>
+    <loc>https://datacendia.com/zh/learn/</loc>
+    <lastmod>2026-01-09T18:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://datacendia.com/learn/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://datacendia.com/zh/learn/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://datacendia.com/learn/"/>
+  </url>
+  <url>
+    <loc>https://datacendia.com/zh/learn/decision-intelligence/</loc>
+    <lastmod>2026-01-09T18:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://datacendia.com/zh/learn/ai-audit-trail/</loc>
+    <lastmod>2026-01-09T18:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://datacendia.com/zh/learn/sovereign-ai/</loc>
+    <lastmod>2026-01-09T18:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://datacendia.com/zh/learn/multi-agent-ai/</loc>
+    <lastmod>2026-01-09T18:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://datacendia.com/zh/learn/eu-ai-act-compliance/</loc>
+    <lastmod>2026-01-09T18:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Translated Learn Pages - Arabic -->
+  <url>
+    <loc>https://datacendia.com/ar/learn/</loc>
+    <lastmod>2026-01-09T18:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://datacendia.com/learn/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://datacendia.com/ar/learn/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://datacendia.com/learn/"/>
+  </url>
+  <url>
+    <loc>https://datacendia.com/ar/learn/decision-intelligence/</loc>
+    <lastmod>2026-01-09T18:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://datacendia.com/ar/learn/ai-audit-trail/</loc>
+    <lastmod>2026-01-09T18:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://datacendia.com/ar/learn/sovereign-ai/</loc>
+    <lastmod>2026-01-09T18:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://datacendia.com/ar/learn/multi-agent-ai/</loc>
+    <lastmod>2026-01-09T18:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://datacendia.com/ar/learn/eu-ai-act-compliance/</loc>
+    <lastmod>2026-01-09T18:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Translated Learn Pages - Hindi -->
+  <url>
+    <loc>https://datacendia.com/hi/learn/</loc>
+    <lastmod>2026-01-09T18:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://datacendia.com/learn/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://datacendia.com/hi/learn/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://datacendia.com/learn/"/>
+  </url>
+  <url>
+    <loc>https://datacendia.com/hi/learn/decision-intelligence/</loc>
+    <lastmod>2026-01-09T18:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://datacendia.com/hi/learn/ai-audit-trail/</loc>
+    <lastmod>2026-01-09T18:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://datacendia.com/hi/learn/sovereign-ai/</loc>
+    <lastmod>2026-01-09T18:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://datacendia.com/hi/learn/multi-agent-ai/</loc>
+    <lastmod>2026-01-09T18:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://datacendia.com/hi/learn/eu-ai-act-compliance/</loc>
+    <lastmod>2026-01-09T18:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
 </urlset>

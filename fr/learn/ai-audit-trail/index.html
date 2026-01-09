@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Qu'est-ce qu'une Piste d'Audit IA ? Guide Complet | Datacendia</title>
+  <meta name="description" content="Une piste d'audit IA est un enregistrement complet et immuable de chaque décision IA. Essentiel pour RGPD, AI Act UE et conformité réglementaire.">
+  <meta property="og:title" content="Qu'est-ce qu'une Piste d'Audit IA ?">
+  <meta property="og:description" content="Une piste d'audit IA est un enregistrement complet et immuable de chaque décision IA.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://datacendia.com/fr/learn/ai-audit-trail/">
+  <meta property="og:image" content="https://datacendia.com/og-image.png">
+  <meta property="og:site_name" content="Datacendia">
+  <meta property="og:locale" content="fr_FR">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://datacendia.com/og-image.png">
+  <link rel="canonical" href="https://datacendia.com/fr/learn/ai-audit-trail/">
+  <link rel="alternate" hreflang="en" href="https://datacendia.com/learn/ai-audit-trail/">
+  <link rel="alternate" hreflang="es" href="https://datacendia.com/es/learn/ai-audit-trail/">
+  <link rel="alternate" hreflang="fr" href="https://datacendia.com/fr/learn/ai-audit-trail/">
+  <link rel="alternate" hreflang="de" href="https://datacendia.com/de/learn/ai-audit-trail/">
+  <link rel="alternate" hreflang="pt" href="https://datacendia.com/pt/learn/ai-audit-trail/">
+  <link rel="alternate" hreflang="it" href="https://datacendia.com/it/learn/ai-audit-trail/">
+  <link rel="alternate" hreflang="ja" href="https://datacendia.com/ja/learn/ai-audit-trail/">
+  <link rel="alternate" hreflang="ko" href="https://datacendia.com/ko/learn/ai-audit-trail/">
+  <link rel="alternate" hreflang="zh" href="https://datacendia.com/zh/learn/ai-audit-trail/">
+  <link rel="alternate" hreflang="ar" href="https://datacendia.com/ar/learn/ai-audit-trail/">
+  <link rel="alternate" hreflang="hi" href="https://datacendia.com/hi/learn/ai-audit-trail/">
+  <link rel="alternate" hreflang="x-default" href="https://datacendia.com/learn/ai-audit-trail/">
+  <link rel="icon" type="image/svg+xml" href="../../../assets/favicon.svg">
+  <link rel="stylesheet" href="../../../styles.css">
+  <style>
+    .learn-container { max-width: 800px; margin: 0 auto; padding: 60px 24px 80px; }
+    .learn-breadcrumb { font-size: 0.75rem; color: var(--color-text-dim); margin-bottom: 24px; }
+    .learn-breadcrumb a { color: var(--color-text-dim); text-decoration: none; }
+    .learn-title { font-family: var(--font-display); font-size: 2.25rem; font-weight: 300; color: var(--color-text); margin-bottom: 16px; }
+    .learn-subtitle { font-size: 1.1rem; color: var(--color-text-muted); margin-bottom: 32px; line-height: 1.6; }
+    .learn-content h2 { font-family: var(--font-display); font-size: 1.5rem; font-weight: 400; color: var(--color-text); margin: 48px 0 16px; padding-top: 24px; border-top: 1px solid var(--color-border); }
+    .learn-content p { font-size: 0.95rem; color: var(--color-text-muted); line-height: 1.8; margin-bottom: 16px; }
+    .learn-content ul { margin: 16px 0 24px 24px; color: var(--color-text-muted); }
+    .learn-content li { font-size: 0.95rem; line-height: 1.7; margin-bottom: 8px; }
+    .definition-box { background: var(--color-card-bg); border: 1px solid var(--color-gold); border-radius: 8px; padding: 24px; margin: 24px 0; }
+    .definition-box p { font-size: 1rem; color: var(--color-text); margin: 0; }
+    .comparison-table { width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 0.85rem; }
+    .comparison-table th { background: var(--color-card-bg); border: 1px solid var(--color-border); padding: 12px; text-align: left; color: var(--color-text); }
+    .comparison-table td { border: 1px solid var(--color-border); padding: 12px; color: var(--color-text-muted); }
+    .cta-box { background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(212, 175, 55, 0.02) 100%); border: 1px solid var(--color-gold); border-radius: 8px; padding: 32px; margin-top: 48px; text-align: center; }
+    .cta-button { display: inline-block; background: var(--color-gold); color: var(--color-bg); padding: 12px 32px; border-radius: 6px; text-decoration: none; }
+    .related-links { margin-top: 48px; padding-top: 32px; border-top: 1px solid var(--color-border); }
+    .related-links ul { list-style: none; margin: 0; padding: 0; }
+    .related-links a { color: var(--color-gold); text-decoration: none; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-top">
+        <a href="../../" style="text-decoration: none;"><h1 class="logo"><span class="brand-name">DATACENDIA</span></h1></a>
+      </div>
+      <nav class="main-nav">
+        <a href="../../../demos.html?lang=fr">Démos</a>
+        <a href="../../../verticals.html?lang=fr">Industries</a>
+        <a href="../">Apprendre</a>
+        <a href="../../../pricing.html?lang=fr">Tarifs</a>
+        <a href="../../../briefing.html?lang=fr">Demander un Briefing</a>
+      </nav>
+    </header>
+
+    <main class="learn-container">
+      <nav class="learn-breadcrumb">
+        <a href="../../">Accueil</a> / <a href="../">Apprendre</a> / Piste d'Audit IA
+      </nav>
+
+      <article>
+        <h1 class="learn-title">Qu'est-ce qu'une Piste d'Audit IA ?</h1>
+        <p class="learn-subtitle">Une piste d'audit IA est un enregistrement complet, immuable et horodaté de chaque décision prise par un système IA — incluant entrées, modèles utilisés, raisonnement, sorties et toute intervention humaine.</p>
+
+        <div class="definition-box">
+          <p><strong>Piste d'Audit IA :</strong> Un enregistrement chronologique et immuable de toutes les activités, décisions et modifications effectuées par ou liées à un système IA. Contrairement aux logs système, les pistes d'audit IA capturent le contexte décisionnel complet.</p>
+        </div>
+
+        <div class="learn-content">
+          <h2>Pourquoi les Pistes d'Audit IA sont-elles Importantes ?</h2>
+          <ul>
+            <li><strong>Conformité Réglementaire</strong> — RGPD, AI Act UE et réglementations sectorielles exigent l'explicabilité des décisions</li>
+            <li><strong>Défense Juridique</strong> — Preuve de la façon dont les décisions ont été prises en cas de contestation</li>
+            <li><strong>Gouvernance Interne</strong> — Supervision des systèmes IA et amélioration continue</li>
+            <li><strong>Amélioration des Modèles</strong> — Comprendre quelles décisions ont été annulées et pourquoi</li>
+          </ul>
+
+          <h2>Réglementations Exigeant des Pistes d'Audit IA</h2>
+          <table class="comparison-table">
+            <thead>
+              <tr><th>Réglementation</th><th>Exigence</th><th>S'applique à</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>AI Act UE</td><td>Journalisation obligatoire pour IA à haut risque</td><td>Systèmes IA à haut risque dans l'UE</td></tr>
+              <tr><td>RGPD Article 22</td><td>Droit à l'explication des décisions automatisées</td><td>Décisions avec effets juridiques significatifs</td></tr>
+              <tr><td>DORA</td><td>Résilience opérationnelle numérique</td><td>Entités financières dans l'UE</td></tr>
+            </tbody>
+          </table>
+
+          <h2>Contenu d'une Piste d'Audit IA Complète</h2>
+          <ul>
+            <li><strong>Contexte d'Entrée</strong> — Sources de données, valeurs des caractéristiques, données exclues</li>
+            <li><strong>Contexte de Modèle</strong> — Version du modèle, configuration, règles métier appliquées</li>
+            <li><strong>Raisonnement de Décision</strong> — Facteurs clés, scores de confiance, alternatives considérées</li>
+            <li><strong>Sortie et Impact</strong> — Décision finale, actions prises, résultat mesuré</li>
+            <li><strong>Supervision Humaine</strong> — Qui a révisé, annulations et justifications, approbations</li>
+          </ul>
+
+          <h2>Comment Rendre les Pistes d'Audit Inviolables ?</h2>
+          <ul>
+            <li><strong>Hachage cryptographique</strong> — Chaque entrée est hachée et liée à la précédente</li>
+            <li><strong>Stockage en ajout seul</strong> — Les entrées ne peuvent jamais être modifiées ou supprimées</li>
+            <li><strong>Horodatage</strong> — Horodatages cryptographiques d'autorités de confiance</li>
+            <li><strong>Réplication</strong> — Copies multiples dans un stockage géographiquement distribué</li>
+          </ul>
+
+          <div class="cta-box">
+            <h3>Voir les Pistes d'Audit IA en Action</h3>
+            <p>Datacendia fournit des pistes d'audit immuables pour chaque décision IA avec horodatage cryptographique.</p>
+            <a href="../../../briefing.html?lang=fr" class="cta-button">Demander un Briefing Technique</a>
+          </div>
+
+          <nav class="related-links">
+            <h3>Sujets Connexes</h3>
+            <ul>
+              <li><a href="../decision-intelligence/">Qu'est-ce que l'Intelligence Décisionnelle ?</a></li>
+              <li><a href="../sovereign-ai/">Qu'est-ce que l'IA Souveraine ?</a></li>
+              <li><a href="../eu-ai-act-compliance/">Guide de Conformité AI Act UE</a></li>
+            </ul>
+          </nav>
+        </div>
+      </article>
+    </main>
+
+    <footer style="text-align: center; padding: 40px 24px; border-top: 1px solid var(--color-border); margin-top: 60px;">
+      <p style="font-size: 0.75rem; color: var(--color-text-dim);">© 2026 Datacendia. Intelligence d'Entreprise Souveraine.</p>
+    </footer>
+  </div>
+</body>
+</html>

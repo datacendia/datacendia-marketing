@@ -1,4 +1,23 @@
 User-agent: *
 Allow: /
 
+# AI Crawlers - Explicitly allowed for GEO
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: GoogleExtended
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Anthropic-AI
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
 Sitemap: https://datacendia.com/sitemap.xml
