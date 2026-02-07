@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CendiaChronos™ — Time Travel Demo | Datacendia</title>
+  <meta name="description" content="Interactive organizational time travel. Rewind, replay, and fast-forward through pivotal moments in organizational history.">
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #0a0a0a; color: #e5e5e5; font-family: 'Inter', -apple-system, sans-serif; line-height: 1.6; }
+
+    .platform-bar {
+      display: flex; align-items: center; gap: 12px;
+      padding: 10px 20px; background: #111; border-bottom: 1px solid #1e1e2e; font-size: 0.8rem;
+    }
+    .platform-bar .logo { font-weight: 700; color: #c9a227; letter-spacing: 0.05em; }
+    .platform-bar .breadcrumb { color: #6b7280; }
+    .platform-bar .breadcrumb span { color: #e5e5e5; }
+    .platform-bar .back { color: #6b7280; text-decoration: none; font-size: 0.75rem; margin-left: auto; }
+    .platform-bar .back:hover { color: #c9a227; }
+    .platform-bar .demo-pill { padding: 2px 8px; background: rgba(34,197,94,0.15); color: #22c55e; border-radius: 10px; font-size: 0.6rem; font-family: 'JetBrains Mono', monospace; font-weight: 600; }
+
+    .app-layout { display: flex; height: calc(100vh - 41px); overflow: hidden; }
+    .sidebar { width: 280px; background: #111; border-right: 1px solid #1e1e2e; display: flex; flex-direction: column; flex-shrink: 0; overflow-y: auto; }
+    .main-panel { flex: 1; display: flex; flex-direction: column; overflow: hidden; }
+
+    .sb-section { padding: 16px; border-bottom: 1px solid #1e1e2e; }
+    .sb-label { font-size: 0.6rem; font-weight: 600; color: #6b7280; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 10px; }
+
+    /* Mode Tabs */
+    .mode-tabs { display: flex; gap: 4px; }
+    .mode-tab {
+      flex: 1; padding: 8px 6px; border: 1px solid #2a2a3e; border-radius: 8px;
+      background: #1a1a2e; color: #6b7280; font-size: 0.7rem; cursor: pointer;
+      text-align: center; transition: all 0.2s; font-family: 'Inter', sans-serif;
+    }
+    .mode-tab.active { border-color: #f59e0b; color: #f59e0b; background: rgba(245,158,11,0.08); }
+    .mode-tab:hover:not(.active) { border-color: #4b5563; color: #9ca3af; }
+
+    /* Time Slider */
+    .time-slider-container { padding: 0 4px; }
+    .time-display { text-align: center; margin-bottom: 8px; }
+    .time-date { font-size: 1.1rem; font-weight: 600; color: #fff; font-family: 'JetBrains Mono', monospace; }
+    .time-label { font-size: 0.6rem; color: #6b7280; }
+    input[type=range] {
+      width: 100%; -webkit-appearance: none; background: transparent; cursor: pointer;
+    }
+    input[type=range]::-webkit-slider-track {
+      height: 4px; background: #374151; border-radius: 2px;
+    }
+    input[type=range]::-webkit-slider-thumb {
+      -webkit-appearance: none; width: 16px; height: 16px; border-radius: 50%;
+      background: #f59e0b; margin-top: -6px; box-shadow: 0 0 8px rgba(245,158,11,0.4);
+    }
+    .playback-controls { display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 8px; }
+    .play-btn {
+      padding: 4px 12px; border: 1px solid #2a2a3e; border-radius: 6px;
+      background: #1a1a2e; color: #d1d5db; font-size: 0.75rem; cursor: pointer;
+      transition: all 0.2s; font-family: 'Inter', sans-serif;
+    }
+    .play-btn:hover { border-color: #f59e0b; color: #f59e0b; }
+    .play-btn.active { background: #f59e0b; color: #000; border-color: #f59e0b; }
+    .speed-label { font-size: 0.6rem; color: #6b7280; }
+
+    /* Department Filter */
+    .dept-select {
+      width: 100%; padding: 8px 12px; background: #1a1a2e; border: 1px solid #2a2a3e;
+      border-radius: 8px; color: #d1d5db; font-size: 0.8rem; font-family: 'Inter', sans-serif;
+    }
+    .dept-select:focus { outline: none; border-color: #f59e0b; }
+
+    /* Metrics Grid */
+    .metrics-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+    .metric-card {
+      padding: 10px 12px; background: #1a1a2e; border: 1px solid #2a2a3e; border-radius: 8px;
+    }
+    .metric-label { font-size: 0.6rem; color: #6b7280; text-transform: uppercase; letter-spacing: 0.05em; }
+    .metric-value { font-size: 1rem; font-weight: 600; font-family: 'JetBrains Mono', monospace; }
+    .metric-change { font-size: 0.6rem; font-weight: 500; }
+    .metric-change.up { color: #22c55e; }
+    .metric-change.down { color: #ef4444; }
+
+    /* Main: Header */
+    .main-header {
+      padding: 16px 24px; border-bottom: 1px solid #1e1e2e; background: #111;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .main-title { font-size: 0.9rem; font-weight: 600; color: #fff; display: flex; align-items: center; gap: 8px; }
+    .main-badges { display: flex; gap: 6px; align-items: center; }
+    .badge { padding: 3px 10px; border-radius: 4px; font-size: 0.65rem; font-weight: 600; font-family: 'JetBrains Mono', monospace; }
+
+    /* Content Grid */
+    .content-area { flex: 1; overflow-y: auto; padding: 20px 24px; }
+    .content-grid { display: grid; grid-template-columns: 1fr 340px; gap: 20px; }
+
+    /* State Panel */
+    .state-panel { background: #111; border: 1px solid #1e1e2e; border-radius: 16px; padding: 20px; }
+    .state-panel h3 { font-size: 0.85rem; font-weight: 600; margin-bottom: 12px; display: flex; align-items: center; gap: 6px; }
+    .state-metrics { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .sm-card { padding: 12px; background: #1a1a2e; border-radius: 10px; }
+    .sm-label { font-size: 0.6rem; color: #6b7280; text-transform: uppercase; }
+    .sm-value { font-size: 1.1rem; font-weight: 600; font-family: 'JetBrains Mono', monospace; margin-top: 2px; }
+    .sm-sub { font-size: 0.6rem; margin-top: 2px; }
+
+    /* Council State */
+    .council-agents { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 8px; }
+    .ca-pill { padding: 3px 8px; background: #1f2937; border-radius: 6px; font-size: 0.65rem; color: #d1d5db; display: flex; align-items: center; gap: 4px; }
+    .ca-dot { width: 6px; height: 6px; border-radius: 50%; }
+
+    /* Graph State */
+    .graph-viz { height: 100px; background: #0f172a; border-radius: 8px; position: relative; overflow: hidden; margin-top: 8px; }
+    .graph-stat { position: absolute; padding: 2px 6px; background: rgba(0,0,0,0.6); border-radius: 4px; font-size: 0.6rem; }
+
+    /* Events */
+    .events-panel { background: #111; border: 1px solid #1e1e2e; border-radius: 16px; padding: 20px; }
+    .events-panel h3 { font-size: 0.85rem; font-weight: 600; margin-bottom: 12px; }
+    .event-list { display: flex; flex-direction: column; gap: 8px; max-height: 400px; overflow-y: auto; }
+    .ev-card {
+      padding: 12px; background: #1a1a2e; border: 1px solid #2a2a3e; border-radius: 10px;
+      cursor: pointer; transition: all 0.2s;
+    }
+    .ev-card:hover { border-color: #f59e0b; }
+    .ev-card.pivotal { border-left: 3px solid #f59e0b; }
+    .ev-card.negative { border-left: 3px solid #ef4444; }
+    .ev-card.positive { border-left: 3px solid #22c55e; }
+    .ev-card.selected { border-color: #f59e0b; background: rgba(245,158,11,0.05); }
+    .ev-date { font-size: 0.6rem; color: #6b7280; font-family: 'JetBrains Mono', monospace; }
+    .ev-title { font-size: 0.8rem; font-weight: 500; color: #fff; margin: 2px 0; }
+    .ev-dept { font-size: 0.55rem; padding: 1px 6px; border-radius: 3px; font-family: 'JetBrains Mono', monospace; }
+    .ev-desc { font-size: 0.75rem; color: #9ca3af; margin-top: 4px; }
+    .ev-tags { display: flex; gap: 4px; margin-top: 6px; flex-wrap: wrap; }
+    .ev-tag { padding: 1px 6px; border-radius: 3px; font-size: 0.55rem; font-family: 'JetBrains Mono', monospace; }
+
+    /* Event Detail */
+    .ev-detail { display: none; margin-top: 8px; padding: 10px; background: #0f172a; border-radius: 6px; font-size: 0.75rem; color: #9ca3af; line-height: 1.7; }
+    .ev-detail.open { display: block; }
+    .ev-detail strong { color: #e5e5e5; }
+
+    /* Pivotal Moments Panel */
+    .pivot-panel { background: #111; border: 1px solid #1e1e2e; border-radius: 16px; padding: 16px; margin-top: 20px; }
+    .pivot-panel h3 { font-size: 0.75rem; font-weight: 600; color: #6b7280; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 10px; display: flex; align-items: center; gap: 6px; }
+    .pivot-item {
+      padding: 10px; background: #1a1a2e; border-radius: 8px; margin-bottom: 6px;
+      cursor: pointer; transition: all 0.2s;
+    }
+    .pivot-item:hover { background: #1f2937; }
+    .pivot-header { display: flex; align-items: center; justify-content: space-between; }
+    .pivot-name { font-size: 0.8rem; font-weight: 500; }
+    .pivot-sig { font-size: 0.6rem; padding: 2px 8px; border-radius: 10px; display: flex; align-items: center; gap: 3px; }
+    .pivot-reason { font-size: 0.65rem; color: #6b7280; margin-top: 3px; }
+    .pivot-actions { display: flex; gap: 4px; margin-top: 6px; }
+    .pivot-btn { padding: 3px 8px; font-size: 0.6rem; border: none; border-radius: 4px; cursor: pointer; transition: all 0.2s; font-family: 'Inter', sans-serif; }
+
+    /* AI Insight */
+    .ai-insight { background: linear-gradient(135deg, rgba(245,158,11,0.06), rgba(245,158,11,0.02)); border: 1px solid rgba(245,158,11,0.2); border-radius: 16px; padding: 20px; margin-top: 20px; }
+    .ai-insight h3 { font-size: 0.85rem; font-weight: 600; color: #f59e0b; margin-bottom: 10px; }
+    .ai-insight p { font-size: 0.8rem; color: #9ca3af; line-height: 1.7; margin-bottom: 6px; }
+    .ai-insight strong { color: #e5e5e5; }
+
+    /* CTA */
+    .demo-cta { text-align: center; margin-top: 24px; padding: 32px; background: #111; border: 1px solid #1e1e2e; border-radius: 12px; }
+    .demo-cta h3 { font-size: 1.1rem; font-weight: 300; color: #fff; margin-bottom: 6px; }
+    .demo-cta p { font-size: 0.8rem; color: #6b7280; margin-bottom: 16px; }
+    .demo-cta a { display: inline-block; padding: 10px 24px; background: #f59e0b; border-radius: 8px; color: #000; text-decoration: none; font-weight: 600; font-size: 0.8rem; }
+
+    @media (max-width: 900px) {
+      .sidebar { display: none; }
+      .content-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="platform-bar">
+    <span class="logo">DATACENDIA</span>
+    <span class="breadcrumb">/ Cortex / Intelligence / <span>CendiaChronos</span></span>
+    <span class="demo-pill">DEMO MODE</span>
+    <a href="../demos.html" class="back">← Back to Demos</a>
+  </div>
+
+  <div class="app-layout">
+    <div class="sidebar">
+      <!-- Mode -->
+      <div class="sb-section">
+        <div class="sb-label">Time Travel Mode</div>
+        <div class="mode-tabs">
+          <div class="mode-tab active" onclick="setMode('rewind', this)">⏪ Rewind</div>
+          <div class="mode-tab" onclick="setMode('replay', this)">🔁 Replay</div>
+          <div class="mode-tab" onclick="setMode('fastforward', this)">⏩ Forward</div>
+        </div>
+      </div>
+      <!-- Time Slider -->
+      <div class="sb-section">
+        <div class="sb-label">Current Position</div>
+        <div class="time-slider-container">
+          <div class="time-display">
+            <div class="time-date" id="currentDate">2024-07-22</div>
+            <div class="time-label" id="timeLabel">3 years, 4 months ago</div>
+          </div>
+          <input type="range" min="0" max="1000" value="700" id="timeSlider" oninput="onSliderChange(this.value)">
+          <div class="playback-controls">
+            <button class="play-btn" onclick="changeSpeed(0.5)">0.5x</button>
+            <button class="play-btn active" onclick="togglePlay()" id="playBtn">▶ Play</button>
+            <button class="play-btn" onclick="changeSpeed(2)">2x</button>
+            <span class="speed-label" id="speedLabel">1x speed</span>
+          </div>
+        </div>
+      </div>
+      <!-- Department -->
+      <div class="sb-section">
+        <div class="sb-label">Department Filter</div>
+        <select class="dept-select" id="deptSelect" onchange="filterDept(this.value)">
+          <option value="all">All Departments</option>
+          <option value="executive">Executive</option>
+          <option value="clinical">Clinical</option>
+          <option value="it">IT / Engineering</option>
+          <option value="compliance">Compliance</option>
+          <option value="finance">Finance</option>
+        </select>
+      </div>
+      <!-- Organization Metrics -->
+      <div class="sb-section">
+        <div class="sb-label">Organization State</div>
+        <div class="metrics-grid">
+          <div class="metric-card">
+            <div class="metric-label">Revenue</div>
+            <div class="metric-value" style="color:#22c55e;" id="mRevenue">$1.2B</div>
+            <div class="metric-change up" id="mRevenueChange">↑ 12% YoY</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-label">Employees</div>
+            <div class="metric-value" style="color:#3b82f6;" id="mEmployees">12,400</div>
+            <div class="metric-change up">↑ 3.4%</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-label">Satisfaction</div>
+            <div class="metric-value" style="color:#f59e0b;" id="mSatisfaction">87%</div>
+            <div class="metric-change up">↑ 4pts</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-label">Risk Score</div>
+            <div class="metric-value" style="color:#ef4444;" id="mRisk">34/100</div>
+            <div class="metric-change down">↑ moderate</div>
+          </div>
+        </div>
+      </div>
+      <!-- Council State -->
+      <div class="sb-section">
+        <div class="sb-label">🧠 Council State</div>
+        <div style="font-size:0.75rem;color:#d1d5db;margin-bottom:4px;">5 active agents</div>
+        <div class="council-agents">
+          <div class="ca-pill"><span class="ca-dot" style="background:#10B981;"></span> CFO</div>
+          <div class="ca-pill"><span class="ca-dot" style="background:#F59E0B;"></span> COO</div>
+          <div class="ca-pill"><span class="ca-dot" style="background:#EF4444;"></span> CISO</div>
+          <div class="ca-pill"><span class="ca-dot" style="background:#3b82f6;"></span> CTO</div>
+          <div class="ca-pill"><span class="ca-dot" style="background:#8b5cf6;"></span> CLO</div>
+        </div>
+        <div style="font-size:0.65rem;color:#6b7280;margin-top:6px;">Pending decisions: 3 · Consensus rate: 78%</div>
+      </div>
+      <!-- Graph -->
+      <div class="sb-section">
+        <div class="sb-label">🕸️ Knowledge Graph</div>
+        <div class="graph-viz" id="graphViz">
+          <div class="graph-stat" style="bottom:4px;left:4px;" id="gEntities">15,420 entities</div>
+          <div class="graph-stat" style="bottom:4px;right:4px;" id="gFresh">95% fresh</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="main-panel">
+      <div class="main-header">
+        <span class="main-title">⏳ CendiaChronos — Meridian Healthcare Group</span>
+        <div class="main-badges">
+          <span class="badge" style="background:rgba(245,158,11,0.15);color:#f59e0b;">⏪ REWIND MODE</span>
+          <span class="badge" style="background:rgba(34,197,94,0.15);color:#22c55e;" id="eventCountBadge">14 Events</span>
+        </div>
+      </div>
+      <div class="content-area">
+        <div class="content-grid">
+          <!-- Left: Events -->
+          <div>
+            <div class="events-panel">
+              <h3>📅 Timeline Events</h3>
+              <div class="event-list" id="eventList"></div>
+            </div>
+            <!-- AI Insight -->
+            <div class="ai-insight">
+              <h3>🧠 CendiaChronos AI Analysis</h3>
+              <p><strong>Pattern Detected:</strong> Meridian's trajectory shows a classic "compliance-driven transformation" arc. The 2022 HIPAA incident was the inflection point — it triggered a chain of investments that ultimately strengthened the organization.</p>
+              <p><strong>Divergent Future:</strong> If the EHR migration had been delayed, the AI diagnostic program would have been built on legacy infrastructure, creating a $15M technical debt spiral over 3 years.</p>
+              <p><strong>Next Pivotal Moment:</strong> The Q1 2026 rural telehealth expansion has a 73% success probability if clinical staff are included in site selection.</p>
+            </div>
+            <div class="demo-cta">
+              <h3>See your organization's pivotal moments</h3>
+              <p>CendiaChronos analyzes your decision history to find the moments that shaped your future.</p>
+              <a href="../briefing.html">Request Briefing →</a>
+            </div>
+          </div>
+          <!-- Right: Pivotal Moments + Actions -->
+          <div>
+            <div class="pivot-panel">
+              <h3>⚡ AI-Detected Pivotal Moments</h3>
+              <div id="pivotList"></div>
+            </div>
+            <!-- State Panels -->
+            <div class="state-panel" style="margin-top:20px;">
+              <h3>📊 Organization State at <span id="stateDate" style="color:#f59e0b;">2024-07-22</span></h3>
+              <div class="state-metrics">
+                <div class="sm-card">
+                  <div class="sm-label">Revenue</div>
+                  <div class="sm-value" style="color:#22c55e;" id="smRevenue">$1.2B</div>
+                  <div class="sm-sub up" style="color:#22c55e;">↑ healthy</div>
+                </div>
+                <div class="sm-card">
+                  <div class="sm-label">Satisfaction</div>
+                  <div class="sm-value" style="color:#f59e0b;" id="smSat">87%</div>
+                  <div class="sm-sub" style="color:#22c55e;">↑ 4 pts</div>
+                </div>
+                <div class="sm-card">
+                  <div class="sm-label">Market Share</div>
+                  <div class="sm-value" style="color:#3b82f6;" id="smMarket">12.4%</div>
+                  <div class="sm-sub" style="color:#22c55e;">↑ growing</div>
+                </div>
+                <div class="sm-card">
+                  <div class="sm-label">Headcount</div>
+                  <div class="sm-value" style="color:#8b5cf6;" id="smHead">12,400</div>
+                  <div class="sm-sub" style="color:#22c55e;">↑ 3.4%</div>
+                </div>
+              </div>
+            </div>
+            <!-- Export -->
+            <div class="state-panel" style="margin-top:12px;background:rgba(245,158,11,0.03);border-color:rgba(245,158,11,0.2);">
+              <h3>📋 Export Audit Package</h3>
+              <div style="display:flex;flex-direction:column;gap:6px;">
+                <button onclick="alert('Audit package exported — includes full timeline, pivotal moments, metrics snapshots, and cryptographic integrity proof.')" style="padding:8px 12px;background:#374151;border:none;border-radius:6px;color:#d1d5db;font-size:0.75rem;cursor:pointer;text-align:left;">📦 Full Timeline Export</button>
+                <button onclick="alert('Court-admissible package generated — with redaction rules, witness timestamps, and chain of custody.')" style="padding:8px 12px;background:#374151;border:none;border-radius:6px;color:#d1d5db;font-size:0.75rem;cursor:pointer;text-align:left;">🏛️ Court-Admissible Package</button>
+                <button onclick="alert('Regulator bundle exported — mapped to HIPAA, SOC 2, and NIST frameworks.')" style="padding:8px 12px;background:#374151;border:none;border-radius:6px;color:#d1d5db;font-size:0.75rem;cursor:pointer;text-align:left;">📋 Regulator Bundle</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+  const EVENTS = [
+    { date:'2021-03-15', title:'Board approves 5-year digital transformation', dept:'executive', type:'pivotal', impact:'positive', magnitude:92,
+      desc:'Board votes 8-1 to invest $45M in digital infrastructure. Dissenting vote from CFO on timing concerns.',
+      detail:'<strong>Decision Trace:</strong> This created the foundation for everything that followed. The lone dissent about timing proved partially correct — first 18 months saw 22% cost overruns. However, the early start positioned Meridian ahead when regulations tightened in 2023.<br><br><strong>Cascade Effect:</strong> Led directly to EHR vendor selection, security overhaul, and ultimately the AI diagnostic program.' },
+    { date:'2021-09-22', title:'EHR vendor selected — Epic Systems contract', dept:'it', type:'normal', impact:'neutral', magnitude:65,
+      desc:'$18M contract with Epic Systems for enterprise EHR migration. 3-year implementation timeline.',
+      detail:'<strong>Alternatives Considered:</strong> Cerner and Athenahealth were finalists. Epic won on interoperability and compliance features. IT preferred Cerner\'s architecture, but compliance advocated for Epic\'s audit trail.' },
+    { date:'2022-02-08', title:'HIPAA Breach — 12,000 patient records exposed', dept:'compliance', type:'pivotal', impact:'negative', magnitude:95,
+      desc:'Legacy system vulnerability exploited. PHI exposed for 72 hours before detection.',
+      detail:'<strong>Root Cause:</strong> Unpatched Apache Struts vulnerability (CVE-2021-31805) in legacy patient portal scheduled for Phase 2 replacement.<br><br><strong>Consequences:</strong> $2.1M direct costs. OCR investigation initiated. Board demanded accelerated security timeline.<br><br><strong>Silver Lining:</strong> Accelerated security overhaul by 18 months and created the CISO role.' },
+    { date:'2022-06-15', title:'CISO hired — first dedicated security leadership', dept:'executive', type:'normal', impact:'positive', magnitude:70,
+      desc:'Board creates CISO position reporting to CEO. Hired from Johns Hopkins Health System.',
+      detail:'<strong>Impact:</strong> Security posture score improved from 62/100 to 84/100 within 6 months. Implemented zero-trust architecture, encrypted PHI, and established 24/7 SOC.' },
+    { date:'2022-11-30', title:'OCR investigation closed — $800K settlement', dept:'compliance', type:'normal', impact:'neutral', magnitude:55,
+      desc:'Office for Civil Rights closes HIPAA investigation with corrective action plan.',
+      detail:'<strong>Corrective Action:</strong> 3-year monitoring, mandatory security training, annual penetration testing, NIST Cybersecurity Framework implementation.' },
+    { date:'2023-01-20', title:'Clinical AI ethics committee established', dept:'clinical', type:'normal', impact:'positive', magnitude:68,
+      desc:'12-member committee to govern AI deployment in clinical settings.',
+      detail:'<strong>Mandate:</strong> All clinical AI must pass bias testing, explainability requirements, and clinician override protocols. Proved critical for 2025 AI diagnostic approval.' },
+    { date:'2023-05-10', title:'Revenue milestone — $1.2B annual run rate', dept:'finance', type:'normal', impact:'positive', magnitude:72,
+      desc:'First time crossing $1B ARR. Telehealth growing at 45% YoY.',
+      detail:'<strong>Breakdown:</strong> Inpatient 48%, Outpatient 32%, Telehealth 12%, Other 8%.' },
+    { date:'2023-09-01', title:'Nurse staffing crisis — 15% vacancy rate', dept:'clinical', type:'pivotal', impact:'negative', magnitude:88,
+      desc:'Vacancy rate hits 15%. Patient satisfaction drops 12 points. Board declares emergency.',
+      detail:'<strong>Root Cause:</strong> National shortage + below-market compensation (12% below average). Competing systems launched aggressive recruitment.<br><br><strong>Response:</strong> $8M retention package, 18% pay increase, accelerated AI monitoring to reduce admin burden.' },
+    { date:'2024-02-14', title:'AI-assisted monitoring deployed in 3 ICUs', dept:'it', type:'normal', impact:'positive', magnitude:75,
+      desc:'ML models predict patient deterioration 4-6 hours early. Reduces ICU mortality by 8%.',
+      detail:'<strong>Results:</strong> 847 early interventions in 6 months. Estimated 23 lives saved. False positive rate: 12% (target 15%).' },
+    { date:'2024-07-22', title:'EHR migration complete — Epic go-live', dept:'it', type:'pivotal', impact:'positive', magnitude:90,
+      desc:'After 3 years and $22M (20% over budget), Epic is live across all 8 hospitals and 42 clinics.',
+      detail:'<strong>Assessment:</strong> Completed 2 months ahead of revised timeline. Interoperability: 94/100. Audit trail exceeds HIPAA requirements. Enables next AI phase.' },
+    { date:'2024-11-05', title:'Board approves AI diagnostic assistance program', dept:'executive', type:'pivotal', impact:'positive', magnitude:93,
+      desc:'$12M for AI-assisted diagnostics in radiology, pathology, and ER. Largest AI investment ever.',
+      detail:'<strong>Decision Process:</strong> 6 department heads deliberated over 3 sessions. Ethics Committee gave conditional approval. CISO approved security architecture. One dissent filed on accuracy concerns for rare conditions.' },
+    { date:'2025-03-18', title:'First AI-assisted misdiagnosis incident', dept:'clinical', type:'normal', impact:'negative', magnitude:78,
+      desc:'AI misclassifies tumor as benign. Caught by radiologist in review. Patient unaffected.',
+      detail:'<strong>Response:</strong> Ethics Committee emergency session. Root cause: underrepresented tumor morphology in training data. Model retrained. Human-in-the-loop protocol reinforced.' },
+    { date:'2025-08-01', title:'Telehealth surpasses 20% of revenue', dept:'finance', type:'normal', impact:'positive', magnitude:65,
+      desc:'Telehealth at 21% of revenue, up from 12%. Rural patient access increased 340%.',
+      detail:'<strong>Driver:</strong> EHR + telehealth integration enabled seamless records access. AI triage reduced wait times 60%.' },
+    { date:'2026-01-15', title:'Rural telehealth expansion — Board vote pending', dept:'executive', type:'pivotal', impact:'positive', magnitude:85,
+      desc:'$25M proposal for 15 rural centers across 3 states. Would serve 200,000+ patients.',
+      detail:'<strong>Status:</strong> Board vote March 2026. CFO: break-even at 24 months. Risk team flags multi-state regulatory complexity.<br><br><strong>Chronos Prediction:</strong> 73% success probability with clinical staff in site selection. Delay past Q2 2026 drops to 58%.' },
+  ];
+
+  const PIVOTAL = EVENTS.filter(e => e.type === 'pivotal');
+  let currentFilter = 'all';
+  let currentSliderVal = 700;
+  let isPlaying = false;
+  let playInterval = null;
+  let playSpeed = 1;
+
+  const deptColors = {
+    executive: { bg: 'rgba(245,158,11,0.15)', color: '#f59e0b' },
+    clinical: { bg: 'rgba(34,197,94,0.15)', color: '#22c55e' },
+    it: { bg: 'rgba(59,130,246,0.15)', color: '#3b82f6' },
+    compliance: { bg: 'rgba(168,85,247,0.15)', color: '#8b5cf6' },
+    finance: { bg: 'rgba(249,115,22,0.15)', color: '#f97316' },
+  };
+
+  function sliderToDate(val) {
+    const start = new Date('2021-01-01').getTime();
+    const end = new Date('2026-06-01').getTime();
+    return new Date(start + (val / 1000) * (end - start));
+  }
+
+  function formatDate(d) {
+    return d.toISOString().slice(0, 10);
+  }
+
+  function timeAgo(d) {
+    const now = new Date();
+    const diff = now - d;
+    const days = Math.floor(diff / 86400000);
+    if (days < 0) return `${Math.abs(days)} days from now`;
+    if (days < 30) return `${days} days ago`;
+    if (days < 365) return `${Math.floor(days/30)} months ago`;
+    const y = Math.floor(days/365); const m = Math.floor((days%365)/30);
+    return `${y}y ${m}m ago`;
+  }
+
+  function onSliderChange(val) {
+    currentSliderVal = parseInt(val);
+    const d = sliderToDate(currentSliderVal);
+    document.getElementById('currentDate').textContent = formatDate(d);
+    document.getElementById('timeLabel').textContent = timeAgo(d);
+    document.getElementById('stateDate').textContent = formatDate(d);
+    updateMetricsForDate(d);
+    highlightEventsForDate(d);
+  }
+
+  function updateMetricsForDate(d) {
+    const year = d.getFullYear();
+    const progress = (year - 2021) / 5;
+    const rev = (1.0 + progress * 0.4).toFixed(1);
+    const emp = Math.round(11500 + progress * 1800);
+    const sat = Math.round(78 + progress * 12);
+    const risk = Math.round(55 - progress * 25);
+    document.getElementById('mRevenue').textContent = `$${rev}B`;
+    document.getElementById('mEmployees').textContent = emp.toLocaleString();
+    document.getElementById('mSatisfaction').textContent = sat + '%';
+    document.getElementById('mRisk').textContent = risk + '/100';
+    document.getElementById('smRevenue').textContent = `$${rev}B`;
+    document.getElementById('smSat').textContent = sat + '%';
+    document.getElementById('smMarket').textContent = (10 + progress * 4).toFixed(1) + '%';
+    document.getElementById('smHead').textContent = emp.toLocaleString();
+  }
+
+  function highlightEventsForDate(d) {
+    document.querySelectorAll('.ev-card').forEach(card => {
+      const eventDate = new Date(card.dataset.date);
+      if (eventDate <= d) {
+        card.style.opacity = '1';
+      } else {
+        card.style.opacity = '0.3';
+      }
+    });
+  }
+
+  function renderEvents() {
+    const list = document.getElementById('eventList');
+    list.innerHTML = '';
+    const filtered = currentFilter === 'all' ? EVENTS : EVENTS.filter(e => e.dept === currentFilter);
+    document.getElementById('eventCountBadge').textContent = filtered.length + ' Events';
+
+    filtered.forEach(ev => {
+      const dc = deptColors[ev.dept] || { bg: '#1f2937', color: '#9ca3af' };
+      const borderClass = ev.type === 'pivotal' ? 'pivotal' : (ev.impact === 'negative' ? 'negative' : (ev.impact === 'positive' ? 'positive' : ''));
+      const el = document.createElement('div');
+      el.className = `ev-card ${borderClass}`;
+      el.dataset.date = ev.date;
+      el.onclick = () => {
+        const detail = el.querySelector('.ev-detail');
+        detail.classList.toggle('open');
+        el.classList.toggle('selected');
+      };
+      el.innerHTML = `
+        <div class="ev-date">${ev.date}</div>
+        <div class="ev-title">${ev.title}</div>
+        <span class="ev-dept" style="background:${dc.bg};color:${dc.color};">${ev.dept.toUpperCase()}</span>
+        <div class="ev-desc">${ev.desc}</div>
+        <div class="ev-tags">
+          <span class="ev-tag" style="background:rgba(${ev.impact==='negative'?'239,68,68':ev.impact==='positive'?'34,197,94':'156,163,175'},0.1);color:${ev.impact==='negative'?'#ef4444':ev.impact==='positive'?'#22c55e':'#9ca3af'};">${ev.impact.toUpperCase()}</span>
+          ${ev.type === 'pivotal' ? '<span class="ev-tag" style="background:rgba(245,158,11,0.1);color:#f59e0b;">PIVOTAL MOMENT</span>' : ''}
+          <span class="ev-tag" style="background:rgba(99,102,241,0.1);color:#a5b4fc;">magnitude: ${ev.magnitude}</span>
+        </div>
+        <div class="ev-detail">${ev.detail}</div>`;
+      list.appendChild(el);
+    });
+    highlightEventsForDate(sliderToDate(currentSliderVal));
+  }
+
+  function renderPivotal() {
+    const list = document.getElementById('pivotList');
+    list.innerHTML = '';
+    PIVOTAL.forEach(ev => {
+      const sigColor = ev.magnitude >= 90 ? 'background:rgba(239,68,68,0.15);color:#ef4444' :
+                       ev.magnitude >= 70 ? 'background:rgba(245,158,11,0.15);color:#f59e0b' :
+                       'background:rgba(59,130,246,0.15);color:#3b82f6';
+      const sigLabel = ev.magnitude >= 90 ? '🔴 Critical' : ev.magnitude >= 70 ? '🟠 High' : '🔵 Notable';
+      const el = document.createElement('div');
+      el.className = 'pivot-item';
+      el.innerHTML = `
+        <div class="pivot-header">
+          <span class="pivot-name">${ev.title.substring(0,45)}${ev.title.length>45?'...':''}</span>
+          <span class="pivot-sig" style="${sigColor}">${sigLabel}</span>
+        </div>
+        <div class="pivot-reason">${ev.desc.substring(0,80)}...</div>
+        <div class="pivot-actions">
+          <button class="pivot-btn" style="background:#374151;color:#d1d5db;" onclick="jumpToDate('${ev.date}')">Jump to</button>
+          <button class="pivot-btn" style="background:rgba(59,130,246,0.15);color:#3b82f6;" onclick="alert('Impact trace: ${ev.title.replace(/'/g,'')} → shows all downstream consequences')">Trace Impact</button>
+        </div>`;
+      list.appendChild(el);
+    });
+  }
+
+  function jumpToDate(dateStr) {
+    const target = new Date(dateStr).getTime();
+    const start = new Date('2021-01-01').getTime();
+    const end = new Date('2026-06-01').getTime();
+    const val = Math.round(((target - start) / (end - start)) * 1000);
+    document.getElementById('timeSlider').value = val;
+    onSliderChange(val);
+  }
+
+  function filterDept(dept) {
+    currentFilter = dept;
+    renderEvents();
+  }
+
+  function setMode(mode, el) {
+    document.querySelectorAll('.mode-tab').forEach(t => t.classList.remove('active'));
+    el.classList.add('active');
+    const modeLabels = { rewind: '⏪ REWIND MODE', replay: '🔁 REPLAY MODE', fastforward: '⏩ FAST-FORWARD MODE' };
+    const modeColors = { rewind: '#f59e0b', replay: '#a855f7', fastforward: '#06b6d4' };
+    document.querySelector('.main-badges .badge').textContent = modeLabels[mode];
+    document.querySelector('.main-badges .badge').style.color = modeColors[mode];
+    document.querySelector('.main-badges .badge').style.background = `rgba(${mode==='rewind'?'245,158,11':mode==='replay'?'168,85,247':'6,182,212'},0.15)`;
+  }
+
+  function togglePlay() {
+    isPlaying = !isPlaying;
+    const btn = document.getElementById('playBtn');
+    if (isPlaying) {
+      btn.textContent = '⏸ Pause';
+      btn.classList.add('active');
+      playInterval = setInterval(() => {
+        currentSliderVal = Math.min(1000, currentSliderVal + Math.round(playSpeed * 2));
+        document.getElementById('timeSlider').value = currentSliderVal;
+        onSliderChange(currentSliderVal);
+        if (currentSliderVal >= 1000) { togglePlay(); }
+      }, 100);
+    } else {
+      btn.textContent = '▶ Play';
+      btn.classList.remove('active');
+      if (playInterval) clearInterval(playInterval);
+    }
+  }
+
+  function changeSpeed(s) {
+    playSpeed = s;
+    document.getElementById('speedLabel').textContent = s + 'x speed';
+  }
+
+  // Draw graph visualization
+  function drawGraph() {
+    const viz = document.getElementById('graphViz');
+    const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    svg.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;';
+    const nodes = [];
+    for (let i = 0; i < 20; i++) {
+      nodes.push({ x: Math.random() * 100, y: Math.random() * 100, s: 2 + Math.random() * 3 });
+    }
+    nodes.forEach((n, i) => {
+      nodes.slice(i+1, i+3).forEach(t => {
+        const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+        line.setAttribute('x1', n.x + '%'); line.setAttribute('y1', n.y + '%');
+        line.setAttribute('x2', t.x + '%'); line.setAttribute('y2', t.y + '%');
+        line.setAttribute('stroke', 'rgba(59,130,246,0.2)'); line.setAttribute('stroke-width', '1');
+        svg.appendChild(line);
+      });
+      const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+      circle.setAttribute('cx', n.x + '%'); circle.setAttribute('cy', n.y + '%');
+      circle.setAttribute('r', n.s); circle.setAttribute('fill', 'rgba(59,130,246,0.6)');
+      svg.appendChild(circle);
+    });
+    viz.prepend(svg);
+  }
+
+  renderEvents();
+  renderPivotal();
+  drawGraph();
+  onSliderChange(700);
+  </script>
+</body>
+</html>
