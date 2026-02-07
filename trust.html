@@ -285,6 +285,56 @@
         <p style="margin-top: 1rem; font-size: 0.75rem; color: var(--color-text-muted);">Last verified: January 3, 2026 · <a href="https://github.com/datacendia" style="color: var(--color-gold);">View on GitHub</a></p>
       </div>
 
+      <!-- Published Conformance Statements -->
+      <div class="trust-section" id="conformance-statements" style="background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(139, 92, 246, 0.05) 100%); border-color: rgba(99, 102, 241, 0.3);">
+        <h2 style="color: #818cf8;">📜 Published Conformance Statements</h2>
+        <p style="font-size: 0.9rem; color: var(--color-text-muted); line-height: 1.6; margin-bottom: 1.5rem;">
+          Self-attested conformance statements mapping Datacendia's architecture to major AI governance frameworks.
+          Each document includes cryptographic content hashes for integrity verification.
+        </p>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin-bottom: 1.5rem;">
+          <a href="trust/iso-42001-conformance.pdf" style="text-decoration: none; padding: 1.25rem; background: rgba(0,0,0,0.2); border-radius: 8px; border: 1px solid rgba(99, 102, 241, 0.2); transition: all 0.3s ease;" onmouseover="this.style.borderColor='rgba(99,102,241,0.5)'" onmouseout="this.style.borderColor='rgba(99,102,241,0.2)'">
+            <div style="font-size: 1.25rem; margin-bottom: 0.5rem;">🏛️</div>
+            <div style="font-weight: 600; color: var(--color-text); margin-bottom: 0.25rem;">ISO/IEC 42001:2023</div>
+            <div style="font-size: 0.75rem; color: var(--color-text-muted); margin-bottom: 0.75rem;">AI Management Systems — Conformance Statement</div>
+            <div style="font-family: var(--font-mono); font-size: 0.7rem; color: #818cf8;">PDF · Download →</div>
+          </a>
+          <a href="trust/nist-ai-rmf-alignment.pdf" style="text-decoration: none; padding: 1.25rem; background: rgba(0,0,0,0.2); border-radius: 8px; border: 1px solid rgba(99, 102, 241, 0.2); transition: all 0.3s ease;" onmouseover="this.style.borderColor='rgba(99,102,241,0.5)'" onmouseout="this.style.borderColor='rgba(99,102,241,0.2)'">
+            <div style="font-size: 1.25rem; margin-bottom: 0.5rem;">🇺🇸</div>
+            <div style="font-weight: 600; color: var(--color-text); margin-bottom: 0.25rem;">NIST AI RMF</div>
+            <div style="font-size: 0.75rem; color: var(--color-text-muted); margin-bottom: 0.75rem;">AI Risk Management Framework — Alignment Document</div>
+            <div style="font-family: var(--font-mono); font-size: 0.7rem; color: #818cf8;">PDF · Download →</div>
+          </a>
+          <a href="trust/eu-ai-act-conformance.pdf" style="text-decoration: none; padding: 1.25rem; background: rgba(0,0,0,0.2); border-radius: 8px; border: 1px solid rgba(99, 102, 241, 0.2); transition: all 0.3s ease;" onmouseover="this.style.borderColor='rgba(99,102,241,0.5)'" onmouseout="this.style.borderColor='rgba(99,102,241,0.2)'">
+            <div style="font-size: 1.25rem; margin-bottom: 0.5rem;">🇪🇺</div>
+            <div style="font-weight: 600; color: var(--color-text); margin-bottom: 0.25rem;">EU AI Act</div>
+            <div style="font-size: 0.75rem; color: var(--color-text-muted); margin-bottom: 0.75rem;">Regulation (EU) 2024/1689 — Conformance Statement</div>
+            <div style="font-family: var(--font-mono); font-size: 0.7rem; color: #818cf8;">PDF · Download →</div>
+          </a>
+          <a href="trust/sbom.json" style="text-decoration: none; padding: 1.25rem; background: rgba(0,0,0,0.2); border-radius: 8px; border: 1px solid rgba(99, 102, 241, 0.2); transition: all 0.3s ease;" onmouseover="this.style.borderColor='rgba(99,102,241,0.5)'" onmouseout="this.style.borderColor='rgba(99,102,241,0.2)'">
+            <div style="font-size: 1.25rem; margin-bottom: 0.5rem;">📦</div>
+            <div style="font-weight: 600; color: var(--color-text); margin-bottom: 0.25rem;">SBOM</div>
+            <div style="font-size: 0.75rem; color: var(--color-text-muted); margin-bottom: 0.75rem;">Software Bill of Materials — CycloneDX Format</div>
+            <div style="font-family: var(--font-mono); font-size: 0.7rem; color: #818cf8;">JSON · Download →</div>
+          </a>
+        </div>
+        <p style="font-size: 0.75rem; color: var(--color-text-dim);">
+          All PDFs include SHA-256 content hashes on the final page for independent integrity verification.
+          Published February 6, 2026.
+        </p>
+        <div style="margin-top: 1.5rem; text-align: center;">
+          <button 
+            onclick="window.DatacendiaPlatform?.verifyTrustCertificate('iso-42001-conformance.pdf')"
+            style="padding: 0.75rem 1.5rem; background: rgba(99, 102, 241, 0.1); border: 1px solid rgba(99, 102, 241, 0.3); border-radius: 8px; color: #818cf8; font-weight: 500; cursor: pointer; transition: all 0.3s ease;"
+            onmouseover="this.style.background='rgba(99,102,241,0.2)'"
+            onmouseout="this.style.background='rgba(99,102,241,0.1)'"
+          >
+            🔍 Verify Certificate Integrity
+          </button>
+        </div>
+        <div id="verification-result"></div>
+      </div>
+
       <div class="trust-section">
         <h2 data-i18n="deploymentOptions">Deployment Options</h2>
         <table class="deployment-table">
@@ -347,8 +397,23 @@
 
       <div class="trust-section">
         <h2 data-i18n="complianceRoadmap">Compliance Roadmap</h2>
-        <p style="font-size: 0.7rem; color: var(--color-text-dim); margin-bottom: 16px;">Last updated: 2026-01-03</p>
+        <p style="font-size: 0.7rem; color: var(--color-text-dim); margin-bottom: 16px;">Last updated: 2026-02-06</p>
         <div class="trust-grid">
+          <div class="trust-item">
+            <div class="trust-item-title">ISO/IEC 42001:2023</div>
+            <div class="trust-item-desc">AI Management Systems. Self-attested conformance statement published.</div>
+            <span class="trust-item-status status-live">Published · <a href="trust/iso-42001-conformance.pdf" style="color: inherit;">PDF</a></span>
+          </div>
+          <div class="trust-item">
+            <div class="trust-item-title">NIST AI RMF</div>
+            <div class="trust-item-desc">AI Risk Management Framework. GOVERN, MAP, MEASURE, MANAGE functions mapped.</div>
+            <span class="trust-item-status status-live">Published · <a href="trust/nist-ai-rmf-alignment.pdf" style="color: inherit;">PDF</a></span>
+          </div>
+          <div class="trust-item">
+            <div class="trust-item-title">EU AI Act</div>
+            <div class="trust-item-desc">Regulation (EU) 2024/1689. Articles 5–15 mapped, deployer obligations addressed.</div>
+            <span class="trust-item-status status-live">Published · <a href="trust/eu-ai-act-conformance.pdf" style="color: inherit;">PDF</a></span>
+          </div>
           <div class="trust-item">
             <div class="trust-item-title">SOC 2 Type II</div>
             <div class="trust-item-desc" data-i18n="soc2Desc">Control mapping complete. Evidence collection in progress.</div>
@@ -623,5 +688,6 @@
   </div>
   <script src="translations.js?v=6"></script>
   <script src="app.js"></script>
+  <script src="scripts/platform-integration.js"></script>
 </body>
 </html>
