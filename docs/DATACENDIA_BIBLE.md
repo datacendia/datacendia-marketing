@@ -2034,8 +2034,8 @@ OLLAMA_HOST=http://localhost:11434
 
 # Sovereign Stack™
 MINIO_ENDPOINT=http://localhost:9000
-MINIO_ACCESS_KEY=minioadmin
-MINIO_SECRET_KEY=minioadmin
+MINIO_ACCESS_KEY=<your-minio-access-key>
+MINIO_SECRET_KEY=<your-minio-secret-key>
 TIKA_HOST=http://localhost:9998
 REDIS_URL=redis://localhost:6379
 DRUID_HOST=http://localhost:8888
