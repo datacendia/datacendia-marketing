@@ -67,6 +67,40 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://datacendia.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Learn", "item": "https://datacendia.com/learn/" },
+      { "@type": "ListItem", "position": 3, "name": "Multi-Agent vs Single-Model", "item": "https://datacendia.com/learn/multi-agent-vs-single-model/" }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is multi-agent AI just running the same model multiple times?",
+        "acceptedAnswer": { "@type": "Answer", "text": "No. Each agent has a distinct role, system prompt, and evaluation criteria. A financial analyst agent focuses on valuation and cash flow. A legal agent focuses on regulatory risk and liability. They analyze the same problem from genuinely different angles — not just re-rolling the same dice." }
+      },
+      {
+        "@type": "Question",
+        "name": "Why is multi-agent AI better than single-model for enterprise decisions?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Multi-agent AI catches blind spots that single models miss. Multiple specialized agents cross-examine each other, file formal dissents, and produce structured deliberation records. This creates more robust decisions with built-in audit trails and regulatory defensibility." }
+      },
+      {
+        "@type": "Question",
+        "name": "Can multi-agent AI work with local models instead of cloud APIs?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. Multi-agent deliberation can run entirely on local models via Ollama or similar inference engines. This is essential for air-gapped deployments where cloud APIs are not available. The agents are defined by their roles and prompts, not by which model serves them." }
+      }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
     "@type": "Article",
     "headline": "Multi-Agent AI vs Single-Model: Why Multiple AI Agents Make Better Decisions",
     "description": "Why multi-agent AI systems consistently outperform single-model approaches for enterprise decision-making.",

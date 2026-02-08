@@ -82,6 +82,17 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://datacendia.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Learn", "item": "https://datacendia.com/learn/" },
+      { "@type": "ListItem", "position": 3, "name": "AI Governance", "item": "https://datacendia.com/learn/ai-governance/" }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": [
       {
@@ -208,37 +219,77 @@
           </thead>
           <tbody>
             <tr>
-              <td><strong>EU AI Act</strong></td>
+              <td><strong>EU AI Act</strong> (Regulation 2024/1689)</td>
               <td>EU + global reach</td>
-              <td>Risk classification, prohibited practices, high-risk obligations</td>
-              <td>Enforcing 2026</td>
+              <td>Risk classification (4 tiers), prohibited practices, high-risk obligations (Articles 6–15), conformity assessment, penalties up to 7% revenue</td>
+              <td>Enforcing 2025–2027</td>
             </tr>
             <tr>
-              <td><strong>NIST AI RMF</strong></td>
+              <td><strong>NIST AI RMF 1.0</strong></td>
               <td>US voluntary</td>
-              <td>Govern, Map, Measure, Manage functions</td>
-              <td>Published 2023</td>
+              <td>Four core functions: Govern, Map, Measure, Manage. Risk-based approach. Companion Playbook provides implementation guidance. Referenced by US Executive Order 14110.</td>
+              <td>Published Jan 2023</td>
             </tr>
             <tr>
-              <td><strong>ISO/IEC 42001</strong></td>
+              <td><strong>ISO/IEC 42001:2023</strong></td>
               <td>International</td>
-              <td>AI Management Systems certification</td>
-              <td>Published 2023</td>
+              <td>AI Management Systems (AIMS) certification. Annex A controls, Annex B implementation guidance, Annex D alignment with ISO 27001. First certifiable AI management standard.</td>
+              <td>Published Dec 2023</td>
             </tr>
             <tr>
-              <td><strong>GDPR (AI context)</strong></td>
+              <td><strong>ISO/IEC 23894:2023</strong></td>
+              <td>International</td>
+              <td>AI risk management guidance. Extends ISO 31000 risk management to AI-specific risks including bias, transparency, and safety.</td>
+              <td>Published Feb 2023</td>
+            </tr>
+            <tr>
+              <td><strong>GDPR</strong> (Articles 22, 35)</td>
               <td>EU + global reach</td>
-              <td>Automated decision-making, data protection</td>
+              <td>Right not to be subject to automated decision-making (Art. 22), Data Protection Impact Assessments required for AI profiling (Art. 35), right to explanation.</td>
               <td>Active since 2018</td>
             </tr>
             <tr>
-              <td><strong>HIPAA (AI context)</strong></td>
+              <td><strong>HIPAA</strong> (Security Rule)</td>
               <td>US healthcare</td>
-              <td>PHI protection in AI systems</td>
+              <td>PHI protection in AI systems. Administrative, physical, and technical safeguards. BAA requirements for AI vendors processing PHI.</td>
+              <td>Active</td>
+            </tr>
+            <tr>
+              <td><strong>NIST 800-53 Rev. 5</strong></td>
+              <td>US federal</td>
+              <td>Security and privacy controls for information systems. Families: AC (Access Control), AU (Audit), SI (System Integrity). Required for FedRAMP.</td>
+              <td>Active</td>
+            </tr>
+            <tr>
+              <td><strong>SOC 2 Type II</strong></td>
+              <td>Global (AICPA)</td>
+              <td>Trust Service Criteria: Security, Availability, Processing Integrity, Confidentiality, Privacy. Annual audit by independent CPA.</td>
               <td>Active</td>
             </tr>
           </tbody>
         </table>
+
+        <h3>NIST AI Risk Management Framework — Deep Dive</h3>
+        <p>
+          The <strong>NIST AI RMF</strong> (published January 2023) provides the most practical structure for enterprise AI governance in the US. Its four core functions map directly to operational governance:
+        </p>
+        <ul>
+          <li><strong>GOVERN:</strong> Establish policies, define roles, cultivate organizational AI culture. This is the foundation — without governance structure, the other functions have no authority.</li>
+          <li><strong>MAP:</strong> Identify and categorize AI systems, understand their context and potential impacts, assess interdependencies. Essentially, know what AI you're running and where.</li>
+          <li><strong>MEASURE:</strong> Quantify risks using metrics and benchmarks. Bias testing, accuracy measurement, robustness evaluation, and ongoing performance monitoring.</li>
+          <li><strong>MANAGE:</strong> Prioritize and act on identified risks. Allocate resources, implement mitigations, plan responses, and communicate risk posture to stakeholders.</li>
+        </ul>
+
+        <h3>ISO/IEC 42001 — The Certifiable Standard</h3>
+        <p>
+          <strong>ISO/IEC 42001:2023</strong> is the first international standard that allows organizations to obtain <strong>third-party certification</strong> for their AI management system. Key elements:
+        </p>
+        <ul>
+          <li><strong>Annex A:</strong> 38 controls across 8 domains — AI policy, roles, risk assessment, data management, system lifecycle, third-party management, monitoring, and improvement</li>
+          <li><strong>Annex B:</strong> Implementation guidance for each control, with practical examples</li>
+          <li><strong>Annex D:</strong> Mapping to ISO 27001 (information security), enabling organizations with existing ISO 27001 certification to extend coverage to AI</li>
+          <li><strong>Alignment:</strong> Complementary to the EU AI Act — organizations with ISO 42001 certification can demonstrate many of the Act's Article 9–15 requirements</li>
+        </ul>
 
         <h2>Implementing AI Governance: A Practical Roadmap</h2>
 

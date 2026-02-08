@@ -71,6 +71,40 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://datacendia.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Learn", "item": "https://datacendia.com/learn/" },
+      { "@type": "ListItem", "position": 3, "name": "Air-Gapped AI Deployment", "item": "https://datacendia.com/learn/air-gapped-ai-deployment/" }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Can LLMs really run without internet?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. Open-weight models like Llama, Mistral, Qwen, and DeepSeek can be downloaded once and run entirely locally using inference engines like Ollama, vLLM, or llama.cpp. They require no internet connectivity during operation. 32B+ parameter models on modern GPU hardware rival cloud API quality for most enterprise tasks." }
+      },
+      {
+        "@type": "Question",
+        "name": "How do you update an air-gapped AI system?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Updates are delivered via offline install bundles — pre-packaged archives containing all software, dependencies, model weights, and configuration changes. Each bundle includes an SBOM, cryptographic signatures, and integrity hashes. The bundle is transferred via approved physical media, scanned, and installed during a maintenance window." }
+      },
+      {
+        "@type": "Question",
+        "name": "What is air-gapped AI deployment?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Air-gapped AI deployment means running AI systems on infrastructure that has no physical or logical connection to the internet or any external network. Data cannot enter or leave the environment through network connections — only through controlled physical media transfer." }
+      }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
     "@type": "Article",
     "headline": "Air-Gapped AI Deployment: Complete Guide for Enterprises",
     "description": "How to deploy AI systems in air-gapped environments with zero internet connectivity.",
