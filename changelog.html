@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Changelog | Datacendia</title>
+  <meta name="description" content="Datacendia platform changelog. See what's new, what shipped, and what's coming next. Real commits, real progress.">
+  <meta name="keywords" content="Datacendia changelog, enterprise AI updates, sovereign AI releases, platform updates">
+  <meta name="author" content="Datacendia">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Changelog | Datacendia">
+  <meta property="og:description" content="What shipped this week. Real commits, real progress.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://datacendia.com/changelog.html">
+  <link rel="canonical" href="https://datacendia.com/changelog.html">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .changelog-container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 60px 24px 80px;
+    }
+    .changelog-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+    .changelog-title {
+      font-family: var(--font-display);
+      font-size: 2.5rem;
+      font-weight: 300;
+      color: var(--color-text);
+      margin-bottom: 12px;
+    }
+    .changelog-subtitle {
+      font-size: 1rem;
+      color: var(--color-text-muted);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .release {
+      margin-bottom: 48px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .release:last-child {
+      border-bottom: none;
+    }
+    .release-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+    .release-version {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--color-gold);
+    }
+    .release-date {
+      font-size: 0.8rem;
+      color: var(--color-text-muted);
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .release-tag {
+      padding: 3px 10px;
+      border-radius: 12px;
+      font-size: 0.65rem;
+      font-weight: 600;
+      font-family: 'JetBrains Mono', monospace;
+      text-transform: uppercase;
+    }
+    .tag-major { background: rgba(6, 182, 212, 0.15); color: #06b6d4; border: 1px solid rgba(6, 182, 212, 0.3); }
+    .tag-feature { background: rgba(34, 197, 94, 0.15); color: #22c55e; border: 1px solid rgba(34, 197, 94, 0.3); }
+    .tag-fix { background: rgba(249, 115, 22, 0.15); color: #f97316; border: 1px solid rgba(249, 115, 22, 0.3); }
+    .tag-docs { background: rgba(168, 85, 247, 0.15); color: #a855f7; border: 1px solid rgba(168, 85, 247, 0.3); }
+    .tag-security { background: rgba(239, 68, 68, 0.15); color: #ef4444; border: 1px solid rgba(239, 68, 68, 0.3); }
+    .release-description {
+      font-size: 0.95rem;
+      color: var(--color-text-dim);
+      margin-bottom: 16px;
+      line-height: 1.7;
+    }
+    .change-list {
+      list-style: none;
+      padding: 0;
+    }
+    .change-list li {
+      padding: 6px 0;
+      font-size: 0.85rem;
+      color: var(--color-text-dim);
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      line-height: 1.6;
+    }
+    .change-type {
+      flex-shrink: 0;
+      width: 20px;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+    }
+    .metric-callout {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      background: rgba(6, 182, 212, 0.08);
+      border: 1px solid rgba(6, 182, 212, 0.2);
+      border-radius: 8px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem;
+      color: var(--color-cyan);
+      margin-top: 12px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-top">
+        <a href="index.html" style="text-decoration: none;"><h1 class="logo" aria-label="Datacendia">DATACENDIA</h1></a>
+        <div class="lang-selector">
+          <button class="lang-btn"><span class="lang-current">English</span> ▾</button>
+          <div class="lang-dropdown">
+            <button onclick="setLanguage('en')">English</button>
+            <button onclick="setLanguage('es')">Español</button>
+            <button onclick="setLanguage('fr')">Français</button>
+            <button onclick="setLanguage('de')">Deutsch</button>
+            <button onclick="setLanguage('pt')">Português</button>
+            <button onclick="setLanguage('it')">Italiano</button>
+            <button onclick="setLanguage('ja')">日本語</button>
+            <button onclick="setLanguage('ko')">한국어</button>
+            <button onclick="setLanguage('zh')">中文</button>
+            <button onclick="setLanguage('ar')">العربية</button>
+            <button onclick="setLanguage('hi')">हिन्दी</button>
+          </div>
+        </div>
+      </div>
+      <p class="tagline-sub">Sovereign Intelligence Platform</p>
+      <nav class="main-nav">
+        <a href="demos.html" data-i18n="navDemos">Demos</a>
+        <a href="verticals.html" data-i18n="navVerticals">Industries</a>
+        <a href="learn/" data-i18n="navLearn">Learn</a>
+        <a href="pricing.html" data-i18n="navPricing">Pricing</a>
+        <a href="pilot.html" data-i18n="navPilot">Pilot Program</a>
+        <a href="trust.html" data-i18n="navTrust">Trust</a>
+        <a href="briefing.html" data-i18n="navBriefing">Request Briefing</a>
+      </nav>
+    </header>
+
+    <div class="changelog-container">
+      <div class="changelog-header">
+        <div style="font-size: 2.5rem; margin-bottom: 12px;">📋</div>
+        <h1 class="changelog-title">Changelog</h1>
+        <p class="changelog-subtitle">What shipped. Real commits from our repository — not a roadmap, not a promise.</p>
+      </div>
+
+      <!-- v4.6.1 -->
+      <div class="release">
+        <div class="release-header">
+          <span class="release-version">v4.6.1</span>
+          <span class="release-date">February 8, 2026</span>
+          <span class="release-tag tag-fix">Accuracy</span>
+        </div>
+        <p class="release-description">Website accuracy overhaul. Every claim on the marketing site verified against the actual codebase.</p>
+        <ul class="change-list">
+          <li><span class="change-type">🔧</span> Test count updated to 204,079 (verified via Vitest — 202,497 backend + 1,582 frontend)</li>
+          <li><span class="change-type">🔧</span> Agent count corrected from 14 to 40+ Core Governance Agents across 5 SGAS classes</li>
+          <li><span class="change-type">🔧</span> All 23 industry verticals now shown (was only displaying 10)</li>
+          <li><span class="change-type">🔧</span> Removed fabricated projected metrics (34%, 40%, 29%, etc.) — replaced with real capability counts</li>
+          <li><span class="change-type">🔧</span> SAP and Workday connectors upgraded from Partial/Roadmap to Live (implementations verified)</li>
+          <li><span class="change-type">🔧</span> Removed unsubstantiated "1,339 endpoints" claim</li>
+          <li><span class="change-type">🔧</span> Demo page: replaced broken video placeholder with interactive Council demo</li>
+          <li><span class="change-type">🗑️</span> Cleaned up stale demos_new/ staging directory</li>
+        </ul>
+        <div class="metric-callout">204,079 automated tests · 100% pass rate · 31 test suites</div>
+      </div>
+
+      <!-- v4.6.0 -->
+      <div class="release">
+        <div class="release-header">
+          <span class="release-version">v4.6.0</span>
+          <span class="release-date">February 7, 2026</span>
+          <span class="release-tag tag-major">Major</span>
+        </div>
+        <p class="release-description">Enterprise Platinum v4.6 — all 23 industry verticals completed to the 6-layer standard. Full documentation overhaul.</p>
+        <ul class="change-list">
+          <li><span class="change-type">✅</span> All 23 verticals at 100%: DataConnector, KnowledgeBase, ComplianceMapper, DecisionSchemas, AgentPresets, DefensibleOutput</li>
+          <li><span class="change-type">🏭</span> New verticals: Agriculture, Automotive, Construction, Pharmaceutical, Hospitality, Telecom, Transportation, Media, Aerospace, Sports</li>
+          <li><span class="change-type">📝</span> Updated VERTICAL_COMPLETION_SPEC.md to v2.0</li>
+          <li><span class="change-type">📝</span> Updated Product Bible with all 23 vertical packages</li>
+          <li><span class="change-type">🧪</span> 200+ new tests added for vertical implementations</li>
+        </ul>
+        <div class="metric-callout">23 verticals · 6 layers each · 12 decision types per vertical</div>
+      </div>
+
+      <!-- v4.5.0 -->
+      <div class="release">
+        <div class="release-header">
+          <span class="release-version">v4.5.0</span>
+          <span class="release-date">January 2026</span>
+          <span class="release-tag tag-feature">Feature</span>
+        </div>
+        <p class="release-description">Enterprise Platinum — 8 new services, sovereign architecture patterns, and compliance hardening.</p>
+        <ul class="change-list">
+          <li><span class="change-type">🆕</span> CendiaCommand™ Platinum — full 6-layer execution across all verticals</li>
+          <li><span class="change-type">🆕</span> Platform AI Assistant — conversational workflow guide</li>
+          <li><span class="change-type">🆕</span> Marketing Studio — AI-powered content generation suite</li>
+          <li><span class="change-type">🆕</span> Environment Config UI — .env file editor in Admin Console</li>
+          <li><span class="change-type">🔒</span> KMS/HSM integration — AWS KMS, HashiCorp Vault, Azure Key Vault, local keys</li>
+          <li><span class="change-type">🔒</span> Real PDF/A-3 generation for signed audit reports (pdfkit)</li>
+          <li><span class="change-type">⚡</span> Performance: database indexes, WebSocket optimization, Redis caching</li>
+          <li><span class="change-type">⚡</span> Grafana dashboard, HA setup documentation</li>
+        </ul>
+      </div>
+
+      <!-- Sovereign Architecture -->
+      <div class="release">
+        <div class="release-header">
+          <span class="release-version">v4.4.0</span>
+          <span class="release-date">January 2026</span>
+          <span class="release-tag tag-feature">Feature</span>
+        </div>
+        <p class="release-description">11 sovereign architectural patterns — built for air-gapped, zero-trust environments.</p>
+        <ul class="change-list">
+          <li><span class="change-type">🆕</span> Data Diode — unidirectional ingest with quarantine and scanning</li>
+          <li><span class="change-type">🆕</span> Local RLHF — zero-cloud feedback with LoRA training scripts</li>
+          <li><span class="change-type">🆕</span> Shadow Council — sandbox deliberation without ledger commits</li>
+          <li><span class="change-type">🆕</span> Deterministic Replay — bit-perfect reproducibility with pinned seeds</li>
+          <li><span class="change-type">🆕</span> QR Air-Gap Bridge — animated QR sequences for zero-media transfer</li>
+          <li><span class="change-type">🆕</span> Canary Tripwires — honeypot records for exfiltration detection</li>
+          <li><span class="change-type">🆕</span> TPM Attestation — hardware-signed decisions</li>
+          <li><span class="change-type">🆕</span> Time-Lock Encryption — embargoed decisions with RSA time-lock puzzles</li>
+          <li><span class="change-type">🆕</span> Federated Mesh — multi-site learning via sneakernet with differential privacy</li>
+          <li><span class="change-type">🆕</span> Portable Instance — bootable USB deployment generator</li>
+          <li><span class="change-type">🆕</span> Decision DNA — one-click audit artifact export (PDF+JSON+Merkle)</li>
+        </ul>
+      </div>
+
+      <!-- WOW Features -->
+      <div class="release">
+        <div class="release-header">
+          <span class="release-version">v4.3.0</span>
+          <span class="release-date">January 2026</span>
+          <span class="release-tag tag-feature">Feature</span>
+        </div>
+        <p class="release-description">Defense vertical, visualization, adversarial red teaming, and formal dissent.</p>
+        <ul class="change-list">
+          <li><span class="change-type">🆕</span> Defense & National Security vertical — 24 agents, 35 council modes, FedRAMP/CMMC/ITAR</li>
+          <li><span class="change-type">🆕</span> Real-Time Deliberation Visualization — watch agents think</li>
+          <li><span class="change-type">🆕</span> Decision Replay Theater — rewind and replay past decisions</li>
+          <li><span class="change-type">🆕</span> Adversarial Red Team Mode — 8 attack perspectives stress-test decisions</li>
+          <li><span class="change-type">🆕</span> Regulator's Receipt Generator — Merkle tree evidence chain, court-ready PDF</li>
+          <li><span class="change-type">🆕</span> CendiaApotheosis™ — nightly red-teaming, auto-patching, pattern banning</li>
+          <li><span class="change-type">🆕</span> CendiaDissent™ — formal dissent filing with retaliation protection</li>
+        </ul>
+      </div>
+
+      <!-- Core Platform -->
+      <div class="release">
+        <div class="release-header">
+          <span class="release-version">v4.2.0</span>
+          <span class="release-date">January 2026</span>
+          <span class="release-tag tag-feature">Feature</span>
+        </div>
+        <p class="release-description">Core platform services and interpretability.</p>
+        <ul class="change-list">
+          <li><span class="change-type">🆕</span> CendiaLens™ — AI interpretability (token confidence, attention patterns, circuit tracing)</li>
+          <li><span class="change-type">🆕</span> CendiaOmniTranslate™ — 100+ language enterprise translation (Qwen 2.5)</li>
+          <li><span class="change-type">🆕</span> CendiaCascade — butterfly effect analysis for decision consequences</li>
+          <li><span class="change-type">🆕</span> CendiaChronos — organizational time travel and pivotal moment detection</li>
+          <li><span class="change-type">🆕</span> 16 Connector Suites on 6 Universal Adapters (Salesforce, SAP, Workday, ServiceNow, etc.)</li>
+          <li><span class="change-type">🌐</span> i18n expanded to 26 languages</li>
+        </ul>
+      </div>
+
+      <!-- Security -->
+      <div class="release">
+        <div class="release-header">
+          <span class="release-version">v4.1.0</span>
+          <span class="release-date">January 2026</span>
+          <span class="release-tag tag-security">Security</span>
+        </div>
+        <p class="release-description">Security hardening and regulatory language review.</p>
+        <ul class="change-list">
+          <li><span class="change-type">🔒</span> Fixed critical SQL injection vulnerability</li>
+          <li><span class="change-type">🔒</span> Removed hardcoded credentials, rotated exposed secrets</li>
+          <li><span class="change-type">🔒</span> Added missing authentication on routes</li>
+          <li><span class="change-type">🔒</span> Resolved all 145 backend TypeScript errors</li>
+          <li><span class="change-type">📝</span> Regulatory language hardening — "provable" → "verifiable", "immutable" → "tamper-evident"</li>
+          <li><span class="change-type">📝</span> Agent naming governance — roles as identity, not human personas</li>
+          <li><span class="change-type">📝</span> Compliance badges changed from "compliant" to "ready" across all marketing</li>
+        </ul>
+      </div>
+
+      <!-- Foundation -->
+      <div class="release">
+        <div class="release-header">
+          <span class="release-version">v4.0.0</span>
+          <span class="release-date">December 2025</span>
+          <span class="release-tag tag-major">Foundation</span>
+        </div>
+        <p class="release-description">Initial platform architecture — The Council™, SGAS agent system, evidence ledger, and core verticals.</p>
+        <ul class="change-list">
+          <li><span class="change-type">🏗️</span> The Council™ — multi-agent deliberation engine with 5 SGAS agent classes</li>
+          <li><span class="change-type">🏗️</span> Immutable Evidence Ledger — cryptographic audit trail for every decision</li>
+          <li><span class="change-type">🏗️</span> Priority verticals: Healthcare, Financial Services, Legal, Government, Insurance</li>
+          <li><span class="change-type">🏗️</span> Prisma ORM with PostgreSQL, Express backend, React frontend</li>
+          <li><span class="change-type">🏗️</span> Ollama integration for local LLM inference (Qwen, Llama, Mistral)</li>
+          <li><span class="change-type">🏗️</span> Air-gapped deployment architecture</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <footer>
+      <div class="footer-section">
+        <p class="footer-contact"><a href="mailto:contact@datacendia.com">contact@datacendia.com</a> · <a href="team.html">Leadership</a> · <a href="pricing.html">Pricing</a> · <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a></p>
+      </div>
+    </footer>
+  </div>
+
+  <script src="translations.js?v=6"></script>
+  <script src="app.js"></script>
+</body>
+</html>
