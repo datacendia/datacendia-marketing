@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CendiaCrucible™ — Red Team Stress Test Demo | Datacendia</title>
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{background:#0a0a0a;color:#e5e5e5;font-family:'Inter',-apple-system,sans-serif;line-height:1.6}
+    .platform-bar{display:flex;align-items:center;gap:12px;padding:10px 20px;background:#111;border-bottom:1px solid #1e1e2e;font-size:.8rem}
+    .platform-bar .logo{font-weight:700;color:#c9a227;letter-spacing:.05em}
+    .platform-bar .breadcrumb{color:#6b7280}.platform-bar .breadcrumb span{color:#e5e5e5}
+    .platform-bar .back{color:#6b7280;text-decoration:none;font-size:.75rem;margin-left:auto}.platform-bar .back:hover{color:#c9a227}
+    .platform-bar .demo-pill{padding:2px 8px;background:rgba(34,197,94,.15);color:#22c55e;border-radius:10px;font-size:.6rem;font-family:'JetBrains Mono',monospace;font-weight:600}
+    .app-layout{display:flex;height:calc(100vh - 41px);overflow:hidden}
+    .sidebar{width:280px;background:#111;border-right:1px solid #1e1e2e;flex-shrink:0;overflow-y:auto}
+    .main-panel{flex:1;display:flex;flex-direction:column;overflow:hidden}
+    .sb-section{padding:16px;border-bottom:1px solid #1e1e2e}
+    .sb-label{font-size:.6rem;font-weight:600;color:#6b7280;text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px}
+    .perspective{display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:8px;margin-bottom:4px;font-size:.7rem;cursor:default;transition:all .3s;border:1px solid transparent}
+    .perspective.active{border-color:#ef4444;background:rgba(239,68,68,.05)}
+    .perspective.done{border-color:#22c55e;background:rgba(34,197,94,.05)}
+    .persp-circle{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:700;color:#fff;flex-shrink:0}
+    .persp-name{font-weight:600;color:#d1d5db}.persp-role{font-size:.55rem;color:#6b7280}
+    .persp-check{margin-left:auto;color:#22c55e;font-size:.65rem;display:none}.perspective.done .persp-check{display:block}
+    .risk-gauge{text-align:center;padding:8px}
+    .gauge-val{font-size:2.2rem;font-weight:700;font-family:'JetBrains Mono',monospace}
+    .gauge-label{font-size:.6rem;color:#6b7280}
+    .gauge-bar{height:6px;background:#1f2937;border-radius:3px;margin-top:8px;overflow:hidden}
+    .gauge-fill{height:100%;border-radius:3px;transition:width 1s}
+    .sev-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+    .sev-card{padding:8px;background:#1a1a2e;border-radius:6px;text-align:center}
+    .sev-val{font-size:1.1rem;font-weight:700;font-family:'JetBrains Mono',monospace}
+    .sev-name{font-size:.5rem;color:#6b7280;text-transform:uppercase}
+    .main-header{padding:16px 20px;border-bottom:1px solid #1e1e2e;background:#111;display:flex;align-items:center;gap:12px}
+    .header-icon{width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,#ef4444,#f97316);display:flex;align-items:center;justify-content:center;font-size:1.1rem}
+    .header-info h1{font-size:.95rem;font-weight:700}.header-info p{font-size:.65rem;color:#6b7280}
+    .run-btn{margin-left:auto;padding:8px 16px;background:#ef4444;color:#fff;border:none;border-radius:8px;font-size:.75rem;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif}
+    .run-btn:hover{background:#dc2626}.run-btn:disabled{opacity:.4;cursor:not-allowed}
+    .rec-banner{margin:16px 20px;padding:14px 16px;border-radius:12px;display:flex;align-items:center;gap:12px;display:none}
+    .rec-icon{font-size:1.5rem}.rec-text{font-size:.85rem;font-weight:600}.rec-desc{font-size:.7rem;color:#9ca3af}
+    .content-area{flex:1;overflow-y:auto;padding:16px 20px}
+    .attack-card{background:#111;border:1px solid #1e1e2e;border-radius:12px;padding:16px;margin-bottom:10px;opacity:0;transform:translateY(10px);transition:all .4s;cursor:pointer}
+    .attack-card.visible{opacity:1;transform:translateY(0)}
+    .attack-card.open .attack-details{max-height:300px;padding-top:12px}
+    .attack-top{display:flex;align-items:center;gap:10px}
+    .attack-avatar{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.65rem;font-weight:700;color:#fff;flex-shrink:0}
+    .attack-title{font-size:.82rem;font-weight:600;flex:1}
+    .sev-badge{padding:3px 10px;border-radius:6px;font-size:.55rem;font-weight:600;font-family:'JetBrains Mono',monospace;text-transform:uppercase}
+    .sev-critical{background:rgba(239,68,68,.15);color:#ef4444;border:1px solid rgba(239,68,68,.3)}
+    .sev-high{background:rgba(249,115,22,.15);color:#f97316;border:1px solid rgba(249,115,22,.3)}
+    .sev-medium{background:rgba(245,158,11,.15);color:#f59e0b;border:1px solid rgba(245,158,11,.3)}
+    .sev-low{background:rgba(34,197,94,.15);color:#22c55e;border:1px solid rgba(34,197,94,.3)}
+    .risk-score{font-family:'JetBrains Mono',monospace;font-size:.7rem;font-weight:700;padding:4px 8px;border-radius:4px;background:rgba(255,255,255,.05)}
+    .attack-details{max-height:0;overflow:hidden;transition:all .3s}
+    .detail-row{display:flex;gap:16px;margin-bottom:8px}
+    .detail-item{flex:1}
+    .detail-label{font-size:.55rem;color:#6b7280;font-family:'JetBrains Mono',monospace;text-transform:uppercase;margin-bottom:2px}
+    .detail-text{font-size:.75rem;color:#9ca3af;line-height:1.6}
+    .detail-text strong{color:#e5e5e5}
+    .prob-bar{display:flex;align-items:center;gap:8px;margin-top:4px}
+    .prob-track{flex:1;height:4px;background:#1f2937;border-radius:2px;overflow:hidden}
+    .prob-fill{height:100%;border-radius:2px}
+    .mitigation{margin-top:8px;padding:10px 12px;background:rgba(34,197,94,.05);border:1px solid rgba(34,197,94,.15);border-radius:8px;font-size:.72rem;color:#22c55e}
+    .blindspot-section{margin-top:16px;padding:16px;background:#111;border:1px solid #1e1e2e;border-radius:12px;display:none}
+    .blindspot{display:flex;align-items:center;gap:8px;padding:8px 0;font-size:.75rem;color:#f59e0b;border-bottom:1px solid rgba(30,30,46,.5)}
+    .blindspot:last-child{border:none}
+    .demo-cta{text-align:center;margin-top:24px;padding:32px;background:#111;border:1px solid #1e1e2e;border-radius:12px}
+    .demo-cta h3{font-size:1.1rem;font-weight:300;color:#fff;margin-bottom:6px}.demo-cta p{font-size:.8rem;color:#6b7280;margin-bottom:16px}
+    .demo-cta a{display:inline-block;padding:10px 24px;background:linear-gradient(135deg,#ef4444,#f97316);border-radius:8px;color:#fff;text-decoration:none;font-weight:600;font-size:.8rem}
+    @media(max-width:900px){.sidebar{display:none}}
+  </style>
+</head>
+<body>
+  <div class="platform-bar">
+    <span class="logo">DATACENDIA</span>
+    <span class="breadcrumb">/ Cortex / Enterprise / <span>Adversarial Red Team</span></span>
+    <span class="demo-pill">DEMO MODE</span>
+    <a href="../demos.html" class="back">← Back to Demos</a>
+  </div>
+  <div class="app-layout">
+    <div class="sidebar">
+      <div class="sb-section">
+        <div class="sb-label">Attack Perspectives</div>
+        <div id="perspList"></div>
+      </div>
+      <div class="sb-section">
+        <div class="sb-label">Overall Risk Score</div>
+        <div class="risk-gauge">
+          <div class="gauge-val" id="riskVal" style="color:#6b7280">—</div>
+          <div class="gauge-label">Risk Score</div>
+          <div class="gauge-bar"><div class="gauge-fill" id="riskBar" style="width:0;background:#ef4444"></div></div>
+        </div>
+      </div>
+      <div class="sb-section">
+        <div class="sb-label">Severity Breakdown</div>
+        <div class="sev-grid">
+          <div class="sev-card"><div class="sev-val" id="critCount" style="color:#ef4444">0</div><div class="sev-name">Critical</div></div>
+          <div class="sev-card"><div class="sev-val" id="highCount" style="color:#f97316">0</div><div class="sev-name">High</div></div>
+          <div class="sev-card"><div class="sev-val" id="medCount" style="color:#f59e0b">0</div><div class="sev-name">Medium</div></div>
+          <div class="sev-card"><div class="sev-val" id="lowCount" style="color:#22c55e">0</div><div class="sev-name">Low</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="main-panel">
+      <div class="main-header">
+        <div class="header-icon">🎯</div>
+        <div class="header-info"><h1>CendiaCrucible™ — Adversarial Red Team</h1><p>"100 Ways This Could Fail" — Every perspective becomes a devil's advocate</p></div>
+        <button class="run-btn" id="runBtn" onclick="runRedTeam()">▶ Launch Red Team</button>
+      </div>
+      <div class="rec-banner" id="recBanner"></div>
+      <div class="content-area" id="contentArea">
+        <div style="text-align:center;padding:60px 20px;color:#6b7280">
+          <div style="font-size:2rem;margin-bottom:12px">🎯</div>
+          <div style="font-size:.9rem;font-weight:500;color:#d1d5db;margin-bottom:6px">Decision Under Test</div>
+          <div style="font-size:1rem;font-weight:600;color:#fff;margin-bottom:4px">$8.5M Wire Transfer — Petrov Holdings → Cyprus Account</div>
+          <div style="font-size:.75rem">8 adversarial perspectives will attack this decision from every angle</div>
+        </div>
+      </div>
+    </div>
+  </div>
+<script>
+const PERSPECTIVES=[
+  {id:'pessimist-cfo',name:'Pessimist CFO',role:'Financial Doom Prophet',color:'#10b981',initials:'CF'},
+  {id:'paranoid-ciso',name:'Paranoid CISO',role:'Security Nightmare Finder',color:'#ef4444',initials:'CI'},
+  {id:'cynical-lawyer',name:'Cynical Lawyer',role:'Litigation Magnet Detector',color:'#a855f7',initials:'CL'},
+  {id:'skeptical-customer',name:'Skeptical Customer',role:'Customer Abandonment Predictor',color:'#3b82f6',initials:'SC'},
+  {id:'burned-operator',name:'Burned Operator',role:'Execution Disaster Expert',color:'#f97316',initials:'BO'},
+  {id:'ethics-watchdog',name:'Ethics Watchdog',role:'Reputation Destroyer Finder',color:'#ec4899',initials:'EW'},
+  {id:'market-bear',name:'Market Bear',role:'Competitive Destruction Analyst',color:'#6366f1',initials:'MB'},
+  {id:'black-swan',name:'Black Swan Hunter',role:'Catastrophic Event Finder',color:'#6b7280',initials:'BS'}
+];
+const ATTACKS=[
+  {perspId:'paranoid-ciso',severity:'critical',title:'Basel III PEP Violation',desc:'Transfer to PEP without full 24-hour review violates Basel III §4.2.1',scenario:'Regulatory audit finds inadequate PEP due diligence — $10M+ fine and consent decree',prob:65,impact:95,risk:62,mitigation:'Implement mandatory 24-hour compliance hold for all PEP transactions'},
+  {perspId:'cynical-lawyer',severity:'critical',title:'OFAC Secondary Sanctions Exposure',desc:'Cyprus jurisdiction creates potential secondary sanctions exposure under current geopolitical climate',scenario:'US Treasury designates Petrov — firm faces correspondent banking restrictions',prob:35,impact:90,risk:32,mitigation:'Obtain explicit OFAC guidance before proceeding'},
+  {perspId:'ethics-watchdog',severity:'high',title:'Media Exposure & Reputational Risk',desc:'Former government official transfer could attract investigative journalism scrutiny',scenario:'Major publication story on "facilitating oligarch money" destroys client trust',prob:40,impact:80,risk:32,mitigation:'Document enhanced due diligence thoroughly for public defensibility'},
+  {perspId:'pessimist-cfo',severity:'high',title:'Client Relationship Damage from Delay',desc:'Blocking or delaying transfer may lose $50M+ AUM client relationship',scenario:'Petrov Holdings moves all assets to competitor — 7-year relationship destroyed',prob:55,impact:70,risk:39,mitigation:'Communicate proactively with client about compliance requirements and timeline'},
+  {perspId:'black-swan',severity:'medium',title:'Sanctions Escalation Event',desc:'Geopolitical events could trigger new sanctions on Cyprus/Russia financial nexus',scenario:'Transfer completed just before new sanctions — firm caught in enforcement action',prob:25,impact:85,risk:21,mitigation:'Monitor OFAC/EU sanctions announcements in real-time before executing'},
+  {perspId:'burned-operator',severity:'medium',title:'Correspondent Bank Rejection',desc:'Intermediary bank may reject wire due to enhanced monitoring on Cyprus corridor',scenario:'Wire bounces after 48hrs — client furious, compliance flags raised at correspondent',prob:30,impact:50,risk:15,mitigation:'Pre-clear with correspondent bank compliance desk before initiating'},
+  {perspId:'market-bear',severity:'low',title:'Competitor Intelligence Leak',desc:'Transaction details could leak to competitors monitoring Cyprus financial flows',scenario:'Competitor poaches client by offering faster, less scrutinized transfer routes',prob:15,impact:40,risk:6,mitigation:'Use secure communication channels and limit internal distribution'},
+  {perspId:'skeptical-customer',severity:'medium',title:'Other Client Perception Risk',desc:'If transaction becomes public, other institutional clients may question risk culture',scenario:'Two institutional clients request enhanced due diligence reviews of their own accounts',prob:20,impact:60,risk:12,mitigation:'Prepare proactive communication plan for top-tier clients'}
+];
+const SUMMARY={risk:67,rec:'proceed_with_caution',recText:'PROCEED WITH CAUTION',recDesc:'Significant risks identified that require mitigation before execution.',recColor:'rgba(245,158,11,.1)',recBorder:'rgba(245,158,11,.3)',recIcon:'⚠️',blindSpots:['Whistleblower risk from internal compliance staff','Audit trail gaps in correspondent banking chain','Operational continuity if key compliance officer unavailable']};
+let running=false,step=0;
+function initPersp(){document.getElementById('perspList').innerHTML=PERSPECTIVES.map(p=>`<div class="perspective" id="persp-${p.id}"><div class="persp-circle" style="background:${p.color}">${p.initials}</div><div><div class="persp-name">${p.name}</div><div class="persp-role">${p.role}</div></div><span class="persp-check">✓</span></div>`).join('');}
+initPersp();
+function runRedTeam(){if(running)return;running=true;document.getElementById('runBtn').disabled=true;document.getElementById('contentArea').innerHTML='';step=0;showNextAttack();}
+function showNextAttack(){if(step>=ATTACKS.length){finishRedTeam();return;}
+const a=ATTACKS[step],p=PERSPECTIVES.find(x=>x.id===a.perspId);
+document.getElementById('persp-'+a.perspId).classList.add('active');
+setTimeout(()=>{
+  document.getElementById('persp-'+a.perspId).classList.remove('active');
+  document.getElementById('persp-'+a.perspId).classList.add('done');
+  const area=document.getElementById('contentArea');
+  const card=document.createElement('div');card.className='attack-card';card.onclick=function(){this.classList.toggle('open')};
+  card.innerHTML=`<div class="attack-top"><div class="attack-avatar" style="background:${p.color}">${p.initials}</div><div class="attack-title">${a.title}</div><span class="sev-badge sev-${a.severity}">${a.severity}</span><span class="risk-score" style="color:${a.risk>=50?'#ef4444':a.risk>=30?'#f97316':'#f59e0b'}">Risk: ${a.risk}</span></div><div class="attack-details"><div class="detail-row"><div class="detail-item"><div class="detail-label">Description</div><div class="detail-text">${a.desc}</div></div></div><div class="detail-row"><div class="detail-item"><div class="detail-label">Failure Scenario</div><div class="detail-text"><strong>${a.scenario}</strong></div></div></div><div class="detail-row"><div class="detail-item"><div class="detail-label">Probability</div><div class="prob-bar"><div class="prob-track"><div class="prob-fill" style="width:${a.prob}%;background:${a.prob>=50?'#ef4444':a.prob>=30?'#f97316':'#f59e0b'}"></div></div><span style="font-size:.65rem;font-family:'JetBrains Mono',monospace">${a.prob}%</span></div></div><div class="detail-item"><div class="detail-label">Impact</div><div class="prob-bar"><div class="prob-track"><div class="prob-fill" style="width:${a.impact}%;background:${a.impact>=70?'#ef4444':a.impact>=40?'#f97316':'#f59e0b'}"></div></div><span style="font-size:.65rem;font-family:'JetBrains Mono',monospace">${a.impact}</span></div></div></div>${a.mitigation?`<div class="mitigation">💡 <strong>Suggested Mitigation:</strong> ${a.mitigation}</div>`:''}</div>`;
+  area.appendChild(card);setTimeout(()=>card.classList.add('visible'),30);area.scrollTop=area.scrollHeight;
+  updateCounts();step++;setTimeout(showNextAttack,700);
+},1200+Math.random()*600);}
+function updateCounts(){const done=ATTACKS.slice(0,step+1);document.getElementById('critCount').textContent=done.filter(a=>a.severity==='critical').length;document.getElementById('highCount').textContent=done.filter(a=>a.severity==='high').length;document.getElementById('medCount').textContent=done.filter(a=>a.severity==='medium').length;document.getElementById('lowCount').textContent=done.filter(a=>a.severity==='low').length;const pct=Math.round((step+1)/ATTACKS.length*SUMMARY.risk);document.getElementById('riskVal').textContent=pct;document.getElementById('riskVal').style.color=pct>=60?'#ef4444':pct>=40?'#f97316':'#f59e0b';document.getElementById('riskBar').style.width=pct+'%';}
+function finishRedTeam(){const b=document.getElementById('recBanner');b.style.display='flex';b.style.background=SUMMARY.recColor;b.style.border='1px solid '+SUMMARY.recBorder;b.innerHTML=`<span class="rec-icon">${SUMMARY.recIcon}</span><div><div class="rec-text" style="color:#f59e0b">${SUMMARY.recText}</div><div class="rec-desc">${SUMMARY.recDesc}</div></div>`;
+const bs=document.createElement('div');bs.className='blindspot-section';bs.style.display='block';bs.innerHTML=`<div class="sb-label" style="margin-bottom:10px">🔍 Blind Spots Detected</div>${SUMMARY.blindSpots.map(b=>`<div class="blindspot">⚠️ ${b}</div>`).join('')}`;document.getElementById('contentArea').appendChild(bs);
+const cta=document.createElement('div');cta.className='demo-cta';cta.innerHTML=`<h3>Stress-test your decisions before they ship</h3><p>CendiaCrucible runs adversarial analysis from 8+ attack perspectives in real-time.</p><a href="../briefing.html">Request Briefing →</a>`;document.getElementById('contentArea').appendChild(cta);
+document.getElementById('contentArea').scrollTop=document.getElementById('contentArea').scrollHeight;running=false;}
+</script>
+</body>
+</html>

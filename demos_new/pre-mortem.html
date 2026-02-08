@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pre-Mortem Engine — Failure Analysis Demo | Datacendia</title>
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{background:#0a0a0a;color:#e5e5e5;font-family:'Inter',-apple-system,sans-serif;line-height:1.6}
+    .platform-bar{display:flex;align-items:center;gap:12px;padding:10px 20px;background:#111;border-bottom:1px solid #1e1e2e;font-size:.8rem}
+    .platform-bar .logo{font-weight:700;color:#c9a227;letter-spacing:.05em}
+    .platform-bar .breadcrumb{color:#6b7280}.platform-bar .breadcrumb span{color:#e5e5e5}
+    .platform-bar .back{color:#6b7280;text-decoration:none;font-size:.75rem;margin-left:auto}.platform-bar .back:hover{color:#c9a227}
+    .platform-bar .demo-pill{padding:2px 8px;background:rgba(34,197,94,.15);color:#22c55e;border-radius:10px;font-size:.6rem;font-family:'JetBrains Mono',monospace;font-weight:600}
+    .app-layout{display:flex;height:calc(100vh - 41px);overflow:hidden}
+    .sidebar{width:280px;background:#111;border-right:1px solid #1e1e2e;flex-shrink:0;overflow-y:auto}
+    .main-panel{flex:1;display:flex;flex-direction:column;overflow:hidden}
+    .sb-section{padding:16px;border-bottom:1px solid #1e1e2e}
+    .sb-label{font-size:.6rem;font-weight:600;color:#6b7280;text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px}
+    .decision-card{padding:10px;background:#1a1a2e;border-radius:8px;font-size:.72rem;color:#d1d5db;margin-bottom:8px}
+    .decision-card .dc-label{font-size:.55rem;color:#6b7280;font-family:'JetBrains Mono',monospace;text-transform:uppercase}.dc-val{font-weight:500}
+    .fail-summary{padding:12px;background:linear-gradient(135deg,rgba(245,158,11,.06),rgba(239,68,68,.04));border:1px solid rgba(245,158,11,.2);border-radius:10px;text-align:center}
+    .fail-score{font-size:2rem;font-weight:700;font-family:'JetBrains Mono',monospace}
+    .fail-label{font-size:.6rem;color:#6b7280}
+    .fail-bar{height:6px;background:#1f2937;border-radius:3px;margin-top:8px;overflow:hidden}
+    .fail-fill{height:100%;border-radius:3px;transition:width 1s}
+    .cat-list{display:flex;flex-direction:column;gap:4px}
+    .cat-item{display:flex;align-items:center;gap:8px;font-size:.7rem;padding:6px 8px;background:#1a1a2e;border-radius:6px}
+    .cat-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+    .cat-name{flex:1;color:#9ca3af}.cat-count{font-family:'JetBrains Mono',monospace;font-size:.6rem;font-weight:600}
+    .main-header{padding:16px 20px;border-bottom:1px solid #1e1e2e;background:#111;display:flex;align-items:center;gap:12px}
+    .header-icon{width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,#f59e0b,#ef4444);display:flex;align-items:center;justify-content:center;font-size:1.1rem}
+    .header-info h1{font-size:.95rem;font-weight:700}.header-info p{font-size:.65rem;color:#6b7280}
+    .run-btn{margin-left:auto;padding:8px 16px;background:#f59e0b;color:#000;border:none;border-radius:8px;font-size:.75rem;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif}
+    .run-btn:hover{background:#d97706}.run-btn:disabled{opacity:.4;cursor:not-allowed}
+    .content-area{flex:1;overflow-y:auto;padding:16px 20px}
+    .premise-box{padding:14px;background:rgba(239,68,68,.05);border:1px solid rgba(239,68,68,.15);border-radius:12px;margin-bottom:16px;text-align:center}
+    .premise-box .premise-title{font-size:.85rem;font-weight:700;color:#ef4444;margin-bottom:4px}
+    .premise-box .premise-text{font-size:.75rem;color:#9ca3af}
+    .failure-card{background:#111;border:1px solid #1e1e2e;border-radius:12px;padding:14px;margin-bottom:10px;opacity:0;transform:translateY(10px);transition:all .4s;cursor:pointer}
+    .failure-card.visible{opacity:1;transform:translateY(0)}
+    .failure-card.open .fc-details{max-height:300px;padding-top:10px}
+    .fc-top{display:flex;align-items:center;gap:10px}
+    .fc-prob{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:700;font-family:'JetBrains Mono',monospace;flex-shrink:0}
+    .fc-title{font-size:.82rem;font-weight:600;flex:1}
+    .fc-cat{padding:2px 8px;border-radius:4px;font-size:.55rem;font-family:'JetBrains Mono',monospace}
+    .fc-timeline{font-size:.55rem;color:#6b7280;font-family:'JetBrains Mono',monospace}
+    .fc-details{max-height:0;overflow:hidden;transition:all .3s}
+    .fd-section{margin-bottom:8px}
+    .fd-label{font-size:.55rem;color:#6b7280;font-family:'JetBrains Mono',monospace;text-transform:uppercase;margin-bottom:2px}
+    .fd-text{font-size:.72rem;color:#9ca3af;line-height:1.6}.fd-text strong{color:#e5e5e5}
+    .fd-prevention{padding:8px 10px;background:rgba(34,197,94,.05);border:1px solid rgba(34,197,94,.15);border-radius:6px;font-size:.7rem;color:#22c55e}
+    .demo-cta{text-align:center;margin-top:20px;padding:32px;background:#111;border:1px solid #1e1e2e;border-radius:12px}
+    .demo-cta h3{font-size:1.1rem;font-weight:300;color:#fff;margin-bottom:6px}.demo-cta p{font-size:.8rem;color:#6b7280;margin-bottom:16px}
+    .demo-cta a{display:inline-block;padding:10px 24px;background:linear-gradient(135deg,#f59e0b,#ef4444);border-radius:8px;color:#000;text-decoration:none;font-weight:600;font-size:.8rem}
+    @media(max-width:900px){.sidebar{display:none}}
+  </style>
+</head>
+<body>
+  <div class="platform-bar">
+    <span class="logo">DATACENDIA</span>
+    <span class="breadcrumb">/ Cortex / Council / <span>Pre-Mortem Engine</span></span>
+    <span class="demo-pill">DEMO MODE</span>
+    <a href="../demos.html" class="back">← Back to Demos</a>
+  </div>
+  <div class="app-layout">
+    <div class="sidebar">
+      <div class="sb-section">
+        <div class="sb-label">Decision Under Test</div>
+        <div class="decision-card"><div class="dc-label">Decision</div><div class="dc-val">Acquire TechStart Inc. for $200M</div></div>
+        <div class="decision-card"><div class="dc-label">Context</div><div class="dc-val">Autonomous systems IP · 70% customer concentration</div></div>
+        <div class="decision-card"><div class="dc-label">Mode</div><div class="dc-val">Pre-Mortem Analysis</div></div>
+      </div>
+      <div class="sb-section">
+        <div class="sb-label">Failure Probability</div>
+        <div class="fail-summary">
+          <div class="fail-score" id="failScore" style="color:#6b7280">—</div>
+          <div class="fail-label">Overall Failure Risk</div>
+          <div class="fail-bar"><div class="fail-fill" id="failBar" style="width:0;background:#f59e0b"></div></div>
+        </div>
+      </div>
+      <div class="sb-section">
+        <div class="sb-label">Failure Categories</div>
+        <div class="cat-list" id="catList">
+          <div class="cat-item"><div class="cat-dot" style="background:#ef4444"></div><span class="cat-name">Financial</span><span class="cat-count" id="catFin">0</span></div>
+          <div class="cat-item"><div class="cat-dot" style="background:#f97316"></div><span class="cat-name">Operational</span><span class="cat-count" id="catOps">0</span></div>
+          <div class="cat-item"><div class="cat-dot" style="background:#f59e0b"></div><span class="cat-name">Strategic</span><span class="cat-count" id="catStr">0</span></div>
+          <div class="cat-item"><div class="cat-dot" style="background:#a855f7"></div><span class="cat-name">Regulatory</span><span class="cat-count" id="catReg">0</span></div>
+          <div class="cat-item"><div class="cat-dot" style="background:#3b82f6"></div><span class="cat-name">People</span><span class="cat-count" id="catPpl">0</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="main-panel">
+      <div class="main-header">
+        <div class="header-icon">💀</div>
+        <div class="header-info"><h1>Pre-Mortem Engine™</h1><p>"Assume this decision failed. Now tell me why." — Reverse-engineer failure before it happens.</p></div>
+        <button class="run-btn" id="runBtn" onclick="runPreMortem()">💀 Run Pre-Mortem</button>
+      </div>
+      <div class="content-area" id="contentArea">
+        <div class="premise-box">
+          <div class="premise-title">⚰️ "It is January 2027. The TechStart acquisition has failed catastrophically."</div>
+          <div class="premise-text">The Pre-Mortem Engine assumes the worst outcome, then works backward to find every path that could lead there.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+<script>
+const FAILURES=[
+  {title:'DataFlow Corp Defection',cat:'Financial',catId:'catFin',prob:35,impact:90,timeline:'0-6 months',color:'#ef4444',
+    chain:'DataFlow exercises change-of-control clause → 35% revenue loss → Integration funding shortfall → Engineering layoffs → IP development stalls',
+    earlyWarning:'DataFlow requests "contract review meeting" within 30 days of announcement',
+    prevention:'Make acquisition contingent on DataFlow contract renewal. Structure $40M earnout tied to customer retention.'},
+  {title:'Key Engineer Exodus',cat:'People',catId:'catPpl',prob:45,impact:75,timeline:'0-3 months',color:'#3b82f6',
+    chain:'AutonoTech launches poaching campaign → 8 of 47 engineers leave → Core autonomous systems team fractured → 18-month development roadmap collapses',
+    earlyWarning:'LinkedIn activity spike among TechStart engineers within 2 weeks of announcement',
+    prevention:'Sign retention agreements with 5 principal engineers BEFORE announcement. Golden handcuffs: 3-year vesting with acceleration.'},
+  {title:'Regulatory Blockade',cat:'Regulatory',catId:'catReg',prob:20,impact:85,timeline:'3-9 months',color:'#a855f7',
+    chain:'ITAR violation discovered in autonomous systems IP → Export compliance investigation → 6-month freeze on all IP integration → $15M remediation cost',
+    earlyWarning:'Due diligence team flags incomplete ITAR documentation during review',
+    prevention:'Complete ITAR/EAR compliance audit BEFORE closing. Budget $2M for regulatory counsel.'},
+  {title:'Integration Culture Clash',cat:'Operational',catId:'catOps',prob:55,impact:60,timeline:'3-12 months',color:'#f97316',
+    chain:'Rust/CUDA vs Go/Python stack incompatibility → Parallel systems for 18+ months → 2x operational cost → Engineering frustration → Productivity -40%',
+    earlyWarning:'First integration sprint fails to deliver any merged functionality',
+    prevention:'Hire dedicated integration architect. Run 90-day proof-of-concept before full integration.'},
+  {title:'Market Window Closes',cat:'Strategic',catId:'catStr',prob:30,impact:70,timeline:'6-18 months',color:'#f59e0b',
+    chain:'Competitor releases comparable autonomous platform → TechStart IP advantage erodes → Premium valuation unjustified → $60M write-down',
+    earlyWarning:'Competitor patent filings in autonomous systems accelerate',
+    prevention:'Accelerate IP integration timeline. File defensive patents immediately post-close.'},
+  {title:'Hidden Technical Debt',cat:'Operational',catId:'catOps',prob:40,impact:55,timeline:'1-6 months',color:'#f97316',
+    chain:'Code review reveals 3x expected refactoring → Security vulnerabilities in core platform → SOC 2 certification delayed 12 months → Enterprise customers balk',
+    earlyWarning:'Technical due diligence finds >30% code coverage and no CI/CD pipeline',
+    prevention:'Mandatory code audit and security assessment before closing. Escrow $3M for remediation.'}
+];
+let running=false,step=0;
+function runPreMortem(){
+  if(running)return;running=true;document.getElementById('runBtn').disabled=true;
+  step=0;showNextFailure();
+}
+function showNextFailure(){
+  if(step>=FAILURES.length){finish();return;}
+  const f=FAILURES[step];
+  const area=document.getElementById('contentArea');
+  const card=document.createElement('div');card.className='failure-card';card.onclick=function(){this.classList.toggle('open')};
+  const probColor=f.prob>=40?'rgba(239,68,68,.15)':f.prob>=25?'rgba(245,158,11,.15)':'rgba(34,197,94,.15)';
+  const probText=f.prob>=40?'#ef4444':f.prob>=25?'#f59e0b':'#22c55e';
+  card.innerHTML=`<div class="fc-top"><div class="fc-prob" style="background:${probColor};color:${probText}">${f.prob}%</div><div><div class="fc-title">${f.title}</div><div class="fc-timeline">⏱ ${f.timeline}</div></div><span class="fc-cat" style="background:${f.color}22;color:${f.color}">${f.cat}</span></div><div class="fc-details"><div class="fd-section"><div class="fd-label">Failure Chain</div><div class="fd-text">${f.chain}</div></div><div class="fd-section"><div class="fd-label">Early Warning Signal</div><div class="fd-text"><strong>🔔 ${f.earlyWarning}</strong></div></div><div class="fd-section"><div class="fd-prevention">🛡️ <strong>Prevention:</strong> ${f.prevention}</div></div></div>`;
+  area.appendChild(card);setTimeout(()=>card.classList.add('visible'),30);area.scrollTop=area.scrollHeight;
+  // Update sidebar counts
+  const el=document.getElementById(f.catId);el.textContent=parseInt(el.textContent)+1;
+  // Update failure score
+  const maxProb=Math.max(...FAILURES.slice(0,step+1).map(x=>x.prob));
+  document.getElementById('failScore').textContent=maxProb+'%';
+  document.getElementById('failScore').style.color=maxProb>=40?'#ef4444':maxProb>=25?'#f59e0b':'#22c55e';
+  document.getElementById('failBar').style.width=maxProb+'%';
+  step++;setTimeout(showNextFailure,1000+Math.random()*500);
+}
+function finish(){
+  const area=document.getElementById('contentArea');
+  const cta=document.createElement('div');cta.className='demo-cta';
+  cta.innerHTML=`<h3>Know how you'll fail before you decide</h3><p>The Pre-Mortem Engine reverse-engineers failure so you can prevent it. Every failure chain includes early warning signals and prevention strategies.</p><a href="../briefing.html">Request Briefing →</a>`;
+  area.appendChild(cta);area.scrollTop=area.scrollHeight;running=false;
+}
+</script>
+</body>
+</html>
