@@ -174,50 +174,6 @@
         grid-template-columns: 1fr;
       }
     }
-    .video-modal {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.95);
-      z-index: 9999;
-      align-items: center;
-      justify-content: center;
-      padding: 2rem;
-    }
-    .video-modal.active {
-      display: flex;
-    }
-    .video-modal-content {
-      position: relative;
-      width: 100%;
-      max-width: 1200px;
-      aspect-ratio: 16/9;
-      background: #000;
-      border-radius: 12px;
-      overflow: hidden;
-    }
-    .video-modal-close {
-      position: absolute;
-      top: -40px;
-      right: 0;
-      background: none;
-      border: none;
-      color: white;
-      font-size: 2rem;
-      cursor: pointer;
-      padding: 8px;
-    }
-    .coming-soon-overlay {
-      position: absolute;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.7);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--color-gold);
-      font-weight: 600;
-      font-size: 1.25rem;
-    }
   </style>
 </head>
 <body>
@@ -266,52 +222,31 @@
       <div class="demo-grid">
         <!-- Featured Demo -->
         <div class="demo-card featured-demo">
-          <div class="demo-thumbnail">
-            <span class="demo-thumbnail-icon">🎯</span>
-            <div class="demo-play-btn" onclick="openVideo('executive-overview')">
-              <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-            </div>
-          </div>
-          <div class="demo-content">
-            <div class="featured-label">★ Featured Demo</div>
-            <h3 class="demo-title">Executive Overview</h3>
-            <p class="demo-description">
-              A 5-minute introduction to Datacendia for C-Suite and Board members. 
-              See how multi-agent deliberation transforms enterprise decision-making with 
-              full accountability and audit trails.
-            </p>
-            <div class="demo-meta">
-              <span>⏱️ 5 minutes</span>
-              <span>👥 C-Suite, Board</span>
-            </div>
-            <button class="watch-btn" onclick="openVideo('executive-overview')">
-              ▶ Watch Demo
-            </button>
-          </div>
-        </div>
-
-        <!-- Demo 2: Council in Action (INTERACTIVE) -->
-        <div class="demo-card">
           <div class="demo-thumbnail" style="cursor:pointer" onclick="window.location='demos/council.html'">
-            <span class="demo-thumbnail-icon">🏛️</span>
+            <span class="demo-thumbnail-icon">�️</span>
             <div class="demo-play-btn" onclick="window.location='demos/council.html'">
               <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
             </div>
           </div>
           <div class="demo-content">
-            <span class="demo-badge" style="background:rgba(34,197,94,0.1);border-color:rgba(34,197,94,0.3);color:#22c55e;">Interactive · No Login</span>
-            <h3 class="demo-title">The Council in Action</h3>
+            <div class="featured-label">★ Featured Demo</div>
+            <h3 class="demo-title">The Council™ — Multi-Agent Deliberation</h3>
             <p class="demo-description">
-              Watch 6 AI agents deliberate a $200M acquisition. See CFO, CISO, Legal, Risk, and Red Team 
-              analyze, argue, file dissent, and synthesize a recommendation — with confidence scoring.
+              Watch 6 AI agents deliberate a $200M acquisition decision in real time. 
+              See cross-examination, formal dissent, confidence scoring, and a synthesized 
+              recommendation — with cryptographic evidence export.
             </p>
             <div class="demo-meta">
               <span>⏱️ 2 minutes</span>
-              <span>👥 Strategy Teams</span>
+              <span>👥 C-Suite, Board, Strategy</span>
               <span>🟢 Try it now</span>
             </div>
+            <button class="watch-btn" onclick="window.location='demos/council.html'">
+              ▶ Launch Interactive Demo
+            </button>
           </div>
         </div>
+
 
         <!-- Demo 3: CendiaChronos (INTERACTIVE) -->
         <div class="demo-card">
@@ -578,6 +513,29 @@
           </div>
         </div>
 
+        <!-- Vertical 4: Industrial Services -->
+        <div class="demo-card">
+          <div class="demo-thumbnail" style="cursor:pointer" onclick="window.location='demos/industrial-services.html'">
+            <span class="demo-thumbnail-icon">🏭</span>
+            <div class="demo-play-btn" onclick="window.location='demos/industrial-services.html'">
+              <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+          </div>
+          <div class="demo-content">
+            <span class="demo-badge" style="background:rgba(249,115,22,0.1);border-color:rgba(249,115,22,0.3);color:#f97316;">Vertical · Industrial</span>
+            <h3 class="demo-title">Industrial Services AI Council</h3>
+            <p class="demo-description">
+              See safety incident assessment, regulatory compliance checking, and operational risk analysis 
+              for industrial service operations — with multi-agent deliberation and evidence export.
+            </p>
+            <div class="demo-meta">
+              <span>⏱️ 3 minutes</span>
+              <span>👥 Safety, Operations, Risk</span>
+              <span>🟢 Try it now</span>
+            </div>
+          </div>
+        </div>
+
       </div>
 
       <!-- CTA -->
@@ -610,52 +568,7 @@
     </footer>
   </div>
 
-  <!-- Video Modal -->
-  <div class="video-modal" id="videoModal">
-    <div class="video-modal-content">
-      <button class="video-modal-close" onclick="closeVideo()">×</button>
-      <div id="videoContainer">
-        <!-- Video will be inserted here -->
-        <div class="coming-soon-overlay" id="comingSoonOverlay">
-          🎬 Demo video coming soon!<br>
-          <span style="font-size: 0.9rem; font-weight: normal; opacity: 0.7;">Request a live demo in the meantime.</span>
-        </div>
-      </div>
-    </div>
-  </div>
-
   <script src="translations.js?v=6"></script>
   <script src="app.js"></script>
-  <script>
-    // Video modal functionality
-    function openVideo(demoId) {
-      const modal = document.getElementById('videoModal');
-      const container = document.getElementById('videoContainer');
-      const overlay = document.getElementById('comingSoonOverlay');
-      
-      // For now, show coming soon overlay
-      // When videos are ready, replace with actual video embed
-      overlay.style.display = 'flex';
-      
-      modal.classList.add('active');
-      document.body.style.overflow = 'hidden';
-    }
-
-    function closeVideo() {
-      const modal = document.getElementById('videoModal');
-      modal.classList.remove('active');
-      document.body.style.overflow = '';
-    }
-
-    // Close on escape key
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') closeVideo();
-    });
-
-    // Close on backdrop click
-    document.getElementById('videoModal').addEventListener('click', (e) => {
-      if (e.target.id === 'videoModal') closeVideo();
-    });
-  </script>
 </body>
 </html>
