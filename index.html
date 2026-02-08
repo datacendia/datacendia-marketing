@@ -103,6 +103,249 @@
   </script>
 </head>
 <body>
+  <!-- Cinematic Landing Animation -->
+  <div id="landing-overlay">
+    <canvas id="landing-particles"></canvas>
+    <div class="landing-content">
+      <div class="landing-logo-wrap">
+        <div class="landing-logo">DATACENDIA</div>
+        <div class="landing-logo-glow"></div>
+      </div>
+      <div class="landing-tagline">Sovereign Intelligence Platform</div>
+      <div class="landing-line"></div>
+      <div class="landing-stat">
+        <span class="landing-stat-num">204,079</span>
+        <span class="landing-stat-label">automated tests · 23 verticals · air-gap ready</span>
+      </div>
+    </div>
+    <button class="landing-skip" onclick="skipLanding()" aria-label="Skip intro">Skip →</button>
+  </div>
+
+  <style>
+    #landing-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 10000;
+      background: #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), filter 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    #landing-overlay.fade-out {
+      opacity: 0;
+      filter: blur(8px);
+      pointer-events: none;
+    }
+    #landing-particles {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+    }
+    .landing-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+    }
+    .landing-logo-wrap {
+      position: relative;
+      margin-bottom: 12px;
+    }
+    .landing-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.5rem, 7vw, 5rem);
+      font-weight: 300;
+      letter-spacing: 0.35em;
+      background: linear-gradient(135deg, #C9A227 0%, #e8d48b 40%, #C9A227 60%, #a07d1a 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      opacity: 0;
+      transform: scale(0.9) translateY(10px);
+      animation: logoReveal 1.6s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards;
+    }
+    .landing-logo-glow {
+      position: absolute;
+      inset: -40px;
+      background: radial-gradient(ellipse at center, rgba(201, 162, 39, 0.15) 0%, transparent 70%);
+      opacity: 0;
+      animation: glowPulse 3s ease-in-out 0.8s forwards;
+      pointer-events: none;
+    }
+    .landing-tagline {
+      font-family: 'Inter', sans-serif;
+      font-size: clamp(0.75rem, 1.5vw, 0.95rem);
+      font-weight: 300;
+      color: rgba(255, 255, 255, 0.5);
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      opacity: 0;
+      transform: translateY(8px);
+      animation: fadeSlideUp 1s ease 1.4s forwards;
+    }
+    .landing-line {
+      width: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(201, 162, 39, 0.6), transparent);
+      margin: 20px 0;
+      animation: lineExpand 1.2s cubic-bezier(0.4, 0, 0.2, 1) 2s forwards;
+    }
+    .landing-stat {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      opacity: 0;
+      transform: translateY(8px);
+      animation: fadeSlideUp 0.8s ease 2.6s forwards;
+    }
+    .landing-stat-num {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: clamp(1.5rem, 3vw, 2.2rem);
+      font-weight: 700;
+      color: #10b981;
+    }
+    .landing-stat-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.7rem;
+      color: rgba(255, 255, 255, 0.3);
+      letter-spacing: 0.15em;
+    }
+    .landing-skip {
+      position: absolute;
+      bottom: 32px;
+      right: 32px;
+      z-index: 3;
+      background: none;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: rgba(255, 255, 255, 0.35);
+      padding: 8px 20px;
+      border-radius: 20px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.75rem;
+      cursor: pointer;
+      transition: all 0.3s;
+      opacity: 0;
+      animation: fadeIn 0.5s ease 0.5s forwards;
+    }
+    .landing-skip:hover {
+      border-color: rgba(201, 162, 39, 0.5);
+      color: rgba(201, 162, 39, 0.8);
+    }
+
+    @keyframes logoReveal {
+      0% { opacity: 0; transform: scale(0.9) translateY(10px); }
+      100% { opacity: 1; transform: scale(1) translateY(0); }
+    }
+    @keyframes glowPulse {
+      0% { opacity: 0; }
+      50% { opacity: 1; }
+      100% { opacity: 0.6; }
+    }
+    @keyframes fadeSlideUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes lineExpand {
+      to { width: min(280px, 60vw); }
+    }
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+  </style>
+
+  <script>
+  (function() {
+    // Skip if user has seen the intro recently (session)
+    if (sessionStorage.getItem('datacendia_intro_seen')) {
+      var overlay = document.getElementById('landing-overlay');
+      if (overlay) overlay.style.display = 'none';
+      return;
+    }
+
+    // Particle field
+    var canvas = document.getElementById('landing-particles');
+    var ctx = canvas.getContext('2d');
+    var particles = [];
+    var animId;
+
+    function resize() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    // Create particles
+    for (var i = 0; i < 80; i++) {
+      particles.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        vx: (Math.random() - 0.5) * 0.3,
+        vy: (Math.random() - 0.5) * 0.3,
+        r: Math.random() * 1.5 + 0.5,
+        gold: Math.random() > 0.7
+      });
+    }
+
+    function drawParticles() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      for (var i = 0; i < particles.length; i++) {
+        var p = particles[i];
+        p.x += p.vx;
+        p.y += p.vy;
+        if (p.x < 0) p.x = canvas.width;
+        if (p.x > canvas.width) p.x = 0;
+        if (p.y < 0) p.y = canvas.height;
+        if (p.y > canvas.height) p.y = 0;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = p.gold ? 'rgba(201, 162, 39, 0.4)' : 'rgba(255, 255, 255, 0.12)';
+        ctx.fill();
+      }
+      // Draw faint connection lines
+      for (var i = 0; i < particles.length; i++) {
+        for (var j = i + 1; j < particles.length; j++) {
+          var dx = particles[i].x - particles[j].x;
+          var dy = particles[i].y - particles[j].y;
+          var dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < 120) {
+            ctx.beginPath();
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.strokeStyle = 'rgba(201, 162, 39, ' + (0.06 * (1 - dist / 120)) + ')';
+            ctx.lineWidth = 0.5;
+            ctx.stroke();
+          }
+        }
+      }
+      animId = requestAnimationFrame(drawParticles);
+    }
+    drawParticles();
+
+    // Auto-dismiss after animation completes
+    setTimeout(function() { dismissLanding(); }, 4800);
+
+    window.skipLanding = function() { dismissLanding(); };
+
+    function dismissLanding() {
+      var overlay = document.getElementById('landing-overlay');
+      if (!overlay || overlay.classList.contains('fade-out')) return;
+      overlay.classList.add('fade-out');
+      sessionStorage.setItem('datacendia_intro_seen', '1');
+      setTimeout(function() {
+        overlay.style.display = 'none';
+        cancelAnimationFrame(animId);
+      }, 800);
+    }
+  })();
+  </script>
+
   <div class="container">
     <!-- Header -->
     <header>
