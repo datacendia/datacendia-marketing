@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Air-Gapped AI Deployment: Complete Guide for Enterprises | Datacendia</title>
+  <meta name="description" content="How to deploy AI systems in air-gapped environments with zero internet connectivity. Covers architecture, model delivery, update mechanisms, and compliance benefits for defense, government, and regulated industries.">
+  <meta name="keywords" content="air-gapped AI, air gap deployment, offline AI, disconnected AI, sovereign AI deployment, air-gapped machine learning, secure AI deployment, classified AI, SCIF AI">
+  <meta name="author" content="Datacendia">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+  <meta property="og:title" content="Air-Gapped AI Deployment: Complete Guide for Enterprises">
+  <meta property="og:description" content="Deploy AI with zero internet connectivity. Architecture, model delivery, and compliance for defense and regulated industries.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://datacendia.com/learn/air-gapped-ai-deployment/">
+  <meta property="og:image" content="https://datacendia.com/og-image.png">
+  <meta property="og:site_name" content="Datacendia">
+  <meta property="article:published_time" content="2026-02-08">
+  <meta property="article:modified_time" content="2026-02-08">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Air-Gapped AI Deployment: Complete Guide">
+  <meta name="twitter:description" content="Deploy AI with zero internet connectivity for defense, government, and regulated industries.">
+  <meta name="twitter:image" content="https://datacendia.com/og-image.png">
+  <link rel="canonical" href="https://datacendia.com/learn/air-gapped-ai-deployment/">
+  <link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg">
+  <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+  <meta name="theme-color" content="#0a0a0a">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../styles.css">
+  <style>
+    .learn-container { max-width: 800px; margin: 0 auto; padding: 60px 24px 80px; }
+    .learn-breadcrumb { font-size: 0.75rem; color: var(--color-text-dim); margin-bottom: 24px; }
+    .learn-breadcrumb a { color: var(--color-text-dim); text-decoration: none; }
+    .learn-breadcrumb a:hover { color: var(--color-gold); }
+    .learn-meta { display: flex; gap: 24px; font-size: 0.75rem; color: var(--color-text-dim); margin-bottom: 32px; flex-wrap: wrap; }
+    .learn-title { font-family: var(--font-display); font-size: 2.25rem; font-weight: 300; color: var(--color-text); margin-bottom: 16px; line-height: 1.2; }
+    .learn-subtitle { font-size: 1.1rem; color: var(--color-text-muted); margin-bottom: 32px; line-height: 1.6; }
+    .learn-content h2 { font-family: var(--font-display); font-size: 1.5rem; font-weight: 400; color: var(--color-text); margin: 48px 0 16px; padding-top: 24px; border-top: 1px solid var(--color-border); }
+    .learn-content h3 { font-family: var(--font-display); font-size: 1.15rem; font-weight: 400; color: var(--color-text); margin: 32px 0 12px; }
+    .learn-content p { font-size: 0.95rem; color: var(--color-text-muted); line-height: 1.8; margin-bottom: 16px; }
+    .learn-content ul, .learn-content ol { margin: 16px 0 24px 24px; color: var(--color-text-muted); }
+    .learn-content li { font-size: 0.95rem; line-height: 1.7; margin-bottom: 8px; }
+    .learn-content strong { color: var(--color-text); }
+    .definition-box { background: var(--color-card-bg); border: 1px solid var(--color-gold); border-radius: 8px; padding: 24px; margin: 24px 0; }
+    .definition-box p { font-size: 1rem; color: var(--color-text); margin: 0; line-height: 1.7; }
+    .comparison-table { width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 0.85rem; }
+    .comparison-table th { background: var(--color-card-bg); border: 1px solid var(--color-border); padding: 12px 16px; text-align: left; font-weight: 500; color: var(--color-text); }
+    .comparison-table td { border: 1px solid var(--color-border); padding: 12px 16px; color: var(--color-text-muted); }
+    .comparison-table tr:nth-child(even) { background: rgba(255,255,255,0.02); }
+    .faq-section { margin-top: 48px; }
+    .faq-item { border-bottom: 1px solid var(--color-border); padding: 24px 0; }
+    .faq-question { font-family: var(--font-display); font-size: 1.1rem; font-weight: 400; color: var(--color-text); margin-bottom: 12px; }
+    .faq-answer { font-size: 0.9rem; color: var(--color-text-muted); line-height: 1.7; }
+    .cta-box { background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(212, 175, 55, 0.02) 100%); border: 1px solid var(--color-gold); border-radius: 8px; padding: 32px; margin-top: 48px; text-align: center; }
+    .cta-box h3 { font-family: var(--font-display); font-size: 1.25rem; color: var(--color-text); margin-bottom: 12px; }
+    .cta-box p { font-size: 0.9rem; color: var(--color-text-muted); margin-bottom: 20px; }
+    .cta-button { display: inline-block; background: var(--color-gold); color: var(--color-bg); padding: 12px 32px; border-radius: 6px; text-decoration: none; font-size: 0.85rem; font-weight: 500; transition: opacity 0.2s; }
+    .cta-button:hover { opacity: 0.9; }
+    .related-links { margin-top: 48px; padding-top: 32px; border-top: 1px solid var(--color-border); }
+    .related-links h3 { font-size: 0.85rem; color: var(--color-text-dim); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 16px; }
+    .related-links ul { list-style: none; margin: 0; padding: 0; }
+    .related-links li { margin-bottom: 8px; }
+    .related-links a { color: var(--color-gold); text-decoration: none; font-size: 0.9rem; }
+    .related-links a:hover { text-decoration: underline; }
+    .arch-diagram { background: #0d1117; border: 1px solid #30363d; border-radius: 8px; padding: 24px; margin: 24px 0; font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: #c9d1d9; line-height: 1.8; overflow-x: auto; }
+    .arch-diagram .highlight { color: #58a6ff; }
+    .arch-diagram .green { color: #3fb950; }
+    .arch-diagram .dim { color: #484f58; }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Air-Gapped AI Deployment: Complete Guide for Enterprises",
+    "description": "How to deploy AI systems in air-gapped environments with zero internet connectivity.",
+    "author": { "@type": "Organization", "name": "Datacendia", "url": "https://datacendia.com" },
+    "publisher": { "@type": "Organization", "name": "Datacendia", "logo": { "@type": "ImageObject", "url": "https://datacendia.com/assets/logo.svg" } },
+    "datePublished": "2026-02-08",
+    "dateModified": "2026-02-08",
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://datacendia.com/learn/air-gapped-ai-deployment/" },
+    "image": "https://datacendia.com/og-image.png"
+  }
+  </script>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-top">
+        <a href="../../index.html" style="text-decoration: none;"><h1 class="logo">DATACENDIA</h1></a>
+      </div>
+      <p class="tagline-sub">Sovereign Intelligence Platform</p>
+      <nav class="main-nav">
+        <a href="../../demos.html">Demos</a>
+        <a href="../../verticals.html">Industries</a>
+        <a href="../../learn/" class="active">Learn</a>
+        <a href="../../pricing.html">Pricing</a>
+        <a href="../../pilot.html">Pilot Program</a>
+        <a href="../../trust.html">Trust</a>
+        <a href="../../briefing.html">Request Briefing</a>
+      </nav>
+    </header>
+
+    <div class="learn-container">
+      <div class="learn-breadcrumb">
+        <a href="../../index.html">Home</a> / <a href="../">Learn</a> / Air-Gapped AI Deployment
+      </div>
+
+      <h1 class="learn-title">Air-Gapped AI Deployment</h1>
+      <p class="learn-subtitle">
+        The complete guide to deploying enterprise AI with zero internet connectivity — 
+        covering architecture, model delivery, update mechanisms, and the compliance 
+        advantages for defense, government, and regulated industries.
+      </p>
+
+      <div class="learn-meta">
+        <span>Published: <time datetime="2026-02-08">February 8, 2026</time></span>
+        <span>Reading time: 15 minutes</span>
+        <span>Category: Sovereign AI</span>
+      </div>
+
+      <div class="definition-box">
+        <p><strong>Air-gapped AI deployment</strong> means running AI systems on infrastructure that has no physical or logical connection to the internet or any external network. Data cannot enter or leave the environment through network connections — only through controlled physical media transfer (and sometimes not even that).</p>
+      </div>
+
+      <div class="learn-content">
+
+        <h2>Why Air-Gap AI?</h2>
+        <p>
+          For most organizations, cloud AI is convenient and cost-effective. But for a significant 
+          segment of the enterprise market, cloud AI is not an option:
+        </p>
+        <ul>
+          <li><strong>Defense and intelligence agencies</strong> — classified networks (SIPRNet, JWICS) have no internet connectivity by design</li>
+          <li><strong>Critical infrastructure operators</strong> — NERC CIP requires isolation of operational technology from the internet</li>
+          <li><strong>Financial trading floors</strong> — some proprietary trading systems are air-gapped to prevent data exfiltration</li>
+          <li><strong>Healthcare research facilities</strong> — genomic data and clinical trial data may require physical isolation</li>
+          <li><strong>Government agencies</strong> — FedRAMP High and IL5/IL6 workloads often require air-gapped or disconnected operation</li>
+          <li><strong>Multinational corporations</strong> — data sovereignty laws may prohibit data from crossing borders, even encrypted</li>
+        </ul>
+
+        <h2>Architecture of an Air-Gapped AI System</h2>
+        <p>An air-gapped AI deployment requires every component of the AI stack to function without internet access:</p>
+
+        <div class="arch-diagram">
+<span class="dim">┌─────────────────────────────────────────────────┐</span>
+<span class="dim">│</span>  <span class="highlight">AIR-GAPPED ENVIRONMENT</span>                          <span class="dim">│</span>
+<span class="dim">│</span>                                                   <span class="dim">│</span>
+<span class="dim">│</span>  <span class="green">┌──────────┐</span>  <span class="green">┌──────────┐</span>  <span class="green">┌──────────┐</span>     <span class="dim">│</span>
+<span class="dim">│</span>  <span class="green">│ LLM Models│</span>  <span class="green">│ App Stack│</span>  <span class="green">│ Database │</span>     <span class="dim">│</span>
+<span class="dim">│</span>  <span class="green">│ (Ollama)  │</span>  <span class="green">│ (Node.js)│</span>  <span class="green">│(Postgres)│</span>     <span class="dim">│</span>
+<span class="dim">│</span>  <span class="green">└─────┬────┘</span>  <span class="green">└─────┬────┘</span>  <span class="green">└─────┬────┘</span>     <span class="dim">│</span>
+<span class="dim">│</span>        <span class="green">└──────────┼──────────────┘</span>             <span class="dim">│</span>
+<span class="dim">│</span>               <span class="green">┌──┴──┐</span>                           <span class="dim">│</span>
+<span class="dim">│</span>               <span class="green">│ KMS │</span>  <span class="dim">(your keys, your HSM)</span>     <span class="dim">│</span>
+<span class="dim">│</span>               <span class="green">└─────┘</span>                           <span class="dim">│</span>
+<span class="dim">│</span>                                                   <span class="dim">│</span>
+<span class="dim">│</span>  <span class="dim">NO OUTBOUND CONNECTIONS · NO TELEMETRY</span>          <span class="dim">│</span>
+<span class="dim">│</span>  <span class="dim">NO LICENSE PHONE-HOME · NO CDN DEPENDENCIES</span>     <span class="dim">│</span>
+<span class="dim">└─────────────────────────────────────────────────┘</span>
+<span class="dim">          ╳ NO NETWORK CONNECTION ╳</span>
+        </div>
+
+        <h3>Key Components</h3>
+
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th>Component</th>
+              <th>Cloud AI Approach</th>
+              <th>Air-Gapped Approach</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>LLM Models</strong></td>
+              <td>API calls to OpenAI, Anthropic, etc.</td>
+              <td>Local models via Ollama, vLLM, or similar (GGUF/safetensors)</td>
+            </tr>
+            <tr>
+              <td><strong>Model Updates</strong></td>
+              <td>Automatic via internet</td>
+              <td>Physical media transfer (USB, optical disc) with integrity verification</td>
+            </tr>
+            <tr>
+              <td><strong>Software Updates</strong></td>
+              <td>npm install, apt-get, Docker pull</td>
+              <td>Offline install bundles with SBOM and signature verification</td>
+            </tr>
+            <tr>
+              <td><strong>License Verification</strong></td>
+              <td>Online phone-home</td>
+              <td>Offline license files (no phone-home)</td>
+            </tr>
+            <tr>
+              <td><strong>Certificate Authority</strong></td>
+              <td>Public CAs (Let's Encrypt, etc.)</td>
+              <td>Internal PKI (step-ca or similar)</td>
+            </tr>
+            <tr>
+              <td><strong>Time Sync</strong></td>
+              <td>NTP over internet</td>
+              <td>GPS-disciplined clocks or internal NTP servers</td>
+            </tr>
+            <tr>
+              <td><strong>Telemetry</strong></td>
+              <td>Usage data sent to vendor</td>
+              <td>Zero telemetry — all monitoring stays internal</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2>The Five Challenges of Air-Gapped AI</h2>
+
+        <h3>1. Model Delivery</h3>
+        <p>
+          Large language models range from 4GB to 70GB+. Delivering these to air-gapped environments requires 
+          physical media transfer protocols with integrity verification. Best practices:
+        </p>
+        <ul>
+          <li>SHA-256 hash verification of all model files after transfer</li>
+          <li>Cryptographic signatures from a trusted build system</li>
+          <li>Chain-of-custody documentation for media transport</li>
+          <li>Quarantine and scanning of media before import</li>
+        </ul>
+
+        <h3>2. Software Updates</h3>
+        <p>
+          Every dependency must be available offline. This means pre-packaging all npm modules, system libraries, 
+          Docker images, and configuration files into self-contained bundles. The Software Bill of Materials (SBOM) 
+          becomes critical — you need to know exactly what's in every bundle.
+        </p>
+
+        <h3>3. Data Ingest</h3>
+        <p>
+          Getting data into an air-gapped environment typically uses one of three approaches:
+        </p>
+        <ul>
+          <li><strong>Data diodes:</strong> Hardware-enforced unidirectional data flow (data goes in, nothing comes out)</li>
+          <li><strong>Cross-domain solutions:</strong> Reviewed and approved transfer mechanisms between classification levels</li>
+          <li><strong>Manual import:</strong> Physical media with scanning, quarantine, and approval workflows</li>
+        </ul>
+
+        <h3>4. Data Export</h3>
+        <p>
+          Getting results out is often harder than getting data in. AI decision packets, audit reports, 
+          and evidence exports must pass through review and approval processes. Approaches include:
+        </p>
+        <ul>
+          <li><strong>QR code bridges:</strong> Encode small data payloads as animated QR sequences for visual transfer (no electronic media needed)</li>
+          <li><strong>Printed reports:</strong> PDF exports reviewed and printed for physical transfer</li>
+          <li><strong>Approved media:</strong> Reviewed exports written to approved removable media</li>
+        </ul>
+
+        <h3>5. Clock and Certificate Management</h3>
+        <p>
+          Without internet NTP, time synchronization requires GPS-disciplined oscillators or internal Stratum-1 
+          time servers. Without public CAs, TLS certificates must be managed through an internal PKI. Both are 
+          solvable engineering problems, but they require upfront planning.
+        </p>
+
+        <h2>Compliance Benefits of Air-Gapped Deployment</h2>
+        <p>Air-gapped deployment eliminates entire categories of compliance risk:</p>
+        <ul>
+          <li><strong>No third-party data processing:</strong> GDPR Article 28 processor obligations may not apply</li>
+          <li><strong>No BAA requirements:</strong> HIPAA Business Associate status may not trigger for the AI vendor</li>
+          <li><strong>No cross-border transfer:</strong> Data sovereignty concerns eliminated — data physically cannot leave the facility</li>
+          <li><strong>No supply chain API risk:</strong> No dependency on external API availability, rate limits, or policy changes</li>
+          <li><strong>Simplified audit scope:</strong> The entire AI system is contained within a single security boundary</li>
+        </ul>
+
+        <h2>Who Should Air-Gap Their AI?</h2>
+        <p>Air-gapped deployment is the right choice when:</p>
+        <ul>
+          <li>Regulatory requirements mandate it (ITAR, classified data, NERC CIP)</li>
+          <li>The data is so sensitive that any network exposure is unacceptable</li>
+          <li>You need provable data sovereignty — not just contractual, but physical</li>
+          <li>You operate in environments where internet connectivity is unavailable (ships, remote facilities, field deployments)</li>
+        </ul>
+        <p>
+          For organizations where data sensitivity is moderate and regulatory requirements allow cloud processing, 
+          private cloud or on-premises (network-connected) deployment may be sufficient. Air-gapping adds operational 
+          overhead — it should be chosen when the security requirements justify it.
+        </p>
+
+        <div class="faq-section">
+          <h2>Frequently Asked Questions</h2>
+
+          <div class="faq-item">
+            <div class="faq-question">Can LLMs really run without internet?</div>
+            <div class="faq-answer">
+              Yes. Open-weight models (Llama, Mistral, Qwen, DeepSeek, and others) can be downloaded once and 
+              run entirely locally using inference engines like Ollama, vLLM, or llama.cpp. They require no 
+              internet connectivity during operation. The quality of local models has improved dramatically — 
+              32B+ parameter models running on modern GPU hardware rival cloud API quality for most enterprise tasks.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">How do you update an air-gapped AI system?</div>
+            <div class="faq-answer">
+              Updates are delivered via offline install bundles — pre-packaged archives containing all software, 
+              dependencies, model weights, and configuration changes. Each bundle includes an SBOM, cryptographic 
+              signatures, and integrity hashes. The bundle is transferred via approved physical media, scanned, 
+              and installed during a maintenance window.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">What hardware is needed for air-gapped AI?</div>
+            <div class="faq-answer">
+              A typical air-gapped AI deployment requires: a server with one or more NVIDIA GPUs (A100, H100, or 
+              L40S for production workloads; RTX 4090 for smaller deployments), 64GB+ RAM, NVMe storage for model 
+              weights, and standard server infrastructure (UPS, cooling, physical security). The exact specs depend 
+              on model size and concurrent user requirements.
+            </div>
+          </div>
+        </div>
+
+        <div class="cta-box">
+          <h3>See Air-Gapped AI in Action</h3>
+          <p>Datacendia is designed for air-gapped deployment from the ground up. See our QR Air-Gap Bridge demo — data transfer with zero electronic media.</p>
+          <a href="../../demos/qr-bridge.html" class="cta-button">See QR Bridge Demo →</a>
+        </div>
+
+        <div class="related-links">
+          <h3>Related Articles</h3>
+          <ul>
+            <li><a href="../sovereign-ai/">What is Sovereign AI?</a></li>
+            <li><a href="../ai-governance/">What is AI Governance?</a></li>
+            <li><a href="../hipaa-ai-compliance/">HIPAA AI Compliance Guide</a></li>
+            <li><a href="../eu-ai-act-compliance/">EU AI Act Compliance Guide</a></li>
+            <li><a href="../ai-audit-trail/">What is an AI Audit Trail?</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+    <div class="footer-section">
+      <p class="footer-outcome">Ready to own your AI decisions — and prove them to regulators?</p>
+      <div class="footer-ctas">
+        <a href="../../briefing.html" class="cta-button">Request Briefing <span class="arrow">→</span></a>
+        <a href="../../pilot.html" class="cta-button secondary">See Results in 90 Days</a>
+      </div>
+      <p class="footer-contact"><a href="mailto:contact@datacendia.com">contact@datacendia.com</a> · <a href="../../team.html">Leadership</a> · <a href="../../trust.html">Trust</a> · <a href="../../pricing.html">Pricing</a> · <a href="../../privacy.html">Privacy</a> · <a href="../../terms.html">Terms</a></p>
+    </div>
+    </footer>
+  </div>
+</body>
+</html>
