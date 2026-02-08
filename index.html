@@ -1081,6 +1081,19 @@
       </div>
       <p class="signals-disclaimer">We're a new platform seeking pilot partners. <a href="pilot.html">Join our pilot program</a> to create real results together.</p>
     </div>
+    <!-- Newsletter Signup -->
+    <section style="max-width: 600px; margin: 60px auto 0; padding: 0 24px;">
+      <div style="background: linear-gradient(135deg, rgba(212, 175, 55, 0.06) 0%, rgba(6, 182, 212, 0.04) 100%); border: 1px solid rgba(212, 175, 55, 0.2); border-radius: 12px; padding: 32px; text-align: center;">
+        <h3 style="font-family: var(--font-display); font-size: 1.15rem; color: var(--color-text); margin-bottom: 8px;">Stay Informed</h3>
+        <p style="font-size: 0.8rem; color: var(--color-text-muted); margin-bottom: 20px; line-height: 1.6;">Platform updates, new compliance guides, and industry analysis. No spam — one email per month, max.</p>
+        <form id="newsletter-form" style="display: flex; gap: 8px; max-width: 420px; margin: 0 auto;" onsubmit="event.preventDefault(); document.getElementById('newsletter-thanks').style.display='block'; this.style.display='none';">
+          <input type="email" required placeholder="your@email.com" style="flex: 1; padding: 10px 16px; background: rgba(0,0,0,0.3); border: 1px solid var(--color-border); border-radius: 6px; color: var(--color-text); font-size: 0.85rem; outline: none; font-family: inherit;" onfocus="this.style.borderColor='rgba(212,175,55,0.5)'" onblur="this.style.borderColor='var(--color-border)'">
+          <button type="submit" style="padding: 10px 20px; background: var(--color-gold); color: var(--color-bg); border: none; border-radius: 6px; font-size: 0.8rem; font-weight: 600; cursor: pointer; white-space: nowrap; transition: opacity 0.2s;" onmouseover="this.style.opacity='0.9'" onmouseout="this.style.opacity='1'">Subscribe</button>
+        </form>
+        <p id="newsletter-thanks" style="display: none; color: #10b981; font-size: 0.85rem; margin-top: 8px;">Thanks — we'll be in touch.</p>
+        <p style="font-size: 0.65rem; color: var(--color-text-dim); margin-top: 12px;">No tracking pixels. Unsubscribe anytime. <a href="privacy.html" style="color: var(--color-text-dim);">Privacy Policy</a></p>
+      </div>
+    </section>
     </main>
 
     <footer>
