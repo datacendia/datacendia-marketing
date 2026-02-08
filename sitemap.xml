@@ -1591,6 +1591,22 @@
     <priority>0.8</priority>
   </url>
 
+  <!-- API Documentation -->
+  <url>
+    <loc>https://datacendia.com/api-docs.html</loc>
+    <lastmod>2026-02-08T16:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Partner Program -->
+  <url>
+    <loc>https://datacendia.com/partners.html</loc>
+    <lastmod>2026-02-08T16:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
   <!-- New Learn Articles - February 2026 -->
   <url>
     <loc>https://datacendia.com/learn/ai-governance/</loc>
