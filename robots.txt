@@ -21,3 +21,7 @@ User-agent: CCBot
 Allow: /
 
 Sitemap: https://datacendia.com/sitemap.xml
+
+# LLMs.txt — AI model discoverability (https://llmstxt.org/)
+# Provides structured site summary for AI assistants and search engines
+LLMsTxt: https://datacendia.com/llms.txt

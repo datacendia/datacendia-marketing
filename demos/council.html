@@ -3,640 +3,439 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Council™ — Live Deliberation Demo | Datacendia</title>
-  <meta name="description" content="Watch AI agents deliberate a real M&A decision. See multi-agent reasoning, cross-examination, dissent tracking, and confidence scoring.">
+  <title>The Council™ — AI Deliberation Demo | Datacendia</title>
+  <meta name="description" content="Multi-agent AI deliberation. Your C-suite of AI advisors debates every angle before you decide.">
   <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="demo-platform.css">
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #0a0a0a; color: #e5e5e5; font-family: 'Inter', -apple-system, sans-serif; line-height: 1.6; }
+    body{margin:0;background:#fafafa;color:#1a1a1a;font-family:'Inter',sans-serif}
+    .council-page{padding:24px;max-width:1200px;margin:0 auto}
 
-    /* Top Bar — mimics platform nav */
-    .platform-bar {
-      display: flex; align-items: center; gap: 12px;
-      padding: 10px 20px; background: #111; border-bottom: 1px solid #1e1e2e;
-      font-size: 0.8rem;
-    }
-    .platform-bar .logo { font-weight: 700; color: #c9a227; letter-spacing: 0.05em; }
-    .platform-bar .breadcrumb { color: #6b7280; }
-    .platform-bar .breadcrumb span { color: #e5e5e5; }
-    .platform-bar .back { color: #6b7280; text-decoration: none; font-size: 0.75rem; margin-left: auto; }
-    .platform-bar .back:hover { color: #c9a227; }
-    .platform-bar .demo-pill { padding: 2px 8px; background: rgba(34,197,94,0.15); color: #22c55e; border-radius: 10px; font-size: 0.6rem; font-family: 'JetBrains Mono', monospace; font-weight: 600; }
+    /* Header */
+    .c-header{margin-bottom:24px}
+    .c-header h1{font-size:1.8rem;font-weight:700;display:flex;align-items:center;gap:12px;margin:0}
+    .c-header p{color:#6b7280;font-size:.95rem;margin:4px 0 0}
 
-    /* Main Layout */
-    .app-layout { display: flex; height: calc(100vh - 41px); overflow: hidden; }
-    .sidebar { width: 260px; background: #111; border-right: 1px solid #1e1e2e; display: flex; flex-direction: column; flex-shrink: 0; overflow-y: auto; }
-    .main-panel { flex: 1; display: flex; flex-direction: column; overflow: hidden; }
+    /* Agents Grid */
+    .agents-section{margin-bottom:24px}
+    .agents-section h2{font-size:1rem;font-weight:600;margin-bottom:12px;color:#374151}
+    .agents-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:10px}
+    .agent-card{padding:14px;border-radius:12px;border:2px solid #e5e7eb;background:#fff;cursor:pointer;transition:all .2s;text-align:left}
+    .agent-card:hover{border-color:#a1a1aa;box-shadow:0 2px 8px rgba(0,0,0,.05)}
+    .agent-card.selected{border-color:#6366f1;background:#eef2ff}
+    .agent-card .ac-status{width:8px;height:8px;border-radius:50%;background:#22c55e;position:absolute;top:12px;right:12px}
+    .agent-card{position:relative}
+    .ac-avatar{width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;margin-bottom:8px}
+    .ac-name{font-weight:600;font-size:.85rem;color:#111}
+    .ac-role{font-size:.72rem;color:#6b7280}
+    .ac-caps{display:flex;flex-wrap:wrap;gap:3px;margin-top:6px}
+    .ac-cap{font-size:.58rem;padding:1px 6px;background:#f3f4f6;border-radius:4px;color:#6b7280}
 
-    /* Sidebar */
-    .sb-section { padding: 16px; border-bottom: 1px solid #1e1e2e; }
-    .sb-label { font-size: 0.6rem; font-weight: 600; color: #6b7280; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 10px; }
-    .sb-mode { display: flex; align-items: center; gap: 8px; padding: 8px 10px; background: #1e293b; border-radius: 8px; margin-bottom: 10px; }
-    .sb-mode-emoji { font-size: 1rem; }
-    .sb-mode-name { font-size: 0.8rem; font-weight: 600; color: #fff; }
-    .sb-mode-desc { font-size: 0.65rem; color: #94a3b8; font-style: italic; }
+    /* Modes */
+    .modes-section{margin-bottom:20px}
+    .modes-row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+    .mode-btn{padding:8px 16px;border:1px solid #e5e7eb;border-radius:10px;background:#fff;font-size:.78rem;font-weight:500;cursor:pointer;transition:all .2s;font-family:'Inter',sans-serif;display:flex;align-items:center;gap:6px}
+    .mode-btn:hover{border-color:#6366f1;color:#6366f1}
+    .mode-btn.active{border-color:#6366f1;background:#6366f1;color:#fff}
+    .mode-label{font-size:.72rem;color:#6b7280;margin-right:8px;font-weight:600}
 
-    /* Agent Grid in sidebar */
-    .agent-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
-    .agent-chip {
-      display: flex; align-items: center; gap: 6px; padding: 6px 8px;
-      background: #1a1a2e; border: 1px solid #2a2a3e; border-radius: 8px;
-      font-size: 0.7rem; cursor: default; transition: all 0.2s; position: relative;
-    }
-    .agent-chip.active { border-color: #3b82f6; background: rgba(59,130,246,0.08); }
-    .agent-chip.done { border-color: #22c55e; }
-    .agent-chip.streaming { border-color: #22c55e; box-shadow: 0 0 8px rgba(34,197,94,0.3); }
-    .agent-circle {
-      width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
-      font-size: 0.55rem; font-weight: 700; color: #fff; flex-shrink: 0; position: relative;
-    }
-    .agent-circle .status-dot {
-      position: absolute; bottom: -1px; right: -1px; width: 7px; height: 7px;
-      border-radius: 50%; border: 1.5px solid #111;
-    }
-    .agent-chip-name { color: #d1d5db; font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-    .agent-chip .check { color: #22c55e; font-size: 0.6rem; margin-left: auto; }
+    /* Query Input */
+    .query-section{margin-bottom:24px}
+    .query-card{background:#fff;border:1px solid #e5e7eb;border-radius:16px;padding:20px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+    .query-card h3{font-size:.95rem;font-weight:600;margin:0 0 4px;display:flex;align-items:center;gap:8px}
+    .query-card .qc-sub{font-size:.75rem;color:#9ca3af;margin-bottom:12px}
+    .query-input{width:100%;min-height:80px;padding:12px 16px;border:1px solid #e5e7eb;border-radius:12px;font-size:.9rem;font-family:'Inter',sans-serif;resize:vertical;outline:none;transition:border .2s}
+    .query-input:focus{border-color:#6366f1;box-shadow:0 0 0 3px rgba(99,102,241,.1)}
+    .query-actions{display:flex;align-items:center;justify-content:space-between;margin-top:12px}
+    .qa-left{display:flex;align-items:center;gap:8px}
+    .qa-info{font-size:.72rem;color:#9ca3af}
+    .qa-btn{padding:10px 24px;background:#6366f1;color:#fff;border:none;border-radius:10px;font-size:.85rem;font-weight:600;cursor:pointer;transition:all .2s;font-family:'Inter',sans-serif}
+    .qa-btn:hover{background:#4f46e5}
+    .qa-btn:disabled{opacity:.5;cursor:not-allowed}
+    .qa-mode-toggle{display:flex;border:1px solid #e5e7eb;border-radius:8px;overflow:hidden}
+    .qa-toggle{padding:6px 14px;font-size:.72rem;cursor:pointer;transition:all .15s;border:none;background:#fff;font-family:'Inter',sans-serif;color:#6b7280}
+    .qa-toggle.active{background:#6366f1;color:#fff}
 
-    /* Phase Progress in sidebar */
-    .phase-list { display: flex; flex-direction: column; gap: 6px; }
-    .phase-item { display: flex; align-items: center; gap: 8px; font-size: 0.72rem; }
-    .phase-dot {
-      width: 20px; height: 20px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
-      font-size: 0.55rem; font-weight: 700; flex-shrink: 0;
-    }
-    .phase-dot.done { background: #22c55e; color: #fff; }
-    .phase-dot.active { background: #6366f1; color: #fff; }
-    .phase-dot.pending { background: #374151; color: #9ca3af; }
-    .phase-name { color: #d1d5db; }
-    .phase-name.active { font-weight: 600; color: #fff; }
+    /* Context banner */
+    .context-banner{background:#eef2ff;border:1px solid #c7d2fe;border-radius:12px;padding:10px 16px;margin-bottom:12px;display:flex;align-items:center;gap:8px;font-size:.78rem;color:#4338ca}
+    .context-banner .cb-close{margin-left:auto;cursor:pointer;color:#6366f1;font-size:.85rem}
 
-    /* Main: Deliberation Header */
-    .delib-header {
-      padding: 16px 24px; border-bottom: 1px solid #1e1e2e; background: #111;
-      display: flex; align-items: center; justify-content: space-between;
-    }
-    .delib-title { font-size: 0.9rem; font-weight: 600; color: #fff; }
-    .delib-badges { display: flex; gap: 6px; align-items: center; }
-    .badge { padding: 3px 10px; border-radius: 4px; font-size: 0.65rem; font-weight: 600; font-family: 'JetBrains Mono', monospace; }
-    .badge-mode { background: rgba(249,115,22,0.15); color: #f97316; }
-    .badge-live { background: rgba(34,197,94,0.15); color: #22c55e; display: flex; align-items: center; gap: 4px; }
-    .badge-live .dot { width: 6px; height: 6px; background: #22c55e; border-radius: 50%; animation: pulse 2s infinite; }
-    .badge-conf { border-radius: 4px; font-weight: 600; }
-    @keyframes pulse { 0%,100%{opacity:1;} 50%{opacity:0.4;} }
+    /* Starter prompts */
+    .starters{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:16px}
+    .starter-btn{padding:8px 14px;border:1px solid #e5e7eb;border-radius:10px;background:#fff;font-size:.75rem;color:#374151;cursor:pointer;transition:all .15s;font-family:'Inter',sans-serif;display:flex;align-items:center;gap:6px;max-width:280px}
+    .starter-btn:hover{border-color:#6366f1;color:#6366f1;background:#fafafe}
 
-    /* Agent Progress Bar (sticky) */
-    .agent-progress {
-      display: flex; align-items: center; gap: 4px; padding: 10px 24px;
-      background: rgba(17,17,17,0.95); backdrop-filter: blur(8px);
-      border-bottom: 1px solid #1e1e2e; flex-wrap: wrap;
-    }
-    .agent-progress-label { font-size: 0.65rem; color: #6b7280; font-weight: 500; margin-right: 8px; }
-    .ap-chip {
-      display: flex; align-items: center; gap: 4px; padding: 3px 8px;
-      border-radius: 6px; font-size: 0.65rem; transition: all 0.3s; cursor: default;
-    }
-    .ap-chip.pending { background: #1f2937; color: #6b7280; }
-    .ap-chip.streaming { background: rgba(34,197,94,0.15); color: #22c55e; animation: pulse 2s infinite; }
-    .ap-chip.done { background: #1f2937; color: #d1d5db; }
-    .ap-circle { width: 18px; height: 18px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.45rem; font-weight: 700; color: #fff; }
-    .ap-chip .ap-check { color: #22c55e; font-size: 0.55rem; }
-    .ap-chip .ap-dot { width: 5px; height: 5px; background: #22c55e; border-radius: 50%; }
+    /* Results / Chat Area */
+    .results-section{background:#fff;border:1px solid #e5e7eb;border-radius:16px;overflow:hidden}
+    .results-header{padding:16px 20px;border-bottom:1px solid #e5e7eb;display:flex;align-items:center;justify-content:space-between}
+    .results-header h3{font-size:1rem;font-weight:600;margin:0}
+    .rh-badges{display:flex;gap:6px}
+    .rh-badge{padding:3px 10px;border-radius:6px;font-size:.65rem;font-weight:600}
 
-    /* Controls */
-    .controls-bar { display: flex; justify-content: center; gap: 10px; padding: 12px 24px; background: #0f0f0f; border-bottom: 1px solid #1e1e2e; }
-    .ctrl-btn {
-      padding: 8px 20px; border: 1px solid #2a2a3e; border-radius: 8px;
-      background: #1a1a2e; color: #e5e5e5; font-family: 'Inter', sans-serif;
-      font-size: 0.8rem; cursor: pointer; transition: all 0.2s; font-weight: 500;
-    }
-    .ctrl-btn:hover { border-color: #6366f1; color: #a5b4fc; }
-    .ctrl-btn.primary { background: #6366f1; border-color: #6366f1; color: #fff; }
-    .ctrl-btn.primary:hover { background: #4f46e5; }
-    .ctrl-btn:disabled { opacity: 0.4; cursor: not-allowed; }
-
-    /* Chat Area */
-    .chat-area { flex: 1; overflow-y: auto; padding: 20px 24px; display: flex; flex-direction: column; gap: 4px; }
-
-    /* User Question Bubble */
-    .user-question { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 16px; }
-    .user-avatar {
-      width: 36px; height: 36px; border-radius: 50%; background: #1f2937;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 0.75rem; font-weight: 600; color: #fff; flex-shrink: 0;
-    }
-    .user-bubble { flex: 1; background: #1f2937; border-radius: 12px; padding: 12px 16px; }
-    .user-bubble p { font-size: 0.9rem; color: #fff; font-weight: 500; }
-
-    /* Phase Divider */
-    .phase-divider { display: flex; align-items: center; gap: 12px; margin: 16px 0 12px; }
-    .phase-divider .line { flex: 1; height: 1px; background: #2a2a3e; }
-    .phase-divider .pill { padding: 4px 14px; border-radius: 12px; font-size: 0.65rem; font-weight: 600; }
-
-    /* Agent Chat Message */
-    .msg { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 6px; opacity: 0; transform: translateY(8px); transition: all 0.4s; }
-    .msg.visible { opacity: 1; transform: translateY(0); }
-    .msg-avatar {
-      width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
-      font-size: 0.65rem; font-weight: 700; color: #fff; flex-shrink: 0; box-shadow: 0 2px 8px rgba(0,0,0,0.3);
-      position: relative;
-    }
-    .msg-avatar .online-dot {
-      position: absolute; bottom: -1px; right: -1px; width: 8px; height: 8px;
-      border-radius: 50%; border: 2px solid #0a0a0a;
-    }
-    .msg-body { flex: 1; min-width: 0; }
-    .msg-meta { display: flex; align-items: center; gap: 6px; margin-bottom: 4px; flex-wrap: wrap; }
-    .msg-name { font-size: 0.8rem; font-weight: 600; color: #fff; }
-    .msg-role { font-size: 0.6rem; color: #6b7280; background: #1f2937; padding: 1px 8px; border-radius: 4px; }
-    .msg-time { font-size: 0.55rem; color: #4b5563; }
-    .msg-streaming { display: flex; align-items: center; gap: 4px; font-size: 0.65rem; color: #22c55e; margin-left: auto; }
-    .msg-streaming .bounce { width: 4px; height: 4px; background: #22c55e; border-radius: 50%; animation: bounce 1s infinite; }
-    .msg-streaming .bounce:nth-child(2) { animation-delay: 0.15s; }
-    .msg-streaming .bounce:nth-child(3) { animation-delay: 0.3s; }
-    @keyframes bounce { 0%,80%,100%{transform:translateY(0);} 40%{transform:translateY(-4px);} }
-    .msg-bubble {
-      border-radius: 16px 16px 16px 4px; padding: 12px 16px;
-      background: #1f2937; font-size: 0.82rem; color: #d1d5db; line-height: 1.7;
-      max-width: 95%; position: relative; transition: background 0.3s;
-    }
-    .msg-bubble.streaming { background: rgba(34,197,94,0.08); border: 1px solid rgba(34,197,94,0.2); }
-    .msg-bubble p { margin-bottom: 6px; }
-    .msg-bubble p:last-child { margin-bottom: 0; }
-    .msg-bubble strong { color: #f3f4f6; }
-
-    /* Message Footer */
-    .msg-footer {
-      display: flex; align-items: center; justify-content: space-between;
-      margin-top: 8px; padding-top: 6px; border-top: 1px solid rgba(255,255,255,0.06);
-    }
-    .msg-footer-left { display: flex; align-items: center; gap: 8px; }
-    .msg-duration { font-size: 0.6rem; color: #4b5563; }
-    .msg-reactions { display: flex; gap: 2px; }
-    .msg-reactions button {
-      padding: 2px 6px; background: transparent; border: none; border-radius: 4px;
-      font-size: 0.7rem; cursor: pointer; opacity: 0.4; transition: all 0.2s;
-    }
-    .msg-reactions button:hover { opacity: 1; background: #374151; }
-    .msg-reactions button.reacted { opacity: 1; background: #374151; }
-    .msg-read { font-size: 0.55rem; color: #4b5563; margin-top: 2px; margin-left: 46px; }
-
-    /* Dissent Badge */
-    .dissent-inline {
-      display: inline-flex; align-items: center; gap: 4px; margin-top: 8px;
-      padding: 4px 12px; background: rgba(239,68,68,0.1); border: 1px solid rgba(239,68,68,0.3);
-      border-radius: 6px; font-size: 0.65rem; color: #ef4444; font-family: 'JetBrains Mono', monospace;
-    }
-
-    /* Cross-Examination */
-    .cx-label { display: flex; align-items: center; gap: 6px; margin: 16px 0 8px; }
-    .cx-label span:first-child { font-size: 1rem; }
-    .cx-label span:last-child { font-size: 0.65rem; font-weight: 600; color: #eab308; text-transform: uppercase; letter-spacing: 0.06em; }
-    .msg-bubble.cx-challenge { background: rgba(234,179,8,0.06); border-left: 3px solid #eab308; }
-    .msg-bubble.cx-rebuttal { background: rgba(6,182,212,0.06); border-left: 3px solid #06b6d4; }
-    .msg.cx-rebuttal-msg { margin-left: 24px; }
+    /* Chat messages */
+    .chat-area{max-height:600px;overflow-y:auto;padding:20px}
+    .chat-msg{display:flex;gap:12px;margin-bottom:16px}
+    .cm-avatar{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0}
+    .cm-body{flex:1;min-width:0}
+    .cm-header{display:flex;align-items:center;gap:8px;margin-bottom:4px}
+    .cm-name{font-size:.85rem;font-weight:600}
+    .cm-role{font-size:.65rem;color:#9ca3af}
+    .cm-time{font-size:.6rem;color:#9ca3af;margin-left:auto}
+    .cm-bubble{padding:12px 16px;border-radius:16px;border-top-left-radius:4px;font-size:.85rem;line-height:1.6;color:#374151;max-width:95%}
+    .cm-bubble.agent{background:#f3f4f6}
+    .cm-bubble.system{background:#fef3c7;border-left:3px solid #f59e0b}
+    .cm-bubble.synthesis{background:linear-gradient(135deg,#eef2ff,#e0f2fe);border-left:4px solid #6366f1}
+    .cm-bubble.cross{background:#fef9c3;border-left:3px solid #eab308}
+    .cm-reactions{display:flex;gap:4px;margin-top:6px}
+    .cm-reaction{padding:2px 8px;border-radius:12px;font-size:.65rem;background:#f3f4f6;border:1px solid #e5e7eb;cursor:pointer}
 
     /* Synthesis */
-    .synthesis-msg { margin-top: 16px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.06); }
-    .synth-avatar {
-      width: 36px; height: 36px; border-radius: 50%;
-      background: linear-gradient(135deg, #6366f1, #22c55e); display: flex; align-items: center;
-      justify-content: center; font-size: 1rem; box-shadow: 0 0 12px rgba(99,102,241,0.4);
-    }
-    .msg-bubble.synth {
-      background: linear-gradient(135deg, rgba(99,102,241,0.1), rgba(34,197,94,0.08));
-      border-left: 4px solid #6366f1;
-    }
+    .synthesis-card{margin:16px 20px;padding:16px;background:linear-gradient(135deg,#eef2ff,#dcfce7);border-radius:14px;border-left:4px solid #6366f1}
+    .syn-header{display:flex;align-items:center;gap:8px;margin-bottom:8px}
+    .syn-header h4{margin:0;font-size:.9rem;font-weight:600;color:#4338ca}
+    .syn-confidence{padding:2px 8px;border-radius:6px;font-size:.65rem;font-weight:600}
+    .syn-conf-high{background:rgba(34,197,94,.15);color:#16a34a}
+    .syn-body{font-size:.85rem;color:#374151;line-height:1.7}
 
-    /* Document Actions */
-    .doc-actions {
-      display: flex; gap: 8px; margin-top: 16px; padding-top: 12px; border-top: 1px solid #1e1e2e;
-      flex-wrap: wrap;
-    }
-    .doc-btn {
-      display: flex; align-items: center; gap: 6px; padding: 8px 14px; border-radius: 8px;
-      font-size: 0.75rem; font-weight: 500; cursor: pointer; transition: all 0.2s; border: none;
-    }
-    .doc-btn.primary { background: #6366f1; color: #fff; }
-    .doc-btn.primary:hover { background: #4f46e5; }
-    .doc-btn.secondary { background: #374151; color: #d1d5db; }
-    .doc-btn.secondary:hover { background: #4b5563; }
+    /* Action buttons */
+    .action-bar{padding:16px 20px;border-top:1px solid #e5e7eb;display:flex;gap:8px;flex-wrap:wrap}
+    .act-btn{padding:8px 14px;border-radius:8px;font-size:.75rem;font-weight:500;cursor:pointer;border:none;transition:all .15s;font-family:'Inter',sans-serif;display:flex;align-items:center;gap:4px}
+    .act-primary{background:#6366f1;color:#fff}.act-primary:hover{background:#4f46e5}
+    .act-green{background:#16a34a;color:#fff}.act-green:hover{background:#15803d}
+    .act-neutral{background:#f3f4f6;color:#374151;border:1px solid #e5e7eb}.act-neutral:hover{background:#e5e7eb}
+    .act-purple{background:linear-gradient(135deg,#7c3aed,#6366f1);color:#fff}.act-purple:hover{opacity:.9}
+    .act-pink{background:linear-gradient(135deg,#db2777,#ec4899);color:#fff}.act-pink:hover{opacity:.9}
+    .act-violet{background:linear-gradient(135deg,#7c3aed,#8b5cf6);color:#fff}
 
-    /* Bottom CTA */
-    .demo-cta {
-      text-align: center; margin: 24px; padding: 32px; background: #111;
-      border: 1px solid #1e1e2e; border-radius: 12px;
-    }
-    .demo-cta h3 { font-size: 1.1rem; font-weight: 300; color: #fff; margin-bottom: 6px; }
-    .demo-cta p { font-size: 0.8rem; color: #6b7280; margin-bottom: 16px; }
-    .demo-cta a {
-      display: inline-block; padding: 10px 24px; background: #6366f1; border-radius: 8px;
-      color: #fff; text-decoration: none; font-weight: 500; font-size: 0.8rem; transition: all 0.2s;
-    }
-    .demo-cta a:hover { background: #4f46e5; }
+    /* Empty state */
+    .empty-state{text-align:center;padding:48px 20px}
+    .empty-state .es-icon{font-size:3rem;margin-bottom:12px}
+    .empty-state p{color:#9ca3af;font-size:.9rem}
 
-    @media (max-width: 768px) {
-      .sidebar { display: none; }
-      .app-layout { flex-direction: column; }
-      .agent-progress { overflow-x: auto; flex-wrap: nowrap; }
-    }
+    /* Typing indicator */
+    .typing{display:flex;align-items:center;gap:8px;padding:8px 0;font-size:.78rem;color:#9ca3af}
+    .typing-dots{display:flex;gap:3px}
+    .typing-dots span{width:6px;height:6px;background:#6366f1;border-radius:50%;animation:bounce .6s infinite}
+    .typing-dots span:nth-child(2){animation-delay:.15s}
+    .typing-dots span:nth-child(3){animation-delay:.3s}
+    @keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+
+    /* User input */
+    .user-input{padding:12px 20px;border-top:1px solid #e5e7eb;display:flex;gap:8px;align-items:center}
+    .ui-avatar{width:32px;height:32px;border-radius:50%;background:#3b82f6;display:flex;align-items:center;justify-content:center;color:#fff;font-size:.65rem;font-weight:700;flex-shrink:0}
+    .ui-field{flex:1;padding:10px 16px;border:1px solid #e5e7eb;border-radius:24px;font-size:.82rem;outline:none;font-family:'Inter',sans-serif}
+    .ui-field:focus{border-color:#6366f1}
+    .ui-send{padding:10px 20px;background:#3b82f6;color:#fff;border:none;border-radius:24px;font-size:.78rem;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif}
+
+    /* Backstory & Briefing */
+    .backstory{background:linear-gradient(135deg,rgba(99,102,241,.04),rgba(16,185,129,.03));border:1px solid rgba(99,102,241,.15);border-radius:14px;padding:20px;margin-bottom:24px}
+    .backstory h3{font-size:.95rem;font-weight:600;color:#4338ca;margin:0 0 10px;display:flex;align-items:center;gap:8px}
+    .backstory p{font-size:.85rem;color:#4b5563;line-height:1.7;margin:0 0 6px}
+    .backstory strong{color:#111}
+    .backstory .bs-meta{display:flex;flex-wrap:wrap;gap:16px;margin-top:12px;padding-top:12px;border-top:1px solid rgba(99,102,241,.1);font-size:.75rem;color:#6b7280}
+    .backstory .bs-meta span{display:flex;align-items:center;gap:4px}
+    .briefing{background:linear-gradient(135deg,rgba(34,197,94,.04),rgba(6,182,212,.03));border:1px solid rgba(34,197,94,.15);border-radius:14px;padding:20px;margin:16px 20px}
+    .briefing h3{font-size:.95rem;font-weight:600;color:#15803d;margin:0 0 10px;display:flex;align-items:center;gap:8px}
+    .briefing p{font-size:.85rem;color:#4b5563;line-height:1.7;margin:0 0 6px}
+    .briefing strong{color:#111}
+    .briefing ul{margin:8px 0;padding-left:18px;font-size:.85rem;color:#4b5563;line-height:1.8}
+    .briefing li{margin-bottom:2px}
+    .briefing .bf-footer{margin-top:12px;padding-top:12px;border-top:1px solid rgba(34,197,94,.1);font-size:.75rem;color:#6b7280;font-family:'JetBrains Mono',monospace}
+
+    /* Demo CTA */
+    .demo-cta{text-align:center;margin-top:24px;padding:24px;background:linear-gradient(135deg,rgba(99,102,241,.06),rgba(16,185,129,.04));border:1px solid rgba(99,102,241,.15);border-radius:16px}
+    .demo-cta h3{font-size:1.1rem;font-weight:600;color:#4338ca;margin:0 0 6px}
+    .demo-cta p{font-size:.82rem;color:#6b7280;margin:0 0 12px}
+    .demo-cta a{display:inline-block;padding:10px 24px;background:#6366f1;color:#fff;text-decoration:none;border-radius:10px;font-weight:600;font-size:.85rem}
+
+    .ph-back{position:absolute;right:16px;top:50%;transform:translateY(-50%);font-size:.7rem;color:#71717a;text-decoration:none;padding:4px 10px;border:1px solid #27272a;border-radius:8px;transition:all .2s}
+    .ph-back:hover{border-color:#6366f1;color:#6366f1}
   </style>
 </head>
 <body>
-  <!-- Platform Nav Bar -->
-  <div class="platform-bar">
-    <span class="logo">DATACENDIA</span>
-    <span class="breadcrumb">/ Cortex / <span>The Council</span></span>
-    <span class="demo-pill">DEMO MODE</span>
-    <a href="../demos.html" class="back">← Back to Demos</a>
+  <!-- Platform Header -->
+  <div class="platform-header" style="position:relative">
+    <a href="../demos.html" class="ph-logo" style="text-decoration:none;color:inherit">DATACENDIA</a>
+    <div class="ph-divider"></div>
+    <div class="ph-nav">
+      <a class="ph-nav-item active" href="../demos.html#cortex">Cortex</a>
+      <a class="ph-nav-item" href="../demos.html#oversight">Oversight</a>
+      <a class="ph-nav-item" href="../demos.html#evidence">Evidence</a>
+    </div>
+    <span class="ph-breadcrumb">/ Core Suite / <span>The Council</span></span>
+    <span class="ph-spacer"></span>
+    <span class="ph-demo-badge">DEMO MODE</span>
+    <div class="ph-user">
+      <div class="ph-notif">🔔<div class="ph-notif-dot"></div></div>
+      <div class="ph-avatar">SR</div>
+    </div>
+    <a href="../demos.html" class="ph-back">← Demos</a>
   </div>
 
-  <div class="app-layout">
-    <!-- Sidebar -->
-    <div class="sidebar">
-      <!-- Mode -->
-      <div class="sb-section">
-        <div class="sb-label">Council Mode</div>
-        <div class="sb-mode">
-          <span class="sb-mode-emoji">⚔️</span>
-          <div>
-            <div class="sb-mode-name">War Room</div>
-            <div class="sb-mode-desc">"Maximum challenge, zero comfort"</div>
+  <div class="council-page">
+    <!-- Header -->
+    <div class="c-header">
+      <h1>🏛️ The Council</h1>
+      <p>Your AI executive team debates every angle before you decide.</p>
+    </div>
+
+    <!-- Backstory -->
+    <div class="backstory">
+      <h3>📋 Scenario Briefing</h3>
+      <p><strong>Pinnacle SaaS Inc.</strong> is a $45M ARR B2B software company based in Austin, TX. After 7 years of domestic growth, the board has mandated international expansion to maintain the 40% YoY growth rate that investors expect. The EU market — particularly the UK, Germany, and France — represents a <strong>$2.4B total addressable market</strong> that Pinnacle currently ignores entirely.</p>
+      <p>However, the CEO is nervous. Four of the last seven US SaaS companies that expanded to Europe underperformed projections by 40%+. GDPR compliance, currency exposure, local hiring, and competitive dynamics all present risk. She has convened <strong>The Council</strong> — Datacendia's multi-agent AI deliberation engine — to stress-test the decision from every executive perspective before committing.</p>
+      <div class="bs-meta">
+        <span>🏢 Pinnacle SaaS Inc.</span>
+        <span>💰 $45M ARR</span>
+        <span>👥 158 employees</span>
+        <span>🌍 Target: EU (UK-first)</span>
+        <span>📊 $2.4B TAM</span>
+        <span>⚠️ 40%+ underperformance risk</span>
+      </div>
+    </div>
+
+    <!-- Agent Selection -->
+    <div class="agents-section">
+      <h2>Select Your Council (click to toggle)</h2>
+      <div class="agents-grid" id="agentsGrid"></div>
+    </div>
+
+    <!-- Council Modes -->
+    <div class="modes-section">
+      <div class="modes-row">
+        <span class="mode-label">Council Mode:</span>
+        <button class="mode-btn active" onclick="setMode('war-room',this)">⚔️ War Room</button>
+        <button class="mode-btn" onclick="setMode('rapid',this)">⚡ Rapid</button>
+        <button class="mode-btn" onclick="setMode('due-diligence',this)">🔍 Due Diligence</button>
+        <button class="mode-btn" onclick="setMode('innovation',this)">💡 Innovation Lab</button>
+        <button class="mode-btn" onclick="setMode('crisis',this)">🚨 Crisis</button>
+        <button class="mode-btn" onclick="setMode('compliance',this)">📋 Compliance</button>
+        <button class="mode-btn" onclick="setMode('governance',this)">🏛️ Governance</button>
+      </div>
+    </div>
+
+    <!-- Query Input -->
+    <div class="query-section">
+      <div class="query-card">
+        <h3>💬 Ask The Council</h3>
+        <div class="qc-sub">Pose your question and let the AI executives deliberate.</div>
+        <textarea class="query-input" id="queryInput" placeholder="e.g., Should we expand into the EU market given current regulations?"></textarea>
+        <div class="query-actions">
+          <div class="qa-left">
+            <div class="qa-mode-toggle">
+              <button class="qa-toggle active" onclick="setQueryMode('quick',this)">⚡ Quick</button>
+              <button class="qa-toggle" onclick="setQueryMode('deliberation',this)">🔄 Deliberation</button>
+            </div>
+            <span class="qa-info" id="agentCount">5 agents selected · War Room mode</span>
           </div>
-        </div>
-      </div>
-      <!-- Agents -->
-      <div class="sb-section">
-        <div class="sb-label">Council Agents (6 selected)</div>
-        <div class="agent-grid" id="sidebarAgents"></div>
-      </div>
-      <!-- Phases -->
-      <div class="sb-section">
-        <div class="sb-label">Deliberation Phases</div>
-        <div class="phase-list" id="phaseList">
-          <div class="phase-item"><div class="phase-dot pending" id="phase-1">1</div><span class="phase-name" id="phase-1-name">Initial Analysis</span></div>
-          <div class="phase-item"><div class="phase-dot pending" id="phase-2">2</div><span class="phase-name" id="phase-2-name">Cross-Examination</span></div>
-          <div class="phase-item"><div class="phase-dot pending" id="phase-3">3</div><span class="phase-name" id="phase-3-name">Synthesis</span></div>
-        </div>
-      </div>
-      <!-- Actions -->
-      <div class="sb-section">
-        <div class="sb-label">Actions</div>
-        <div style="display:flex;flex-direction:column;gap:4px;">
-          <button style="text-align:left;padding:6px 10px;background:none;border:none;color:#d1d5db;font-size:0.75rem;cursor:pointer;border-radius:6px;" onmouseover="this.style.background='#1f2937'" onmouseout="this.style.background='none'">📤 Export Transcript</button>
-          <button style="text-align:left;padding:6px 10px;background:none;border:none;color:#d1d5db;font-size:0.75rem;cursor:pointer;border-radius:6px;" onmouseover="this.style.background='#1f2937'" onmouseout="this.style.background='none'">🔔 Set Alert</button>
-          <button style="text-align:left;padding:6px 10px;background:none;border:none;color:#ef4444;font-size:0.75rem;cursor:pointer;border-radius:6px;" onmouseover="this.style.background='rgba(239,68,68,0.08)'" onmouseout="this.style.background='none'">⏹️ Cancel Deliberation</button>
+          <button class="qa-btn" id="submitBtn" onclick="runDeliberation()">🏛️ Convene Council</button>
         </div>
       </div>
     </div>
 
-    <!-- Main Panel -->
-    <div class="main-panel">
-      <!-- Header -->
-      <div class="delib-header">
-        <span class="delib-title">Council Deliberation</span>
-        <div class="delib-badges">
-          <span class="badge badge-mode">⚖️ GOVERNED DELIBERATION</span>
-          <span class="badge badge-live" id="liveBadge" style="display:none;"><span class="dot"></span> Live</span>
+    <!-- Results Area -->
+    <div class="results-section" id="resultsSection">
+      <div class="results-header">
+        <h3>Recent Decisions</h3>
+        <div class="rh-badges">
+          <span class="rh-badge" style="background:rgba(99,102,241,.1);color:#6366f1" id="phaseLabel">Ready</span>
         </div>
       </div>
 
-      <!-- Agent Progress -->
-      <div class="agent-progress" id="agentProgress"></div>
-
-      <!-- Controls -->
-      <div class="controls-bar">
-        <button class="ctrl-btn primary" id="startBtn" onclick="startDeliberation()">⚖️ Start Deliberation</button>
-        <button class="ctrl-btn" id="skipBtn" onclick="skipToEnd()" disabled>⏩ Skip to Synthesis</button>
-        <button class="ctrl-btn" id="resetBtn" onclick="resetDemo()" style="display:none;">↺ Reset</button>
-      </div>
-
-      <!-- Chat Area -->
       <div class="chat-area" id="chatArea">
-        <!-- User Question -->
-        <div class="user-question">
-          <div class="user-avatar">U</div>
-          <div class="user-bubble">
-            <p>Should we acquire TechStart Inc. for $200M? They have strong IP in autonomous systems but 70% revenue concentration in 3 customers.</p>
+        <div class="empty-state" id="emptyState">
+          <div class="es-icon">💭</div>
+          <p>No decisions yet. Ask the Council a question to begin.</p>
+          <div class="starters">
+            <button class="starter-btn" onclick="useStarter(this)">🌍 Should we expand into the EU market given current regulations?</button>
+            <button class="starter-btn" onclick="useStarter(this)">💰 Analyze the ROI of our AI investment over the next 3 years</button>
+            <button class="starter-btn" onclick="useStarter(this)">⚠️ What are the top 5 risks to our Q4 revenue targets?</button>
+            <button class="starter-btn" onclick="useStarter(this)">🤝 How should we respond to the competitor acquisition?</button>
           </div>
         </div>
       </div>
+
+      <!-- User Input (visible during deliberation) -->
+      <div class="user-input" id="userInput" style="display:none">
+        <div class="ui-avatar">You</div>
+        <input class="ui-field" id="userMsg" placeholder="Type a message..." onkeypress="if(event.key==='Enter')sendUserMsg()">
+        <button class="ui-send" onclick="sendUserMsg()">Send</button>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="demo-cta">
+      <h3>Assemble your own AI Council</h3>
+      <p>Real Ollama-powered agents. Real cross-examination. Real decisions.</p>
+      <a href="../briefing.html">Request Briefing →</a>
     </div>
   </div>
 
-  <script>
-  const AGENTS = [
-    { code: 'cfo', name: 'Chief Financial Officer', role: 'CFO', initials: 'CF', color: '#10B981', stance: 'support', confidence: 78, duration: 3.2,
-      response: `<p><strong>Valuation Assessment:</strong> At $200M, TechStart is priced at approximately 8x trailing revenue — a premium, but defensible given their autonomous systems IP portfolio (14 patents, 6 pending).</p><p><strong>Financial Risk:</strong> The 70% customer concentration is my primary concern. If we lose even one of their top 3 customers post-acquisition, we're looking at a 23-35% revenue shortfall against our integration model.</p><p><strong>Recommendation:</strong> Proceed with a <strong>$30M holdback</strong> tied to customer retention over 18 months. Structure as 70% cash / 30% equity to align incentives. Expected IRR: 18-22% over 5 years assuming successful diversification.</p>` },
-    { code: 'coo', name: 'Chief Operating Officer', role: 'COO', initials: 'CO', color: '#F59E0B', stance: 'support', confidence: 72, duration: 2.8,
-      response: `<p><strong>Integration Complexity:</strong> TechStart runs a different tech stack (Rust/CUDA vs our Go/Python). Full integration will take 12-18 months and require a dedicated team of 8-10 engineers.</p><p><strong>Operational Synergies:</strong> Their autonomous systems testing infrastructure could replace our current outsourced QA pipeline, saving approximately $4.2M/year. Their 47-person engineering team is high-caliber — retention is critical.</p><p><strong>Recommendation:</strong> Support acquisition with mandatory <strong>key-person retention agreements</strong> for their 5 principal engineers. Propose an 18-month earnout structure.</p>` },
-    { code: 'ciso', name: 'Chief Information Security Officer', role: 'CISO', initials: 'CI', color: '#EF4444', stance: 'caution', confidence: 65, duration: 4.1,
-      response: `<p><strong>Security Posture:</strong> TechStart's security practices are adequate but not enterprise-grade. They lack SOC 2 certification, their key management is software-based (no HSM), and I found 3 medium-severity findings in their last penetration test.</p><p><strong>IP Risk:</strong> Their autonomous systems IP touches ITAR-controlled technology. We need to verify export compliance before closing — any violations could expose us to significant regulatory penalties.</p><p><strong>Recommendation:</strong> Proceed with caution. Require <strong>regulatory pre-clearance</strong> for autonomous systems IP in both EU and US jurisdictions. Budget $1.2M for security remediation.</p>` },
-    { code: 'clo', name: 'Chief Legal Officer', role: 'CLO', initials: 'CL', color: '#F97316', stance: 'support', confidence: 70, duration: 2.5,
-      response: `<p><strong>Legal Due Diligence:</strong> TechStart has clean IP ownership — all patents properly assigned, no outstanding litigation, and robust IP assignment clauses in employment agreements.</p><p><strong>Regulatory Exposure:</strong> The autonomous systems space is facing increased regulatory scrutiny (EU AI Act, US Executive Order 14110). This acquisition accelerates our compliance timeline but increases regulatory surface area.</p><p><strong>Recommendation:</strong> Support with conditions. Require <strong>IP escrow</strong> and representations & warranties insurance ($15M policy). Include a material adverse change clause.</p>` },
-    { code: 'cro', name: 'Chief Risk Officer', role: 'Enterprise Risk', initials: 'CR', color: '#8B5CF6', stance: 'oppose', confidence: 82, duration: 5.1, dissent: true,
-      response: `<p><strong>Risk Assessment: ELEVATED</strong> — This acquisition concentrates risk in ways that concern me at a fundamental level.</p><p><strong>Customer Concentration:</strong> 70% revenue in 3 customers is not just a risk factor — it's a structural vulnerability. Acquisitions with >50% customer concentration have a 40% higher failure rate.</p><p><strong>Valuation Risk:</strong> At $200M, we are paying a premium for a company whose revenue could contract 35% if a single relationship deteriorates. The risk-adjusted valuation should be closer to $140-160M.</p><p><strong>FORMAL DISSENT:</strong> I am filing a formal dissent on valuation grounds. The $200M price does not adequately reflect the concentration risk. I recommend renegotiating to $160M with a $40M earnout, or walking away.</p>` },
-    { code: 'redteam', name: 'Red Team', role: 'Adversarial Analysis', initials: 'RT', color: '#EF4444', stance: 'neutral', confidence: 60, duration: 3.7,
-      response: `<p><strong>Adversarial Scenario:</strong> If I were TechStart's largest customer, here's what I'd do post-acquisition: renegotiate my contract downward by 20% using transition disruption as leverage, while simultaneously evaluating competitors. Probability: 35%.</p><p><strong>Competitor Response:</strong> AutonoTech will likely launch an aggressive talent poaching campaign targeting TechStart's engineering team within 60 days of announcement. They have a $50M war chest.</p><p><strong>Worst Case:</strong> 18 months post-acquisition: 2 of 3 major customers have churned, 8 of 47 engineers have left, and we've written down $80M. Probability: 12%.</p>` },
-  ];
+<script>
+// Agents data matching the real platform
+const AGENTS=[
+  {id:'chief',name:'Chief Executive',role:'Strategic Leadership',avatar:'👔',color:'#6366F1',caps:['Strategy','Vision','M&A'],status:'online'},
+  {id:'cfo',name:'Chief Financial',role:'Financial Analysis',avatar:'💰',color:'#10B981',caps:['Revenue','Risk','Budgets'],status:'online'},
+  {id:'cto',name:'Chief Technical',role:'Technology Strategy',avatar:'🔧',color:'#F59E0B',caps:['Architecture','Innovation','Security'],status:'online'},
+  {id:'cro',name:'Chief Revenue',role:'Growth & Sales',avatar:'📈',color:'#EF4444',caps:['Pipeline','Pricing','Markets'],status:'online'},
+  {id:'cmo',name:'Chief Marketing',role:'Brand & Growth',avatar:'🎯',color:'#EC4899',caps:['Brand','Content','GTM'],status:'online'},
+  {id:'clo',name:'Chief Legal',role:'Legal & Compliance',avatar:'⚖️',color:'#8B5CF6',caps:['Contracts','IP','Regulatory'],status:'online'},
+  {id:'ciso',name:'Chief Security',role:'Information Security',avatar:'🛡️',color:'#06B6D4',caps:['Cyber','Privacy','Risk'],status:'online'},
+  {id:'chro',name:'Chief People',role:'Human Resources',avatar:'👥',color:'#F97316',caps:['Talent','Culture','D&I'],status:'online'},
+  {id:'pessimist',name:'Devil\'s Advocate',role:'Contrarian Analysis',avatar:'😈',color:'#EF4444',caps:['Risk','Downside','Critique'],status:'online'},
+  {id:'ethicist',name:'Ethics Officer',role:'Ethical Governance',avatar:'🧭',color:'#14B8A6',caps:['Ethics','Fairness','Impact'],status:'online'},
+];
+let selectedAgents=['chief','cfo','cto','cro','cmo'];
+let mode='war-room',queryMode='quick',isProcessing=false;
 
-  const CROSS_EXAMINATIONS = [
-    { challengerCode: 'cro', challengerName: 'Chief Risk Officer', challengerColor: '#8B5CF6', challengerInitials: 'CR',
-      targetCode: 'cfo', targetName: 'Chief Financial Officer', targetColor: '#10B981', targetInitials: 'CF',
-      challenge: 'Your 18-22% IRR projection assumes successful customer diversification. But you haven\'t modeled the scenario where DataFlow Corp (their largest customer, 35% of revenue) exercises their change-of-control clause within 90 days. What\'s the IRR if that happens?',
-      rebuttal: 'Fair challenge. If DataFlow exercises change-of-control, our IRR drops to 8-11%. That\'s why I\'m insisting on the $30M holdback — it\'s specifically sized to cover the DataFlow scenario. But I concede the CRO\'s point: we should make the holdback conditional on DataFlow renewal specifically, not just aggregate revenue targets.' },
-  ];
+// Render agents
+function renderAgents(){
+  const g=document.getElementById('agentsGrid');
+  g.innerHTML=AGENTS.map(a=>{
+    const sel=selectedAgents.includes(a.id);
+    return `<div class="agent-card ${sel?'selected':''}" onclick="toggleAgent('${a.id}')">
+      <div class="ac-status"></div>
+      <div class="ac-avatar" style="background:${a.color}20">${a.avatar}</div>
+      <div class="ac-name">${a.name}</div>
+      <div class="ac-role">${a.role}</div>
+      <div class="ac-caps">${a.caps.map(c=>'<span class="ac-cap">'+c+'</span>').join('')}</div>
+    </div>`;
+  }).join('');
+  document.getElementById('agentCount').textContent=selectedAgents.length+' agents selected · '+mode.replace(/-/g,' ')+' mode';
+}
 
-  const SYNTHESIS = {
-    response: `**Recommendation: CONDITIONAL PROCEED** — Acquire TechStart Inc. at $200M with mandatory risk mitigations.
+function toggleAgent(id){
+  if(selectedAgents.includes(id))selectedAgents=selectedAgents.filter(a=>a!==id);
+  else selectedAgents.push(id);
+  renderAgents();
+}
 
-The Council reached **qualified consensus**. Four agents support the acquisition with conditions, one urges caution on security grounds, and the Chief Risk Officer has filed a **formal dissent** on valuation grounds. The dissent is noted, preserved in the immutable audit ledger, and has been incorporated into the mitigation requirements.
+function setMode(m,el){
+  mode=m;
+  document.querySelectorAll('.mode-btn').forEach(b=>b.classList.remove('active'));
+  el.classList.add('active');
+  renderAgents();
+}
 
-**Required Mitigations:**
-1. **Customer retention holdback:** $30M specifically tied to DataFlow Corp renewal (addresses CRO dissent)
-2. **IP escrow** with 18-month earnout tied to patent portfolio retention
-3. **Key-person retention** for 5 principal engineers
-4. **Regulatory pre-clearance** for autonomous systems IP in EU and US jurisdictions
-5. **Security remediation budget:** $1.2M for SOC 2 certification and HSM migration
+function setQueryMode(m,el){
+  queryMode=m;
+  document.querySelectorAll('.qa-toggle').forEach(b=>b.classList.remove('active'));
+  el.classList.add('active');
+}
 
-**Decision Confidence: 74%** — Moderate-high. Revenue concentration risk partially mitigated by holdback structure. Valuation dissent noted and preserved in audit trail.`,
-    confidence: 74
-  };
+function useStarter(el){
+  const text=el.textContent.substring(2).trim();
+  document.getElementById('queryInput').value=text;
+  document.getElementById('queryInput').focus();
+}
 
-  let currentStep = 0;
-  let isRunning = false;
-  let timeouts = [];
-  let startTime = 0;
+// Simulated deliberation
+const RESPONSES={
+  chief:{text:'From a strategic perspective, this aligns with our 3-year growth mandate. The EU market represents a $2.4B TAM that we\'re currently not addressing. I recommend a phased entry starting with UK, which offers lower regulatory friction than continental Europe.',sentiment:'support',confidence:88},
+  cfo:{text:'The financial model is solid but I have concerns about currency exposure. Our base case shows ROI at 18 months, but sensitivity analysis reveals a 35% chance of extending to 24 months if EUR/USD moves against us. I recommend a currency hedging strategy before proceeding.',sentiment:'cautious',confidence:82},
+  cto:{text:'Technically we\'re ready. Our infrastructure scales to EU data centers within 6 weeks. GDPR compliance is already built into the architecture. The main technical risk is latency for real-time features — we\'ll need edge nodes in Frankfurt and Dublin.',sentiment:'support',confidence:91},
+  cro:{text:'Pipeline analysis is very encouraging. We already have 12 enterprise prospects in the UK and 8 in DACH. Sales cycle data from comparable companies suggests 6-month cycles in UK vs 9-month in Germany. I strongly support UK-first approach.',sentiment:'support',confidence:85},
+  cmo:{text:'Brand recognition in UK is surprisingly strong at 18% unaided awareness among decision-makers. Our existing content can be repurposed with minimal localization. Continental Europe will need dedicated campaigns with local agency partnerships.',sentiment:'support',confidence:79},
+  clo:{text:'Legal complexity is manageable but non-trivial. GDPR DPA agreements need updating for EU-specific requirements. UK post-Brexit has divergent data protection rules. I recommend engaging local counsel in both jurisdictions before any customer-facing activity.',sentiment:'cautious',confidence:76},
+  ciso:{text:'Security posture is adequate for EU operations. We\'ll need SOC 2 Type II attestation updated for EU scope and consideration of data residency requirements. NIS2 Directive compliance should be on the roadmap within 6 months.',sentiment:'support',confidence:84},
+  chro:{text:'Talent acquisition in UK is competitive but feasible. Cost of hire is ~30% higher than US equivalents. I recommend a remote-first model initially to reduce fixed costs, with selective on-site hires in London for key client-facing roles.',sentiment:'support',confidence:72},
+  pessimist:{text:'Everyone seems very optimistic. Let me point out: 4 of the last 7 US SaaS companies that expanded to UK underperformed projections by 40%+. Currency risk is real. And we haven\'t addressed what happens to domestic growth if we divert 15% of engineering resources.',sentiment:'oppose',confidence:65},
+  ethicist:{text:'From an ethical standpoint, EU expansion aligns with our commitment to serving diverse markets. However, we must ensure our AI models don\'t exhibit bias against EU regulatory norms. I recommend an ethics review of our product before launch.',sentiment:'support',confidence:80},
+};
 
-  // Init sidebar agents and progress bar
-  function initUI() {
-    const grid = document.getElementById('sidebarAgents');
-    const progress = document.getElementById('agentProgress');
-    grid.innerHTML = '';
-    progress.innerHTML = '<span class="agent-progress-label">Agent Progress:</span>';
-    AGENTS.forEach(a => {
-      grid.innerHTML += `<div class="agent-chip" id="sb-${a.code}"><div class="agent-circle" style="background:${a.color}">${a.initials}<span class="status-dot" style="background:#9ca3af" id="dot-${a.code}"></span></div><span class="agent-chip-name">${a.role}</span><span class="check" id="check-${a.code}" style="display:none;">✓</span></div>`;
-      progress.innerHTML += `<div class="ap-chip pending" id="ap-${a.code}"><div class="ap-circle" style="background:${a.color}">${a.initials}</div><span style="font-weight:500;">${a.role.split(' ')[0]}</span></div>`;
-    });
-  }
-  initUI();
+async function runDeliberation(){
+  const q=document.getElementById('queryInput').value.trim();
+  if(!q||isProcessing)return;
+  isProcessing=true;
+  document.getElementById('emptyState').style.display='none';
+  document.getElementById('userInput').style.display='flex';
+  document.getElementById('submitBtn').disabled=true;
+  document.getElementById('phaseLabel').textContent='In Progress';
+  document.getElementById('phaseLabel').style.background='rgba(245,158,11,.1)';
+  document.getElementById('phaseLabel').style.color='#f59e0b';
 
-  // Auto-start deliberation after a brief pause so visitors see agents speaking immediately
-  setTimeout(() => startDeliberation(), 800);
+  const chat=document.getElementById('chatArea');
+  chat.innerHTML='';
 
-  function setPhase(n) {
-    for (let i = 1; i <= 3; i++) {
-      const dot = document.getElementById('phase-' + i);
-      const name = document.getElementById('phase-' + i + '-name');
-      if (i < n) { dot.className = 'phase-dot done'; dot.textContent = '✓'; name.className = 'phase-name'; }
-      else if (i === n) { dot.className = 'phase-dot active'; dot.textContent = i; name.className = 'phase-name active'; }
-      else { dot.className = 'phase-dot pending'; dot.textContent = i; name.className = 'phase-name'; }
-    }
-  }
+  // System message
+  addMsg('🎯','Council Moderator','system','Deliberation initiated: "'+q+'"','system');
+  addMsg('🎯','Council Moderator','system','Phase 1: Initial Analysis — Each agent provides their perspective.','system');
 
-  function elapsed() { return ((Date.now() - startTime) / 1000).toFixed(1); }
-
-  function addPhaseDivider(label, color) {
-    const chat = document.getElementById('chatArea');
-    const div = document.createElement('div');
-    div.className = 'phase-divider';
-    div.innerHTML = `<div class="line"></div><span class="pill" style="background:${color}20;color:${color};">${label}</span><div class="line"></div>`;
-    chat.appendChild(div);
-  }
-
-  function addMessage(agent, content, extra = '') {
-    const chat = document.getElementById('chatArea');
-    const stanceColors = { support: '#22c55e', caution: '#f59e0b', oppose: '#ef4444', neutral: '#8b5cf6' };
-    const stanceLabels = { support: 'Support', caution: 'Caution', oppose: 'Oppose', neutral: 'Neutral' };
-    const el = document.createElement('div');
-    el.className = 'msg' + (extra ? ' ' + extra : '');
-    el.innerHTML = `
-      <div class="msg-avatar" style="background:${agent.color}">${agent.initials}<div class="online-dot" style="background:#22c55e;"></div></div>
-      <div class="msg-body">
-        <div class="msg-meta">
-          <span class="msg-name">${agent.name}</span>
-          <span class="msg-role">${agent.role}</span>
-          <span class="msg-time">${elapsed()}s</span>
-        </div>
-        <div class="msg-bubble" style="border-left:3px solid ${agent.color};">
-          ${content}
-          <div class="msg-footer">
-            <div class="msg-footer-left">
-              <span class="msg-duration">⏱️ ${agent.duration || '2.0'}s</span>
-            </div>
-            <div class="msg-reactions">
-              <button onclick="this.classList.toggle('reacted')">👍</button>
-              <button onclick="this.classList.toggle('reacted')">🤔</button>
-              <button onclick="this.classList.toggle('reacted')">💡</button>
-              <button onclick="this.classList.toggle('reacted')">⚠️</button>
-            </div>
-          </div>
-        </div>
-        <div class="msg-read">✓✓ Read by Council</div>
-      </div>`;
-    chat.appendChild(el);
-    setTimeout(() => el.classList.add('visible'), 30);
-    chat.scrollTop = chat.scrollHeight;
-    return el;
+  // Agent responses
+  const activeAgents=AGENTS.filter(a=>selectedAgents.includes(a.id));
+  for(const agent of activeAgents){
+    await delay(800+Math.random()*600);
+    const r=RESPONSES[agent.id]||{text:'Analyzing from '+agent.role+' perspective...',sentiment:'support',confidence:75};
+    addMsg(agent.avatar,agent.name,agent.color,r.text,'agent',r.sentiment,r.confidence);
   }
 
-  function addStreamingMsg(agent) {
-    const chat = document.getElementById('chatArea');
-    const el = document.createElement('div');
-    el.className = 'msg';
-    el.innerHTML = `
-      <div class="msg-avatar" style="background:${agent.color}">${agent.initials}<div class="online-dot" style="background:#22c55e;"></div></div>
-      <div class="msg-body">
-        <div class="msg-meta">
-          <span class="msg-name">${agent.name}</span>
-          <span class="msg-role">${agent.role}</span>
-          <span class="msg-time">now</span>
-          <span class="msg-streaming"><span class="bounce"></span><span class="bounce"></span><span class="bounce"></span> typing</span>
-        </div>
-        <div class="msg-bubble streaming">▌</div>
-      </div>`;
-    chat.appendChild(el);
-    setTimeout(() => el.classList.add('visible'), 30);
-    chat.scrollTop = chat.scrollHeight;
-    // Update sidebar
-    document.getElementById('sb-' + agent.code).classList.add('streaming');
-    document.getElementById('dot-' + agent.code).style.background = '#22c55e';
-    document.getElementById('ap-' + agent.code).className = 'ap-chip streaming';
-    document.getElementById('ap-' + agent.code).innerHTML += '<span class="ap-dot"></span>';
-    return el;
+  // Cross-examination
+  await delay(600);
+  addMsg('⚔️','Council Moderator','system','Phase 2: Cross-Examination — Agents challenge each other.','system');
+  await delay(800);
+  if(selectedAgents.includes('pessimist')&&selectedAgents.includes('cro')){
+    addMsg('😈','Devil\'s Advocate','#EF4444','I challenge the CRO\'s pipeline numbers. 12 prospects doesn\'t constitute a validated market. What\'s the conversion rate assumption? And how many of those are actually at decision stage?','cross');
+    await delay(700);
+    addMsg('📈','Chief Revenue','#EF4444','Fair challenge. Of the 12, 4 are at proposal stage with verbal commitment. Our conversion rate from similar US enterprise deals is 38%. Even at a conservative 25%, that\'s 3 customers in Q1 generating ~$450K ARR.','agent');
   }
 
-  function finishAgent(agent, streamEl) {
-    streamEl.remove();
-    const el = addMessage(agent, agent.response + (agent.dissent ? '<div class="dissent-inline">⚠️ FORMAL DISSENT FILED — Preserved in immutable audit ledger</div>' : ''));
-    // Update sidebar
-    document.getElementById('sb-' + agent.code).classList.remove('streaming');
-    document.getElementById('sb-' + agent.code).classList.add('done');
-    document.getElementById('check-' + agent.code).style.display = '';
-    const ap = document.getElementById('ap-' + agent.code);
-    ap.className = 'ap-chip done';
-    ap.innerHTML = `<div class="ap-circle" style="background:${agent.color}">${agent.initials}</div><span style="font-weight:500;">${agent.role.split(' ')[0]}</span><span class="ap-check">✓</span>`;
-  }
+  // Synthesis
+  await delay(800);
+  addMsg('🎯','Council Moderator','system','Phase 3: Synthesis — Generating final recommendation.','system');
+  await delay(1000);
 
-  function startDeliberation() {
-    if (isRunning) return;
-    isRunning = true;
-    startTime = Date.now();
-    document.getElementById('startBtn').disabled = true;
-    document.getElementById('skipBtn').disabled = false;
-    document.getElementById('liveBadge').style.display = '';
-    setPhase(1);
-    addPhaseDivider('Initial Analysis', '#3b82f6');
-    currentStep = 0;
-    showNextAgent();
-  }
+  const synDiv=document.createElement('div');
+  synDiv.className='synthesis-card';
+  synDiv.innerHTML=`<div class="syn-header"><div style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#6366f1,#10b981);display:flex;align-items:center;justify-content:center;font-size:1.1rem">🎯</div><h4>Council Synthesis</h4><span class="rh-badge" style="background:rgba(99,102,241,.1);color:#6366f1">Final Recommendation</span><span class="syn-confidence syn-conf-high">87% confidence</span></div><div class="syn-body"><strong>Recommendation: PROCEED with UK-first expansion in Q2.</strong><br><br>The Council reaches consensus (${activeAgents.length-1} support, 1 cautious) on a phased EU expansion beginning with the UK market. Key conditions:<br>• Implement currency hedging strategy before commitment<br>• Engage UK and EU local counsel within 30 days<br>• Deploy edge infrastructure in Dublin and Frankfurt<br>• Remote-first hiring model to contain costs<br>• Ethics review of AI models for EU market suitability<br><br>Defer Germany to Q4 pending UK market validation. Total investment: $500K with milestone-based releases.</div>`;
+  chat.appendChild(synDiv);
 
-  function showNextAgent() {
-    if (currentStep >= AGENTS.length) { startCrossExam(); return; }
-    const a = AGENTS[currentStep];
-    const streamEl = addStreamingMsg(a);
-    const t = setTimeout(() => {
-      finishAgent(a, streamEl);
-      currentStep++;
-      const t2 = setTimeout(() => showNextAgent(), 600);
-      timeouts.push(t2);
-    }, 1800 + Math.random() * 800);
-    timeouts.push(t);
-  }
+  // Briefing
+  const briefDiv=document.createElement('div');
+  briefDiv.className='briefing';
+  briefDiv.innerHTML=`<h3>📊 Executive Briefing — Key Findings</h3><p>The Council deliberated the EU expansion question across ${activeAgents.length} executive perspectives. Here is a summary of the critical findings:</p><ul><li><strong>Strong consensus (${activeAgents.length-1}/${activeAgents.length} support):</strong> The majority of agents support a phased UK-first expansion, with one agent (Devil's Advocate) raising valid concerns about historical failure rates.</li><li><strong>Financial viability confirmed:</strong> 18-month ROI base case with $500K initial investment. Currency hedging recommended to mitigate EUR/USD exposure risk.</li><li><strong>Technical readiness:</strong> Infrastructure can scale to EU data centers in 6 weeks. GDPR compliance is already architected. Edge nodes needed in Frankfurt and Dublin for latency.</li><li><strong>Pipeline is real:</strong> 12 enterprise prospects in UK, 4 at proposal stage. Conservative 25% conversion = 3 customers, ~$450K ARR in Q1.</li><li><strong>Legal complexity manageable:</strong> GDPR DPA updates needed. UK post-Brexit divergence requires separate counsel. NIS2 Directive compliance within 6 months.</li><li><strong>Risk flags:</strong> 40%+ historical underperformance rate for US SaaS EU expansions. Currency risk. 15% engineering diversion impact on domestic growth.</li></ul><p><strong>Bottom line:</strong> Proceed with UK expansion in Q2 with milestone-based funding releases. Defer Germany to Q4 pending UK validation. Total risk-adjusted NPV: +$3.2M over 3 years.</p><div class="bf-footer">Deliberation ID: DLB-2026-0208-0742 · Duration: ${activeAgents.length * 2 + 4}s · Confidence: 87% · Packet: Ready for signing</div>`;
+  chat.appendChild(briefDiv);
 
-  function startCrossExam() {
-    setPhase(2);
-    addPhaseDivider('Cross-Examination', '#eab308');
-    const cx = CROSS_EXAMINATIONS[0];
-    const chat = document.getElementById('chatArea');
+  // Action buttons
+  const actDiv=document.createElement('div');
+  actDiv.className='action-bar';
+  actDiv.innerHTML=`<button class="act-btn act-primary" onclick="alert('Executive summary generated')">📋 Executive Summary</button><button class="act-btn act-neutral" onclick="alert('Minutes generated')">📝 Generate Minutes</button><button class="act-btn act-green" onclick="alert('Deliberation saved')">💾 Save</button><button class="act-btn act-purple" onclick="alert('Regulator\\'s Receipt generated')">🔐 Regulator's Receipt</button><button class="act-btn act-violet" onclick="alert('Archived to CendiaVault')">📦 CendiaVault</button><button class="act-btn act-pink" onclick="alert('Decision DNA exported')">🧬 Decision DNA</button>`;
+  chat.appendChild(actDiv);
 
-    // Challenge
-    const t1 = setTimeout(() => {
-      const cel = document.createElement('div');
-      cel.className = 'msg';
-      cel.innerHTML = `
-        <div class="msg-avatar" style="background:${cx.challengerColor}">${cx.challengerInitials}<div class="online-dot" style="background:#22c55e;"></div></div>
-        <div class="msg-body">
-          <div class="msg-meta"><span class="msg-name" style="color:#eab308;">${cx.challengerName}</span><span class="msg-role">challenges ${cx.targetName.split(' ').pop()}</span><span class="msg-time">${elapsed()}s</span></div>
-          <div class="msg-bubble cx-challenge"><p>${cx.challenge}</p></div>
-        </div>`;
-      chat.appendChild(cel);
-      setTimeout(() => cel.classList.add('visible'), 30);
-      chat.scrollTop = chat.scrollHeight;
+  chat.scrollTop=chat.scrollHeight;
+  document.getElementById('phaseLabel').textContent='Completed';
+  document.getElementById('phaseLabel').style.background='rgba(34,197,94,.1)';
+  document.getElementById('phaseLabel').style.color='#16a34a';
+  document.getElementById('submitBtn').disabled=false;
+  isProcessing=false;
+}
 
-      // Rebuttal
-      const t2 = setTimeout(() => {
-        const rel = document.createElement('div');
-        rel.className = 'msg cx-rebuttal-msg';
-        rel.innerHTML = `
-          <div class="msg-avatar" style="background:${cx.targetColor}">${cx.targetInitials}<div class="online-dot" style="background:#22c55e;"></div></div>
-          <div class="msg-body">
-            <div class="msg-meta"><span class="msg-name" style="color:#06b6d4;">${cx.targetName}</span><span class="msg-role">responds</span><span class="msg-time">${elapsed()}s</span></div>
-            <div class="msg-bubble cx-rebuttal"><p>${cx.rebuttal}</p></div>
-          </div>`;
-        chat.appendChild(rel);
-        setTimeout(() => rel.classList.add('visible'), 30);
-        chat.scrollTop = chat.scrollHeight;
+function addMsg(icon,name,color,text,type,sentiment,confidence){
+  const chat=document.getElementById('chatArea');
+  const div=document.createElement('div');
+  div.className='chat-msg';
+  const bubbleClass=type==='system'?'system':type==='cross'?'cross':'agent';
+  const sentBadge=sentiment?`<span style="padding:1px 6px;border-radius:4px;font-size:.6rem;font-weight:600;${sentiment==='support'?'background:rgba(34,197,94,.1);color:#16a34a':sentiment==='cautious'?'background:rgba(245,158,11,.1);color:#f59e0b':'background:rgba(239,68,68,.1);color:#ef4444'}">${sentiment==='support'?'✓ Support':sentiment==='cautious'?'⚠ Cautious':'✗ Challenge'}</span>`:'';
+  const confBadge=confidence?`<span style="font-size:.6rem;color:#9ca3af">${confidence}% confident</span>`:'';
+  div.innerHTML=`<div class="cm-avatar" style="background:${type==='system'?'#fef3c7':color+'20'}">${icon}</div><div class="cm-body"><div class="cm-header"><span class="cm-name" style="color:${type==='system'?'#92400e':color}">${name}</span>${sentBadge}${confBadge}</div><div class="cm-bubble ${bubbleClass}">${text}</div></div>`;
+  chat.appendChild(div);
+  chat.scrollTop=chat.scrollHeight;
+}
 
-        const t3 = setTimeout(() => showSynthesis(), 1200);
-        timeouts.push(t3);
-      }, 2000);
-      timeouts.push(t2);
-    }, 800);
-    timeouts.push(t1);
-  }
+function sendUserMsg(){
+  const input=document.getElementById('userMsg');
+  const text=input.value.trim();
+  if(!text)return;
+  addMsg('👤','You (Human)','#3b82f6',text,'agent');
+  input.value='';
+  setTimeout(()=>addMsg('🎯','Council Moderator','system','Thank you for your input. The Council is considering your perspective.','system'),500);
+}
 
-  function showSynthesis() {
-    setPhase(3);
-    addPhaseDivider('Synthesis', '#10b981');
-    document.getElementById('liveBadge').style.display = 'none';
-    const chat = document.getElementById('chatArea');
+function delay(ms){return new Promise(r=>setTimeout(r,ms))}
 
-    const t = setTimeout(() => {
-      const confClass = SYNTHESIS.confidence >= 80 ? 'background:rgba(34,197,94,0.15);color:#22c55e;' : SYNTHESIS.confidence >= 60 ? 'background:rgba(234,179,8,0.15);color:#eab308;' : 'background:rgba(239,68,68,0.15);color:#ef4444;';
-      const el = document.createElement('div');
-      el.className = 'msg synthesis-msg';
-      el.innerHTML = `
-        <div class="synth-avatar">🎯</div>
-        <div class="msg-body">
-          <div class="msg-meta">
-            <span class="msg-name" style="color:#a5b4fc;">Council Synthesis</span>
-            <span class="badge" style="background:rgba(99,102,241,0.15);color:#a5b4fc;">Final Recommendation</span>
-            <span class="badge badge-conf" style="${confClass}">${SYNTHESIS.confidence}% confidence</span>
-          </div>
-          <div class="msg-bubble synth"><p style="white-space:pre-wrap;">${SYNTHESIS.response.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')}</p></div>
-        </div>`;
-      chat.appendChild(el);
-      setTimeout(() => el.classList.add('visible'), 30);
-      chat.scrollTop = chat.scrollHeight;
-
-      // Doc actions
-      const da = document.createElement('div');
-      da.className = 'doc-actions';
-      da.innerHTML = `
-        <button class="doc-btn primary" onclick="alert('📋 Executive Summary generated — includes all agent analyses, cross-examination, confidence scores, and dissent records.')">📋 Executive Summary</button>
-        <button class="doc-btn secondary" onclick="alert('📝 Deliberation Minutes generated — formal meeting record with proceedings, resolutions, and action items.')">📝 Deliberation Minutes</button>
-        <button class="doc-btn secondary" onclick="alert('📦 Decision DNA exported — cryptographically signed evidence packet with Merkle tree integrity proof.')">📦 Decision DNA</button>
-        <button class="doc-btn secondary" onclick="alert('🏛️ Regulator Bundle generated — mapped to SOC 2, ISO 27001, and NIST 800-53 controls.')">🏛️ Regulator Bundle</button>`;
-      chat.appendChild(da);
-
-      // CTA
-      const cta = document.createElement('div');
-      cta.className = 'demo-cta';
-      cta.innerHTML = `<h3>Want to run this on your own data?</h3><p>Deploy on your infrastructure. 40+ governance agents across 5 classes. Full audit trail.</p><a href="../briefing.html">Request Briefing →</a>`;
-      chat.appendChild(cta);
-
-      document.getElementById('skipBtn').style.display = 'none';
-      document.getElementById('resetBtn').style.display = '';
-      isRunning = false;
-      chat.scrollTop = chat.scrollHeight;
-    }, 800);
-    timeouts.push(t);
-  }
-
-  function skipToEnd() {
-    timeouts.forEach(t => clearTimeout(t)); timeouts = [];
-    const chat = document.getElementById('chatArea');
-    // Show remaining agent responses
-    if (currentStep === 0) addPhaseDivider('Initial Analysis', '#3b82f6');
-    while (currentStep < AGENTS.length) {
-      const a = AGENTS[currentStep];
-      addMessage(a, a.response + (a.dissent ? '<div class="dissent-inline">⚠️ FORMAL DISSENT FILED — Preserved in immutable audit ledger</div>' : ''));
-      document.getElementById('sb-' + a.code).classList.add('done');
-      document.getElementById('check-' + a.code).style.display = '';
-      const ap = document.getElementById('ap-' + a.code);
-      ap.className = 'ap-chip done';
-      ap.innerHTML = `<div class="ap-circle" style="background:${a.color}">${a.initials}</div><span style="font-weight:500;">${a.role.split(' ')[0]}</span><span class="ap-check">✓</span>`;
-      currentStep++;
-    }
-    // Cross-exam
-    const cx = CROSS_EXAMINATIONS[0];
-    addPhaseDivider('Cross-Examination', '#eab308');
-    const cel = document.createElement('div'); cel.className = 'msg visible';
-    cel.innerHTML = `<div class="msg-avatar" style="background:${cx.challengerColor}">${cx.challengerInitials}</div><div class="msg-body"><div class="msg-meta"><span class="msg-name" style="color:#eab308;">${cx.challengerName}</span><span class="msg-role">challenges ${cx.targetName.split(' ').pop()}</span></div><div class="msg-bubble cx-challenge"><p>${cx.challenge}</p></div></div>`;
-    chat.appendChild(cel);
-    const rel = document.createElement('div'); rel.className = 'msg cx-rebuttal-msg visible';
-    rel.innerHTML = `<div class="msg-avatar" style="background:${cx.targetColor}">${cx.targetInitials}</div><div class="msg-body"><div class="msg-meta"><span class="msg-name" style="color:#06b6d4;">${cx.targetName}</span><span class="msg-role">responds</span></div><div class="msg-bubble cx-rebuttal"><p>${cx.rebuttal}</p></div></div>`;
-    chat.appendChild(rel);
-    startTime = Date.now() - 15000;
-    showSynthesis();
-  }
-
-  function resetDemo() {
-    timeouts.forEach(t => clearTimeout(t)); timeouts = [];
-    currentStep = 0; isRunning = false;
-    const chat = document.getElementById('chatArea');
-    chat.innerHTML = `<div class="user-question"><div class="user-avatar">U</div><div class="user-bubble"><p>Should we acquire TechStart Inc. for $200M? They have strong IP in autonomous systems but 70% revenue concentration in 3 customers.</p></div></div>`;
-    document.getElementById('startBtn').disabled = false;
-    document.getElementById('skipBtn').disabled = true;
-    document.getElementById('skipBtn').style.display = '';
-    document.getElementById('resetBtn').style.display = 'none';
-    document.getElementById('liveBadge').style.display = 'none';
-    setPhase(0);
-    initUI();
-  }
-  </script>
+// Initialize
+renderAgents();
+</script>
+<div style="text-align:center;padding:12px 20px;font-size:.6rem;color:#4a4a5a;border-top:1px solid #1e1e2e;font-family:'Inter',sans-serif">All names, entities, and scenarios in this demo are entirely fictitious. Any resemblance to real persons, companies, or events is purely coincidental.</div>
 </body>
 </html>

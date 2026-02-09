@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Decision Maturity Assessment | Datacendia</title>
+<meta name="description" content="How mature is your organization's decision governance? Take the 2-minute assessment and find out.">
+<link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+body{background:#09090b;color:#e4e4e7;font-family:'Inter',-apple-system,sans-serif;min-height:100vh;-webkit-font-smoothing:antialiased}
+
+.header{display:flex;align-items:center;gap:12px;height:48px;padding:0 20px;background:#18181b;border-bottom:1px solid #27272a;position:sticky;top:0;z-index:100}
+.header-logo{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:.95rem;color:#C9A227;letter-spacing:.12em;text-decoration:none}
+.header-logo:hover{color:#d4af37}
+.header-back{color:#71717a;text-decoration:none;font-size:.72rem;margin-left:8px;transition:color .15s}
+.header-back:hover{color:#C9A227}
+.header-spacer{flex:1}
+.header-badge{padding:3px 10px;background:linear-gradient(135deg,rgba(6,182,212,.15),rgba(34,197,94,.15));color:#06b6d4;border-radius:20px;font-size:.6rem;font-family:'JetBrains Mono',monospace;font-weight:600;letter-spacing:.05em;border:1px solid rgba(6,182,212,.2)}
+
+.container{max-width:640px;margin:0 auto;padding:40px 20px 60px}
+
+/* Intro */
+.intro{text-align:center;padding:60px 0 40px;animation:fadeUp .6s ease}
+.intro h1{font-size:2rem;font-weight:700;margin-bottom:8px;background:linear-gradient(135deg,#fff,#a1a1aa);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.intro p{color:#71717a;font-size:.9rem;line-height:1.7;margin-bottom:28px;max-width:480px;margin-left:auto;margin-right:auto}
+.intro .time{display:inline-flex;align-items:center;gap:6px;color:#52525b;font-size:.75rem;margin-bottom:24px}
+.start-btn{padding:14px 36px;background:linear-gradient(135deg,#06b6d4,#0891b2);color:#fff;border:none;border-radius:10px;font-size:.95rem;font-weight:600;cursor:pointer;transition:all .2s;font-family:'Inter',sans-serif}
+.start-btn:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(6,182,212,.3)}
+
+/* Progress */
+.progress{margin-bottom:28px;display:none}
+.progress-bar{height:4px;background:#1e1e2e;border-radius:2px;overflow:hidden;margin-bottom:8px}
+.progress-fill{height:100%;background:linear-gradient(90deg,#06b6d4,#22c55e);border-radius:2px;transition:width .4s ease}
+.progress-text{font-size:.68rem;color:#52525b;text-align:right;font-family:'JetBrains Mono',monospace}
+
+/* Question */
+.question-card{display:none;animation:fadeUp .4s ease}
+.q-number{font-size:.7rem;color:#06b6d4;font-weight:600;font-family:'JetBrains Mono',monospace;margin-bottom:8px;letter-spacing:.05em}
+.q-text{font-size:1.15rem;font-weight:600;margin-bottom:24px;line-height:1.5}
+.options{display:flex;flex-direction:column;gap:10px}
+.option{padding:14px 18px;background:#18181b;border:1.5px solid #27272a;border-radius:12px;cursor:pointer;transition:all .2s;text-align:left;color:#d4d4d8;font-size:.85rem;line-height:1.5;font-family:'Inter',sans-serif}
+.option:hover{border-color:#3f3f46;background:#1c1c1f}
+.option.selected{border-color:#06b6d4;background:rgba(6,182,212,.08)}
+.option .opt-label{font-weight:500;color:#fff}
+.option .opt-desc{font-size:.75rem;color:#71717a;margin-top:3px}
+
+/* Results */
+.results{display:none;animation:fadeUp .5s ease}
+.results h2{font-size:1.6rem;font-weight:700;text-align:center;margin-bottom:6px}
+.results .level-label{text-align:center;font-size:.85rem;font-weight:600;margin-bottom:24px}
+
+.score-visual{background:#18181b;border:1px solid #27272a;border-radius:16px;padding:24px;margin-bottom:20px}
+.score-row{display:flex;align-items:center;gap:16px;margin-bottom:16px}
+.score-number{font-family:'JetBrains Mono',monospace;font-size:2.4rem;font-weight:700;min-width:60px;text-align:center}
+.score-out-of{font-size:.8rem;color:#52525b;font-family:'JetBrains Mono',monospace}
+.level-bar{flex:1}
+.level-track{display:flex;gap:3px;margin-bottom:6px}
+.level-seg{height:8px;flex:1;border-radius:2px;background:#1e1e2e;transition:background .6s}
+.level-labels{display:flex;justify-content:space-between;font-size:.55rem;color:#3f3f46}
+
+.level-desc{font-size:.85rem;line-height:1.7;color:#a1a1aa;padding:16px 0;border-top:1px solid #1e1e2e}
+.level-desc strong{color:#e4e4e7}
+
+.recs{margin-bottom:24px}
+.recs h3{font-size:.9rem;font-weight:600;margin-bottom:12px;color:#06b6d4}
+.rec-item{display:flex;gap:10px;padding:12px 14px;background:#18181b;border:1px solid #27272a;border-radius:10px;margin-bottom:8px;font-size:.82rem;line-height:1.6;color:#d4d4d8}
+.rec-item .rec-icon{font-size:1rem;flex-shrink:0;margin-top:1px}
+
+/* Share / Email */
+.share-section{background:linear-gradient(135deg,rgba(6,182,212,.06),rgba(34,197,94,.04));border:1px solid rgba(6,182,212,.15);border-radius:14px;padding:20px;margin-bottom:20px}
+.share-section h3{font-size:.9rem;font-weight:600;margin-bottom:4px}
+.share-section p{font-size:.75rem;color:#71717a;margin-bottom:16px}
+.share-fields{display:flex;flex-direction:column;gap:10px;margin-bottom:14px}
+.share-field input{width:100%;padding:10px 14px;background:#111113;border:1px solid #27272a;border-radius:8px;color:#e4e4e7;font-family:'Inter',sans-serif;font-size:.82rem;outline:none;transition:border-color .2s}
+.share-field input:focus{border-color:#06b6d4}
+.share-field input::placeholder{color:#52525b}
+.share-btn{width:100%;padding:12px;background:linear-gradient(135deg,#06b6d4,#0891b2);color:#fff;border:none;border-radius:8px;font-size:.85rem;font-weight:600;cursor:pointer;transition:all .2s;font-family:'Inter',sans-serif}
+.share-btn:hover{box-shadow:0 4px 16px rgba(6,182,212,.25)}
+
+.cta-section{text-align:center;padding:20px 0}
+.cta-btn{display:inline-flex;align-items:center;gap:8px;padding:14px 32px;background:linear-gradient(135deg,#C9A227,#d4af37);color:#09090b;border:none;border-radius:10px;font-size:.9rem;font-weight:700;cursor:pointer;transition:all .2s;font-family:'Inter',sans-serif;text-decoration:none}
+.cta-btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(201,162,39,.25)}
+
+.disclaimer{text-align:center;padding:12px 20px;font-size:.6rem;color:#4a4a5a;border-top:1px solid #1e1e2e;font-family:'Inter',sans-serif}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:640px){.intro h1{font-size:1.5rem}.q-text{font-size:1rem}.score-number{font-size:1.8rem}}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <a href="../demos.html" class="header-logo">DATACENDIA</a>
+  <a href="../demos.html" class="header-back">← Demos</a>
+  <div class="header-spacer"></div>
+  <span class="header-badge">ASSESSMENT</span>
+</div>
+
+<div class="container">
+  <div class="intro" id="intro">
+    <h1>Decision Maturity Assessment</h1>
+    <p>How mature is your organization's decision governance? Answer 6 questions to find out where you stand — and what to fix first.</p>
+    <div class="time">⏱️ Takes about 2 minutes</div><br>
+    <button class="start-btn" onclick="startQuiz()">Start Assessment →</button>
+  </div>
+
+  <div class="progress" id="progress">
+    <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+    <div class="progress-text" id="progressText">1 of 6</div>
+  </div>
+
+  <div id="questionArea"></div>
+  <div class="results" id="results"></div>
+</div>
+
+<div class="disclaimer">All assessment results are indicative and for informational purposes only. They do not constitute professional consulting advice.</div>
+
+<script>
+const QUESTIONS=[
+  {q:'How are major decisions documented in your organization?',opts:[
+    {text:'Not documented',desc:'Decisions happen verbally or in ad-hoc channels with no record',score:1},
+    {text:'Email & chat threads',desc:'Some trail exists but it\'s scattered across inboxes and Slack',score:2},
+    {text:'Meeting notes & wiki pages',desc:'We write things down, but there\'s no structured format',score:3},
+    {text:'Formal decision system with audit trail',desc:'Every decision has a retrievable, structured record',score:4}
+  ]},
+  {q:'Can you reproduce the reasoning behind a decision made 6 months ago?',opts:[
+    {text:'No — we\'d have to track down who was involved',desc:'Institutional memory depends on individual recall',score:1},
+    {text:'Partially — it\'s scattered across multiple sources',desc:'We could piece it together but it would take days',score:2},
+    {text:'Mostly — we have notes but there are gaps',desc:'The "what" is recorded, but the "why" is often missing',score:3},
+    {text:'Fully — every decision has a complete reasoning trail',desc:'Who decided, why, what alternatives were considered, and who dissented',score:4}
+  ]},
+  {q:'How many people can override a critical decision without a paper trail?',opts:[
+    {text:'Anyone with authority — no tracking',desc:'Senior leaders can override decisions without documentation',score:1},
+    {text:'Several — overrides happen but aren\'t always logged',desc:'We know it happens but there\'s no formal process',score:2},
+    {text:'Few — most overrides are documented',desc:'We have a process but it\'s not consistently followed',score:3},
+    {text:'Zero — all overrides require justification and are tracked',desc:'Every override is logged with reasoning and preserved',score:4}
+  ]},
+  {q:'When a decision goes wrong, how does your organization learn from it?',opts:[
+    {text:'We don\'t — the same mistakes recur',desc:'No systematic learning from decision outcomes',score:1},
+    {text:'Ad hoc — sometimes we do a post-mortem',desc:'It depends on who\'s involved and how bad the outcome was',score:2},
+    {text:'Structured — post-mortems are standard practice',desc:'We review outcomes but don\'t systematically track patterns',score:3},
+    {text:'Systematic — every decision outcome is tracked and fed back',desc:'We measure decision quality over time and improve our process',score:4}
+  ]},
+  {q:'How does your organization handle disagreement during critical decisions?',opts:[
+    {text:'The highest-ranking person decides',desc:'Seniority determines the outcome, dissent is discouraged',score:1},
+    {text:'Discussion happens but isn\'t recorded',desc:'People voice concerns but there\'s no formal record',score:2},
+    {text:'Dissent is heard and noted in meeting minutes',desc:'We document disagreement but don\'t track if dissenters were right',score:3},
+    {text:'Formal dissent is preserved with tamper-proof records',desc:'Disagreement is protected, tracked, and outcome-monitored',score:4}
+  ]},
+  {q:'If a regulator asked "show me how you made this decision," how long would it take?',opts:[
+    {text:'Weeks — we\'d have to reconstruct it from scratch',desc:'No centralized records; we\'d interview people and search emails',score:1},
+    {text:'Days — we\'d need to gather from multiple sources',desc:'Records exist but they\'re fragmented across systems',score:2},
+    {text:'Hours — we have decent records but they\'re not unified',desc:'Documentation is good but requires manual compilation',score:3},
+    {text:'Minutes — we have a sealed evidence packet ready',desc:'Cryptographically signed, tamper-proof, regulator-ready',score:4}
+  ]}
+];
+
+const LEVELS=[
+  {min:6,max:9,level:1,name:'Ad Hoc',color:'#ef4444',
+    desc:'Your organization has <strong>no formal decision governance</strong>. Decisions are made verbally, overrides happen without records, and institutional memory depends on individual recall. This creates significant regulatory, operational, and reputational risk.',
+    recs:[
+      {icon:'🚨',text:'<strong>Immediate risk:</strong> You cannot reproduce decision reasoning for auditors or regulators. This is a compliance liability.'},
+      {icon:'📋',text:'<strong>Quick win:</strong> Start with a simple decision log — even a shared spreadsheet that captures who decided, what, when, and why.'},
+      {icon:'🎯',text:'<strong>Next step:</strong> Identify your 3 highest-stakes recurring decisions and build a lightweight process around them first.'}
+    ]},
+  {min:10,max:13,level:2,name:'Emerging',color:'#f97316',
+    desc:'Your organization has <strong>some documentation practices</strong>, but they\'re inconsistent and fragmented. Decisions can sometimes be reconstructed, but it requires effort. Dissent is heard but not protected.',
+    recs:[
+      {icon:'📊',text:'<strong>Key gap:</strong> Your documentation is scattered across email, chat, and meeting notes. Centralize decision records in one system.'},
+      {icon:'🔍',text:'<strong>Critical improvement:</strong> Start tracking decision outcomes — you can\'t improve what you don\'t measure.'},
+      {icon:'⚖️',text:'<strong>Next step:</strong> Formalize your dissent process. The organizations that learn fastest are those that protect disagreement.'}
+    ]},
+  {min:14,max:17,level:3,name:'Defined',color:'#f59e0b',
+    desc:'Your organization has <strong>structured decision processes</strong> with decent documentation. The foundation is solid but gaps remain — especially in outcome tracking, dissent protection, and regulatory readiness.',
+    recs:[
+      {icon:'🌳',text:'<strong>Key gap:</strong> You document decisions but can\'t cryptographically prove they haven\'t been altered. Consider tamper-proof evidence packaging.'},
+      {icon:'📈',text:'<strong>Critical improvement:</strong> Close the feedback loop — systematically track whether decisions achieved their intended outcomes.'},
+      {icon:'🏛️',text:'<strong>Next step:</strong> Introduce multi-perspective deliberation. The best decisions are stress-tested by diverse viewpoints before they\'re made.'}
+    ]},
+  {min:18,max:21,level:4,name:'Managed',color:'#22c55e',
+    desc:'Your organization has <strong>systematic decision governance</strong> with good documentation, outcome tracking, and process discipline. You\'re ahead of 90% of organizations. The next frontier is cryptographic integrity and AI-augmented deliberation.',
+    recs:[
+      {icon:'🔐',text:'<strong>Next frontier:</strong> Cryptographically seal your decision packets with Merkle trees and digital signatures for court-admissible evidence.'},
+      {icon:'🤖',text:'<strong>Force multiplier:</strong> AI agents can stress-test decisions from 6+ perspectives in minutes — catching blind spots humans miss.'},
+      {icon:'🌍',text:'<strong>Scale opportunity:</strong> Your governance maturity is a competitive advantage. Consider extending it across all business units and geographies.'}
+    ]},
+  {min:22,max:24,level:5,name:'Optimized',color:'#06b6d4',
+    desc:'Your organization operates at the <strong>highest level of decision governance</strong>. Decisions are documented, dissent is protected, outcomes are tracked, and evidence is audit-ready. You\'re in the top 2% of organizations globally.',
+    recs:[
+      {icon:'🏆',text:'<strong>Maintain excellence:</strong> Your governance maturity is world-class. The challenge now is sustaining it as you scale and evolve.'},
+      {icon:'⚡',text:'<strong>AI augmentation:</strong> Even at Level 5, AI-powered deliberation can surface perspectives your team hasn\'t considered.'},
+      {icon:'📣',text:'<strong>Thought leadership:</strong> Your governance practices are a differentiator. Consider publishing your approach to attract talent and customers who value integrity.'}
+    ]}
+];
+
+let currentQ=0,answers=[];
+
+function startQuiz(){
+  document.getElementById('intro').style.display='none';
+  document.getElementById('progress').style.display='block';
+  showQuestion(0);
+}
+
+function showQuestion(idx){
+  currentQ=idx;
+  const q=QUESTIONS[idx];
+  const pct=((idx)/QUESTIONS.length*100);
+  document.getElementById('progressFill').style.width=pct+'%';
+  document.getElementById('progressText').textContent=(idx+1)+' of '+QUESTIONS.length;
+
+  const area=document.getElementById('questionArea');
+  area.innerHTML=`<div class="question-card" style="display:block"><div class="q-number">QUESTION ${idx+1} OF ${QUESTIONS.length}</div><div class="q-text">${q.q}</div><div class="options">${q.opts.map((o,i)=>`<div class="option" onclick="selectOption(${idx},${i},${o.score})"><div class="opt-label">${o.text}</div><div class="opt-desc">${o.desc}</div></div>`).join('')}</div></div>`;
+}
+
+function selectOption(qIdx,optIdx,score){
+  answers[qIdx]=score;
+  document.querySelectorAll('.option').forEach((o,i)=>{
+    o.classList.toggle('selected',i===optIdx);
+  });
+
+  setTimeout(()=>{
+    if(qIdx<QUESTIONS.length-1){
+      showQuestion(qIdx+1);
+    }else{
+      showResults();
+    }
+  },350);
+}
+
+function showResults(){
+  document.getElementById('questionArea').innerHTML='';
+  document.getElementById('progress').style.display='none';
+  const total=answers.reduce((a,b)=>a+b,0);
+  const levelData=LEVELS.find(l=>total>=l.min&&total<=l.max)||LEVELS[0];
+
+  const resultsEl=document.getElementById('results');
+  resultsEl.style.display='block';
+  resultsEl.innerHTML=`
+    <h2>Your Decision Maturity</h2>
+    <div class="level-label" style="color:${levelData.color}">Level ${levelData.level}: ${levelData.name}</div>
+    <div class="score-visual">
+      <div class="score-row">
+        <div><div class="score-number" style="color:${levelData.color}">${total}</div><div class="score-out-of">/ 24</div></div>
+        <div class="level-bar">
+          <div class="level-track">${LEVELS.map(l=>`<div class="level-seg" id="seg${l.level}"></div>`).join('')}</div>
+          <div class="level-labels"><span>Ad Hoc</span><span>Emerging</span><span>Defined</span><span>Managed</span><span>Optimized</span></div>
+        </div>
+      </div>
+      <div class="level-desc">${levelData.desc}</div>
+    </div>
+
+    <div class="recs">
+      <h3>Recommended Next Steps</h3>
+      ${levelData.recs.map(r=>`<div class="rec-item"><span class="rec-icon">${r.icon}</span><div>${r.text}</div></div>`).join('')}
+    </div>
+
+    <div class="share-section">
+      <h3>📧 Get Your Full Report</h3>
+      <p>Enter your details and we'll send a personalized governance improvement roadmap based on your results.</p>
+      <div class="share-fields">
+        <div class="share-field"><input type="text" id="shareName" placeholder="Your name (optional)"></div>
+        <div class="share-field"><input type="email" id="shareEmail" placeholder="Your email (optional)"></div>
+        <div class="share-field"><input type="text" id="shareCompany" placeholder="Company (optional)"></div>
+      </div>
+      <button class="share-btn" onclick="sendResults()">Send My Results →</button>
+    </div>
+
+    <div class="cta-section">
+      <p style="font-size:.8rem;color:#71717a;margin-bottom:16px">See what Level 5 decision governance looks like in practice.</p>
+      <a href="try.html" class="cta-btn">Try The Council Demo →</a>
+    </div>`;
+
+  // Animate level segments
+  setTimeout(()=>{
+    for(let i=1;i<=5;i++){
+      const seg=document.getElementById('seg'+i);
+      if(i<=levelData.level) seg.style.background=levelData.color;
+    }
+  },300);
+}
+
+function sendResults(){
+  const total=answers.reduce((a,b)=>a+b,0);
+  const levelData=LEVELS.find(l=>total>=l.min&&total<=l.max)||LEVELS[0];
+  const name=document.getElementById('shareName').value||'Not provided';
+  const email=document.getElementById('shareEmail').value||'Not provided';
+  const company=document.getElementById('shareCompany').value||'Not provided';
+
+  const answersText=QUESTIONS.map((q,i)=>`Q${i+1}: ${q.q}\nAnswer: ${q.opts.find(o=>o.score===answers[i]).text} (${answers[i]}/4)`).join('\n\n');
+
+  const subject=encodeURIComponent(`Decision Maturity Assessment — Level ${levelData.level}: ${levelData.name} (Score: ${total}/24)`);
+  const body=encodeURIComponent(
+`DECISION MATURITY ASSESSMENT RESULTS
+=====================================
+
+Name: ${name}
+Email: ${email}
+Company: ${company}
+
+SCORE: ${total}/24
+LEVEL: ${levelData.level} — ${levelData.name}
+
+INDIVIDUAL ANSWERS:
+${answersText}
+
+---
+Submitted from datacendia.com/demos/maturity.html`);
+
+  window.location.href=`mailto:contact@datacendia.com?subject=${subject}&body=${body}`;
+}
+</script>
+</body>
+</html>

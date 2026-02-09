@@ -5,39 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Legal Governance — Compliance Decision Demo | Datacendia</title>
   <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="demo-platform.css">
   <style>
-    *{margin:0;padding:0;box-sizing:border-box}
-    body{background:#0a0a0a;color:#e5e5e5;font-family:'Inter',-apple-system,sans-serif;line-height:1.6}
-    .platform-bar{display:flex;align-items:center;gap:12px;padding:10px 20px;background:#111;border-bottom:1px solid #1e1e2e;font-size:.8rem}
-    .platform-bar .logo{font-weight:700;color:#c9a227;letter-spacing:.05em}
-    .platform-bar .breadcrumb{color:#6b7280}.platform-bar .breadcrumb span{color:#e5e5e5}
-    .platform-bar .back{color:#6b7280;text-decoration:none;font-size:.75rem;margin-left:auto}.platform-bar .back:hover{color:#c9a227}
-    .platform-bar .demo-pill{padding:2px 8px;background:rgba(34,197,94,.15);color:#22c55e;border-radius:10px;font-size:.6rem;font-family:'JetBrains Mono',monospace;font-weight:600}
-    .app-layout{display:flex;height:calc(100vh - 41px);overflow:hidden}
-    .sidebar{width:280px;background:#111;border-right:1px solid #1e1e2e;flex-shrink:0;overflow-y:auto}
-    .main-panel{flex:1;display:flex;flex-direction:column;overflow:hidden}
-    .sb-section{padding:16px;border-bottom:1px solid #1e1e2e}
-    .sb-label{font-size:.6rem;font-weight:600;color:#6b7280;text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px}
     .case-card{padding:12px;background:linear-gradient(135deg,rgba(249,115,22,.06),rgba(245,158,11,.04));border:1px solid rgba(249,115,22,.2);border-radius:10px;margin-bottom:10px}
     .case-title{font-size:.85rem;font-weight:700;color:#f97316}.case-detail{font-size:.62rem;color:#6b7280;margin-top:2px}
-    .case-info{padding:8px 10px;background:#1a1a2e;border-radius:6px;font-size:.7rem;margin-bottom:4px}
+    .case-info{padding:8px 10px;background:#27272a;border-radius:8px;font-size:.7rem;margin-bottom:4px;border:1px solid #3f3f46}
     .ci-label{font-size:.55rem;color:#6b7280;font-family:'JetBrains Mono',monospace;text-transform:uppercase}.ci-val{color:#d1d5db;font-weight:500}
-    .jurisdiction-card{padding:12px;background:#1a1a2e;border-radius:10px}
+    .jurisdiction-card{padding:12px;background:#27272a;border-radius:10px;border:1px solid #3f3f46}
     .jur-title{font-size:.65rem;font-weight:600;margin-bottom:6px}
     .jur-item{display:flex;align-items:center;gap:6px;font-size:.65rem;padding:4px 0}
     .jur-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0}
     .jur-name{flex:1;color:#9ca3af}.jur-status{font-family:'JetBrains Mono',monospace;font-size:.55rem}
     .agent-grid{display:flex;flex-direction:column;gap:4px}
-    .agent-chip{display:flex;align-items:center;gap:8px;padding:6px 8px;background:#1a1a2e;border:1px solid #2a2a3e;border-radius:6px;font-size:.65rem;transition:all .3s}
+    .agent-chip{display:flex;align-items:center;gap:8px;padding:6px 8px;background:#27272a;border:1px solid #3f3f46;border-radius:8px;font-size:.65rem;transition:all .3s}
     .agent-chip.done{border-color:#f97316;background:rgba(249,115,22,.05)}
-    .ac-circle{width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.5rem;font-weight:700;color:#fff;flex-shrink:0}
+    .ac-circle{width:24px;height:24px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:.5rem;font-weight:700;color:#fff;flex-shrink:0}
     .ac-name{color:#9ca3af;flex:1}.ac-check{color:#f97316;display:none}.agent-chip.done .ac-check{display:block}
-    .main-header{padding:16px 20px;border-bottom:1px solid #1e1e2e;background:#111;display:flex;align-items:center;gap:12px}
-    .header-icon{width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,#f97316,#f59e0b);display:flex;align-items:center;justify-content:center;font-size:1.1rem}
-    .header-info h1{font-size:.95rem;font-weight:700}.header-info p{font-size:.65rem;color:#6b7280}
-    .run-btn{margin-left:auto;padding:8px 16px;background:#f97316;color:#fff;border:none;border-radius:8px;font-size:.75rem;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif}
-    .run-btn:hover{background:#ea580c}.run-btn:disabled{opacity:.4;cursor:not-allowed}
+    .header-info h1{font-size:.95rem;font-weight:700}.header-info p{font-size:.65rem;color:#71717a}
+    .run-legal{margin-left:auto;padding:8px 18px;background:linear-gradient(135deg,#f97316,#ea580c);color:#fff;border:none;border-radius:8px;font-size:.75rem;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif;box-shadow:0 2px 8px rgba(249,115,22,.25)}
+    .run-legal:hover{background:linear-gradient(135deg,#ea580c,#c2410c)}.run-legal:disabled{opacity:.35;cursor:not-allowed}
     .content-area{flex:1;overflow-y:auto;padding:16px 20px}
     .msg{display:flex;align-items:flex-start;gap:10px;margin-bottom:8px;opacity:0;transform:translateY(8px);transition:all .4s}
     .msg.visible{opacity:1;transform:translateY(0)}
@@ -58,11 +45,22 @@
   </style>
 </head>
 <body>
-  <div class="platform-bar">
-    <span class="logo">DATACENDIA</span>
-    <span class="breadcrumb">/ Cortex / Verticals / <span>Legal Governance</span></span>
-    <span class="demo-pill">DEMO MODE</span>
-    <a href="../demos.html" class="back">← Back to Demos</a>
+  <div class="platform-header">
+    <a href="../demos.html" class="ph-logo" style="text-decoration:none;color:inherit">DATACENDIA</a>
+    <div class="ph-divider"></div>
+    <div class="ph-nav">
+      <a class="ph-nav-item" href="../demos.html#cortex">Cortex</a>
+      <a class="ph-nav-item" href="../demos.html#oversight">Oversight</a>
+      <a class="ph-nav-item" href="../demos.html#evidence">Evidence</a>
+    </div>
+    <span class="ph-breadcrumb">/ Verticals / <span>Legal</span></span>
+    <span class="ph-spacer"></span>
+    <span class="ph-demo-badge">DEMO MODE</span>
+    <div class="ph-user">
+      <div class="ph-notif">🔔<div class="ph-notif-dot"></div></div>
+      <div class="ph-avatar">SR</div>
+    </div>
+    <a href="../demos.html" class="ph-back">← Demos</a>
   </div>
   <div class="app-layout">
     <div class="sidebar">
@@ -72,8 +70,8 @@
           <div class="case-title">Cross-Border Wire Transfer</div>
           <div class="case-detail">AML/KYC · PEP Screening · OFAC Compliance</div>
         </div>
-        <div class="case-info"><div class="ci-label">Transaction</div><div class="ci-val">$8.5M wire — Petrov Holdings Ltd → Cyprus account</div></div>
-        <div class="case-info"><div class="ci-label">Client</div><div class="ci-val">Petrov Holdings Ltd (PEP flagged)</div></div>
+        <div class="case-info"><div class="ci-label">Transaction</div><div class="ci-val">$8.5M wire — Redline Holdings Ltd → Cyprus account</div></div>
+        <div class="case-info"><div class="ci-label">Client</div><div class="ci-val">Redline Holdings Ltd (PEP flagged)</div></div>
         <div class="case-info"><div class="ci-label">Risk Level</div><div class="ci-val" style="color:#ef4444;font-weight:600">ELEVATED — Former government official</div></div>
       </div>
       <div class="sb-section">
@@ -95,21 +93,35 @@
       <div class="main-header">
         <div class="header-icon">⚖️</div>
         <div class="header-info"><h1>Legal Governance — Compliance Decision Council</h1><p>Multi-agent deliberation with AML/KYC, OFAC screening, cross-jurisdiction compliance, and PEP due diligence</p></div>
-        <button class="run-btn" id="runBtn" onclick="runCouncil()">⚖️ Deliberate Compliance</button>
+        <button class="run-legal" id="runBtn" onclick="runCouncil()">⚖️ Deliberate Compliance</button>
       </div>
-      <div class="content-area" id="contentArea"></div>
+      <div class="content-area" id="contentArea">
+        <div class="backstory" style="background:linear-gradient(135deg,rgba(249,115,22,.06),rgba(245,158,11,.04));border-color:rgba(249,115,22,.15)">
+          <h3 style="color:#f97316">📋 Scenario Briefing</h3>
+          <p><strong>Northgate Capital Partners</strong>, a $2.8B wealth management firm, has received an urgent wire transfer request: <strong>$8.5M from Redline Holdings Ltd to a Cyprus-based account</strong>. The client is a former senior government official in the energy sector — making him a <strong>Politically Exposed Person (PEP)</strong> under international AML regulations.</p>
+          <p>The compliance team is nervous. The transaction triggers flags across <strong>4 jurisdictions</strong> — US (OFAC/FinCEN), EU (6AMLD), Cyprus (CySEC), and Basel III §4.2.1. Source-of-funds documentation is incomplete. The firm must decide: execute the wire and risk regulatory action, or hold it and risk losing a $50M AUM client. The <strong>Legal Governance Council</strong> has been convened to deliberate.</p>
+          <div class="bs-meta" style="border-color:rgba(249,115,22,.1)">
+            <span>🏦 Northgate Capital Partners</span>
+            <span>💰 $8.5M wire transfer</span>
+            <span>🏝️ Destination: Cyprus</span>
+            <span>👤 PEP: Former government official</span>
+            <span>🌍 4 jurisdictions involved</span>
+            <span>⚠️ Source of funds: INCOMPLETE</span>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 <script>
 const AGENTS=[
   {id:'aml',name:'AML/KYC Compliance',role:'Anti-Money Laundering',initials:'AK',color:'#ef4444',
-    msg:'<strong>PEP Status:</strong> Viktor Petrov flagged as <strong>Politically Exposed Person</strong> — former Deputy Minister of Energy (2018-2022). Enhanced due diligence mandatory under FinCEN guidelines. <strong>Source of Funds:</strong> Declared as "consulting income" — documentation incomplete. Missing: tax returns for 2021-2023, bank statements for originating account. <strong>SAR Assessment:</strong> Transaction pattern (single large wire to Cyprus) matches <strong>3 of 7 suspicious activity indicators</strong>. Recommend: <strong>24-hour hold pending enhanced documentation review.</strong>'},
+    msg:'<strong>PEP Status:</strong> the client flagged as <strong>Politically Exposed Person</strong> — former senior government official in the energy sector (2018-2022). Enhanced due diligence mandatory under FinCEN guidelines. <strong>Source of Funds:</strong> Declared as "consulting income" — documentation incomplete. Missing: tax returns for 2021-2023, bank statements for originating account. <strong>SAR Assessment:</strong> Transaction pattern (single large wire to Cyprus) matches <strong>3 of 7 suspicious activity indicators</strong>. Recommend: <strong>24-hour hold pending enhanced documentation review.</strong>'},
   {id:'sanctions',name:'Sanctions Screening',role:'OFAC & EU Sanctions',initials:'SS',color:'#f97316',
-    msg:'<strong>OFAC SDN List:</strong> Viktor Petrov — <strong>No direct match.</strong> However, Petrov Holdings Ltd shares a registered address with Meridian Energy Group, which has a <strong>50% SDN match score</strong> (OFAC threshold: 85%). <strong>EU Sanctions:</strong> No current designations. <strong>Cyprus Risk:</strong> Destination jurisdiction is on FATF "increased monitoring" list. <strong>Risk Assessment:</strong> No blocking required, but <strong>secondary sanctions exposure possible</strong> if Meridian connection confirmed. Recommend OFAC guidance before execution.'},
+    msg:'<strong>OFAC SDN List:</strong> the client — <strong>No direct match.</strong> However, Redline Holdings Ltd shares a registered address with Solaris Energy Corp, which has a <strong>50% SDN match score</strong> (OFAC threshold: 85%). <strong>EU Sanctions:</strong> No current designations. <strong>Cyprus Risk:</strong> Destination jurisdiction is on FATF "increased monitoring" list. <strong>Risk Assessment:</strong> No blocking required, but <strong>secondary sanctions exposure possible</strong> if Solaris Energy Corp connection confirmed. Recommend OFAC guidance before execution.'},
   {id:'crossjur',name:'Cross-Jurisdiction Engine',role:'Multi-Jurisdiction Compliance',initials:'CJ',color:'#3b82f6',
     msg:'<strong>Jurisdiction Conflict Detected:</strong> US FinCEN requires 48-hour PEP reporting window. EU 6AMLD requires enhanced DD <strong>before</strong> transaction. Basel III §4.2.1 mandates 24-hour review for PEP transactions >$5M. <strong>Harmonized Requirement:</strong> Apply most restrictive standard — <strong>complete enhanced DD and 24-hour hold before execution</strong>. Cyprus CySEC requires no additional controls beyond standard KYC. <strong>Data Residency:</strong> Transaction data must remain within EU-approved data centers (GDPR Art. 44).'},
   {id:'ethics',name:'Ethics & Reputation Risk',role:'Conduct Risk Assessment',initials:'ER',color:'#a855f7',
-    msg:'<strong>Reputational Analysis:</strong> If this transaction is later linked to illicit funds, media exposure risk is <strong>HIGH</strong>. Former government officials from energy sector have been featured in 14 major enforcement actions in the past 3 years. <strong>Client Value vs Risk:</strong> Petrov Holdings represents $50M AUM (0.3% of total). Risk-adjusted, the account is <strong>NPV negative</strong> when enforcement probability is factored. <strong>Recommendation:</strong> Proceed only with bulletproof documentation trail. If documentation gaps persist >72 hours, recommend account review.'},
+    msg:'<strong>Reputational Analysis:</strong> If this transaction is later linked to illicit funds, media exposure risk is <strong>HIGH</strong>. Former government officials from energy sector have been featured in 14 major enforcement actions in the past 3 years. <strong>Client Value vs Risk:</strong> $50M AUM (0.3% of total) vs enforcement probability exposure. The account is <strong>NPV negative</strong> when enforcement probability is factored. <strong>Recommendation:</strong> Proceed only with bulletproof documentation trail. If documentation gaps persist >72 hours, recommend account review.'},
   {id:'audit',name:'Audit Trail & Evidence',role:'Regulatory Documentation',initials:'AT',color:'#22c55e',
     msg:'<strong>Evidence Package Status:</strong> Decision packet will be generated with full Merkle tree integrity. All agent analyses cryptographically signed. <strong>Regulator-Ready Exports:</strong> FinCEN SAR (if required), OFAC voluntary self-disclosure template, EU 6AMLD suspicious transaction report. <strong>Retention:</strong> 7-year mandatory retention under BSA. <strong>Chain of Custody:</strong> Every access to this case file is logged with timestamp, user ID, and purpose. <strong>Audit verdict: Documentation framework ready.</strong>'}
 ];
@@ -126,13 +138,19 @@ async function runCouncil(){
   await new Promise(r=>setTimeout(r,600));
   const area=document.getElementById('contentArea');
   const synth=document.createElement('div');synth.className='synth-box';
-  synth.innerHTML=`<div class="synth-title">⚖️ Council Recommendation: HOLD — ENHANCED DUE DILIGENCE REQUIRED</div><div class="synth-text"><strong>The Council recommends a 24-hour hold on the $8.5M wire transfer pending completion of enhanced due diligence:</strong><br><br>1. <strong>Mandatory 24-hour hold</strong> per Basel III §4.2.1 for PEP transactions exceeding $5M<br>2. <strong>Complete source-of-funds documentation</strong> — obtain 2021-2023 tax returns and originating bank statements within 72 hours<br>3. <strong>OFAC guidance request</strong> — submit voluntary inquiry regarding Meridian Energy Group address overlap<br>4. <strong>Enhanced monitoring</strong> — if transaction proceeds, flag account for 12-month enhanced monitoring<br>5. <strong>SAR evaluation</strong> — if documentation gaps persist >72 hours, file Suspicious Activity Report with FinCEN<br><br><span style="font-family:'JetBrains Mono',monospace;color:#f97316;font-weight:700">Confidence: 71% · Risk Score: 67/100 · Jurisdictions: 4 · PEP Status: CONFIRMED</span></div>`;
+  synth.innerHTML=`<div class="synth-title">⚖️ Council Recommendation: HOLD — ENHANCED DUE DILIGENCE REQUIRED</div><div class="synth-text"><strong>The Council recommends a 24-hour hold on the $8.5M wire transfer pending completion of enhanced due diligence:</strong><br><br>1. <strong>Mandatory 24-hour hold</strong> per Basel III §4.2.1 for PEP transactions exceeding $5M<br>2. <strong>Complete source-of-funds documentation</strong> — obtain 2021-2023 tax returns and originating bank statements within 72 hours<br>3. <strong>OFAC guidance request</strong> — submit voluntary inquiry regarding Solaris Energy Corp address overlap<br>4. <strong>Enhanced monitoring</strong> — if transaction proceeds, flag account for 12-month enhanced monitoring<br>5. <strong>SAR evaluation</strong> — if documentation gaps persist >72 hours, file Suspicious Activity Report with FinCEN<br><br><span style="font-family:'JetBrains Mono',monospace;color:#f97316;font-weight:700">Confidence: 71% · Risk Score: 67/100 · Jurisdictions: 4 · PEP Status: CONFIRMED</span></div>`;
   area.appendChild(synth);
+  // Briefing
+  const brief=document.createElement('div');brief.className='briefing';
+  brief.style.cssText='background:linear-gradient(135deg,rgba(249,115,22,.06),rgba(245,158,11,.04));border-color:rgba(249,115,22,.2)';
+  brief.innerHTML=`<h3 style="color:#f97316">📊 Compliance Briefing — Key Findings</h3><p>The Legal Governance Council deliberated the Redline Holdings wire transfer across <strong>5 compliance perspectives</strong>. Here is the executive summary:</p><ul><li><strong>Recommendation: HOLD — 24-hour mandatory hold</strong> required under Basel III §4.2.1 for PEP transactions exceeding $5M. This is non-negotiable.</li><li><strong>Documentation gaps are critical:</strong> Missing tax returns (2021-2023) and originating bank statements. Without these, executing the wire creates prima facie SAR filing obligation under BSA.</li><li><strong>OFAC concern:</strong> Redline Holdings shares a registered address with Solaris Energy Corp (50% SDN match score). While below the 85% blocking threshold, voluntary OFAC inquiry is strongly recommended before execution.</li><li><strong>Cross-jurisdiction conflict resolved:</strong> US requires 48-hour PEP reporting, EU requires enhanced DD before transaction, Basel III requires 24-hour hold. Harmonized requirement: complete enhanced DD + 24-hour hold before execution.</li><li><strong>Risk-adjusted client value is NPV negative:</strong> $50M AUM (0.3% of total) vs enforcement probability exposure. The account is not worth the regulatory risk without bulletproof documentation.</li></ul><p><strong>Bottom line:</strong> Place 24-hour hold immediately. Request complete source-of-funds documentation within 72 hours. If documentation gaps persist, file SAR with FinCEN and recommend account review. The $50M client relationship is not worth a consent decree.</p><div class="bf-footer" style="border-color:rgba(249,115,22,.1)">Legal Council Run ID: LEG-2026-0208 · Agents: 5 · Confidence: 71% · Risk Score: 67/100 · Jurisdictions: 4 · PEP: CONFIRMED</div>`;
+  area.appendChild(brief);
   const cta=document.createElement('div');cta.className='demo-cta';
   cta.innerHTML=`<h3>Govern every compliance decision with multi-agent AI</h3><p>Legal Governance ensures AML/KYC compliance, cross-jurisdiction harmonization, and full audit trails for every financial decision.</p><a href="../briefing.html">Request Briefing →</a>`;
   area.appendChild(cta);area.scrollTop=area.scrollHeight;running=false;
 }
 setTimeout(()=>runCouncil(),800);
 </script>
+<div style="text-align:center;padding:12px 20px;font-size:.6rem;color:#4a4a5a;border-top:1px solid #1e1e2e;font-family:'Inter',sans-serif">All names, entities, and scenarios in this demo are entirely fictitious. Any resemblance to real persons, companies, or events is purely coincidental.</div>
 </body>
 </html>

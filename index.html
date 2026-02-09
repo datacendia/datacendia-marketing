@@ -114,8 +114,8 @@
       <div class="landing-tagline">Sovereign Intelligence Platform</div>
       <div class="landing-line"></div>
       <div class="landing-stat">
-        <span class="landing-stat-num">204,079</span>
-        <span class="landing-stat-label">automated tests · 23 verticals · air-gap ready</span>
+        <span class="landing-stat-num" style="font-size:1.6rem;letter-spacing:.08em">Every decision. Defensible.</span>
+        <span class="landing-stat-label">AI-governed · cryptographically sealed · court-admissible</span>
       </div>
     </div>
     <button class="landing-skip" onclick="skipLanding()" aria-label="Skip intro">Skip →</button>
@@ -261,12 +261,12 @@
 
   <script>
   (function() {
-    // Skip if user has seen the intro recently (session)
-    if (sessionStorage.getItem('datacendia_intro_seen')) {
-      var overlay = document.getElementById('landing-overlay');
-      if (overlay) overlay.style.display = 'none';
-      return;
-    }
+    // Session check disabled for review — uncomment to restore:
+    // if (sessionStorage.getItem('datacendia_intro_seen')) {
+    //   var overlay = document.getElementById('landing-overlay');
+    //   if (overlay) overlay.style.display = 'none';
+    //   return;
+    // }
 
     // Particle field
     var canvas = document.getElementById('landing-particles');

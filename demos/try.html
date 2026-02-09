@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Try Your Decision — The Council Mini Demo | Datacendia</title>
+<meta name="description" content="Type any business decision. Watch 3 AI agents deliberate it in real-time. See why enterprise leaders trust Datacendia.">
+<link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+body{background:#09090b;color:#e4e4e7;font-family:'Inter',-apple-system,sans-serif;min-height:100vh;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+
+/* Header */
+.header{display:flex;align-items:center;gap:12px;height:48px;padding:0 20px;background:#18181b;border-bottom:1px solid #27272a;position:sticky;top:0;z-index:100}
+.header-logo{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:.95rem;color:#C9A227;letter-spacing:.12em;text-decoration:none}
+.header-logo:hover{color:#d4af37}
+.header-back{color:#71717a;text-decoration:none;font-size:.72rem;margin-left:8px;transition:color .15s}
+.header-back:hover{color:#C9A227}
+.header-spacer{flex:1}
+.header-badge{padding:3px 10px;background:linear-gradient(135deg,rgba(168,85,247,.15),rgba(99,102,241,.15));color:#a855f7;border-radius:20px;font-size:.6rem;font-family:'JetBrains Mono',monospace;font-weight:600;letter-spacing:.05em;border:1px solid rgba(168,85,247,.2)}
+
+/* Hero / Input Section */
+.hero{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:80px 20px 40px;transition:all .5s cubic-bezier(.4,0,.2,1)}
+.hero.compact{padding:24px 20px 20px}
+.hero h1{font-size:2.2rem;font-weight:700;text-align:center;margin-bottom:8px;background:linear-gradient(135deg,#fff 0%,#a1a1aa 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.hero.compact h1{font-size:1.1rem;margin-bottom:6px}
+.hero .subtitle{color:#71717a;font-size:.9rem;text-align:center;margin-bottom:32px;max-width:480px}
+.hero.compact .subtitle{display:none}
+
+/* Input Area */
+.input-wrap{position:relative;width:100%;max-width:640px;margin-bottom:16px}
+.input-wrap textarea{width:100%;min-height:100px;padding:16px 18px;background:#111113;border:1.5px solid #27272a;border-radius:14px;color:#e4e4e7;font-family:'Inter',sans-serif;font-size:.95rem;line-height:1.6;resize:none;outline:none;transition:all .3s}
+.input-wrap textarea:focus{border-color:#6366f1;box-shadow:0 0 0 3px rgba(99,102,241,.12),0 0 24px rgba(99,102,241,.06)}
+.hero.compact .input-wrap textarea{min-height:52px;font-size:.82rem;padding:12px 16px}
+.input-wrap textarea::placeholder{color:#52525b}
+
+/* Submit Button */
+.submit-btn{display:flex;align-items:center;gap:8px;padding:12px 28px;background:linear-gradient(135deg,#6366f1,#8b5cf6);color:#fff;border:none;border-radius:10px;font-size:.9rem;font-weight:600;cursor:pointer;transition:all .2s;font-family:'Inter',sans-serif}
+.submit-btn:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(99,102,241,.3)}
+.submit-btn:disabled{opacity:.5;cursor:not-allowed;transform:none;box-shadow:none}
+
+/* Example Chips */
+.examples{display:flex;flex-wrap:wrap;gap:8px;max-width:640px;justify-content:center;margin-top:16px}
+.hero.compact .examples{display:none}
+.example-chip{padding:6px 14px;background:#18181b;border:1px solid #27272a;border-radius:20px;color:#a1a1aa;font-size:.72rem;cursor:pointer;transition:all .2s;white-space:nowrap}
+.example-chip:hover{border-color:#6366f1;color:#c7d2fe;background:#1e1b4b}
+
+/* Results Area */
+.results{max-width:700px;margin:0 auto;padding:0 20px 20px}
+
+/* Agent Card */
+.agent-card{background:#18181b;border:1px solid #27272a;border-radius:14px;padding:18px;margin-bottom:14px;opacity:0;transform:translateY(16px);transition:all .4s cubic-bezier(.4,0,.2,1)}
+.agent-card.visible{opacity:1;transform:translateY(0)}
+.agent-top{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+.agent-avatar{width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:700;color:#fff;flex-shrink:0}
+.agent-name{font-weight:600;font-size:.85rem}
+.agent-role{font-size:.68rem;color:#71717a}
+.agent-stance{margin-left:auto;padding:3px 10px;border-radius:20px;font-size:.58rem;font-weight:600;text-transform:uppercase;letter-spacing:.04em}
+.stance-bullish{background:rgba(34,197,94,.1);color:#22c55e;border:1px solid rgba(34,197,94,.2)}
+.stance-cautious{background:rgba(239,68,68,.1);color:#ef4444;border:1px solid rgba(239,68,68,.2)}
+.stance-neutral{background:rgba(59,130,246,.1);color:#3b82f6;border:1px solid rgba(59,130,246,.2)}
+.agent-msg{font-size:.82rem;line-height:1.7;color:#d4d4d8;border-left:3px solid #27272a;padding-left:14px;margin-left:2px}
+.agent-msg strong{color:#fff}
+
+/* Typing dots */
+.typing-dots{display:flex;gap:4px;padding:8px 0}
+.typing-dots span{width:6px;height:6px;background:#52525b;border-radius:50%;animation:bounce .6s ease-in-out infinite}
+.typing-dots span:nth-child(2){animation-delay:.15s}
+.typing-dots span:nth-child(3){animation-delay:.3s}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+
+/* Synthesis */
+.synthesis{background:linear-gradient(135deg,rgba(99,102,241,.08),rgba(168,85,247,.05));border:1px solid rgba(99,102,241,.2);border-radius:14px;padding:20px;margin-bottom:14px;opacity:0;transform:translateY(16px);transition:all .4s}
+.synthesis.visible{opacity:1;transform:translateY(0)}
+.synth-header{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.synth-icon{font-size:1.3rem}
+.synth-title{font-weight:700;font-size:.95rem}
+.synth-rec{font-size:.78rem;font-weight:600;font-family:'JetBrains Mono',monospace;margin-bottom:12px}
+.confidence-bar{height:6px;background:#27272a;border-radius:3px;margin:10px 0 6px;overflow:hidden}
+.confidence-fill{height:100%;border-radius:3px;transition:width 1.2s cubic-bezier(.4,0,.2,1)}
+.confidence-row{display:flex;justify-content:space-between;font-size:.7rem;color:#71717a}
+.confidence-val{font-family:'JetBrains Mono',monospace;font-weight:700}
+.synth-text{font-size:.8rem;line-height:1.7;color:#a1a1aa;margin-top:14px;padding-top:14px;border-top:1px solid #27272a}
+.synth-text strong{color:#d4d4d8}
+
+/* CTA */
+.cta-section{text-align:center;padding:24px 20px 30px;opacity:0;transition:opacity .6s}
+.cta-section.visible{opacity:1}
+.cta-note{font-size:.8rem;color:#71717a;margin-bottom:20px;line-height:1.7;max-width:520px;margin-left:auto;margin-right:auto}
+.cta-note em{color:#c7d2fe;font-style:normal;font-weight:500}
+.cta-btn{display:inline-flex;align-items:center;gap:8px;padding:14px 32px;background:linear-gradient(135deg,#C9A227,#d4af37);color:#09090b;border:none;border-radius:10px;font-size:.9rem;font-weight:700;cursor:pointer;transition:all .2s;font-family:'Inter',sans-serif;text-decoration:none}
+.cta-btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(201,162,39,.25)}
+
+/* Disclaimers */
+.sim-disclaimer{text-align:center;padding:10px 20px;font-size:.58rem;color:#3f3f46;font-family:'Inter',sans-serif;max-width:600px;margin:0 auto;line-height:1.6}
+.disclaimer{text-align:center;padding:12px 20px;font-size:.6rem;color:#4a4a5a;border-top:1px solid #1e1e2e;font-family:'Inter',sans-serif}
+
+/* Responsive */
+@media(max-width:640px){
+  .hero h1{font-size:1.5rem}
+  .hero{padding:50px 16px 30px}
+  .examples{gap:6px}
+  .example-chip{font-size:.65rem;padding:5px 10px}
+  .results{padding:0 16px 20px}
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <a href="../demos.html" class="header-logo">DATACENDIA</a>
+  <a href="../demos.html" class="header-back">← Demos</a>
+  <div class="header-spacer"></div>
+  <span class="header-badge">INTERACTIVE DEMO</span>
+</div>
+
+<div class="hero" id="hero">
+  <h1>What decision is keeping you up at night?</h1>
+  <p class="subtitle">Type any business decision. Watch 3 AI agents deliberate it in real-time.</p>
+  <div class="input-wrap">
+    <textarea id="decisionInput" placeholder="e.g. Should we acquire a competitor for $50M?" rows="3"></textarea>
+  </div>
+  <button class="submit-btn" id="submitBtn" onclick="runMiniCouncil()">🏛️ Run Mini Council →</button>
+  <div class="examples" id="examples">
+    <span class="example-chip" onclick="useExample(this)">Should we acquire a competitor for $50M?</span>
+    <span class="example-chip" onclick="useExample(this)">Should we expand to the European market?</span>
+    <span class="example-chip" onclick="useExample(this)">Should we hire a VP of Engineering?</span>
+    <span class="example-chip" onclick="useExample(this)">Should we migrate from AWS to on-prem?</span>
+    <span class="example-chip" onclick="useExample(this)">Should we launch a new product line?</span>
+  </div>
+</div>
+
+<div class="results" id="results"></div>
+
+<div class="cta-section" id="ctaSection">
+  <p class="cta-note">That was <em>3 agents in 20 seconds</em>. The full Council runs <em>6+ specialist agents</em> with multi-round cross-examination, formal dissent tracking, and a cryptographically sealed evidence packet.</p>
+  <a href="../briefing.html" class="cta-btn">Request Full Briefing →</a>
+</div>
+
+<div class="sim-disclaimer">This is a simulated demonstration using template-based responses. It does not constitute real AI analysis, financial advice, or professional consultation. Actual Datacendia deliberations use multi-model AI agents with real-time reasoning.</div>
+<div class="disclaimer">All names, entities, and scenarios in this demo are entirely fictitious. Any resemblance to real persons, companies, or events is purely coincidental.</div>
+
+<script>
+const ARCHETYPES={
+mna:{
+  test:/acquir|merger|merge|buy.?out|takeover|m&a|purchase a|purchasing/i,
+  confidence:64,rec:'CONDITIONAL PROCEED — Due Diligence Required',recColor:'#f59e0b',
+  agents:[
+    {name:'Strategic Advisor',role:'Growth & Market Position',initials:'SA',color:'#22c55e',stance:'bullish',
+      msg:s=>`<strong>Strategic rationale is sound.</strong> ${s.cap} accelerates your roadmap by 12–18 months vs. building internally. Key question: does the target's customer base overlap >30% with yours? If yes, you're paying a premium for revenue you'd eventually win. If overlap is <15%, this is genuine TAM expansion and the multiple is justified. <strong>Recommendation: proceed to LOI</strong> — but gate on due diligence findings.`},
+    {name:'Risk Analyst',role:'Downside & Failure Modes',initials:'RA',color:'#ef4444',stance:'cautious',
+      msg:s=>`<strong>Three failure modes concern me.</strong> (1) <strong>Cultural integration</strong> — 60% of tech acquisitions fail here, not on financials. (2) <strong>Key person dependency</strong> — if >40% of target value walks out in Year 1, your IRR goes negative. (3) <strong>Hidden technical debt</strong> — replatforming costs are routinely 3x initial estimates. ${s.money?'At '+s.money+', you':'You'} have zero margin for error on execution. <strong>Mandate 90-day technical DD before LOI.</strong>`},
+    {name:'Financial Controller',role:'Numbers & Unit Economics',initials:'FC',color:'#3b82f6',stance:'neutral',
+      msg:s=>`<strong>Run the numbers backward.</strong> What revenue growth rate justifies this price? If the answer is >25% CAGR for 3+ years, the deal is priced for perfection — one miss and your write-down exceeds 30% of purchase price. ${s.money?'At <strong>'+s.money+'</strong>, ensure':'Ensure'} your model stress-tests at 60% of projected synergies. Also: what does the retention package cost for the top 10 employees? That number is often the real price of the deal.`}
+  ]},
+hire:{
+  test:/\bhire|recruit|headcount|talent|staffing|vp of|director of|head of|chief|new role/i,
+  confidence:72,rec:'PROCEED — With Structured Evaluation Framework',recColor:'#22c55e',
+  agents:[
+    {name:'Strategic Advisor',role:'Growth & Market Position',initials:'SA',color:'#22c55e',stance:'bullish',
+      msg:s=>`<strong>The talent gap is real, and timing matters.</strong> ${s.cap} — are you filling a gap that's already causing pain, or building capacity for a future bet? The former is urgent and justifiable. The latter can wait for better signal. If competitors are hiring for the same role, delay costs you twice: you lose the candidate AND the capability gap widens. <strong>Move fast, but define success criteria before you post.</strong>`},
+    {name:'Risk Analyst',role:'Downside & Failure Modes',initials:'RA',color:'#ef4444',stance:'cautious',
+      msg:s=>`<strong>The hidden cost of a mis-hire at this level is enormous.</strong> It's not just salary — it's 6–18 months of organizational drag, team disruption, and opportunity cost. Senior mis-hires have a <strong>40% failure rate within 18 months</strong>. Define 3 non-negotiable competencies BEFORE interviews begin. Most hiring failures trace back to unclear criteria and "culture fit" hand-waving. <strong>Structure prevents regret.</strong>`},
+    {name:'Financial Controller',role:'Numbers & Unit Economics',initials:'FC',color:'#3b82f6',stance:'neutral',
+      msg:s=>`<strong>Fully loaded cost is always higher than you think.</strong> Base + benefits + equity + recruiting fees + onboarding + ramp time = typically <strong>1.5–2x the posted salary</strong>. Breakeven on a senior hire is 8–12 months. If your planning horizon for this role's impact is <12 months, consider a fractional or interim hire instead. Also model: what happens if this hire doesn't work out at Month 9?`}
+  ]},
+expand:{
+  test:/expand|enter.+market|international|new market|europe|asia|global|overseas|open.+office|geographic|go.+global/i,
+  confidence:58,rec:'PROCEED WITH CAUTION — Beachhead Strategy Required',recColor:'#f59e0b',
+  agents:[
+    {name:'Strategic Advisor',role:'Growth & Market Position',initials:'SA',color:'#22c55e',stance:'bullish',
+      msg:s=>`<strong>The TAM expansion is genuine</strong>, but the question is sequencing. ${s.cap} — going broad too early dilutes focus; going narrow too late cedes first-mover advantage. <strong>Pick ONE beachhead market</strong>, achieve $2M+ ARR there, THEN replicate the playbook. The biggest expansion mistake is trying to "win a continent" instead of "win one city first."`},
+    {name:'Risk Analyst',role:'Downside & Failure Modes',initials:'RA',color:'#ef4444',stance:'cautious',
+      msg:s=>`<strong>International expansion failure rate: ~45% in the first 2 years.</strong> Top 3 killers: (1) Underestimating localization costs — it's not just translation, it's compliance, payment methods, and support hours. (2) Hiring a country manager before achieving local product-market fit. (3) Spreading marketing spend across too many geos. <strong>Each new market needs dedicated budget AND attention. Do you have both?</strong>`},
+    {name:'Financial Controller',role:'Numbers & Unit Economics',initials:'FC',color:'#3b82f6',stance:'neutral',
+      msg:s=>`<strong>Model the J-curve.</strong> Expect 18–24 months of negative unit economics in the new market before contribution margin turns positive. If this expansion pushes your cash runway below 18 months, you're betting the company on execution speed. <strong>Minimum viable budget:</strong> $500K–$1M for a single-market entry (one senior hire + local marketing + legal/compliance). Can you fund this without touching your core business?`}
+  ]},
+vendor:{
+  test:/vendor|migrat|switch|platform|\btool\b|software|cloud|saas|provider|aws|azure|on.?prem|infrastructure|tech.?stack/i,
+  confidence:66,rec:'CONDITIONAL PROCEED — Parallel Run Recommended',recColor:'#f59e0b',
+  agents:[
+    {name:'Strategic Advisor',role:'Growth & Market Position',initials:'SA',color:'#22c55e',stance:'bullish',
+      msg:s=>`<strong>Platform decisions compound.</strong> ${s.cap} — every month you delay locks you deeper into the current stack. The switching cost only increases. But the strategic question isn't "is the new platform better?" — it's <strong>"does it unlock capabilities we literally cannot build on the current one?"</strong> If yes, the migration cost is an investment. If it's just "better and cheaper," the ROI rarely justifies the disruption.`},
+    {name:'Risk Analyst',role:'Downside & Failure Modes',initials:'RA',color:'#ef4444',stance:'cautious',
+      msg:s=>`<strong>Migration projects are universally underestimated.</strong> Plan for 2x the timeline and 1.5x the budget. The real risk isn't technical — it's the <strong>productivity valley</strong>: 3–6 months where your team is slower on both the old AND new system. During this window, your competitors don't pause. <strong>Mandate a parallel-run period</strong> where both systems operate simultaneously. Never do a hard cutover on mission-critical infrastructure.`},
+    {name:'Financial Controller',role:'Numbers & Unit Economics',initials:'FC',color:'#3b82f6',stance:'neutral',
+      msg:s=>`<strong>Calculate total cost of migration, not just the licensing delta.</strong> Include: engineering hours (at fully loaded cost), retraining, temporary dual-licensing, productivity loss during transition, and risk premium for potential rollback. In my experience, "savings" from a platform switch are consumed by migration costs in Year 1. <strong>Breakeven is typically 18–24 months.</strong> If you're not committed to that timeline, stay put.`}
+  ]},
+product:{
+  test:/launch|product|feature|build|ship|release|mvp|roadmap|pivot|new.+line|go.to.market/i,
+  confidence:70,rec:'PROCEED — With Defined Success Criteria',recColor:'#22c55e',
+  agents:[
+    {name:'Strategic Advisor',role:'Growth & Market Position',initials:'SA',color:'#22c55e',stance:'bullish',
+      msg:s=>`<strong>The opportunity cost of NOT launching is underappreciated.</strong> ${s.cap} — if 3+ customers have independently asked for this, that's market signal, not noise. But be disciplined about scope: define the <strong>minimum lovable product</strong>, not the maximum possible product. Ship in 8 weeks or it's not an MVP, it's a project. <strong>Velocity beats perfection in new categories.</strong>`},
+    {name:'Risk Analyst',role:'Downside & Failure Modes',initials:'RA',color:'#ef4444',stance:'cautious',
+      msg:s=>`<strong>New product launches have a 70% underperformance rate</strong> against initial projections. The #1 cause: building what you THINK customers want instead of what they'll PAY for. Before committing engineering resources, <strong>validate willingness to pay</strong> — can you get 3 design partners who commit budget before you write code? If not, you're building on hope, not signal. Also: what does this take AWAY from your core product roadmap?`},
+    {name:'Financial Controller',role:'Numbers & Unit Economics',initials:'FC',color:'#3b82f6',stance:'neutral',
+      msg:s=>`<strong>Model the cannibalization risk.</strong> Does this new offering compete with your existing product for the same budget line? If yes, your net revenue gain is lower than your gross projection. Also: what's the <strong>fully loaded cost per feature</strong> including design, engineering, QA, docs, support, and ongoing maintenance? Most teams track build cost but ignore the 3–5x maintenance multiplier over the product's lifetime.`}
+  ]},
+invest:{
+  test:/invest|fund|raise|capital|budget|spend|allocat|financ/i,
+  confidence:62,rec:'CONDITIONAL PROCEED — Stress-Test Assumptions',recColor:'#f59e0b',
+  agents:[
+    {name:'Strategic Advisor',role:'Growth & Market Position',initials:'SA',color:'#22c55e',stance:'bullish',
+      msg:s=>`<strong>Capital allocation is strategy made real.</strong> ${s.cap} — the question isn't whether this is a good use of money in isolation, but whether it's the BEST use vs. every alternative including doing nothing. <strong>Apply the regret minimization test:</strong> in 3 years, which would you regret more — making this investment and it underperforming, or NOT making it and watching a competitor win because they did?`},
+    {name:'Risk Analyst',role:'Downside & Failure Modes',initials:'RA',color:'#ef4444',stance:'cautious',
+      msg:s=>`<strong>Every investment thesis has a "what has to go right" list.</strong> Write it down. Now ask: what's the probability ALL of those things go right simultaneously? If it's <40%, your expected return is negative regardless of the upside scenario. ${s.money?'At '+s.money+', the':'The'} irreversibility matters too — <strong>can you unwind this in 12 months if the thesis breaks?</strong> If not, size the bet accordingly.`},
+    {name:'Financial Controller',role:'Numbers & Unit Economics',initials:'FC',color:'#3b82f6',stance:'neutral',
+      msg:s=>`<strong>Separate the investment from the return timeline.</strong> ${s.money?s.money+' deployed today':'Capital deployed today'} with returns starting in Month 18 has a very different risk profile than returns starting in Month 3. Model three scenarios: base (60%), upside (20%), downside (20%). If the <strong>weighted expected return doesn't exceed your cost of capital by 2x</strong>, the risk-adjusted case is weak. What's your walk-away trigger?`}
+  ]},
+restructure:{
+  test:/restructur|layoff|cut.+staff|reduc|close|shutdown|downsize|consolidat|reorganiz|rif\b|redundanc/i,
+  confidence:56,rec:'PROCEED WITH CAUTION — Human Impact Assessment Required',recColor:'#ef4444',
+  agents:[
+    {name:'Strategic Advisor',role:'Growth & Market Position',initials:'SA',color:'#22c55e',stance:'neutral',
+      msg:s=>`<strong>Restructuring is a tool, not a strategy.</strong> ${s.cap} — what future state does this enable that is impossible without it? If you can't articulate the "rebuild" vision in one sentence, you're optimizing costs without a growth thesis. <strong>The best restructurings cut AND invest simultaneously</strong> — they fund the future by pruning the past. What are you redirecting these resources toward?`},
+    {name:'Risk Analyst',role:'Downside & Failure Modes',initials:'RA',color:'#ef4444',stance:'cautious',
+      msg:s=>`<strong>Hidden costs are consistently underestimated.</strong> Beyond severance: (1) <strong>Survivor productivity drops 20–40%</strong> for 3–6 months. (2) Top performers leave voluntarily — they have options, and uncertainty triggers job searches. (3) Institutional knowledge walks out the door. (4) Customer confidence wavers. <strong>Net savings in Year 1 are typically 40–60% of projected</strong> after accounting for these effects.`},
+    {name:'Financial Controller',role:'Numbers & Unit Economics',initials:'FC',color:'#3b82f6',stance:'neutral',
+      msg:s=>`<strong>Model the full P&L impact, not just the cost line.</strong> Restructuring charges (severance, legal, outplacement) typically equal 3–6 months of the eliminated costs — so you're cash-flow negative in Q1. Revenue risk: if this affects customer-facing teams, model a 5–15% revenue impact from reduced capacity. <strong>True breakeven on a restructuring is usually 9–15 months</strong>, not the "immediate savings" your spreadsheet shows.`}
+  ]},
+general:{
+  test:/.*/,
+  confidence:68,rec:'CONDITIONAL PROCEED — Further Analysis Recommended',recColor:'#f59e0b',
+  agents:[
+    {name:'Strategic Advisor',role:'Growth & Market Position',initials:'SA',color:'#22c55e',stance:'bullish',
+      msg:s=>`<strong>Every major decision has an opportunity cost.</strong> ${s.cap} — the real question isn't "is this a good idea?" but "is this the BEST use of our finite resources right now?" Frame it against your top 3 strategic priorities. If it directly advances Priority #1, move fast. If it's Priority #4 or lower, it's a distraction disguised as an opportunity. <strong>Strategy is what you say no to.</strong>`},
+    {name:'Risk Analyst',role:'Downside & Failure Modes',initials:'RA',color:'#ef4444',stance:'cautious',
+      msg:s=>`<strong>Before you decide, map the reversibility.</strong> Is this a one-way door or a two-way door? One-way doors (irreversible decisions) deserve 10x more deliberation than two-way doors (easily reversed). For one-way doors: <strong>mandate a pre-mortem</strong> — "Assume this failed catastrophically. Why did it fail?" For two-way doors: just ship it and iterate. Most organizations over-deliberate two-way doors and under-deliberate one-way doors.`},
+    {name:'Financial Controller',role:'Numbers & Unit Economics',initials:'FC',color:'#3b82f6',stance:'neutral',
+      msg:s=>`<strong>Quantify the cost of delay.</strong> What does it cost you per week to NOT make this decision? If the answer is "nothing meaningful," take more time to gather data. If delay has real cost — lost revenue, competitive disadvantage, team attrition — then the framework shifts from "maximize certainty" to "minimize regret." <strong>Set a decision deadline and commit to it.</strong> Analysis paralysis has killed more good ideas than bad decisions ever have.`}
+  ]}
+};
+
+function parseInput(input){
+  const cleaned=input.replace(/\?$/,'').trim();
+  const stripped=cleaned.replace(/^(should we |should i |we('re| are) (considering|thinking about|deciding) (whether to )?|i('m| am) (considering|thinking about|deciding) (whether to )?|considering |thinking about |deciding whether to |deciding to |do we need to )/i,'');
+  const cap=stripped.charAt(0).toUpperCase()+stripped.slice(1);
+  const money=input.match(/[\$£€][\d,.]+\s*(?:million|billion|[MBK])?|\d+[\d,.]*\s*(?:million|billion)/i);
+  return{subject:stripped,cap,money:money?money[0]:null};
+}
+
+function detectArchetype(input){
+  for(const[key,arch]of Object.entries(ARCHETYPES)){
+    if(key==='general')continue;
+    if(arch.test.test(input))return key;
+  }
+  return'general';
+}
+
+function useExample(el){
+  const ta=document.getElementById('decisionInput');
+  ta.value=el.textContent;
+  ta.focus();
+}
+
+let running=false;
+
+async function runMiniCouncil(){
+  const input=document.getElementById('decisionInput').value.trim();
+  if(!input||input.length<10||running)return;
+  running=true;
+
+  const btn=document.getElementById('submitBtn');
+  btn.disabled=true;
+  btn.innerHTML='⏳ Deliberating...';
+  document.getElementById('hero').classList.add('compact');
+  document.getElementById('results').innerHTML='';
+  document.getElementById('ctaSection').classList.remove('visible');
+
+  const parsed=parseInput(input);
+  const archKey=detectArchetype(input);
+  const arch=ARCHETYPES[archKey];
+
+  for(let i=0;i<arch.agents.length;i++){
+    await showAgent(arch.agents[i],parsed);
+    if(i<arch.agents.length-1)await delay(600);
+  }
+
+  await delay(500);
+  showSynthesis(arch);
+
+  await delay(700);
+  document.getElementById('ctaSection').classList.add('visible');
+  document.getElementById('ctaSection').scrollIntoView({behavior:'smooth',block:'nearest'});
+
+  btn.disabled=false;
+  btn.innerHTML='🏛️ Run Again →';
+  running=false;
+}
+
+function showAgent(agent,parsed){
+  return new Promise(resolve=>{
+    const card=document.createElement('div');
+    card.className='agent-card';
+    const sc=agent.stance==='bullish'?'stance-bullish':agent.stance==='cautious'?'stance-cautious':'stance-neutral';
+    const sl=agent.stance==='bullish'?'Bullish':agent.stance==='cautious'?'Cautious':'Analytical';
+    card.innerHTML=`<div class="agent-top"><div class="agent-avatar" style="background:${agent.color}">${agent.initials}</div><div><div class="agent-name">${agent.name}</div><div class="agent-role">${agent.role}</div></div><span class="agent-stance ${sc}">${sl}</span></div><div class="agent-msg" style="border-left-color:${agent.color}"><div class="typing-dots"><span></span><span></span><span></span></div></div>`;
+    document.getElementById('results').appendChild(card);
+
+    requestAnimationFrame(()=>{
+      card.classList.add('visible');
+      card.scrollIntoView({behavior:'smooth',block:'nearest'});
+    });
+
+    setTimeout(()=>{
+      card.querySelector('.agent-msg').innerHTML=agent.msg(parsed);
+      card.scrollIntoView({behavior:'smooth',block:'nearest'});
+      resolve();
+    },1400+Math.random()*700);
+  });
+}
+
+function showSynthesis(arch){
+  const el=document.createElement('div');
+  el.className='synthesis';
+  el.innerHTML=`<div class="synth-header"><span class="synth-icon">⚖️</span><span class="synth-title">Mini Council Synthesis</span></div><div class="synth-rec" style="color:${arch.recColor}">${arch.rec}</div><div class="confidence-bar"><div class="confidence-fill" style="width:0;background:${arch.recColor}"></div></div><div class="confidence-row"><span>Confidence</span><span class="confidence-val" style="color:${arch.recColor}">${arch.confidence}%</span></div><div class="synth-text">This was a <strong>3-agent mini deliberation</strong> using template-based responses. A full Council session runs <strong>6+ specialist agents</strong> with multi-round cross-examination where agents challenge each other, formal dissent tracking with tamper-proof records, and a cryptographically sealed decision packet you can hand to auditors or regulators.</div>`;
+  document.getElementById('results').appendChild(el);
+
+  requestAnimationFrame(()=>{
+    el.classList.add('visible');
+    el.scrollIntoView({behavior:'smooth',block:'nearest'});
+    setTimeout(()=>{el.querySelector('.confidence-fill').style.width=arch.confidence+'%'},200);
+  });
+}
+
+function delay(ms){return new Promise(r=>setTimeout(r,ms))}
+
+document.getElementById('decisionInput').addEventListener('keydown',e=>{
+  if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();runMiniCouncil();}
+});
+</script>
+</body>
+</html>
