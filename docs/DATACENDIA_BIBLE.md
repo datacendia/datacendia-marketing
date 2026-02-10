@@ -1963,7 +1963,7 @@ All frameworks below are auto-tracked via [CendiaPanopticon™](#security--compl
 | **Agent Auto-Wake** | Automatic agent selection based on dropped document file type |
 | **Council Mode** | Preconfigured deliberation style (War Room, Deal Room, Ethics Review, etc.) |
 | **Pre-Mortem** | AI analysis of potential failure modes before a decision is made |
-| **Decision DNA** | Full lifecycle tracking with step-by-step replay capability |
+| **Audit Provenance** | Full lifecycle tracking with step-by-step replay capability |
 | **Ghost Board™** | AI simulation of board meetings for presentation rehearsal |
 | **Cross-Examination** | Phase where agents challenge each other's positions |
 | **RAG** | Retrieval-Augmented Generation using pgvector for semantic search |
@@ -2077,7 +2077,7 @@ ENABLE_CUSTOM_AGENTS=true
 - **Custom Agent Builder** — Create domain-specific agents with custom system prompts
 
 #### Decision Intelligence
-- **Decision DNA** — Full lifecycle tracking with step-by-step replay
+- **Audit Provenance** — Full lifecycle tracking with step-by-step replay
 - **Pre-Mortem Analysis** — AI-powered failure mode identification before decisions
 - **Ghost Board™** — Simulate board meetings with AI personas
 - **Decision Timeline** — Visual replay of decision evolution in Chronos

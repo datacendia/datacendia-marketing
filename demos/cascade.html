@@ -86,7 +86,7 @@
     <span class="ph-spacer"></span>
     <span class="ph-demo-badge">DEMO MODE</span>
     <div class="ph-user">
-      <div class="ph-notif">🔔<div class="ph-notif-dot"></div></div>
+      <div class="ph-notif"><img src="../assets/logos/cendia-helm.svg" alt="Notifications" width="18" height="18" style="border-radius:4px"><div class="ph-notif-dot"></div></div>
       <div class="ph-avatar">SR</div>
     </div>
     <a href="../demos.html" class="ph-back">← Demos</a>
@@ -95,9 +95,9 @@
     <div class="sidebar">
       <div class="sb-section">
         <div class="sb-label">Scenario</div>
-        <button class="scenario-tab active" onclick="loadScenario('plant',this)"><div class="st-title">🏭 Plant Closure</div><div class="st-meta">450 employees · $28M savings target</div></button>
-        <button class="scenario-tab" onclick="loadScenario('pricing',this)"><div class="st-title">💰 Price Increase</div><div class="st-meta">18% across all tiers · 2,400 accounts</div></button>
-        <button class="scenario-tab" onclick="loadScenario('layoff',this)"><div class="st-title">👥 Workforce Reduction</div><div class="st-meta">20% engineering · 120 engineers</div></button>
+        <button class="scenario-tab active" onclick="loadScenario('plant',this)"><div class="st-title"><img src="../assets/logos/cascade.svg" alt="Plant" width="14" height="14" style="border-radius:3px;vertical-align:middle"> Plant Closure</div><div class="st-meta">450 employees · $28M savings target</div></button>
+        <button class="scenario-tab" onclick="loadScenario('pricing',this)"><div class="st-title"><img src="../assets/logos/roi-metrics.svg" alt="Price" width="14" height="14" style="border-radius:3px;vertical-align:middle"> Price Increase</div><div class="st-meta">18% across all tiers · 2,400 accounts</div></button>
+        <button class="scenario-tab" onclick="loadScenario('layoff',this)"><div class="st-title"><img src="../assets/logos/cendia-agents.svg" alt="Workforce" width="14" height="14" style="border-radius:3px;vertical-align:middle"> Workforce Reduction</div><div class="st-meta">20% engineering · 120 engineers</div></button>
       </div>
       <div class="sb-section">
         <div class="sb-label">Change Specification</div>
@@ -109,7 +109,7 @@
         </div>
       </div>
       <div class="sb-section">
-        <button class="run-btn" id="runBtn" onclick="runCascade()">🦋 Run Cascade Analysis</button>
+        <button class="run-btn" id="runBtn" onclick="runCascade()"><img src="../assets/logos/cascade.svg" alt="Cascade" width="16" height="16" style="border-radius:3px;vertical-align:middle"> Run Cascade Analysis</button>
         <button class="reset-btn" id="resetBtn" onclick="resetCascade()" style="display:none">↺ Reset Analysis</button>
       </div>
       <div class="sb-section" id="summarySection" style="display:none">
@@ -123,25 +123,25 @@
         <div style="font-size:.65rem;color:#6b7280;margin-top:8px;text-align:center" id="ssRec"></div>
       </div>
       <div class="sb-section" id="guardSection" style="display:none">
-        <div class="sb-label">🛑 Guardrails</div>
+        <div class="sb-label"><img src="../assets/logos/cendia-guard.svg" alt="Guardrails" width="14" height="14" style="border-radius:3px;vertical-align:middle"> Guardrails</div>
         <div id="guardList"></div>
       </div>
     </div>
     <div class="main-panel">
       <div class="main-header">
-        <span class="main-title">⏱️ CendiaChronos™ — Cascade Analysis</span>
+        <span class="main-title"><img src="../assets/logos/cascade.svg" alt="CendiaCascade" width="28" height="28" style="border-radius:6px;vertical-align:middle;margin-right:6px">CendiaChronos™ — Cascade Analysis</span>
         <span class="badge" style="background:rgba(249,115,22,.15);color:#f97316" id="statusBadge">READY</span>
       </div>
       <div class="content-area" id="contentArea">
         <div class="backstory">
-          <h3>📋 Scenario Briefing</h3>
+          <h3><img src="../assets/logos/audit-provenance.svg" alt="Briefing" width="20" height="20" style="border-radius:4px;vertical-align:middle"> Scenario Briefing</h3>
           <p><strong>Hartwell Manufacturing Corp.</strong> is a $340M industrial components manufacturer headquartered in Columbus, OH with plants in Springfield, Detroit, and Austin. After 18 months of margin compression (EBITDA down from 22% to 14%), the board has demanded a turnaround plan by end of quarter.</p>
           <p>The CFO has presented three options, each with significant organizational consequences. The CEO wants to understand not just the <strong>first-order savings</strong>, but the <strong>2nd and 3rd order ripple effects</strong> that typically blindside companies after major restructuring decisions. She's activated <strong>CendiaChronos™ Cascade Analysis</strong> to map every consequence before committing.</p>
           <div class="bs-meta">
-            <span>🏭 Hartwell Manufacturing Corp.</span>
-            <span>💰 $340M revenue</span>
-            <span>👥 1,200 employees across 3 plants</span>
-            <span>📉 EBITDA: 22% → 14%</span>
+            <span><img src="../assets/logos/cascade.svg" alt="Company" width="14" height="14" style="border-radius:3px;vertical-align:middle"> Hartwell Manufacturing Corp.</span>
+            <span><img src="../assets/logos/roi-metrics.svg" alt="Revenue" width="14" height="14" style="border-radius:3px;vertical-align:middle"> $340M revenue</span>
+            <span><img src="../assets/logos/cendia-agents.svg" alt="People" width="14" height="14" style="border-radius:3px;vertical-align:middle"> 1,200 employees across 3 plants</span>
+            <span><img src="../assets/logos/pre-mortem.svg" alt="EBITDA" width="14" height="14" style="border-radius:3px;vertical-align:middle"> EBITDA: 22% → 14%</span>
             <span>⏰ Board deadline: End of quarter</span>
           </div>
         </div>
@@ -275,34 +275,34 @@ function runCascade(){
 
     // Guardrails sidebar
     const gs=document.getElementById('guardSection');gs.style.display='';
-    document.getElementById('guardList').innerHTML=s.guards.map(g=>`<div class="guard-item"><div class="guard-top"><span class="guard-type ${g.type==='escalation'?'esc':''}">${g.type==='hard_stop'?'🛑 HARD STOP':'⚠️ ESCALATION'}</span></div><div class="guard-cond">${g.cond}</div><div class="guard-action">→ ${g.action}</div></div>`).join('');
+    document.getElementById('guardList').innerHTML=s.guards.map(g=>`<div class="guard-item"><div class="guard-top"><span class="guard-type ${g.type==='escalation'?'esc':''}">${g.type==='hard_stop'?'HARD STOP':'ESCALATION'}</span></div><div class="guard-cond">${g.cond}</div><div class="guard-action">→ ${g.action}</div></div>`).join('');
 
     // Butterfly Effect
     const bf=document.createElement('div');bf.className='butterfly-panel';
-    bf.innerHTML=`<h3>🦋 The Butterfly Effect Detected</h3><div class="bf-name">${s.bf.name}</div><div class="bf-desc">${s.bf.desc}</div><div class="bf-meta"><span>⏱️ T+${s.bf.lat} days</span><span class="sev-badge sev-${s.bf.sev}">${s.bf.sev.toUpperCase()}</span><span>Order: ${s.bf.order}</span></div><div class="bf-path">${s.bf.path}</div>`;
+    bf.innerHTML=`<h3><img src="../assets/logos/cascade.svg" alt="Butterfly" width="18" height="18" style="border-radius:4px;vertical-align:middle"> The Butterfly Effect Detected</h3><div class="bf-name">${s.bf.name}</div><div class="bf-desc">${s.bf.desc}</div><div class="bf-meta"><span>T+${s.bf.lat} days</span><span class="sev-badge sev-${s.bf.sev}">${s.bf.sev.toUpperCase()}</span><span>Order: ${s.bf.order}</span></div><div class="bf-path">${s.bf.path}</div>`;
     area.appendChild(bf);setTimeout(()=>bf.classList.add('visible'),50);
 
     // Waves
     let wd=400;
     s.orders.forEach((o,i)=>{
       const w=document.createElement('div');w.className='wave-section'+(i===0?' expanded':'');
-      w.innerHTML=`<div class="wave-header" onclick="this.parentElement.classList.toggle('expanded')"><div class="wave-dot" style="background:${o.color}"></div><span class="wave-label">${o.label}</span><span class="wave-count">(${o.effects.length} effects)</span><span class="wave-chevron">▶</span></div><div class="wave-body">${o.effects.map(e=>`<div class="ef-card"><div class="ef-header"><span class="ef-name">${e.name}</span><span class="sev-badge sev-${e.sev}">${e.sev.toUpperCase()}</span></div><div class="ef-desc">${e.desc}</div><div class="ef-meta"><span>⏱️ ~${e.lat} days</span><span>📊 ${e.conf}% confidence</span></div><div class="ef-path">${e.path}</div></div>`).join('')}</div>`;
+      w.innerHTML=`<div class="wave-header" onclick="this.parentElement.classList.toggle('expanded')"><div class="wave-dot" style="background:${o.color}"></div><span class="wave-label">${o.label}</span><span class="wave-count">(${o.effects.length} effects)</span><span class="wave-chevron">▶</span></div><div class="wave-body">${o.effects.map(e=>`<div class="ef-card"><div class="ef-header"><span class="ef-name">${e.name}</span><span class="sev-badge sev-${e.sev}">${e.sev.toUpperCase()}</span></div><div class="ef-desc">${e.desc}</div><div class="ef-meta"><span>~${e.lat} days</span><span>${e.conf}% confidence</span></div><div class="ef-path">${e.path}</div></div>`).join('')}</div>`;
       area.appendChild(w);timeouts.push(setTimeout(()=>w.classList.add('visible'),wd));wd+=400;
     });
 
     // Mitigations
     const mit=document.createElement('div');mit.className='mit-panel';
-    mit.innerHTML=`<h3>🛡️ Recommended Mitigations (${s.mits.length})</h3>`+s.mits.map(m=>`<div class="mit-card"><div class="mit-header"><span class="mit-type mit-${m.type}">${m.type.toUpperCase()}</span><span class="mit-desc">${m.desc}</span></div><div class="mit-impl">${m.impl}</div><div class="mit-stats"><span>💰 ${m.cost?'$'+m.cost.toLocaleString():'No cost'}</span><span>📊 ${m.eff}% effective</span></div></div>`).join('');
+    mit.innerHTML=`<h3><img src="../assets/logos/cendia-guard.svg" alt="Mitigations" width="18" height="18" style="border-radius:4px;vertical-align:middle"> Recommended Mitigations (${s.mits.length})</h3>`+s.mits.map(m=>`<div class="mit-card"><div class="mit-header"><span class="mit-type mit-${m.type}">${m.type.toUpperCase()}</span><span class="mit-desc">${m.desc}</span></div><div class="mit-impl">${m.impl}</div><div class="mit-stats"><span>${m.cost?'$'+m.cost.toLocaleString():'No cost'}</span><span>${m.eff}% effective</span></div></div>`).join('');
     area.appendChild(mit);timeouts.push(setTimeout(()=>mit.classList.add('visible'),wd));
 
     // Rationale
     const rat=document.createElement('div');rat.className='rationale-panel';
-    rat.innerHTML=`<h3>🧠 AI Analysis</h3><p>${s.sum.text}</p>`;
+    rat.innerHTML=`<h3><img src="../assets/logos/cortex.svg" alt="AI" width="18" height="18" style="border-radius:4px;vertical-align:middle"> AI Analysis</h3><p>${s.sum.text}</p>`;
     area.appendChild(rat);timeouts.push(setTimeout(()=>rat.classList.add('visible'),wd+300));
 
     // Briefing
     const brief=document.createElement('div');brief.className='briefing';
-    brief.innerHTML=`<h3>📊 Cascade Briefing — Key Findings</h3><p>CendiaChronos™ mapped <strong>${s.sum.effects} downstream effects</strong> across 3 orders of consequence for the "${s.title}" scenario. Here is the executive summary:</p><ul><li><strong>First-order savings look appealing</strong> — but cascade analysis reveals hidden costs that erode or exceed the projected savings within 18-36 months.</li><li><strong>Butterfly Effect detected:</strong> ${s.bf.name} — a low-probability, high-impact 3rd-order consequence that could fundamentally alter competitive position.</li><li><strong>Net 3-year impact: ${s.sum.net}</strong> — ${s.sum.net.startsWith('-')?'the cascading costs exceed projected savings, making this a net-negative decision without mitigation':'positive but significantly less than the headline savings figure'}.</li><li><strong>${s.mits.length} mitigations identified</strong> — including alternatives that achieve 60-80% of the savings with dramatically reduced cascade risk.</li><li><strong>${s.guards.length} guardrails recommended</strong> — automated triggers to halt or escalate if cascade effects exceed thresholds.</li></ul><p><strong>Bottom line:</strong> ${s.rec==='reconsider'?'The Council recommends reconsidering this decision. The alternative approaches achieve comparable savings with a fraction of the organizational damage.':'Proceed with caution. Implement the recommended mitigations and guardrails before executing to contain cascade risk.'}</p><div class="bf-footer">Cascade Run ID: CSC-2026-0208 · Nodes traversed: ${s.sum.effects*47} · Confidence model: Monte Carlo (10,000 simulations)</div>`;
+    brief.innerHTML=`<h3><img src="../assets/logos/cascade.svg" alt="Briefing" width="18" height="18" style="border-radius:4px;vertical-align:middle"> Cascade Briefing — Key Findings</h3><p>CendiaChronos™ mapped <strong>${s.sum.effects} downstream effects</strong> across 3 orders of consequence for the "${s.title}" scenario. Here is the executive summary:</p><ul><li><strong>First-order savings look appealing</strong> — but cascade analysis reveals hidden costs that erode or exceed the projected savings within 18-36 months.</li><li><strong>Butterfly Effect detected:</strong> ${s.bf.name} — a low-probability, high-impact 3rd-order consequence that could fundamentally alter competitive position.</li><li><strong>Net 3-year impact: ${s.sum.net}</strong> — ${s.sum.net.startsWith('-')?'the cascading costs exceed projected savings, making this a net-negative decision without mitigation':'positive but significantly less than the headline savings figure'}.</li><li><strong>${s.mits.length} mitigations identified</strong> — including alternatives that achieve 60-80% of the savings with dramatically reduced cascade risk.</li><li><strong>${s.guards.length} guardrails recommended</strong> — automated triggers to halt or escalate if cascade effects exceed thresholds.</li></ul><p><strong>Bottom line:</strong> ${s.rec==='reconsider'?'The Council recommends reconsidering this decision. The alternative approaches achieve comparable savings with a fraction of the organizational damage.':'Proceed with caution. Implement the recommended mitigations and guardrails before executing to contain cascade risk.'}</p><div class="bf-footer">Cascade Run ID: CSC-2026-0208 · Nodes traversed: ${s.sum.effects*47} · Confidence model: Monte Carlo (10,000 simulations)</div>`;
     area.appendChild(brief);timeouts.push(setTimeout(()=>brief.style.opacity='1',wd+500));
 
     // CTA
@@ -314,7 +314,7 @@ function runCascade(){
 
 function resetCascade(){
   timeouts.forEach(t=>clearTimeout(t));timeouts=[];
-  document.getElementById('contentArea').innerHTML='<div class="backstory"><h3>📋 Scenario Briefing</h3><p><strong>Hartwell Manufacturing Corp.</strong> is a $340M industrial components manufacturer headquartered in Columbus, OH with plants in Springfield, Detroit, and Austin. After 18 months of margin compression (EBITDA down from 22% to 14%), the board has demanded a turnaround plan by end of quarter.</p><p>The CFO has presented three options, each with significant organizational consequences. The CEO wants to understand not just the <strong>first-order savings</strong>, but the <strong>2nd and 3rd order ripple effects</strong> that typically blindside companies after major restructuring decisions. She\'s activated <strong>CendiaChronos™ Cascade Analysis</strong> to map every consequence before committing.</p><div class="bs-meta"><span>🏭 Hartwell Manufacturing Corp.</span><span>💰 $340M revenue</span><span>👥 1,200 employees across 3 plants</span><span>📉 EBITDA: 22% → 14%</span><span>⏰ Board deadline: End of quarter</span></div></div>';
+  document.getElementById('contentArea').innerHTML='<div class="backstory"><h3><img src="../assets/logos/audit-provenance.svg" alt="Briefing" width="20" height="20" style="border-radius:4px;vertical-align:middle"> Scenario Briefing</h3><p><strong>Hartwell Manufacturing Corp.</strong> is a $340M industrial components manufacturer headquartered in Columbus, OH with plants in Springfield, Detroit, and Austin. After 18 months of margin compression (EBITDA down from 22% to 14%), the board has demanded a turnaround plan by end of quarter.</p><p>The CFO has presented three options, each with significant organizational consequences. The CEO wants to understand not just the <strong>first-order savings</strong>, but the <strong>2nd and 3rd order ripple effects</strong> that typically blindside companies after major restructuring decisions. She\'s activated <strong>CendiaChronos™ Cascade Analysis</strong> to map every consequence before committing.</p><div class="bs-meta"><span><img src="../assets/logos/cascade.svg" alt="Company" width="14" height="14" style="border-radius:3px;vertical-align:middle"> Hartwell Manufacturing Corp.</span><span><img src="../assets/logos/roi-metrics.svg" alt="Revenue" width="14" height="14" style="border-radius:3px;vertical-align:middle"> $340M revenue</span><span><img src="../assets/logos/cendia-agents.svg" alt="People" width="14" height="14" style="border-radius:3px;vertical-align:middle"> 1,200 employees across 3 plants</span><span><img src="../assets/logos/pre-mortem.svg" alt="EBITDA" width="14" height="14" style="border-radius:3px;vertical-align:middle"> EBITDA: 22% \u2192 14%</span><span>⏰ Board deadline: End of quarter</span></div></div>';
   document.getElementById('runBtn').disabled=false;document.getElementById('runBtn').style.display='';
   document.getElementById('resetBtn').style.display='none';
   document.getElementById('summarySection').style.display='none';

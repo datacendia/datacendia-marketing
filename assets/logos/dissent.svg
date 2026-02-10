@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <defs>
+    <linearGradient id="dsGold" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#E8C840"/>
+      <stop offset="100%" stop-color="#A07B1A"/>
+    </linearGradient>
+    <filter id="dsGlow">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <radialGradient id="dsBg" cx="50%" cy="50%" r="45%">
+      <stop offset="0%" stop-color="#C9A227" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#C9A227" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="200" height="200" fill="#0a0a0a" rx="16"/>
+  <circle cx="100" cy="90" r="65" fill="url(#dsBg)"/>
+  <g filter="url(#dsGlow)">
+    <!-- Shield outline (protection) -->
+    <path d="M100 35 L145 55 L145 95 Q145 130 100 152 Q55 130 55 95 L55 55Z" fill="none" stroke="url(#dsGold)" stroke-width="2" opacity="0.6" stroke-linejoin="round"/>
+    <!-- Inner shield -->
+    <path d="M100 43 L139 60 L139 95 Q139 125 100 144 Q61 125 61 95 L61 60Z" fill="none" stroke="#C9A227" stroke-width="0.8" opacity="0.2"/>
+    <!-- Raised hand/fist (dissent symbol) — simplified geometric -->
+    <!-- Palm base -->
+    <rect x="90" y="90" width="20" height="25" rx="4" fill="none" stroke="#C9A227" stroke-width="1.8" opacity="0.75"/>
+    <!-- Fingers raised -->
+    <rect x="91" y="65" width="5" height="28" rx="2.5" fill="none" stroke="url(#dsGold)" stroke-width="1.5" opacity="0.8"/>
+    <rect x="97.5" y="60" width="5" height="33" rx="2.5" fill="none" stroke="url(#dsGold)" stroke-width="1.5" opacity="0.85"/>
+    <rect x="104" y="63" width="5" height="30" rx="2.5" fill="none" stroke="url(#dsGold)" stroke-width="1.5" opacity="0.8"/>
+    <!-- Thumb -->
+    <path d="M90 95 Q84 92 82 86 Q81 82 84 80" fill="none" stroke="#C9A227" stroke-width="1.5" opacity="0.65" stroke-linecap="round"/>
+    <!-- Wrist -->
+    <rect x="93" y="115" width="14" height="12" rx="2" fill="none" stroke="#C9A227" stroke-width="1" opacity="0.4"/>
+    <!-- Protected glow around hand -->
+    <circle cx="100" cy="88" r="30" fill="none" stroke="#C9A227" stroke-width="0.8" opacity="0.15" stroke-dasharray="3 5"/>
+    <!-- Exclamation mark (alert) top-right -->
+    <line x1="135" y1="68" x2="135" y2="78" stroke="#C9A227" stroke-width="2.5" stroke-linecap="round" opacity="0.6"/>
+    <circle cx="135" cy="83" r="1.5" fill="#C9A227" opacity="0.6"/>
+  </g>
+  <!-- Label -->
+  <text x="100" y="176" font-family="Georgia, serif" font-size="10" fill="#C9A227" text-anchor="middle" letter-spacing="0.08em" opacity="0.9">CENDIADISSENT</text>
+</svg>

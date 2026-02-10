@@ -54,7 +54,7 @@ Static HTML/CSS/JS website with comprehensive internationalization support (11 l
 │   ├── pre-mortem.html         # Pre-Mortem Engine — failure analysis
 │   ├── dissent.html            # CendiaDissent — disagreement tracking
 │   ├── crucible.html           # CendiaCrucible — adversarial red team
-│   ├── decision-dna.html       # Decision DNA — cryptographic evidence
+│   ├── audit-provenance.html  # Audit Provenance — cryptographic evidence
 │   ├── qr-bridge.html          # QR Air-Gap Bridge — zero-network transfer
 │   ├── sports-governance.html  # Sports vertical — transfer decisions
 │   ├── legal-governance.html   # Legal vertical — AML/KYC compliance
@@ -225,7 +225,7 @@ All 14 demos are self-contained static HTML files in `demos/`. No backend requir
 | **Pre-Mortem Engine** | `pre-mortem.html` | Reverse-engineer failure before it happens |
 | **CendiaDissent** | `dissent.html` | Formal disagreement tracking and outcome monitoring |
 | **CendiaCrucible** | `crucible.html` | Adversarial red team from 8 attack perspectives |
-| **Decision DNA** | `decision-dna.html` | Cryptographic evidence packets with Merkle trees |
+| **Audit Provenance** | `audit-provenance.html` | Cryptographic evidence packets with Merkle trees |
 | **QR Air-Gap Bridge** | `qr-bridge.html` | Zero-network transfer via animated QR codes |
 | **Sports Governance** | `sports-governance.html` | Football transfer decision with FFP compliance |
 | **Legal Governance** | `legal-governance.html` | AML/KYC compliance with PEP screening |

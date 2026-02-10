@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <defs>
+    <linearGradient id="baGold" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#A07B1A"/>
+      <stop offset="50%" stop-color="#E8C840"/>
+      <stop offset="100%" stop-color="#A07B1A"/>
+    </linearGradient>
+    <filter id="baGlow">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <rect width="200" height="200" fill="#0a0a0a" rx="16"/>
+  <g filter="url(#baGlow)">
+    <!-- Left panel (Before — dim/chaotic) -->
+    <rect x="22" y="40" width="70" height="100" rx="4" fill="none" stroke="#C9A227" stroke-width="1.5" opacity="0.4"/>
+    <text x="57" y="34" font-family="Georgia, serif" font-size="8" fill="#C9A227" text-anchor="middle" opacity="0.5" letter-spacing="0.06em">BEFORE</text>
+    <!-- Chaotic scattered lines -->
+    <line x1="32" y1="58" x2="62" y2="55" stroke="#A07B1A" stroke-width="1" opacity="0.35"/>
+    <line x1="35" y1="68" x2="78" y2="72" stroke="#A07B1A" stroke-width="1" opacity="0.3"/>
+    <line x1="42" y1="80" x2="56" y2="95" stroke="#A07B1A" stroke-width="1" opacity="0.25"/>
+    <line x1="65" y1="62" x2="40" y2="88" stroke="#A07B1A" stroke-width="1" opacity="0.3"/>
+    <line x1="30" y1="100" x2="75" y2="98" stroke="#A07B1A" stroke-width="1" opacity="0.25"/>
+    <line x1="48" y1="108" x2="70" y2="118" stroke="#A07B1A" stroke-width="1" opacity="0.2"/>
+    <!-- Scattered dots (chaos) -->
+    <circle cx="38" cy="60" r="2.5" fill="#A07B1A" opacity="0.3"/>
+    <circle cx="68" cy="72" r="2" fill="#A07B1A" opacity="0.25"/>
+    <circle cx="48" cy="88" r="2.5" fill="#A07B1A" opacity="0.3"/>
+    <circle cx="60" cy="105" r="2" fill="#A07B1A" opacity="0.25"/>
+    <circle cx="35" cy="115" r="2" fill="#A07B1A" opacity="0.2"/>
+    <!-- X mark -->
+    <line x1="50" y1="125" x2="56" y2="131" stroke="#A07B1A" stroke-width="1.5" opacity="0.4"/>
+    <line x1="56" y1="125" x2="50" y2="131" stroke="#A07B1A" stroke-width="1.5" opacity="0.4"/>
+    <!-- Center arrow -->
+    <line x1="96" y1="90" x2="108" y2="90" stroke="#E8C840" stroke-width="2" opacity="0.8" stroke-linecap="round"/>
+    <path d="M105 86 L110 90 L105 94" fill="none" stroke="#E8C840" stroke-width="2" opacity="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- Right panel (After — structured/golden) -->
+    <rect x="108" y="40" width="70" height="100" rx="4" fill="none" stroke="#C9A227" stroke-width="1.5" opacity="0.7"/>
+    <text x="143" y="34" font-family="Georgia, serif" font-size="8" fill="#C9A227" text-anchor="middle" opacity="0.8" letter-spacing="0.06em">AFTER</text>
+    <!-- Organized structured lines -->
+    <line x1="118" y1="58" x2="168" y2="58" stroke="#C9A227" stroke-width="1" opacity="0.5"/>
+    <line x1="118" y1="70" x2="168" y2="70" stroke="#C9A227" stroke-width="1" opacity="0.5"/>
+    <line x1="118" y1="82" x2="168" y2="82" stroke="#C9A227" stroke-width="1" opacity="0.5"/>
+    <line x1="118" y1="94" x2="168" y2="94" stroke="#C9A227" stroke-width="1" opacity="0.5"/>
+    <line x1="118" y1="106" x2="168" y2="106" stroke="#C9A227" stroke-width="1" opacity="0.5"/>
+    <line x1="118" y1="118" x2="168" y2="118" stroke="#C9A227" stroke-width="1" opacity="0.5"/>
+    <!-- Organized golden dots -->
+    <circle cx="123" cy="58" r="2.5" fill="#C9A227" opacity="0.7"/>
+    <circle cx="123" cy="70" r="2.5" fill="#C9A227" opacity="0.7"/>
+    <circle cx="123" cy="82" r="2.5" fill="#C9A227" opacity="0.7"/>
+    <circle cx="123" cy="94" r="2.5" fill="#C9A227" opacity="0.7"/>
+    <circle cx="123" cy="106" r="2.5" fill="#C9A227" opacity="0.7"/>
+    <circle cx="123" cy="118" r="2.5" fill="#C9A227" opacity="0.7"/>
+    <!-- Checkmark -->
+    <path d="M137 123 L141 128 L149 119" fill="none" stroke="#C9A227" stroke-width="1.8" opacity="0.6" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <!-- Label -->
+  <text x="100" y="168" font-family="Georgia, serif" font-size="10" fill="#C9A227" text-anchor="middle" letter-spacing="0.08em" opacity="0.9">BEFORE &amp; AFTER</text>
+</svg>

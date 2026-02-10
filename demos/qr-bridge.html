@@ -62,7 +62,7 @@
     <span class="ph-spacer"></span>
     <span class="ph-demo-badge">DEMO MODE</span>
     <div class="ph-user">
-      <div class="ph-notif">🔔<div class="ph-notif-dot"></div></div>
+      <div class="ph-notif"><img src="../assets/logos/cendia-helm.svg" alt="Notifications" width="18" height="18" style="border-radius:4px"><div class="ph-notif-dot"></div></div>
       <div class="ph-avatar">SR</div>
     </div>
     <a href="../demos.html" class="ph-back">← Demos</a>
@@ -78,9 +78,9 @@
       </div>
       <div class="sb-section">
         <div class="sb-label">Security</div>
-        <div class="security-item"><div class="sec-icon sec-pass">✓</div><span class="sec-label">AES-256-GCM Encryption</span><span class="sec-status" style="color:#22c55e">Active</span></div>
-        <div class="security-item"><div class="sec-icon sec-pass">✓</div><span class="sec-label">Ed25519 Signature</span><span class="sec-status" style="color:#22c55e">Signed</span></div>
-        <div class="security-item"><div class="sec-icon sec-pass">✓</div><span class="sec-label">Merkle Integrity</span><span class="sec-status" style="color:#22c55e">Verified</span></div>
+        <div class="security-item"><div class="sec-icon sec-pass">+</div><span class="sec-label">AES-256-GCM Encryption</span><span class="sec-status" style="color:#22c55e">Active</span></div>
+        <div class="security-item"><div class="sec-icon sec-pass">+</div><span class="sec-label">Ed25519 Signature</span><span class="sec-status" style="color:#22c55e">Signed</span></div>
+        <div class="security-item"><div class="sec-icon sec-pass">+</div><span class="sec-label">Merkle Integrity</span><span class="sec-status" style="color:#22c55e">Verified</span></div>
         <div class="security-item"><div class="sec-icon sec-active">⬡</div><span class="sec-label">Air-Gap Isolation</span><span class="sec-status" style="color:#3b82f6">Enforced</span></div>
       </div>
       <div class="sb-section">
@@ -94,21 +94,21 @@
     </div>
     <div class="main-panel">
       <div class="main-header">
-        <div class="header-icon">📡</div>
+        <div class="header-icon" style="padding:4px"><img src="../assets/logos/qr-bridge.svg" alt="QR Air-Gap Bridge" width="40" height="40" style="border-radius:8px"></div>
         <div class="header-info"><h1>QR Air-Gap Bridge™</h1><p>Zero-network decision packet transfer via animated QR sequences</p></div>
         <button class="start-btn" id="startBtn" onclick="startTransfer()">▶ Start Transfer</button>
       </div>
       <div class="content-area">
         <div class="backstory" style="background:linear-gradient(135deg,rgba(168,85,247,.06),rgba(6,182,212,.04));border-color:rgba(168,85,247,.15);width:100%;max-width:600px;text-align:left">
-          <h3 style="color:#a855f7">📋 Scenario Briefing</h3>
+          <h3 style="color:#a855f7"><img src="../assets/logos/audit-provenance.svg" alt="Briefing" width="20" height="20" style="border-radius:4px;vertical-align:middle"> Scenario Briefing</h3>
           <p>A defense contractor's <strong>classified decision network</strong> has just completed a Council deliberation on the TechStart acquisition (DEC-2026-001). The signed decision packet must be transferred to an <strong>unclassified compliance network</strong> for regulatory filing — but the two networks have <strong>zero connectivity by design</strong>.</p>
           <p>No USB drives are permitted. No network bridges exist. The only approved method is <strong>QR Air-Gap Bridge™</strong> — which encodes the 24.3KB decision packet into 12 animated QR frames, each encrypted with AES-256-GCM and signed with Ed25519. A camera on the unclassified side scans the sequence, reassembles the packet, and verifies Merkle tree integrity. <strong>Zero data touches any network.</strong></p>
           <div class="bs-meta" style="border-color:rgba(168,85,247,.1)">
-            <span>📦 Packet: DEC-2026-001</span>
-            <span>📊 24.3 KB (compressed)</span>
-            <span>🖼️ 12 QR frames @ 2KB each</span>
-            <span>🔐 AES-256-GCM + Ed25519</span>
-            <span>🛡️ Reed-Solomon FEC (33%)</span>
+            <span>Packet: DEC-2026-001</span>
+            <span>24.3 KB (compressed)</span>
+            <span>12 QR frames @ 2KB each</span>
+            <span>AES-256-GCM + Ed25519</span>
+            <span>Reed-Solomon FEC (33%)</span>
           </div>
         </div>
         <div class="qr-container">
@@ -128,7 +128,7 @@
         </div>
         <div class="transfer-log" id="transferLog"></div>
         <div class="completion-card" id="completionCard">
-          <div class="comp-icon">✅</div>
+          <div class="comp-icon"><img src="../assets/logos/audit-provenance.svg" alt="Done" width="24" height="24" style="border-radius:4px"></div>
           <div class="comp-title">Transfer Complete</div>
           <div class="comp-detail">12/12 chunks received · Integrity verified · Signature valid<br>Decision packet DEC-2026-001 successfully bridged air gap</div>
         </div>
@@ -198,7 +198,7 @@ function finishTransfer(){
     // Add briefing
     const brief=document.createElement('div');brief.className='briefing';
     brief.style.cssText='background:linear-gradient(135deg,rgba(168,85,247,.06),rgba(6,182,212,.04));border-color:rgba(168,85,247,.2);width:100%;max-width:600px;text-align:left';
-    brief.innerHTML=`<h3 style="color:#a855f7">📊 Transfer Briefing — Key Findings</h3><p>QR Air-Gap Bridge™ successfully transferred decision packet DEC-2026-001 across the air gap. Here is the transfer summary:</p><ul><li><strong>12/12 chunks received successfully.</strong> All QR frames decoded without error. Reed-Solomon forward error correction was available but not needed — zero corruption detected.</li><li><strong>Merkle root verified:</strong> 7a3f8b2c...e91d4f06 matches the sender’s signed root hash. The packet has not been modified in transit.</li><li><strong>Ed25519 signature valid.</strong> The packet was signed by CendiaKMS on the classified network. The signature confirms authenticity and non-repudiation.</li><li><strong>Zero network exposure.</strong> No packets traversed any wired or wireless network. The entire transfer occurred via optical (light) channel only. No electromagnetic emissions beyond visible light.</li><li><strong>Transfer speed:</strong> 12 frames in ~6 seconds (effective throughput: ~4KB/s). For comparison, a typical decision packet is 15-50KB — well within the bridge’s capacity.</li></ul><p><strong>Bottom line:</strong> The decision packet is now available on the unclassified compliance network for regulatory filing, with full cryptographic proof that it originated from the classified network and was not altered in transit.</p><div class="bf-footer" style="border-color:rgba(168,85,247,.1)">Bridge Session ID: QRB-2026-0208 · Chunks: 12/12 · Errors: 0 · FEC used: No · Integrity: VERIFIED · Signature: VALID</div>`;
+    brief.innerHTML=`<h3 style="color:#a855f7"><img src="../assets/logos/sovereign-architecture.svg" alt="Briefing" width="20" height="20" style="border-radius:4px;vertical-align:middle"> Transfer Briefing — Key Findings</h3><p>QR Air-Gap Bridge™ successfully transferred decision packet DEC-2026-001 across the air gap. Here is the transfer summary:</p><ul><li><strong>12/12 chunks received successfully.</strong> All QR frames decoded without error. Reed-Solomon forward error correction was available but not needed — zero corruption detected.</li><li><strong>Merkle root verified:</strong> 7a3f8b2c...e91d4f06 matches the sender’s signed root hash. The packet has not been modified in transit.</li><li><strong>Ed25519 signature valid.</strong> The packet was signed by CendiaKMS on the classified network. The signature confirms authenticity and non-repudiation.</li><li><strong>Zero network exposure.</strong> No packets traversed any wired or wireless network. The entire transfer occurred via optical (light) channel only. No electromagnetic emissions beyond visible light.</li><li><strong>Transfer speed:</strong> 12 frames in ~6 seconds (effective throughput: ~4KB/s). For comparison, a typical decision packet is 15-50KB — well within the bridge’s capacity.</li></ul><p><strong>Bottom line:</strong> The decision packet is now available on the unclassified compliance network for regulatory filing, with full cryptographic proof that it originated from the classified network and was not altered in transit.</p><div class="bf-footer" style="border-color:rgba(168,85,247,.1)">Bridge Session ID: QRB-2026-0208 · Chunks: 12/12 · Errors: 0 · FEC used: No · Integrity: VERIFIED · Signature: VALID</div>`;
     document.getElementById('completionCard').after(brief);
     document.getElementById('ctaCard').style.display='block';
     running=false;

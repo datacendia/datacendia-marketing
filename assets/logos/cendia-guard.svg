@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <defs>
+    <linearGradient id="cgGold" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#E8C840"/>
+      <stop offset="100%" stop-color="#A07B1A"/>
+    </linearGradient>
+    <filter id="cgGlow">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <rect width="200" height="200" fill="#0a0a0a" rx="16"/>
+  <g filter="url(#cgGlow)">
+    <!-- Shield (the protector) -->
+    <path d="M100 28 L155 52 L155 100 Q155 145 100 168 Q45 145 45 100 L45 52Z" fill="none" stroke="url(#cgGold)" stroke-width="2.5" stroke-linejoin="round" opacity="0.8"/>
+    <path d="M100 38 L148 58 L148 100 Q148 138 100 158 Q52 138 52 100 L52 58Z" fill="none" stroke="#C9A227" stroke-width="0.8" opacity="0.2"/>
+    <!-- Lock in center of shield -->
+    <rect x="86" y="82" width="28" height="24" rx="4" fill="none" stroke="#E8C840" stroke-width="2" opacity="0.8"/>
+    <path d="M92 82 L92 72 Q92 62 100 62 Q108 62 108 72 L108 82" fill="none" stroke="#E8C840" stroke-width="2" opacity="0.8"/>
+    <!-- Keyhole -->
+    <circle cx="100" cy="91" r="4" fill="#E8C840" opacity="0.7"/>
+    <rect x="98" y="93" width="4" height="8" rx="1" fill="#E8C840" opacity="0.6"/>
+    <!-- Shield cross pattern -->
+    <line x1="100" y1="38" x2="100" y2="78" stroke="#C9A227" stroke-width="0.8" opacity="0.2"/>
+    <line x1="100" y1="110" x2="100" y2="158" stroke="#C9A227" stroke-width="0.8" opacity="0.2"/>
+    <line x1="52" y1="85" x2="86" y2="85" stroke="#C9A227" stroke-width="0.8" opacity="0.2"/>
+    <line x1="114" y1="85" x2="148" y2="85" stroke="#C9A227" stroke-width="0.8" opacity="0.2"/>
+    <!-- Corner rivets -->
+    <circle cx="100" cy="42" r="2.5" fill="#C9A227" opacity="0.5"/>
+    <circle cx="62" cy="68" r="2" fill="#C9A227" opacity="0.35"/>
+    <circle cx="138" cy="68" r="2" fill="#C9A227" opacity="0.35"/>
+    <circle cx="62" cy="120" r="2" fill="#C9A227" opacity="0.3"/>
+    <circle cx="138" cy="120" r="2" fill="#C9A227" opacity="0.3"/>
+  </g>
+  <text x="100" y="190" font-family="Georgia, serif" font-size="10" fill="#C9A227" text-anchor="middle" letter-spacing="0.08em" opacity="0.9">CENDIAGUARD</text>
+</svg>

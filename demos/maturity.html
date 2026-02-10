@@ -161,37 +161,37 @@ const LEVELS=[
   {min:6,max:9,level:1,name:'Ad Hoc',color:'#ef4444',
     desc:'Your organization has <strong>no formal decision governance</strong>. Decisions are made verbally, overrides happen without records, and institutional memory depends on individual recall. This creates significant regulatory, operational, and reputational risk.',
     recs:[
-      {icon:'🚨',text:'<strong>Immediate risk:</strong> You cannot reproduce decision reasoning for auditors or regulators. This is a compliance liability.'},
-      {icon:'📋',text:'<strong>Quick win:</strong> Start with a simple decision log — even a shared spreadsheet that captures who decided, what, when, and why.'},
-      {icon:'🎯',text:'<strong>Next step:</strong> Identify your 3 highest-stakes recurring decisions and build a lightweight process around them first.'}
+      {icon:'<img src="../assets/logos/pre-mortem.svg" alt="Risk" width="16" height="16" style="border-radius:3px;vertical-align:middle">',text:'<strong>Immediate risk:</strong> You cannot reproduce decision reasoning for auditors or regulators. This is a compliance liability.'},
+      {icon:'<img src="../assets/logos/audit-provenance.svg" alt="Log" width="16" height="16" style="border-radius:3px;vertical-align:middle">',text:'<strong>Quick win:</strong> Start with a simple decision log — even a shared spreadsheet that captures who decided, what, when, and why.'},
+      {icon:'<img src="../assets/logos/cendia-helm.svg" alt="Next" width="16" height="16" style="border-radius:3px;vertical-align:middle">',text:'<strong>Next step:</strong> Identify your 3 highest-stakes recurring decisions and build a lightweight process around them first.'}
     ]},
   {min:10,max:13,level:2,name:'Emerging',color:'#f97316',
     desc:'Your organization has <strong>some documentation practices</strong>, but they\'re inconsistent and fragmented. Decisions can sometimes be reconstructed, but it requires effort. Dissent is heard but not protected.',
     recs:[
-      {icon:'📊',text:'<strong>Key gap:</strong> Your documentation is scattered across email, chat, and meeting notes. Centralize decision records in one system.'},
-      {icon:'🔍',text:'<strong>Critical improvement:</strong> Start tracking decision outcomes — you can\'t improve what you don\'t measure.'},
-      {icon:'⚖️',text:'<strong>Next step:</strong> Formalize your dissent process. The organizations that learn fastest are those that protect disagreement.'}
+      {icon:'<img src="../assets/logos/cortex.svg" alt="Gap" width="16" height="16" style="border-radius:3px;vertical-align:middle">',text:'<strong>Key gap:</strong> Your documentation is scattered across email, chat, and meeting notes. Centralize decision records in one system.'},
+      {icon:'<img src="../assets/logos/lens.svg" alt="Track" width="16" height="16" style="border-radius:3px;vertical-align:middle">',text:'<strong>Critical improvement:</strong> Start tracking decision outcomes — you can\'t improve what you don\'t measure.'},
+      {icon:'<img src="../assets/logos/legal-compliance.svg" alt="Dissent" width="16" height="16" style="border-radius:3px;vertical-align:middle">',text:'<strong>Next step:</strong> Formalize your dissent process. The organizations that learn fastest are those that protect disagreement.'}
     ]},
   {min:14,max:17,level:3,name:'Defined',color:'#f59e0b',
     desc:'Your organization has <strong>structured decision processes</strong> with decent documentation. The foundation is solid but gaps remain — especially in outcome tracking, dissent protection, and regulatory readiness.',
     recs:[
-      {icon:'🌳',text:'<strong>Key gap:</strong> You document decisions but can\'t cryptographically prove they haven\'t been altered. Consider tamper-proof evidence packaging.'},
-      {icon:'📈',text:'<strong>Critical improvement:</strong> Close the feedback loop — systematically track whether decisions achieved their intended outcomes.'},
-      {icon:'🏛️',text:'<strong>Next step:</strong> Introduce multi-perspective deliberation. The best decisions are stress-tested by diverse viewpoints before they\'re made.'}
+      {icon:'<img src="../assets/logos/data-sovereignty.svg" alt="Tamper" width="16" height="16" style="border-radius:3px;vertical-align:middle">',text:'<strong>Key gap:</strong> You document decisions but can\'t cryptographically prove they haven\'t been altered. Consider tamper-proof evidence packaging.'},
+      {icon:'<img src="../assets/logos/cendia-predict.svg" alt="Feedback" width="16" height="16" style="border-radius:3px;vertical-align:middle">',text:'<strong>Critical improvement:</strong> Close the feedback loop — systematically track whether decisions achieved their intended outcomes.'},
+      {icon:'<img src="../assets/logos/council.svg" alt="Council" width="16" height="16" style="border-radius:3px;vertical-align:middle">',text:'<strong>Next step:</strong> Introduce multi-perspective deliberation. The best decisions are stress-tested by diverse viewpoints before they\'re made.'}
     ]},
   {min:18,max:21,level:4,name:'Managed',color:'#22c55e',
     desc:'Your organization has <strong>systematic decision governance</strong> with good documentation, outcome tracking, and process discipline. You\'re ahead of 90% of organizations. The next frontier is cryptographic integrity and AI-augmented deliberation.',
     recs:[
-      {icon:'🔐',text:'<strong>Next frontier:</strong> Cryptographically seal your decision packets with Merkle trees and digital signatures for court-admissible evidence.'},
-      {icon:'🤖',text:'<strong>Force multiplier:</strong> AI agents can stress-test decisions from 6+ perspectives in minutes — catching blind spots humans miss.'},
-      {icon:'🌍',text:'<strong>Scale opportunity:</strong> Your governance maturity is a competitive advantage. Consider extending it across all business units and geographies.'}
+      {icon:'<img src="../assets/logos/cendia-guard.svg" alt="Crypto" width="16" height="16" style="border-radius:3px;vertical-align:middle">',text:'<strong>Next frontier:</strong> Cryptographically seal your decision packets with Merkle trees and digital signatures for court-admissible evidence.'},
+      {icon:'<img src="../assets/logos/cortex.svg" alt="AI" width="16" height="16" style="border-radius:3px;vertical-align:middle">',text:'<strong>Force multiplier:</strong> AI agents can stress-test decisions from 6+ perspectives in minutes — catching blind spots humans miss.'},
+      {icon:'<img src="../assets/logos/integration-matrix.svg" alt="Scale" width="16" height="16" style="border-radius:3px;vertical-align:middle">',text:'<strong>Scale opportunity:</strong> Your governance maturity is a competitive advantage. Consider extending it across all business units and geographies.'}
     ]},
   {min:22,max:24,level:5,name:'Optimized',color:'#06b6d4',
     desc:'Your organization operates at the <strong>highest level of decision governance</strong>. Decisions are documented, dissent is protected, outcomes are tracked, and evidence is audit-ready. You\'re in the top 2% of organizations globally.',
     recs:[
-      {icon:'🏆',text:'<strong>Maintain excellence:</strong> Your governance maturity is world-class. The challenge now is sustaining it as you scale and evolve.'},
-      {icon:'⚡',text:'<strong>AI augmentation:</strong> Even at Level 5, AI-powered deliberation can surface perspectives your team hasn\'t considered.'},
-      {icon:'📣',text:'<strong>Thought leadership:</strong> Your governance practices are a differentiator. Consider publishing your approach to attract talent and customers who value integrity.'}
+      {icon:'<img src="../assets/logos/datacendia-platform.svg" alt="Excellent" width="16" height="16" style="border-radius:3px;vertical-align:middle">',text:'<strong>Maintain excellence:</strong> Your governance maturity is world-class. The challenge now is sustaining it as you scale and evolve.'},
+      {icon:'<img src="../assets/logos/chronos.svg" alt="Fast" width="16" height="16" style="border-radius:3px;vertical-align:middle">',text:'<strong>AI augmentation:</strong> Even at Level 5, AI-powered deliberation can surface perspectives your team hasn\'t considered.'},
+      {icon:'<img src="../assets/logos/cendia-helm.svg" alt="Lead" width="16" height="16" style="border-radius:3px;vertical-align:middle">',text:'<strong>Thought leadership:</strong> Your governance practices are a differentiator. Consider publishing your approach to attract talent and customers who value integrity.'}
     ]}
 ];
 
@@ -257,7 +257,7 @@ function showResults(){
     </div>
 
     <div class="share-section">
-      <h3>📧 Get Your Full Report</h3>
+      <h3><img src="../assets/logos/audit-provenance.svg" alt="Report" width="20" height="20" style="border-radius:4px;vertical-align:middle"> Get Your Full Report</h3>
       <p>Enter your details and we'll send a personalized governance improvement roadmap based on your results.</p>
       <div class="share-fields">
         <div class="share-field"><input type="text" id="shareName" placeholder="Your name (optional)"></div>

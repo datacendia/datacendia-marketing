@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <defs>
+    <linearGradient id="ppGold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#E8C840"/>
+      <stop offset="100%" stop-color="#A07B1A"/>
+    </linearGradient>
+    <filter id="ppGlow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <radialGradient id="ppBg" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#C9A227" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#C9A227" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="200" height="200" fill="#0a0a0a" rx="16"/>
+  <circle cx="100" cy="90" r="75" fill="url(#ppBg)"/>
+  <g filter="url(#ppGlow)">
+    <!-- Rocket / launch trajectory -->
+    <path d="M100 35 C100 35 85 60 85 85 C85 100 92 108 100 115 C108 108 115 100 115 85 C115 60 100 35 100 35Z" fill="none" stroke="url(#ppGold)" stroke-width="2.5" opacity="0.8"/>
+    <path d="M100 42 C100 42 90 62 90 83 C90 95 94 102 100 108 C106 102 110 95 110 83 C110 62 100 42 100 42Z" fill="none" stroke="#C9A227" stroke-width="0.8" opacity="0.25"/>
+    <!-- Fins -->
+    <path d="M85 95 L70 115 L85 108" fill="none" stroke="#C9A227" stroke-width="1.5" opacity="0.5"/>
+    <path d="M115 95 L130 115 L115 108" fill="none" stroke="#C9A227" stroke-width="1.5" opacity="0.5"/>
+    <!-- Exhaust trail -->
+    <line x1="100" y1="115" x2="100" y2="140" stroke="#E8C840" stroke-width="1.5" opacity="0.4" stroke-dasharray="3 3"/>
+    <circle cx="100" cy="130" r="3" fill="#E8C840" opacity="0.3"/>
+    <circle cx="95" cy="135" r="2" fill="#C9A227" opacity="0.25"/>
+    <circle cx="105" cy="137" r="2" fill="#C9A227" opacity="0.25"/>
+    <!-- Window / core -->
+    <circle cx="100" cy="68" r="8" fill="none" stroke="#E8C840" stroke-width="1.5" opacity="0.6"/>
+    <circle cx="100" cy="68" r="4" fill="#E8C840" opacity="0.8"/>
+    <!-- 90-day orbit ring -->
+    <ellipse cx="100" cy="80" rx="55" ry="18" fill="none" stroke="#C9A227" stroke-width="0.6" opacity="0.2" transform="rotate(-15 100 80)"/>
+  </g>
+  <text x="100" y="165" font-family="Georgia, serif" font-size="9" fill="#C9A227" text-anchor="middle" letter-spacing="0.1em" opacity="0.9">PILOT PROGRAM</text>
+</svg>

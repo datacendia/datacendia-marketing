@@ -57,7 +57,7 @@ async function testPageLoads() {
     '/terms.html','/wargames.html','/404.html',
     '/demos/council.html','/demos/chronos.html','/demos/cascade.html',
     '/demos/ghost-board.html','/demos/pre-mortem.html','/demos/dissent.html',
-    '/demos/crucible.html','/demos/decision-dna.html','/demos/qr-bridge.html',
+    '/demos/crucible.html','/demos/audit-provenance.html','/demos/qr-bridge.html',
     '/demos/sports-governance.html','/demos/legal-governance.html',
     '/demos/try.html','/demos/maturity.html','/demos/before-after.html',
     '/resources/index.html','/resources/the-council.html','/resources/compliance.html',

@@ -9,7 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="demo-platform.css">
   <style>
-    body{margin:0;background:#fafafa;color:#1a1a1a;font-family:'Inter',sans-serif}
+    body{margin:0;background:#fafafa;color:#1a1a1a;font-family:'Inter',sans-serif;overflow:auto;height:auto}
     .council-page{padding:24px;max-width:1200px;margin:0 auto}
 
     /* Header */
@@ -45,7 +45,7 @@
     .query-card{background:#fff;border:1px solid #e5e7eb;border-radius:16px;padding:20px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
     .query-card h3{font-size:.95rem;font-weight:600;margin:0 0 4px;display:flex;align-items:center;gap:8px}
     .query-card .qc-sub{font-size:.75rem;color:#9ca3af;margin-bottom:12px}
-    .query-input{width:100%;min-height:80px;padding:12px 16px;border:1px solid #e5e7eb;border-radius:12px;font-size:.9rem;font-family:'Inter',sans-serif;resize:vertical;outline:none;transition:border .2s}
+    .query-input{width:100%;min-height:80px;padding:12px 16px;border:1px solid #e5e7eb;border-radius:12px;font-size:.9rem;font-family:'Inter',sans-serif;resize:vertical;outline:none;transition:border .2s;box-sizing:border-box;position:relative;z-index:1;-webkit-appearance:none;appearance:none;background:#fff;color:#1a1a1a}
     .query-input:focus{border-color:#6366f1;box-shadow:0 0 0 3px rgba(99,102,241,.1)}
     .query-actions{display:flex;align-items:center;justify-content:space-between;margin-top:12px}
     .qa-left{display:flex;align-items:center;gap:8px}
@@ -167,7 +167,7 @@
     <span class="ph-spacer"></span>
     <span class="ph-demo-badge">DEMO MODE</span>
     <div class="ph-user">
-      <div class="ph-notif">🔔<div class="ph-notif-dot"></div></div>
+      <div class="ph-notif"><img src="../assets/logos/cendia-helm.svg" alt="Notifications" width="18" height="18" style="border-radius:4px"><div class="ph-notif-dot"></div></div>
       <div class="ph-avatar">SR</div>
     </div>
     <a href="../demos.html" class="ph-back">← Demos</a>
@@ -176,22 +176,22 @@
   <div class="council-page">
     <!-- Header -->
     <div class="c-header">
-      <h1>🏛️ The Council</h1>
+      <h1><img src="../assets/logos/council.svg" alt="The Council" width="40" height="40" style="border-radius:8px;vertical-align:middle"> The Council</h1>
       <p>Your AI executive team debates every angle before you decide.</p>
     </div>
 
     <!-- Backstory -->
     <div class="backstory">
-      <h3>📋 Scenario Briefing</h3>
+      <h3><img src="../assets/logos/audit-provenance.svg" alt="Briefing" width="20" height="20" style="border-radius:4px;vertical-align:middle"> Scenario Briefing</h3>
       <p><strong>Pinnacle SaaS Inc.</strong> is a $45M ARR B2B software company based in Austin, TX. After 7 years of domestic growth, the board has mandated international expansion to maintain the 40% YoY growth rate that investors expect. The EU market — particularly the UK, Germany, and France — represents a <strong>$2.4B total addressable market</strong> that Pinnacle currently ignores entirely.</p>
       <p>However, the CEO is nervous. Four of the last seven US SaaS companies that expanded to Europe underperformed projections by 40%+. GDPR compliance, currency exposure, local hiring, and competitive dynamics all present risk. She has convened <strong>The Council</strong> — Datacendia's multi-agent AI deliberation engine — to stress-test the decision from every executive perspective before committing.</p>
       <div class="bs-meta">
-        <span>🏢 Pinnacle SaaS Inc.</span>
-        <span>💰 $45M ARR</span>
-        <span>👥 158 employees</span>
-        <span>🌍 Target: EU (UK-first)</span>
-        <span>📊 $2.4B TAM</span>
-        <span>⚠️ 40%+ underperformance risk</span>
+        <span><img src="../assets/logos/datacendia-platform.svg" alt="Company" width="14" height="14" style="border-radius:3px;vertical-align:middle"> Pinnacle SaaS Inc.</span>
+        <span><img src="../assets/logos/roi-metrics.svg" alt="Revenue" width="14" height="14" style="border-radius:3px;vertical-align:middle"> $45M ARR</span>
+        <span><img src="../assets/logos/cendia-agents.svg" alt="People" width="14" height="14" style="border-radius:3px;vertical-align:middle"> 158 employees</span>
+        <span><img src="../assets/logos/integration-matrix.svg" alt="Global" width="14" height="14" style="border-radius:3px;vertical-align:middle"> Target: EU (UK-first)</span>
+        <span><img src="../assets/logos/cortex.svg" alt="Analytics" width="14" height="14" style="border-radius:3px;vertical-align:middle"> $2.4B TAM</span>
+        <span><img src="../assets/logos/pre-mortem.svg" alt="Risk" width="14" height="14" style="border-radius:3px;vertical-align:middle"> 40%+ underperformance risk</span>
       </div>
     </div>
 
@@ -205,31 +205,31 @@
     <div class="modes-section">
       <div class="modes-row">
         <span class="mode-label">Council Mode:</span>
-        <button class="mode-btn active" onclick="setMode('war-room',this)">⚔️ War Room</button>
-        <button class="mode-btn" onclick="setMode('rapid',this)">⚡ Rapid</button>
-        <button class="mode-btn" onclick="setMode('due-diligence',this)">🔍 Due Diligence</button>
-        <button class="mode-btn" onclick="setMode('innovation',this)">💡 Innovation Lab</button>
-        <button class="mode-btn" onclick="setMode('crisis',this)">🚨 Crisis</button>
-        <button class="mode-btn" onclick="setMode('compliance',this)">📋 Compliance</button>
-        <button class="mode-btn" onclick="setMode('governance',this)">🏛️ Governance</button>
+        <button class="mode-btn active" onclick="setMode('war-room',this)"><img src="../assets/logos/wargames.svg" alt="War Room" width="14" height="14" style="border-radius:3px;vertical-align:middle"> War Room</button>
+        <button class="mode-btn" onclick="setMode('rapid',this)"><img src="../assets/logos/chronos.svg" alt="Rapid" width="14" height="14" style="border-radius:3px;vertical-align:middle"> Rapid</button>
+        <button class="mode-btn" onclick="setMode('due-diligence',this)"><img src="../assets/logos/lens.svg" alt="Due Diligence" width="14" height="14" style="border-radius:3px;vertical-align:middle"> Due Diligence</button>
+        <button class="mode-btn" onclick="setMode('innovation',this)"><img src="../assets/logos/cendia-predict.svg" alt="Innovation" width="14" height="14" style="border-radius:3px;vertical-align:middle"> Innovation Lab</button>
+        <button class="mode-btn" onclick="setMode('crisis',this)"><img src="../assets/logos/pre-mortem.svg" alt="Crisis" width="14" height="14" style="border-radius:3px;vertical-align:middle"> Crisis</button>
+        <button class="mode-btn" onclick="setMode('compliance',this)"><img src="../assets/logos/compliance.svg" alt="Compliance" width="14" height="14" style="border-radius:3px;vertical-align:middle"> Compliance</button>
+        <button class="mode-btn" onclick="setMode('governance',this)"><img src="../assets/logos/council.svg" alt="Governance" width="14" height="14" style="border-radius:3px;vertical-align:middle"> Governance</button>
       </div>
     </div>
 
     <!-- Query Input -->
     <div class="query-section">
       <div class="query-card">
-        <h3>💬 Ask The Council</h3>
+        <h3><img src="../assets/logos/council.svg" alt="Council" width="20" height="20" style="border-radius:4px;vertical-align:middle"> Ask The Council</h3>
         <div class="qc-sub">Pose your question and let the AI executives deliberate.</div>
         <textarea class="query-input" id="queryInput" placeholder="e.g., Should we expand into the EU market given current regulations?"></textarea>
         <div class="query-actions">
           <div class="qa-left">
             <div class="qa-mode-toggle">
-              <button class="qa-toggle active" onclick="setQueryMode('quick',this)">⚡ Quick</button>
-              <button class="qa-toggle" onclick="setQueryMode('deliberation',this)">🔄 Deliberation</button>
+              <button class="qa-toggle active" onclick="setQueryMode('quick',this)"><img src="../assets/logos/chronos.svg" alt="Quick" width="12" height="12" style="border-radius:2px;vertical-align:middle"> Quick</button>
+              <button class="qa-toggle" onclick="setQueryMode('deliberation',this)"><img src="../assets/logos/council.svg" alt="Deliberation" width="12" height="12" style="border-radius:2px;vertical-align:middle"> Deliberation</button>
             </div>
             <span class="qa-info" id="agentCount">5 agents selected · War Room mode</span>
           </div>
-          <button class="qa-btn" id="submitBtn" onclick="runDeliberation()">🏛️ Convene Council</button>
+          <button class="qa-btn" id="submitBtn" onclick="runDeliberation()"><img src="../assets/logos/council.svg" alt="Convene" width="16" height="16" style="border-radius:3px;vertical-align:middle"> Convene Council</button>
         </div>
       </div>
     </div>
@@ -245,13 +245,13 @@
 
       <div class="chat-area" id="chatArea">
         <div class="empty-state" id="emptyState">
-          <div class="es-icon">💭</div>
+          <div class="es-icon"><img src="../assets/logos/council.svg" alt="Council" width="48" height="48" style="border-radius:10px"></div>
           <p>No decisions yet. Ask the Council a question to begin.</p>
           <div class="starters">
-            <button class="starter-btn" onclick="useStarter(this)">🌍 Should we expand into the EU market given current regulations?</button>
-            <button class="starter-btn" onclick="useStarter(this)">💰 Analyze the ROI of our AI investment over the next 3 years</button>
-            <button class="starter-btn" onclick="useStarter(this)">⚠️ What are the top 5 risks to our Q4 revenue targets?</button>
-            <button class="starter-btn" onclick="useStarter(this)">🤝 How should we respond to the competitor acquisition?</button>
+            <button class="starter-btn" onclick="useStarter(this)"><img src="../assets/logos/integration-matrix.svg" alt="Global" width="14" height="14" style="border-radius:3px;vertical-align:middle"> Should we expand into the EU market given current regulations?</button>
+            <button class="starter-btn" onclick="useStarter(this)"><img src="../assets/logos/roi-metrics.svg" alt="ROI" width="14" height="14" style="border-radius:3px;vertical-align:middle"> Analyze the ROI of our AI investment over the next 3 years</button>
+            <button class="starter-btn" onclick="useStarter(this)"><img src="../assets/logos/pre-mortem.svg" alt="Risk" width="14" height="14" style="border-radius:3px;vertical-align:middle"> What are the top 5 risks to our Q4 revenue targets?</button>
+            <button class="starter-btn" onclick="useStarter(this)"><img src="../assets/logos/crucible.svg" alt="Competitor" width="14" height="14" style="border-radius:3px;vertical-align:middle"> How should we respond to the competitor acquisition?</button>
           </div>
         </div>
       </div>
@@ -275,16 +275,16 @@
 <script>
 // Agents data matching the real platform
 const AGENTS=[
-  {id:'chief',name:'Chief Executive',role:'Strategic Leadership',avatar:'👔',color:'#6366F1',caps:['Strategy','Vision','M&A'],status:'online'},
-  {id:'cfo',name:'Chief Financial',role:'Financial Analysis',avatar:'💰',color:'#10B981',caps:['Revenue','Risk','Budgets'],status:'online'},
-  {id:'cto',name:'Chief Technical',role:'Technology Strategy',avatar:'🔧',color:'#F59E0B',caps:['Architecture','Innovation','Security'],status:'online'},
-  {id:'cro',name:'Chief Revenue',role:'Growth & Sales',avatar:'📈',color:'#EF4444',caps:['Pipeline','Pricing','Markets'],status:'online'},
-  {id:'cmo',name:'Chief Marketing',role:'Brand & Growth',avatar:'🎯',color:'#EC4899',caps:['Brand','Content','GTM'],status:'online'},
-  {id:'clo',name:'Chief Legal',role:'Legal & Compliance',avatar:'⚖️',color:'#8B5CF6',caps:['Contracts','IP','Regulatory'],status:'online'},
-  {id:'ciso',name:'Chief Security',role:'Information Security',avatar:'🛡️',color:'#06B6D4',caps:['Cyber','Privacy','Risk'],status:'online'},
-  {id:'chro',name:'Chief People',role:'Human Resources',avatar:'👥',color:'#F97316',caps:['Talent','Culture','D&I'],status:'online'},
-  {id:'pessimist',name:'Devil\'s Advocate',role:'Contrarian Analysis',avatar:'😈',color:'#EF4444',caps:['Risk','Downside','Critique'],status:'online'},
-  {id:'ethicist',name:'Ethics Officer',role:'Ethical Governance',avatar:'🧭',color:'#14B8A6',caps:['Ethics','Fairness','Impact'],status:'online'},
+  {id:'chief',name:'Chief Executive',role:'Strategic Leadership',avatar:'<img src="../assets/logos/council.svg" alt="CEO" width="28" height="28" style="border-radius:6px">',color:'#6366F1',caps:['Strategy','Vision','M&A'],status:'online'},
+  {id:'cfo',name:'Chief Financial',role:'Financial Analysis',avatar:'<img src="../assets/logos/roi-metrics.svg" alt="CFO" width="28" height="28" style="border-radius:6px">',color:'#10B981',caps:['Revenue','Risk','Budgets'],status:'online'},
+  {id:'cto',name:'Chief Technical',role:'Technology Strategy',avatar:'<img src="../assets/logos/cortex.svg" alt="CTO" width="28" height="28" style="border-radius:6px">',color:'#F59E0B',caps:['Architecture','Innovation','Security'],status:'online'},
+  {id:'cro',name:'Chief Revenue',role:'Growth & Sales',avatar:'<img src="../assets/logos/cendia-predict.svg" alt="CRO" width="28" height="28" style="border-radius:6px">',color:'#EF4444',caps:['Pipeline','Pricing','Markets'],status:'online'},
+  {id:'cmo',name:'Chief Marketing',role:'Brand & Growth',avatar:'<img src="../assets/logos/cendia-helm.svg" alt="CMO" width="28" height="28" style="border-radius:6px">',color:'#EC4899',caps:['Brand','Content','GTM'],status:'online'},
+  {id:'clo',name:'Chief Legal',role:'Legal & Compliance',avatar:'<img src="../assets/logos/legal-compliance.svg" alt="CLO" width="28" height="28" style="border-radius:6px">',color:'#8B5CF6',caps:['Contracts','IP','Regulatory'],status:'online'},
+  {id:'ciso',name:'Chief Security',role:'Information Security',avatar:'<img src="../assets/logos/cendia-guard.svg" alt="CISO" width="28" height="28" style="border-radius:6px">',color:'#06B6D4',caps:['Cyber','Privacy','Risk'],status:'online'},
+  {id:'chro',name:'Chief People',role:'Human Resources',avatar:'<img src="../assets/logos/cendia-agents.svg" alt="CHRO" width="28" height="28" style="border-radius:6px">',color:'#F97316',caps:['Talent','Culture','D&I'],status:'online'},
+  {id:'pessimist',name:'Devil\'s Advocate',role:'Contrarian Analysis',avatar:'<img src="../assets/logos/wargames.svg" alt="Devil" width="28" height="28" style="border-radius:6px">',color:'#EF4444',caps:['Risk','Downside','Critique'],status:'online'},
+  {id:'ethicist',name:'Ethics Officer',role:'Ethical Governance',avatar:'<img src="../assets/logos/cendia-ethics.svg" alt="Ethics" width="28" height="28" style="border-radius:6px">',color:'#14B8A6',caps:['Ethics','Fairness','Impact'],status:'online'},
 ];
 let selectedAgents=['chief','cfo','cto','cro','cmo'];
 let mode='war-room',queryMode='quick',isProcessing=false;
@@ -359,8 +359,8 @@ async function runDeliberation(){
   chat.innerHTML='';
 
   // System message
-  addMsg('🎯','Council Moderator','system','Deliberation initiated: "'+q+'"','system');
-  addMsg('🎯','Council Moderator','system','Phase 1: Initial Analysis — Each agent provides their perspective.','system');
+  addMsg('<img src="../assets/logos/council.svg" alt="Mod" width="20" height="20" style="border-radius:4px">','Council Moderator','system','Deliberation initiated: "'+q+'"','system');
+  addMsg('<img src="../assets/logos/council.svg" alt="Mod" width="20" height="20" style="border-radius:4px">','Council Moderator','system','Phase 1: Initial Analysis — Each agent provides their perspective.','system');
 
   // Agent responses
   const activeAgents=AGENTS.filter(a=>selectedAgents.includes(a.id));
@@ -372,34 +372,34 @@ async function runDeliberation(){
 
   // Cross-examination
   await delay(600);
-  addMsg('⚔️','Council Moderator','system','Phase 2: Cross-Examination — Agents challenge each other.','system');
+  addMsg('<img src="../assets/logos/wargames.svg" alt="Cross" width="20" height="20" style="border-radius:4px">','Council Moderator','system','Phase 2: Cross-Examination — Agents challenge each other.','system');
   await delay(800);
   if(selectedAgents.includes('pessimist')&&selectedAgents.includes('cro')){
-    addMsg('😈','Devil\'s Advocate','#EF4444','I challenge the CRO\'s pipeline numbers. 12 prospects doesn\'t constitute a validated market. What\'s the conversion rate assumption? And how many of those are actually at decision stage?','cross');
+    addMsg('<img src="../assets/logos/wargames.svg" alt="Devil" width="20" height="20" style="border-radius:4px">','Devil\'s Advocate','#EF4444','I challenge the CRO\'s pipeline numbers. 12 prospects doesn\'t constitute a validated market. What\'s the conversion rate assumption? And how many of those are actually at decision stage?','cross');
     await delay(700);
-    addMsg('📈','Chief Revenue','#EF4444','Fair challenge. Of the 12, 4 are at proposal stage with verbal commitment. Our conversion rate from similar US enterprise deals is 38%. Even at a conservative 25%, that\'s 3 customers in Q1 generating ~$450K ARR.','agent');
+    addMsg('<img src="../assets/logos/cendia-predict.svg" alt="CRO" width="20" height="20" style="border-radius:4px">','Chief Revenue','#EF4444','Fair challenge. Of the 12, 4 are at proposal stage with verbal commitment. Our conversion rate from similar US enterprise deals is 38%. Even at a conservative 25%, that\'s 3 customers in Q1 generating ~$450K ARR.','agent');
   }
 
   // Synthesis
   await delay(800);
-  addMsg('🎯','Council Moderator','system','Phase 3: Synthesis — Generating final recommendation.','system');
+  addMsg('<img src="../assets/logos/council.svg" alt="Mod" width="20" height="20" style="border-radius:4px">','Council Moderator','system','Phase 3: Synthesis — Generating final recommendation.','system');
   await delay(1000);
 
   const synDiv=document.createElement('div');
   synDiv.className='synthesis-card';
-  synDiv.innerHTML=`<div class="syn-header"><div style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#6366f1,#10b981);display:flex;align-items:center;justify-content:center;font-size:1.1rem">🎯</div><h4>Council Synthesis</h4><span class="rh-badge" style="background:rgba(99,102,241,.1);color:#6366f1">Final Recommendation</span><span class="syn-confidence syn-conf-high">87% confidence</span></div><div class="syn-body"><strong>Recommendation: PROCEED with UK-first expansion in Q2.</strong><br><br>The Council reaches consensus (${activeAgents.length-1} support, 1 cautious) on a phased EU expansion beginning with the UK market. Key conditions:<br>• Implement currency hedging strategy before commitment<br>• Engage UK and EU local counsel within 30 days<br>• Deploy edge infrastructure in Dublin and Frankfurt<br>• Remote-first hiring model to contain costs<br>• Ethics review of AI models for EU market suitability<br><br>Defer Germany to Q4 pending UK market validation. Total investment: $500K with milestone-based releases.</div>`;
+  synDiv.innerHTML=`<div class="syn-header"><div style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#6366f1,#10b981);display:flex;align-items:center;justify-content:center;font-size:1.1rem"><img src="../assets/logos/council.svg" alt="Synthesis" width="24" height="24" style="border-radius:4px"></div><h4>Council Synthesis</h4><span class="rh-badge" style="background:rgba(99,102,241,.1);color:#6366f1">Final Recommendation</span><span class="syn-confidence syn-conf-high">87% confidence</span></div><div class="syn-body"><strong>Recommendation: PROCEED with UK-first expansion in Q2.</strong><br><br>The Council reaches consensus (${activeAgents.length-1} support, 1 cautious) on a phased EU expansion beginning with the UK market. Key conditions:<br>• Implement currency hedging strategy before commitment<br>• Engage UK and EU local counsel within 30 days<br>• Deploy edge infrastructure in Dublin and Frankfurt<br>• Remote-first hiring model to contain costs<br>• Ethics review of AI models for EU market suitability<br><br>Defer Germany to Q4 pending UK market validation. Total investment: $500K with milestone-based releases.</div>`;
   chat.appendChild(synDiv);
 
   // Briefing
   const briefDiv=document.createElement('div');
   briefDiv.className='briefing';
-  briefDiv.innerHTML=`<h3>📊 Executive Briefing — Key Findings</h3><p>The Council deliberated the EU expansion question across ${activeAgents.length} executive perspectives. Here is a summary of the critical findings:</p><ul><li><strong>Strong consensus (${activeAgents.length-1}/${activeAgents.length} support):</strong> The majority of agents support a phased UK-first expansion, with one agent (Devil's Advocate) raising valid concerns about historical failure rates.</li><li><strong>Financial viability confirmed:</strong> 18-month ROI base case with $500K initial investment. Currency hedging recommended to mitigate EUR/USD exposure risk.</li><li><strong>Technical readiness:</strong> Infrastructure can scale to EU data centers in 6 weeks. GDPR compliance is already architected. Edge nodes needed in Frankfurt and Dublin for latency.</li><li><strong>Pipeline is real:</strong> 12 enterprise prospects in UK, 4 at proposal stage. Conservative 25% conversion = 3 customers, ~$450K ARR in Q1.</li><li><strong>Legal complexity manageable:</strong> GDPR DPA updates needed. UK post-Brexit divergence requires separate counsel. NIS2 Directive compliance within 6 months.</li><li><strong>Risk flags:</strong> 40%+ historical underperformance rate for US SaaS EU expansions. Currency risk. 15% engineering diversion impact on domestic growth.</li></ul><p><strong>Bottom line:</strong> Proceed with UK expansion in Q2 with milestone-based funding releases. Defer Germany to Q4 pending UK validation. Total risk-adjusted NPV: +$3.2M over 3 years.</p><div class="bf-footer">Deliberation ID: DLB-2026-0208-0742 · Duration: ${activeAgents.length * 2 + 4}s · Confidence: 87% · Packet: Ready for signing</div>`;
+  briefDiv.innerHTML=`<h3><img src="../assets/logos/cortex.svg" alt="Briefing" width="18" height="18" style="border-radius:3px;vertical-align:middle"> Executive Briefing — Key Findings</h3><p>The Council deliberated the EU expansion question across ${activeAgents.length} executive perspectives. Here is a summary of the critical findings:</p><ul><li><strong>Strong consensus (${activeAgents.length-1}/${activeAgents.length} support):</strong> The majority of agents support a phased UK-first expansion, with one agent (Devil's Advocate) raising valid concerns about historical failure rates.</li><li><strong>Financial viability confirmed:</strong> 18-month ROI base case with $500K initial investment. Currency hedging recommended to mitigate EUR/USD exposure risk.</li><li><strong>Technical readiness:</strong> Infrastructure can scale to EU data centers in 6 weeks. GDPR compliance is already architected. Edge nodes needed in Frankfurt and Dublin for latency.</li><li><strong>Pipeline is real:</strong> 12 enterprise prospects in UK, 4 at proposal stage. Conservative 25% conversion = 3 customers, ~$450K ARR in Q1.</li><li><strong>Legal complexity manageable:</strong> GDPR DPA updates needed. UK post-Brexit divergence requires separate counsel. NIS2 Directive compliance within 6 months.</li><li><strong>Risk flags:</strong> 40%+ historical underperformance rate for US SaaS EU expansions. Currency risk. 15% engineering diversion impact on domestic growth.</li></ul><p><strong>Bottom line:</strong> Proceed with UK expansion in Q2 with milestone-based funding releases. Defer Germany to Q4 pending UK validation. Total risk-adjusted NPV: +$3.2M over 3 years.</p><div class="bf-footer">Deliberation ID: DLB-2026-0208-0742 · Duration: ${activeAgents.length * 2 + 4}s · Confidence: 87% · Packet: Ready for signing</div>`;
   chat.appendChild(briefDiv);
 
   // Action buttons
   const actDiv=document.createElement('div');
   actDiv.className='action-bar';
-  actDiv.innerHTML=`<button class="act-btn act-primary" onclick="alert('Executive summary generated')">📋 Executive Summary</button><button class="act-btn act-neutral" onclick="alert('Minutes generated')">📝 Generate Minutes</button><button class="act-btn act-green" onclick="alert('Deliberation saved')">💾 Save</button><button class="act-btn act-purple" onclick="alert('Regulator\\'s Receipt generated')">🔐 Regulator's Receipt</button><button class="act-btn act-violet" onclick="alert('Archived to CendiaVault')">📦 CendiaVault</button><button class="act-btn act-pink" onclick="alert('Decision DNA exported')">🧬 Decision DNA</button>`;
+  actDiv.innerHTML=`<button class="act-btn act-primary" onclick="alert('Executive summary generated')"><img src="../assets/logos/audit-provenance.svg" alt="Summary" width="14" height="14" style="border-radius:3px;vertical-align:middle"> Executive Summary</button><button class="act-btn act-neutral" onclick="alert('Minutes generated')"><img src="../assets/logos/cendia-lineage.svg" alt="Minutes" width="14" height="14" style="border-radius:3px;vertical-align:middle"> Generate Minutes</button><button class="act-btn act-green" onclick="alert('Deliberation saved')"><img src="../assets/logos/data-sovereignty.svg" alt="Save" width="14" height="14" style="border-radius:3px;vertical-align:middle"> Save</button><button class="act-btn act-purple" onclick="alert('Audit Provenance generated')"><img src="../assets/logos/audit-provenance.svg" alt="Audit" width="14" height="14" style="border-radius:3px;vertical-align:middle"> Audit Provenance</button><button class="act-btn act-pink" onclick="alert('Decision packet exported as PDF')"><img src="../assets/logos/sovereign-architecture.svg" alt="Export" width="14" height="14" style="border-radius:3px;vertical-align:middle"> Export Packet</button>`;
   chat.appendChild(actDiv);
 
   chat.scrollTop=chat.scrollHeight;
@@ -415,7 +415,7 @@ function addMsg(icon,name,color,text,type,sentiment,confidence){
   const div=document.createElement('div');
   div.className='chat-msg';
   const bubbleClass=type==='system'?'system':type==='cross'?'cross':'agent';
-  const sentBadge=sentiment?`<span style="padding:1px 6px;border-radius:4px;font-size:.6rem;font-weight:600;${sentiment==='support'?'background:rgba(34,197,94,.1);color:#16a34a':sentiment==='cautious'?'background:rgba(245,158,11,.1);color:#f59e0b':'background:rgba(239,68,68,.1);color:#ef4444'}">${sentiment==='support'?'✓ Support':sentiment==='cautious'?'⚠ Cautious':'✗ Challenge'}</span>`:'';
+  const sentBadge=sentiment?`<span style="padding:1px 6px;border-radius:4px;font-size:.6rem;font-weight:600;${sentiment==='support'?'background:rgba(34,197,94,.1);color:#16a34a':sentiment==='cautious'?'background:rgba(245,158,11,.1);color:#f59e0b':'background:rgba(239,68,68,.1);color:#ef4444'}">${sentiment==='support'?'+ Support':sentiment==='cautious'?'! Cautious':'x Challenge'}</span>`:'';
   const confBadge=confidence?`<span style="font-size:.6rem;color:#9ca3af">${confidence}% confident</span>`:'';
   div.innerHTML=`<div class="cm-avatar" style="background:${type==='system'?'#fef3c7':color+'20'}">${icon}</div><div class="cm-body"><div class="cm-header"><span class="cm-name" style="color:${type==='system'?'#92400e':color}">${name}</span>${sentBadge}${confBadge}</div><div class="cm-bubble ${bubbleClass}">${text}</div></div>`;
   chat.appendChild(div);
@@ -426,9 +426,9 @@ function sendUserMsg(){
   const input=document.getElementById('userMsg');
   const text=input.value.trim();
   if(!text)return;
-  addMsg('👤','You (Human)','#3b82f6',text,'agent');
+  addMsg('<img src="../assets/logos/cendia-agents.svg" alt="You" width="20" height="20" style="border-radius:4px">','You (Human)','#3b82f6',text,'agent');
   input.value='';
-  setTimeout(()=>addMsg('🎯','Council Moderator','system','Thank you for your input. The Council is considering your perspective.','system'),500);
+  setTimeout(()=>addMsg('<img src="../assets/logos/council.svg" alt="Mod" width="20" height="20" style="border-radius:4px">','Council Moderator','system','Thank you for your input. The Council is considering your perspective.','system'),500);
 }
 
 function delay(ms){return new Promise(r=>setTimeout(r,ms))}

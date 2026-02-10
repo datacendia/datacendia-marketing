@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <defs>
+    <linearGradient id="saGold" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#E8C840"/>
+      <stop offset="100%" stop-color="#A07B1A"/>
+    </linearGradient>
+    <filter id="saGlow">
+      <feGaussianBlur stdDeviation="1.5" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <rect width="200" height="200" fill="#0a0a0a" rx="16"/>
+  <g filter="url(#saGlow)">
+    <!-- Fortress/castle base shape -->
+    <!-- Main wall -->
+    <rect x="40" y="80" width="120" height="60" rx="2" fill="none" stroke="url(#saGold)" stroke-width="2" opacity="0.7"/>
+    <!-- Battlements (crenellation) -->
+    <rect x="40" y="72" width="12" height="12" fill="url(#saGold)" opacity="0.6"/>
+    <rect x="60" y="72" width="12" height="12" fill="url(#saGold)" opacity="0.6"/>
+    <rect x="80" y="72" width="12" height="12" fill="url(#saGold)" opacity="0.6"/>
+    <rect x="94" y="66" width="12" height="18" fill="url(#saGold)" opacity="0.75"/>
+    <rect x="108" y="72" width="12" height="12" fill="url(#saGold)" opacity="0.6"/>
+    <rect x="128" y="72" width="12" height="12" fill="url(#saGold)" opacity="0.6"/>
+    <rect x="148" y="72" width="12" height="12" fill="url(#saGold)" opacity="0.6"/>
+    <!-- Gate arch -->
+    <path d="M88 140 L88 115 Q88 105 100 105 Q112 105 112 115 L112 140" fill="none" stroke="#C9A227" stroke-width="1.5" opacity="0.6"/>
+    <!-- Gate portcullis lines -->
+    <line x1="92" y1="108" x2="92" y2="140" stroke="#C9A227" stroke-width="0.6" opacity="0.3"/>
+    <line x1="96" y1="106" x2="96" y2="140" stroke="#C9A227" stroke-width="0.6" opacity="0.3"/>
+    <line x1="100" y1="105" x2="100" y2="140" stroke="#C9A227" stroke-width="0.6" opacity="0.3"/>
+    <line x1="104" y1="106" x2="104" y2="140" stroke="#C9A227" stroke-width="0.6" opacity="0.3"/>
+    <line x1="108" y1="108" x2="108" y2="140" stroke="#C9A227" stroke-width="0.6" opacity="0.3"/>
+    <!-- Lock icon in gate -->
+    <rect x="95" y="120" width="10" height="8" rx="2" fill="none" stroke="#E8C840" stroke-width="1.2" opacity="0.8"/>
+    <path d="M97 120 L97 116 Q97 112 100 112 Q103 112 103 116 L103 120" fill="none" stroke="#E8C840" stroke-width="1.2" opacity="0.8"/>
+    <circle cx="100" cy="124" r="1.2" fill="#E8C840" opacity="0.9"/>
+    <!-- Towers (left) -->
+    <rect x="32" y="58" width="16" height="82" rx="1" fill="none" stroke="url(#saGold)" stroke-width="1.5" opacity="0.6"/>
+    <rect x="32" y="52" width="6" height="10" fill="#C9A227" opacity="0.5"/>
+    <rect x="42" y="52" width="6" height="10" fill="#C9A227" opacity="0.5"/>
+    <!-- Towers (right) -->
+    <rect x="152" y="58" width="16" height="82" rx="1" fill="none" stroke="url(#saGold)" stroke-width="1.5" opacity="0.6"/>
+    <rect x="152" y="52" width="6" height="10" fill="#C9A227" opacity="0.5"/>
+    <rect x="162" y="52" width="6" height="10" fill="#C9A227" opacity="0.5"/>
+    <!-- Flag on center tower -->
+    <line x1="100" y1="66" x2="100" y2="42" stroke="#C9A227" stroke-width="1" opacity="0.6"/>
+    <path d="M100 42 L112 47 L100 52" fill="#C9A227" opacity="0.5"/>
+    <!-- Moat line -->
+    <path d="M25 145 Q60 152 100 148 Q140 144 175 152" fill="none" stroke="#C9A227" stroke-width="0.8" opacity="0.2"/>
+  </g>
+  <!-- Label -->
+  <text x="100" y="174" font-family="Georgia, serif" font-size="9" fill="#C9A227" text-anchor="middle" letter-spacing="0.06em" opacity="0.9">SOVEREIGN ARCHITECTURE</text>
+</svg>

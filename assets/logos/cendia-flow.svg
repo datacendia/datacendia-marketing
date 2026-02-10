@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <defs>
+    <linearGradient id="cfGold" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#A07B1A"/>
+      <stop offset="50%" stop-color="#E8C840"/>
+      <stop offset="100%" stop-color="#A07B1A"/>
+    </linearGradient>
+    <filter id="cfGlow">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <rect width="200" height="200" fill="#0a0a0a" rx="16"/>
+  <g filter="url(#cfGlow)">
+    <!-- Gear / cog (execution engine) -->
+    <!-- Outer gear teeth -->
+    <circle cx="100" cy="88" r="40" fill="none" stroke="url(#cfGold)" stroke-width="2" opacity="0.65"/>
+    <!-- Teeth -->
+    <rect x="96" y="44" width="8" height="10" rx="1" fill="#C9A227" opacity="0.6"/>
+    <rect x="96" y="122" width="8" height="10" rx="1" fill="#C9A227" opacity="0.6"/>
+    <rect x="56" y="84" width="10" height="8" rx="1" fill="#C9A227" opacity="0.6"/>
+    <rect x="134" y="84" width="10" height="8" rx="1" fill="#C9A227" opacity="0.6"/>
+    <rect x="68" y="56" width="9" height="9" rx="1" fill="#C9A227" opacity="0.55" transform="rotate(-45 72.5 60.5)"/>
+    <rect x="123" y="56" width="9" height="9" rx="1" fill="#C9A227" opacity="0.55" transform="rotate(45 127.5 60.5)"/>
+    <rect x="68" y="111" width="9" height="9" rx="1" fill="#C9A227" opacity="0.55" transform="rotate(45 72.5 115.5)"/>
+    <rect x="123" y="111" width="9" height="9" rx="1" fill="#C9A227" opacity="0.55" transform="rotate(-45 127.5 115.5)"/>
+    <!-- Inner ring -->
+    <circle cx="100" cy="88" r="24" fill="none" stroke="#C9A227" stroke-width="1.5" opacity="0.45"/>
+    <!-- Center hub -->
+    <circle cx="100" cy="88" r="10" fill="none" stroke="#E8C840" stroke-width="2" opacity="0.7"/>
+    <circle cx="100" cy="88" r="4" fill="#E8C840" opacity="0.8"/>
+    <!-- Flow arrows coming out (execution outputs) -->
+    <!-- Right arrow -->
+    <line x1="148" y1="88" x2="172" y2="88" stroke="#E8C840" stroke-width="1.5" opacity="0.5"/>
+    <path d="M168 84 L174 88 L168 92" fill="none" stroke="#E8C840" stroke-width="1.5" opacity="0.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- Down-right arrow -->
+    <line x1="135" y1="120" x2="155" y2="140" stroke="#C9A227" stroke-width="1.2" opacity="0.4"/>
+    <path d="M150 135 L157 142 L150 142" fill="none" stroke="#C9A227" stroke-width="1.2" opacity="0.4" stroke-linecap="round"/>
+    <!-- Down arrow -->
+    <line x1="100" y1="135" x2="100" y2="155" stroke="#C9A227" stroke-width="1.2" opacity="0.4"/>
+    <path d="M96 151 L100 157 L104 151" fill="none" stroke="#C9A227" stroke-width="1.2" opacity="0.4" stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- Action endpoint dots -->
+    <circle cx="174" cy="88" r="3" fill="#E8C840" opacity="0.5"/>
+    <circle cx="157" cy="142" r="2.5" fill="#C9A227" opacity="0.4"/>
+    <circle cx="100" cy="157" r="2.5" fill="#C9A227" opacity="0.4"/>
+  </g>
+  <text x="100" y="180" font-family="Georgia, serif" font-size="11" fill="#C9A227" text-anchor="middle" letter-spacing="0.08em" opacity="0.9">CENDIAFLOW</text>
+</svg>

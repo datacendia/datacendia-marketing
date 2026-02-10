@@ -15,7 +15,7 @@ Datacendia replaces unstructured decision-making (email chains, meetings, hallwa
 - [Pre-Mortem Engine](https://datacendia.com/demos.html#cortex): Reverse-engineers failure modes before decisions are made.
 - [CendiaDissent](https://datacendia.com/demos.html#cortex): Formal disagreement tracking with tamper-proof records and outcome monitoring.
 - [CendiaCrucible](https://datacendia.com/demos.html#oversight): Adversarial red team stress testing from 8+ attack perspectives.
-- [Decision DNA](https://datacendia.com/demos.html#evidence): Cryptographically sealed decision packets with Merkle tree integrity and Ed25519 signatures.
+- [Audit Provenance](https://datacendia.com/demos.html#evidence): Cryptographically sealed decision packets with Merkle tree integrity and Ed25519 signatures.
 - [QR Air-Gap Bridge](https://datacendia.com/demos.html#evidence): Zero-network data transfer via animated QR codes for air-gapped environments.
 
 ## Key Differentiators

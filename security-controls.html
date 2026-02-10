@@ -352,7 +352,7 @@
       </nav>
       
       <div class="page-header">
-        <div class="page-icon">🛡️</div>
+        <div class="page-icon"><img src="assets/logos/cendia-guard.svg" alt="CendiaGuard" width="64" height="64" style="border-radius:12px"></div>
         <h1 class="page-title">Datacendia Sovereign Architecture & Control Mapping</h1>
         <p class="page-subtitle">Alignment with SOC 2 Type II (TSC 2017) and NIST 800-53</p>
         <span class="status-badge">Status: Architecture-Ready (Pre-Audit)</span>
@@ -477,7 +477,7 @@
                 <div class="control-req-desc">Securely destroy data when no longer needed.</div>
               </td>
               <td class="control-impl">
-                <strong>Ephemeral Inference:</strong> "Shadow Mode" data exists only in volatile RAM. Upon session termination, the memory space is overwritten. Only the final Decision DNA evidence packet is written to disk.
+                <strong>Ephemeral Inference:</strong> "Shadow Mode" data exists only in volatile RAM. Upon session termination, the memory space is overwritten. Only the final Audit Provenance evidence packet is written to disk.
               </td>
             </tr>
           </tbody>
@@ -555,7 +555,7 @@
                 <div class="control-req">Content of Audit Records</div>
               </td>
               <td class="control-impl">
-                <strong>Decision DNA Ledger:</strong> Logs user ID, timestamp, agent votes, dissent logs, and final output hash.
+                <strong>Audit Provenance Ledger:</strong> Logs user ID, timestamp, agent votes, dissent logs, and final output hash.
               </td>
             </tr>
             <tr>
@@ -581,7 +581,7 @@
             <ul>
               <li>Integrity of the software code</li>
               <li>Agent logic architecture</li>
-              <li>Evidence generation (Decision DNA)</li>
+              <li>Evidence generation (Audit Provenance)</li>
               <li>Vulnerability patching (releases)</li>
               <li>Documentation accuracy</li>
             </ul>
