@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <defs>
+    <linearGradient id="agGold" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#E8C840"/>
+      <stop offset="100%" stop-color="#A07B1A"/>
+    </linearGradient>
+    <filter id="agGlow">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <rect width="200" height="200" fill="#0a0a0a" rx="16"/>
+  <g filter="url(#agGlow)">
+    <!-- Left server rack -->
+    <rect x="25" y="50" width="55" height="80" rx="4" fill="none" stroke="url(#agGold)" stroke-width="1.8" opacity="0.65"/>
+    <!-- Server slots -->
+    <rect x="30" y="56" width="45" height="10" rx="2" fill="none" stroke="#C9A227" stroke-width="0.8" opacity="0.35"/>
+    <circle cx="68" cy="61" r="2" fill="#C9A227" opacity="0.6"/>
+    <rect x="30" y="70" width="45" height="10" rx="2" fill="none" stroke="#C9A227" stroke-width="0.8" opacity="0.35"/>
+    <circle cx="68" cy="75" r="2" fill="#C9A227" opacity="0.6"/>
+    <rect x="30" y="84" width="45" height="10" rx="2" fill="none" stroke="#C9A227" stroke-width="0.8" opacity="0.35"/>
+    <circle cx="68" cy="89" r="2" fill="#C9A227" opacity="0.5"/>
+    <rect x="30" y="98" width="45" height="10" rx="2" fill="none" stroke="#C9A227" stroke-width="0.8" opacity="0.3"/>
+    <rect x="30" y="112" width="45" height="10" rx="2" fill="none" stroke="#C9A227" stroke-width="0.8" opacity="0.25"/>
+    <!-- Right server rack -->
+    <rect x="120" y="50" width="55" height="80" rx="4" fill="none" stroke="url(#agGold)" stroke-width="1.8" opacity="0.65"/>
+    <rect x="125" y="56" width="45" height="10" rx="2" fill="none" stroke="#C9A227" stroke-width="0.8" opacity="0.35"/>
+    <circle cx="163" cy="61" r="2" fill="#C9A227" opacity="0.6"/>
+    <rect x="125" y="70" width="45" height="10" rx="2" fill="none" stroke="#C9A227" stroke-width="0.8" opacity="0.35"/>
+    <circle cx="163" cy="75" r="2" fill="#C9A227" opacity="0.6"/>
+    <rect x="125" y="84" width="45" height="10" rx="2" fill="none" stroke="#C9A227" stroke-width="0.8" opacity="0.35"/>
+    <circle cx="163" cy="89" r="2" fill="#C9A227" opacity="0.5"/>
+    <rect x="125" y="98" width="45" height="10" rx="2" fill="none" stroke="#C9A227" stroke-width="0.8" opacity="0.3"/>
+    <rect x="125" y="112" width="45" height="10" rx="2" fill="none" stroke="#C9A227" stroke-width="0.8" opacity="0.25"/>
+    <!-- Air gap zone (center) -->
+    <rect x="84" y="45" width="32" height="90" rx="2" fill="none" stroke="#A07B1A" stroke-width="1" opacity="0.2" stroke-dasharray="5 4"/>
+    <!-- Crossed connection (no network) -->
+    <line x1="84" y1="80" x2="116" y2="100" stroke="#A07B1A" stroke-width="1.5" opacity="0.35"/>
+    <line x1="84" y1="100" x2="116" y2="80" stroke="#A07B1A" stroke-width="1.5" opacity="0.35"/>
+    <!-- Data diode arrow (one way only) -->
+    <line x1="82" y1="68" x2="118" y2="68" stroke="#E8C840" stroke-width="1.5" opacity="0.5"/>
+    <path d="M114 64 L120 68 L114 72" fill="none" stroke="#E8C840" stroke-width="1.5" opacity="0.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- Diode symbol -->
+    <path d="M96 62 L104 68 L96 74" fill="none" stroke="#E8C840" stroke-width="1" opacity="0.4"/>
+    <line x1="104" y1="62" x2="104" y2="74" stroke="#E8C840" stroke-width="1" opacity="0.4"/>
+    <!-- "AIR GAP" label in center -->
+    <text x="100" y="115" font-family="'JetBrains Mono', monospace" font-size="5" fill="#A07B1A" text-anchor="middle" opacity="0.4" letter-spacing="0.1em">AIR GAP</text>
+  </g>
+  <text x="100" y="158" font-family="Georgia, serif" font-size="9" fill="#C9A227" text-anchor="middle" letter-spacing="0.06em" opacity="0.9">AIR-GAPPED DEPLOY</text>
+</svg>

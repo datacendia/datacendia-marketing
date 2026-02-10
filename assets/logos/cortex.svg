@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <defs>
+    <linearGradient id="cxGold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#E8C840"/>
+      <stop offset="100%" stop-color="#A07B1A"/>
+    </linearGradient>
+    <filter id="cxGlow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <radialGradient id="cxBg" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#C9A227" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#C9A227" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="200" height="200" fill="#0a0a0a" rx="16"/>
+  <circle cx="100" cy="100" r="80" fill="url(#cxBg)"/>
+  <g filter="url(#cxGlow)">
+    <!-- Hexagonal core (decision OS) -->
+    <polygon points="100,30 155,55 155,105 100,130 45,105 45,55" fill="none" stroke="url(#cxGold)" stroke-width="2.5" opacity="0.8"/>
+    <polygon points="100,42 145,62 145,98 100,118 55,98 55,62" fill="none" stroke="#C9A227" stroke-width="0.8" opacity="0.25"/>
+    <!-- Eight pillar nodes on the perimeter -->
+    <circle cx="100" cy="30" r="5" fill="#E8C840" opacity="0.8"/>
+    <circle cx="155" cy="55" r="5" fill="#C9A227" opacity="0.7"/>
+    <circle cx="155" cy="105" r="5" fill="#C9A227" opacity="0.7"/>
+    <circle cx="100" cy="130" r="5" fill="#C9A227" opacity="0.7"/>
+    <circle cx="45" cy="105" r="5" fill="#C9A227" opacity="0.7"/>
+    <circle cx="45" cy="55" r="5" fill="#C9A227" opacity="0.7"/>
+    <circle cx="128" cy="38" r="4" fill="#C9A227" opacity="0.55"/>
+    <circle cx="72" cy="38" r="4" fill="#C9A227" opacity="0.55"/>
+    <!-- Internal connections forming neural mesh -->
+    <line x1="100" y1="30" x2="100" y2="80" stroke="#C9A227" stroke-width="0.8" opacity="0.3"/>
+    <line x1="155" y1="55" x2="100" y2="80" stroke="#C9A227" stroke-width="0.8" opacity="0.3"/>
+    <line x1="155" y1="105" x2="100" y2="80" stroke="#C9A227" stroke-width="0.8" opacity="0.3"/>
+    <line x1="100" y1="130" x2="100" y2="80" stroke="#C9A227" stroke-width="0.8" opacity="0.3"/>
+    <line x1="45" y1="105" x2="100" y2="80" stroke="#C9A227" stroke-width="0.8" opacity="0.3"/>
+    <line x1="45" y1="55" x2="100" y2="80" stroke="#C9A227" stroke-width="0.8" opacity="0.3"/>
+    <!-- Central intelligence core -->
+    <circle cx="100" cy="80" r="16" fill="none" stroke="#E8C840" stroke-width="1.5" opacity="0.5"/>
+    <circle cx="100" cy="80" r="8" fill="#E8C840" opacity="0.85"/>
+    <!-- Orbiting data rings -->
+    <ellipse cx="100" cy="80" rx="30" ry="10" fill="none" stroke="#C9A227" stroke-width="0.6" opacity="0.2" transform="rotate(30 100 80)"/>
+    <ellipse cx="100" cy="80" rx="30" ry="10" fill="none" stroke="#C9A227" stroke-width="0.6" opacity="0.2" transform="rotate(-30 100 80)"/>
+    <ellipse cx="100" cy="80" rx="30" ry="10" fill="none" stroke="#C9A227" stroke-width="0.6" opacity="0.2" transform="rotate(90 100 80)"/>
+  </g>
+  <text x="100" y="158" font-family="Georgia, serif" font-size="9" fill="#C9A227" text-anchor="middle" letter-spacing="0.1em" opacity="0.9">DATACENDIA CORTEX</text>
+</svg>

@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Before & After — Decision Governance | Datacendia</title>
+<meta name="description" content="See what decision-making looks like without governance vs. with Datacendia. The difference is night and day.">
+<link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+body{background:#09090b;color:#e4e4e7;font-family:'Inter',-apple-system,sans-serif;min-height:100vh;-webkit-font-smoothing:antialiased}
+
+.header{display:flex;align-items:center;gap:12px;height:48px;padding:0 20px;background:#18181b;border-bottom:1px solid #27272a;position:sticky;top:0;z-index:100}
+.header-logo{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:.95rem;color:#C9A227;letter-spacing:.12em;text-decoration:none}
+.header-logo:hover{color:#d4af37}
+.header-back{color:#71717a;text-decoration:none;font-size:.72rem;margin-left:8px;transition:color .15s}
+.header-back:hover{color:#C9A227}
+.header-spacer{flex:1}
+
+.page{max-width:900px;margin:0 auto;padding:48px 20px 60px}
+.page-title{text-align:center;font-size:2rem;font-weight:700;margin-bottom:8px;background:linear-gradient(135deg,#fff,#a1a1aa);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.page-sub{text-align:center;color:#71717a;font-size:.9rem;margin-bottom:48px;max-width:520px;margin-left:auto;margin-right:auto}
+
+/* Section */
+.section{margin-bottom:48px;opacity:0;transform:translateY(24px);transition:all .6s cubic-bezier(.4,0,.2,1)}
+.section.visible{opacity:1;transform:translateY(0)}
+.section-label{display:inline-flex;align-items:center;gap:6px;padding:4px 14px;border-radius:20px;font-size:.7rem;font-weight:600;letter-spacing:.05em;margin-bottom:16px}
+.label-before{background:rgba(239,68,68,.1);color:#ef4444;border:1px solid rgba(239,68,68,.2)}
+.label-after{background:rgba(34,197,94,.1);color:#22c55e;border:1px solid rgba(34,197,94,.2)}
+
+.section h2{font-size:1.3rem;font-weight:700;margin-bottom:6px}
+.section .section-desc{font-size:.82rem;color:#71717a;margin-bottom:20px;line-height:1.6}
+
+/* Timeline */
+.timeline{position:relative;padding-left:28px}
+.timeline::before{content:'';position:absolute;left:8px;top:0;bottom:0;width:2px;border-radius:1px}
+.before-timeline::before{background:linear-gradient(180deg,#ef4444,#f97316,#ef4444)}
+.after-timeline::before{background:linear-gradient(180deg,#22c55e,#06b6d4,#22c55e)}
+
+.step{position:relative;padding-bottom:20px;opacity:0;transform:translateX(-12px);transition:all .4s ease}
+.step.visible{opacity:1;transform:translateX(0)}
+.step::before{content:'';position:absolute;left:-24px;top:4px;width:12px;height:12px;border-radius:50%;border:2px solid}
+.before-timeline .step::before{border-color:#ef4444;background:#1a0505}
+.after-timeline .step::before{border-color:#22c55e;background:#051a0a}
+.step-title{font-weight:600;font-size:.85rem;margin-bottom:3px}
+.step-desc{font-size:.78rem;color:#71717a;line-height:1.6}
+.step-time{font-size:.65rem;color:#52525b;font-family:'JetBrains Mono',monospace;margin-top:3px}
+.step-problem{font-size:.72rem;color:#ef4444;margin-top:4px;font-style:italic}
+.step-win{font-size:.72rem;color:#22c55e;margin-top:4px}
+
+/* Outcome */
+.outcome{border-radius:14px;padding:20px;margin-top:8px}
+.outcome-before{background:linear-gradient(135deg,rgba(239,68,68,.06),rgba(249,115,22,.04));border:1px solid rgba(239,68,68,.15)}
+.outcome-after{background:linear-gradient(135deg,rgba(34,197,94,.06),rgba(6,182,212,.04));border:1px solid rgba(34,197,94,.15)}
+.outcome h3{font-size:.9rem;font-weight:700;margin-bottom:8px}
+.outcome-before h3{color:#ef4444}
+.outcome-after h3{color:#22c55e}
+.outcome p{font-size:.8rem;line-height:1.7;color:#a1a1aa}
+.outcome p strong{color:#e4e4e7}
+.outcome-stats{display:flex;flex-wrap:wrap;gap:12px;margin-top:12px}
+.outcome-stat{text-align:center;padding:10px 16px;border-radius:8px;min-width:100px}
+.outcome-before .outcome-stat{background:rgba(239,68,68,.06)}
+.outcome-after .outcome-stat{background:rgba(34,197,94,.06)}
+.stat-val{font-family:'JetBrains Mono',monospace;font-weight:700;font-size:1.1rem}
+.outcome-before .stat-val{color:#ef4444}
+.outcome-after .stat-val{color:#22c55e}
+.stat-label{font-size:.6rem;color:#71717a;margin-top:2px}
+
+/* Comparison bar */
+.compare{background:#18181b;border:1px solid #27272a;border-radius:16px;padding:24px;margin-bottom:32px;opacity:0;transform:translateY(24px);transition:all .6s}
+.compare.visible{opacity:1;transform:translateY(0)}
+.compare h2{font-size:1.1rem;font-weight:700;text-align:center;margin-bottom:20px}
+.compare-row{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.compare-label{font-size:.75rem;color:#a1a1aa;width:140px;flex-shrink:0;text-align:right}
+.compare-bars{flex:1;display:flex;gap:6px;align-items:center}
+.compare-bar{height:24px;border-radius:4px;display:flex;align-items:center;padding:0 10px;font-size:.65rem;font-weight:600;font-family:'JetBrains Mono',monospace;transition:width 1s cubic-bezier(.4,0,.2,1)}
+.bar-before{background:rgba(239,68,68,.15);color:#ef4444;border:1px solid rgba(239,68,68,.2)}
+.bar-after{background:rgba(34,197,94,.15);color:#22c55e;border:1px solid rgba(34,197,94,.2)}
+.compare-legend{display:flex;justify-content:center;gap:20px;margin-bottom:16px;font-size:.7rem}
+.legend-dot{width:10px;height:10px;border-radius:3px;display:inline-block;margin-right:6px;vertical-align:middle}
+
+/* CTA */
+.cta{text-align:center;padding:40px 0 20px;opacity:0;transition:opacity .6s}
+.cta.visible{opacity:1}
+.cta p{font-size:.85rem;color:#71717a;margin-bottom:20px;line-height:1.6}
+.cta p strong{color:#e4e4e7}
+.cta-btn{display:inline-flex;align-items:center;gap:8px;padding:14px 32px;background:linear-gradient(135deg,#C9A227,#d4af37);color:#09090b;border:none;border-radius:10px;font-size:.9rem;font-weight:700;cursor:pointer;transition:all .2s;font-family:'Inter',sans-serif;text-decoration:none}
+.cta-btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(201,162,39,.25)}
+
+.disclaimer{text-align:center;padding:12px 20px;font-size:.6rem;color:#4a4a5a;border-top:1px solid #1e1e2e;font-family:'Inter',sans-serif}
+
+@media(max-width:640px){
+  .page-title{font-size:1.5rem}
+  .compare-label{width:100px;font-size:.65rem}
+  .outcome-stats{gap:8px}
+  .outcome-stat{min-width:80px;padding:8px 10px}
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <a href="../demos.html" class="header-logo">DATACENDIA</a>
+  <a href="../demos.html" class="header-back">← Demos</a>
+  <div class="header-spacer"></div>
+</div>
+
+<div class="page">
+  <h1 class="page-title">The Same Decision. Two Outcomes.</h1>
+  <p class="page-sub">A $50M acquisition decision — made with and without decision governance. The difference isn't subtle.</p>
+
+  <!-- BEFORE -->
+  <div class="section" id="sec-before">
+    <span class="section-label label-before"><img src="../assets/logos/pre-mortem.svg" alt="Without" width="16" height="16" style="border-radius:3px;vertical-align:middle"> WITHOUT DATACENDIA</span>
+    <h2>How most organizations decide today</h2>
+    <p class="section-desc">A $50M acquisition proposal lands on the CEO's desk. Here's what happens next.</p>
+
+    <div class="timeline before-timeline">
+      <div class="step">
+        <div class="step-title"><img src="../assets/logos/integration-matrix.svg" alt="Email" width="16" height="16" style="border-radius:3px;vertical-align:middle"> Week 1 — Email chain begins</div>
+        <div class="step-desc">CFO emails a 40-page deck to 8 executives. Three reply-all with opinions. Two don't read it. One is on vacation.</div>
+        <div class="step-time">3 days to get all parties aware</div>
+        <div class="step-problem"><img src="../assets/logos/pre-mortem.svg" alt="Warning" width="14" height="14" style="border-radius:3px;vertical-align:middle"> No structured framework. Opinions vary based on who read what.</div>
+      </div>
+      <div class="step">
+        <div class="step-title"><img src="../assets/logos/council.svg" alt="Meeting" width="16" height="16" style="border-radius:3px;vertical-align:middle"> Week 2 — The meeting</div>
+        <div class="step-desc">90-minute board meeting. The loudest voices dominate. The Risk Officer raises concerns about valuation but is talked over. No formal record of the dissent.</div>
+        <div class="step-time">90 minutes, dominated by 2 of 8 attendees</div>
+        <div class="step-problem"><img src="../assets/logos/pre-mortem.svg" alt="Warning" width="14" height="14" style="border-radius:3px;vertical-align:middle"> Dissent raised but not recorded. Groupthink prevails.</div>
+      </div>
+      <div class="step">
+        <div class="step-title"><img src="../assets/logos/ghost-board.svg" alt="Chat" width="16" height="16" style="border-radius:3px;vertical-align:middle"> Week 3 — Hallway decisions</div>
+        <div class="step-desc">CEO and CFO have a private conversation over lunch. They decide to proceed. The "decision" is communicated via a Slack message: "We're moving forward."</div>
+        <div class="step-time">Critical decision made in 20 minutes over lunch</div>
+        <div class="step-problem"><img src="../assets/logos/pre-mortem.svg" alt="Warning" width="14" height="14" style="border-radius:3px;vertical-align:middle"> No audit trail. No documented reasoning. No stress-testing.</div>
+      </div>
+      <div class="step">
+        <div class="step-title"><img src="../assets/logos/audit-provenance.svg" alt="DD" width="16" height="16" style="border-radius:3px;vertical-align:middle"> Month 3 — Due diligence gaps</div>
+        <div class="step-desc">Integration team discovers the target has $12M in hidden technical debt. Nobody documented the Risk Officer's earlier warning about exactly this scenario.</div>
+        <div class="step-time">$12M surprise discovered too late</div>
+        <div class="step-problem"><img src="../assets/logos/pre-mortem.svg" alt="Warning" width="14" height="14" style="border-radius:3px;vertical-align:middle"> The dissent that could have prevented this was lost.</div>
+      </div>
+      <div class="step">
+        <div class="step-title"><img src="../assets/logos/pre-mortem.svg" alt="Audit" width="16" height="16" style="border-radius:3px;vertical-align:middle"> Month 12 — The audit</div>
+        <div class="step-desc">Regulator asks: "Show me how this decision was made." The team spends 3 weeks reconstructing the process from email fragments and calendar invites. Key reasoning is unrecoverable.</div>
+        <div class="step-time">3 weeks to partially reconstruct — gaps remain</div>
+        <div class="step-problem"><img src="../assets/logos/pre-mortem.svg" alt="Warning" width="14" height="14" style="border-radius:3px;vertical-align:middle"> Regulatory exposure. The company cannot prove due diligence.</div>
+      </div>
+    </div>
+
+    <div class="outcome outcome-before">
+      <h3><img src="../assets/logos/pre-mortem.svg" alt="Bad" width="18" height="18" style="border-radius:4px;vertical-align:middle"> Outcome: $18M in preventable losses</h3>
+      <p>The acquisition closed at full price despite <strong>unaddressed risks that were raised but not recorded</strong>. Hidden technical debt, integration failures, and a regulatory inquiry consumed 18 months of leadership attention.</p>
+      <div class="outcome-stats">
+        <div class="outcome-stat"><div class="stat-val">3 weeks</div><div class="stat-label">Decision reconstruction</div></div>
+        <div class="outcome-stat"><div class="stat-val">0</div><div class="stat-label">Dissents preserved</div></div>
+        <div class="outcome-stat"><div class="stat-val">$18M</div><div class="stat-label">Preventable losses</div></div>
+        <div class="outcome-stat"><div class="stat-val">Zero</div><div class="stat-label">Audit-ready evidence</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- AFTER -->
+  <div class="section" id="sec-after">
+    <span class="section-label label-after"><img src="../assets/logos/datacendia-platform.svg" alt="With" width="16" height="16" style="border-radius:3px;vertical-align:middle"> WITH DATACENDIA</span>
+    <h2>The same decision, governed</h2>
+    <p class="section-desc">Same $50M acquisition. Same team. Different process. Different outcome.</p>
+
+    <div class="timeline after-timeline">
+      <div class="step">
+        <div class="step-title"><img src="../assets/logos/council.svg" alt="Council" width="16" height="16" style="border-radius:3px;vertical-align:middle"> Day 1 — Council convened</div>
+        <div class="step-desc">The acquisition proposal is submitted to The Council. Six AI agents — CFO Lens, Risk Analyst, Legal, Market Bear, Ethics Watchdog, and Strategic Advisor — begin deliberation simultaneously.</div>
+        <div class="step-time">6 agents deliberating in parallel — 45 seconds</div>
+        <div class="step-win">+ Every perspective heard. No voice is louder than another.</div>
+      </div>
+      <div class="step">
+        <div class="step-title"><img src="../assets/logos/wargames.svg" alt="Cross" width="16" height="16" style="border-radius:3px;vertical-align:middle"> Day 1 — Cross-examination</div>
+        <div class="step-desc">Agents challenge each other's reasoning. The Market Bear identifies the $12M technical debt risk that the Strategic Advisor missed. The Risk Analyst flags a 40% probability of integration failure.</div>
+        <div class="step-time">Multi-round adversarial debate — 2 minutes</div>
+        <div class="step-win">+ Blind spots surfaced before they become surprises.</div>
+      </div>
+      <div class="step">
+        <div class="step-title"><img src="../assets/logos/dissent.svg" alt="Dissent" width="16" height="16" style="border-radius:3px;vertical-align:middle"> Day 1 — Formal dissent filed</div>
+        <div class="step-desc">The Risk Analyst formally dissents, arguing the valuation exceeds the risk-adjusted range by $15M. The dissent is cryptographically sealed — it can never be deleted, altered, or buried.</div>
+        <div class="step-time">Tamper-proof dissent filed in 10 seconds</div>
+        <div class="step-win">+ Disagreement is protected, not punished.</div>
+      </div>
+      <div class="step">
+        <div class="step-title"><img src="../assets/logos/audit-provenance.svg" alt="Packet" width="16" height="16" style="border-radius:3px;vertical-align:middle"> Day 1 — Audit Provenance packet sealed</div>
+        <div class="step-desc">The entire deliberation — every agent's analysis, every vote, every dissent — is packaged into a Merkle-tree verified, Ed25519-signed evidence packet. Court-admissible. Regulator-ready.</div>
+        <div class="step-time">Evidence packet sealed in 3 seconds</div>
+        <div class="step-win">+ Complete audit trail — generated automatically, not manually.</div>
+      </div>
+      <div class="step">
+        <div class="step-title"><img src="../assets/logos/datacendia-platform.svg" alt="Decision" width="16" height="16" style="border-radius:3px;vertical-align:middle"> Day 2 — Informed decision</div>
+        <div class="step-desc">The CEO reviews the Council synthesis. Because the technical debt risk was surfaced, she negotiates a $12M price reduction and milestone-based earnout. The deal closes at $38M with risk-adjusted terms.</div>
+        <div class="step-time">Decision made in 24 hours with full confidence</div>
+        <div class="step-win">+ $12M saved. Risk mitigated. Decision defensible.</div>
+      </div>
+    </div>
+
+    <div class="outcome outcome-after">
+      <h3><img src="../assets/logos/datacendia-platform.svg" alt="Good" width="18" height="18" style="border-radius:4px;vertical-align:middle"> Outcome: $12M saved, zero regulatory exposure</h3>
+      <p>The same acquisition closed at a <strong>risk-adjusted price with documented reasoning</strong>. When the regulator asked how the decision was made, the sealed evidence packet was produced in under 60 seconds.</p>
+      <div class="outcome-stats">
+        <div class="outcome-stat"><div class="stat-val">< 1 min</div><div class="stat-label">Audit response time</div></div>
+        <div class="outcome-stat"><div class="stat-val">1</div><div class="stat-label">Dissent preserved</div></div>
+        <div class="outcome-stat"><div class="stat-val">$12M</div><div class="stat-label">Saved on deal price</div></div>
+        <div class="outcome-stat"><div class="stat-val">Sealed</div><div class="stat-label">Evidence packet</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Side-by-side comparison -->
+  <div class="compare" id="compare">
+    <h2>Side by Side</h2>
+    <div class="compare-legend">
+      <span><span class="legend-dot" style="background:#ef4444"></span>Without Datacendia</span>
+      <span><span class="legend-dot" style="background:#22c55e"></span>With Datacendia</span>
+    </div>
+    <div class="compare-row">
+      <div class="compare-label">Time to decision</div>
+      <div class="compare-bars">
+        <div class="compare-bar bar-before" style="width:0" data-w="80%">3 weeks</div>
+        <div class="compare-bar bar-after" style="width:0" data-w="12%">24 hrs</div>
+      </div>
+    </div>
+    <div class="compare-row">
+      <div class="compare-label">Perspectives heard</div>
+      <div class="compare-bars">
+        <div class="compare-bar bar-before" style="width:0" data-w="25%">2 of 8</div>
+        <div class="compare-bar bar-after" style="width:0" data-w="75%">6 of 6</div>
+      </div>
+    </div>
+    <div class="compare-row">
+      <div class="compare-label">Dissents preserved</div>
+      <div class="compare-bars">
+        <div class="compare-bar bar-before" style="width:0" data-w="5%">0</div>
+        <div class="compare-bar bar-after" style="width:0" data-w="100%">100%</div>
+      </div>
+    </div>
+    <div class="compare-row">
+      <div class="compare-label">Audit readiness</div>
+      <div class="compare-bars">
+        <div class="compare-bar bar-before" style="width:0" data-w="15%">3 weeks</div>
+        <div class="compare-bar bar-after" style="width:0" data-w="95%">&lt; 1 min</div>
+      </div>
+    </div>
+    <div class="compare-row">
+      <div class="compare-label">Preventable losses</div>
+      <div class="compare-bars">
+        <div class="compare-bar bar-before" style="width:0" data-w="90%">$18M</div>
+        <div class="compare-bar bar-after" style="width:0" data-w="5%">$0</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta" id="cta">
+    <p><strong>Every ungoverned decision is a liability waiting to surface.</strong><br>See the difference for yourself.</p>
+    <a href="try.html" class="cta-btn">Try Your Decision →</a>
+  </div>
+</div>
+
+<div class="disclaimer">All scenarios, figures, and outcomes are illustrative. Actual results vary by organization, industry, and decision complexity.</div>
+
+<script>
+const observer=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.classList.add('visible');
+      // Animate steps within sections
+      if(e.target.classList.contains('section')){
+        const steps=e.target.querySelectorAll('.step');
+        steps.forEach((s,i)=>setTimeout(()=>s.classList.add('visible'),200+i*300));
+      }
+      // Animate comparison bars
+      if(e.target.id==='compare'){
+        setTimeout(()=>{
+          e.target.querySelectorAll('.compare-bar').forEach(b=>{
+            b.style.width=b.dataset.w;
+          });
+        },300);
+      }
+    }
+  });
+},{threshold:0.15});
+
+document.querySelectorAll('.section, .compare, .cta').forEach(el=>observer.observe(el));
+</script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <defs>
+    <linearGradient id="clGold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#E8C840"/>
+      <stop offset="100%" stop-color="#A07B1A"/>
+    </linearGradient>
+    <filter id="clGlow">
+      <feGaussianBlur stdDeviation="1.5" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <rect width="200" height="200" fill="#0a0a0a" rx="16"/>
+  <g filter="url(#clGlow)">
+    <!-- Knowledge graph / tree of truth -->
+    <!-- Central trunk -->
+    <line x1="100" y1="155" x2="100" y2="50" stroke="url(#clGold)" stroke-width="2.5" opacity="0.6"/>
+    <!-- Root branches -->
+    <path d="M100 155 Q80 160 65 158" fill="none" stroke="#C9A227" stroke-width="1.5" opacity="0.4"/>
+    <path d="M100 155 Q120 160 135 158" fill="none" stroke="#C9A227" stroke-width="1.5" opacity="0.4"/>
+    <!-- Main branches -->
+    <path d="M100 120 Q75 115 55 100" fill="none" stroke="url(#clGold)" stroke-width="1.8" opacity="0.55"/>
+    <path d="M100 120 Q125 115 145 100" fill="none" stroke="url(#clGold)" stroke-width="1.8" opacity="0.55"/>
+    <path d="M100 90 Q70 82 48 72" fill="none" stroke="url(#clGold)" stroke-width="1.5" opacity="0.5"/>
+    <path d="M100 90 Q130 82 152 72" fill="none" stroke="url(#clGold)" stroke-width="1.5" opacity="0.5"/>
+    <path d="M100 65 Q82 55 65 48" fill="none" stroke="url(#clGold)" stroke-width="1.2" opacity="0.45"/>
+    <path d="M100 65 Q118 55 135 48" fill="none" stroke="url(#clGold)" stroke-width="1.2" opacity="0.45"/>
+    <!-- Sub-branches -->
+    <path d="M55 100 Q42 92 35 80" fill="none" stroke="#C9A227" stroke-width="1" opacity="0.35"/>
+    <path d="M55 100 Q50 108 42 112" fill="none" stroke="#C9A227" stroke-width="1" opacity="0.3"/>
+    <path d="M145 100 Q158 92 165 80" fill="none" stroke="#C9A227" stroke-width="1" opacity="0.35"/>
+    <path d="M145 100 Q150 108 158 112" fill="none" stroke="#C9A227" stroke-width="1" opacity="0.3"/>
+    <!-- Data provenance nodes -->
+    <circle cx="100" cy="50" r="5" fill="#E8C840" opacity="0.85"/>
+    <circle cx="100" cy="90" r="4" fill="#C9A227" opacity="0.7"/>
+    <circle cx="100" cy="120" r="4" fill="#C9A227" opacity="0.65"/>
+    <circle cx="100" cy="155" r="4.5" fill="#C9A227" opacity="0.6"/>
+    <circle cx="55" cy="100" r="3.5" fill="#C9A227" opacity="0.55"/>
+    <circle cx="145" cy="100" r="3.5" fill="#C9A227" opacity="0.55"/>
+    <circle cx="48" cy="72" r="3" fill="#C9A227" opacity="0.45"/>
+    <circle cx="152" cy="72" r="3" fill="#C9A227" opacity="0.45"/>
+    <circle cx="65" cy="48" r="3" fill="#C9A227" opacity="0.45"/>
+    <circle cx="135" cy="48" r="3" fill="#C9A227" opacity="0.45"/>
+    <circle cx="35" cy="80" r="2.5" fill="#C9A227" opacity="0.35"/>
+    <circle cx="165" cy="80" r="2.5" fill="#C9A227" opacity="0.35"/>
+    <circle cx="42" cy="112" r="2.5" fill="#C9A227" opacity="0.3"/>
+    <circle cx="158" cy="112" r="2.5" fill="#C9A227" opacity="0.3"/>
+    <!-- Leaf nodes (small) -->
+    <circle cx="65" cy="158" r="2" fill="#C9A227" opacity="0.3"/>
+    <circle cx="135" cy="158" r="2" fill="#C9A227" opacity="0.3"/>
+  </g>
+  <text x="100" y="184" font-family="Georgia, serif" font-size="10" fill="#C9A227" text-anchor="middle" letter-spacing="0.06em" opacity="0.9">CENDIALINEAGE</text>
+</svg>

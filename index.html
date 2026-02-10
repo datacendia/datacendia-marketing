@@ -114,8 +114,8 @@
       <div class="landing-tagline">Sovereign Intelligence Platform</div>
       <div class="landing-line"></div>
       <div class="landing-stat">
-        <span class="landing-stat-num">204,079</span>
-        <span class="landing-stat-label">automated tests · 23 verticals · air-gap ready</span>
+        <span class="landing-stat-num" style="font-size:1.6rem;letter-spacing:.08em">Every decision. Defensible.</span>
+        <span class="landing-stat-label">AI-governed · cryptographically sealed · court-admissible</span>
       </div>
     </div>
     <button class="landing-skip" onclick="skipLanding()" aria-label="Skip intro">Skip →</button>
@@ -261,12 +261,12 @@
 
   <script>
   (function() {
-    // Skip if user has seen the intro recently (session)
-    if (sessionStorage.getItem('datacendia_intro_seen')) {
-      var overlay = document.getElementById('landing-overlay');
-      if (overlay) overlay.style.display = 'none';
-      return;
-    }
+    // Session check disabled for review — uncomment to restore:
+    // if (sessionStorage.getItem('datacendia_intro_seen')) {
+    //   var overlay = document.getElementById('landing-overlay');
+    //   if (overlay) overlay.style.display = 'none';
+    //   return;
+    // }
 
     // Particle field
     var canvas = document.getElementById('landing-particles');
@@ -441,31 +441,31 @@
       <h2 class="section-headline">60-Second Architecture</h2>
       <div class="architecture-flow">
         <div class="arch-step">
-          <div class="arch-icon">📊</div>
+          <div class="arch-icon"><img src="assets/logos/cendia-lineage.svg" alt="Data Sources" width="32" height="32" style="border-radius:6px"></div>
           <div class="arch-label">Data Sources</div>
           <div class="arch-desc">ERP, CRM, BI tools, databases</div>
         </div>
         <div class="arch-arrow">→</div>
         <div class="arch-step">
-          <div class="arch-icon">🔌</div>
+          <div class="arch-icon"><img src="assets/logos/integration-matrix.svg" alt="Connectors" width="32" height="32" style="border-radius:6px"></div>
           <div class="arch-label">Connector Suites</div>
           <div class="arch-desc">16 suites on 6 universal adapters</div>
         </div>
         <div class="arch-arrow">→</div>
         <div class="arch-step">
-          <div class="arch-icon">📜</div>
+          <div class="arch-icon"><img src="assets/logos/audit-provenance.svg" alt="Evidence Ledger" width="32" height="32" style="border-radius:6px"></div>
           <div class="arch-label">Evidence Ledger</div>
           <div class="arch-desc">Immutable lineage + signatures</div>
         </div>
         <div class="arch-arrow">→</div>
         <div class="arch-step">
-          <div class="arch-icon">🏛️</div>
+          <div class="arch-icon"><img src="assets/logos/council.svg" alt="The Council" width="32" height="32" style="border-radius:6px"></div>
           <div class="arch-label">The Council™</div>
           <div class="arch-desc">Multi-agent deliberation</div>
         </div>
         <div class="arch-arrow">→</div>
         <div class="arch-step">
-          <div class="arch-icon">📦</div>
+          <div class="arch-icon"><img src="assets/logos/cendia-flow.svg" alt="Export Packets" width="32" height="32" style="border-radius:6px"></div>
           <div class="arch-label">Export Packets</div>
           <div class="arch-desc">PDF, JSON, regulator-ready</div>
         </div>
@@ -504,143 +504,177 @@
         <p class="showcase-sub" data-i18n="showcaseSub">Don't just predict the future. Navigate it.</p>
       </div>
       
-      <div class="showcase-grid">
-        <div class="showcase-item">
-          <div class="showcase-visual">
-            <video src="assets/videos/CendiaChronos.mp4" class="app-screenshot" autoplay loop muted playsinline preload="auto" poster="assets/images/chronos-poster.png" aria-label="CendiaChronos strategic timeline simulation showing divergent future scenarios for enterprise decision making"></video>
+      <div class="feature-cards-grid">
+
+        <div class="feature-card" style="--accent: #6366f1">
+          <div class="fc-icon-wrap">
+            <img src="assets/logos/chronos.svg" alt="CendiaChronos" width="40" height="40" style="border-radius:8px">
           </div>
-          <div class="showcase-text">
-            <h3 data-i18n="cendiaChronosTitle">CendiaChronos™</h3>
-            <p data-i18n="cendiaChronosDesc">Most BI tools show a flat line. We show divergent futures. Simulate the consequences of your decisions before you commit resources.</p>
+          <h3 class="fc-title" data-i18n="cendiaChronosTitle">CendiaChronos™</h3>
+          <p class="fc-tagline">Divergent future simulation</p>
+          <div class="fc-expand">
+            <p class="fc-desc" data-i18n="cendiaChronosDesc">Most BI tools show a flat line. We show divergent futures. Simulate the consequences of your decisions before you commit resources.</p>
+            <ul class="fc-features">
+              <li>What-if scenario branching</li>
+              <li>Multi-timeline visualization</li>
+              <li>Resource impact prediction</li>
+            </ul>
+            <a href="demos/chronos.html" class="fc-link">See demo →</a>
           </div>
         </div>
 
-        <div class="showcase-item reverse">
-          <div class="showcase-visual">
-            <video src="assets/videos/Council.mp4" class="app-screenshot" autoplay loop muted playsinline preload="auto" poster="assets/images/council-poster.png" aria-label="The Council multi-agent AI deliberation system with 40+ governance agents debating enterprise decisions"></video>
+        <div class="feature-card" style="--accent: #c9a227">
+          <div class="fc-icon-wrap">
+            <img src="assets/logos/council.svg" alt="The Council" width="40" height="40" style="border-radius:8px">
           </div>
-          <div class="showcase-text">
-            <h3 data-i18n="theCouncilShowcaseTitle">The Council™</h3>
-            <p data-i18n="theCouncilShowcaseDesc">40+ governance agents across 5 classes deliberate on your data. You don't get a chatbot answer; you get a boardroom debate.</p>
-            <a href="resources/the-council.html" class="showcase-link">Learn how The Council works →</a>
-          </div>
-        </div>
-
-        <div class="showcase-item">
-          <div class="showcase-visual">
-            <div class="carousel" data-carousel="audit">
-              <div class="carousel-inner">
-                <img src="assets/images/CendiaAudit1.png" alt="Datacendia audit packet generation showing cryptographic evidence trail for SOC 2 compliance" class="app-screenshot carousel-slide active" loading="lazy">
-                <img src="assets/images/CendiaAudit2.png" alt="Datacendia decision lineage export with immutable audit trail for regulatory compliance" class="app-screenshot carousel-slide" loading="lazy">
-                <img src="assets/images/CendiaAudit3.png" alt="Datacendia evidence packet with cryptographic signatures for enterprise audit requirements" class="app-screenshot carousel-slide" loading="lazy">
-                <img src="assets/images/CendiaWitness.png" alt="Decision DNA cryptographic audit trail interface for regulatory compliance and NIST 800-53 controls" class="app-screenshot carousel-slide" loading="lazy">
-              </div>
-              <div class="carousel-dots">
-                <span class="carousel-dot active" data-slide="0"></span>
-                <span class="carousel-dot" data-slide="1"></span>
-                <span class="carousel-dot" data-slide="2"></span>
-                <span class="carousel-dot" data-slide="3"></span>
-              </div>
-            </div>
-          </div>
-          <div class="showcase-text">
-            <h3 data-i18n="regulatorsReceipt">The Regulator's Receipt</h3>
-            <p data-i18n="regulatorsReceiptDesc">When the auditor asks "Why?", hand them this. One-click generation of cryptographically signed decision packets.</p>
+          <h3 class="fc-title" data-i18n="theCouncilShowcaseTitle">The Council™</h3>
+          <p class="fc-tagline">Multi-agent boardroom debate</p>
+          <div class="fc-expand">
+            <p class="fc-desc" data-i18n="theCouncilShowcaseDesc">40+ governance agents across 5 classes deliberate on your data. You don't get a chatbot answer; you get a boardroom debate.</p>
+            <ul class="fc-features">
+              <li>40+ governance agents</li>
+              <li>5 agent classes</li>
+              <li>Structured deliberation protocol</li>
+            </ul>
+            <a href="resources/the-council.html" class="fc-link">Learn how it works →</a>
           </div>
         </div>
 
-        <div class="showcase-item reverse">
-          <div class="showcase-visual">
-            <div class="carousel" data-carousel="cascade">
-              <div class="carousel-inner">
-                <img src="assets/images/cascade1.png" alt="CendiaCascade - Butterfly Effect Engine analysis view" class="app-screenshot carousel-slide active" loading="lazy">
-                <img src="assets/images/cascade2.png" alt="CendiaCascade - Change propagation visualization" class="app-screenshot carousel-slide" loading="lazy">
-                <img src="assets/images/cascade3.png" alt="CendiaCascade - Second-order consequence prediction" class="app-screenshot carousel-slide" loading="lazy">
-                <img src="assets/images/cascade4.png" alt="CendiaCascade - Third-order impact analysis" class="app-screenshot carousel-slide" loading="lazy">
-              </div>
-              <div class="carousel-dots">
-                <span class="carousel-dot active" data-slide="0"></span>
-                <span class="carousel-dot" data-slide="1"></span>
-                <span class="carousel-dot" data-slide="2"></span>
-                <span class="carousel-dot" data-slide="3"></span>
-              </div>
-            </div>
+        <div class="feature-card" style="--accent: #22c55e">
+          <div class="fc-icon-wrap">
+            <img src="assets/logos/audit-provenance.svg" alt="Audit Provenance" width="40" height="40" style="border-radius:8px">
           </div>
-          <div class="showcase-text">
-            <h3 data-i18n="cendiaCascadeTitle">CendiaCascade™</h3>
-            <p data-i18n="cendiaCascadeDesc">The Butterfly Effect Engine. Predict how small changes propagate through your organization. See second and third-order consequences before they happen.</p>
+          <h3 class="fc-title" data-i18n="auditProvenanceTitle">Audit Provenance™</h3>
+          <p class="fc-tagline">Full decision lineage &amp; evidence export</p>
+          <div class="fc-expand">
+            <p class="fc-desc" data-i18n="auditProvenanceDesc">Immutable evidence ledger with cryptographic signing. Every decision, every vote, every dissent—hashed, timestamped, and exportable. When the auditor asks "prove it," hand them this.</p>
+            <ul class="fc-features">
+              <li>Cryptographically signed decision packets</li>
+              <li>SOC 2 / ISO 27001 / NIST 800-53 ready</li>
+              <li>One-click regulator-ready exports</li>
+              <li>Complete decision lineage &amp; traceability</li>
+            </ul>
+            <a href="demos/audit-provenance.html" class="fc-link">See demo →</a>
           </div>
         </div>
 
-        <div class="showcase-item">
-          <div class="showcase-visual">
-            <img src="assets/images/omnitranslate.png" alt="CendiaOmniTranslate - Enterprise Translation" class="showcase-image" loading="lazy">
+        <div class="feature-card" style="--accent: #a855f7">
+          <div class="fc-icon-wrap">
+            <img src="assets/logos/cascade.svg" alt="CendiaCascade" width="40" height="40" style="border-radius:8px">
           </div>
-          <div class="showcase-text">
-            <h3 data-i18n="cendiaOmniTranslateTitle">CendiaOmniTranslate™</h3>
-            <p data-i18n="cendiaOmniTranslateDesc">Enterprise translation across 100+ languages. AI-powered with glossary management, translation memory, and RTL support. Run entirely on your infrastructure.</p>
-          </div>
-        </div>
-
-        <div class="showcase-item reverse">
-          <div class="showcase-visual">
-            <img src="assets/images/roi.png" alt="ROI Metrics Dashboard" class="showcase-image" loading="lazy">
-          </div>
-          <div class="showcase-text">
-            <h3 data-i18n="roiMetricsTitle">ROI Metrics Dashboard</h3>
-            <p data-i18n="roiMetricsDesc">Real-time ROI tracking with decision speed metrics, confidence scoring, dissent tracking, and audit packet generation. Prove the value of AI-assisted decisions.</p>
+          <h3 class="fc-title" data-i18n="cendiaCascadeTitle">CendiaCascade™</h3>
+          <p class="fc-tagline">Butterfly effect engine</p>
+          <div class="fc-expand">
+            <p class="fc-desc" data-i18n="cendiaCascadeDesc">The Butterfly Effect Engine. Predict how small changes propagate through your organization. See second and third-order consequences before they happen.</p>
+            <ul class="fc-features">
+              <li>Change propagation mapping</li>
+              <li>2nd &amp; 3rd-order consequences</li>
+              <li>Impact visualization</li>
+            </ul>
+            <a href="demos/cascade.html" class="fc-link">See demo →</a>
           </div>
         </div>
 
-        <div class="showcase-item">
-          <div class="showcase-visual">
-            <img src="assets/images/sovereign_architecture.png" alt="Sovereign Architecture" class="showcase-image" loading="lazy">
+        <div class="feature-card" style="--accent: #06b6d4">
+          <div class="fc-icon-wrap">
+            <img src="assets/logos/omnitranslate.svg" alt="CendiaOmniTranslate" width="40" height="40" style="border-radius:8px">
           </div>
-          <div class="showcase-text">
-            <h3 data-i18n="sovereignArchTitle">Sovereign Architecture</h3>
-            <p data-i18n="sovereignArchDesc">11 enterprise-grade patterns: Data Diode, Local RLHF, Decision DNA, Shadow Council, Deterministic Replay, QR Air-Gap Bridge, Canary Tripwires, TPM Attestation, Time-Lock, Federated Mesh, and Portable USB Instance.</p>
-          </div>
-        </div>
-
-        <div class="showcase-item reverse">
-          <div class="showcase-visual">
-            <div class="feature-icon-large">🔥</div>
-          </div>
-          <div class="showcase-text">
-            <h3 data-i18n="cendiaApotheosisTitle">CendiaApotheosis™</h3>
-            <p data-i18n="cendiaApotheosisDesc">Nightly red-teaming that attacks your own AI. Auto-patching, pattern banning, and continuous upskilling. Your AI gets stronger while you sleep.</p>
+          <h3 class="fc-title" data-i18n="cendiaOmniTranslateTitle">CendiaOmniTranslate™</h3>
+          <p class="fc-tagline">100+ language AI translation</p>
+          <div class="fc-expand">
+            <p class="fc-desc" data-i18n="cendiaOmniTranslateDesc">Enterprise translation across 100+ languages. AI-powered with glossary management, translation memory, and RTL support. Run entirely on your infrastructure.</p>
+            <ul class="fc-features">
+              <li>100+ languages with RTL</li>
+              <li>Glossary &amp; translation memory</li>
+              <li>Runs on your infrastructure</li>
+            </ul>
+            <a href="resources/omnitranslate.html" class="fc-link">Learn more →</a>
           </div>
         </div>
 
-        <div class="showcase-item">
-          <div class="showcase-visual">
-            <img src="assets/images/dissent.png" alt="CendiaDissent - Formal Dissent Filing" class="showcase-image" loading="lazy">
+        <div class="feature-card" style="--accent: #f59e0b">
+          <div class="fc-icon-wrap">
+            <img src="assets/logos/roi-metrics.svg" alt="ROI Metrics" width="40" height="40" style="border-radius:8px">
           </div>
-          <div class="showcase-text">
-            <h3 data-i18n="cendiaDissentTitle">CendiaDissent™</h3>
-            <p data-i18n="cendiaDissentDesc">Formal dissent filing with retaliation protection. When an agent disagrees, it's logged, protected, and tracked to outcome. Disagreement is the immune system of good judgment.</p>
-          </div>
-        </div>
-
-        <div class="showcase-item reverse">
-          <div class="showcase-visual">
-            <img src="assets/images/dna.png" alt="Decision DNA - Cryptographic Audit Trail" class="showcase-image" loading="lazy">
-          </div>
-          <div class="showcase-text">
-            <h3 data-i18n="decisionDNATitle">Decision DNA™</h3>
-            <p data-i18n="decisionDNADesc">Cryptographic audit trail with immutable evidence ledger. Every decision, every vote, every dissent—hashed, signed, and exportable for regulators. When they ask "prove it," you can.</p>
+          <h3 class="fc-title" data-i18n="roiMetricsTitle">ROI Metrics Dashboard</h3>
+          <p class="fc-tagline">Prove the value of AI decisions</p>
+          <div class="fc-expand">
+            <p class="fc-desc" data-i18n="roiMetricsDesc">Real-time ROI tracking with decision speed metrics, confidence scoring, dissent tracking, and audit packet generation. Prove the value of AI-assisted decisions.</p>
+            <ul class="fc-features">
+              <li>Decision speed metrics</li>
+              <li>Confidence scoring</li>
+              <li>Audit packet generation</li>
+            </ul>
+            <a href="roi-calculator.html" class="fc-link">Calculate ROI →</a>
           </div>
         </div>
 
-        <div class="showcase-item">
-          <div class="showcase-visual">
-            <div class="feature-icon-large">🔒</div>
+        <div class="feature-card" style="--accent: #64748b">
+          <div class="fc-icon-wrap">
+            <img src="assets/logos/sovereign-architecture.svg" alt="Sovereign Architecture" width="40" height="40" style="border-radius:8px">
           </div>
-          <div class="showcase-text">
-            <h3 data-i18n="zeroCopyTitle">Zero-Copy Data Architecture</h3>
-            <p data-i18n="zeroCopyDesc">Your data never leaves your database. We query in place—PostgreSQL, MySQL, SQL Server, Oracle, MongoDB, DB2. No ETL. No data movement. No copies. True data sovereignty.</p>
+          <h3 class="fc-title" data-i18n="sovereignArchTitle">Sovereign Architecture</h3>
+          <p class="fc-tagline">11 enterprise-grade patterns</p>
+          <div class="fc-expand">
+            <p class="fc-desc" data-i18n="sovereignArchDesc">11 enterprise-grade patterns: Data Diode, Local RLHF, Audit Provenance, Shadow Council, Deterministic Replay, QR Air-Gap Bridge, Canary Tripwires, TPM Attestation, Time-Lock, Federated Mesh, and Portable USB Instance.</p>
+            <ul class="fc-features">
+              <li>Air-gapped deployment</li>
+              <li>Data diode ingest</li>
+              <li>Hardware-signed decisions</li>
+            </ul>
+            <a href="architecture.html" class="fc-link">View architecture →</a>
           </div>
         </div>
+
+        <div class="feature-card" style="--accent: #ef4444">
+          <div class="fc-icon-wrap">
+            <img src="assets/logos/apotheosis.svg" alt="CendiaApotheosis" width="40" height="40" style="border-radius:8px">
+          </div>
+          <h3 class="fc-title" data-i18n="cendiaApotheosisTitle">CendiaApotheosis™</h3>
+          <p class="fc-tagline">AI that red-teams itself nightly</p>
+          <div class="fc-expand">
+            <p class="fc-desc" data-i18n="cendiaApotheosisDesc">Nightly red-teaming that attacks your own AI. Auto-patching, pattern banning, and continuous upskilling. Your AI gets stronger while you sleep.</p>
+            <ul class="fc-features">
+              <li>Automated adversarial testing</li>
+              <li>Auto-patching &amp; pattern banning</li>
+              <li>Continuous self-improvement</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="feature-card" style="--accent: #f97316">
+          <div class="fc-icon-wrap">
+            <img src="assets/logos/dissent.svg" alt="CendiaDissent" width="40" height="40" style="border-radius:8px">
+          </div>
+          <h3 class="fc-title" data-i18n="cendiaDissentTitle">CendiaDissent™</h3>
+          <p class="fc-tagline">Formal disagreement protocol</p>
+          <div class="fc-expand">
+            <p class="fc-desc" data-i18n="cendiaDissentDesc">Formal dissent filing with retaliation protection. When an agent disagrees, it's logged, protected, and tracked to outcome. Disagreement is the immune system of good judgment.</p>
+            <ul class="fc-features">
+              <li>Protected dissent filing</li>
+              <li>Outcome tracking</li>
+              <li>Retaliation safeguards</li>
+            </ul>
+            <a href="demos/dissent.html" class="fc-link">See demo →</a>
+          </div>
+        </div>
+
+        <div class="feature-card" style="--accent: #8b5cf6">
+          <div class="fc-icon-wrap">
+            <img src="assets/logos/zero-copy.svg" alt="Zero-Copy" width="40" height="40" style="border-radius:8px">
+          </div>
+          <h3 class="fc-title" data-i18n="zeroCopyTitle">Zero-Copy Architecture</h3>
+          <p class="fc-tagline">Data never leaves your database</p>
+          <div class="fc-expand">
+            <p class="fc-desc" data-i18n="zeroCopyDesc">Your data never leaves your database. We query in place—PostgreSQL, MySQL, SQL Server, Oracle, MongoDB, DB2. No ETL. No data movement. No copies. True data sovereignty.</p>
+            <ul class="fc-features">
+              <li>Query in place — no ETL</li>
+              <li>6+ database connectors</li>
+              <li>True data sovereignty</li>
+            </ul>
+          </div>
+        </div>
+
       </div>
     </div>
 
@@ -668,38 +702,38 @@
       <h2 class="section-headline" data-i18n="mostVendorsHide">Most vendors hide this. We lead with it.</h2>
       <div class="matrices-grid">
         <div class="matrix-card" data-target="sovereignty">
-          <div class="matrix-icon">🏛️</div>
+          <div class="matrix-icon"><img src="assets/logos/data-sovereignty.svg" alt="Sovereignty" width="32" height="32" style="border-radius:6px"></div>
           <h3 class="matrix-title" data-i18n="sovereigntyMatrixTitle">Sovereignty Matrix</h3>
           <p class="matrix-desc" data-i18n="sovereigntyMatrixDesc">How much control do I actually have?</p>
           <p class="matrix-subdesc" data-i18n="sovereigntyMatrixSubdesc">Choose your deployment model based on your sovereignty requirements.</p>
           <a href="resources/sovereignty-matrix.html" class="matrix-deep-link">Full guide →</a>
         </div>
         <div class="matrix-card" data-target="governance">
-          <div class="matrix-icon">🤖</div>
+          <div class="matrix-icon"><img src="assets/logos/cendia-ethics.svg" alt="AI Governance" width="32" height="32" style="border-radius:6px"></div>
           <h3 class="matrix-title" data-i18n="aiGovernanceTitle">AI Governance Reality Check</h3>
           <p class="matrix-desc" data-i18n="aiGovernanceDesc">Who's actually responsible when AI goes wrong?</p>
           <p class="matrix-subdesc" data-i18n="aiGovernanceSubdesc">Accountability matters most when things break.</p>
         </div>
         <div class="matrix-card" data-target="integrations">
-          <div class="matrix-icon">🔌</div>
+          <div class="matrix-icon"><img src="assets/logos/integration-matrix.svg" alt="Integration" width="32" height="32" style="border-radius:6px"></div>
           <h3 class="matrix-title" data-i18n="integrationMatrixTitle">Integration Honesty Matrix</h3>
           <p class="matrix-desc" data-i18n="integrationMatrixDesc">How hard is it really to connect things?</p>
           <p class="matrix-subdesc" data-i18n="integrationMatrixSubdesc">Every vendor says "easy integration." Here's the truth.</p>
         </div>
         <div class="matrix-card" data-target="failures">
-          <div class="matrix-icon">🚨</div>
+          <div class="matrix-icon"><img src="assets/logos/cendia-health.svg" alt="What Breaks" width="32" height="32" style="border-radius:6px"></div>
           <h3 class="matrix-title" data-i18n="whatBreaksTitle">What Breaks at 3 AM</h3>
           <p class="matrix-desc" data-i18n="whatBreaksDesc">When things go wrong, what actually happens?</p>
           <p class="matrix-subdesc" data-i18n="whatBreaksSubdesc">Things break. The question is how fast you can understand and recover.</p>
         </div>
         <div class="matrix-card" data-target="comparison">
-          <div class="matrix-icon">⚖️</div>
+          <div class="matrix-icon"><img src="assets/logos/before-after.svg" alt="Comparison" width="32" height="32" style="border-radius:6px"></div>
           <h3 class="matrix-title" data-i18n="comparisonTitle">Platform Category Comparison</h3>
           <p class="matrix-desc" data-i18n="comparisonDesc">How do different platform types compare?</p>
           <p class="matrix-subdesc" data-i18n="comparisonSubdesc">Understand the tradeoffs between different categories of enterprise platforms.</p>
         </div>
         <div class="matrix-card" data-target="limitations">
-          <div class="matrix-icon">🚫</div>
+          <div class="matrix-icon"><img src="assets/logos/cendia-guard.svg" alt="Limitations" width="32" height="32" style="border-radius:6px"></div>
           <h3 class="matrix-title" data-i18n="limitationsTitle">What We Can't Do</h3>
           <p class="matrix-desc" data-i18n="limitationsDesc">What are your actual limitations?</p>
           <p class="matrix-subdesc" data-i18n="limitationsSubdesc">Every platform has limits. Knowing them prevents disappointment.</p>
@@ -712,7 +746,7 @@
       <span class="back-btn" data-target="overview" data-i18n="backToOverview">← Back to Overview</span>
       <div class="matrix-page">
         <div class="matrix-header">
-          <div class="icon">🏛️</div>
+          <div class="icon"><img src="assets/logos/data-sovereignty.svg" alt="Sovereignty" width="36" height="36" style="border-radius:8px"></div>
           <h2 data-i18n="sovereigntyMatrixTitle">Sovereignty Matrix</h2>
           <p class="subtitle" data-i18n="sovereigntyMatrixFullDesc">How much control do you actually have? A comparison of deployment models.</p>
         </div>
@@ -770,7 +804,7 @@
       <span class="back-btn" data-target="overview" data-i18n="backToOverview">← Back to Overview</span>
       <div class="matrix-page">
         <div class="matrix-header">
-          <div class="icon">🤖</div>
+          <div class="icon"><img src="assets/logos/cendia-ethics.svg" alt="AI Governance" width="36" height="36" style="border-radius:8px"></div>
           <h2 data-i18n="aiGovernanceTitle">AI Governance Reality Check</h2>
           <p class="subtitle" data-i18n="aiGovernanceFullDesc">Who's actually responsible when AI goes wrong? Accountability matters most when things break.</p>
         </div>
@@ -821,28 +855,28 @@
       <span class="back-btn" data-target="overview" data-i18n="backToOverview">← Back to Overview</span>
       <div class="matrix-page">
         <div class="matrix-header">
-          <div class="icon">🏛️</div>
+          <div class="icon"><img src="assets/logos/council.svg" alt="The Council" width="36" height="36" style="border-radius:8px"></div>
           <h2>The Council™</h2>
           <p class="subtitle" data-i18n="councilSubtitle">Multi-agent deliberation. Not a single model — a system of specialized intelligences that debate, dissent, and decide.</p>
         </div>
         <div class="council-agents">
           <div class="agent-card">
-            <span class="agent-icon">🔴</span>
+            <span class="agent-icon"><img src="assets/logos/wargames.svg" alt="Red Team" width="28" height="28" style="border-radius:6px"></span>
             <h4 class="agent-name" data-i18n="redTeam">Red Team</h4>
             <p class="agent-role" data-i18n="adversarialChallenge">Adversarial challenge</p>
           </div>
           <div class="agent-card">
-            <span class="agent-icon">📊</span>
+            <span class="agent-icon"><img src="assets/logos/cortex.svg" alt="Analyst" width="28" height="28" style="border-radius:6px"></span>
             <h4 class="agent-name" data-i18n="analyst">Analyst</h4>
             <p class="agent-role" data-i18n="patternRecognition">Pattern recognition</p>
           </div>
           <div class="agent-card">
-            <span class="agent-icon">⚖️</span>
+            <span class="agent-icon"><img src="assets/logos/council.svg" alt="Arbiter" width="28" height="28" style="border-radius:6px"></span>
             <h4 class="agent-name" data-i18n="arbiter">Arbiter</h4>
             <p class="agent-role" data-i18n="finalSynthesis">Final synthesis</p>
           </div>
           <div class="agent-card">
-            <span class="agent-icon">🔗</span>
+            <span class="agent-icon"><img src="assets/logos/integration-matrix.svg" alt="Union" width="28" height="28" style="border-radius:6px"></span>
             <h4 class="agent-name" data-i18n="union">Union</h4>
             <p class="agent-role" data-i18n="externalSignals">External signals</p>
           </div>
@@ -901,7 +935,7 @@
       <span class="back-btn" data-target="overview" data-i18n="backToOverview">← Back to Overview</span>
       <div class="matrix-page">
         <div class="matrix-header">
-          <div class="icon">🚫</div>
+          <div class="icon"><img src="assets/logos/veto.svg" alt="Limitations" width="36" height="36" style="border-radius:8px"></div>
           <h2 data-i18n="limitationsTitle">What We Can't Do</h2>
           <p class="subtitle" data-i18n="limitationsFullDesc">Our actual limitations, documented. Because you'll find out eventually.</p>
         </div>
@@ -941,7 +975,7 @@
       <span class="back-btn" data-target="overview" data-i18n="backToOverview">← Back to Overview</span>
       <div class="matrix-page">
         <div class="matrix-header">
-          <div class="icon">🚨</div>
+          <div class="icon"><img src="assets/logos/pre-mortem.svg" alt="What Breaks" width="36" height="36" style="border-radius:8px"></div>
           <h2 data-i18n="whatBreaksTitle">What Breaks at 3 AM</h2>
           <p class="subtitle" data-i18n="whatBreaksFullDesc">When things go wrong — and they will — here's what happens and how we recover.</p>
         </div>
@@ -981,7 +1015,7 @@
       <span class="back-btn" data-target="overview" data-i18n="backToOverview">← Back to Overview</span>
       <div class="matrix-page">
         <div class="matrix-header">
-          <div class="icon">🔌</div>
+          <div class="icon"><img src="assets/logos/integration-matrix.svg" alt="Integration" width="36" height="36" style="border-radius:8px"></div>
           <h2 data-i18n="integrationMatrixTitle">Integration Reality Check</h2>
           <p class="subtitle" data-i18n="integrationFullDesc">What actually connects today vs. "coming soon" vaporware.</p>
         </div>
@@ -1031,7 +1065,7 @@
       <span class="back-btn" data-target="overview" data-i18n="backToOverview">← Back to Overview</span>
       <div class="matrix-page">
         <div class="matrix-header">
-          <div class="icon">🖥️</div>
+          <div class="icon"><img src="assets/logos/air-gapped.svg" alt="Deployment" width="36" height="36" style="border-radius:8px"></div>
           <h2>Deployment Truth Table</h2>
           <p class="subtitle">What works where. Every mode has trade-offs — here they are.</p>
         </div>
@@ -1082,7 +1116,7 @@
       <span class="back-btn" data-target="overview" data-i18n="backToOverview">← Back to Overview</span>
       <div class="matrix-page">
         <div class="matrix-header">
-          <div class="icon">⏱️</div>
+          <div class="icon"><img src="assets/logos/chronos.svg" alt="Time-to-Value" width="36" height="36" style="border-radius:8px"></div>
           <h2>Time-to-Value Honesty</h2>
           <p class="subtitle">Realistic timelines, not sales promises. What actually takes how long.</p>
         </div>
@@ -1127,7 +1161,7 @@
       <span class="back-btn" data-target="overview" data-i18n="backToOverview">← Back to Overview</span>
       <div class="matrix-page">
         <div class="matrix-header">
-          <div class="icon">⚖️</div>
+          <div class="icon"><img src="assets/logos/crucible.svg" alt="Comparison" width="36" height="36" style="border-radius:8px"></div>
           <h2 data-i18n="comparisonTitle">Platform Category Comparison</h2>
           <p class="subtitle" data-i18n="comparisonFullDesc">How do different platform types compare? Know what you're trading off.</p>
         </div>
@@ -1191,7 +1225,7 @@
       <span class="back-btn" data-target="overview" data-i18n="backToOverview">← Back to Overview</span>
       <div class="matrix-page">
         <div class="matrix-header">
-          <div class="icon">📋</div>
+          <div class="icon"><img src="assets/logos/audit-provenance.svg" alt="Audit Evidence" width="36" height="36" style="border-radius:8px"></div>
           <h2 data-i18n="auditEvidenceSummary">Audit Evidence Summary</h2>
           <p class="subtitle" data-i18n="auditEvidenceFullDesc">What you can hand to an enterprise buyer: manifests, evidence, and control mapping.</p>
         </div>
@@ -1230,15 +1264,15 @@
           <p class="emergency-desc" data-i18n="emergencyDesc">Supports an emergency isolation protocol (deployment-dependent) that can disable outbound connectivity and rotate/lock keys via your KMS/HSM runbook.</p>
           <div class="emergency-features">
             <div class="emergency-feature">
-              <span class="feature-icon">🔒</span>
+              <span class="feature-icon"><img src="assets/logos/cendia-guard.svg" alt="Key Lockdown" width="20" height="20" style="border-radius:4px"></span>
               <span class="feature-text" data-i18n="instantKeyLockdown">Instant key lockdown</span>
             </div>
             <div class="emergency-feature">
-              <span class="feature-icon">🔌</span>
+              <span class="feature-icon"><img src="assets/logos/air-gapped.svg" alt="Network Isolation" width="20" height="20" style="border-radius:4px"></span>
               <span class="feature-text" data-i18n="networkIsolation">Network isolation</span>
             </div>
             <div class="emergency-feature">
-              <span class="feature-icon">📋</span>
+              <span class="feature-icon"><img src="assets/logos/audit-provenance.svg" alt="Forensic Snapshot" width="20" height="20" style="border-radius:4px"></span>
               <span class="feature-text" data-i18n="forensicSnapshot">Forensic snapshot</span>
             </div>
           </div>

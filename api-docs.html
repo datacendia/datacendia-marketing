@@ -103,7 +103,7 @@
 
     <div class="page-container">
       <div class="page-header">
-        <div class="page-icon">{ }</div>
+        <div class="page-icon"><img src="assets/logos/cendia-helm.svg" alt="API Docs" width="64" height="64" style="border-radius:12px"></div>
         <h1 class="page-title">API Documentation</h1>
         <p class="page-subtitle">
           Datacendia exposes a comprehensive REST API for programmatic access to decision intelligence, 
@@ -219,7 +219,7 @@ https://your-datacendia-instance.internal/api/v1
       <!-- Audit & Evidence APIs -->
       <div class="api-section">
         <h2>Trust Layer — Audit &amp; Evidence</h2>
-        <p>Immutable audit trails, decision packets, evidence export, and regulator receipts.</p>
+        <p>Immutable audit trails, decision packets, evidence export, and audit provenance.</p>
         <div class="endpoint-group">
           <div class="endpoint">
             <span class="method method-post">POST</span>
@@ -243,8 +243,8 @@ https://your-datacendia-instance.internal/api/v1
           </div>
           <div class="endpoint">
             <span class="method method-post">POST</span>
-            <span class="endpoint-path">/regulators-receipt/generate</span>
-            <span class="endpoint-desc">Generate a regulator's receipt with evidence chain</span>
+            <span class="endpoint-path">/audit-provenance/generate</span>
+            <span class="endpoint-desc">Generate an audit provenance packet with evidence chain</span>
           </div>
           <div class="endpoint">
             <span class="method method-get">GET</span>
@@ -475,6 +475,7 @@ https://your-datacendia-instance.internal/api/v1
         <a href="trust/test-results.html" class="cta-btn secondary">See Test Results</a>
       </div>
     </div>
+    </main>
 
     <footer>
     <div class="footer-section">

@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <defs>
+    <linearGradient id="sgGold" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#E8C840"/>
+      <stop offset="100%" stop-color="#A07B1A"/>
+    </linearGradient>
+    <filter id="sgGlow">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <radialGradient id="sgBg" cx="50%" cy="50%" r="45%">
+      <stop offset="0%" stop-color="#C9A227" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#C9A227" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="200" height="200" fill="#0a0a0a" rx="16"/>
+  <circle cx="100" cy="95" r="65" fill="url(#sgBg)"/>
+  <g filter="url(#sgGlow)">
+    <!-- Shield outline -->
+    <path d="M100 30 L150 52 L150 100 Q150 140 100 168 Q50 140 50 100 L50 52Z"
+          fill="none" stroke="url(#sgGold)" stroke-width="2.5" stroke-linejoin="round"/>
+    <!-- Shield inner border -->
+    <path d="M100 38 L144 57 L144 100 Q144 135 100 160 Q56 135 56 100 L56 57Z"
+          fill="none" stroke="#C9A227" stroke-width="0.8" stroke-opacity="0.3"/>
+    <!-- Soccer ball pentagon pattern (geometric segments on shield) -->
+    <!-- Central pentagon -->
+    <polygon points="100,78 110,84 107,96 93,96 90,84"
+             fill="none" stroke="#C9A227" stroke-width="1.2" opacity="0.6"/>
+    <!-- Upper pentagon -->
+    <polygon points="100,62 110,68 107,78 93,78 90,68"
+             fill="none" stroke="#C9A227" stroke-width="0.8" opacity="0.35"/>
+    <!-- Left pentagon -->
+    <polygon points="82,88 90,84 93,96 88,104 78,100"
+             fill="none" stroke="#C9A227" stroke-width="0.8" opacity="0.35"/>
+    <!-- Right pentagon -->
+    <polygon points="118,88 110,84 107,96 112,104 122,100"
+             fill="none" stroke="#C9A227" stroke-width="0.8" opacity="0.35"/>
+    <!-- Lower-left -->
+    <polygon points="88,104 93,96 100,102 97,114 84,112"
+             fill="none" stroke="#C9A227" stroke-width="0.8" opacity="0.3"/>
+    <!-- Lower-right -->
+    <polygon points="112,104 107,96 100,102 103,114 116,112"
+             fill="none" stroke="#C9A227" stroke-width="0.8" opacity="0.3"/>
+    <!-- Dollar sign in left segment area -->
+    <g transform="translate(74, 108)">
+      <text font-family="Georgia, serif" font-size="16" fill="#E8C840" opacity="0.8" text-anchor="middle" x="0" y="14">$</text>
+    </g>
+    <!-- Checkmark in right segment area -->
+    <g transform="translate(118, 114)">
+      <path d="M-6 2 L-2 7 L8 -5" fill="none" stroke="#E8C840" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.8"/>
+    </g>
+    <!-- Shield top accent -->
+    <path d="M100 32 L148 53" fill="none" stroke="#E8C840" stroke-width="0.5" opacity="0.2"/>
+    <path d="M100 32 L52 53" fill="none" stroke="#E8C840" stroke-width="0.5" opacity="0.2"/>
+  </g>
+  <!-- Label -->
+  <text x="100" y="188" font-family="Georgia, serif" font-size="9" fill="#C9A227" text-anchor="middle" letter-spacing="0.06em" opacity="0.9">SPORTS GOVERNANCE</text>
+</svg>

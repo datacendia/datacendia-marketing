@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <defs>
+    <linearGradient id="gbGold" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#E8C840"/>
+      <stop offset="100%" stop-color="#A07B1A"/>
+    </linearGradient>
+    <filter id="gbGhost">
+      <feGaussianBlur stdDeviation="1.5" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <linearGradient id="gbChair" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#E8C840" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#E8C840" stop-opacity="0.08"/>
+    </linearGradient>
+  </defs>
+  <rect width="200" height="200" fill="#0a0a0a" rx="16"/>
+  <!-- Chair glow backdrop -->
+  <ellipse cx="100" cy="105" rx="40" ry="55" fill="#C9A227" opacity="0.04"/>
+  <!-- High-back chair (semi-transparent "Integrity White") -->
+  <g filter="url(#gbGhost)">
+    <!-- Chair back -->
+    <path d="M72 50 Q72 38 82 32 L100 28 L118 32 Q128 38 128 50 L128 110 L72 110Z" fill="url(#gbChair)" stroke="#E8C840" stroke-width="1" stroke-opacity="0.15"/>
+    <!-- Golden circuit crown on headrest -->
+    <g stroke="url(#gbGold)" stroke-width="1.5" fill="none" stroke-linecap="round">
+      <!-- Central crown peak -->
+      <path d="M88 38 L92 30 L96 36 L100 26 L104 36 L108 30 L112 38"/>
+      <!-- Circuit traces -->
+      <line x1="92" y1="30" x2="92" y2="34"/>
+      <circle cx="92" cy="35" r="1.5" fill="#C9A227"/>
+      <line x1="100" y1="26" x2="100" y2="32"/>
+      <circle cx="100" cy="33" r="1.5" fill="#C9A227"/>
+      <line x1="108" y1="30" x2="108" y2="34"/>
+      <circle cx="108" cy="35" r="1.5" fill="#C9A227"/>
+      <!-- Horizontal circuit line -->
+      <line x1="82" y1="42" x2="118" y2="42" stroke-opacity="0.5"/>
+      <circle cx="86" cy="42" r="1.2" fill="#C9A227" opacity="0.6"/>
+      <circle cx="114" cy="42" r="1.2" fill="#C9A227" opacity="0.6"/>
+    </g>
+    <!-- Chair seat -->
+    <path d="M70 110 Q70 118 78 120 L122 120 Q130 118 130 110" fill="url(#gbChair)" stroke="#E8C840" stroke-width="0.8" stroke-opacity="0.12"/>
+    <!-- Chair armrests -->
+    <path d="M70 80 L62 82 L62 110 L70 112" fill="none" stroke="#E8C840" stroke-width="0.8" stroke-opacity="0.15"/>
+    <path d="M130 80 L138 82 L138 110 L130 112" fill="none" stroke="#E8C840" stroke-width="0.8" stroke-opacity="0.15"/>
+    <!-- Chair legs -->
+    <line x1="100" y1="120" x2="100" y2="140" stroke="#E8C840" stroke-width="1.2" stroke-opacity="0.15"/>
+    <!-- Base star -->
+    <line x1="78" y1="148" x2="122" y2="148" stroke="#E8C840" stroke-width="1" stroke-opacity="0.12"/>
+    <line x1="100" y1="140" x2="80" y2="148" stroke="#E8C840" stroke-width="0.8" stroke-opacity="0.12"/>
+    <line x1="100" y1="140" x2="120" y2="148" stroke="#E8C840" stroke-width="0.8" stroke-opacity="0.12"/>
+    <!-- Casters -->
+    <circle cx="80" cy="150" r="2.5" fill="none" stroke="#E8C840" stroke-width="0.6" stroke-opacity="0.1"/>
+    <circle cx="120" cy="150" r="2.5" fill="none" stroke="#E8C840" stroke-width="0.6" stroke-opacity="0.1"/>
+  </g>
+  <!-- Ghost shimmer lines -->
+  <g stroke="#E8C840" stroke-opacity="0.06" stroke-width="0.5">
+    <line x1="65" y1="55" x2="65" y2="135"/>
+    <line x1="135" y1="55" x2="135" y2="135"/>
+  </g>
+  <!-- Label -->
+  <text x="100" y="176" font-family="Georgia, serif" font-size="10" fill="#C9A227" text-anchor="middle" letter-spacing="0.08em" opacity="0.9">GHOST BOARD</text>
+</svg>

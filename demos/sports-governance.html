@@ -4,26 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sports Governance — Transfer Decision Demo | Datacendia</title>
+  <meta name="description" content="Interactive demo of AI-governed football transfer decisions. See how multi-agent deliberation ensures FFP compliance and board accountability.">
   <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="demo-platform.css">
   <style>
-    *{margin:0;padding:0;box-sizing:border-box}
-    body{background:#0a0a0a;color:#e5e5e5;font-family:'Inter',-apple-system,sans-serif;line-height:1.6}
-    .platform-bar{display:flex;align-items:center;gap:12px;padding:10px 20px;background:#111;border-bottom:1px solid #1e1e2e;font-size:.8rem}
-    .platform-bar .logo{font-weight:700;color:#c9a227;letter-spacing:.05em}
-    .platform-bar .breadcrumb{color:#6b7280}.platform-bar .breadcrumb span{color:#e5e5e5}
-    .platform-bar .back{color:#6b7280;text-decoration:none;font-size:.75rem;margin-left:auto}.platform-bar .back:hover{color:#c9a227}
-    .platform-bar .demo-pill{padding:2px 8px;background:rgba(34,197,94,.15);color:#22c55e;border-radius:10px;font-size:.6rem;font-family:'JetBrains Mono',monospace;font-weight:600}
-    .app-layout{display:flex;height:calc(100vh - 41px);overflow:hidden}
-    .sidebar{width:280px;background:#111;border-right:1px solid #1e1e2e;flex-shrink:0;overflow-y:auto}
-    .main-panel{flex:1;display:flex;flex-direction:column;overflow:hidden}
-    .sb-section{padding:16px;border-bottom:1px solid #1e1e2e}
-    .sb-label{font-size:.6rem;font-weight:600;color:#6b7280;text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px}
     .player-card{padding:12px;background:linear-gradient(135deg,rgba(22,163,74,.06),rgba(6,182,212,.04));border:1px solid rgba(22,163,74,.2);border-radius:10px;text-align:center;margin-bottom:10px}
     .player-name{font-size:1.1rem;font-weight:700;color:#22c55e}.player-detail{font-size:.65rem;color:#6b7280;margin-top:2px}
-    .transfer-info{padding:8px 10px;background:#1a1a2e;border-radius:6px;font-size:.7rem;margin-bottom:4px}
+    .transfer-info{padding:8px 10px;background:#27272a;border-radius:8px;font-size:.7rem;margin-bottom:4px;border:1px solid #3f3f46}
     .ti-label{font-size:.55rem;color:#6b7280;font-family:'JetBrains Mono',monospace;text-transform:uppercase}.ti-val{color:#d1d5db;font-weight:500}
-    .compliance-meter{padding:12px;background:#1a1a2e;border-radius:10px}
+    .compliance-meter{padding:12px;background:#27272a;border-radius:10px;border:1px solid #3f3f46}
     .cm-title{font-size:.65rem;font-weight:600;margin-bottom:6px}
     .cm-bar{height:8px;background:#1f2937;border-radius:4px;overflow:hidden;margin-bottom:4px}
     .cm-fill{height:100%;border-radius:4px}
@@ -32,12 +22,10 @@
     .cm-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0}
     .cm-name{flex:1;color:#9ca3af}.cm-status{font-family:'JetBrains Mono',monospace;font-size:.55rem}
     .agent-grid{display:flex;flex-direction:column;gap:4px}
-    .agent-chip{display:flex;align-items:center;gap:8px;padding:6px 8px;background:#1a1a2e;border:1px solid #2a2a3e;border-radius:6px;font-size:.65rem;transition:all .3s}
+    .agent-chip{display:flex;align-items:center;gap:8px;padding:6px 8px;background:#27272a;border:1px solid #3f3f46;border-radius:8px;font-size:.65rem;transition:all .3s}
     .agent-chip.done{border-color:#22c55e;background:rgba(34,197,94,.05)}
-    .ac-circle{width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.5rem;font-weight:700;color:#fff;flex-shrink:0}
+    .ac-circle{width:24px;height:24px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:.5rem;font-weight:700;color:#fff;flex-shrink:0}
     .ac-name{color:#9ca3af;flex:1}.ac-check{color:#22c55e;display:none}.agent-chip.done .ac-check{display:block}
-    .main-header{padding:16px 20px;border-bottom:1px solid #1e1e2e;background:#111;display:flex;align-items:center;gap:12px}
-    .header-icon{width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,#16a34a,#22c55e);display:flex;align-items:center;justify-content:center;font-size:1.1rem}
     .header-info h1{font-size:.95rem;font-weight:700}.header-info p{font-size:.65rem;color:#6b7280}
     .run-btn{margin-left:auto;padding:8px 16px;background:#16a34a;color:#fff;border:none;border-radius:8px;font-size:.75rem;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif}
     .run-btn:hover{background:#15803d}.run-btn:disabled{opacity:.4;cursor:not-allowed}
@@ -62,23 +50,34 @@
   </style>
 </head>
 <body>
-  <div class="platform-bar">
-    <span class="logo">DATACENDIA</span>
-    <span class="breadcrumb">/ Cortex / Verticals / <span>Sports Governance</span></span>
-    <span class="demo-pill">DEMO MODE</span>
-    <a href="../demos.html" class="back">← Back to Demos</a>
+  <div class="platform-header">
+    <a href="../demos.html" class="ph-logo" style="text-decoration:none;color:inherit">DATACENDIA</a>
+    <div class="ph-divider"></div>
+    <div class="ph-nav">
+      <a class="ph-nav-item" href="../demos.html#cortex">Cortex</a>
+      <a class="ph-nav-item" href="../demos.html#oversight">Oversight</a>
+      <a class="ph-nav-item" href="../demos.html#evidence">Evidence</a>
+    </div>
+    <span class="ph-breadcrumb">/ Verticals / <span>Sports</span></span>
+    <span class="ph-spacer"></span>
+    <span class="ph-demo-badge">DEMO MODE</span>
+    <div class="ph-user">
+      <div class="ph-notif"><img src="../assets/logos/cendia-helm.svg" alt="Notifications" width="18" height="18" style="border-radius:4px"><div class="ph-notif-dot"></div></div>
+      <div class="ph-avatar">SR</div>
+    </div>
+    <a href="../demos.html" class="ph-back">← Demos</a>
   </div>
   <div class="app-layout">
     <div class="sidebar">
       <div class="sb-section">
         <div class="sb-label">Transfer Proposal</div>
         <div class="player-card">
-          <div class="player-name">Marcus Sterling</div>
+          <div class="player-name">the target striker</div>
           <div class="player-detail">ST · 24 years · Premier League</div>
           <div class="player-detail" style="color:#22c55e;font-weight:600;margin-top:4px">£65M Transfer Fee</div>
         </div>
-        <div class="transfer-info"><div class="ti-label">From</div><div class="ti-val">Manchester Athletic FC</div></div>
-        <div class="transfer-info"><div class="ti-label">To</div><div class="ti-val">Celtic Glasgow FC</div></div>
+        <div class="transfer-info"><div class="ti-label">From</div><div class="ti-val">Riverside City FC</div></div>
+        <div class="transfer-info"><div class="ti-label">To</div><div class="ti-val">Greenfield Athletic FC</div></div>
         <div class="transfer-info"><div class="ti-label">Wages</div><div class="ti-val">£180K/week · 5-year contract</div></div>
         <div class="transfer-info"><div class="ti-label">Agent Fee</div><div class="ti-val">£6.5M (10%)</div></div>
       </div>
@@ -103,11 +102,24 @@
     </div>
     <div class="main-panel">
       <div class="main-header">
-        <div class="header-icon">⚽</div>
+        <div class="header-icon" style="padding:4px"><img src="../assets/logos/sports-governance.svg" alt="Sports Governance" width="40" height="40" style="border-radius:8px"></div>
         <div class="header-info"><h1>Sports Governance — Transfer Decision Council</h1><p>Multi-agent deliberation with FFP compliance, wage analysis, and sporting risk assessment</p></div>
-        <button class="run-btn" id="runBtn" onclick="runCouncil()">⚽ Deliberate Transfer</button>
+        <button class="run-btn" id="runBtn" onclick="runCouncil()"><img src="../assets/logos/sports-governance.svg" alt="Sports" width="16" height="16" style="border-radius:3px;vertical-align:middle"> Deliberate Transfer</button>
       </div>
-      <div class="content-area" id="contentArea"></div>
+      <div class="content-area" id="contentArea">
+        <div class="backstory" style="background:linear-gradient(135deg,rgba(22,163,74,.06),rgba(6,182,212,.04));border-color:rgba(22,163,74,.15)">
+          <h3 style="color:#22c55e"><img src="../assets/logos/audit-provenance.svg" alt="Briefing" width="20" height="20" style="border-radius:4px;vertical-align:middle"> Scenario Briefing</h3>
+          <p><strong>Greenfield Athletic FC</strong> has identified <strong>the target striker</strong>, a 24-year-old Premier League striker, as the centrepiece of their Champions League ambitions. The £65M transfer fee would be the club’s largest ever — and the £180K/week wages would make him their highest-paid player by a significant margin.</p>
+          <p>The board is split. The sporting director is convinced the player is a generational talent at a fair price. The CFO warns that the deal pushes UEFA Financial Fair Play compliance to within <strong>2% of the breach threshold</strong>. One more signing this window becomes impossible. The club has activated <strong>Datacendia’s Sports Governance Council</strong> to deliberate the transfer from every angle — FFP compliance, sporting risk, financial impact, and governance review.</p>
+          <div class="bs-meta" style="border-color:rgba(22,163,74,.1)">
+            <span><img src="../assets/logos/sports-governance.svg" alt="Club" width="14" height="14" style="border-radius:3px;vertical-align:middle"> Greenfield Athletic FC</span>
+            <span><img src="../assets/logos/roi-metrics.svg" alt="Fee" width="14" height="14" style="border-radius:3px;vertical-align:middle"> £65M transfer fee</span>
+            <span><img src="../assets/logos/cendia-agents.svg" alt="Wages" width="14" height="14" style="border-radius:3px;vertical-align:middle"> £180K/week wages · 5 years</span>
+            <span><img src="../assets/logos/compliance.svg" alt="FFP" width="14" height="14" style="border-radius:3px;vertical-align:middle"> FFP capacity: 72%</span>
+            <span><img src="../assets/logos/pre-mortem.svg" alt="Risk" width="14" height="14" style="border-radius:3px;vertical-align:middle"> Only 2% headroom remaining</span>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 <script>
@@ -115,16 +127,16 @@ const AGENTS=[
   {id:'ffp',name:'FFP Compliance Officer',role:'UEFA Financial Sustainability',initials:'FF',color:'#3b82f6',
     msg:'<strong>Wage-to-Revenue Impact:</strong> Adding £180K/week pushes wage ratio from 62% to 68% — within UEFA\'s 70% threshold but leaves only <strong>2% headroom</strong>. The £65M amortized over 5 years = £13M/year depreciation. <strong>Break-even requirement:</strong> Club must generate £8M+ incremental revenue from this signing. Verdict: <strong>Compliant but tight.</strong>'},
   {id:'scout',name:'Football Operations Risk',role:'Sporting Assessment',initials:'FO',color:'#22c55e',
-    msg:'<strong>On-field Analysis:</strong> Sterling scored 22 goals last season (top 5 in league). Expected goals contribution: +15 league goals/season. <strong>Injury Risk:</strong> Minor hamstring history — 3 matches missed last season (low risk). <strong>Age curve:</strong> At 24, peak years ahead. Resale value projected at £40-50M in 3 years. <strong>Sporting verdict: Strong buy.</strong>'},
+    msg:'<strong>On-field Analysis:</strong> The player scored 22 goals last season (top 5 in league). Expected goals contribution: +15 league goals/season. <strong>Injury Risk:</strong> Minor hamstring history — 3 matches missed last season (low risk). <strong>Age curve:</strong> At 24, peak years ahead. Resale value projected at £40-50M in 3 years. <strong>Sporting verdict: Strong buy.</strong>'},
   {id:'finance',name:'Financial Controller',role:'Cost & Revenue Analysis',initials:'FC',color:'#f59e0b',
     msg:'<strong>Total Cost of Ownership:</strong> £65M fee + £46.8M wages (5yr) + £6.5M agent + £3.2M ancillary = <strong>£121.5M total commitment</strong>. <strong>Revenue offset:</strong> Projected shirt sales (+£4M/yr), Champions League progression bonus (+£12M), increased matchday revenue (+£2M/yr). <strong>Payback period: 3.2 years.</strong> Net positive from Year 4.'},
   {id:'legal',name:'Board Governance Review',role:'Regulatory & Contract',initials:'BG',color:'#a855f7',
     msg:'<strong>Contract Structure:</strong> Standard 5-year deal with release clause at £90M (year 3+). Agent fee compliant with new FIFA regulations (capped at 10%). <strong>Third-party ownership:</strong> Clear — no TPO issues. <strong>Work permit:</strong> Auto-qualified via international caps. <strong>Legal verdict: Clean.</strong>'},
   {id:'risk',name:'Enterprise Risk Assessment',role:'Club Risk Management',initials:'ER',color:'#ef4444',
-    msg:'<strong>Concentration Risk:</strong> Sterling would become highest-paid player (28% of total wage bill). If injured long-term, financial model breaks. <strong>Recommendation:</strong> Require performance-linked wage structure (base £140K + £40K in bonuses). This reduces guaranteed commitment by £10.4M over 5 years and aligns incentives.'}
+    msg:'<strong>Concentration Risk:</strong> The player would become highest-paid player (28% of total wage bill). If injured long-term, financial model breaks. <strong>Recommendation:</strong> Require performance-linked wage structure (base £140K + £40K in bonuses). This reduces guaranteed commitment by £10.4M over 5 years and aligns incentives.'}
 ];
 let running=false,step=0;
-function initAgents(){document.getElementById('agentGrid').innerHTML=AGENTS.map(a=>`<div class="agent-chip" id="chip-${a.id}"><div class="ac-circle" style="background:${a.color}">${a.initials}</div><span class="ac-name">${a.name}</span><span class="ac-check">✓</span></div>`).join('');}
+function initAgents(){document.getElementById('agentGrid').innerHTML=AGENTS.map(a=>`<div class="agent-chip" id="chip-${a.id}"><div class="ac-circle" style="background:${a.color}">${a.initials}</div><span class="ac-name">${a.name}</span><span class="ac-check">+</span></div>`).join('');}
 initAgents();
 function addPhase(label,color){const area=document.getElementById('contentArea');const d=document.createElement('div');d.className='phase-divider';d.innerHTML=`<div class="line"></div><span class="pill" style="background:${color}20;color:${color}">${label}</span><div class="line"></div>`;area.appendChild(d);}
 function addMsg(agent){return new Promise(r=>{const area=document.getElementById('contentArea');const el=document.createElement('div');el.className='msg';el.innerHTML=`<div class="msg-avatar" style="background:${agent.color}">${agent.initials}</div><div class="msg-body"><div><span class="msg-name">${agent.name}</span><span class="msg-role">${agent.role}</span></div><div class="msg-bubble" style="border-left-color:${agent.color}">${agent.msg}</div></div>`;area.appendChild(el);setTimeout(()=>{el.classList.add('visible');document.getElementById('chip-'+agent.id).classList.add('done');area.scrollTop=area.scrollHeight;r();},50);});}
@@ -136,13 +148,19 @@ async function runCouncil(){
   await new Promise(r=>setTimeout(r,600));
   const area=document.getElementById('contentArea');
   const synth=document.createElement('div');synth.className='synth-box';
-  synth.innerHTML=`<div class="synth-title">⚽ Council Recommendation: CONDITIONAL PROCEED</div><div class="synth-text"><strong>The Council recommends proceeding with the Marcus Sterling transfer with the following conditions:</strong><br><br>1. <strong>Restructure wages</strong> to performance-linked model (£140K base + £40K bonuses) — reduces guaranteed commitment by £10.4M<br>2. <strong>FFP headroom:</strong> Only 2% remaining — no further major signings this window without player sales<br>3. <strong>Release clause</strong> set at £90M (activates Year 3) to protect resale value<br>4. <strong>Revenue targets:</strong> Club must achieve Champions League group stage to maintain break-even compliance<br><br><span style="font-family:'JetBrains Mono',monospace;color:#22c55e;font-weight:700">Confidence: 78% · Risk Score: 34/100 · FFP Status: COMPLIANT</span></div>`;
+  synth.innerHTML=`<div class="synth-title"><img src="../assets/logos/sports-governance.svg" alt="Sports" width="18" height="18" style="border-radius:4px;vertical-align:middle"> Council Recommendation: CONDITIONAL PROCEED</div><div class="synth-text"><strong>The Council recommends proceeding with the transfer with the following conditions:</strong><br><br>1. <strong>Restructure wages</strong> to performance-linked model (£140K base + £40K bonuses) — reduces guaranteed commitment by £10.4M<br>2. <strong>FFP headroom:</strong> Only 2% remaining — no further major signings this window without player sales<br>3. <strong>Release clause</strong> set at £90M (activates Year 3) to protect resale value<br>4. <strong>Revenue targets:</strong> Club must achieve Champions League group stage to maintain break-even compliance<br><br><span style="font-family:'JetBrains Mono',monospace;color:#22c55e;font-weight:700">Confidence: 78% · Risk Score: 34/100 · FFP Status: COMPLIANT</span></div>`;
   area.appendChild(synth);
+  // Briefing
+  const brief=document.createElement('div');brief.className='briefing';
+  brief.style.cssText='background:linear-gradient(135deg,rgba(22,163,74,.06),rgba(6,182,212,.04));border-color:rgba(22,163,74,.2)';
+  brief.innerHTML=`<h3 style="color:#22c55e"><img src="../assets/logos/sports-governance.svg" alt="Briefing" width="20" height="20" style="border-radius:4px;vertical-align:middle"> Transfer Briefing — Key Findings</h3><p>The Sports Governance Council deliberated the proposed transfer across <strong>5 specialist perspectives</strong>. Here is the executive summary:</p><ul><li><strong>FFP Compliance: TIGHT BUT LEGAL.</strong> The deal pushes wage-to-revenue ratio from 62% to 68% — within UEFA’s 70% threshold but with only 2% headroom. No further major signings this window without player sales.</li><li><strong>Sporting assessment: STRONG BUY.</strong> 22 goals last season, peak age (24), 3-year resale value projected at £40-50M. Low injury risk (3 matches missed). Expected contribution: +15 league goals/season.</li><li><strong>Total cost of ownership: £121.5M over 5 years.</strong> Fee (£65M) + wages (£46.8M) + agent fee (£6.5M) + ancillary (£3.2M). Payback period: 3.2 years via shirt sales, Champions League bonuses, and matchday uplift.</li><li><strong>Key risk: Concentration.</strong> The player would be 28% of total wage bill. Performance-linked restructure (base £140K + £40K bonuses) reduces guaranteed commitment by £10.4M.</li><li><strong>Legal: CLEAN.</strong> No third-party ownership issues. Agent fee compliant with FIFA cap. Work permit auto-qualified. Release clause at £90M (Year 3+).</li></ul><p><strong>Bottom line:</strong> Proceed with wage restructure. The sporting case is strong and the financial model is positive from Year 4, but the club must achieve Champions League group stage to maintain break-even compliance.</p><div class="bf-footer" style="border-color:rgba(22,163,74,.1)">Sports Council Run ID: SPT-2026-0208 · Agents: 5 · Confidence: 78% · Risk Score: 34/100 · FFP Status: COMPLIANT</div>`;
+  area.appendChild(brief);
   const cta=document.createElement('div');cta.className='demo-cta';
   cta.innerHTML=`<h3>Govern every transfer decision with AI</h3><p>Sports Governance ensures FFP compliance, wage analysis, and multi-agent risk assessment for every signing.</p><a href="../briefing.html">Request Briefing →</a>`;
   area.appendChild(cta);area.scrollTop=area.scrollHeight;running=false;
 }
 setTimeout(()=>runCouncil(),800);
 </script>
+<div style="text-align:center;padding:12px 20px;font-size:.6rem;color:#4a4a5a;border-top:1px solid #1e1e2e;font-family:'Inter',sans-serif">All names, entities, and scenarios in this demo are entirely fictitious. Any resemblance to real persons, companies, or events is purely coincidental.</div>
 </body>
 </html>

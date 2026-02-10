@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <defs>
+    <linearGradient id="chGold3" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#E8C840"/>
+      <stop offset="100%" stop-color="#A07B1A"/>
+    </linearGradient>
+    <filter id="chGlow3">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <rect width="200" height="200" fill="#0a0a0a" rx="16"/>
+  <g filter="url(#chGlow3)">
+    <!-- Heart rate / pulse monitor (the pulse) -->
+    <!-- Monitor frame -->
+    <rect x="30" y="45" width="140" height="95" rx="8" fill="none" stroke="url(#chGold3)" stroke-width="2" opacity="0.6"/>
+    <rect x="32" y="47" width="136" height="4" rx="2" fill="#C9A227" opacity="0.15"/>
+    <!-- Heartbeat line (EKG/ECG) -->
+    <polyline points="40,95 55,95 62,95 68,95 72,85 76,110 80,60 84,120 88,80 92,95 100,95 108,95 115,95 120,85 124,110 128,60 132,120 136,80 140,95 150,95 160,95" fill="none" stroke="#E8C840" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.85"/>
+    <!-- Scan line -->
+    <line x1="145" y1="55" x2="145" y2="135" stroke="#C9A227" stroke-width="0.8" opacity="0.3"/>
+    <!-- Status dots -->
+    <circle cx="45" y="52" r="2.5" fill="#C9A227" opacity="0.7"/>
+    <circle cx="53" y="52" r="2.5" fill="#C9A227" opacity="0.5"/>
+    <circle cx="61" y="52" r="2.5" fill="#C9A227" opacity="0.35"/>
+    <!-- Vital readouts -->
+    <text x="155" y="62" font-family="'JetBrains Mono', monospace" font-size="6" fill="#C9A227" opacity="0.6" text-anchor="end">OK</text>
+    <!-- Grid lines on monitor -->
+    <line x1="30" y1="75" x2="170" y2="75" stroke="#C9A227" stroke-width="0.3" opacity="0.1"/>
+    <line x1="30" y1="95" x2="170" y2="95" stroke="#C9A227" stroke-width="0.3" opacity="0.15"/>
+    <line x1="30" y1="115" x2="170" y2="115" stroke="#C9A227" stroke-width="0.3" opacity="0.1"/>
+    <!-- Stand -->
+    <line x1="100" y1="140" x2="100" y2="155" stroke="#C9A227" stroke-width="2" opacity="0.4"/>
+    <rect x="80" y="155" width="40" height="4" rx="2" fill="#C9A227" opacity="0.35"/>
+  </g>
+  <text x="100" y="180" font-family="Georgia, serif" font-size="10" fill="#C9A227" text-anchor="middle" letter-spacing="0.08em" opacity="0.9">CENDIAHEALTH</text>
+</svg>

@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ghost Board™ — Board Rehearsal Demo | Datacendia</title>
+  <meta name="description" content="Interactive demo of Ghost Board AI board meeting rehearsal. Practice your pitch against simulated board members before the real presentation.">
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="demo-platform.css">
+  <style>
+    .header-info h1{font-size:.95rem;font-weight:700}.header-info p{font-size:.65rem;color:#71717a}
+    .board-type{padding:10px 12px;border:1px solid #3f3f46;border-radius:10px;background:#27272a;color:#a1a1aa;font-size:.7rem;cursor:pointer;text-align:left;transition:all .2s;font-family:'Inter',sans-serif;margin-bottom:4px;display:block;width:100%}
+    .board-type:hover{border-color:#a855f7;color:#d4d4d8}.board-type.active{border-color:#a855f7;color:#a855f7;background:rgba(168,85,247,.08)}
+    .board-type .bt-name{font-weight:600}.board-type .bt-desc{font-size:.6rem;color:#6b7280;margin-top:2px}
+    .diff-btn{padding:6px 10px;border:1px solid #3f3f46;border-radius:8px;background:#27272a;color:#71717a;font-size:.65rem;cursor:pointer;transition:all .2s;font-family:'Inter',sans-serif;flex:1;text-align:center}
+    .diff-btn:hover{border-color:#52525b;color:#a1a1aa}
+    .diff-btn.active{border-color:#a855f7;color:#a855f7;background:rgba(168,85,247,.08)}
+    .diff-easy{}.diff-medium{}.diff-hard{}.diff-brutal{}
+    .diff-btn.active.diff-easy{border-color:#22c55e;color:#22c55e;background:rgba(34,197,94,.08)}
+    .diff-btn.active.diff-medium{border-color:#f59e0b;color:#f59e0b;background:rgba(245,158,11,.08)}
+    .diff-btn.active.diff-hard{border-color:#f97316;color:#f97316;background:rgba(249,115,22,.08)}
+    .diff-btn.active.diff-brutal{border-color:#ef4444;color:#ef4444;background:rgba(239,68,68,.08)}
+    .run-ghost{width:100%;padding:10px;border:none;border-radius:10px;cursor:pointer;font-family:'Inter',sans-serif;font-size:.82rem;font-weight:600;background:linear-gradient(135deg,#a855f7,#6366f1);color:#fff;transition:all .2s;box-shadow:0 2px 8px rgba(168,85,247,.25)}
+    .run-ghost:hover{opacity:.9;transform:translateY(-1px)}.run-ghost:disabled{opacity:.35;cursor:not-allowed;transform:none}
+    .prep-score{text-align:center;padding:12px}
+    .prep-val{font-size:2.4rem;font-weight:700;font-family:'JetBrains Mono',monospace}
+    .prep-label{font-size:.6rem;color:#6b7280}
+    .prep-bar{height:6px;background:#27272a;border-radius:3px;margin-top:8px;overflow:hidden}
+    .prep-fill{height:100%;border-radius:3px;transition:width 1.5s ease}
+    .gap-item{display:flex;align-items:center;gap:6px;padding:6px 0;font-size:.7rem;color:#a1a1aa;border-bottom:1px solid #27272a}
+    .gap-item:last-child{border:none}
+    .gap-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0}
+    .content-area{flex:1;overflow-y:auto;padding:16px 20px}
+    .q-card{background:#18181b;border:1px solid #27272a;border-radius:12px;padding:16px;margin-bottom:10px;opacity:0;transform:translateY(10px);transition:all .4s;cursor:pointer}
+    .q-card.visible{opacity:1;transform:translateY(0)}
+    .q-card.open .q-answer{max-height:500px;padding-top:12px;margin-top:12px;border-top:1px solid #27272a}
+    .q-header{display:flex;align-items:flex-start;gap:10px}
+    .q-avatar{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:.9rem;flex-shrink:0;background:rgba(168,85,247,.15)}
+    .q-body{flex:1;min-width:0}
+    .q-director{font-size:.7rem;font-weight:600;color:#a855f7;margin-bottom:2px}
+    .q-text{font-size:.82rem;color:#e4e4e7;line-height:1.6;font-weight:500}
+    .q-diff{padding:2px 8px;border-radius:6px;font-size:.55rem;font-weight:600;font-family:'JetBrains Mono',monospace;flex-shrink:0}
+    .q-diff-easy{background:rgba(34,197,94,.1);color:#22c55e}.q-diff-medium{background:rgba(245,158,11,.1);color:#f59e0b}
+    .q-diff-hard{background:rgba(249,115,22,.1);color:#f97316}.q-diff-brutal{background:rgba(239,68,68,.1);color:#ef4444}
+    .q-answer{max-height:0;overflow:hidden;transition:all .3s}
+    .q-answer-label{font-size:.6rem;color:#6b7280;text-transform:uppercase;font-family:'JetBrains Mono',monospace;margin-bottom:4px}
+    .q-answer-text{font-size:.78rem;color:#a1a1aa;line-height:1.7}
+    .q-answer-text strong{color:#e5e5e5}
+    .summary-card{background:linear-gradient(135deg,rgba(168,85,247,.06),#18181b);border:2px solid #a855f7;border-radius:14px;padding:20px;margin-top:16px;opacity:0;transform:translateY(10px);transition:all .5s}
+    .summary-card.visible{opacity:1;transform:translateY(0)}
+    .summary-card h3{font-size:1rem;font-weight:700;color:#a855f7;margin-bottom:12px}
+    .summary-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:16px}
+    .summary-stat{text-align:center;padding:10px;background:rgba(0,0,0,.3);border-radius:10px}
+    .summary-stat .val{font-size:1.2rem;font-weight:700;font-family:'JetBrains Mono',monospace}
+    .summary-stat .label{font-size:.55rem;color:#6b7280;margin-top:2px}
+    .weak-area{display:flex;align-items:center;gap:8px;padding:6px 0;font-size:.75rem;color:#f59e0b;border-bottom:1px solid rgba(168,85,247,.15)}
+    .weak-area:last-child{border:none}
+    @media(max-width:900px){.sidebar{display:none}}
+  </style>
+</head>
+<body>
+  <div class="platform-header">
+    <a href="../demos.html" class="ph-logo" style="text-decoration:none;color:inherit">DATACENDIA</a>
+    <div class="ph-divider"></div>
+    <div class="ph-nav">
+      <a class="ph-nav-item active" href="../demos.html#cortex">Cortex</a>
+      <a class="ph-nav-item" href="../demos.html#oversight">Oversight</a>
+      <a class="ph-nav-item" href="../demos.html#evidence">Evidence</a>
+    </div>
+    <span class="ph-breadcrumb">/ Core Suite / <span>Ghost Board™</span></span>
+    <span class="ph-spacer"></span>
+    <span class="ph-demo-badge">DEMO MODE</span>
+    <div class="ph-user">
+      <div class="ph-notif"><img src="../assets/logos/cendia-helm.svg" alt="Notifications" width="18" height="18" style="border-radius:4px"><div class="ph-notif-dot"></div></div>
+      <div class="ph-avatar">SR</div>
+    </div>
+    <a href="../demos.html" class="ph-back">← Demos</a>
+  </div>
+  <div class="app-layout">
+    <div class="sidebar">
+      <div class="sb-section">
+        <div class="sb-label">Board Type</div>
+        <button class="board-type active" onclick="selectBoard('standard',this)"><div class="bt-name"><img src="../assets/logos/council.svg" alt="Standard" width="14" height="14" style="border-radius:3px;vertical-align:middle"> Standard Board</div><div class="bt-desc">Mixed independent and investor directors</div></button>
+        <button class="board-type" onclick="selectBoard('vc',this)"><div class="bt-name"><img src="../assets/logos/cendia-predict.svg" alt="VC" width="14" height="14" style="border-radius:3px;vertical-align:middle"> VC-Backed</div><div class="bt-desc">Aggressive growth-focused investors</div></button>
+        <button class="board-type" onclick="selectBoard('public',this)"><div class="bt-name"><img src="../assets/logos/compliance.svg" alt="Public" width="14" height="14" style="border-radius:3px;vertical-align:middle"> Public Company</div><div class="bt-desc">Governance and compliance focused</div></button>
+        <button class="board-type" onclick="selectBoard('pe',this)"><div class="bt-name"><img src="../assets/logos/roi-metrics.svg" alt="PE" width="14" height="14" style="border-radius:3px;vertical-align:middle"> Private Equity</div><div class="bt-desc">Operations and returns focused</div></button>
+      </div>
+      <div class="sb-section">
+        <div class="sb-label">Difficulty</div>
+        <div style="display:flex;gap:4px">
+          <button class="diff-btn diff-easy" onclick="selectDiff('easy',this)">Warm-Up</button>
+          <button class="diff-btn diff-medium" onclick="selectDiff('medium',this)">Standard</button>
+          <button class="diff-btn diff-hard active" onclick="selectDiff('hard',this)">Tough</button>
+          <button class="diff-btn diff-brutal" onclick="selectDiff('brutal',this)">Brutal</button>
+        </div>
+      </div>
+      <div class="sb-section">
+        <button class="run-ghost" id="runBtn" onclick="runSession()"><img src="../assets/logos/ghost-board.svg" alt="Ghost" width="16" height="16" style="border-radius:3px;vertical-align:middle"> Face the Ghost Board</button>
+      </div>
+      <div class="sb-section" id="scoreSection" style="display:none">
+        <div class="sb-label">Preparedness Score</div>
+        <div class="prep-score">
+          <div class="prep-val" id="prepVal" style="color:#6b7280">—</div>
+          <div class="prep-label">Board Readiness</div>
+          <div class="prep-bar"><div class="prep-fill" id="prepBar" style="width:0;background:#a855f7"></div></div>
+        </div>
+      </div>
+      <div class="sb-section" id="gapSection" style="display:none">
+        <div class="sb-label">Preparation Gaps</div>
+        <div id="gapList"></div>
+      </div>
+    </div>
+    <div class="main-panel">
+      <div class="main-header">
+        <div class="header-icon" style="background:linear-gradient(135deg,#a855f7,#6366f1);padding:4px"><img src="../assets/logos/ghost-board.svg" alt="Ghost Board" width="40" height="40" style="border-radius:8px"></div>
+        <div class="header-info"><h1>Ghost Board™ — Board Meeting Rehearsal</h1><p>Rehearse your board presentation against AI directors before the real meeting</p></div>
+      </div>
+      <div class="content-area" id="contentArea">
+        <div class="backstory" style="background:linear-gradient(135deg,rgba(168,85,247,.06),rgba(99,102,241,.04));border-color:rgba(168,85,247,.15)">
+          <h3 style="color:#a855f7">� Scenario Briefing</h3>
+          <p><strong>Sentinel Dynamics</strong>, a $120M enterprise AI governance company, is preparing to present a <strong>$5M sovereign infrastructure investment</strong> to its board next Tuesday. The CTO wants to migrate from 60% cloud / 40% on-prem to fully sovereign infrastructure over 18 months — eliminating all third-party cloud dependency.</p>
+          <p>The board is skeptical. Three directors have publicly questioned whether "sovereignty" is a real customer requirement or just empire-building. The CFO wants hard ROI numbers. The Risk Committee chair is worried about single-site failure risk. The CTO has <strong>one shot to convince them</strong> — and she's using Ghost Board™ to rehearse against AI directors who will ask the toughest possible questions before the real meeting.</p>
+          <div class="bs-meta" style="border-color:rgba(168,85,247,.1)">
+            <span><img src="../assets/logos/datacendia-platform.svg" alt="Company" width="14" height="14" style="border-radius:3px;vertical-align:middle"> Sentinel Dynamics</span>
+            <span><img src="../assets/logos/roi-metrics.svg" alt="Revenue" width="14" height="14" style="border-radius:3px;vertical-align:middle"> $120M revenue</span>
+            <span><img src="../assets/logos/audit-provenance.svg" alt="Proposal" width="14" height="14" style="border-radius:3px;vertical-align:middle"> Proposal: $5M CAPEX + $1.2M/yr OpEx</span>
+            <span>⏱️ 18-month migration timeline</span>
+            <span><img src="../assets/logos/ghost-board.svg" alt="Meeting" width="14" height="14" style="border-radius:3px;vertical-align:middle"> Board meeting: Next Tuesday</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<script>
+let boardType='standard',difficulty='hard',running=false;
+
+function selectBoard(type,el){
+  boardType=type;
+  document.querySelectorAll('.board-type').forEach(b=>b.classList.remove('active'));
+  el.classList.add('active');
+}
+function selectDiff(diff,el){
+  difficulty=diff;
+  document.querySelectorAll('.diff-btn').forEach(b=>b.classList.remove('active'));
+  el.classList.add('active');
+}
+
+const QUESTIONS={
+  standard:[
+    {director:'Independent Chair',icon:'<img src="../assets/logos/council.svg" alt="Chair" width="24" height="24" style="border-radius:4px">',q:'What happens if the sovereign migration takes 24 months instead of 18? What\'s the cost overrun exposure and how does that affect your IRR?',diff:'hard',answer:'Our contingency budget covers a <strong>6-month extension at $1.8M additional cost</strong>. IRR drops from 22% to 18% — still above our 15% hurdle rate. We\'ve built a phased approach where each phase delivers standalone value, so even partial completion improves our position.'},
+    {director:'Audit Committee',icon:'<img src="../assets/logos/cortex.svg" alt="Audit" width="24" height="24" style="border-radius:4px">',q:'You\'re asking for $5M capital plus $1.2M recurring. Walk me through exactly how you get from 60% cloud spend to zero — because your current cloud contracts have termination fees.',diff:'medium',answer:'Current cloud contracts: <strong>AWS ($2.1M/yr, 18-month term remaining) and Azure ($800K/yr, month-to-month)</strong>. AWS early termination: $420K. We phase Azure out first (Month 1-6), then migrate AWS workloads (Month 7-18). Net savings at steady state: <strong>$1.7M/yr after OpEx increase</strong>.'},
+    {director:'Risk Committee',icon:'<img src="../assets/logos/pre-mortem.svg" alt="Risk" width="24" height="24" style="border-radius:4px">',q:'What\'s your disaster recovery story if you move everything on-prem? You\'re trading one risk for another — cloud provider outage risk for single-site failure risk.',diff:'hard',answer:'We\'re not going single-site. The plan includes <strong>two geographically separated data centers</strong> with active-active replication. Target: 99.95% uptime vs our current 99.9% on cloud. We also retain a cold standby cloud capability for true catastrophic scenarios at <strong>$50K/yr</strong>.'},
+    {director:'Lead Independent',icon:'<img src="../assets/logos/cendia-helm.svg" alt="Lead" width="24" height="24" style="border-radius:4px">',q:'Who else has done this successfully at your scale? Give me three reference cases where sovereign AI infrastructure delivered the promised ROI.',diff:'medium',answer:'Three comparable deployments: <strong>(1) Siemens Energy</strong> — 14-month migration, 23% ROI at 24 months. <strong>(2) Deutsche Bank</strong> — regulatory-driven, achieved DORA compliance 9 months ahead of deadline. <strong>(3) NHS Digital</strong> — data sovereignty requirement, 18-month timeline, now processing 4x the volume at 60% cost.'},
+    {director:'Compensation Committee',icon:'<img src="../assets/logos/cendia-agents.svg" alt="Comp" width="24" height="24" style="border-radius:4px">',q:'How many people do you need to hire to run this? Your team doesn\'t have sovereign infrastructure experience — that\'s a significant capability gap.',diff:'hard',answer:'We need <strong>4 additional hires</strong>: 2 infrastructure engineers ($180K each), 1 security architect ($220K), and 1 DevOps lead ($200K). Total: <strong>$780K/yr</strong> — included in the $1.2M OpEx. We\'ve already identified candidates. For the transition period, we\'re engaging a managed services partner at <strong>$40K/month</strong>.'},
+    {director:'Shareholder Representative',icon:'<img src="../assets/logos/cendia-predict.svg" alt="Shareholder" width="24" height="24" style="border-radius:4px">',q:'If I\'m an activist investor looking at this, I see $5M going into infrastructure instead of growth. Why shouldn\'t I argue you\'re just building an empire?',diff:'brutal',answer:'Because <strong>data sovereignty is a growth enabler, not a cost center</strong>. Three of our top 5 pipeline deals ($12M combined) have sovereign data requirements we currently can\'t meet. This investment unlocks revenue we\'re leaving on the table. Empire-building would be doing this with no revenue case — we have signed letters of intent contingent on sovereignty.'},
+    {director:'Technology Advisor',icon:'<img src="../assets/logos/cortex.svg" alt="Tech" width="24" height="24" style="border-radius:4px">',q:'Your latency requirements for AI inference — what\'s the actual measured performance difference between cloud and on-prem for your specific workloads?',diff:'medium',answer:'Benchmarked on our production Council deliberations: <strong>Cloud: 340ms average, 890ms P99. On-prem test: 45ms average, 120ms P99</strong>. That\'s a 7.5x improvement. For real-time governance decisions, that latency difference is the difference between blocking a wire transfer before it executes and catching it after.'},
+    {director:'Independent Chair',icon:'<img src="../assets/logos/council.svg" alt="Chair" width="24" height="24" style="border-radius:4px">',q:'What\'s your exit strategy if this fails? Can you go back to cloud if sovereign doesn\'t work?',diff:'hard',answer:'Yes. We maintain <strong>infrastructure-as-code for all deployments</strong>, meaning any workload can be redeployed to cloud within 72 hours. The $50K/yr cold standby cloud capacity I mentioned is specifically for this. Worst case, we lose <strong>$2-3M in sunk infrastructure costs</strong> but retain all the engineering IP and process improvements.'},
+    {director:'Audit Committee',icon:'<img src="../assets/logos/cortex.svg" alt="Audit" width="24" height="24" style="border-radius:4px">',q:'How does this affect our insurance premiums? Have you spoken with our cyber insurer about the change in risk profile?',diff:'medium',answer:'Yes, we briefed <strong>AIG and Beazley</strong>. Both confirmed sovereign infrastructure qualifies for their <strong>"Enhanced Control" discount tier</strong> — estimated 15-20% premium reduction ($180K-$240K/yr savings). The key driver: removing third-party cloud provider from our attack surface reduces their exposure model significantly.'},
+    {director:'Lead Independent',icon:'<img src="../assets/logos/cendia-helm.svg" alt="Lead" width="24" height="24" style="border-radius:4px">',q:'Final question. If I give you $5M today, what\'s the one thing that could still kill this project?',diff:'brutal',answer:'<strong>Key person risk.</strong> Our CTO is the architect and champion. If they leave mid-migration, we lose 6 months minimum. Mitigation: we\'re documenting everything in runbooks, cross-training 3 senior engineers, and I\'m recommending a <strong>retention package tied to migration milestones</strong>. Second risk: hardware supply chain — we\'re pre-ordering with 90-day buffers.'}
+  ]
+};
+QUESTIONS.vc=QUESTIONS.standard;QUESTIONS.public=QUESTIONS.standard;QUESTIONS.pe=QUESTIONS.standard;
+
+function addQuestion(q,i,delay){
+  return new Promise(r=>{setTimeout(()=>{
+    const el=document.createElement('div');el.className='q-card';
+    const diffCls={'easy':'q-diff-easy','medium':'q-diff-medium','hard':'q-diff-hard','brutal':'q-diff-brutal'}[q.diff]||'q-diff-medium';
+    el.innerHTML=`<div class="q-header"><div class="q-avatar">${q.icon}</div><div class="q-body"><div class="q-director">${q.director}</div><div class="q-text">${q.q}</div></div><span class="q-diff ${diffCls}">${q.diff.toUpperCase()}</span></div><div class="q-answer"><div class="q-answer-label"><img src="../assets/logos/cendia-predict.svg" alt="Tip" width="12" height="12" style="border-radius:2px;vertical-align:middle"> Suggested Response</div><div class="q-answer-text">${q.answer}</div></div>`;
+    el.onclick=()=>el.classList.toggle('open');
+    document.getElementById('contentArea').appendChild(el);
+    setTimeout(()=>el.classList.add('visible'),30);
+    r();
+  },delay)});
+}
+
+async function runSession(){
+  if(running)return;running=true;
+  document.getElementById('runBtn').disabled=true;
+  document.getElementById('contentArea').innerHTML='<div style="text-align:center;padding:60px 20px"><div style="display:inline-block;width:40px;height:40px;border:3px solid #27272a;border-top-color:#a855f7;border-radius:50%;animation:spin 1s linear infinite"></div><div style="font-size:.85rem;color:#a855f7;margin-top:12px">Summoning Ghost Board...</div><div style="font-size:.7rem;color:#6b7280;margin-top:4px">AI directors are reviewing your proposal</div></div>';
+  
+  await new Promise(r=>setTimeout(r,1800));
+  document.getElementById('contentArea').innerHTML='';
+  
+  const qs=QUESTIONS[boardType]||QUESTIONS.standard;
+  for(let i=0;i<qs.length;i++){
+    await addQuestion(qs[i],i,i===0?300:800);
+  }
+  
+  // Show score
+  setTimeout(()=>{
+    document.getElementById('scoreSection').style.display='';
+    const score=72;
+    document.getElementById('prepVal').textContent=score+'%';
+    document.getElementById('prepVal').style.color=score>=80?'#22c55e':score>=60?'#f59e0b':'#ef4444';
+    document.getElementById('prepBar').style.width=score+'%';
+    document.getElementById('prepBar').style.background=score>=80?'#22c55e':score>=60?'#f59e0b':'#ef4444';
+    
+    // Show gaps
+    document.getElementById('gapSection').style.display='';
+    const gaps=[
+      {label:'Disaster Recovery Detail',color:'#ef4444'},
+      {label:'Competitive Analysis',color:'#f59e0b'},
+      {label:'Timeline Contingency',color:'#f59e0b'},
+      {label:'Vendor Lock-in Mitigation',color:'#22c55e'}
+    ];
+    document.getElementById('gapList').innerHTML=gaps.map(g=>`<div class="gap-item"><div class="gap-dot" style="background:${g.color}"></div>${g.label}</div>`).join('');
+    
+    // Summary card
+    const sum=document.createElement('div');sum.className='summary-card';
+    sum.innerHTML=`<h3><img src="../assets/logos/ghost-board.svg" alt="Ghost" width="20" height="20" style="border-radius:4px;vertical-align:middle"> Ghost Board Assessment</h3><div class="summary-grid"><div class="summary-stat"><div class="val" style="color:#a855f7">10</div><div class="label">Questions Asked</div></div><div class="summary-stat"><div class="val" style="color:#f59e0b">72%</div><div class="label">Preparedness</div></div><div class="summary-stat"><div class="val" style="color:#22c55e">4</div><div class="label">Areas to Improve</div></div></div><div style="font-size:.75rem;color:#a1a1aa;line-height:1.6;margin-bottom:12px">Your proposal is <strong style="color:#f59e0b">well-structured but has gaps</strong> in disaster recovery specifics and competitive positioning. The financial case is strong. Focus preparation time on Q3 (DR story) and Q6 (activist defense).</div><div style="font-size:.6rem;color:#52525b;padding-top:10px;border-top:1px solid #27272a">Session logged to Audit Provenance and Chronos (marked as rehearsal) · Click any question to see suggested responses</div>`;
+    document.getElementById('contentArea').appendChild(sum);
+    setTimeout(()=>sum.classList.add('visible'),100);
+    
+    // Briefing
+    const brief=document.createElement('div');brief.className='briefing';
+    brief.style.cssText='background:linear-gradient(135deg,rgba(168,85,247,.06),rgba(99,102,241,.04));border-color:rgba(168,85,247,.2)';
+    brief.innerHTML=`<h3 style="color:#a855f7"><img src="../assets/logos/ghost-board.svg" alt="Briefing" width="20" height="20" style="border-radius:4px;vertical-align:middle"> Rehearsal Briefing — Key Findings</h3><p>Ghost Board™ simulated a <strong>Standard Board</strong> session at <strong>Tough difficulty</strong> for the $5M sovereign infrastructure proposal. Here is your preparation assessment:</p><ul><li><strong>Preparedness Score: 72% (Adequate, not strong)</strong> — You have solid answers for financial ROI and technical readiness, but gaps remain in disaster recovery specifics and competitive positioning.</li><li><strong>Strongest area: Financial case.</strong> The $1.7M/yr net savings, insurance premium reductions, and revenue unlock from sovereignty-dependent pipeline deals ($12M) make a compelling ROI story.</li><li><strong>Weakest area: Disaster recovery.</strong> The board will probe hard on single-site failure risk. Your two-datacenter active-active plan needs more detail on failover times, RPO/RTO targets, and cost.</li><li><strong>Watch out for the activist investor question (Q6).</strong> "Why shouldn't I argue you're just building an empire?" requires a revenue-linked answer, not a cost argument. Lead with the $12M pipeline.</li><li><strong>Key person risk is your Achilles' heel.</strong> The board will ask what happens if your CTO leaves mid-migration. Have retention package details ready.</li></ul><p><strong>Recommended preparation focus:</strong> Spend 80% of your remaining prep time on the DR story (Q3) and activist defense (Q6). These are the questions most likely to derail the vote.</p><div class="bf-footer" style="border-color:rgba(168,85,247,.1)">Ghost Board Session ID: GHB-2026-0208 · 10 questions · Difficulty: Tough · Board Type: Standard · Session logged to Audit Provenance</div>`;
+    document.getElementById('contentArea').appendChild(brief);
+
+    // CTA
+    const cta=document.createElement('div');cta.className='demo-cta';
+    cta.innerHTML='<h3>Rehearse before the real thing</h3><p>Ghost Board prepares you for the toughest questions your board will ask.</p><a href="../briefing.html">Request Briefing →</a>';
+    document.getElementById('contentArea').appendChild(cta);
+    
+    running=false;
+  },600);
+}
+</script>
+<style>@keyframes spin{to{transform:rotate(360deg)}}</style>
+<div style="text-align:center;padding:12px 20px;font-size:.6rem;color:#4a4a5a;border-top:1px solid #1e1e2e;font-family:'Inter',sans-serif">All names, entities, and scenarios in this demo are entirely fictitious. Any resemblance to real persons, companies, or events is purely coincidental.</div>
+</body>
+</html>

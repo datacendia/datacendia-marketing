@@ -1,0 +1,79 @@
+# Datacendia
+
+> Datacendia is a sovereign decision intelligence platform. It uses multi-agent AI deliberation to help organizations make defensible, auditable decisions — with cryptographic evidence trails, formal dissent protection, and full regulatory compliance. Every decision is governed, every vote is traced, every outcome is defensible.
+
+## What Datacendia Does
+
+Datacendia replaces unstructured decision-making (email chains, meetings, hallway conversations) with AI-governed deliberation. Multiple AI agents debate decisions from different perspectives — CFO, Risk, Legal, Ethics, Strategy — then produce a cryptographically sealed evidence packet proving how and why the decision was made. This packet is tamper-proof, court-admissible, and regulator-ready.
+
+## Core Products
+
+- [The Council](https://datacendia.com/demos.html#cortex): Multi-agent AI deliberation engine. Your AI executive team debates every angle before you decide.
+- [CendiaChronos](https://datacendia.com/demos.html#cortex): Organizational decision timeline with pivotal moment detection and temporal analysis.
+- [Cascade Analysis](https://datacendia.com/demos.html#cortex): Maps 2nd and 3rd order ripple effects of decisions before you commit.
+- [Ghost Board](https://datacendia.com/demos.html#cortex): AI board meeting rehearsal — practice presentations against AI directors.
+- [Pre-Mortem Engine](https://datacendia.com/demos.html#cortex): Reverse-engineers failure modes before decisions are made.
+- [CendiaDissent](https://datacendia.com/demos.html#cortex): Formal disagreement tracking with tamper-proof records and outcome monitoring.
+- [CendiaCrucible](https://datacendia.com/demos.html#oversight): Adversarial red team stress testing from 8+ attack perspectives.
+- [Audit Provenance](https://datacendia.com/demos.html#evidence): Cryptographically sealed decision packets with Merkle tree integrity and Ed25519 signatures.
+- [QR Air-Gap Bridge](https://datacendia.com/demos.html#evidence): Zero-network data transfer via animated QR codes for air-gapped environments.
+
+## Key Differentiators
+
+- **Sovereign Architecture**: Runs entirely on-premise. Zero cloud dependency. Air-gap capable.
+- **Multi-Agent Deliberation**: Decisions stress-tested by 6+ AI agents with cross-examination.
+- **Cryptographic Evidence**: Every decision sealed with Merkle trees and digital signatures.
+- **Formal Dissent Protection**: Disagreement is preserved in tamper-proof records — never buried.
+- **Regulatory Compliance**: SOC 2 aligned, ISO 42001, NIST AI RMF, EU AI Act Article 14, Basel III, HIPAA ready.
+- **200K+ Automated Tests**: Verified test suite across 609 test files.
+
+## Industry Verticals
+
+- **Legal Governance**: AML/KYC compliance, PEP screening, OFAC sanctions, cross-jurisdiction harmonization.
+- **Sports Governance**: Transfer decisions, FFP compliance, wage analysis, UEFA/FIFA regulatory alignment.
+- **Financial Services**: Investment decisions, risk assessment, regulatory reporting.
+- **Healthcare**: HIPAA-compliant clinical decision support.
+- **Government & Defense**: Sovereign, air-gapped deployment for classified environments.
+
+## Pages
+
+- [Homepage](https://datacendia.com/): Platform overview and value proposition.
+- [Interactive Demos](https://datacendia.com/demos.html): 14 interactive product demonstrations.
+- [Try Your Decision](https://datacendia.com/demos/try.html): Type any business decision and watch AI agents deliberate it.
+- [Decision Maturity Assessment](https://datacendia.com/demos/maturity.html): 6-question organizational assessment.
+- [Before & After](https://datacendia.com/demos/before-after.html): Visual comparison of governed vs ungoverned decisions.
+- [Trust Center](https://datacendia.com/trust.html): Security posture, compliance artifacts, test results.
+- [Pricing](https://datacendia.com/pricing.html): Sovereign, Enterprise, and Department tier pricing.
+- [ROI Calculator](https://datacendia.com/roi-calculator.html): Calculate the cost of ungoverned decisions.
+- [Architecture](https://datacendia.com/architecture.html): Technical architecture and deployment patterns.
+- [Case Studies](https://datacendia.com/case-studies.html): Implementation examples and outcomes.
+- [API Documentation](https://datacendia.com/api-docs.html): REST API reference.
+- [Security Controls](https://datacendia.com/security-controls.html): Detailed security implementation.
+- [Industry Verticals](https://datacendia.com/verticals.html): Sector-specific governance solutions.
+- [Request Briefing](https://datacendia.com/briefing.html): Request a personalized technical briefing.
+- [Pilot Program](https://datacendia.com/pilot.html): Join the pilot evaluation program.
+
+## Resources
+
+- [The Council Deep Dive](https://datacendia.com/resources/the-council.html): How multi-agent deliberation works.
+- [Data Sovereignty Guide](https://datacendia.com/resources/data-sovereignty-guide.html): Why sovereignty matters for AI decisions.
+- [Air-Gapped Deployment](https://datacendia.com/resources/air-gapped-deployment.html): Deploying in disconnected environments.
+- [Compliance Framework](https://datacendia.com/resources/compliance.html): Regulatory alignment details.
+- [Sovereignty Matrix](https://datacendia.com/resources/sovereignty-matrix.html): Vendor sovereignty comparison.
+- [Integration Honesty Matrix](https://datacendia.com/resources/integration-honesty-matrix.html): Transparent integration readiness.
+
+## Learn
+
+- [What is AI Governance?](https://datacendia.com/learn/ai-governance/): Introduction to AI governance frameworks.
+- [Multi-Agent AI](https://datacendia.com/learn/multi-agent-ai/): How multi-agent systems improve decision quality.
+- [Decision Intelligence](https://datacendia.com/learn/decision-intelligence/): The discipline of organizational decision-making.
+- [EU AI Act Compliance](https://datacendia.com/learn/eu-ai-act-compliance/): Navigating EU AI Act requirements.
+- [Sovereign AI](https://datacendia.com/learn/sovereign-ai/): Why organizations need sovereign AI infrastructure.
+- [AI Audit Trails](https://datacendia.com/learn/ai-audit-trail/): Building defensible audit trails for AI decisions.
+- [HIPAA AI Compliance](https://datacendia.com/learn/hipaa-ai-compliance/): AI governance in healthcare.
+
+## Contact
+
+- **General**: contact@datacendia.com
+- **Security**: security@datacendia.com
+- **Website**: https://datacendia.com

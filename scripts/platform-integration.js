@@ -113,7 +113,7 @@ function launchLiveDemo(demoType = 'council') {
     council: `${PLATFORM_APP}/cortex/council?demo=true`,
     visualization: `${PLATFORM_APP}/cortex/council/visualization?demo=true`,
     'replay-theater': `${PLATFORM_APP}/cortex/council/replay-theater?demo=true`,
-    'regulators-receipt': `${PLATFORM_APP}/cortex/compliance/regulators-receipt?demo=true`,
+    'audit-provenance': `${PLATFORM_APP}/cortex/compliance/audit-provenance?demo=true`,
   };
   
   const url = demoUrls[demoType] || demoUrls.council;

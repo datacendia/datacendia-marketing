@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <defs>
+    <linearGradient id="qrGold" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#A07B1A" stop-opacity="0"/>
+      <stop offset="20%" stop-color="#C9A227"/>
+      <stop offset="50%" stop-color="#E8C840"/>
+      <stop offset="80%" stop-color="#C9A227"/>
+      <stop offset="100%" stop-color="#A07B1A" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="qrBlock" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1a1508"/>
+      <stop offset="100%" stop-color="#0f0d06"/>
+    </linearGradient>
+    <filter id="qrGlow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="qrBeamGlow">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <rect width="200" height="200" fill="#0a0a0a" rx="16"/>
+  <!-- Left obsidian block -->
+  <g filter="url(#qrGlow)">
+    <rect x="22" y="60" width="55" height="80" rx="4" fill="url(#qrBlock)" stroke="#A07B1A" stroke-width="0.8"/>
+    <!-- Block face highlight -->
+    <rect x="24" y="62" width="51" height="3" rx="1" fill="#E8C840" opacity="0.04"/>
+    <!-- QR pattern on left block -->
+    <g fill="#C9A227" opacity="0.4">
+      <rect x="32" y="74" width="6" height="6" rx="1"/>
+      <rect x="40" y="74" width="3" height="3" rx="0.5"/>
+      <rect x="46" y="74" width="6" height="6" rx="1"/>
+      <rect x="56" y="74" width="6" height="6" rx="1"/>
+      <rect x="32" y="82" width="3" height="3" rx="0.5"/>
+      <rect x="40" y="84" width="6" height="3" rx="0.5"/>
+      <rect x="52" y="82" width="3" height="3" rx="0.5"/>
+      <rect x="32" y="90" width="6" height="6" rx="1"/>
+      <rect x="44" y="92" width="3" height="3" rx="0.5"/>
+      <rect x="56" y="90" width="6" height="6" rx="1"/>
+      <rect x="36" y="100" width="3" height="3" rx="0.5"/>
+      <rect x="48" y="100" width="6" height="3" rx="0.5"/>
+      <rect x="32" y="108" width="6" height="6" rx="1"/>
+      <rect x="42" y="110" width="3" height="3" rx="0.5"/>
+      <rect x="56" y="108" width="6" height="6" rx="1"/>
+      <rect x="48" y="116" width="3" height="3" rx="0.5"/>
+      <rect x="32" y="120" width="3" height="3" rx="0.5"/>
+    </g>
+  </g>
+  <!-- Right obsidian block -->
+  <g filter="url(#qrGlow)">
+    <rect x="123" y="60" width="55" height="80" rx="4" fill="url(#qrBlock)" stroke="#A07B1A" stroke-width="0.8"/>
+    <rect x="125" y="62" width="51" height="3" rx="1" fill="#E8C840" opacity="0.04"/>
+    <!-- QR pattern on right block -->
+    <g fill="#C9A227" opacity="0.4">
+      <rect x="133" y="74" width="6" height="6" rx="1"/>
+      <rect x="141" y="74" width="3" height="3" rx="0.5"/>
+      <rect x="148" y="74" width="6" height="6" rx="1"/>
+      <rect x="157" y="76" width="6" height="6" rx="1"/>
+      <rect x="133" y="82" width="3" height="3" rx="0.5"/>
+      <rect x="142" y="84" width="6" height="3" rx="0.5"/>
+      <rect x="153" y="82" width="3" height="3" rx="0.5"/>
+      <rect x="133" y="90" width="6" height="6" rx="1"/>
+      <rect x="145" y="92" width="3" height="3" rx="0.5"/>
+      <rect x="157" y="90" width="6" height="6" rx="1"/>
+      <rect x="137" y="100" width="3" height="3" rx="0.5"/>
+      <rect x="149" y="100" width="6" height="3" rx="0.5"/>
+      <rect x="133" y="108" width="6" height="6" rx="1"/>
+      <rect x="143" y="110" width="3" height="3" rx="0.5"/>
+      <rect x="157" y="108" width="6" height="6" rx="1"/>
+      <rect x="149" y="116" width="3" height="3" rx="0.5"/>
+      <rect x="133" y="120" width="3" height="3" rx="0.5"/>
+    </g>
+  </g>
+  <!-- Golden light beam / shimmer between blocks -->
+  <g filter="url(#qrBeamGlow)">
+    <!-- Main beam -->
+    <rect x="78" y="92" width="44" height="16" rx="8" fill="url(#qrGold)" opacity="0.7"/>
+    <!-- Beam particles -->
+    <circle cx="85" cy="100" r="1.5" fill="#E8C840" opacity="0.9"/>
+    <circle cx="92" cy="97" r="1" fill="#E8C840" opacity="0.7"/>
+    <circle cx="100" cy="100" r="2" fill="#E8C840" opacity="1"/>
+    <circle cx="108" cy="103" r="1" fill="#E8C840" opacity="0.7"/>
+    <circle cx="115" cy="100" r="1.5" fill="#E8C840" opacity="0.9"/>
+    <!-- Secondary shimmer lines -->
+    <line x1="80" y1="96" x2="120" y2="96" stroke="#E8C840" stroke-width="0.5" opacity="0.3"/>
+    <line x1="80" y1="104" x2="120" y2="104" stroke="#E8C840" stroke-width="0.5" opacity="0.3"/>
+  </g>
+  <!-- Gap indicator arrows -->
+  <path d="M76 100 L80 96 L80 104Z" fill="#C9A227" opacity="0.5"/>
+  <path d="M124 100 L120 96 L120 104Z" fill="#C9A227" opacity="0.5"/>
+  <!-- Label -->
+  <text x="100" y="166" font-family="Georgia, serif" font-size="10" fill="#C9A227" text-anchor="middle" letter-spacing="0.08em" opacity="0.9">QR AIR-GAP BRIDGE</text>
+</svg>

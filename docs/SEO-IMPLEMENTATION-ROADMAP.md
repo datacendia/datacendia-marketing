@@ -92,7 +92,7 @@
    - Control-ready architecture
    - Moderate baseline alignment
 8. Compliance frameworks comparison table
-9. Audit evidence generation (Decision DNA)
+9. Audit evidence generation (Audit Provenance)
 10. FAQ for CISOs/compliance officers
 11. Downloadable compliance checklists (lead magnets)
 
@@ -333,7 +333,7 @@ These changes take 15 minutes and fix 80% of SEO issues:
   "featureList": [
     "Air-gapped deployment",
     "Multi-agent deliberation (The Council)",
-    "Cryptographic audit trails (Decision DNA)",
+    "Cryptographic audit trails (Audit Provenance)",
     "SOC 2 Type II in progress",
     "NIST 800-53 control mapping",
     "Full decision explainability"
@@ -346,7 +346,7 @@ These changes take 15 minutes and fix 80% of SEO issues:
 <img src="CendiaAudit1.png" alt="Datacendia audit packet generation showing cryptographic evidence trail">
 <img src="CendiaAudit2.png" alt="Compliance control mapping across SOC 2, NIST 800-53, ISO 27001">
 <img src="CendiaAudit3.png" alt="Regulator-ready audit evidence export with cryptographic signatures">
-<img src="CendiaWitness.png" alt="Decision DNA cryptographic audit trail for regulatory compliance">
+<img src="CendiaWitness.png" alt="Audit Provenance cryptographic audit trail for regulatory compliance">
 ```
 
 ---

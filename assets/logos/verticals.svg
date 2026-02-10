@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <defs>
+    <linearGradient id="vtGold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#E8C840"/>
+      <stop offset="100%" stop-color="#A07B1A"/>
+    </linearGradient>
+    <filter id="vtGlow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <radialGradient id="vtBg" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#C9A227" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#C9A227" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="200" height="200" fill="#0a0a0a" rx="16"/>
+  <circle cx="100" cy="95" r="75" fill="url(#vtBg)"/>
+  <g filter="url(#vtGlow)">
+    <!-- Central hub -->
+    <circle cx="100" cy="80" r="14" fill="none" stroke="url(#vtGold)" stroke-width="2" opacity="0.8"/>
+    <circle cx="100" cy="80" r="6" fill="#E8C840" opacity="0.85"/>
+    <!-- Industry vertical spokes radiating outward -->
+    <line x1="100" y1="66" x2="100" y2="30" stroke="#C9A227" stroke-width="1.2" opacity="0.5"/>
+    <line x1="113" y1="71" x2="145" y2="42" stroke="#C9A227" stroke-width="1.2" opacity="0.5"/>
+    <line x1="114" y1="80" x2="155" y2="80" stroke="#C9A227" stroke-width="1.2" opacity="0.5"/>
+    <line x1="113" y1="89" x2="145" y2="118" stroke="#C9A227" stroke-width="1.2" opacity="0.5"/>
+    <line x1="100" y1="94" x2="100" y2="130" stroke="#C9A227" stroke-width="1.2" opacity="0.5"/>
+    <line x1="87" y1="89" x2="55" y2="118" stroke="#C9A227" stroke-width="1.2" opacity="0.5"/>
+    <line x1="86" y1="80" x2="45" y2="80" stroke="#C9A227" stroke-width="1.2" opacity="0.5"/>
+    <line x1="87" y1="71" x2="55" y2="42" stroke="#C9A227" stroke-width="1.2" opacity="0.5"/>
+    <!-- Industry nodes -->
+    <circle cx="100" cy="28" r="7" fill="none" stroke="#E8C840" stroke-width="1.5" opacity="0.7"/>
+    <rect x="96" y="24" width="8" height="8" fill="#E8C840" opacity="0.6" rx="1"/>
+    <circle cx="147" cy="40" r="7" fill="none" stroke="#C9A227" stroke-width="1.5" opacity="0.6"/>
+    <rect x="143" y="36" width="8" height="8" fill="#C9A227" opacity="0.5" rx="1"/>
+    <circle cx="157" cy="80" r="7" fill="none" stroke="#C9A227" stroke-width="1.5" opacity="0.6"/>
+    <rect x="153" y="76" width="8" height="8" fill="#C9A227" opacity="0.5" rx="1"/>
+    <circle cx="147" cy="120" r="7" fill="none" stroke="#C9A227" stroke-width="1.5" opacity="0.6"/>
+    <rect x="143" y="116" width="8" height="8" fill="#C9A227" opacity="0.5" rx="1"/>
+    <circle cx="100" cy="132" r="7" fill="none" stroke="#C9A227" stroke-width="1.5" opacity="0.6"/>
+    <rect x="96" y="128" width="8" height="8" fill="#C9A227" opacity="0.5" rx="1"/>
+    <circle cx="53" cy="120" r="7" fill="none" stroke="#C9A227" stroke-width="1.5" opacity="0.55"/>
+    <rect x="49" y="116" width="8" height="8" fill="#C9A227" opacity="0.45" rx="1"/>
+    <circle cx="43" cy="80" r="7" fill="none" stroke="#C9A227" stroke-width="1.5" opacity="0.55"/>
+    <rect x="39" y="76" width="8" height="8" fill="#C9A227" opacity="0.45" rx="1"/>
+    <circle cx="53" cy="40" r="7" fill="none" stroke="#C9A227" stroke-width="1.5" opacity="0.55"/>
+    <rect x="49" y="36" width="8" height="8" fill="#C9A227" opacity="0.45" rx="1"/>
+  </g>
+  <text x="100" y="158" font-family="Georgia, serif" font-size="9" fill="#C9A227" text-anchor="middle" letter-spacing="0.1em" opacity="0.9">INDUSTRY VERTICALS</text>
+</svg>

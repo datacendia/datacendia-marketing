@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <defs>
+    <linearGradient id="dpGold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#E8C840"/>
+      <stop offset="100%" stop-color="#A07B1A"/>
+    </linearGradient>
+    <filter id="dpGlow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <radialGradient id="dpBg" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#C9A227" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#C9A227" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="200" height="200" fill="#0a0a0a" rx="16"/>
+  <circle cx="100" cy="95" r="75" fill="url(#dpBg)"/>
+  <g filter="url(#dpGlow)">
+    <!-- Shield shape representing platform trust -->
+    <path d="M100 28 L150 50 L150 95 C150 120 130 140 100 148 C70 140 50 120 50 95 L50 50 Z" fill="none" stroke="url(#dpGold)" stroke-width="2.5" opacity="0.8"/>
+    <path d="M100 38 L142 56 L142 93 C142 114 125 132 100 139 C75 132 58 114 58 93 L58 56 Z" fill="none" stroke="#C9A227" stroke-width="0.8" opacity="0.2"/>
+    <!-- D letterform -->
+    <path d="M82 65 L82 110 L100 110 C118 110 130 98 130 87.5 C130 77 118 65 100 65 Z" fill="none" stroke="#E8C840" stroke-width="2.5" opacity="0.75"/>
+    <path d="M82 72 L82 103 L98 103 C112 103 122 96 122 87.5 C122 79 112 72 98 72 Z" fill="none" stroke="#C9A227" stroke-width="0.8" opacity="0.25"/>
+    <!-- Inner glow dot -->
+    <circle cx="100" cy="87.5" r="5" fill="#E8C840" opacity="0.7"/>
+  </g>
+  <text x="100" y="168" font-family="Georgia, serif" font-size="9" fill="#C9A227" text-anchor="middle" letter-spacing="0.1em" opacity="0.9">DATACENDIA</text>
+</svg>

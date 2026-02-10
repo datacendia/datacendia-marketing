@@ -4,602 +4,603 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CendiaChronos™ — Time Travel Demo | Datacendia</title>
-  <meta name="description" content="Interactive organizational time travel. Rewind, replay, and fast-forward through pivotal moments in organizational history.">
+  <meta name="description" content="Interactive organizational time travel. Rewind, replay, and fast-forward through pivotal moments.">
   <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="demo-platform.css">
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #0a0a0a; color: #e5e5e5; font-family: 'Inter', -apple-system, sans-serif; line-height: 1.6; }
+    body{margin:0;background:#0a0a0a;color:#e5e5e5;font-family:'Inter',sans-serif;overflow-x:hidden}
+    .chronos-page{padding:0 24px 24px;max-width:1400px;margin:0 auto}
 
-    .platform-bar {
-      display: flex; align-items: center; gap: 12px;
-      padding: 10px 20px; background: #111; border-bottom: 1px solid #1e1e2e; font-size: 0.8rem;
-    }
-    .platform-bar .logo { font-weight: 700; color: #c9a227; letter-spacing: 0.05em; }
-    .platform-bar .breadcrumb { color: #6b7280; }
-    .platform-bar .breadcrumb span { color: #e5e5e5; }
-    .platform-bar .back { color: #6b7280; text-decoration: none; font-size: 0.75rem; margin-left: auto; }
-    .platform-bar .back:hover { color: #c9a227; }
-    .platform-bar .demo-pill { padding: 2px 8px; background: rgba(34,197,94,0.15); color: #22c55e; border-radius: 10px; font-size: 0.6rem; font-family: 'JetBrains Mono', monospace; font-weight: 600; }
+    /* Chronos Header */
+    .chronos-header{background:linear-gradient(135deg,#1a0e00 0%,#2d1800 30%,#1a1a2e 100%);border:1px solid #3f2800;border-radius:16px;padding:24px 28px;margin-bottom:16px;display:flex;align-items:center;justify-content:space-between}
+    .ch-left{display:flex;align-items:center;gap:16px}
+    .ch-icon{width:48px;height:48px;background:linear-gradient(135deg,#f59e0b,#d97706);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.5rem}
+    .ch-title{font-size:1.6rem;font-weight:700;color:#fff}.ch-subtitle{font-size:.85rem;color:#a1a1aa}
+    .ch-druid{display:inline-flex;align-items:center;gap:4px;padding:4px 10px;background:rgba(34,197,94,.1);border:1px solid rgba(34,197,94,.3);border-radius:8px;font-size:.65rem;color:#22c55e;margin-top:6px}
+    .ch-modes{display:flex;gap:8px}
+    .ch-mode{padding:10px 20px;border:2px solid #3f3f46;border-radius:12px;background:transparent;color:#a1a1aa;font-size:.85rem;font-weight:600;cursor:pointer;transition:all .2s;font-family:'Inter',sans-serif;display:flex;align-items:center;gap:6px}
+    .ch-mode:hover{border-color:#f59e0b;color:#f59e0b}
+    .ch-mode.active{border-color:#f59e0b;color:#f59e0b;background:rgba(245,158,11,.08)}
+    .ch-mode.active.replay{border-color:#a855f7;color:#a855f7;background:rgba(168,85,247,.08)}
+    .ch-mode.active.forward{border-color:#06b6d4;color:#06b6d4;background:rgba(6,182,212,.08)}
 
-    .app-layout { display: flex; height: calc(100vh - 41px); overflow: hidden; }
-    .sidebar { width: 280px; background: #111; border-right: 1px solid #1e1e2e; display: flex; flex-direction: column; flex-shrink: 0; overflow-y: auto; }
-    .main-panel { flex: 1; display: flex; flex-direction: column; overflow: hidden; }
+    /* Audit Banner */
+    .audit-banner{background:linear-gradient(135deg,rgba(245,158,11,.08),rgba(217,119,6,.04));border:1px solid rgba(245,158,11,.2);border-radius:12px;padding:12px 20px;margin-bottom:16px;font-size:.82rem;color:#fbbf24}
+    .audit-banner strong{color:#f59e0b}
 
-    .sb-section { padding: 16px; border-bottom: 1px solid #1e1e2e; }
-    .sb-label { font-size: 0.6rem; font-weight: 600; color: #6b7280; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 10px; }
+    /* Status Bar */
+    .status-bar{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:16px;padding:12px 16px;background:#111;border:1px solid #1f1f1f;border-radius:12px}
+    .sb-group{display:flex;align-items:center;gap:8px}
+    .sb-label{font-size:.65rem;color:#6b7280;text-transform:uppercase;letter-spacing:.05em;font-weight:600}
+    .sb-item{display:flex;align-items:center;gap:4px;font-size:.7rem;color:#a1a1aa}
+    .sb-dot{width:6px;height:6px;border-radius:50%;background:#22c55e}
+    .sb-sep{width:1px;height:20px;background:#27272a;margin:0 8px}
+    .sb-badge{padding:2px 8px;border-radius:6px;font-size:.6rem;font-weight:700;font-family:'JetBrains Mono',monospace}
+    .sb-sox{background:rgba(245,158,11,.15);color:#f59e0b}.sb-sec{background:rgba(59,130,246,.15);color:#3b82f6}
+    .sb-fedramp{background:rgba(34,197,94,.15);color:#22c55e}.sb-gdpr{background:rgba(168,85,247,.15);color:#a855f7}
+    .action-btn{width:56px;height:56px;border-radius:16px;border:1px solid #27272a;background:#18181b;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;cursor:pointer;transition:all .2s;font-size:.55rem;color:#71717a;font-family:'Inter',sans-serif}
+    .action-btn:hover{border-color:#f59e0b;color:#f59e0b;background:#1a1a1a}
+    .action-btn .ab-icon{font-size:1.1rem}
+    .action-btn.ab-active{border-color:#22c55e;color:#22c55e;background:rgba(34,197,94,.06)}
 
-    /* Mode Tabs */
-    .mode-tabs { display: flex; gap: 4px; }
-    .mode-tab {
-      flex: 1; padding: 8px 6px; border: 1px solid #2a2a3e; border-radius: 8px;
-      background: #1a1a2e; color: #6b7280; font-size: 0.7rem; cursor: pointer;
-      text-align: center; transition: all 0.2s; font-family: 'Inter', sans-serif;
-    }
-    .mode-tab.active { border-color: #f59e0b; color: #f59e0b; background: rgba(245,158,11,0.08); }
-    .mode-tab:hover:not(.active) { border-color: #4b5563; color: #9ca3af; }
+    /* Enhanced Views */
+    .views-bar{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px}
+    .views-tabs{display:flex;gap:4px}
+    .view-tab{padding:8px 16px;border-radius:10px;font-size:.78rem;font-weight:500;cursor:pointer;transition:all .2s;color:#71717a;background:transparent;border:none;font-family:'Inter',sans-serif;display:flex;align-items:center;gap:6px}
+    .view-tab:hover{color:#d4d4d8;background:#18181b}
+    .view-tab.active{color:#fff;background:#f59e0b;font-weight:600}
+    .views-actions{display:flex;gap:8px}
+    .va-btn{padding:8px 14px;border:1px solid #27272a;border-radius:10px;background:transparent;color:#a1a1aa;font-size:.75rem;cursor:pointer;transition:all .2s;font-family:'Inter',sans-serif;display:flex;align-items:center;gap:6px}
+    .va-btn:hover{border-color:#f59e0b;color:#f59e0b}
 
-    /* Time Slider */
-    .time-slider-container { padding: 0 4px; }
-    .time-display { text-align: center; margin-bottom: 8px; }
-    .time-date { font-size: 1.1rem; font-weight: 600; color: #fff; font-family: 'JetBrains Mono', monospace; }
-    .time-label { font-size: 0.6rem; color: #6b7280; }
-    input[type=range] {
-      width: 100%; -webkit-appearance: none; background: transparent; cursor: pointer;
-    }
-    input[type=range]::-webkit-slider-track {
-      height: 4px; background: #374151; border-radius: 2px;
-    }
-    input[type=range]::-webkit-slider-thumb {
-      -webkit-appearance: none; width: 16px; height: 16px; border-radius: 50%;
-      background: #f59e0b; margin-top: -6px; box-shadow: 0 0 8px rgba(245,158,11,0.4);
-    }
-    .playback-controls { display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 8px; }
-    .play-btn {
-      padding: 4px 12px; border: 1px solid #2a2a3e; border-radius: 6px;
-      background: #1a1a2e; color: #d1d5db; font-size: 0.75rem; cursor: pointer;
-      transition: all 0.2s; font-family: 'Inter', sans-serif;
-    }
-    .play-btn:hover { border-color: #f59e0b; color: #f59e0b; }
-    .play-btn.active { background: #f59e0b; color: #000; border-color: #f59e0b; }
-    .speed-label { font-size: 0.6rem; color: #6b7280; }
+    /* Timeline Scrubber */
+    .scrubber-card{background:#111;border:1px solid #1f1f1f;border-radius:16px;padding:24px;margin-bottom:20px}
+    .scrubber-dates{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+    .scrubber-date-edge{font-size:.78rem;color:#6b7280}
+    .scrubber-date-center{text-align:center}
+    .scrubber-day{font-size:1.5rem;font-weight:700;background:linear-gradient(135deg,#f59e0b,#d97706);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+    .scrubber-time{font-size:.85rem;color:#a1a1aa}
+    .scrubber-track{position:relative;height:48px;background:#1a1a1a;border-radius:12px;cursor:pointer;overflow:hidden;margin-bottom:8px;user-select:none}
+    .scrubber-fill{position:absolute;inset:0;width:0;background:linear-gradient(90deg,rgba(245,158,11,.25),rgba(245,158,11,.08));border-radius:12px;transition:width .3s}
+    .scrubber-marker{position:absolute;top:4px;bottom:4px;width:3px;border-radius:2px;cursor:pointer;transition:all .15s}
+    .scrubber-marker:hover{width:5px;opacity:1!important}
+    .scrubber-marker.m-positive{background:#22c55e;opacity:.7}.scrubber-marker.m-negative{background:#ef4444;opacity:.7}
+    .scrubber-marker.m-decision{background:#f59e0b;opacity:.7}.scrubber-marker.m-other{background:#3b82f6;opacity:.7}
+    .scrubber-playhead{position:absolute;top:0;bottom:0;width:3px;background:linear-gradient(180deg,#f59e0b,#d97706);z-index:5;transition:left .3s}
+    .scrubber-playhead::before{content:'';position:absolute;top:-6px;left:50%;transform:translateX(-50%);width:18px;height:18px;border-radius:50%;background:linear-gradient(135deg,#f59e0b,#d97706);border:2px solid #fff;box-shadow:0 0 12px rgba(245,158,11,.5)}
+    .scrubber-legend{display:flex;align-items:center;justify-content:space-between;font-size:.7rem;color:#6b7280}
+    .legend-items{display:flex;align-items:center;gap:12px}
+    .legend-dot{display:flex;align-items:center;gap:4px}
+    .legend-dot::before{content:'';width:7px;height:7px;border-radius:50%}
+    .legend-dot.ld-pos::before{background:#22c55e}.legend-dot.ld-neg::before{background:#ef4444}
+    .legend-dot.ld-dec::before{background:#f59e0b}.legend-dot.ld-oth::before{background:#3b82f6}
 
-    /* Department Filter */
-    .dept-select {
-      width: 100%; padding: 8px 12px; background: #1a1a2e; border: 1px solid #2a2a3e;
-      border-radius: 8px; color: #d1d5db; font-size: 0.8rem; font-family: 'Inter', sans-serif;
-    }
-    .dept-select:focus { outline: none; border-color: #f59e0b; }
+    /* Controls */
+    .controls{display:flex;align-items:center;justify-content:center;gap:12px;margin:16px 0}
+    .ctrl-btn{padding:8px 12px;background:#18181b;border:1px solid #27272a;border-radius:10px;color:#a1a1aa;cursor:pointer;transition:all .2s;font-size:1rem}
+    .ctrl-btn:hover{border-color:#f59e0b;color:#f59e0b}
+    .ctrl-play{padding:10px 28px;border:none;border-radius:12px;font-size:.9rem;font-weight:600;cursor:pointer;transition:all .2s;font-family:'Inter',sans-serif;display:flex;align-items:center;gap:6px}
+    .ctrl-play.playing{background:#ef4444;color:#fff}
+    .ctrl-play.paused{background:linear-gradient(135deg,#f59e0b,#d97706);color:#fff}
+    .speed-group{display:flex;align-items:center;gap:4px;margin-left:16px}
+    .speed-label{font-size:.75rem;color:#6b7280}
+    .speed-btn{padding:4px 8px;border:1px solid #27272a;border-radius:6px;font-size:.7rem;color:#71717a;cursor:pointer;transition:all .15s;background:transparent;font-family:'JetBrains Mono',monospace}
+    .speed-btn:hover{border-color:#52525b;color:#a1a1aa}
+    .speed-btn.active{background:#fff;color:#0a0a0a;border-color:#fff}
+    .speed-btn.slow{background:rgba(245,158,11,.15);color:#f59e0b;border-color:rgba(245,158,11,.3)}
+    .speed-btn.slow.active{background:#f59e0b;color:#000}
+
+    /* Quick Jump */
+    .quick-jumps{display:flex;align-items:center;justify-content:center;gap:6px;margin-bottom:8px}
+    .qj-btn{padding:6px 14px;border-radius:20px;font-size:.72rem;background:#18181b;color:#a1a1aa;border:none;cursor:pointer;transition:all .2s;font-family:'Inter',sans-serif}
+    .qj-btn:hover{background:#27272a;color:#fff}
+    .qj-btn.qj-date{background:linear-gradient(135deg,#d97706,#f59e0b);color:#fff;font-weight:600}
+
+    /* Chronos Tip */
+    .chronos-tip{text-align:center;font-size:.75rem;color:#6b7280;margin-bottom:20px}
+    .chronos-tip span{color:#f59e0b}
+
+    /* Main Grid */
+    .main-grid{display:grid;grid-template-columns:1fr 340px;gap:20px}
+    @media(max-width:1000px){.main-grid{grid-template-columns:1fr}}
+
+    /* Organization State */
+    .org-card{background:#111;border:1px solid #1f1f1f;border-radius:16px;padding:20px}
+    .org-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:4px}
+    .org-title{font-size:1.1rem;font-weight:600;display:flex;align-items:center;gap:8px}
+    .org-filter{display:flex;align-items:center;gap:8px}
+    .org-select{padding:6px 12px;background:#18181b;border:1px solid #27272a;border-radius:8px;color:#a1a1aa;font-size:.75rem;font-family:'Inter',sans-serif;cursor:pointer}
+    .org-council{padding:6px 14px;background:#22c55e;border:none;border-radius:8px;color:#fff;font-size:.75rem;font-weight:600;cursor:pointer;display:flex;align-items:center;gap:4px;font-family:'Inter',sans-serif}
+    .org-timestamp{font-size:.7rem;color:#6b7280;margin-bottom:16px}
+    .insight-card{background:linear-gradient(135deg,rgba(16,185,129,.08),rgba(6,182,212,.05));border:1px solid rgba(16,185,129,.2);border-radius:14px;padding:14px 16px;margin-bottom:16px;display:flex;align-items:center;justify-content:space-between}
+    .insight-left{display:flex;align-items:center;gap:12px}
+    .insight-icon{font-size:1.5rem}
+    .insight-label{font-size:.75rem;color:#a1a1aa}
+    .insight-val{font-size:1.1rem;font-weight:700;color:#fff}
+    .insight-val .healthy{color:#22c55e;font-size:.85rem;font-weight:500;margin-left:8px}
+    .insight-right{text-align:right}
+    .insight-right .label{font-size:.65rem;color:#6b7280}.insight-right .val{font-size:.9rem;font-weight:600;color:#22c55e}
 
     /* Metrics Grid */
-    .metrics-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
-    .metric-card {
-      padding: 10px 12px; background: #1a1a2e; border: 1px solid #2a2a3e; border-radius: 8px;
-    }
-    .metric-label { font-size: 0.6rem; color: #6b7280; text-transform: uppercase; letter-spacing: 0.05em; }
-    .metric-value { font-size: 1rem; font-weight: 600; font-family: 'JetBrains Mono', monospace; }
-    .metric-change { font-size: 0.6rem; font-weight: 500; }
-    .metric-change.up { color: #22c55e; }
-    .metric-change.down { color: #ef4444; }
+    .metrics-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+    .metric-card{background:#18181b;border:1px solid #1f1f1f;border-radius:12px;padding:14px}
+    .metric-icon{font-size:.85rem;margin-bottom:4px}
+    .metric-label{font-size:.65rem;color:#6b7280;margin-bottom:2px}
+    .metric-val{font-size:1.3rem;font-weight:700;color:#fff;font-family:'JetBrains Mono',monospace}
+    @media(max-width:600px){.metrics-grid{grid-template-columns:repeat(2,1fr)}}
 
-    /* Main: Header */
-    .main-header {
-      padding: 16px 24px; border-bottom: 1px solid #1e1e2e; background: #111;
-      display: flex; align-items: center; justify-content: space-between;
-    }
-    .main-title { font-size: 0.9rem; font-weight: 600; color: #fff; display: flex; align-items: center; gap: 8px; }
-    .main-badges { display: flex; gap: 6px; align-items: center; }
-    .badge { padding: 3px 10px; border-radius: 4px; font-size: 0.65rem; font-weight: 600; font-family: 'JetBrains Mono', monospace; }
+    /* Events Panel */
+    .events-card{background:#111;border:1px solid #1f1f1f;border-radius:16px;padding:16px}
+    .events-title{font-size:1.1rem;font-weight:600;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+    .event-filters{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:12px}
+    .ef-btn{padding:4px 10px;border-radius:20px;font-size:.65rem;border:1px solid transparent;background:#18181b;color:#71717a;cursor:pointer;transition:all .15s;font-family:'Inter',sans-serif}
+    .ef-btn:hover{color:#a1a1aa;background:#27272a}
+    .ef-btn.active{background:rgba(255,255,255,.12);color:#fff;border-color:rgba(255,255,255,.2)}
+    .event-list{max-height:500px;overflow-y:auto;display:flex;flex-direction:column;gap:8px}
+    .event-item{padding:10px 12px;border-radius:10px;cursor:pointer;transition:all .2s;border:1px solid transparent}
+    .event-item:hover{background:#1a1a1a}
+    .event-item.ei-pos{background:rgba(34,197,94,.04)}.event-item.ei-neg{background:rgba(239,68,68,.04)}
+    .event-item.ei-neutral{background:rgba(59,130,246,.04)}
+    .ei-header{display:flex;align-items:start;gap:8px}
+    .ei-icon{font-size:1rem;flex-shrink:0;margin-top:2px}
+    .ei-body{flex:1;min-width:0}
+    .ei-title{font-size:.82rem;font-weight:500;color:#e5e5e5;display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+    .ei-severity{padding:1px 6px;border-radius:4px;font-size:.55rem;font-weight:600}
+    .ei-sev-crit{background:rgba(239,68,68,.2);color:#f87171}.ei-sev-major{background:rgba(34,197,94,.2);color:#4ade80}
+    .ei-sev-high{background:rgba(245,158,11,.2);color:#fbbf24}
+    .ei-meta{font-size:.65rem;color:#6b7280;margin-top:2px}
+    .ei-actions{display:flex;flex-direction:column;gap:4px;flex-shrink:0}
+    .ei-witness{padding:3px 8px;border-radius:6px;font-size:.6rem;background:rgba(6,182,212,.15);color:#22d3ee;border:none;cursor:pointer;transition:all .15s;font-family:'Inter',sans-serif}
+    .ei-witness:hover{background:rgba(6,182,212,.25)}
+    .ei-replay{padding:3px 8px;border-radius:6px;font-size:.6rem;background:rgba(245,158,11,.15);color:#fbbf24;border:none;cursor:pointer}
 
-    /* Content Grid */
-    .content-area { flex: 1; overflow-y: auto; padding: 20px 24px; }
-    .content-grid { display: grid; grid-template-columns: 1fr 340px; gap: 20px; }
+    /* Demo CTA */
+    .demo-cta{text-align:center;margin-top:24px;padding:24px;background:linear-gradient(135deg,rgba(245,158,11,.06),rgba(6,182,212,.04));border:1px solid rgba(245,158,11,.15);border-radius:16px}
+    .demo-cta h3{font-size:1.1rem;font-weight:600;color:#fbbf24;margin:0 0 6px}
+    .demo-cta p{font-size:.82rem;color:#a1a1aa;margin:0 0 12px}
+    .demo-cta a{display:inline-block;padding:10px 24px;background:linear-gradient(135deg,#f59e0b,#d97706);color:#fff;text-decoration:none;border-radius:10px;font-weight:600;font-size:.85rem;transition:all .2s}
+    .demo-cta a:hover{opacity:.9;transform:translateY(-1px)}
 
-    /* State Panel */
-    .state-panel { background: #111; border: 1px solid #1e1e2e; border-radius: 16px; padding: 20px; }
-    .state-panel h3 { font-size: 0.85rem; font-weight: 600; margin-bottom: 12px; display: flex; align-items: center; gap: 6px; }
-    .state-metrics { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-    .sm-card { padding: 12px; background: #1a1a2e; border-radius: 10px; }
-    .sm-label { font-size: 0.6rem; color: #6b7280; text-transform: uppercase; }
-    .sm-value { font-size: 1.1rem; font-weight: 600; font-family: 'JetBrains Mono', monospace; margin-top: 2px; }
-    .sm-sub { font-size: 0.6rem; margin-top: 2px; }
-
-    /* Council State */
-    .council-agents { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 8px; }
-    .ca-pill { padding: 3px 8px; background: #1f2937; border-radius: 6px; font-size: 0.65rem; color: #d1d5db; display: flex; align-items: center; gap: 4px; }
-    .ca-dot { width: 6px; height: 6px; border-radius: 50%; }
-
-    /* Graph State */
-    .graph-viz { height: 100px; background: #0f172a; border-radius: 8px; position: relative; overflow: hidden; margin-top: 8px; }
-    .graph-stat { position: absolute; padding: 2px 6px; background: rgba(0,0,0,0.6); border-radius: 4px; font-size: 0.6rem; }
-
-    /* Events */
-    .events-panel { background: #111; border: 1px solid #1e1e2e; border-radius: 16px; padding: 20px; }
-    .events-panel h3 { font-size: 0.85rem; font-weight: 600; margin-bottom: 12px; }
-    .event-list { display: flex; flex-direction: column; gap: 8px; max-height: 400px; overflow-y: auto; }
-    .ev-card {
-      padding: 12px; background: #1a1a2e; border: 1px solid #2a2a3e; border-radius: 10px;
-      cursor: pointer; transition: all 0.2s;
-    }
-    .ev-card:hover { border-color: #f59e0b; }
-    .ev-card.pivotal { border-left: 3px solid #f59e0b; }
-    .ev-card.negative { border-left: 3px solid #ef4444; }
-    .ev-card.positive { border-left: 3px solid #22c55e; }
-    .ev-card.selected { border-color: #f59e0b; background: rgba(245,158,11,0.05); }
-    .ev-date { font-size: 0.6rem; color: #6b7280; font-family: 'JetBrains Mono', monospace; }
-    .ev-title { font-size: 0.8rem; font-weight: 500; color: #fff; margin: 2px 0; }
-    .ev-dept { font-size: 0.55rem; padding: 1px 6px; border-radius: 3px; font-family: 'JetBrains Mono', monospace; }
-    .ev-desc { font-size: 0.75rem; color: #9ca3af; margin-top: 4px; }
-    .ev-tags { display: flex; gap: 4px; margin-top: 6px; flex-wrap: wrap; }
-    .ev-tag { padding: 1px 6px; border-radius: 3px; font-size: 0.55rem; font-family: 'JetBrains Mono', monospace; }
-
-    /* Event Detail */
-    .ev-detail { display: none; margin-top: 8px; padding: 10px; background: #0f172a; border-radius: 6px; font-size: 0.75rem; color: #9ca3af; line-height: 1.7; }
-    .ev-detail.open { display: block; }
-    .ev-detail strong { color: #e5e5e5; }
-
-    /* Pivotal Moments Panel */
-    .pivot-panel { background: #111; border: 1px solid #1e1e2e; border-radius: 16px; padding: 16px; margin-top: 20px; }
-    .pivot-panel h3 { font-size: 0.75rem; font-weight: 600; color: #6b7280; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 10px; display: flex; align-items: center; gap: 6px; }
-    .pivot-item {
-      padding: 10px; background: #1a1a2e; border-radius: 8px; margin-bottom: 6px;
-      cursor: pointer; transition: all 0.2s;
-    }
-    .pivot-item:hover { background: #1f2937; }
-    .pivot-header { display: flex; align-items: center; justify-content: space-between; }
-    .pivot-name { font-size: 0.8rem; font-weight: 500; }
-    .pivot-sig { font-size: 0.6rem; padding: 2px 8px; border-radius: 10px; display: flex; align-items: center; gap: 3px; }
-    .pivot-reason { font-size: 0.65rem; color: #6b7280; margin-top: 3px; }
-    .pivot-actions { display: flex; gap: 4px; margin-top: 6px; }
-    .pivot-btn { padding: 3px 8px; font-size: 0.6rem; border: none; border-radius: 4px; cursor: pointer; transition: all 0.2s; font-family: 'Inter', sans-serif; }
-
-    /* AI Insight */
-    .ai-insight { background: linear-gradient(135deg, rgba(245,158,11,0.06), rgba(245,158,11,0.02)); border: 1px solid rgba(245,158,11,0.2); border-radius: 16px; padding: 20px; margin-top: 20px; }
-    .ai-insight h3 { font-size: 0.85rem; font-weight: 600; color: #f59e0b; margin-bottom: 10px; }
-    .ai-insight p { font-size: 0.8rem; color: #9ca3af; line-height: 1.7; margin-bottom: 6px; }
-    .ai-insight strong { color: #e5e5e5; }
-
-    /* CTA */
-    .demo-cta { text-align: center; margin-top: 24px; padding: 32px; background: #111; border: 1px solid #1e1e2e; border-radius: 12px; }
-    .demo-cta h3 { font-size: 1.1rem; font-weight: 300; color: #fff; margin-bottom: 6px; }
-    .demo-cta p { font-size: 0.8rem; color: #6b7280; margin-bottom: 16px; }
-    .demo-cta a { display: inline-block; padding: 10px 24px; background: #f59e0b; border-radius: 8px; color: #000; text-decoration: none; font-weight: 600; font-size: 0.8rem; }
-
-    @media (max-width: 900px) {
-      .sidebar { display: none; }
-      .content-grid { grid-template-columns: 1fr; }
-    }
+    .ph-back{position:absolute;right:16px;top:50%;transform:translateY(-50%);font-size:.7rem;color:#71717a;text-decoration:none;padding:4px 10px;border:1px solid #27272a;border-radius:8px;transition:all .2s}
+    .ph-back:hover{border-color:#f59e0b;color:#f59e0b}
   </style>
 </head>
 <body>
-  <div class="platform-bar">
-    <span class="logo">DATACENDIA</span>
-    <span class="breadcrumb">/ Cortex / Intelligence / <span>CendiaChronos</span></span>
-    <span class="demo-pill">DEMO MODE</span>
-    <a href="../demos.html" class="back">← Back to Demos</a>
+  <!-- Platform Header -->
+  <div class="platform-header" style="position:relative">
+    <a href="../demos.html" class="ph-logo" style="text-decoration:none;color:inherit">DATACENDIA</a>
+    <div class="ph-divider"></div>
+    <div class="ph-nav">
+      <a class="ph-nav-item active" href="../demos.html#cortex">Cortex</a>
+      <a class="ph-nav-item" href="../demos.html#oversight">Oversight</a>
+      <a class="ph-nav-item" href="../demos.html#evidence">Evidence</a>
+    </div>
+    <span class="ph-breadcrumb">/ Core Suite / <span>CendiaChronos</span></span>
+    <span class="ph-spacer"></span>
+    <span class="ph-demo-badge">DEMO MODE</span>
+    <div class="ph-user">
+      <div class="ph-notif"><img src="../assets/logos/cendia-helm.svg" alt="Notifications" width="18" height="18" style="border-radius:4px"><div class="ph-notif-dot"></div></div>
+      <div class="ph-avatar">SR</div>
+    </div>
+    <a href="../demos.html" class="ph-back">← Demos</a>
   </div>
 
-  <div class="app-layout">
-    <div class="sidebar">
-      <!-- Mode -->
-      <div class="sb-section">
-        <div class="sb-label">Time Travel Mode</div>
-        <div class="mode-tabs">
-          <div class="mode-tab active" onclick="setMode('rewind', this)">⏪ Rewind</div>
-          <div class="mode-tab" onclick="setMode('replay', this)">🔁 Replay</div>
-          <div class="mode-tab" onclick="setMode('fastforward', this)">⏩ Forward</div>
+  <div class="chronos-page">
+    <!-- Chronos Header -->
+    <div class="chronos-header">
+      <div class="ch-left">
+        <div class="ch-icon"><img src="../assets/logos/chronos.svg" alt="CendiaChronos" width="44" height="44" style="border-radius:10px"></div>
+        <div>
+          <div class="ch-title">CendiaChronos™</div>
+          <div class="ch-subtitle">The Enterprise Time Machine</div>
+          <div class="ch-druid"><img src="../assets/logos/chronos.svg" alt="Druid" width="14" height="14" style="border-radius:3px;vertical-align:middle"> Powered by Apache Druid</div>
         </div>
       </div>
-      <!-- Time Slider -->
-      <div class="sb-section">
-        <div class="sb-label">Current Position</div>
-        <div class="time-slider-container">
-          <div class="time-display">
-            <div class="time-date" id="currentDate">2024-07-22</div>
-            <div class="time-label" id="timeLabel">3 years, 4 months ago</div>
+      <div class="ch-modes">
+        <button class="ch-mode active" id="modeRewind" onclick="setMode('rewind')">⏪ Rewind</button>
+        <button class="ch-mode" id="modeReplay" onclick="setMode('replay')"><img src="../assets/logos/chronos.svg" alt="Replay" width="14" height="14" style="border-radius:3px;vertical-align:middle"> Replay</button>
+        <button class="ch-mode" id="modeForward" onclick="setMode('forward')">⏩ Fast Forward</button>
+      </div>
+    </div>
+
+    <!-- Audit Banner -->
+    <div class="audit-banner">
+      <strong>The Ultimate Audit:</strong> Travel back to any moment and see exactly what your organization knew, decided, and did. Built for audits, regulators, and "why did we sign off on that?" moments.
+    </div>
+
+    <!-- Backstory -->
+    <div class="backstory" style="background:linear-gradient(135deg,rgba(245,158,11,.06),rgba(217,119,6,.04));border-color:rgba(245,158,11,.15)">
+      <h3 style="color:#f59e0b"><img src="../assets/logos/audit-provenance.svg" alt="Briefing" width="20" height="20" style="border-radius:4px;vertical-align:middle"> Scenario Briefing</h3>
+      <p><strong>Nexus Health Systems</strong> is a $420M healthcare technology company with 158 employees across 8 departments. Over the past 2 years, the organization has made 4,382 documented decisions — from Series C fundraising to HIPAA compliance overhauls to a controversial engineering restructure that the board now questions.</p>
+      <p>The incoming Chief Compliance Officer has been asked to <strong>audit the last 12 months of decision-making</strong> to identify pivotal moments, assess whether proper governance was followed, and determine if any decisions created cascading damage that wasn't caught at the time. She's using <strong>CendiaChronos™</strong> to travel through the organization's decision history and reconstruct exactly what was known, decided, and done at each moment.</p>
+      <div class="bs-meta" style="border-color:rgba(245,158,11,.1)">
+        <span><img src="../assets/logos/cendia-health.svg" alt="Health" width="14" height="14" style="border-radius:3px;vertical-align:middle"> Nexus Health Systems</span>
+        <span><img src="../assets/logos/roi-metrics.svg" alt="Revenue" width="14" height="14" style="border-radius:3px;vertical-align:middle"> $420M revenue</span>
+        <span><img src="../assets/logos/cendia-agents.svg" alt="People" width="14" height="14" style="border-radius:3px;vertical-align:middle"> 158 employees · 8 departments</span>
+        <span><img src="../assets/logos/cortex.svg" alt="Decisions" width="14" height="14" style="border-radius:3px;vertical-align:middle"> 4,382 decisions on ledger</span>
+        <span><img src="../assets/logos/lens.svg" alt="Audit" width="14" height="14" style="border-radius:3px;vertical-align:middle"> Audit scope: 12 months</span>
+        <span><img src="../assets/logos/compliance.svg" alt="Compliance" width="14" height="14" style="border-radius:3px;vertical-align:middle"> SOX + FedRAMP + GDPR compliant</span>
+      </div>
+    </div>
+
+    <!-- Status + Compliance + Actions Bar -->
+    <div class="status-bar">
+      <div class="sb-group">
+        <span class="sb-label">STATUS</span>
+        <span class="sb-item"><span class="sb-dot"></span> Ledger</span>
+        <span class="sb-item" style="color:#f59e0b;font-family:'JetBrains Mono',monospace;font-weight:600">#4,382</span>
+        <span class="sb-item"><span class="sb-dot"></span> Sync</span>
+        <span class="sb-item" style="color:#22c55e;font-family:'JetBrains Mono',monospace">122ms</span>
+      </div>
+      <div class="sb-sep"></div>
+      <div class="sb-group">
+        <span class="sb-label">COMPLIANCE</span>
+        <span class="sb-badge sb-sox">SOX</span>
+        <span class="sb-badge sb-sec">SEC</span>
+        <span class="sb-badge sb-fedramp">FedRAMP</span>
+        <span class="sb-badge sb-gdpr">GDPR</span>
+      </div>
+      <div class="sb-sep"></div>
+      <div class="sb-group" style="gap:6px">
+        <span class="sb-label">ACTIONS</span>
+        <div class="action-btn ab-active" title="Compliance Panel"><span class="ab-icon"><img src="../assets/logos/compliance.svg" alt="Panel" width="14" height="14" style="border-radius:3px"></span>Panel</div>
+        <div class="action-btn" title="Export"><span class="ab-icon"><img src="../assets/logos/sovereign-architecture.svg" alt="Export" width="14" height="14" style="border-radius:3px"></span>Export</div>
+        <div class="action-btn" title="Witness"><span class="ab-icon"><img src="../assets/logos/lens.svg" alt="Witness" width="14" height="14" style="border-radius:3px"></span>Witness</div>
+        <div class="action-btn" title="ERP Integration"><span class="ab-icon"><img src="../assets/logos/integration-matrix.svg" alt="ERP" width="14" height="14" style="border-radius:3px"></span>ERP</div>
+        <div class="action-btn" title="Verify"><span class="ab-icon"><img src="../assets/logos/audit-provenance.svg" alt="Verify" width="14" height="14" style="border-radius:3px"></span>Verify</div>
+        <div class="action-btn" title="Regulator Mode"><span class="ab-icon"><img src="../assets/logos/council.svg" alt="Regulator" width="14" height="14" style="border-radius:3px"></span>Regulator</div>
+        <div class="action-btn" title="Zero-Knowledge Proof"><span class="ab-icon"><img src="../assets/logos/cendia-guard.svg" alt="ZK Proof" width="14" height="14" style="border-radius:3px"></span>ZK Proof</div>
+        <div class="action-btn" title="SOX Audit"><span class="ab-icon"><img src="../assets/logos/cortex.svg" alt="SOX Audit" width="14" height="14" style="border-radius:3px"></span>SOX Audit</div>
+        <div class="action-btn" title="Redacted Export"><span class="ab-icon"><img src="../assets/logos/cendia-guard.svg" alt="Redacted" width="14" height="14" style="border-radius:3px"></span>Redacted Export</div>
+      </div>
+    </div>
+
+    <!-- Enhanced Views -->
+    <div class="views-bar">
+      <div class="views-tabs">
+        <button class="view-tab active" onclick="setView(this)"><img src="../assets/logos/cortex.svg" alt="Standard" width="12" height="12" style="border-radius:2px;vertical-align:middle"> Standard</button>
+        <button class="view-tab" onclick="setView(this)"><img src="../assets/logos/crucible.svg" alt="Diff" width="12" height="12" style="border-radius:2px;vertical-align:middle"> Diff View</button>
+        <button class="view-tab" onclick="setView(this)"><img src="../assets/logos/council.svg" alt="Council" width="12" height="12" style="border-radius:2px;vertical-align:middle"> Council Replay</button>
+        <button class="view-tab" onclick="setView(this)"><img src="../assets/logos/cascade.svg" alt="Impact" width="12" height="12" style="border-radius:2px;vertical-align:middle"> Impact Trace</button>
+        <button class="view-tab" onclick="setView(this)"><img src="../assets/logos/cendia-predict.svg" alt="Monte Carlo" width="12" height="12" style="border-radius:2px;vertical-align:middle"> Monte Carlo</button>
+        <button class="view-tab" onclick="setView(this)"><img src="../assets/logos/ghost-board.svg" alt="Universes" width="12" height="12" style="border-radius:2px;vertical-align:middle"> Universes</button>
+      </div>
+      <div class="views-actions">
+        <button class="va-btn"><img src="../assets/logos/data-sovereignty.svg" alt="Bookmark" width="12" height="12" style="border-radius:2px;vertical-align:middle"> Bookmark</button>
+        <button class="va-btn"><img src="../assets/logos/integration-matrix.svg" alt="Share" width="12" height="12" style="border-radius:2px;vertical-align:middle"> Share Link</button>
+      </div>
+    </div>
+
+    <!-- Timeline Scrubber -->
+    <div class="scrubber-card">
+      <div class="scrubber-dates">
+        <div class="scrubber-date-edge" id="dateMin">Feb 4, 2025</div>
+        <div class="scrubber-date-center">
+          <div class="scrubber-day" id="currentDay">Sunday, February 8, 2026</div>
+          <div class="scrubber-time" id="currentTime">02:06 PM</div>
+        </div>
+        <div class="scrubber-date-edge" id="dateMax">Feb 8, 2026</div>
+      </div>
+      <div class="scrubber-track" id="scrubberTrack" onmousedown="startDrag(event)">
+        <div class="scrubber-fill" id="scrubberFill"></div>
+        <!-- Event markers will be injected -->
+        <div id="markers"></div>
+        <div class="scrubber-playhead" id="playhead" style="left:95%"></div>
+      </div>
+      <div class="scrubber-legend">
+        <div class="legend-items">
+          <span style="color:#6b7280" id="eventCount">200 events on timeline:</span>
+          <span class="legend-dot ld-pos">Positive</span>
+          <span class="legend-dot ld-neg">Negative</span>
+          <span class="legend-dot ld-dec">Decision</span>
+          <span class="legend-dot ld-oth">Other</span>
+        </div>
+        <span>Click markers to trace impact</span>
+      </div>
+
+      <!-- Controls -->
+      <div class="controls">
+        <button class="ctrl-btn" onclick="jumpBy(-7)" title="Back 1 week">⏮️</button>
+        <button class="ctrl-play paused" id="playBtn" onclick="togglePlay()">▶️ Play</button>
+        <button class="ctrl-btn" onclick="jumpBy(7)" title="Forward 1 week">⏭️</button>
+        <div class="speed-group">
+          <span class="speed-label">Speed:</span>
+          <button class="speed-btn slow" onclick="setSpeed(.1,this)">0.1x</button>
+          <button class="speed-btn slow" onclick="setSpeed(.25,this)">0.25x</button>
+          <button class="speed-btn slow" onclick="setSpeed(.5,this)">0.5x</button>
+          <button class="speed-btn active" onclick="setSpeed(1,this)">1x</button>
+          <button class="speed-btn" onclick="setSpeed(2,this)">2x</button>
+          <button class="speed-btn" onclick="setSpeed(5,this)">5x</button>
+          <button class="speed-btn" onclick="setSpeed(10,this)">10x</button>
+        </div>
+      </div>
+
+      <!-- Quick Jumps -->
+      <div class="quick-jumps">
+        <button class="qj-btn" onclick="quickJump('yesterday')">Yesterday</button>
+        <button class="qj-btn" onclick="quickJump('week')">Last Week</button>
+        <button class="qj-btn" onclick="quickJump('month')">Last Month</button>
+        <button class="qj-btn" onclick="quickJump('quarter')">Last Quarter</button>
+        <button class="qj-btn" onclick="quickJump('year')">Last Year</button>
+        <button class="qj-btn qj-date"><img src="../assets/logos/chronos.svg" alt="Date" width="12" height="12" style="border-radius:2px;vertical-align:middle"> Jump to Date</button>
+      </div>
+
+      <!-- Chronos Tip -->
+      <div class="chronos-tip"><img src="../assets/logos/chronos.svg" alt="Tip" width="14" height="14" style="border-radius:3px;vertical-align:middle"> <span>Chronos</span> replays every metric, event, and AI decision between two points in time.</div>
+    </div>
+
+    <!-- Main Content Grid -->
+    <div class="main-grid">
+      <!-- Left: Organization State -->
+      <div>
+        <div class="org-card">
+          <div class="org-header">
+            <div class="org-title"><img src="../assets/logos/council.svg" alt="Org" width="16" height="16" style="border-radius:3px;vertical-align:middle"> Organization State</div>
+            <div class="org-filter">
+              <select class="org-select" id="deptFilter">
+                <option>All Departments</option>
+                <option>Engineering</option>
+                <option>Sales</option>
+                <option>Marketing</option>
+                <option>Finance</option>
+                <option>HR</option>
+                <option>Operations</option>
+                <option>Product</option>
+                <option>Executive</option>
+              </select>
+              <button class="org-council"><img src="../assets/logos/council.svg" alt="Council" width="12" height="12" style="border-radius:2px;vertical-align:middle"> Ask Council</button>
+            </div>
           </div>
-          <input type="range" min="0" max="1000" value="700" id="timeSlider" oninput="onSliderChange(this.value)">
-          <div class="playback-controls">
-            <button class="play-btn" onclick="changeSpeed(0.5)">0.5x</button>
-            <button class="play-btn active" onclick="togglePlay()" id="playBtn">▶ Play</button>
-            <button class="play-btn" onclick="changeSpeed(2)">2x</button>
-            <span class="speed-label" id="speedLabel">1x speed</span>
+          <div class="org-timestamp" id="orgTimestamp">February 8, 2026, 02:06:02 PM · All Departments</div>
+
+          <!-- Key Insight -->
+          <div class="insight-card">
+            <div class="insight-left">
+              <div class="insight-icon"><img src="../assets/logos/cendia-predict.svg" alt="Insight" width="20" height="20" style="border-radius:4px"></div>
+              <div>
+                <div class="insight-label">Key Insight</div>
+                <div class="insight-val">Runway: 18.0 months <span class="healthy">↑ healthy</span></div>
+              </div>
+            </div>
+            <div class="insight-right">
+              <div class="label">vs last quarter</div>
+              <div class="val">+3.1 months</div>
+            </div>
+          </div>
+
+          <!-- Metrics Grid -->
+          <div class="metrics-grid">
+            <div class="metric-card">
+              <div class="metric-icon"><img src="../assets/logos/roi-metrics.svg" alt="Revenue" width="14" height="14" style="border-radius:3px;vertical-align:middle"> Revenue</div>
+              <div class="metric-val" id="mRevenue">$12.7M</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-icon"><img src="../assets/logos/cendia-predict.svg" alt="Profit" width="14" height="14" style="border-radius:3px;vertical-align:middle"> Profit</div>
+              <div class="metric-val" id="mProfit">$2.8M</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-icon"><img src="../assets/logos/cendia-agents.svg" alt="Employees" width="14" height="14" style="border-radius:3px;vertical-align:middle"> Employees</div>
+              <div class="metric-val" id="mEmployees">158</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-icon"><img src="../assets/logos/integration-matrix.svg" alt="Customers" width="14" height="14" style="border-radius:3px;vertical-align:middle"> Customers</div>
+              <div class="metric-val" id="mCustomers">857</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-icon"><img src="../assets/logos/maturity.svg" alt="NPS" width="14" height="14" style="border-radius:3px;vertical-align:middle"> NPS Score</div>
+              <div class="metric-val" id="mNPS">88</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-icon"><img src="../assets/logos/cortex.svg" alt="Market" width="14" height="14" style="border-radius:3px;vertical-align:middle"> Market Share</div>
+              <div class="metric-val" id="mShare">12.6%</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-icon"><img src="../assets/logos/pre-mortem.svg" alt="Burn" width="14" height="14" style="border-radius:3px;vertical-align:middle"> Burn Rate</div>
+              <div class="metric-val" id="mBurn">$860K/mo</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-icon"><img src="../assets/logos/cendia-predict.svg" alt="Runway" width="14" height="14" style="border-radius:3px;vertical-align:middle"> Runway</div>
+              <div class="metric-val" id="mRunway">18 months</div>
+            </div>
           </div>
         </div>
       </div>
-      <!-- Department -->
-      <div class="sb-section">
-        <div class="sb-label">Department Filter</div>
-        <select class="dept-select" id="deptSelect" onchange="filterDept(this.value)">
-          <option value="all">All Departments</option>
-          <option value="executive">Executive</option>
-          <option value="clinical">Clinical</option>
-          <option value="it">IT / Engineering</option>
-          <option value="compliance">Compliance</option>
-          <option value="finance">Finance</option>
-        </select>
-      </div>
-      <!-- Organization Metrics -->
-      <div class="sb-section">
-        <div class="sb-label">Organization State</div>
-        <div class="metrics-grid">
-          <div class="metric-card">
-            <div class="metric-label">Revenue</div>
-            <div class="metric-value" style="color:#22c55e;" id="mRevenue">$1.2B</div>
-            <div class="metric-change up" id="mRevenueChange">↑ 12% YoY</div>
+
+      <!-- Right: Events -->
+      <div>
+        <div class="events-card">
+          <div class="events-title"><img src="../assets/logos/chronos.svg" alt="Events" width="16" height="16" style="border-radius:3px;vertical-align:middle"> Events</div>
+          <div class="event-filters">
+            <button class="ef-btn active" onclick="filterEvents('all',this)"><img src="../assets/logos/audit-provenance.svg" alt="All" width="12" height="12" style="border-radius:2px;vertical-align:middle"> All</button>
+            <button class="ef-btn" onclick="filterEvents('compliance',this)"><img src="../assets/logos/compliance.svg" alt="Compliance" width="12" height="12" style="border-radius:2px;vertical-align:middle"> Compliance</button>
+            <button class="ef-btn" onclick="filterEvents('financial',this)"><img src="../assets/logos/roi-metrics.svg" alt="Financial" width="12" height="12" style="border-radius:2px;vertical-align:middle"> Financial</button>
+            <button class="ef-btn" onclick="filterEvents('operational',this)"><img src="../assets/logos/cortex.svg" alt="Operational" width="12" height="12" style="border-radius:2px;vertical-align:middle"> Operational</button>
+            <button class="ef-btn" onclick="filterEvents('people',this)"><img src="../assets/logos/cendia-agents.svg" alt="People" width="12" height="12" style="border-radius:2px;vertical-align:middle"> People</button>
+            <button class="ef-btn" onclick="filterEvents('security',this)"><img src="../assets/logos/cendia-guard.svg" alt="Security" width="12" height="12" style="border-radius:2px;vertical-align:middle"> Security</button>
           </div>
-          <div class="metric-card">
-            <div class="metric-label">Employees</div>
-            <div class="metric-value" style="color:#3b82f6;" id="mEmployees">12,400</div>
-            <div class="metric-change up">↑ 3.4%</div>
+          <div class="event-list" id="eventList">
+            <!-- Events injected by JS -->
           </div>
-          <div class="metric-card">
-            <div class="metric-label">Satisfaction</div>
-            <div class="metric-value" style="color:#f59e0b;" id="mSatisfaction">87%</div>
-            <div class="metric-change up">↑ 4pts</div>
-          </div>
-          <div class="metric-card">
-            <div class="metric-label">Risk Score</div>
-            <div class="metric-value" style="color:#ef4444;" id="mRisk">34/100</div>
-            <div class="metric-change down">↑ moderate</div>
-          </div>
-        </div>
-      </div>
-      <!-- Council State -->
-      <div class="sb-section">
-        <div class="sb-label">🧠 Council State</div>
-        <div style="font-size:0.75rem;color:#d1d5db;margin-bottom:4px;">5 active agents</div>
-        <div class="council-agents">
-          <div class="ca-pill"><span class="ca-dot" style="background:#10B981;"></span> CFO</div>
-          <div class="ca-pill"><span class="ca-dot" style="background:#F59E0B;"></span> COO</div>
-          <div class="ca-pill"><span class="ca-dot" style="background:#EF4444;"></span> CISO</div>
-          <div class="ca-pill"><span class="ca-dot" style="background:#3b82f6;"></span> CTO</div>
-          <div class="ca-pill"><span class="ca-dot" style="background:#8b5cf6;"></span> CLO</div>
-        </div>
-        <div style="font-size:0.65rem;color:#6b7280;margin-top:6px;">Pending decisions: 3 · Consensus rate: 78%</div>
-      </div>
-      <!-- Graph -->
-      <div class="sb-section">
-        <div class="sb-label">🕸️ Knowledge Graph</div>
-        <div class="graph-viz" id="graphViz">
-          <div class="graph-stat" style="bottom:4px;left:4px;" id="gEntities">15,420 entities</div>
-          <div class="graph-stat" style="bottom:4px;right:4px;" id="gFresh">95% fresh</div>
         </div>
       </div>
     </div>
 
-    <div class="main-panel">
-      <div class="main-header">
-        <span class="main-title">⏳ CendiaChronos — Meridian Healthcare Group</span>
-        <div class="main-badges">
-          <span class="badge" style="background:rgba(245,158,11,0.15);color:#f59e0b;">⏪ REWIND MODE</span>
-          <span class="badge" style="background:rgba(34,197,94,0.15);color:#22c55e;" id="eventCountBadge">14 Events</span>
-        </div>
-      </div>
-      <div class="content-area">
-        <div class="content-grid">
-          <!-- Left: Events -->
-          <div>
-            <div class="events-panel">
-              <h3>📅 Timeline Events</h3>
-              <div class="event-list" id="eventList"></div>
-            </div>
-            <!-- AI Insight -->
-            <div class="ai-insight">
-              <h3>🧠 CendiaChronos AI Analysis</h3>
-              <p><strong>Pattern Detected:</strong> Meridian's trajectory shows a classic "compliance-driven transformation" arc. The 2022 HIPAA incident was the inflection point — it triggered a chain of investments that ultimately strengthened the organization.</p>
-              <p><strong>Divergent Future:</strong> If the EHR migration had been delayed, the AI diagnostic program would have been built on legacy infrastructure, creating a $15M technical debt spiral over 3 years.</p>
-              <p><strong>Next Pivotal Moment:</strong> The Q1 2026 rural telehealth expansion has a 73% success probability if clinical staff are included in site selection.</p>
-            </div>
-            <div class="demo-cta">
-              <h3>See your organization's pivotal moments</h3>
-              <p>CendiaChronos analyzes your decision history to find the moments that shaped your future.</p>
-              <a href="../briefing.html">Request Briefing →</a>
-            </div>
-          </div>
-          <!-- Right: Pivotal Moments + Actions -->
-          <div>
-            <div class="pivot-panel">
-              <h3>⚡ AI-Detected Pivotal Moments</h3>
-              <div id="pivotList"></div>
-            </div>
-            <!-- State Panels -->
-            <div class="state-panel" style="margin-top:20px;">
-              <h3>📊 Organization State at <span id="stateDate" style="color:#f59e0b;">2024-07-22</span></h3>
-              <div class="state-metrics">
-                <div class="sm-card">
-                  <div class="sm-label">Revenue</div>
-                  <div class="sm-value" style="color:#22c55e;" id="smRevenue">$1.2B</div>
-                  <div class="sm-sub up" style="color:#22c55e;">↑ healthy</div>
-                </div>
-                <div class="sm-card">
-                  <div class="sm-label">Satisfaction</div>
-                  <div class="sm-value" style="color:#f59e0b;" id="smSat">87%</div>
-                  <div class="sm-sub" style="color:#22c55e;">↑ 4 pts</div>
-                </div>
-                <div class="sm-card">
-                  <div class="sm-label">Market Share</div>
-                  <div class="sm-value" style="color:#3b82f6;" id="smMarket">12.4%</div>
-                  <div class="sm-sub" style="color:#22c55e;">↑ growing</div>
-                </div>
-                <div class="sm-card">
-                  <div class="sm-label">Headcount</div>
-                  <div class="sm-value" style="color:#8b5cf6;" id="smHead">12,400</div>
-                  <div class="sm-sub" style="color:#22c55e;">↑ 3.4%</div>
-                </div>
-              </div>
-            </div>
-            <!-- Export -->
-            <div class="state-panel" style="margin-top:12px;background:rgba(245,158,11,0.03);border-color:rgba(245,158,11,0.2);">
-              <h3>📋 Export Audit Package</h3>
-              <div style="display:flex;flex-direction:column;gap:6px;">
-                <button onclick="alert('Audit package exported — includes full timeline, pivotal moments, metrics snapshots, and cryptographic integrity proof.')" style="padding:8px 12px;background:#374151;border:none;border-radius:6px;color:#d1d5db;font-size:0.75rem;cursor:pointer;text-align:left;">📦 Full Timeline Export</button>
-                <button onclick="alert('Court-admissible package generated — with redaction rules, witness timestamps, and chain of custody.')" style="padding:8px 12px;background:#374151;border:none;border-radius:6px;color:#d1d5db;font-size:0.75rem;cursor:pointer;text-align:left;">🏛️ Court-Admissible Package</button>
-                <button onclick="alert('Regulator bundle exported — mapped to HIPAA, SOC 2, and NIST frameworks.')" style="padding:8px 12px;background:#374151;border:none;border-radius:6px;color:#d1d5db;font-size:0.75rem;cursor:pointer;text-align:left;">📋 Regulator Bundle</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+    <!-- Briefing -->
+    <div class="briefing" style="background:linear-gradient(135deg,rgba(245,158,11,.06),rgba(217,119,6,.04));border-color:rgba(245,158,11,.2)">
+      <h3 style="color:#f59e0b"><img src="../assets/logos/audit-provenance.svg" alt="Audit" width="20" height="20" style="border-radius:4px;vertical-align:middle"> Audit Briefing — Key Findings</h3>
+      <p>CendiaChronos™ has reconstructed 12 months of organizational history for Nexus Health Systems. The incoming CCO's audit reveals the following:</p>
+      <ul>
+        <li><strong>4,382 decisions on immutable ledger</strong> — every decision is cryptographically signed and tamper-proof. No gaps detected in the decision record.</li>
+        <li><strong>3 pivotal moments identified:</strong> The Series C term sheet (May 2026), the FedRAMP re-authorization (June 2026), and the cloud cost overrun (June 2026) were the decisions with the highest downstream impact.</li>
+        <li><strong>1 critical vulnerability patched</strong> (CVE-2026-1234) — response time was 4 hours from detection to remediation. Audit trail is complete with witness signatures.</li>
+        <li><strong>SOX compliance audit passed</strong> — all financial controls verified. Wage-to-revenue ratio healthy at current headcount.</li>
+        <li><strong>Cloud cost overrun (15%)</strong> flagged as the only negative financial event — root cause traced to unoptimized engineering workloads post-expansion. Recommendation: implement FinOps controls.</li>
+        <li><strong>Runway: 18.0 months</strong> — up 3.1 months from last quarter. Financial position is stable and improving.</li>
+      </ul>
+      <p><strong>Bottom line:</strong> Governance processes are sound. The decision ledger is complete and regulator-ready. The only area requiring attention is cloud cost management, which has already been flagged and is under review.</p>
+      <div class="bf-footer" style="border-color:rgba(245,158,11,.1)">Chronos Audit ID: CHR-2026-0208 · Events scanned: 4,382 · Compliance frameworks: SOX, SEC, FedRAMP, GDPR · Integrity: VERIFIED</div>
+    </div>
+
+    <!-- CTA -->
+    <div class="demo-cta">
+      <h3>See your organization's pivotal moments</h3>
+      <p>CendiaChronos™ replays every metric, event, and AI decision between two points in time.</p>
+      <a href="../briefing.html">Request Briefing →</a>
     </div>
   </div>
 
-  <script>
-  const EVENTS = [
-    { date:'2021-03-15', title:'Board approves 5-year digital transformation', dept:'executive', type:'pivotal', impact:'positive', magnitude:92,
-      desc:'Board votes 8-1 to invest $45M in digital infrastructure. Dissenting vote from CFO on timing concerns.',
-      detail:'<strong>Decision Trace:</strong> This created the foundation for everything that followed. The lone dissent about timing proved partially correct — first 18 months saw 22% cost overruns. However, the early start positioned Meridian ahead when regulations tightened in 2023.<br><br><strong>Cascade Effect:</strong> Led directly to EHR vendor selection, security overhaul, and ultimately the AI diagnostic program.' },
-    { date:'2021-09-22', title:'EHR vendor selected — Epic Systems contract', dept:'it', type:'normal', impact:'neutral', magnitude:65,
-      desc:'$18M contract with Epic Systems for enterprise EHR migration. 3-year implementation timeline.',
-      detail:'<strong>Alternatives Considered:</strong> Cerner and Athenahealth were finalists. Epic won on interoperability and compliance features. IT preferred Cerner\'s architecture, but compliance advocated for Epic\'s audit trail.' },
-    { date:'2022-02-08', title:'HIPAA Breach — 12,000 patient records exposed', dept:'compliance', type:'pivotal', impact:'negative', magnitude:95,
-      desc:'Legacy system vulnerability exploited. PHI exposed for 72 hours before detection.',
-      detail:'<strong>Root Cause:</strong> Unpatched Apache Struts vulnerability (CVE-2021-31805) in legacy patient portal scheduled for Phase 2 replacement.<br><br><strong>Consequences:</strong> $2.1M direct costs. OCR investigation initiated. Board demanded accelerated security timeline.<br><br><strong>Silver Lining:</strong> Accelerated security overhaul by 18 months and created the CISO role.' },
-    { date:'2022-06-15', title:'CISO hired — first dedicated security leadership', dept:'executive', type:'normal', impact:'positive', magnitude:70,
-      desc:'Board creates CISO position reporting to CEO. Hired from Johns Hopkins Health System.',
-      detail:'<strong>Impact:</strong> Security posture score improved from 62/100 to 84/100 within 6 months. Implemented zero-trust architecture, encrypted PHI, and established 24/7 SOC.' },
-    { date:'2022-11-30', title:'OCR investigation closed — $800K settlement', dept:'compliance', type:'normal', impact:'neutral', magnitude:55,
-      desc:'Office for Civil Rights closes HIPAA investigation with corrective action plan.',
-      detail:'<strong>Corrective Action:</strong> 3-year monitoring, mandatory security training, annual penetration testing, NIST Cybersecurity Framework implementation.' },
-    { date:'2023-01-20', title:'Clinical AI ethics committee established', dept:'clinical', type:'normal', impact:'positive', magnitude:68,
-      desc:'12-member committee to govern AI deployment in clinical settings.',
-      detail:'<strong>Mandate:</strong> All clinical AI must pass bias testing, explainability requirements, and clinician override protocols. Proved critical for 2025 AI diagnostic approval.' },
-    { date:'2023-05-10', title:'Revenue milestone — $1.2B annual run rate', dept:'finance', type:'normal', impact:'positive', magnitude:72,
-      desc:'First time crossing $1B ARR. Telehealth growing at 45% YoY.',
-      detail:'<strong>Breakdown:</strong> Inpatient 48%, Outpatient 32%, Telehealth 12%, Other 8%.' },
-    { date:'2023-09-01', title:'Nurse staffing crisis — 15% vacancy rate', dept:'clinical', type:'pivotal', impact:'negative', magnitude:88,
-      desc:'Vacancy rate hits 15%. Patient satisfaction drops 12 points. Board declares emergency.',
-      detail:'<strong>Root Cause:</strong> National shortage + below-market compensation (12% below average). Competing systems launched aggressive recruitment.<br><br><strong>Response:</strong> $8M retention package, 18% pay increase, accelerated AI monitoring to reduce admin burden.' },
-    { date:'2024-02-14', title:'AI-assisted monitoring deployed in 3 ICUs', dept:'it', type:'normal', impact:'positive', magnitude:75,
-      desc:'ML models predict patient deterioration 4-6 hours early. Reduces ICU mortality by 8%.',
-      detail:'<strong>Results:</strong> 847 early interventions in 6 months. Estimated 23 lives saved. False positive rate: 12% (target 15%).' },
-    { date:'2024-07-22', title:'EHR migration complete — Epic go-live', dept:'it', type:'pivotal', impact:'positive', magnitude:90,
-      desc:'After 3 years and $22M (20% over budget), Epic is live across all 8 hospitals and 42 clinics.',
-      detail:'<strong>Assessment:</strong> Completed 2 months ahead of revised timeline. Interoperability: 94/100. Audit trail exceeds HIPAA requirements. Enables next AI phase.' },
-    { date:'2024-11-05', title:'Board approves AI diagnostic assistance program', dept:'executive', type:'pivotal', impact:'positive', magnitude:93,
-      desc:'$12M for AI-assisted diagnostics in radiology, pathology, and ER. Largest AI investment ever.',
-      detail:'<strong>Decision Process:</strong> 6 department heads deliberated over 3 sessions. Ethics Committee gave conditional approval. CISO approved security architecture. One dissent filed on accuracy concerns for rare conditions.' },
-    { date:'2025-03-18', title:'First AI-assisted misdiagnosis incident', dept:'clinical', type:'normal', impact:'negative', magnitude:78,
-      desc:'AI misclassifies tumor as benign. Caught by radiologist in review. Patient unaffected.',
-      detail:'<strong>Response:</strong> Ethics Committee emergency session. Root cause: underrepresented tumor morphology in training data. Model retrained. Human-in-the-loop protocol reinforced.' },
-    { date:'2025-08-01', title:'Telehealth surpasses 20% of revenue', dept:'finance', type:'normal', impact:'positive', magnitude:65,
-      desc:'Telehealth at 21% of revenue, up from 12%. Rural patient access increased 340%.',
-      detail:'<strong>Driver:</strong> EHR + telehealth integration enabled seamless records access. AI triage reduced wait times 60%.' },
-    { date:'2026-01-15', title:'Rural telehealth expansion — Board vote pending', dept:'executive', type:'pivotal', impact:'positive', magnitude:85,
-      desc:'$25M proposal for 15 rural centers across 3 states. Would serve 200,000+ patients.',
-      detail:'<strong>Status:</strong> Board vote March 2026. CFO: break-even at 24 months. Risk team flags multi-state regulatory complexity.<br><br><strong>Chronos Prediction:</strong> 73% success probability with clinical staff in site selection. Delay past Q2 2026 drops to 58%.' },
-  ];
+<script>
+// State
+let mode='rewind',playing=false,speed=1,position=0.95,playInterval=null;
+const now=new Date();
+const minDate=new Date(now.getTime()-370*86400000);
+const maxDate=new Date(now);
 
-  const PIVOTAL = EVENTS.filter(e => e.type === 'pivotal');
-  let currentFilter = 'all';
-  let currentSliderVal = 700;
-  let isPlaying = false;
-  let playInterval = null;
-  let playSpeed = 1;
+// Events data
+const EVENTS=[
+  {id:1,type:'compliance',impact:'positive',title:'Monitoring alerts configured',date:'08/02/2026',dept:'Marketing',sev:'major',icon:'<img src="../assets/logos/compliance.svg" alt="Alert" width="16" height="16" style="border-radius:3px">',witness:true},
+  {id:2,type:'people',impact:'neutral',title:'VP Customer Success role...',date:'08/02/2026',dept:'Finance',sev:null,icon:'<img src="../assets/logos/cendia-agents.svg" alt="Person" width="16" height="16" style="border-radius:3px">',witness:true},
+  {id:3,type:'people',impact:'neutral',title:'VP Customer Success role...',date:'08/02/2026',dept:'HR',sev:null,icon:'<img src="../assets/logos/cendia-agents.svg" alt="Person" width="16" height="16" style="border-radius:3px">',witness:true},
+  {id:4,type:'compliance',impact:'positive',title:'SOX compliance audit passed',date:'07/28/2026',dept:'Finance',sev:'major',icon:'<img src="../assets/logos/compliance.svg" alt="SOX" width="16" height="16" style="border-radius:3px">',witness:true},
+  {id:5,type:'financial',impact:'positive',title:'Q4 revenue target exceeded',date:'07/15/2026',dept:'Sales',sev:'major',icon:'<img src="../assets/logos/roi-metrics.svg" alt="Revenue" width="16" height="16" style="border-radius:3px">',witness:true},
+  {id:6,type:'security',impact:'negative',title:'Failed login attempt spike detected',date:'07/10/2026',dept:'Security',sev:'high',icon:'<img src="../assets/logos/cendia-guard.svg" alt="Security" width="16" height="16" style="border-radius:3px">',witness:true},
+  {id:7,type:'operational',impact:'positive',title:'New CI/CD pipeline deployed',date:'07/05/2026',dept:'Engineering',sev:null,icon:'<img src="../assets/logos/cortex.svg" alt="Ops" width="16" height="16" style="border-radius:3px">',witness:true},
+  {id:8,type:'people',impact:'positive',title:'Engineering team expanded to 67',date:'06/28/2026',dept:'HR',sev:null,icon:'<img src="../assets/logos/cendia-agents.svg" alt="People" width="16" height="16" style="border-radius:3px">',witness:false},
+  {id:9,type:'financial',impact:'negative',title:'Cloud costs overrun by 15%',date:'06/20/2026',dept:'Finance',sev:'high',icon:'<img src="../assets/logos/pre-mortem.svg" alt="Cost" width="16" height="16" style="border-radius:3px">',witness:true},
+  {id:10,type:'compliance',impact:'positive',title:'FedRAMP authorization renewed',date:'06/15/2026',dept:'Compliance',sev:'major',icon:'<img src="../assets/logos/council.svg" alt="FedRAMP" width="16" height="16" style="border-radius:3px">',witness:true},
+  {id:11,type:'operational',impact:'positive',title:'99.99% uptime achieved Q2',date:'06/01/2026',dept:'Operations',sev:'major',icon:'<img src="../assets/logos/cortex.svg" alt="Uptime" width="16" height="16" style="border-radius:3px">',witness:false},
+  {id:12,type:'security',impact:'negative',title:'Vulnerability CVE-2026-1234 patched',date:'05/22/2026',dept:'Security',sev:'crit',icon:'<img src="../assets/logos/cendia-guard.svg" alt="Patch" width="16" height="16" style="border-radius:3px">',witness:true},
+  {id:13,type:'financial',impact:'positive',title:'Series C term sheet signed',date:'05/10/2026',dept:'Executive',sev:'major',icon:'<img src="../assets/logos/cendia-predict.svg" alt="Series C" width="16" height="16" style="border-radius:3px">',witness:true},
+  {id:14,type:'people',impact:'neutral',title:'Annual performance reviews completed',date:'04/30/2026',dept:'HR',sev:null,icon:'<img src="../assets/logos/cendia-lineage.svg" alt="Reviews" width="16" height="16" style="border-radius:3px">',witness:false},
+  {id:15,type:'compliance',impact:'positive',title:'GDPR DPA updated for EU clients',date:'04/15/2026',dept:'Legal',sev:null,icon:'<img src="../assets/logos/compliance.svg" alt="GDPR" width="16" height="16" style="border-radius:3px">',witness:true},
+];
 
-  const deptColors = {
-    executive: { bg: 'rgba(245,158,11,0.15)', color: '#f59e0b' },
-    clinical: { bg: 'rgba(34,197,94,0.15)', color: '#22c55e' },
-    it: { bg: 'rgba(59,130,246,0.15)', color: '#3b82f6' },
-    compliance: { bg: 'rgba(168,85,247,0.15)', color: '#8b5cf6' },
-    finance: { bg: 'rgba(249,115,22,0.15)', color: '#f97316' },
-  };
+// Timeline markers
+function renderMarkers(){
+  const track=document.getElementById('markers');
+  track.innerHTML='';
+  EVENTS.forEach(e=>{
+    const m=document.createElement('div');
+    m.className='scrubber-marker m-'+(e.impact==='positive'?'positive':e.impact==='negative'?'negative':e.type==='decision'?'decision':'other');
+    m.style.left=(20+Math.random()*75)+'%';
+    m.title=e.title;
+    track.appendChild(m);
+  });
+  document.getElementById('eventCount').textContent=EVENTS.length*13+' events on timeline:';
+}
 
-  function sliderToDate(val) {
-    const start = new Date('2021-01-01').getTime();
-    const end = new Date('2026-06-01').getTime();
-    return new Date(start + (val / 1000) * (end - start));
+// Render events list
+function renderEvents(filter='all'){
+  const list=document.getElementById('eventList');
+  const filtered=filter==='all'?EVENTS:EVENTS.filter(e=>e.type===filter);
+  list.innerHTML=filtered.map(e=>{
+    const cls=e.impact==='positive'?'ei-pos':e.impact==='negative'?'ei-neg':'ei-neutral';
+    const sevHtml=e.sev?`<span class="ei-severity ei-sev-${e.sev}">${e.sev==='crit'?'Critical':e.sev==='high'?'High':'Major'}</span>`:'';
+    const witnessHtml=e.witness?'<button class="ei-witness"><img src="../assets/logos/lens.svg" alt="Witness" width="12" height="12" style="border-radius:2px;vertical-align:middle"> Witness</button>':'';
+    return `<div class="event-item ${cls}"><div class="ei-header"><span class="ei-icon">${e.icon}</span><div class="ei-body"><div class="ei-title">${e.title} ${sevHtml}</div><div class="ei-meta">${e.date} · ${e.dept}</div></div><div class="ei-actions">${witnessHtml}</div></div></div>`;
+  }).join('');
+}
+
+function filterEvents(type,el){
+  document.querySelectorAll('.ef-btn').forEach(b=>b.classList.remove('active'));
+  el.classList.add('active');
+  renderEvents(type);
+}
+
+function setView(el){
+  document.querySelectorAll('.view-tab').forEach(t=>t.classList.remove('active'));
+  el.classList.add('active');
+}
+
+function setMode(m){
+  mode=m;
+  document.querySelectorAll('.ch-mode').forEach(b=>{b.classList.remove('active','replay','forward')});
+  if(m==='rewind'){document.getElementById('modeRewind').classList.add('active')}
+  if(m==='replay'){const el=document.getElementById('modeReplay');el.classList.add('active','replay')}
+  if(m==='forward'){const el=document.getElementById('modeForward');el.classList.add('active','forward')}
+  updateDisplay();
+}
+
+function setSpeed(s,el){
+  speed=s;
+  document.querySelectorAll('.speed-btn').forEach(b=>{b.classList.remove('active')});
+  el.classList.add('active');
+}
+
+function togglePlay(){
+  playing=!playing;
+  const btn=document.getElementById('playBtn');
+  if(playing){
+    btn.className='ctrl-play playing';
+    btn.innerHTML='⏸️ Pause';
+    playInterval=setInterval(()=>{
+      const dir=mode==='rewind'?-1:1;
+      position+=dir*speed*0.002;
+      position=Math.max(0,Math.min(1,position));
+      updateDisplay();
+      if(position<=0||position>=1){togglePlay()}
+    },100);
+  }else{
+    btn.className='ctrl-play paused';
+    btn.innerHTML='▶️ Play';
+    clearInterval(playInterval);
   }
+}
 
-  function formatDate(d) {
-    return d.toISOString().slice(0, 10);
-  }
+function jumpBy(days){
+  const totalDays=(maxDate-minDate)/86400000;
+  position+=days/totalDays;
+  position=Math.max(0,Math.min(1,position));
+  updateDisplay();
+}
 
-  function timeAgo(d) {
-    const now = new Date();
-    const diff = now - d;
-    const days = Math.floor(diff / 86400000);
-    if (days < 0) return `${Math.abs(days)} days from now`;
-    if (days < 30) return `${days} days ago`;
-    if (days < 365) return `${Math.floor(days/30)} months ago`;
-    const y = Math.floor(days/365); const m = Math.floor((days%365)/30);
-    return `${y}y ${m}m ago`;
-  }
+function quickJump(preset){
+  const jumps={yesterday:1,week:7,month:30,quarter:90,year:365};
+  const totalDays=(maxDate-minDate)/86400000;
+  const daysBack=jumps[preset]||1;
+  position=1-(daysBack/totalDays);
+  position=Math.max(0,Math.min(1,position));
+  updateDisplay();
+}
 
-  function onSliderChange(val) {
-    currentSliderVal = parseInt(val);
-    const d = sliderToDate(currentSliderVal);
-    document.getElementById('currentDate').textContent = formatDate(d);
-    document.getElementById('timeLabel').textContent = timeAgo(d);
-    document.getElementById('stateDate').textContent = formatDate(d);
-    updateMetricsForDate(d);
-    highlightEventsForDate(d);
-  }
+function startDrag(e){
+  const track=document.getElementById('scrubberTrack');
+  const rect=track.getBoundingClientRect();
+  const update=(ex)=>{position=Math.max(0,Math.min(1,(ex-rect.left)/rect.width));updateDisplay()};
+  update(e.clientX);
+  const move=(ev)=>update(ev.clientX);
+  const up=()=>{window.removeEventListener('mousemove',move);window.removeEventListener('mouseup',up)};
+  window.addEventListener('mousemove',move);
+  window.addEventListener('mouseup',up);
+}
 
-  function updateMetricsForDate(d) {
-    const year = d.getFullYear();
-    const progress = (year - 2021) / 5;
-    const rev = (1.0 + progress * 0.4).toFixed(1);
-    const emp = Math.round(11500 + progress * 1800);
-    const sat = Math.round(78 + progress * 12);
-    const risk = Math.round(55 - progress * 25);
-    document.getElementById('mRevenue').textContent = `$${rev}B`;
-    document.getElementById('mEmployees').textContent = emp.toLocaleString();
-    document.getElementById('mSatisfaction').textContent = sat + '%';
-    document.getElementById('mRisk').textContent = risk + '/100';
-    document.getElementById('smRevenue').textContent = `$${rev}B`;
-    document.getElementById('smSat').textContent = sat + '%';
-    document.getElementById('smMarket').textContent = (10 + progress * 4).toFixed(1) + '%';
-    document.getElementById('smHead').textContent = emp.toLocaleString();
-  }
+function updateDisplay(){
+  const t=minDate.getTime()+position*(maxDate.getTime()-minDate.getTime());
+  const d=new Date(t);
+  document.getElementById('currentDay').textContent=d.toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric',year:'numeric'});
+  document.getElementById('currentTime').textContent=d.toLocaleTimeString('en-US',{hour:'2-digit',minute:'2-digit'});
+  document.getElementById('playhead').style.left=(position*100)+'%';
+  document.getElementById('scrubberFill').style.width=(position*100)+'%';
+  document.getElementById('orgTimestamp').textContent=d.toLocaleDateString('en-US',{month:'long',day:'numeric',year:'numeric'})+', '+d.toLocaleTimeString('en-US',{hour:'2-digit',minute:'2-digit',second:'2-digit'})+' · All Departments';
 
-  function highlightEventsForDate(d) {
-    document.querySelectorAll('.ev-card').forEach(card => {
-      const eventDate = new Date(card.dataset.date);
-      if (eventDate <= d) {
-        card.style.opacity = '1';
-      } else {
-        card.style.opacity = '0.3';
-      }
-    });
-  }
+  // Animate metrics based on position
+  const factor=0.7+position*0.35;
+  document.getElementById('mRevenue').textContent='$'+(12.7*factor).toFixed(1)+'M';
+  document.getElementById('mProfit').textContent='$'+(2.8*factor).toFixed(1)+'M';
+  document.getElementById('mEmployees').textContent=Math.round(158*factor);
+  document.getElementById('mCustomers').textContent=Math.round(857*factor);
+  document.getElementById('mNPS').textContent=Math.round(88*(0.9+position*0.12));
+  document.getElementById('mShare').textContent=(12.6*factor).toFixed(1)+'%';
+  document.getElementById('mBurn').textContent='$'+Math.round(860*factor)+'K/mo';
+  document.getElementById('mRunway').textContent=Math.round(18*factor)+' months';
+}
 
-  function renderEvents() {
-    const list = document.getElementById('eventList');
-    list.innerHTML = '';
-    const filtered = currentFilter === 'all' ? EVENTS : EVENTS.filter(e => e.dept === currentFilter);
-    document.getElementById('eventCountBadge').textContent = filtered.length + ' Events';
-
-    filtered.forEach(ev => {
-      const dc = deptColors[ev.dept] || { bg: '#1f2937', color: '#9ca3af' };
-      const borderClass = ev.type === 'pivotal' ? 'pivotal' : (ev.impact === 'negative' ? 'negative' : (ev.impact === 'positive' ? 'positive' : ''));
-      const el = document.createElement('div');
-      el.className = `ev-card ${borderClass}`;
-      el.dataset.date = ev.date;
-      el.onclick = () => {
-        const detail = el.querySelector('.ev-detail');
-        detail.classList.toggle('open');
-        el.classList.toggle('selected');
-      };
-      el.innerHTML = `
-        <div class="ev-date">${ev.date}</div>
-        <div class="ev-title">${ev.title}</div>
-        <span class="ev-dept" style="background:${dc.bg};color:${dc.color};">${ev.dept.toUpperCase()}</span>
-        <div class="ev-desc">${ev.desc}</div>
-        <div class="ev-tags">
-          <span class="ev-tag" style="background:rgba(${ev.impact==='negative'?'239,68,68':ev.impact==='positive'?'34,197,94':'156,163,175'},0.1);color:${ev.impact==='negative'?'#ef4444':ev.impact==='positive'?'#22c55e':'#9ca3af'};">${ev.impact.toUpperCase()}</span>
-          ${ev.type === 'pivotal' ? '<span class="ev-tag" style="background:rgba(245,158,11,0.1);color:#f59e0b;">PIVOTAL MOMENT</span>' : ''}
-          <span class="ev-tag" style="background:rgba(99,102,241,0.1);color:#a5b4fc;">magnitude: ${ev.magnitude}</span>
-        </div>
-        <div class="ev-detail">${ev.detail}</div>`;
-      list.appendChild(el);
-    });
-    highlightEventsForDate(sliderToDate(currentSliderVal));
-  }
-
-  function renderPivotal() {
-    const list = document.getElementById('pivotList');
-    list.innerHTML = '';
-    PIVOTAL.forEach(ev => {
-      const sigColor = ev.magnitude >= 90 ? 'background:rgba(239,68,68,0.15);color:#ef4444' :
-                       ev.magnitude >= 70 ? 'background:rgba(245,158,11,0.15);color:#f59e0b' :
-                       'background:rgba(59,130,246,0.15);color:#3b82f6';
-      const sigLabel = ev.magnitude >= 90 ? '🔴 Critical' : ev.magnitude >= 70 ? '🟠 High' : '🔵 Notable';
-      const el = document.createElement('div');
-      el.className = 'pivot-item';
-      el.innerHTML = `
-        <div class="pivot-header">
-          <span class="pivot-name">${ev.title.substring(0,45)}${ev.title.length>45?'...':''}</span>
-          <span class="pivot-sig" style="${sigColor}">${sigLabel}</span>
-        </div>
-        <div class="pivot-reason">${ev.desc.substring(0,80)}...</div>
-        <div class="pivot-actions">
-          <button class="pivot-btn" style="background:#374151;color:#d1d5db;" onclick="jumpToDate('${ev.date}')">Jump to</button>
-          <button class="pivot-btn" style="background:rgba(59,130,246,0.15);color:#3b82f6;" onclick="alert('Impact trace: ${ev.title.replace(/'/g,'')} → shows all downstream consequences')">Trace Impact</button>
-        </div>`;
-      list.appendChild(el);
-    });
-  }
-
-  function jumpToDate(dateStr) {
-    const target = new Date(dateStr).getTime();
-    const start = new Date('2021-01-01').getTime();
-    const end = new Date('2026-06-01').getTime();
-    const val = Math.round(((target - start) / (end - start)) * 1000);
-    document.getElementById('timeSlider').value = val;
-    onSliderChange(val);
-  }
-
-  function filterDept(dept) {
-    currentFilter = dept;
-    renderEvents();
-  }
-
-  function setMode(mode, el) {
-    document.querySelectorAll('.mode-tab').forEach(t => t.classList.remove('active'));
-    el.classList.add('active');
-    const modeLabels = { rewind: '⏪ REWIND MODE', replay: '🔁 REPLAY MODE', fastforward: '⏩ FAST-FORWARD MODE' };
-    const modeColors = { rewind: '#f59e0b', replay: '#a855f7', fastforward: '#06b6d4' };
-    document.querySelector('.main-badges .badge').textContent = modeLabels[mode];
-    document.querySelector('.main-badges .badge').style.color = modeColors[mode];
-    document.querySelector('.main-badges .badge').style.background = `rgba(${mode==='rewind'?'245,158,11':mode==='replay'?'168,85,247':'6,182,212'},0.15)`;
-  }
-
-  function togglePlay() {
-    isPlaying = !isPlaying;
-    const btn = document.getElementById('playBtn');
-    if (isPlaying) {
-      btn.textContent = '⏸ Pause';
-      btn.classList.add('active');
-      playInterval = setInterval(() => {
-        currentSliderVal = Math.min(1000, currentSliderVal + Math.round(playSpeed * 2));
-        document.getElementById('timeSlider').value = currentSliderVal;
-        onSliderChange(currentSliderVal);
-        if (currentSliderVal >= 1000) { togglePlay(); }
-      }, 100);
-    } else {
-      btn.textContent = '▶ Play';
-      btn.classList.remove('active');
-      if (playInterval) clearInterval(playInterval);
-    }
-  }
-
-  function changeSpeed(s) {
-    playSpeed = s;
-    document.getElementById('speedLabel').textContent = s + 'x speed';
-  }
-
-  // Draw graph visualization
-  function drawGraph() {
-    const viz = document.getElementById('graphViz');
-    const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-    svg.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;';
-    const nodes = [];
-    for (let i = 0; i < 20; i++) {
-      nodes.push({ x: Math.random() * 100, y: Math.random() * 100, s: 2 + Math.random() * 3 });
-    }
-    nodes.forEach((n, i) => {
-      nodes.slice(i+1, i+3).forEach(t => {
-        const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
-        line.setAttribute('x1', n.x + '%'); line.setAttribute('y1', n.y + '%');
-        line.setAttribute('x2', t.x + '%'); line.setAttribute('y2', t.y + '%');
-        line.setAttribute('stroke', 'rgba(59,130,246,0.2)'); line.setAttribute('stroke-width', '1');
-        svg.appendChild(line);
-      });
-      const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-      circle.setAttribute('cx', n.x + '%'); circle.setAttribute('cy', n.y + '%');
-      circle.setAttribute('r', n.s); circle.setAttribute('fill', 'rgba(59,130,246,0.6)');
-      svg.appendChild(circle);
-    });
-    viz.prepend(svg);
-  }
-
-  renderEvents();
-  renderPivotal();
-  drawGraph();
-  onSliderChange(700);
-  </script>
+// Initialize
+renderMarkers();
+renderEvents();
+updateDisplay();
+</script>
+<div style="text-align:center;padding:12px 20px;font-size:.6rem;color:#4a4a5a;border-top:1px solid #1e1e2e;font-family:'Inter',sans-serif">All names, entities, and scenarios in this demo are entirely fictitious. Any resemblance to real persons, companies, or events is purely coincidental.</div>
 </body>
 </html>

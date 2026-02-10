@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <defs>
+    <linearGradient id="chGold2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#E8C840"/>
+      <stop offset="100%" stop-color="#A07B1A"/>
+    </linearGradient>
+    <filter id="chGlow2">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <rect width="200" height="200" fill="#0a0a0a" rx="16"/>
+  <g filter="url(#chGlow2)">
+    <!-- Ship's wheel / helm (command & control) -->
+    <!-- Outer ring -->
+    <circle cx="100" cy="90" r="48" fill="none" stroke="url(#chGold2)" stroke-width="2.5" opacity="0.7"/>
+    <circle cx="100" cy="90" r="42" fill="none" stroke="#C9A227" stroke-width="1" opacity="0.25"/>
+    <!-- Inner hub -->
+    <circle cx="100" cy="90" r="14" fill="none" stroke="url(#chGold2)" stroke-width="2" opacity="0.7"/>
+    <circle cx="100" cy="90" r="6" fill="#E8C840" opacity="0.8"/>
+    <!-- Eight spokes (eight pillars reference) -->
+    <line x1="100" y1="48" x2="100" y2="76" stroke="url(#chGold2)" stroke-width="2" opacity="0.7"/>
+    <line x1="100" y1="104" x2="100" y2="132" stroke="url(#chGold2)" stroke-width="2" opacity="0.7"/>
+    <line x1="58" y1="90" x2="86" y2="90" stroke="url(#chGold2)" stroke-width="2" opacity="0.7"/>
+    <line x1="114" y1="90" x2="142" y2="90" stroke="url(#chGold2)" stroke-width="2" opacity="0.7"/>
+    <line x1="66" y1="56" x2="90" y2="80" stroke="url(#chGold2)" stroke-width="1.8" opacity="0.6"/>
+    <line x1="110" y1="100" x2="134" y2="124" stroke="url(#chGold2)" stroke-width="1.8" opacity="0.6"/>
+    <line x1="134" y1="56" x2="110" y2="80" stroke="url(#chGold2)" stroke-width="1.8" opacity="0.6"/>
+    <line x1="90" y1="100" x2="66" y2="124" stroke="url(#chGold2)" stroke-width="1.8" opacity="0.6"/>
+    <!-- Spoke handle knobs -->
+    <circle cx="100" cy="44" r="4" fill="#C9A227" opacity="0.65"/>
+    <circle cx="100" cy="136" r="4" fill="#C9A227" opacity="0.65"/>
+    <circle cx="54" cy="90" r="4" fill="#C9A227" opacity="0.65"/>
+    <circle cx="146" cy="90" r="4" fill="#C9A227" opacity="0.65"/>
+    <circle cx="63" cy="53" r="3.5" fill="#C9A227" opacity="0.55"/>
+    <circle cx="137" cy="127" r="3.5" fill="#C9A227" opacity="0.55"/>
+    <circle cx="137" cy="53" r="3.5" fill="#C9A227" opacity="0.55"/>
+    <circle cx="63" cy="127" r="3.5" fill="#C9A227" opacity="0.55"/>
+    <!-- Command cursor arrow in hub -->
+    <path d="M96 86 L104 90 L96 94 L98 90Z" fill="#0a0a0a" opacity="0.6"/>
+  </g>
+  <text x="100" y="162" font-family="Georgia, serif" font-size="11" fill="#C9A227" text-anchor="middle" letter-spacing="0.08em" opacity="0.9">CENDIAHELM</text>
+</svg>

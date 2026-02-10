@@ -4,23 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CendiaDissent™ — Formal Disagreement Demo | Datacendia</title>
+  <meta name="description" content="Interactive demo of CendiaDissent formal disagreement protocol. See how structured dissent strengthens decision governance.">
   <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="demo-platform.css">
   <style>
-    *{margin:0;padding:0;box-sizing:border-box}
-    body{background:#0a0a0a;color:#e5e5e5;font-family:'Inter',-apple-system,sans-serif;line-height:1.6}
-    .platform-bar{display:flex;align-items:center;gap:12px;padding:10px 20px;background:#111;border-bottom:1px solid #1e1e2e;font-size:.8rem}
-    .platform-bar .logo{font-weight:700;color:#c9a227;letter-spacing:.05em}
-    .platform-bar .breadcrumb{color:#6b7280}.platform-bar .breadcrumb span{color:#e5e5e5}
-    .platform-bar .back{color:#6b7280;text-decoration:none;font-size:.75rem;margin-left:auto}.platform-bar .back:hover{color:#c9a227}
-    .platform-bar .demo-pill{padding:2px 8px;background:rgba(34,197,94,.15);color:#22c55e;border-radius:10px;font-size:.6rem;font-family:'JetBrains Mono',monospace;font-weight:600}
-    .app-layout{display:flex;height:calc(100vh - 41px);overflow:hidden}
-    .sidebar{width:300px;background:#111;border-right:1px solid #1e1e2e;flex-shrink:0;overflow-y:auto}
-    .main-panel{flex:1;display:flex;flex-direction:column;overflow:hidden}
-    .sb-section{padding:16px;border-bottom:1px solid #1e1e2e}
-    .sb-label{font-size:.6rem;font-weight:600;color:#6b7280;text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px}
-    .scenario-tab{padding:10px 12px;border:1px solid #2a2a3e;border-radius:8px;background:#1a1a2e;color:#9ca3af;font-size:.75rem;cursor:pointer;text-align:left;transition:all .2s;font-family:'Inter',sans-serif;margin-bottom:4px;display:block;width:100%}
-    .scenario-tab:hover{border-color:#ef4444;color:#d1d5db}.scenario-tab.active{border-color:#ef4444;color:#ef4444;background:rgba(239,68,68,.08)}
+    .scenario-tab{padding:10px 12px;border:1px solid #3f3f46;border-radius:10px;background:#27272a;color:#a1a1aa;font-size:.75rem;cursor:pointer;text-align:left;transition:all .2s;font-family:'Inter',sans-serif;margin-bottom:4px;display:block;width:100%}
+    .scenario-tab:hover{border-color:#ef4444;color:#d4d4d8}.scenario-tab.active{border-color:#ef4444;color:#ef4444;background:rgba(239,68,68,.08)}
     .scenario-tab .st-title{font-weight:600}.scenario-tab .st-meta{font-size:.6rem;color:#6b7280;margin-top:2px}
     .protection-card{padding:12px;background:linear-gradient(135deg,rgba(239,68,68,.06),rgba(168,85,247,.04));border:1px solid rgba(239,68,68,.2);border-radius:10px}
     .prot-row{display:flex;align-items:center;gap:10px}
@@ -32,7 +22,7 @@
     .prot-actions{display:flex;flex-wrap:wrap;gap:4px;margin-top:6px}
     .prot-action{padding:2px 8px;background:rgba(59,130,246,.15);color:#3b82f6;border-radius:4px;font-size:.55rem;font-family:'JetBrains Mono',monospace}
     .metric-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px}
-    .metric-card{padding:8px;background:#1a1a2e;border-radius:6px;text-align:center}
+    .metric-card{padding:8px;background:#27272a;border-radius:8px;text-align:center;border:1px solid #3f3f46}
     .metric-val{font-size:1rem;font-weight:700;font-family:'JetBrains Mono',monospace}
     .metric-label{font-size:.55rem;color:#6b7280}
     .monitor-item{display:flex;align-items:center;gap:8px;padding:6px 0;font-size:.7rem}
@@ -45,13 +35,10 @@
     .tab-btn{padding:10px 16px;font-size:.75rem;font-weight:500;color:#6b7280;cursor:pointer;border:none;background:none;border-bottom:2px solid transparent;transition:all .2s;font-family:'Inter',sans-serif;display:flex;align-items:center;gap:6px}
     .tab-btn:hover{color:#d1d5db;background:rgba(255,255,255,.02)}
     .tab-btn.active{color:#ef4444;border-bottom-color:#ef4444;background:rgba(239,68,68,.05)}
-    .main-header{padding:16px 20px;border-bottom:1px solid #1e1e2e;background:#111;display:flex;align-items:center;gap:12px}
-    .header-icon{width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,#ef4444,#e11d48);display:flex;align-items:center;justify-content:center;font-size:1.1rem}
-    .header-info h1{font-size:.95rem;font-weight:700}.header-info p{font-size:.65rem;color:#6b7280}
+    .header-info h1{font-size:.95rem;font-weight:700}.header-info p{font-size:.65rem;color:#71717a}
     .file-btn{margin-left:auto;padding:8px 16px;background:#ef4444;color:#fff;border:none;border-radius:8px;font-size:.75rem;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif}
     .file-btn:hover{background:#dc2626}
-    .content-area{flex:1;overflow-y:auto;padding:20px 24px}
-    .decision-ctx{background:#111;border:1px solid #1e1e2e;border-radius:12px;padding:16px;margin-bottom:16px}
+    .decision-ctx{background:#18181b;border:1px solid #27272a;border-radius:12px;padding:16px;margin-bottom:16px}
     .ctx-label{font-size:.6rem;font-family:'JetBrains Mono',monospace;color:#6b7280;text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px}
     .ctx-title{font-size:.95rem;font-weight:600;margin-bottom:4px}
     .ctx-outcome{display:flex;align-items:center;gap:8px;margin-bottom:8px}
@@ -60,7 +47,7 @@
     .outcome-override{background:rgba(249,115,22,.15);color:#f97316}
     .ctx-result{font-size:.75rem;color:#9ca3af}
     .ctx-meta{display:flex;flex-wrap:wrap;gap:12px;font-size:.65rem;color:#6b7280}
-    .dissent-card{background:#111;border:1px solid #1e1e2e;border-radius:12px;overflow:hidden;margin-bottom:12px;opacity:0;transform:translateY(12px);transition:all .5s}
+    .dissent-card{background:#18181b;border:1px solid #27272a;border-radius:12px;overflow:hidden;margin-bottom:12px;opacity:0;transform:translateY(12px);transition:all .5s}
     .dissent-card.visible{opacity:1;transform:translateY(0)}
     .dissent-top{display:flex;align-items:center;gap:12px;padding:14px 16px;cursor:pointer;transition:background .2s}
     .dissent-top:hover{background:rgba(255,255,255,.02)}
@@ -87,25 +74,33 @@
     .vind-tracking{background:rgba(245,158,11,.08);border:1px solid rgba(245,158,11,.2)}
     .vind-icon{font-size:1.2rem}.vind-text{font-size:.75rem;font-weight:500}
     .analytics-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:20px}
-    .ag-card{background:#111;border:1px solid #1e1e2e;border-radius:12px;padding:16px;text-align:center}
+    .ag-card{background:#18181b;border:1px solid #27272a;border-radius:12px;padding:16px;text-align:center}
     .ag-val{font-size:1.8rem;font-weight:700;font-family:'JetBrains Mono',monospace}.ag-label{font-size:.65rem;color:#6b7280;margin-top:4px}
     .dept-table{width:100%;border-collapse:collapse;font-size:.75rem}
     .dept-table th{text-align:left;padding:8px 10px;color:#6b7280;font-weight:500;border-bottom:1px solid #1e1e2e}
     .dept-table td{padding:8px 10px;border-bottom:1px solid rgba(30,30,46,.5)}
     .trend-chart{display:flex;align-items:flex-end;gap:4px;height:120px;padding:10px 0}
     .trend-bar{flex:1;border-radius:3px 3px 0 0;background:rgba(239,68,68,.4);min-height:4px}
-    .demo-cta{text-align:center;margin-top:24px;padding:32px;background:#111;border:1px solid #1e1e2e;border-radius:12px}
-    .demo-cta h3{font-size:1.1rem;font-weight:300;color:#fff;margin-bottom:6px}.demo-cta p{font-size:.8rem;color:#6b7280;margin-bottom:16px}
-    .demo-cta a{display:inline-block;padding:10px 24px;background:linear-gradient(135deg,#ef4444,#a855f7);border-radius:8px;color:#fff;text-decoration:none;font-weight:600;font-size:.8rem}
     @media(max-width:900px){.sidebar{display:none}.analytics-grid{grid-template-columns:1fr 1fr}}
   </style>
 </head>
 <body>
-  <div class="platform-bar">
-    <span class="logo">DATACENDIA</span>
-    <span class="breadcrumb">/ Cortex / Enterprise / <span>CendiaDissent</span></span>
-    <span class="demo-pill">DEMO MODE</span>
-    <a href="../demos.html" class="back">← Back to Demos</a>
+  <div class="platform-header">
+    <a href="../demos.html" class="ph-logo" style="text-decoration:none;color:inherit">DATACENDIA</a>
+    <div class="ph-divider"></div>
+    <div class="ph-nav">
+      <a class="ph-nav-item active" href="../demos.html#cortex">Cortex</a>
+      <a class="ph-nav-item" href="../demos.html#oversight">Oversight</a>
+      <a class="ph-nav-item" href="../demos.html#evidence">Evidence</a>
+    </div>
+    <span class="ph-breadcrumb">/ Core Suite / <span>CendiaDissent</span></span>
+    <span class="ph-spacer"></span>
+    <span class="ph-demo-badge">DEMO MODE</span>
+    <div class="ph-user">
+      <div class="ph-notif"><img src="../assets/logos/cendia-helm.svg" alt="Notifications" width="18" height="18" style="border-radius:4px"><div class="ph-notif-dot"></div></div>
+      <div class="ph-avatar">SR</div>
+    </div>
+    <a href="../demos.html" class="ph-back">← Demos</a>
   </div>
   <div class="app-layout">
     <div class="sidebar">
@@ -148,13 +143,13 @@
     </div>
     <div class="main-panel">
       <div class="main-header">
-        <div class="header-icon">🛑</div>
+        <div class="header-icon" style="padding:4px"><img src="../assets/logos/dissent.svg" alt="CendiaDissent" width="40" height="40" style="border-radius:8px"></div>
         <div class="header-info"><h1>CendiaDissent™</h1><p>Formalized, Protected, Immutable Disagreement</p></div>
         <button class="file-btn" onclick="alert('In the full platform, this opens the File Dissent modal with type selection, severity level, anonymous option, and evidence attachment.')">File New Dissent</button>
       </div>
       <div class="tab-bar">
-        <button class="tab-btn active" onclick="switchTab('review',this)"><span>📋</span> Decision Review</button>
-        <button class="tab-btn" onclick="switchTab('analytics',this)"><span>📈</span> Organization Health</button>
+        <button class="tab-btn active" onclick="switchTab('review',this)"><span><img src="../assets/logos/audit-provenance.svg" alt="Review" width="12" height="12" style="border-radius:2px;vertical-align:middle"></span> Decision Review</button>
+        <button class="tab-btn" onclick="switchTab('analytics',this)"><span><img src="../assets/logos/cortex.svg" alt="Health" width="12" height="12" style="border-radius:2px;vertical-align:middle"></span> Organization Health</button>
       </div>
       <div class="content-area" id="contentArea"></div>
     </div>
@@ -162,14 +157,14 @@
 <script>
 const S={
 vendor:{
-  decision:{title:'$4.2M Cloud Infrastructure Contract — Awarded to CloudNova Inc.',outcome:'PROCEED',badge:'proceed',result:'Council voted 5-1 to proceed. CEO overrode CISO recommendation.',meta:['🏢 Acme Corporation','💰 $4.2M / 3 years','📅 Jan 15, 2026','🤖 6 agents deliberated']},
+  decision:{title:'$4.2M Cloud Infrastructure Contract — Awarded to CloudNova Inc.',outcome:'PROCEED',badge:'proceed',result:'Council voted 5-1 to proceed. CEO overrode CISO recommendation.',meta:['Acme Corporation','$4.2M / 3 years','Jan 15, 2026','6 agents deliberated']},
   dissents:[
-    {filer:'Chief Information Security Officer',role:'Security & Infrastructure',icon:'🔒',color:'#a855f7',sev:'formal',sevLabel:'FORMAL DISSENT',type:'risk',
+    {filer:'Chief Information Security Officer',role:'Security & Infrastructure',icon:'<img src="../assets/logos/cendia-guard.svg" alt="CISO" width="20" height="20" style="border-radius:4px">',color:'#a855f7',sev:'formal',sevLabel:'FORMAL DISSENT',type:'risk',
       grounds:'<strong>Security Risk:</strong> CloudNova failed 3 of 12 security controls. SOC 2 Type II has 2 qualified opinions. No FedRAMP authorization — needed by Q4 2026 for government contracts.',
       rec:'Reject CloudNova. Award to AzureGov (11/12 controls, FedRAMP Moderate). $800K premium justified by risk reduction.',
       impact:'<strong>If ignored:</strong> 65% probability of SOC 2 audit failure in Q3 2026. Government pipeline ($12M) at risk.',
       evidence:['Vendor Security Assessment v3.2','CloudNova SOC 2 Report (qualified)','FedRAMP Timeline Analysis','Government Contract Risk Model']},
-    {filer:'Chief Risk Officer',role:'Enterprise Risk Management',icon:'🎯',color:'#ef4444',sev:'advisory',sevLabel:'ADVISORY DISSENT',type:'risk',
+    {filer:'Chief Risk Officer',role:'Enterprise Risk Management',icon:'<img src="../assets/logos/pre-mortem.svg" alt="CRO" width="20" height="20" style="border-radius:4px">',color:'#ef4444',sev:'advisory',sevLabel:'ADVISORY DISSENT',type:'risk',
       grounds:'<strong>Concentration Risk:</strong> CloudNova is 3rd major vendor dependency. Outage = cascading failure across procurement, HR, and infrastructure. Vendor concentration exceeds risk appetite threshold.',
       rec:'If CloudNova selected, require multi-cloud failover (+$400K) and 99.99% SLA with financial penalties.',
       impact:'<strong>If ignored:</strong> Single point of failure for 40% of digital operations. Business continuity exposure: $2.1M/hour of outage.',
@@ -184,14 +179,14 @@ vendor:{
   outcome:{text:'<p><strong>6 months later:</strong> CloudNova experienced a 14-hour outage on March 8, 2026. Acme down 11 hours. Business impact: <strong>$1.8M</strong>.</p><p><strong>CISO dissent vindicated.</strong> Retrieved from immutable ledger during post-incident review. Board acknowledged CISO\'s assessment was accurate.</p><p><strong>Corrective Action:</strong> Multi-cloud failover approved (CRO\'s original recommendation). AzureGov added as secondary. Both dissenters credited in board minutes.</p>',vindicated:true,vindText:'DISSENT VINDICATED — CISO risk assessment confirmed by real-world incident'}
 },
 acquisition:{
-  decision:{title:'$200M Acquisition of TechStart Inc. — Strategic Technology Play',outcome:'CONDITIONAL PROCEED',badge:'override',result:'Council voted 4-1-1 to proceed with conditions. CRO filed formal dissent on valuation.',meta:['🏢 Acme Corporation','💰 $200M deal value','📅 Feb 3, 2026','🤖 6 agents deliberated']},
+  decision:{title:'$200M Acquisition of TechStart Inc. — Strategic Technology Play',outcome:'CONDITIONAL PROCEED',badge:'override',result:'Council voted 4-1-1 to proceed with conditions. CRO filed formal dissent on valuation.',meta:['Acme Corporation','$200M deal value','Feb 3, 2026','6 agents deliberated']},
   dissents:[
-    {filer:'Chief Risk Officer',role:'Enterprise Risk Management',icon:'🎯',color:'#ef4444',sev:'formal',sevLabel:'FORMAL DISSENT',type:'strategic',
+    {filer:'Chief Risk Officer',role:'Enterprise Risk Management',icon:'<img src="../assets/logos/pre-mortem.svg" alt="CRO" width="20" height="20" style="border-radius:4px">',color:'#ef4444',sev:'formal',sevLabel:'FORMAL DISSENT',type:'strategic',
       grounds:'<strong>Valuation Risk:</strong> At $200M (8x revenue), paying premium for 70% customer concentration in 3 accounts. Risk-adjusted valuation: $140-160M. Acquisitions with >50% concentration have 40% higher failure rate.',
       rec:'Renegotiate to $160M with $40M earnout tied to customer retention over 24 months. If rejected, walk away — risk-adjusted IRR below hurdle rate.',
       impact:'<strong>If ignored:</strong> If top 3 customers churn post-acquisition (35% probability), $50-70M write-down within 18 months.',
       evidence:['M&A Risk Model v2.1','Customer Concentration Analysis','Historical Acquisition Failure Rates','Risk-Adjusted Valuation Model']},
-    {filer:'Red Team',role:'Adversarial Analysis',icon:'🔴',color:'#ef4444',sev:'note',sevLabel:'ADVERSARIAL NOTE',type:'factual',
+    {filer:'Red Team',role:'Adversarial Analysis',icon:'<img src="../assets/logos/crucible.svg" alt="Red" width="20" height="20" style="border-radius:4px">',color:'#ef4444',sev:'note',sevLabel:'ADVERSARIAL NOTE',type:'factual',
       grounds:'<strong>Competitive Intelligence:</strong> TechStart\'s largest customer (DataFlow Corp, 35% of revenue) in active discussions with AutonoTech since Nov 2025. If DataFlow signs before close, acquisition thesis collapses.',
       rec:'Accelerate due diligence on DataFlow relationship. Consider deal contingent on DataFlow contract renewal.',
       impact:'<strong>If ignored:</strong> 25% chance DataFlow announces AutonoTech partnership within 90 days. Post-close = immediate $35M write-down.',
@@ -208,10 +203,13 @@ acquisition:{
 let cur='vendor',curTab='review';
 function loadScenario(id,el){cur=id;document.querySelectorAll('.scenario-tab').forEach(t=>t.classList.remove('active'));if(el)el.classList.add('active');const s=S[id];document.getElementById('protScore').textContent=s.protScore;const rr=document.getElementById('retRisk');rr.textContent=s.retRisk;rr.className='risk '+s.retClass;document.getElementById('monitorList').innerHTML=s.monitors.map(m=>`<div class="monitor-item"><span class="monitor-dot dot-${m.dot}"></span><span class="monitor-label">${m.label}</span><span class="monitor-val" style="color:${m.dot==='green'?'#22c55e':'#f59e0b'}">${m.val}</span></div>`).join('');if(curTab==='review')renderReview();}
 function switchTab(tab,el){curTab=tab;document.querySelectorAll('.tab-btn').forEach(t=>t.classList.remove('active'));if(el)el.classList.add('active');if(tab==='review')renderReview();else renderAnalytics();}
-function renderReview(){const s=S[cur],area=document.getElementById('contentArea');area.innerHTML=`<div class="decision-ctx"><div class="ctx-label">Decision Under Review</div><div class="ctx-title">${s.decision.title}</div><div class="ctx-outcome"><span class="outcome-badge outcome-${s.decision.badge}">${s.decision.outcome}</span><span class="ctx-result">${s.decision.result}</span></div><div class="ctx-meta">${s.decision.meta.map(m=>`<span>${m}</span>`).join('')}</div></div><div id="dissentList">${s.dissents.map((d,i)=>`<div class="dissent-card" id="dc${i}" onclick="toggleDissent(${i})"><div class="dissent-top"><div class="dissent-avatar" style="background:${d.color}22;border:2px solid ${d.color}">${d.icon}</div><div class="dissent-info"><div class="dissent-filer">${d.filer}</div><div class="dissent-role">${d.role}</div></div><span class="sev-badge sev-${d.sev}">${d.sevLabel}</span><span class="dissent-type">${d.type.toUpperCase()}</span></div><div class="dissent-body"><div class="ds-section"><div class="ds-label">Grounds for Dissent</div><div class="ds-text">${d.grounds}</div></div><div class="ds-section"><div class="ds-label">Recommendation</div><div class="ds-text">${d.rec}</div></div><div class="ds-section"><div class="ds-label">Projected Impact if Overridden</div><div class="ds-text">${d.impact}</div></div></div><div class="evidence-bar"><span class="ev-label">EVIDENCE:</span>${d.evidence.map(e=>`<span class="ev-chip">📎 ${e}</span>`).join('')}</div></div>`).join('')}</div><div class="outcome-panel"><h3>📊 Outcome Tracking</h3>${s.outcome.text}<div class="vindication-bar ${s.outcome.vindicated?'vind-confirmed':'vind-tracking'}"><span class="vind-icon">${s.outcome.vindicated?'✅':'⏳'}</span><span class="vind-text" style="color:${s.outcome.vindicated?'#22c55e':'#f59e0b'}">${s.outcome.vindText}</span></div></div><div class="demo-cta"><h3>Give your people a protected voice</h3><p>CendiaDissent ensures disagreement is heard, logged, and tracked — not buried.</p><a href="../briefing.html">Request Briefing →</a></div>`;setTimeout(()=>{document.querySelectorAll('.dissent-card').forEach((c,i)=>{setTimeout(()=>c.classList.add('visible'),i*200)})},50);}
-function renderAnalytics(){document.getElementById('contentArea').innerHTML=`<h2 style="font-size:1rem;font-weight:700;margin-bottom:16px">Organization Dissent Health</h2><div class="analytics-grid"><div class="ag-card"><div class="ag-val" style="color:#fff">47</div><div class="ag-label">Total Dissents</div></div><div class="ag-card"><div class="ag-val" style="color:#22c55e">92%</div><div class="ag-label">Response Rate</div></div><div class="ag-card"><div class="ag-val" style="color:#a855f7">38%</div><div class="ag-label">Acceptance Rate</div></div><div class="ag-card"><div class="ag-val" style="color:#f59e0b">71%</div><div class="ag-label">Dissent Accuracy</div></div></div><div style="background:#111;border:1px solid #1e1e2e;border-radius:12px;padding:16px;margin-bottom:16px"><div style="font-size:.8rem;font-weight:600;margin-bottom:8px">Dissent Trend (6 months)</div><div class="trend-chart">${[5,8,6,12,9,7].map((v,i)=>`<div class="trend-bar" style="height:${v*10}px" title="${['Jul','Aug','Sep','Oct','Nov','Dec'][i]}: ${v}"></div>`).join('')}</div><div style="display:flex;justify-content:space-between;font-size:.55rem;color:#6b7280">${['Jul','Aug','Sep','Oct','Nov','Dec'].map(m=>`<span>${m}</span>`).join('')}</div></div><div style="background:rgba(245,158,11,.06);border:1px solid rgba(245,158,11,.2);border-radius:12px;padding:14px;margin-bottom:16px"><div style="display:flex;gap:8px;align-items:start"><span>⚠️</span><div><div style="font-size:.8rem;font-weight:600">Attention Required</div><div style="font-size:.75rem;color:#9ca3af;margin-top:2px">Engineering dissents have 78% accuracy — significantly higher than org average. Consider elevating Engineering concerns in Council weighting.</div></div></div></div><div style="background:#111;border:1px solid #1e1e2e;border-radius:12px;padding:16px"><div style="font-size:.8rem;font-weight:600;margin-bottom:10px">Dissent by Department</div><table class="dept-table"><thead><tr><th>Department</th><th>Dissents</th><th>Accepted</th><th>Accuracy</th><th>Trend</th></tr></thead><tbody><tr><td>Engineering</td><td>14</td><td>43%</td><td style="color:#22c55e">78%</td><td style="color:#22c55e">↑</td></tr><tr><td>Security</td><td>11</td><td>45%</td><td style="color:#22c55e">72%</td><td style="color:#22c55e">↑</td></tr><tr><td>Risk Management</td><td>9</td><td>33%</td><td>68%</td><td style="color:#6b7280">→</td></tr><tr><td>Legal</td><td>7</td><td>29%</td><td>65%</td><td style="color:#6b7280">→</td></tr><tr><td>Finance</td><td>6</td><td>33%</td><td>61%</td><td style="color:#ef4444">↓</td></tr></tbody></table></div><div class="demo-cta" style="margin-top:20px"><h3>Give your people a protected voice</h3><p>CendiaDissent ensures disagreement is heard, logged, and tracked — not buried.</p><a href="../briefing.html">Request Briefing →</a></div>`;}
+function renderReview(){const s=S[cur],area=document.getElementById('contentArea');
+const bsText=cur==='vendor'?`<div class="backstory" style="background:linear-gradient(135deg,rgba(239,68,68,.06),rgba(168,85,247,.04));border-color:rgba(239,68,68,.15)"><h3 style="color:#ef4444"><img src="../assets/logos/audit-provenance.svg" alt="Briefing" width="20" height="20" style="border-radius:4px;vertical-align:middle"> Scenario Briefing</h3><p><strong>Acme Corporation</strong> awarded a $4.2M cloud infrastructure contract to CloudNova Inc. despite the CISO's objection that CloudNova failed 3 of 12 security controls and lacks FedRAMP authorization. The CEO overrode the CISO's recommendation, choosing CloudNova's lower price over AzureGov's superior security posture.</p><p>The CISO filed a <strong>Formal Dissent</strong> through CendiaDissent™ — creating a cryptographically sealed, tamper-proof record that can never be deleted, altered, or buried. Six months later, the system is automatically tracking whether the dissenter was right — and whether any retaliation has occurred.</p><div class="bs-meta" style="border-color:rgba(239,68,68,.1)"><span>Acme Corporation</span><span>$4.2M contract</span><span>CISO filed formal dissent</span><span>3/12 security controls failed</span><span>Protection Score: 94%</span></div></div>`:`<div class="backstory" style="background:linear-gradient(135deg,rgba(239,68,68,.06),rgba(168,85,247,.04));border-color:rgba(239,68,68,.15)"><h3 style="color:#ef4444"><img src="../assets/logos/audit-provenance.svg" alt="Briefing" width="20" height="20" style="border-radius:4px;vertical-align:middle"> Scenario Briefing</h3><p><strong>Acme Corporation</strong> is acquiring TechStart Inc. for $200M — but the Chief Risk Officer believes the valuation is $40-60M too high given TechStart's 70% customer concentration risk. The Red Team also flagged competitive intelligence suggesting TechStart's largest customer may be defecting.</p><p>Both the CRO and Red Team filed dissents through CendiaDissent™. The CEO overrode them and closed at $200M. The dissents are now <strong>permanently preserved in the immutable ledger</strong> — and the system is monitoring for both outcome validation and any retaliation against the dissenters.</p><div class="bs-meta" style="border-color:rgba(239,68,68,.1)"><span>Acme Corporation</span><span>$200M acquisition</span><span>CRO + Red Team dissented</span><span>70% customer concentration</span><span>Protection Score: 87%</span></div></div>`;
+area.innerHTML=bsText+`<div class="decision-ctx"><div class="ctx-label">Decision Under Review</div><div class="ctx-title">${s.decision.title}</div><div class="ctx-outcome"><span class="outcome-badge outcome-${s.decision.badge}">${s.decision.outcome}</span><span class="ctx-result">${s.decision.result}</span></div><div class="ctx-meta">${s.decision.meta.map(m=>`<span>${m}</span>`).join('')}</div></div><div id="dissentList">${s.dissents.map((d,i)=>`<div class="dissent-card" id="dc${i}" onclick="toggleDissent(${i})"><div class="dissent-top"><div class="dissent-avatar" style="background:${d.color}22;border:2px solid ${d.color}">${d.icon}</div><div class="dissent-info"><div class="dissent-filer">${d.filer}</div><div class="dissent-role">${d.role}</div></div><span class="sev-badge sev-${d.sev}">${d.sevLabel}</span><span class="dissent-type">${d.type.toUpperCase()}</span></div><div class="dissent-body"><div class="ds-section"><div class="ds-label">Grounds for Dissent</div><div class="ds-text">${d.grounds}</div></div><div class="ds-section"><div class="ds-label">Recommendation</div><div class="ds-text">${d.rec}</div></div><div class="ds-section"><div class="ds-label">Projected Impact if Overridden</div><div class="ds-text">${d.impact}</div></div></div><div class="evidence-bar"><span class="ev-label">EVIDENCE:</span>${d.evidence.map(e=>`<span class="ev-chip">${e}</span>`).join('')}</div></div>`).join('')}</div><div class="outcome-panel"><h3><img src="../assets/logos/cortex.svg" alt="Outcome" width="18" height="18" style="border-radius:4px;vertical-align:middle"> Outcome Tracking</h3>${s.outcome.text}<div class="vindication-bar ${s.outcome.vindicated?'vind-confirmed':'vind-tracking'}"><span class="vind-icon">${s.outcome.vindicated?'+':'...'}</span><span class="vind-text" style="color:${s.outcome.vindicated?'#22c55e':'#f59e0b'}">${s.outcome.vindText}</span></div></div><div class="demo-cta"><h3>Give your people a protected voice</h3><p>CendiaDissent ensures disagreement is heard, logged, and tracked — not buried.</p><a href="../briefing.html">Request Briefing →</a></div>`;setTimeout(()=>{document.querySelectorAll('.dissent-card').forEach((c,i)=>{setTimeout(()=>c.classList.add('visible'),i*200)})},50);}
+function renderAnalytics(){document.getElementById('contentArea').innerHTML=`<h2 style="font-size:1rem;font-weight:700;margin-bottom:16px">Organization Dissent Health</h2><div class="analytics-grid"><div class="ag-card"><div class="ag-val" style="color:#fff">47</div><div class="ag-label">Total Dissents</div></div><div class="ag-card"><div class="ag-val" style="color:#22c55e">92%</div><div class="ag-label">Response Rate</div></div><div class="ag-card"><div class="ag-val" style="color:#a855f7">38%</div><div class="ag-label">Acceptance Rate</div></div><div class="ag-card"><div class="ag-val" style="color:#f59e0b">71%</div><div class="ag-label">Dissent Accuracy</div></div></div><div style="background:#111;border:1px solid #1e1e2e;border-radius:12px;padding:16px;margin-bottom:16px"><div style="font-size:.8rem;font-weight:600;margin-bottom:8px">Dissent Trend (6 months)</div><div class="trend-chart">${[5,8,6,12,9,7].map((v,i)=>`<div class="trend-bar" style="height:${v*10}px" title="${['Jul','Aug','Sep','Oct','Nov','Dec'][i]}: ${v}"></div>`).join('')}</div><div style="display:flex;justify-content:space-between;font-size:.55rem;color:#6b7280">${['Jul','Aug','Sep','Oct','Nov','Dec'].map(m=>`<span>${m}</span>`).join('')}</div></div><div style="background:rgba(245,158,11,.06);border:1px solid rgba(245,158,11,.2);border-radius:12px;padding:14px;margin-bottom:16px"><div style="display:flex;gap:8px;align-items:start"><span><img src="../assets/logos/pre-mortem.svg" alt="Warning" width="14" height="14" style="border-radius:3px"></span><div><div style="font-size:.8rem;font-weight:600">Attention Required</div><div style="font-size:.75rem;color:#9ca3af;margin-top:2px">Engineering dissents have 78% accuracy — significantly higher than org average. Consider elevating Engineering concerns in Council weighting.</div></div></div></div><div style="background:#111;border:1px solid #1e1e2e;border-radius:12px;padding:16px"><div style="font-size:.8rem;font-weight:600;margin-bottom:10px">Dissent by Department</div><table class="dept-table"><thead><tr><th>Department</th><th>Dissents</th><th>Accepted</th><th>Accuracy</th><th>Trend</th></tr></thead><tbody><tr><td>Engineering</td><td>14</td><td>43%</td><td style="color:#22c55e">78%</td><td style="color:#22c55e">↑</td></tr><tr><td>Security</td><td>11</td><td>45%</td><td style="color:#22c55e">72%</td><td style="color:#22c55e">↑</td></tr><tr><td>Risk Management</td><td>9</td><td>33%</td><td>68%</td><td style="color:#6b7280">→</td></tr><tr><td>Legal</td><td>7</td><td>29%</td><td>65%</td><td style="color:#6b7280">→</td></tr><tr><td>Finance</td><td>6</td><td>33%</td><td>61%</td><td style="color:#ef4444">↓</td></tr></tbody></table></div><div class="demo-cta" style="margin-top:20px"><h3>Give your people a protected voice</h3><p>CendiaDissent ensures disagreement is heard, logged, and tracked — not buried.</p><a href="../briefing.html">Request Briefing →</a></div>`;}
 function toggleDissent(i){document.getElementById('dc'+i).classList.toggle('open');}
 loadScenario('vendor',document.querySelector('.scenario-tab.active'));
 </script>
+<div style="text-align:center;padding:12px 20px;font-size:.6rem;color:#4a4a5a;border-top:1px solid #1e1e2e;font-family:'Inter',sans-serif">All names, entities, and scenarios in this demo are entirely fictitious. Any resemblance to real persons, companies, or events is purely coincidental.</div>
 </body>
 </html>
