@@ -156,20 +156,22 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  // Newsletter form — AJAX submit so thanks message shows inline
+  // Newsletter form — AJAX submit via Formspree so thanks message shows inline
   const newsletterForm = document.getElementById('newsletter-form');
   if (newsletterForm) {
     newsletterForm.addEventListener('submit', function(e) {
       e.preventDefault();
       const formData = new FormData(newsletterForm);
-      fetch('/', {
+      fetch(newsletterForm.action, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams(formData).toString()
+        body: formData,
+        headers: { 'Accept': 'application/json' }
       })
-      .then(function() {
-        newsletterForm.style.display = 'none';
-        document.getElementById('newsletter-thanks').style.display = 'block';
+      .then(function(response) {
+        if (response.ok) {
+          newsletterForm.style.display = 'none';
+          document.getElementById('newsletter-thanks').style.display = 'block';
+        }
       })
       .catch(function() {
         newsletterForm.style.display = 'none';

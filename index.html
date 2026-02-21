@@ -1141,9 +1141,8 @@
       <div class="newsletter-card">
         <h3 class="newsletter-title" data-i18n="newsletterTitle">Stay Informed</h3>
         <p class="newsletter-desc" data-i18n="newsletterDesc">Platform updates, new compliance guides, and industry analysis. No spam — one email per month, max.</p>
-        <form id="newsletter-form" class="newsletter-form" name="newsletter" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-          <input type="hidden" name="form-name" value="newsletter">
-          <input type="text" name="bot-field" style="display:none" aria-hidden="true">
+        <form id="newsletter-form" class="newsletter-form" name="newsletter" action="https://formspree.io/f/REPLACE_WITH_FORMSPREE_ID" method="POST">
+          <input type="text" name="_gotcha" style="display:none" aria-hidden="true">
           <input type="email" name="email" required placeholder="your@email.com" data-i18n-placeholder="newsletterPlaceholder" class="newsletter-input">
           <button type="submit" class="newsletter-btn" data-i18n="newsletterBtn">Subscribe</button>
         </form>
