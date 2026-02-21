@@ -1,0 +1,52 @@
+name: Deploy to Namecheap
+
+on:
+  push:
+    branches: [master]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install lftp
+        run: sudo apt-get update && sudo apt-get install -y lftp
+
+      - name: Deploy to Namecheap via FTP
+        env:
+          FTP_SERVER: ${{ secrets.FTP_SERVER }}
+          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+        run: |
+          lftp -c "
+            set ftp:ssl-allow yes;
+            set ftp:ssl-force no;
+            set ftp:ssl-protect-data yes;
+            set ssl:verify-certificate no;
+            set net:max-retries 3;
+            set net:timeout 30;
+            open -u ${FTP_USERNAME},${FTP_PASSWORD} ftp://${FTP_SERVER};
+            cd /home/dataezpj/public_html || cd /public_html || echo 'Using FTP root';
+            echo 'Deploying to:';
+            pwd;
+            rm -rf .git || true;
+            mirror --reverse --delete --verbose \
+              --exclude .git/ \
+              --exclude .git \
+              --exclude .github/ \
+              --exclude scripts/ \
+              --exclude docs/ \
+              --exclude node_modules/ \
+              --exclude lighthouserc.js \
+              --exclude serve_static.py \
+              --exclude verify-translations.js \
+              --exclude README.md \
+              --exclude .gitignore \
+              --exclude netlify.toml \
+              ./ ./;
+            bye;
+          "

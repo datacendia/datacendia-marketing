@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apprendre | Guides et Ressources IA d'Entreprise | Datacendia</title>
+  <meta name="description" content="Guides complets sur l'intelligence décisionnelle, les pistes d'audit IA, l'IA souveraine, les systèmes multi-agents et la conformité AI Act UE pour les organisations.">
+  <meta name="keywords" content="intelligence décisionnelle, piste audit IA, IA souveraine, IA multi-agent, AI Act UE, IA entreprise, conformité IA">
+  <meta name="author" content="Datacendia">
+  <meta property="og:title" content="Apprendre | Guides et Ressources IA d'Entreprise">
+  <meta property="og:description" content="Guides complets sur l'intelligence décisionnelle, les pistes d'audit IA et la conformité.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://datacendia.com/fr/learn/">
+  <meta property="og:image" content="https://datacendia.com/og-image.png">
+  <meta property="og:site_name" content="Datacendia">
+  <meta property="og:locale" content="fr_FR">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://datacendia.com/og-image.png">
+  <link rel="canonical" href="https://datacendia.com/fr/learn/">
+  <link rel="alternate" hreflang="en" href="https://datacendia.com/learn/">
+  <link rel="alternate" hreflang="es" href="https://datacendia.com/es/learn/">
+  <link rel="alternate" hreflang="fr" href="https://datacendia.com/fr/learn/">
+  <link rel="alternate" hreflang="de" href="https://datacendia.com/de/learn/">
+  <link rel="alternate" hreflang="pt" href="https://datacendia.com/pt/learn/">
+  <link rel="alternate" hreflang="it" href="https://datacendia.com/it/learn/">
+  <link rel="alternate" hreflang="ja" href="https://datacendia.com/ja/learn/">
+  <link rel="alternate" hreflang="ko" href="https://datacendia.com/ko/learn/">
+  <link rel="alternate" hreflang="zh" href="https://datacendia.com/zh/learn/">
+  <link rel="alternate" hreflang="ar" href="https://datacendia.com/ar/learn/">
+  <link rel="alternate" hreflang="hi" href="https://datacendia.com/hi/learn/">
+  <link rel="alternate" hreflang="x-default" href="https://datacendia.com/learn/">
+  <link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg">
+  <meta name="theme-color" content="#0a0a0a">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../styles.css">
+  <style>
+    .learn-hub { max-width: 900px; margin: 0 auto; padding: 60px 24px 80px; }
+    .learn-hub-header { text-align: center; margin-bottom: 48px; }
+    .learn-hub-title { font-family: var(--font-display); font-size: 2.5rem; font-weight: 300; color: var(--color-text); margin-bottom: 16px; }
+    .learn-hub-subtitle { font-size: 1rem; color: var(--color-text-muted); max-width: 600px; margin: 0 auto; line-height: 1.7; }
+    .learn-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-top: 48px; }
+    .learn-card { background: var(--color-card-bg); border: 1px solid var(--color-border); border-radius: 8px; padding: 28px; text-decoration: none; transition: border-color 0.2s, transform 0.2s; }
+    .learn-card:hover { border-color: var(--color-gold); transform: translateY(-2px); }
+    .learn-card-icon { font-size: 1.5rem; margin-bottom: 16px; }
+    .learn-card-title { font-family: var(--font-display); font-size: 1.25rem; font-weight: 400; color: var(--color-text); margin-bottom: 8px; }
+    .learn-card-desc { font-size: 0.85rem; color: var(--color-text-muted); line-height: 1.6; margin-bottom: 16px; }
+    .learn-card-meta { font-size: 0.75rem; color: var(--color-text-dim); display: flex; gap: 16px; }
+    .learn-card-tag { background: rgba(212, 175, 55, 0.1); color: var(--color-gold); padding: 2px 8px; border-radius: 4px; font-size: 0.7rem; text-transform: uppercase; }
+    .featured-card { grid-column: 1 / -1; background: linear-gradient(135deg, rgba(212, 175, 55, 0.08) 0%, rgba(212, 175, 55, 0.02) 100%); border-color: var(--color-gold); }
+    .featured-card .learn-card-title { font-size: 1.5rem; }
+    .learn-section-title { font-family: var(--font-display); font-size: 1rem; color: var(--color-text-dim); text-transform: uppercase; letter-spacing: 0.1em; margin: 48px 0 24px; padding-top: 32px; border-top: 1px solid var(--color-border); }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-top">
+        <a href="../" style="text-decoration: none;"><h1 class="logo"><span class="brand-name">DATACENDIA</span></h1></a>
+      </div>
+      <nav class="main-nav">
+        <button class="nav-toggle" aria-label="Menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+        <div class="nav-menu">
+        <div class="nav-group">
+          <span class="nav-label">Plateforme</span>
+          <div class="nav-dropdown">
+            <a href="/platform-capabilities.html">Vue d’Ensemble<span class="nav-desc">Carte complète des capacités</span></a>
+            <a href="/dcii.html">Cadre DCII<span class="nav-desc">9 primitives · Immunisation de crise</span></a>
+            <a href="/diagrams.html">Architecture<span class="nav-desc">8 diagrammes système</span></a>
+          </div>
+        </div>
+        <div class="nav-group">
+          <span class="nav-label">Preuves</span>
+          <div class="nav-dropdown">
+            <a href="/demos.html">Démos Interactives<span class="nav-desc">Council, Chronos, Crucible et plus</span></a>
+            <a href="/wargames.html">Jeux de Guerre<span class="nav-desc">La dissidence aurait-elle révélé le risque ?</span></a>
+            <a href="/case-studies.html">Études de Cas<span class="nav-desc">Analyse de décisions réelles</span></a>
+          </div>
+        </div>
+        <a href="/verticals.html">Industries</a>
+        <div class="nav-group">
+          <span class="nav-label">Tarifs</span>
+          <div class="nav-dropdown">
+            <a href="/pricing.html">Aperçu des Niveaux<span class="nav-desc">Foundation · Enterprise · Strategic</span></a>
+            <a href="/premium.html">Modules Premium<span class="nav-desc">7 capacités avancées</span></a>
+            <a href="/roi-calculator.html">Calculateur ROI<span class="nav-desc">Quantifiez la réduction du risque</span></a>
+            <a href="/pilot.html">Pilote de 90 Jours<span class="nav-desc">Prouvez la valeur avant de passer à l’échelle</span></a>
+          </div>
+        </div>
+        <div class="nav-group">
+          <span class="nav-label">Confiance</span>
+          <div class="nav-dropdown">
+            <a href="/trust.html">Centre de Confiance<span class="nav-desc">Sécurité, conformité et déploiement</span></a>
+            <a href="/honesty-matrices.html">Matrices d’Honnêteté<span class="nav-desc">Ce que nous ne pouvons pas encore faire</span></a>
+          </div>
+        </div>
+        <a href="/briefing.html" class="nav-cta">Demander un Briefing</a>
+        </div>
+      </nav>
+    </header>
+
+    <main class="learn-hub">
+      <div class="learn-hub-header">
+        <h1 class="learn-hub-title">Apprendre</h1>
+        <p class="learn-hub-subtitle">Guides complets sur l'intelligence décisionnelle, la gouvernance IA et l'IA d'entreprise pour les industries réglementées. Conçu pour les praticiens, responsables conformité et leaders techniques.</p>
+      </div>
+
+      <div class="learn-grid">
+        <a href="decision-intelligence/" class="learn-card featured-card">
+          <div class="learn-card-icon">🧠</div>
+          <h2 class="learn-card-title">Qu'est-ce que l'Intelligence Décisionnelle ?</h2>
+          <p class="learn-card-desc">La discipline de transformer données, IA et expertise humaine en décisions commerciales responsables et explicables. Découvrez pourquoi l'intelligence décisionnelle remplace le BI traditionnel.</p>
+          <div class="learn-card-meta">
+            <span>12 min de lecture</span>
+            <span>Mis à jour Jan 2026</span>
+            <span class="learn-card-tag">En vedette</span>
+          </div>
+        </a>
+
+        <a href="ai-audit-trail/" class="learn-card">
+          <div class="learn-card-icon">📋</div>
+          <h2 class="learn-card-title">Qu'est-ce qu'une Piste d'Audit IA ?</h2>
+          <p class="learn-card-desc">Enregistrements complets et immuables de chaque décision IA — entrées, modèles, raisonnement, sorties et approbations humaines. Essentiel pour RGPD et AI Act UE.</p>
+          <div class="learn-card-meta">
+            <span>14 min de lecture</span>
+            <span>Mis à jour Jan 2026</span>
+          </div>
+        </a>
+
+        <a href="sovereign-ai/" class="learn-card">
+          <div class="learn-card-icon">🏛️</div>
+          <h2 class="learn-card-title">Qu'est-ce que l'IA Souveraine ?</h2>
+          <p class="learn-card-desc">IA fonctionnant sur votre infrastructure, avec vos clés de chiffrement, sous votre contrôle total. Pourquoi la résidence des données exige un déploiement d'IA souveraine.</p>
+          <div class="learn-card-meta">
+            <span>15 min de lecture</span>
+            <span>Mis à jour Jan 2026</span>
+          </div>
+        </a>
+
+        <a href="multi-agent-ai/" class="learn-card">
+          <div class="learn-card-icon">🤝</div>
+          <h2 class="learn-card-title">Qu'est-ce que l'IA Multi-Agent ?</h2>
+          <p class="learn-card-desc">Plusieurs agents IA spécialisés qui collaborent, débattent et délibèrent — comme une équipe dirigeante. Découvrez comment les architectures multi-agents améliorent la prise de décision.</p>
+          <div class="learn-card-meta">
+            <span>13 min de lecture</span>
+            <span>Mis à jour Jan 2026</span>
+          </div>
+        </a>
+
+        <a href="eu-ai-act-compliance/" class="learn-card">
+          <div class="learn-card-icon">⚖️</div>
+          <h2 class="learn-card-title">Guide de Conformité AI Act UE</h2>
+          <p class="learn-card-desc">Guide complet de la première réglementation IA complète au monde. Classifications de risques, exigences, calendriers et amendes jusqu'à 35M€ ou 7% du chiffre d'affaires.</p>
+          <div class="learn-card-meta">
+            <span>18 min de lecture</span>
+            <span>Mis à jour Jan 2026</span>
+            <span class="learn-card-tag">Réglementation</span>
+          </div>
+        </a>
+      </div>
+
+      <h2 class="learn-section-title">Bientôt disponible</h2>
+      <div class="learn-grid">
+        <div class="learn-card" style="opacity: 0.6; pointer-events: none;">
+          <div class="learn-card-icon">🔒</div>
+          <h2 class="learn-card-title">Conformité DORA pour l'IA</h2>
+          <p class="learn-card-desc">Exigences de la loi sur la résilience opérationnelle numérique pour les systèmes IA dans les services financiers.</p>
+          <div class="learn-card-meta">
+            <span>Q1 2026</span>
+          </div>
+        </div>
+
+        <div class="learn-card" style="opacity: 0.6; pointer-events: none;">
+          <div class="learn-card-icon">🎯</div>
+          <h2 class="learn-card-title">IA Explicable pour les Entreprises</h2>
+          <p class="learn-card-desc">Techniques pour rendre les décisions IA interprétables : SHAP, visualisation d'attention, chaînes de raisonnement.</p>
+          <div class="learn-card-meta">
+            <span>Q1 2026</span>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer style="text-align: center; padding: 40px 24px; border-top: 1px solid var(--color-border); margin-top: 60px;">
+      <p style="font-size: 0.75rem; color: var(--color-text-dim);">© 2026 Datacendia. Intelligence d'Entreprise Souveraine.</p>
+    </footer>
+  </div>
+  <script src="../../translations.js"></script>
+  <script src="../../app.js"></script>
+  <script src="/nav-mobile.js"></script>
+</body>
+</html>

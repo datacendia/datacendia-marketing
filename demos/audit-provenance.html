@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Audit Provenance — Evidence Packet Demo | Datacendia</title>
+  <meta name="description" content="Interactive demo of Audit Provenance evidence packets. See how every decision gets a tamper-proof audit trail with cryptographic integrity.">
+  <meta property="og:title" content="Audit Provenance — Evidence Packet Demo | Datacendia">
+  <meta property="og:description" content="See how every decision gets a tamper-proof audit trail with cryptographic integrity.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://datacendia.com/demos/audit-provenance.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Audit Provenance — Evidence Packet Demo | Datacendia">
+  <meta name="twitter:description" content="See how every decision gets a tamper-proof audit trail with cryptographic integrity.">
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="demo-platform.css">
+  <style>
+    .packet-tab{display:block;width:100%;text-align:left;padding:10px 12px;border:1px solid #3f3f46;border-radius:10px;background:#27272a;color:#a1a1aa;font-size:.72rem;cursor:pointer;transition:all .2s;font-family:'Inter',sans-serif;margin-bottom:4px}
+    .packet-tab:hover{border-color:#22c55e;color:#d4d4d8}.packet-tab.active{border-color:#22c55e;color:#22c55e;background:rgba(34,197,94,.08)}
+    .packet-tab .pt-title{font-weight:600}.packet-tab .pt-meta{font-size:.58rem;color:#6b7280;margin-top:2px}
+    .integrity-card{padding:12px;background:linear-gradient(135deg,rgba(34,197,94,.06),rgba(6,182,212,.04));border:1px solid rgba(34,197,94,.2);border-radius:10px;text-align:center}
+    .integrity-icon{font-size:1.5rem;margin-bottom:4px}
+    .integrity-status{font-size:.75rem;font-weight:700;color:#22c55e}
+    .integrity-detail{font-size:.55rem;color:#6b7280;margin-top:2px}
+    .merkle-mini{margin-top:10px;font-family:'JetBrains Mono',monospace;font-size:.5rem;color:#6b7280;word-break:break-all;background:#0a0a0a;padding:8px;border-radius:6px;text-align:left}
+    .merkle-mini .root{color:#22c55e;font-weight:600}
+    .sig-info{margin-top:8px;font-size:.6rem;color:#9ca3af}
+    .sig-info strong{color:#e5e5e5}
+    .export-btns{display:flex;flex-direction:column;gap:4px}
+    .export-btn{padding:10px 12px;border:1px solid #3f3f46;border-radius:8px;background:#27272a;color:#d4d4d8;font-size:.72rem;cursor:pointer;text-align:left;font-family:'Inter',sans-serif;transition:all .2s;margin-bottom:4px}
+    .export-btn:hover{border-color:#22c55e;background:rgba(34,197,94,.06)}
+    .export-btn span{font-size:.55rem;color:#6b7280;display:block;margin-top:1px}
+    .header-info h1{font-size:.95rem;font-weight:700}.header-info p{font-size:.65rem;color:#71717a}
+    .field-value{font-size:.8rem;color:#d4d4d8}.field-value.mono{font-family:'JetBrains Mono',monospace;font-size:.65rem;color:#06b6d4;word-break:break-all}
+    .agent-contrib{display:flex;align-items:center;gap:8px;padding:10px 12px;background:#27272a;border-radius:10px;margin-bottom:4px;border:1px solid #3f3f46}
+    .ac-circle{width:28px;height:28px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:.55rem;font-weight:700;color:#fff;flex-shrink:0}
+    .ac-name{font-size:.75rem;font-weight:600}.ac-role{font-size:.55rem;color:#6b7280}
+    .ac-stance{font-size:.55rem;font-family:'JetBrains Mono',monospace;padding:2px 6px;border-radius:4px;margin-left:auto}
+    .stance-support{background:rgba(34,197,94,.15);color:#22c55e}
+    .stance-oppose{background:rgba(239,68,68,.15);color:#ef4444}
+    .stance-caution{background:rgba(245,158,11,.15);color:#f59e0b}
+    .merkle-tree{font-family:'JetBrains Mono',monospace;font-size:.55rem;padding:14px;background:#09090b;border-radius:10px;line-height:1.8;border:1px solid #27272a}
+    .merkle-tree .node{color:#22c55e}.merkle-tree .hash{color:#6b7280}.merkle-tree .leaf{color:#06b6d4}
+    .compliance-badge{display:inline-flex;align-items:center;gap:4px;padding:4px 10px;border-radius:6px;font-size:.6rem;font-weight:600;font-family:'JetBrains Mono',monospace;margin:2px}
+    .comp-pass{background:rgba(34,197,94,.1);color:#22c55e;border:1px solid rgba(34,197,94,.2)}
+    @media(max-width:900px){.sidebar{display:none}}
+  </style>
+</head>
+<body>
+  <div class="platform-header">
+    <a href="../demos.html" class="ph-logo" style="text-decoration:none;color:inherit">DATACENDIA</a>
+    <div class="ph-divider"></div>
+    <div class="ph-nav">
+      <a class="ph-nav-item" href="../demos.html#cortex">Cortex</a>
+      <a class="ph-nav-item" href="../demos.html#oversight">Oversight</a>
+      <a class="ph-nav-item active" href="../demos.html#evidence">Evidence</a>
+    </div>
+    <span class="ph-breadcrumb">/ Trust Layer / <span>Audit Provenance</span></span>
+    <span class="ph-spacer"></span>
+    <span class="ph-demo-badge">DEMO MODE</span>
+    <div class="ph-user">
+      <div class="ph-notif"><img src="../assets/logos/cendia-helm.svg" alt="Notifications" width="18" height="18" style="border-radius:4px"><div class="ph-notif-dot"></div></div>
+      <div class="ph-avatar">SR</div>
+    </div>
+    <a href="../demos.html" class="ph-back">← Demos</a>
+  </div>
+  <div class="app-layout">
+    <div class="sidebar">
+      <div class="sb-section">
+        <div class="sb-label">Decision Packets</div>
+        <button class="packet-tab active" onclick="loadPacket('mna',this)"><div class="pt-title">M&A — TechStart Acquisition</div><div class="pt-meta">DEC-2026-001 · 6 agents · Conditional Proceed</div></button>
+        <button class="packet-tab" onclick="loadPacket('wire',this)"><div class="pt-title">Wire Transfer — Redline Holdings</div><div class="pt-meta">DEC-2026-002 · 8 agents · Proceed w/ Caution</div></button>
+      </div>
+      <div class="sb-section">
+        <div class="sb-label">Integrity Verification</div>
+        <div class="integrity-card">
+          <div class="integrity-icon"><img src="../assets/logos/cendia-guard.svg" alt="Integrity" width="24" height="24" style="border-radius:4px"></div>
+          <div class="integrity-status">INTEGRITY VERIFIED</div>
+          <div class="integrity-detail">All hashes match · Signature valid</div>
+          <div class="merkle-mini"><span class="root">Root:</span> 7a3f8b2c...e91d4f06<br>Depth: 4 levels · 12 leaf nodes<br>Algorithm: SHA-256 + Ed25519</div>
+          <div class="sig-info"><strong>Signed by:</strong> CendiaKMS · Ed25519<br>Timestamp: 2026-01-15T14:32:00Z</div>
+        </div>
+      </div>
+      <div class="sb-section">
+        <div class="sb-label">Export Options</div>
+        <div class="export-btns">
+          <button class="export-btn" onclick="alert('Generates PDF/A-3 executive summary with embedded JSON evidence packet.')"><img src="../assets/logos/audit-provenance.svg" alt="Summary" width="14" height="14" style="border-radius:3px;vertical-align:middle"> Executive Summary<span>PDF/A-3 with embedded evidence</span></button>
+          <button class="export-btn" onclick="alert('Exports regulator-ready bundle mapped to SOC 2, ISO 27001, NIST 800-53.')"><img src="../assets/logos/council.svg" alt="Regulator" width="14" height="14" style="border-radius:3px;vertical-align:middle"> Regulator Bundle<span>SOC 2 · ISO 27001 · NIST 800-53</span></button>
+          <button class="export-btn" onclick="alert('Downloads raw JSON packet with Merkle tree and cryptographic signatures.')"><img src="../assets/logos/sovereign-architecture.svg" alt="JSON" width="14" height="14" style="border-radius:3px;vertical-align:middle"> Raw JSON Packet<span>Signed JSON with Merkle proof</span></button>
+        </div>
+      </div>
+    </div>
+    <div class="main-panel">
+      <div class="main-header">
+        <div class="header-icon" style="background:linear-gradient(135deg,#22c55e,#06b6d4);padding:4px"><img src="../assets/logos/audit-provenance.svg" alt="Audit Provenance" width="40" height="40" style="border-radius:8px"></div>
+        <div class="header-info"><h1>Audit Provenance™ — Evidence Packet</h1><p>Cryptographically signed, immutable decision record with full audit trail</p></div>
+        <button class="verify-btn" onclick="alert('Verification complete. Merkle root matches. Ed25519 signature valid. No tampering detected. Chain of custody intact.')"><img src="../assets/logos/audit-provenance.svg" alt="Verify" width="16" height="16" style="border-radius:3px;vertical-align:middle"> Verify Integrity</button>
+      </div>
+      <div class="content-area" id="contentArea"></div>
+    </div>
+  </div>
+<script>
+const PACKETS={
+mna:{
+  id:'DEC-2026-001',title:'TechStart Inc. Acquisition — $200M',timestamp:'2026-01-15T14:32:00Z',status:'SEALED',
+  decision:{outcome:'CONDITIONAL PROCEED',confidence:74,mode:'War Room',agents:6,duration:'18.4s',dissents:1},
+  agents:[
+    {name:'Chief Financial Officer',initials:'CF',color:'#10b981',stance:'support',confidence:78},
+    {name:'Chief Operating Officer',initials:'CO',color:'#f59e0b',stance:'support',confidence:72},
+    {name:'Chief Info Security Officer',initials:'CI',color:'#ef4444',stance:'caution',confidence:65},
+    {name:'Chief Legal Officer',initials:'CL',color:'#f97316',stance:'support',confidence:70},
+    {name:'Chief Risk Officer',initials:'CR',color:'#8b5cf6',stance:'oppose',confidence:82},
+    {name:'Red Team',initials:'RT',color:'#ef4444',stance:'caution',confidence:60}
+  ],
+  merkle:{root:'7a3f8b2ce91d4f06',nodes:['a1b2c3d4','e5f6a7b8','c9d0e1f2','3a4b5c6d','7e8f9a0b','1c2d3e4f','5a6b7c8d','9e0f1a2b','3c4d5e6f','7a8b9c0d','1e2f3a4b','5c6d7e8f']},
+  compliance:['SOC 2 Type II','ISO 27001:2022','NIST 800-53 Rev 5','EU AI Act Art. 14'],
+  retention:'2033-01-15',
+  dissent:{filer:'Chief Risk Officer',grounds:'Valuation risk — $200M exceeds risk-adjusted range of $140-160M',status:'PRESERVED'}
+},
+wire:{
+  id:'DEC-2026-002',title:'Redline Holdings Wire Transfer — $8.5M',timestamp:'2026-02-03T09:15:00Z',status:'SEALED',
+  decision:{outcome:'PROCEED WITH CAUTION',confidence:58,mode:'Adversarial Red Team',agents:8,duration:'24.1s',dissents:0},
+  agents:[
+    {name:'Compliance Officer',initials:'CO',color:'#3b82f6',stance:'caution',confidence:45},
+    {name:'Risk Manager',initials:'RM',color:'#8b5cf6',stance:'caution',confidence:52},
+    {name:'Legal Counsel',initials:'LC',color:'#f97316',stance:'support',confidence:61},
+    {name:'Operations Lead',initials:'OL',color:'#10b981',stance:'support',confidence:70},
+    {name:'Paranoid CISO',initials:'CI',color:'#ef4444',stance:'oppose',confidence:82},
+    {name:'Ethics Watchdog',initials:'EW',color:'#ec4899',stance:'caution',confidence:55},
+    {name:'Client Relations',initials:'CR',color:'#f59e0b',stance:'support',confidence:68},
+    {name:'Black Swan Hunter',initials:'BS',color:'#6b7280',stance:'caution',confidence:40}
+  ],
+  merkle:{root:'b4e7f2a8c3d10956',nodes:['f1a2b3c4','d5e6f7a8','b9c0d1e2','f3a4b5c6','d7e8f9a0','b1c2d3e4','f5a6b7c8','d9e0f1a2']},
+  compliance:['SOC 2 Type II','Basel III §4.2.1','OFAC Compliance','AML/KYC'],
+  retention:'2033-02-03',
+  dissent:null
+}};
+let cur='mna';
+function loadPacket(id,el){cur=id;document.querySelectorAll('.packet-tab').forEach(t=>t.classList.remove('active'));if(el)el.classList.add('active');render();}
+function render(){const p=PACKETS[cur],area=document.getElementById('contentArea');
+const confColor=p.decision.confidence>=80?'#22c55e':p.decision.confidence>=60?'#f59e0b':'#ef4444';
+const backstoryText=cur==='mna'?`<div class="backstory" style="background:linear-gradient(135deg,rgba(34,197,94,.06),rgba(6,182,212,.04));border-color:rgba(34,197,94,.15)"><h3 style="color:#22c55e"><img src="../assets/logos/audit-provenance.svg" alt="Briefing" width="20" height="20" style="border-radius:4px;vertical-align:middle"> Scenario Briefing</h3><p><strong>Pinnacle SaaS Inc.</strong> completed its Council deliberation on the $200M TechStart acquisition. The decision — <strong>Conditional Proceed at 74% confidence</strong> — was contentious. The Chief Risk Officer formally dissented, arguing the valuation exceeded the risk-adjusted range by $40-60M.</p><p>Six months later, a regulator asks: <em>"Walk me through exactly how this decision was made, who voted, what the dissenting opinion was, and prove nothing has been altered since."</em> This is the moment Audit Provenance™ was built for. Every agent contribution, every vote, every dissent is cryptographically sealed in a <strong>Merkle tree with Ed25519 signatures</strong> — tamper-proof and designed to support evidentiary standards.</p><div class="bs-meta" style="border-color:rgba(34,197,94,.1)"><span>Packet: DEC-2026-001</span><span>6 agents deliberated</span><span>1 formal dissent</span><span>Ed25519 signed</span><span>74% confidence</span></div></div>`:`<div class="backstory" style="background:linear-gradient(135deg,rgba(34,197,94,.06),rgba(6,182,212,.04));border-color:rgba(34,197,94,.15)"><h3 style="color:#22c55e"><img src="../assets/logos/audit-provenance.svg" alt="Briefing" width="20" height="20" style="border-radius:4px;vertical-align:middle"> Scenario Briefing</h3><p>A compliance audit has flagged the <strong>$8.5M Redline Holdings wire transfer</strong> for review. The transaction involved a PEP-flagged entity routing funds through Cyprus — and the Council's Adversarial Red Team mode was activated with 8 agents including a Paranoid CISO and Black Swan Hunter.</p><p>The auditor needs to verify: Was proper due diligence performed? Were all perspectives heard? Was the decision process tamper-proof? Audit Provenance™ provides the <strong>complete, cryptographically sealed evidence packet</strong> — including every agent's analysis, the confidence scores, and the compliance framework mappings.</p><div class="bs-meta" style="border-color:rgba(34,197,94,.1)"><span>Packet: DEC-2026-002</span><span>8 agents (Red Team mode)</span><span>$8.5M wire transfer</span><span>Ed25519 signed</span><span>58% confidence</span></div></div>`;
+area.innerHTML=backstoryText+`
+  <div class="section-card open"><div class="section-header" onclick="this.parentElement.classList.toggle('open')"><span class="section-icon"><img src="../assets/logos/audit-provenance.svg" alt="Summary" width="16" height="16" style="border-radius:3px"></span><span class="section-title">Decision Summary</span><span class="section-badge">${p.status}</span></div><div class="section-body"><div class="field-row"><div class="field"><div class="field-label">Packet ID</div><div class="field-value mono">${p.id}</div></div><div class="field"><div class="field-label">Decision</div><div class="field-value">${p.title}</div></div></div><div class="field-row"><div class="field"><div class="field-label">Outcome</div><div class="field-value" style="color:${confColor};font-weight:600">${p.decision.outcome}</div></div><div class="field"><div class="field-label">Confidence</div><div class="field-value" style="color:${confColor};font-weight:700;font-family:'JetBrains Mono',monospace">${p.decision.confidence}%</div></div><div class="field"><div class="field-label">Mode</div><div class="field-value">${p.decision.mode}</div></div><div class="field"><div class="field-label">Duration</div><div class="field-value mono">${p.decision.duration}</div></div></div><div class="field-row"><div class="field"><div class="field-label">Timestamp</div><div class="field-value mono">${p.timestamp}</div></div><div class="field"><div class="field-label">Retention Until</div><div class="field-value mono">${p.retention}</div></div></div></div></div>
+  <div class="section-card"><div class="section-header" onclick="this.parentElement.classList.toggle('open')"><span class="section-icon"><img src="../assets/logos/cendia-agents.svg" alt="Agents" width="16" height="16" style="border-radius:3px"></span><span class="section-title">Agent Contributions</span><span class="section-badge">${p.agents.length} agents</span></div><div class="section-body">${p.agents.map(a=>`<div class="agent-contrib"><div class="ac-circle" style="background:${a.color}">${a.initials}</div><div><div class="ac-name">${a.name}</div><div class="ac-role">Confidence: ${a.confidence}%</div></div><span class="ac-stance stance-${a.stance}">${a.stance.toUpperCase()}</span></div>`).join('')}</div></div>
+  <div class="section-card"><div class="section-header" onclick="this.parentElement.classList.toggle('open')"><span class="section-icon"><img src="../assets/logos/cendia-guard.svg" alt="Merkle" width="16" height="16" style="border-radius:3px"></span><span class="section-title">Merkle Tree Integrity</span><span class="section-badge">VERIFIED</span></div><div class="section-body"><div class="merkle-tree"><span class="node">Root:</span> <span class="hash">${p.merkle.root}</span><br>├── <span class="node">L1:</span> <span class="hash">${p.merkle.nodes[0]}...${p.merkle.nodes[1]}</span><br>│   ├── <span class="leaf">Leaf:</span> <span class="hash">${p.merkle.nodes[2]}</span> (decision_summary)<br>│   └── <span class="leaf">Leaf:</span> <span class="hash">${p.merkle.nodes[3]}</span> (agent_responses)<br>├── <span class="node">L1:</span> <span class="hash">${p.merkle.nodes[4]}...${p.merkle.nodes[5]}</span><br>│   ├── <span class="leaf">Leaf:</span> <span class="hash">${p.merkle.nodes[6]}</span> (cross_examination)<br>│   └── <span class="leaf">Leaf:</span> <span class="hash">${p.merkle.nodes[7]}</span> (synthesis)<br>└── <span class="node">Signature:</span> <span class="hash">Ed25519 · CendiaKMS</span></div></div></div>
+  ${p.dissent?`<div class="section-card"><div class="section-header" onclick="this.parentElement.classList.toggle('open')"><span class="section-icon"><img src="../assets/logos/dissent.svg" alt="Dissent" width="16" height="16" style="border-radius:3px"></span><span class="section-title">Formal Dissent Record</span><span class="section-badge" style="background:rgba(239,68,68,.1);color:#ef4444">${p.decision.dissents} DISSENT</span></div><div class="section-body"><div class="field-row"><div class="field"><div class="field-label">Filed By</div><div class="field-value">${p.dissent.filer}</div></div><div class="field"><div class="field-label">Status</div><div class="field-value" style="color:#ef4444;font-weight:600">${p.dissent.status}</div></div></div><div class="field"><div class="field-label">Grounds</div><div class="field-value">${p.dissent.grounds}</div></div></div></div>`:''}
+  <div class="section-card"><div class="section-header" onclick="this.parentElement.classList.toggle('open')"><span class="section-icon"><img src="../assets/logos/compliance.svg" alt="Compliance" width="16" height="16" style="border-radius:3px"></span><span class="section-title">Compliance Mapping</span><span class="section-badge">${p.compliance.length} frameworks</span></div><div class="section-body"><div style="display:flex;flex-wrap:wrap;gap:4px">${p.compliance.map(c=>`<span class="compliance-badge comp-pass">+ ${c}</span>`).join('')}</div></div></div>
+  <div class="demo-cta"><h3>Every decision leaves a provenance trail</h3><p>Cryptographically signed, Merkle-tree verified, regulator-ready evidence packets.</p><a href="../briefing.html">Request Briefing →</a></div>`;}
+loadPacket('mna',document.querySelector('.packet-tab.active'));
+</script>
+<div style="text-align:center;padding:12px 20px;font-size:.6rem;color:#4a4a5a;border-top:1px solid #1e1e2e;font-family:'Inter',sans-serif">All names, entities, and scenarios in this demo are entirely fictitious. Any resemblance to real persons, companies, or events is purely coincidental.</div>
+<script src="mobile-sidebar.js"></script>
+<script src="demo-analytics.js"></script>
+<script src="../tiktok-pixel.js"></script>
+  <script src="/nav-mobile.js"></script>
+</body>
+</html>

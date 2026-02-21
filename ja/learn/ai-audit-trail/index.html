@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI監査証跡とは？ | Datacendia</title>
+  <meta name="description" content="AI監査証跡は、すべてのAI決定の完全で不変の記録です。GDPRとコンプライアンスに不可欠です。">
+  <meta property="og:title" content="AI監査証跡とは？">
+  <meta property="og:description" content="AI監査証跡は、すべてのAI決定の完全で不変の記録です。">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://datacendia.com/ja/learn/ai-audit-trail/">
+  <meta property="og:image" content="https://datacendia.com/og-image.png">
+  <meta property="og:site_name" content="Datacendia">
+  <meta property="og:locale" content="ja_JP">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://datacendia.com/og-image.png">
+  <link rel="canonical" href="https://datacendia.com/ja/learn/ai-audit-trail/">
+  <link rel="alternate" hreflang="en" href="https://datacendia.com/learn/ai-audit-trail/">
+  <link rel="alternate" hreflang="es" href="https://datacendia.com/es/learn/ai-audit-trail/">
+  <link rel="alternate" hreflang="fr" href="https://datacendia.com/fr/learn/ai-audit-trail/">
+  <link rel="alternate" hreflang="de" href="https://datacendia.com/de/learn/ai-audit-trail/">
+  <link rel="alternate" hreflang="pt" href="https://datacendia.com/pt/learn/ai-audit-trail/">
+  <link rel="alternate" hreflang="it" href="https://datacendia.com/it/learn/ai-audit-trail/">
+  <link rel="alternate" hreflang="ja" href="https://datacendia.com/ja/learn/ai-audit-trail/">
+  <link rel="alternate" hreflang="ko" href="https://datacendia.com/ko/learn/ai-audit-trail/">
+  <link rel="alternate" hreflang="zh" href="https://datacendia.com/zh/learn/ai-audit-trail/">
+  <link rel="alternate" hreflang="ar" href="https://datacendia.com/ar/learn/ai-audit-trail/">
+  <link rel="alternate" hreflang="hi" href="https://datacendia.com/hi/learn/ai-audit-trail/">
+  <link rel="alternate" hreflang="x-default" href="https://datacendia.com/learn/ai-audit-trail/">
+  <link rel="canonical" href="https://datacendia.com/ja/learn/ai-audit-trail/">
+  <link rel="icon" type="image/svg+xml" href="../../../assets/favicon.svg">
+  <link rel="stylesheet" href="../../../styles.css">
+  <style>
+    .learn-container { max-width: 800px; margin: 0 auto; padding: 60px 24px 80px; }
+    .learn-title { font-family: var(--font-display); font-size: 2.25rem; font-weight: 300; color: var(--color-text); margin-bottom: 16px; }
+    .learn-subtitle { font-size: 1.1rem; color: var(--color-text-muted); margin-bottom: 32px; line-height: 1.6; }
+    .learn-content h2 { font-family: var(--font-display); font-size: 1.5rem; color: var(--color-text); margin: 48px 0 16px; padding-top: 24px; border-top: 1px solid var(--color-border); }
+    .learn-content p, .learn-content li { font-size: 0.95rem; color: var(--color-text-muted); line-height: 1.8; }
+    .learn-content ul { margin: 16px 0 24px 24px; }
+    .definition-box { background: var(--color-card-bg); border: 1px solid var(--color-gold); border-radius: 8px; padding: 24px; margin: 24px 0; }
+    .cta-box { background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(212, 175, 55, 0.02) 100%); border: 1px solid var(--color-gold); border-radius: 8px; padding: 32px; margin-top: 48px; text-align: center; }
+    .cta-button { display: inline-block; background: var(--color-gold); color: var(--color-bg); padding: 12px 32px; border-radius: 6px; text-decoration: none; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-top"><a href="../../" style="text-decoration: none;"><h1 class="logo"><span class="brand-name">DATACENDIA</span></h1></a></div>
+      <nav class="main-nav">
+        <button class="nav-toggle" aria-label="Menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+        <div class="nav-menu">
+        <div class="nav-group">
+          <span class="nav-label">プラットフォーム</span>
+          <div class="nav-dropdown">
+            <a href="/platform-capabilities.html">プラットフォーム概要<span class="nav-desc">完全な機能マップ</span></a>
+            <a href="/dcii.html">DCIIフレームワーク<span class="nav-desc">9つのプリミティブ · 危機免疫</span></a>
+            <a href="/diagrams.html">アーキテクチャ<span class="nav-desc">8つのシステム図</span></a>
+          </div>
+        </div>
+        <div class="nav-group">
+          <span class="nav-label">エビデンス</span>
+          <div class="nav-dropdown">
+            <a href="/demos.html">インタラクティブデモ<span class="nav-desc">Council、Chronos、Crucible他</span></a>
+            <a href="/wargames.html">ウォーゲーム<span class="nav-desc">異議は危険を明らかにしたか？</span></a>
+            <a href="/case-studies.html">ケーススタディ<span class="nav-desc">実世界の意思決定分析</span></a>
+          </div>
+        </div>
+        <a href="/verticals.html">業界</a>
+        <div class="nav-group">
+          <span class="nav-label">料金</span>
+          <div class="nav-dropdown">
+            <a href="/pricing.html">ティア概要<span class="nav-desc">Foundation · Enterprise · Strategic</span></a>
+            <a href="/premium.html">プレミアムモジュール<span class="nav-desc">7つの高度な機能</span></a>
+            <a href="/roi-calculator.html">ROI計算機<span class="nav-desc">意思決定リスク削減を定量化</span></a>
+            <a href="/pilot.html">90日パイロット<span class="nav-desc">スケール前に価値を証明</span></a>
+          </div>
+        </div>
+        <div class="nav-group">
+          <span class="nav-label">信頼</span>
+          <div class="nav-dropdown">
+            <a href="/trust.html">トラストセンター<span class="nav-desc">セキュリティ、コンプライアンス、展開</span></a>
+            <a href="/honesty-matrices.html">正直マトリクス<span class="nav-desc">まだできないこと</span></a>
+          </div>
+        </div>
+        <a href="/briefing.html" class="nav-cta">ブリーフィングを依頼</a>
+        </div>
+      </nav>
+    </header>
+    <main class="learn-container">
+      <article>
+        <h1 class="learn-title">AI監査証跡とは？</h1>
+        <p class="learn-subtitle">AI監査証跡は、AIシステムが行うすべての決定の完全で不変のタイムスタンプ付き記録です。</p>
+        <div class="definition-box"><p><strong>AI監査証跡：</strong>AIシステムによって、またはAIシステムに関連して行われたすべての活動、決定、変更の時系列で不変の記録。</p></div>
+        <div class="learn-content">
+          <h2>なぜAI監査証跡が重要なのか？</h2>
+          <ul>
+            <li><strong>規制コンプライアンス</strong> — GDPR、EU AI法、業界規制は説明可能性を要求</li>
+            <li><strong>法的防御</strong> — 異議申し立てがあった場合の決定方法の証拠</li>
+            <li><strong>内部ガバナンス</strong> — AIシステムの監督と継続的改善</li>
+            <li><strong>モデル改善</strong> — どの決定が却下されたか、その理由を理解</li>
+          </ul>
+          <h2>完全な監査証跡の内容</h2>
+          <ul>
+            <li><strong>入力コンテキスト</strong> — データソース、特徴値</li>
+            <li><strong>モデルコンテキスト</strong> — モデルバージョン、設定、ビジネスルール</li>
+            <li><strong>決定推論</strong> — 主要因、信頼スコア</li>
+            <li><strong>出力と影響</strong> — 最終決定、取られた行動</li>
+            <li><strong>人間の監督</strong> — 誰がレビューしたか、却下と理由</li>
+          </ul>
+          <div class="cta-box">
+            <h3>AI監査証跡を体験</h3>
+            <p>Datacendiaは、すべてのAI決定に対して不変の監査証跡を提供します。</p>
+            <a href="/briefing.html?lang=ja" class="cta-button">技術ブリーフィングを依頼</a>
+          </div>
+        </div>
+      </article>
+    </main>
+    <footer style="text-align: center; padding: 40px 24px; border-top: 1px solid var(--color-border);"><p style="font-size: 0.75rem; color: var(--color-text-dim);">© 2026 Datacendia</p></footer>
+  </div>
+  <script src="/nav-mobile.js"></script>
+</body>
+</html>

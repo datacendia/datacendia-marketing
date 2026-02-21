@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>دليل النشر المعزول | الذكاء المؤسسي غير المتصل | Datacendia</title>
+  <meta name="description" content="دليل تقني كامل لنشر الذكاء الاصطناعي في البيئات المعزولة. منصة ذكاء اصطناعي غير متصلة لمقاولي الدفاع والأنظمة المصنفة والبنية التحتية الحرجة.">
+  <meta name="author" content="Datacendia">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://datacendia.com/resources/air-gapped-deployment.ar.html">
+  <link rel="alternate" hreflang="en" href="https://datacendia.com/resources/air-gapped-deployment.html">
+  <link rel="alternate" hreflang="es" href="https://datacendia.com/resources/air-gapped-deployment.es.html">
+  <link rel="alternate" hreflang="fr" href="https://datacendia.com/resources/air-gapped-deployment.fr.html">
+  <link rel="alternate" hreflang="de" href="https://datacendia.com/resources/air-gapped-deployment.de.html">
+  <link rel="alternate" hreflang="pt" href="https://datacendia.com/resources/air-gapped-deployment.pt.html">
+  <link rel="alternate" hreflang="it" href="https://datacendia.com/resources/air-gapped-deployment.it.html">
+  <link rel="alternate" hreflang="ja" href="https://datacendia.com/resources/air-gapped-deployment.ja.html">
+  <link rel="alternate" hreflang="ko" href="https://datacendia.com/resources/air-gapped-deployment.ko.html">
+  <link rel="alternate" hreflang="zh" href="https://datacendia.com/resources/air-gapped-deployment.zh.html">
+  <link rel="alternate" hreflang="ar" href="https://datacendia.com/resources/air-gapped-deployment.ar.html">
+  <link rel="alternate" hreflang="hi" href="https://datacendia.com/resources/air-gapped-deployment.hi.html">
+  <link rel="alternate" hreflang="x-default" href="https://datacendia.com/resources/air-gapped-deployment.html">
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-top">
+        <a href="../ar/" style="text-decoration: none;"><h1 class="logo">DATACENDIA</h1></a>
+        <div class="lang-selector">
+          <button class="lang-btn"><span class="lang-current">العربية</span> ▾</button>
+          <div class="lang-dropdown">
+            <a href="air-gapped-deployment.html">English</a>
+            <a href="air-gapped-deployment.es.html">Español</a>
+            <a href="air-gapped-deployment.fr.html">Français</a>
+            <a href="air-gapped-deployment.de.html">Deutsch</a>
+            <a href="air-gapped-deployment.pt.html">Português</a>
+            <a href="air-gapped-deployment.it.html">Italiano</a>
+            <a href="air-gapped-deployment.ja.html">日本語</a>
+            <a href="air-gapped-deployment.ko.html">한국어</a>
+            <a href="air-gapped-deployment.zh.html">中文</a>
+            <a href="air-gapped-deployment.ar.html" class="active">العربية</a>
+            <a href="air-gapped-deployment.hi.html">हिन्दी</a>
+          </div>
+        </div>
+      </div>
+      <p class="tagline-sub">منصة الذكاء السيادي</p>
+      <nav class="main-nav">
+        <button class="nav-toggle" aria-label="Menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+        <div class="nav-menu">
+        <div class="nav-group">
+          <span class="nav-label">Platform</span>
+          <div class="nav-dropdown">
+            <a href="/platform-capabilities.html">Platform Overview<span class="nav-desc">Full capability map</span></a>
+            <a href="/dcii.html">DCII Framework<span class="nav-desc">9 primitives &middot; Crisis immunization</span></a>
+            <a href="/diagrams.html">Architecture<span class="nav-desc">8 system diagrams</span></a>
+          </div>
+        </div>
+        <div class="nav-group">
+          <span class="nav-label">Evidence</span>
+          <div class="nav-dropdown">
+            <a href="/demos.html">Interactive Demos<span class="nav-desc">Council, Chronos, Crucible &amp; more</span></a>
+            <a href="/wargames.html">War Games<span class="nav-desc">Would dissent have surfaced the risk?</span></a>
+            <a href="/case-studies.html">Case Studies<span class="nav-desc">Real-world decision analysis</span></a>
+          </div>
+        </div>
+        <a href="/verticals.html">Industries</a>
+        <div class="nav-group">
+          <span class="nav-label">Pricing</span>
+          <div class="nav-dropdown">
+            <a href="/pricing.html">Tier Overview<span class="nav-desc">Foundation &middot; Enterprise &middot; Strategic</span></a>
+            <a href="/premium.html">Premium Modules<span class="nav-desc">7 advanced capabilities</span></a>
+            <a href="/roi-calculator.html">ROI Calculator<span class="nav-desc">Quantify decision risk reduction</span></a>
+            <a href="/pilot.html">90-Day Pilot<span class="nav-desc">Prove value before scaling</span></a>
+          </div>
+        </div>
+        <div class="nav-group">
+          <span class="nav-label">Trust</span>
+          <div class="nav-dropdown">
+            <a href="/trust.html">Trust Center<span class="nav-desc">Security, compliance &amp; deployment</span></a>
+            <a href="/honesty-matrices.html">Honesty Matrices<span class="nav-desc">What we can't do &mdash; yet</span></a>
+          </div>
+        </div>
+        <a href="/briefing.html" class="nav-cta">Request Briefing</a>
+        </div>
+      </nav>
+    </header>
+
+    <div class="page-container">
+      <div class="page-header">
+        <div class="page-icon"><img src="../assets/logos/air-gapped.svg" alt="Air-Gapped" width="64" height="64" style="border-radius:12px"></div>
+        <h1 class="page-title">دليل النشر المعزول</h1>
+        <p class="page-subtitle">انشر الذكاء الاصطناعي المؤسسي في شبكات معزولة تماماً. لا حاجة لاتصال بالإنترنت. مصمم لمقاولي الدفاع والأنظمة المصنفة والبنية التحتية الحرجة.</p>
+      </div>
+
+      <div class="content-section">
+        <h2>ما هو النشر المعزول؟</h2>
+        <p>النشر المعزول يعني أن Datacendia يعمل بالكامل داخل شبكتك المعزولة بدون أي اتصال خارجي. لا وصول للإنترنت. لا واجهات برمجة سحابية. لا بيانات تغادر بنيتك التحتية. هذا هو نموذج النشر الوحيد الذي يلبي متطلبات أمان ITAR والمعالجة المصنفة والبنية التحتية الحرجة.</p>
+
+        <p><strong>المعزول مقابل شبكات VPN أو جدار الحماية:</strong> الشبكة المحمية بـ VPN أو جدار الحماية لا تزال لديها اتصال بالإنترنت—إنها مقيدة فقط. المعزول يعني معزول فيزيائياً: لا كابلات شبكة تتصل بأنظمة خارجية، لا لاسلكي، لا خلوي. إذا كانت الشبكة يمكنها الوصول إلى الإنترنت (حتى عبر قفزات متعددة)، فهي ليست معزولة.</p>
+
+        <div class="warning-box">
+          <p><strong>مهم:</strong> النشر المعزول أكثر تعقيداً من الناحية التشغيلية من عمليات النشر السحابية أو VPC. السؤال ليس ما إذا كان استخدام الذكاء الاصطناعي السحابي أسهل—السؤال هو ما إذا كانت متطلباتك التنظيمية أو نموذج التهديد أو تصنيف البيانات يسمح لك بقبول مخاطر الاتصال الخارجي.</p>
+        </div>
+      </div>
+
+      <div class="content-section">
+        <h2>من يحتاج النشر المعزول؟</h2>
+
+        <h3>مقاولو الدفاع</h3>
+        <p>المنظمات التي تتعامل مع البيانات التقنية الخاضعة لـ ITAR أو CUI أو المعلومات المصنفة لا يمكنها استخدام الذكاء الاصطناعي السحابي. لوائح مراقبة التصدير (ITAR، EAR) تحظر الوصول الأجنبي إلى البيانات التقنية، ومقدمو الخدمات السحابية في الولايات المتحدة قد يخضعون لطلبات قانونية من حكومات أجنبية.</p>
+        <ul>
+          <li>الامتثال لـ ITAR (لوائح التجارة الدولية في الأسلحة)</li>
+          <li>بيانات البرامج المصنفة (SECRET، TOP SECRET، SCI)</li>
+          <li>متطلبات CMMC المستوى 3</li>
+          <li>حماية سلسلة توريد قاعدة الصناعة الدفاعية (DIB)</li>
+        </ul>
+
+        <h3>البنية التحتية الحرجة</h3>
+        <p>شبكات الطاقة ومرافق معالجة المياه وأنظمة النقل وشبكات الاتصالات مصنفة كبنية تحتية حرجة. النشر المعزول يمنع وصول الخصوم إلى أنظمة التحكم والبيانات التشغيلية.</p>
+        <ul>
+          <li>عزل شبكات SCADA / ICS</li>
+          <li>عمليات المنشآت النووية (متطلبات NRC)</li>
+          <li>إدارة شبكة الكهرباء (NERC CIP)</li>
+          <li>مرافق المياه/الصرف الصحي</li>
+        </ul>
+
+        <h3>مجتمع الاستخبارات</h3>
+        <p>وكالات IC تعالج استخبارات مصنفة لا يمكن تعريضها للأنظمة الخارجية. النشر المعزول يمكّن تحليل الذكاء الاصطناعي لـ SIGINT و HUMINT ومصادر مصنفة أخرى.</p>
+        <ul>
+          <li>تحليل الاستخبارات المصنفة</li>
+          <li>IC ITE (مؤسسة تكنولوجيا المعلومات لمجتمع الاستخبارات)</li>
+          <li>نشر SIPRNet / JWICS</li>
+          <li>التعامل مع المعلومات المجزأة</li>
+        </ul>
+
+        <h3>التجاري عالي القيمة</h3>
+        <p>بعض المنظمات التجارية تختار النشر المعزول لأسباب حماية تنافسية أو ملكية فكرية، حتى بدون متطلبات تنظيمية.</p>
+        <ul>
+          <li>البحث والتطوير الصيدلاني (مرشحات الأدوية قبل براءة الاختراع)</li>
+          <li>الأسرار التجارية للتصنيع</li>
+          <li>خوارزميات التداول المالي</li>
+          <li>العناية الواجبة للاندماج والاستحواذ (بيانات الصفقات الحساسة)</li>
+        </ul>
+      </div>
+
+      <div class="content-section">
+        <h2>متطلبات البنية التحتية</h2>
+
+        <div class="requirements-box">
+          <h4>الحد الأدنى لمتطلبات النظام</h4>
+          <div class="requirements-grid">
+            <div class="requirement-item">
+              <div class="requirement-label">الحوسبة</div>
+              <div class="requirement-value">16 نواة (32 موصى بها)</div>
+            </div>
+            <div class="requirement-item">
+              <div class="requirement-label">الذاكرة</div>
+              <div class="requirement-value">64 جيجابايت RAM (128 جيجابايت موصى بها)</div>
+            </div>
+            <div class="requirement-item">
+              <div class="requirement-label">التخزين</div>
+              <div class="requirement-value">500 جيجابايت SSD كحد أدنى (2 تيرابايت+ موصى بها)</div>
+            </div>
+            <div class="requirement-item">
+              <div class="requirement-label">نظام التشغيل</div>
+              <div class="requirement-value">Ubuntu 22.04 LTS أو RHEL 8+</div>
+            </div>
+            <div class="requirement-item">
+              <div class="requirement-label">الشبكة</div>
+              <div class="requirement-value">داخلية فقط (بدون اتصال خارجي)</div>
+            </div>
+            <div class="requirement-item">
+              <div class="requirement-label">GPU</div>
+              <div class="requirement-value">اختياري (NVIDIA T4 أو أفضل للتسريع)</div>
+            </div>
+          </div>
+        </div>
+
+        <p><strong>إرشادات التحجيم:</strong> المتطلبات أعلاه تدعم 10-20 مستخدماً متزامناً مع أحجام بيانات معتدلة. للنشر الأكبر (100+ مستخدم، 10 تيرابايت+ بيانات)، اتصل بنا لمراجعة البنية.</p>
+
+        <div class="info-box">
+          <p><strong>الآلات الافتراضية مقابل Bare Metal:</strong> يمكن لـ Datacendia العمل على آلات افتراضية VMware ESXi أو Hyper-V أو KVM. ومع ذلك، للحصول على أقصى أداء وتسريع GPU، يوصى بنشر bare metal. تأكد من أن hypervisor الخاص بك يدعم GPU passthrough إذا كنت تستخدم VMs مع GPU.</p>
+        </div>
+      </div>
+
+      <div class="content-section">
+        <h2>عملية النشر</h2>
+
+        <div class="deployment-step">
+          <h4>الخطوة 1: تقييم ما قبل النشر (الأسبوع 1)</h4>
+          <p><strong>الهدف:</strong> التحقق من جاهزية البنية التحتية وتحديد التبعيات.</p>
+          <ul>
+            <li>تدقيق بنية الشبكة المعزولة الحالية</li>
+            <li>تحديد مصادر البيانات الداخلية (قواعد البيانات، مشاركات الملفات، التطبيقات)</li>
+            <li>تحديد الوسائط الآمنة المعتمدة لنقل الملفات (USB، DVD، SneakerNet الداخلي)</li>
+            <li>تحديد متطلبات وصول المستخدم والمصادقة (LDAP، CAC/PIV، SAML)</li>
+            <li>مراجعة كتيبات التشغيل وإجراءات إدارة التغيير</li>
+          </ul>
+        </div>
+
+        <div class="deployment-step">
+          <h4>الخطوة 2: نقل الحزم (الأسبوع 2)</h4>
+          <p><strong>الهدف:</strong> نقل حزم تثبيت Datacendia إلى البيئة المعزولة.</p>
+          <ul>
+            <li>Datacendia يوفر حزم التثبيت كأرشيفات مضغوطة (.tar.gz)</li>
+            <li>الحزم موقعة تشفيرياً (توقيعات GPG مقدمة)</li>
+            <li>النقل عبر وسائط آمنة معتمدة وفقاً لإجراءات نقل البيانات في مؤسستك</li>
+            <li>التحقق من سلامة الحزمة باستخدام checksums والتوقيعات المقدمة</li>
+          </ul>
+          <p><strong>حجم الحزمة النموذجي:</strong> 2-5 جيجابايت مضغوطة (النماذج، كود التطبيق، التبعيات)</p>
+        </div>
+
+        <div class="deployment-step">
+          <h4>الخطوة 3: التثبيت (الأسبوع 2-3)</h4>
+          <p><strong>الهدف:</strong> تثبيت Datacendia على البنية التحتية المعزولة.</p>
+          <ul>
+            <li>استخراج حزم التثبيت إلى الخادم الهدف</li>
+            <li>تشغيل سكريبت التثبيت الآلي (يتحقق من التبعيات، يكوّن الخدمات)</li>
+            <li>تهيئة قاعدة البيانات (PostgreSQL مدمج أو الاتصال بقاعدة بيانات موجودة)</li>
+            <li>تكوين تكامل المصادقة (LDAP، Active Directory، SAML IdP)</li>
+            <li>إعداد شهادات TLS لـ HTTPS الداخلي</li>
+          </ul>
+          <p><strong>وقت التثبيت:</strong> 4-8 ساعات (يعتمد على تعقيد البنية التحتية)</p>
+        </div>
+
+        <div class="deployment-step">
+          <h4>الخطوة 4: تكوين موصلات البيانات (الأسبوع 3-4)</h4>
+          <p><strong>الهدف:</strong> ربط Datacendia بمصادر البيانات الداخلية.</p>
+          <ul>
+            <li>تكوين موصلات قاعدة البيانات (PostgreSQL، Oracle، SQL Server، إلخ)</li>
+            <li>إعداد الوصول إلى مشاركات الملفات (NFS، SMB/CIFS)</li>
+            <li>التكامل مع واجهات برمجة التطبيقات الداخلية (REST، SOAP)</li>
+            <li>اختبار استيعاب البيانات والتحقق من الاتصال</li>
+            <li>تكوين جداول التحديث لمزامنة البيانات</li>
+          </ul>
+        </div>
+
+        <div class="deployment-step">
+          <h4>الخطوة 5: الاختبار والتحقق (الأسبوع 4-5)</h4>
+          <p><strong>الهدف:</strong> التحقق من التثبيت والتأكد من عدم وجود تبعيات خارجية.</p>
+          <ul>
+            <li>اختبارات عزل الشبكة (التأكد من عدم محاولة اتصالات صادرة)</li>
+            <li>اختبارات قبول المستخدم مع مجموعة تجريبية</li>
+            <li>قياس الأداء تحت الحمل</li>
+            <li>اختبارات الفشل والاسترداد</li>
+            <li>تسليم الوثائق وتدريب المشغلين</li>
+          </ul>
+        </div>
+
+        <div class="deployment-step">
+          <h4>الخطوة 6: الإطلاق للإنتاج (الأسبوع 5-6)</h4>
+          <p><strong>الهدف:</strong> النشر لمستخدمي الإنتاج وإنشاء العمليات المستمرة.</p>
+          <ul>
+            <li>ترحيل تكوين التجريبي إلى الإنتاج</li>
+            <li>جلسات تأهيل وتدريب المستخدمين</li>
+            <li>إنشاء إجراءات المراقبة والتشغيل</li>
+            <li>توثيق كتيبات التشغيل للسيناريوهات الشائعة</li>
+          </ul>
+        </div>
+
+        <p><strong>الجدول الزمني الإجمالي للنشر:</strong> 4-6 أسابيع من تقييم البنية التحتية إلى الإنتاج. يفترض الجدول الزمني أن البنية التحتية متاحة وأن فريقك لديه موارد مخصصة للنشر.</p>
+      </div>
+
+      <div class="content-section">
+        <h2>التحديث والصيانة</h2>
+
+        <h3>كيف تعمل التحديثات في البيئات المعزولة</h3>
+        <p>لا يمكن لـ Datacendia التحديث التلقائي مثل البرامج السحابية. يتم تسليم التحديثات كحزم غير متصلة يتم نقلها عبر وسائط آمنة معتمدة.</p>
+
+        <p><strong>عملية التحديث:</strong></p>
+        <ol>
+          <li>Datacendia يصدر حزمة التحديث (ربع سنوياً أو حسب الحاجة لتصحيحات الأمان)</li>
+          <li>العميل يحمّل حزمة التحديث من بوابة عملاء Datacendia (من نظام متصل)</li>
+          <li>العميل ينقل الحزمة إلى البيئة المعزولة عبر وسائط معتمدة</li>
+          <li>العميل يتحقق من توقيع الحزمة باستخدام مفتاح GPG</li>
+          <li>العميل يشغل سكريبت التحديث خلال نافذة الصيانة</li>
+          <li>النظام يحتفظ تلقائياً بنسخة احتياطية من الإصدار الحالي قبل تطبيق التحديث</li>
+          <li>التحديث يُطبق، الخدمات تُعاد تشغيلها، اختبارات التحقق تُنفذ</li>
+        </ol>
+
+        <div class="info-box">
+          <p><strong>تكرار التحديث:</strong> الإصدارات الرئيسية: ربع سنوياً. تصحيحات الأمان: حسب الحاجة (عادة 1-3 لكل ربع). أنت تتحكم في وقت تطبيق التحديثات—لا توجد تحديثات إجبارية.</p>
+        </div>
+
+        <h3>قدرة التراجع</h3>
+        <p>إذا تسبب التحديث في مشاكل، يدعم Datacendia التراجع بأمر واحد إلى الإصدار السابق. جميع البيانات والتكوين تُحفظ أثناء التراجع.</p>
+
+        <h3>الدعم طويل المدى</h3>
+        <p>يوفر Datacendia إصدارات دعم طويل المدى (LTS) للعملاء الذين لا يمكنهم التحديث بشكل متكرر. إصدارات LTS تتلقى تصحيحات أمان لمدة 18 شهراً دون إجبار ترقيات الميزات.</p>
+      </div>
+
+      <div class="content-section">
+        <h2>الاعتبارات التشغيلية</h2>
+
+        <h3>المقايضات مقابل النشر السحابي</h3>
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th>الجانب</th>
+              <th>SaaS السحابي</th>
+              <th>المعزول</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>وقت الإعداد</td>
+              <td>ساعات</td>
+              <td>أسابيع</td>
+            </tr>
+            <tr>
+              <td>التحديثات</td>
+              <td>تلقائية</td>
+              <td>يدوية (حزم غير متصلة)</td>
+            </tr>
+            <tr>
+              <td>العبء التشغيلي</td>
+              <td>منخفض (نحن ندير)</td>
+              <td>عالي (أنت تدير)</td>
+            </tr>
+            <tr>
+              <td>استجابة الدعم</td>
+              <td>الوصول عن بعد ممكن</td>
+              <td>التوثيق + مشاركة الشاشة فقط</td>
+            </tr>
+            <tr>
+              <td>سيادة البيانات</td>
+              <td>جزئية</td>
+              <td>كاملة</td>
+            </tr>
+            <tr>
+              <td>خيارات الامتثال</td>
+              <td>SOC 2، GDPR، HIPAA</td>
+              <td>ITAR، مصنف، CMMC، الكل</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3>متطلبات الموظفين</h3>
+        <p>النشر المعزول يتطلب موظفين تقنيين داخليين لإدارة النظام. الفريق الموصى به:</p>
+        <ul>
+          <li><strong>مدير النظام (0.5 FTE):</strong> تصحيح نظام التشغيل، المراقبة، إدارة المستخدمين</li>
+          <li><strong>DBA (0.25 FTE):</strong> صيانة قاعدة البيانات، إدارة النسخ الاحتياطي</li>
+          <li><strong>مهندس الشبكة (حسب الحاجة):</strong> استكشاف أخطاء الاتصال، تحسين الأداء</li>
+          <li><strong>مالك التطبيق (0.25 FTE):</strong> دعم المستخدم، تغييرات التكوين، إدارة موصلات البيانات</li>
+        </ul>
+
+        <h3>نموذج الدعم</h3>
+        <p>يوفر Datacendia الدعم للنشر المعزول عبر:</p>
+        <ul>
+          <li>بوابة التوثيق (يمكن الوصول إليها من الأنظمة المتصلة)</li>
+          <li>جلسات مشاركة الشاشة (غير تدخلية، استكشاف الأخطاء البصري)</li>
+          <li>دعم البريد الإلكتروني والهاتف</li>
+          <li>مراجعات ربع سنوية مع فريق نجاح العملاء</li>
+        </ul>
+        <p>لا يمكننا الوصول عن بعد إلى الأنظمة المعزولة، لذا يعتمد استكشاف الأخطاء على فريقك لتوفير السجلات ولقطات الشاشة وتفاصيل التكوين.</p>
+      </div>
+
+      <div class="content-section">
+        <h2>الأسئلة الشائعة</h2>
+
+        <h3>هل يمكن لـ Datacendia العمل على SIPRNet أو JWICS؟</h3>
+        <p>نعم. Datacendia مصمم معمارياً للنشر على الشبكات المصنفة بما في ذلك SIPRNet (SECRET) و JWICS (TOP SECRET/SCI). يتبع النشر نفس عملية نقل الحزم غير المتصلة عبر إجراءات التعامل مع الوسائط المصنفة المعتمدة. <strong>نحن نبحث عن شركاء تجريبيين لديهم متطلبات شبكات مصنفة.</strong></p>
+
+        <h3>كيف أضيف مصادر بيانات جديدة بعد النشر الأولي؟</h3>
+        <p>يمكن تكوين موصلات البيانات من خلال واجهة إدارة Datacendia. لا حاجة لحزم خارجية إلا إذا كنت تتصل بنوع قاعدة بيانات جديد غير مضمن في التثبيت الأولي.</p>
+
+        <h3>ماذا يحدث إذا فشل نظامي المعزول؟</h3>
+        <p>يدعم Datacendia تكوينات التوفر العالي (HA) مع الفشل التلقائي. في وضع HA، إذا فشلت العقدة الأساسية، تتولى عقدة ثانوية خلال 15 دقيقة. أنت تدير بنية HA التحتية (نحن نوفر إرشادات التكوين).</p>
+
+        <h3>هل يمكنني استخدام نماذج الذكاء الاصطناعي الخاصة بي بدلاً من نماذج Datacendia؟</h3>
+        <p>نعم. يدعم Datacendia نشر LLM غير المتجانس. يمكنك نشر نماذجك المضبوطة (المتوافقة مع تنسيق HuggingFace Transformers) جنباً إلى جنب مع أو بدلاً من نماذج Datacendia.</p>
+
+        <h3>كم تكلفة النشر المعزول؟</h3>
+        <p>تبدأ أسعار النشر المعزول من 150 ألف دولار سنوياً (مقابل 75 ألف دولار لـ SaaS السحابي). العلاوة تغطي حزم التحديث غير المتصلة ونموذج الدعم الموسع والاستشارات المعمارية للنشر المعقد. انظر <a href="../pricing.html?lang=ar" style="color: var(--color-gold);">تفاصيل الأسعار</a>.</p>
+      </div>
+
+      <div class="cta-box">
+        <h3>استشارة النشر المعزول</h3>
+        <p>جدول مراجعة معمارية لتقييم النشر المعزول لبيئتك.</p>
+        <a href="../briefing.html?lang=ar" class="cta-btn">طلب إحاطة ←</a>
+      </div>
+
+      <div class="content-section" style="text-align: center; margin-top: 80px; padding-top: 40px; border-top: 1px solid var(--color-border);">
+        <p style="font-size: 0.85rem; color: var(--color-text-dim);">
+          تعرف على المزيد حول <a href="sovereignty-matrix.html" style="color: var(--color-gold);">خيارات النشر السيادي</a> أو استكشف <a href="compliance.html" style="color: var(--color-gold);">أطر الامتثال</a>.
+        </p>
+      </div>
+    </div>
+  </div>
+  <script src="../translations.js"></script>
+  <script src="../app.js"></script>
+  <script src="/nav-mobile.js"></script>
+</body>
+</html>

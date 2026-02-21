@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CendiaChronos™ — Cascade Analysis Demo | Datacendia</title>
+  <meta name="description" content="Interactive demo of CendiaChronos cascade analysis. Visualize how one decision triggers downstream effects across your organization.">
+  <meta property="og:title" content="CendiaChronos™ — Cascade Analysis Demo | Datacendia">
+  <meta property="og:description" content="Visualize how one decision triggers downstream effects across your organization.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://datacendia.com/demos/cascade.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="CendiaChronos™ — Cascade Analysis Demo | Datacendia">
+  <meta name="twitter:description" content="Visualize how one decision triggers downstream effects across your organization.">
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="demo-platform.css">
+  <style>
+    .scenario-tab{padding:10px 12px;border:1px solid #3f3f46;border-radius:10px;background:#27272a;color:#a1a1aa;font-size:.75rem;cursor:pointer;text-align:left;transition:all .2s;font-family:'Inter',sans-serif;margin-bottom:4px;display:block;width:100%}
+    .scenario-tab:hover{border-color:#f97316;color:#d4d4d8}.scenario-tab.active{border-color:#f97316;color:#f97316;background:rgba(249,115,22,.08)}
+    .scenario-tab .st-title{font-weight:600}.scenario-tab .st-meta{font-size:.6rem;color:#6b7280;margin-top:2px}
+    .change-spec{padding:12px;background:#27272a;border:1px solid #3f3f46;border-radius:10px}
+    .cs-row{display:flex;align-items:center;gap:8px;margin-bottom:6px}.cs-key{font-size:.6rem;color:#6b7280;width:60px;flex-shrink:0;text-transform:uppercase}.cs-val{font-size:.75rem;color:#d1d5db}
+    .cs-assets{display:flex;flex-wrap:wrap;gap:4px}.cs-asset{padding:2px 8px;background:#3f3f46;border-radius:6px;font-size:.6rem;color:#d4d4d8;font-family:'JetBrains Mono',monospace}
+    .run-btn{width:100%;padding:10px;border:none;border-radius:10px;cursor:pointer;font-family:'Inter',sans-serif;font-size:.82rem;font-weight:600;background:linear-gradient(135deg,#f97316,#ef4444);color:#fff;transition:all .2s;box-shadow:0 2px 8px rgba(249,115,22,.25)}
+    .run-btn:hover{opacity:.9;transform:translateY(-1px)}.run-btn:disabled{opacity:.35;cursor:not-allowed;transform:none}
+    .reset-btn{width:100%;padding:8px;border:1px solid #2a2a3e;border-radius:6px;background:0 0;color:#9ca3af;font-size:.75rem;cursor:pointer;font-family:'Inter',sans-serif;margin-top:6px;transition:all .2s}
+    .reset-btn:hover{border-color:#f97316;color:#f97316}
+    .summary-stats{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+    .ss-card{padding:8px;background:#1a1a2e;border-radius:6px;text-align:center}.ss-val{font-size:1rem;font-weight:700;font-family:'JetBrains Mono',monospace}.ss-label{font-size:.55rem;color:#6b7280}
+    .main-title{font-size:.9rem;font-weight:600;color:#fff}
+    .butterfly-panel{background:linear-gradient(135deg,rgba(139,92,246,.12),rgba(236,72,153,.08));border:1px solid rgba(139,92,246,.3);border-radius:16px;padding:20px;margin-bottom:20px;opacity:0;transform:translateY(10px);transition:all .6s}
+    .butterfly-panel.visible{opacity:1;transform:translateY(0)}
+    .butterfly-panel h3{font-size:.9rem;font-weight:600;color:#a78bfa;margin-bottom:8px}
+    .butterfly-panel .bf-name{font-size:1.05rem;font-weight:600;color:#c4b5fd}
+    .butterfly-panel .bf-desc{font-size:.8rem;color:#a1a1aa;margin-top:4px;line-height:1.6}
+    .butterfly-panel .bf-meta{display:flex;gap:12px;margin-top:10px;font-size:.7rem;color:#71717a;align-items:center}
+    .butterfly-panel .bf-path{font-size:.7rem;color:#71717a;margin-top:8px;padding:8px;background:rgba(0,0,0,.3);border-radius:6px;font-family:'JetBrains Mono',monospace}
+    .wave-section{border:1px solid #1e1e2e;border-radius:12px;overflow:hidden;margin-bottom:12px;opacity:0;transform:translateY(10px);transition:all .5s}
+    .wave-section.visible{opacity:1;transform:translateY(0)}
+    .wave-header{display:flex;align-items:center;gap:12px;padding:14px 16px;background:rgba(30,30,46,.5);cursor:pointer;transition:background .2s}
+    .wave-header:hover{background:rgba(30,30,46,.8)}
+    .wave-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+    .wave-label{font-size:.85rem;font-weight:600}.wave-count{font-size:.7rem;color:#6b7280}
+    .wave-chevron{margin-left:auto;font-size:.7rem;color:#6b7280;transition:transform .2s}
+    .wave-section.expanded .wave-chevron{transform:rotate(90deg)}
+    .wave-body{display:none;padding:12px 16px;background:rgba(17,17,17,.5)}
+    .wave-section.expanded .wave-body{display:block}
+    .ef-card{padding:12px;background:rgba(30,30,46,.5);border-radius:10px;margin-bottom:8px}
+    .ef-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:4px}
+    .ef-name{font-size:.85rem;font-weight:500;color:#fff}
+    .sev-badge{padding:2px 8px;border-radius:4px;font-size:.6rem;font-weight:600;font-family:'JetBrains Mono',monospace}
+    .sev-critical{background:rgba(239,68,68,.2);color:#ef4444}.sev-high{background:rgba(249,115,22,.2);color:#f97316}
+    .sev-moderate{background:rgba(245,158,11,.2);color:#f59e0b}.sev-low{background:rgba(34,197,94,.2);color:#22c55e}
+    .ef-desc{font-size:.75rem;color:#9ca3af;margin-bottom:6px}
+    .ef-meta{display:flex;gap:12px;font-size:.65rem;color:#6b7280}
+    .ef-path{font-size:.6rem;color:#4b5563;margin-top:4px;font-family:'JetBrains Mono',monospace}
+    .mit-panel{background:#111;border:1px solid #1e1e2e;border-radius:16px;padding:20px;margin-top:20px;opacity:0;transform:translateY(10px);transition:all .5s}
+    .mit-panel.visible{opacity:1;transform:translateY(0)}
+    .mit-panel h3{font-size:.85rem;font-weight:600;margin-bottom:12px}
+    .mit-card{padding:10px 12px;background:rgba(30,30,46,.5);border-radius:8px;margin-bottom:6px}
+    .mit-header{display:flex;align-items:center;gap:8px;margin-bottom:4px}
+    .mit-type{padding:2px 8px;border-radius:4px;font-size:.6rem;font-weight:600;font-family:'JetBrains Mono',monospace}
+    .mit-prevent{background:rgba(34,197,94,.15);color:#22c55e}.mit-detect{background:rgba(59,130,246,.15);color:#3b82f6}.mit-respond{background:rgba(168,85,247,.15);color:#a855f7}
+    .mit-desc{font-size:.8rem;font-weight:500;color:#d1d5db}.mit-impl{font-size:.7rem;color:#6b7280;margin-top:2px}
+    .mit-stats{display:flex;gap:12px;font-size:.6rem;color:#4b5563;margin-top:4px}
+    .guard-section{margin-top:12px}.guard-item{display:flex;gap:8px;padding:8px;background:rgba(239,68,68,.05);border-radius:6px;margin-bottom:4px;font-size:.75rem;flex-direction:column}
+    .guard-top{display:flex;align-items:center;gap:8px}
+    .guard-type{padding:2px 8px;border-radius:4px;font-size:.6rem;font-weight:600;font-family:'JetBrains Mono',monospace;background:rgba(239,68,68,.15);color:#ef4444;flex-shrink:0}
+    .guard-type.esc{background:rgba(245,158,11,.15);color:#f59e0b}
+    .guard-cond{color:#d1d5db;font-size:.7rem}.guard-action{color:#6b7280;font-size:.65rem}
+    .rationale-panel{background:linear-gradient(135deg,rgba(245,158,11,.06),rgba(245,158,11,.02));border:1px solid rgba(245,158,11,.2);border-radius:16px;padding:20px;margin-top:16px;opacity:0;transform:translateY(10px);transition:all .5s}
+    .rationale-panel.visible{opacity:1;transform:translateY(0)}
+    .rationale-panel h3{font-size:.85rem;font-weight:600;color:#f59e0b;margin-bottom:8px}
+    .rationale-panel p{font-size:.8rem;color:#9ca3af;line-height:1.7}.rationale-panel strong{color:#e5e5e5}
+    .analyzing-overlay{text-align:center;padding:60px 20px}
+    .analyzing-spinner{display:inline-block;width:40px;height:40px;border:3px solid #2a2a3e;border-top-color:#f97316;border-radius:50%;animation:spin 1s linear infinite}
+    @keyframes spin{to{transform:rotate(360deg)}}
+    .analyzing-text{font-size:.85rem;color:#f97316;margin-top:12px}.analyzing-sub{font-size:.7rem;color:#6b7280;margin-top:4px}
+    @media(max-width:900px){.sidebar{display:none}}
+  </style>
+</head>
+<body>
+  <div class="platform-header">
+    <a href="../demos.html" class="ph-logo" style="text-decoration:none;color:inherit">DATACENDIA</a>
+    <div class="ph-divider"></div>
+    <div class="ph-nav">
+      <a class="ph-nav-item active" href="../demos.html#cortex">Cortex</a>
+      <a class="ph-nav-item" href="../demos.html#oversight">Oversight</a>
+      <a class="ph-nav-item" href="../demos.html#evidence">Evidence</a>
+    </div>
+    <span class="ph-breadcrumb">/ Core Suite / <span>CendiaChronos™ — Cascade</span></span>
+    <span class="ph-spacer"></span>
+    <span class="ph-demo-badge">DEMO MODE</span>
+    <div class="ph-user">
+      <div class="ph-notif"><img src="../assets/logos/cendia-helm.svg" alt="Notifications" width="18" height="18" style="border-radius:4px"><div class="ph-notif-dot"></div></div>
+      <div class="ph-avatar">SR</div>
+    </div>
+    <a href="../demos.html" class="ph-back">← Demos</a>
+  </div>
+  <div class="app-layout">
+    <div class="sidebar">
+      <div class="sb-section">
+        <div class="sb-label">Scenario</div>
+        <button class="scenario-tab active" onclick="loadScenario('plant',this)"><div class="st-title"><img src="../assets/logos/cascade.svg" alt="Plant" width="14" height="14" style="border-radius:3px;vertical-align:middle"> Plant Closure</div><div class="st-meta">450 employees · $28M savings target</div></button>
+        <button class="scenario-tab" onclick="loadScenario('pricing',this)"><div class="st-title"><img src="../assets/logos/roi-metrics.svg" alt="Price" width="14" height="14" style="border-radius:3px;vertical-align:middle"> Price Increase</div><div class="st-meta">18% across all tiers · 2,400 accounts</div></button>
+        <button class="scenario-tab" onclick="loadScenario('layoff',this)"><div class="st-title"><img src="../assets/logos/cendia-agents.svg" alt="Workforce" width="14" height="14" style="border-radius:3px;vertical-align:middle"> Workforce Reduction</div><div class="st-meta">20% engineering · 120 engineers</div></button>
+      </div>
+      <div class="sb-section">
+        <div class="sb-label">Change Specification</div>
+        <div class="change-spec">
+          <div class="cs-row"><span class="cs-key">Title</span><span class="cs-val" id="csTitle">Close Springfield plant</span></div>
+          <div class="cs-row"><span class="cs-key">Type</span><span class="cs-val" id="csType">operational</span></div>
+          <div class="cs-row"><span class="cs-key">Scope</span><span class="cs-val" id="csScope">3 departments</span></div>
+          <div class="cs-row"><span class="cs-key">Assets</span><div class="cs-assets" id="csAssets"><span class="cs-asset">Springfield Plant</span><span class="cs-asset">Supply Chain</span><span class="cs-asset">HR</span></div></div>
+        </div>
+      </div>
+      <div class="sb-section">
+        <button class="run-btn" id="runBtn" onclick="runCascade()"><img src="../assets/logos/cascade.svg" alt="Cascade" width="16" height="16" style="border-radius:3px;vertical-align:middle"> Run Cascade Analysis</button>
+        <button class="reset-btn" id="resetBtn" onclick="resetCascade()" style="display:none">↺ Reset Analysis</button>
+      </div>
+      <div class="sb-section" id="summarySection" style="display:none">
+        <div class="sb-label">Analysis Summary</div>
+        <div class="summary-stats">
+          <div class="ss-card"><div class="ss-val" style="color:#f97316" id="ssTotal">0</div><div class="ss-label">Total Effects</div></div>
+          <div class="ss-card"><div class="ss-val" style="color:#ef4444" id="ssNeg">0</div><div class="ss-label">Negative</div></div>
+          <div class="ss-card"><div class="ss-val" style="color:#22c55e" id="ssPos">0</div><div class="ss-label">Positive</div></div>
+          <div class="ss-card"><div class="ss-val" id="ssNet">$0</div><div class="ss-label">Net Impact (3yr)</div></div>
+        </div>
+        <div style="font-size:.65rem;color:#6b7280;margin-top:8px;text-align:center" id="ssRec"></div>
+      </div>
+      <div class="sb-section" id="guardSection" style="display:none">
+        <div class="sb-label"><img src="../assets/logos/cendia-guard.svg" alt="Guardrails" width="14" height="14" style="border-radius:3px;vertical-align:middle"> Guardrails</div>
+        <div id="guardList"></div>
+      </div>
+    </div>
+    <div class="main-panel">
+      <div class="main-header">
+        <span class="main-title"><img src="../assets/logos/cascade.svg" alt="CendiaCascade" width="28" height="28" style="border-radius:6px;vertical-align:middle;margin-right:6px">CendiaChronos™ — Cascade Analysis</span>
+        <span class="badge" style="background:rgba(249,115,22,.15);color:#f97316" id="statusBadge">READY</span>
+      </div>
+      <div class="content-area" id="contentArea">
+        <div class="backstory">
+          <h3><img src="../assets/logos/audit-provenance.svg" alt="Briefing" width="20" height="20" style="border-radius:4px;vertical-align:middle"> Scenario Briefing</h3>
+          <p><strong>Hartwell Manufacturing Corp.</strong> is a $340M industrial components manufacturer headquartered in Columbus, OH with plants in Springfield, Detroit, and Austin. After 18 months of margin compression (EBITDA down from 22% to 14%), the board has demanded a turnaround plan by end of quarter.</p>
+          <p>The CFO has presented three options, each with significant organizational consequences. The CEO wants to understand not just the <strong>first-order savings</strong>, but the <strong>2nd and 3rd order ripple effects</strong> that typically blindside companies after major restructuring decisions. She's activated <strong>CendiaChronos™ Cascade Analysis</strong> to map every consequence before committing.</p>
+          <div class="bs-meta">
+            <span><img src="../assets/logos/cascade.svg" alt="Company" width="14" height="14" style="border-radius:3px;vertical-align:middle"> Hartwell Manufacturing Corp.</span>
+            <span><img src="../assets/logos/roi-metrics.svg" alt="Revenue" width="14" height="14" style="border-radius:3px;vertical-align:middle"> $340M revenue</span>
+            <span><img src="../assets/logos/cendia-agents.svg" alt="People" width="14" height="14" style="border-radius:3px;vertical-align:middle"> 1,200 employees across 3 plants</span>
+            <span><img src="../assets/logos/pre-mortem.svg" alt="EBITDA" width="14" height="14" style="border-radius:3px;vertical-align:middle"> EBITDA: 22% → 14%</span>
+            <span>⏰ Board deadline: End of quarter</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<script>
+const S={
+plant:{title:'Close Springfield plant',type:'operational',scope:'3 departments',assets:['Springfield Plant','Supply Chain','HR'],
+  riskScore:68,rec:'proceed_with_caution',
+  bf:{name:'Competitor Facility Acquisition',desc:'35% probability a competitor acquires Springfield at 40% book value, hires 120 former employees — gaining manufacturing presence in your strongest market. 3-year NPV: additional -$25M.',sev:'high',lat:90,order:3,path:'Plant Closure → Talent Dispersal → Competitor Acquisition → Market Position Loss'},
+  orders:[
+    {label:'T+0: Direct Impacts (1st Order)',color:'#3b82f6',effects:[
+      {name:'450 employees displaced',sev:'high',desc:'WARN Act compliance required. Severance: $12M. Unemployment impact: $2.4M.',lat:0,conf:95,path:'Springfield Plant → HR'},
+      {name:'Production capacity drops 35%',sev:'high',desc:'Remaining plants cannot absorb full capacity for 4-6 months.',lat:7,conf:90,path:'Springfield Plant → Supply Chain'},
+      {name:'Annual cost reduction $28M',sev:'low',desc:'Facility ($18M), labor ($8M), maintenance ($2M) eliminated. Net year 1: $16M.',lat:0,conf:88,path:'Springfield Plant → Finance'},
+      {name:'Regulatory obligations triggered',sev:'moderate',desc:'EPA remediation. 3 supplier contracts — $1.8M penalty exposure.',lat:14,conf:75,path:'Springfield Plant → Legal'}
+    ]},
+    {label:'T+30: Ripple Effects (2nd Order)',color:'#f59e0b',effects:[
+      {name:'Local media backlash',sev:'moderate',desc:'Company town closure = front-page news, city council hearings, Midwest boycott risk.',lat:30,conf:72,path:'HR → Public Relations → Revenue'},
+      {name:'8-12% attrition at remaining plants',sev:'high',desc:'Detroit/Austin employees fear they\'re next. Best leave first. Cost: $3.2M.',lat:45,conf:65,path:'HR → Morale → Talent Retention'},
+      {name:'3 key accounts demand guarantees',sev:'high',desc:'Top customers concerned about delivery. One evaluates competitors.',lat:30,conf:58,path:'Supply Chain → Customer Confidence'},
+      {name:'Detroit plant needs $5M expansion',sev:'moderate',desc:'Second shift + equipment upgrades. ROI positive after 18 months.',lat:60,conf:70,path:'Supply Chain → Operations → CapEx'}
+    ]},
+    {label:'T+90+: Butterfly Effects (3rd+ Order)',color:'#8b5cf6',effects:[
+      {name:'Competitor acquires facility',sev:'critical',desc:'Purchases plant at 40% book, hires 120 former employees.',lat:120,conf:35,path:'Talent Dispersal → Competitor → Market Position'},
+      {name:'22% margin improvement',sev:'low',desc:'Two-plant model with automation delivers higher margins.',lat:180,conf:60,path:'Operations → Efficiency → Margin'},
+      {name:'ESG rating downgrade',sev:'moderate',desc:'Two agencies flag community impact. Institutional investors may reduce holdings.',lat:90,conf:45,path:'Community Impact → ESG → Investors'}
+    ]}
+  ],
+  mits:[
+    {type:'prevent',desc:'Partial closure alternative',impl:'Reduce to 1 shift (180 employees) — 65% savings, 20% cascade risk',cost:0,eff:80},
+    {type:'prevent',desc:'Facility sale with non-compete',impl:'Sell with contractual restriction preventing buyer from competing',cost:0,eff:70},
+    {type:'detect',desc:'Weekly attrition monitoring',impl:'Anonymous sentiment tracking at remaining plants',cost:5000,eff:80},
+    {type:'respond',desc:'Customer success outreach',impl:'Proactively contact key accounts with supply continuity plan',cost:25000,eff:75}
+  ],
+  guards:[{type:'hard_stop',cond:'Key account cancellation exceeds 1 in 30 days',action:'Pause closure and reassess supply plan'},{type:'escalation',cond:'Attrition at remaining plants exceeds 10%',action:'Trigger emergency retention program'}],
+  sum:{effects:11,neg:7,pos:2,net:'-$8.2M',text:'<strong>Net:</strong> $28M savings generates $36.2M cascading costs — net -$8.2M over 3 years.<br><br><strong>Alternative:</strong> Partial closure (1 shift, 180 employees) achieves 65% savings with 20% cascade risk.'}
+},
+pricing:{title:'Enterprise pricing +18%',type:'financial',scope:'2,400 accounts',assets:['Pricing Engine','Customer Base','Sales Pipeline'],
+  riskScore:52,rec:'proceed_with_caution',
+  bf:{name:'Market Repositioning Effect',desc:'18% increase self-selects your customer base — price-sensitive accounts churn, leaving +35% LTV portfolio. Permanently improves unit economics but reduces TAM by repositioning as premium.',sev:'moderate',lat:120,order:3,path:'Price Increase → Churn → Portfolio Selection → Premium Positioning'},
+  orders:[
+    {label:'T+0: Direct Impacts (1st Order)',color:'#3b82f6',effects:[
+      {name:'Revenue lift +$15M ARR',sev:'low',desc:'Auto-renewal accounts absorb increase. Impact begins Q2.',lat:0,conf:95,path:'Pricing → Revenue'},
+      {name:'Support tickets +340%',sev:'high',desc:'Billing inquiries, cancellations overwhelm support 6-8 weeks.',lat:7,conf:88,path:'Pricing → Support'},
+      {name:'8-12% begin cancellation',sev:'high',desc:'Small-to-mid tier most affected. 190-290 accounts within 60 days.',lat:14,conf:72,path:'Pricing → Churn'}
+    ]},
+    {label:'T+30: Ripple Effects (2nd Order)',color:'#f59e0b',effects:[
+      {name:'Competitor win-back campaigns',sev:'moderate',desc:'2 competitors launch "switch and save 25%" targeting churning accounts.',lat:30,conf:65,path:'Churn → Competitor → Market Share'},
+      {name:'Review scores drop -0.4 stars',sev:'moderate',desc:'Negative reviews citing "price gouging." Prospects cite in objections.',lat:45,conf:55,path:'Churn → Reviews → Pipeline'},
+      {name:'Retained base is higher-value',sev:'low',desc:'Retained: +35% LTV, -50% support cost per account.',lat:60,conf:60,path:'Churn → Portfolio → Unit Economics'}
+    ]},
+    {label:'T+90+: Butterfly Effects (3rd+ Order)',color:'#8b5cf6',effects:[
+      {name:'Net revenue +$9M (not $15M)',sev:'moderate',desc:'Actual lift 60% of projection after churn. Margins higher.',lat:120,conf:55,path:'Churn + Retention → Net Revenue'},
+      {name:'Premium market positioning',sev:'low',desc:'Pricing signals premium. Prospects expect white-glove service.',lat:180,conf:45,path:'Price Signal → Market Position'}
+    ]}
+  ],
+  mits:[
+    {type:'prevent',desc:'Tiered pricing approach',impl:'18% Enterprise, 10% Mid, 0% Startup — $12M (80%) with 4% churn',cost:0,eff:85},
+    {type:'prevent',desc:'Grandfather existing customers',impl:'New pricing only on renewals after 6-month grace period',cost:0,eff:80},
+    {type:'detect',desc:'Churn early warning',impl:'Monitor cancellation signals weekly with automated alerts',cost:5000,eff:80},
+    {type:'respond',desc:'Proactive CS outreach',impl:'Contact at-risk accounts before they see the increase',cost:25000,eff:70}
+  ],
+  guards:[{type:'hard_stop',cond:'Churn exceeds 10% in 30 days',action:'Pause rollout and reassess'},{type:'escalation',cond:'Win rate drops below 25%',action:'Trigger competitive response plan'}],
+  sum:{effects:8,neg:4,pos:3,net:'+$9M',text:'<strong>Net:</strong> 18% increase achieves $9M net lift (60% of $15M) after churn.<br><br><strong>Alternative:</strong> Tiered approach achieves $12M with only 4% churn.'}
+},
+layoff:{title:'20% engineering reduction',type:'organizational',scope:'All engineering',assets:['Engineering Team','Product Roadmap','Codebase'],
+  riskScore:82,rec:'reconsider',
+  bf:{name:'Competitive Market Timing Loss',desc:'4-6 month roadmap delay lets competitor ship AI features first. They capture the narrative. Combined with Glassdoor damage (-45% pipeline), recovery extends 18+ months.',sev:'critical',lat:120,order:3,path:'Layoffs → Roadmap Delay → Competitor First-Mover → Market Loss'},
+  orders:[
+    {label:'T+0: Direct Impacts (1st Order)',color:'#3b82f6',effects:[
+      {name:'Payroll savings $18M',sev:'low',desc:'120 engineers at $150K fully-loaded. Severance: $4.2M. Net year 1: $13.8M.',lat:0,conf:95,path:'Headcount → Payroll'},
+      {name:'Roadmap delayed 4-6 months',sev:'high',desc:'12 of 30 projects lose contributors. 3 lose their technical lead.',lat:7,conf:90,path:'Headcount → Capacity → Roadmap'},
+      {name:'Survivor syndrome — morale -40%',sev:'high',desc:'Remaining take on 25% more work. Burnout risk elevated.',lat:7,conf:85,path:'Layoffs → Team Morale'}
+    ]},
+    {label:'T+30: Ripple Effects (2nd Order)',color:'#f59e0b',effects:[
+      {name:'Top engineers leave (15-20%)',sev:'critical',desc:'Best performers leave. 8 laid-off engineers hired by top competitor.',lat:45,conf:70,path:'Morale → Talent Flight → Knowledge Loss'},
+      {name:'Bug rate +60%, P1 incidents 2x',sev:'high',desc:'Fewer engineers, same codebase. P1: 2/mo → 4.5/mo.',lat:60,conf:65,path:'Capacity → Quality → Incidents'},
+      {name:'Glassdoor drops to 2.8 stars',sev:'moderate',desc:'Negative reviews. Recruiting pipeline -45%.',lat:30,conf:55,path:'Layoffs → Reviews → Recruiting'}
+    ]},
+    {label:'T+90+: Butterfly Effects (3rd+ Order)',color:'#8b5cf6',effects:[
+      {name:'Rehiring costs = 70% of savings',sev:'critical',desc:'Within 18mo, need 80 engineers at market rates: $14M.',lat:180,conf:50,path:'Quality Loss → Rehiring → Cost Erosion'},
+      {name:'Competitor ships AI features first',sev:'critical',desc:'4-6mo delay lets competitor reach market first.',lat:120,conf:40,path:'Roadmap Delay → Competitor → Market'}
+    ]}
+  ],
+  mits:[
+    {type:'prevent',desc:'Voluntary buyouts + freeze',impl:'Natural attrition (~8%/yr) achieves $10M with minimal cascade',cost:0,eff:80},
+    {type:'prevent',desc:'Retention bonuses for critical staff',impl:'Top 20% get 6-month retention packages',cost:150000,eff:75},
+    {type:'detect',desc:'Weekly morale pulse surveys',impl:'Anonymous sentiment with early warning thresholds',cost:5000,eff:80},
+    {type:'respond',desc:'Rapid backfill team',impl:'Pre-approved budget to immediately replace key departures',cost:50000,eff:65}
+  ],
+  guards:[{type:'hard_stop',cond:'Key engineer departures exceed 2 in 30 days',action:'Pause and reassess'},{type:'escalation',cond:'P1 incidents exceed 4/month',action:'Trigger engineering stabilization'}],
+  sum:{effects:8,neg:7,pos:1,net:'-$0.2M',text:'<strong>Net:</strong> $18M savings generates $18.2M cascading costs — net -$0.2M with massive org damage.<br><br><strong>Alternative:</strong> Voluntary buyouts + freeze achieves $10M with minimal cascade risk.'}
+}};
+
+let cur='plant',timeouts=[];
+
+function loadScenario(id,el){
+  cur=id;document.querySelectorAll('.scenario-tab').forEach(t=>t.classList.remove('active'));
+  if(el)el.classList.add('active');resetCascade();
+  const s=S[id];
+  document.getElementById('csTitle').textContent=s.title;
+  document.getElementById('csType').textContent=s.type;
+  document.getElementById('csScope').textContent=s.scope;
+  document.getElementById('csAssets').innerHTML=s.assets.map(a=>`<span class="cs-asset">${a}</span>`).join('');
+}
+
+function runCascade(){
+  const s=S[cur],area=document.getElementById('contentArea');
+  document.getElementById('runBtn').disabled=true;
+  document.getElementById('statusBadge').textContent='ANALYZING...';
+  document.getElementById('statusBadge').style.cssText='background:rgba(249,115,22,.15);color:#f97316';
+  area.innerHTML='<div class="analyzing-overlay"><div class="analyzing-spinner"></div><div class="analyzing-text">Traversing organizational graph...</div><div class="analyzing-sub">Mapping consequences across '+s.sum.effects+' nodes</div></div>';
+
+  timeouts.push(setTimeout(()=>{
+    area.innerHTML='';
+    document.getElementById('statusBadge').textContent='COMPLETE';
+    document.getElementById('statusBadge').style.cssText='background:rgba(34,197,94,.15);color:#22c55e';
+    document.getElementById('runBtn').style.display='none';
+    document.getElementById('resetBtn').style.display='';
+
+    // Summary sidebar
+    const ss=document.getElementById('summarySection');ss.style.display='';
+    document.getElementById('ssTotal').textContent=s.sum.effects;
+    document.getElementById('ssNeg').textContent=s.sum.neg;
+    document.getElementById('ssPos').textContent=s.sum.pos;
+    const netEl=document.getElementById('ssNet');netEl.textContent=s.sum.net;
+    netEl.style.color=s.sum.net.startsWith('-')?'#ef4444':'#22c55e';
+    document.getElementById('ssRec').textContent='Recommendation: '+s.rec.replace(/_/g,' ').toUpperCase();
+
+    // Guardrails sidebar
+    const gs=document.getElementById('guardSection');gs.style.display='';
+    document.getElementById('guardList').innerHTML=s.guards.map(g=>`<div class="guard-item"><div class="guard-top"><span class="guard-type ${g.type==='escalation'?'esc':''}">${g.type==='hard_stop'?'HARD STOP':'ESCALATION'}</span></div><div class="guard-cond">${g.cond}</div><div class="guard-action">→ ${g.action}</div></div>`).join('');
+
+    // Butterfly Effect
+    const bf=document.createElement('div');bf.className='butterfly-panel';
+    bf.innerHTML=`<h3><img src="../assets/logos/cascade.svg" alt="Butterfly" width="18" height="18" style="border-radius:4px;vertical-align:middle"> The Butterfly Effect Detected</h3><div class="bf-name">${s.bf.name}</div><div class="bf-desc">${s.bf.desc}</div><div class="bf-meta"><span>T+${s.bf.lat} days</span><span class="sev-badge sev-${s.bf.sev}">${s.bf.sev.toUpperCase()}</span><span>Order: ${s.bf.order}</span></div><div class="bf-path">${s.bf.path}</div>`;
+    area.appendChild(bf);setTimeout(()=>bf.classList.add('visible'),50);
+
+    // Waves
+    let wd=400;
+    s.orders.forEach((o,i)=>{
+      const w=document.createElement('div');w.className='wave-section'+(i===0?' expanded':'');
+      w.innerHTML=`<div class="wave-header" onclick="this.parentElement.classList.toggle('expanded')"><div class="wave-dot" style="background:${o.color}"></div><span class="wave-label">${o.label}</span><span class="wave-count">(${o.effects.length} effects)</span><span class="wave-chevron">▶</span></div><div class="wave-body">${o.effects.map(e=>`<div class="ef-card"><div class="ef-header"><span class="ef-name">${e.name}</span><span class="sev-badge sev-${e.sev}">${e.sev.toUpperCase()}</span></div><div class="ef-desc">${e.desc}</div><div class="ef-meta"><span>~${e.lat} days</span><span>${e.conf}% confidence</span></div><div class="ef-path">${e.path}</div></div>`).join('')}</div>`;
+      area.appendChild(w);timeouts.push(setTimeout(()=>w.classList.add('visible'),wd));wd+=400;
+    });
+
+    // Mitigations
+    const mit=document.createElement('div');mit.className='mit-panel';
+    mit.innerHTML=`<h3><img src="../assets/logos/cendia-guard.svg" alt="Mitigations" width="18" height="18" style="border-radius:4px;vertical-align:middle"> Recommended Mitigations (${s.mits.length})</h3>`+s.mits.map(m=>`<div class="mit-card"><div class="mit-header"><span class="mit-type mit-${m.type}">${m.type.toUpperCase()}</span><span class="mit-desc">${m.desc}</span></div><div class="mit-impl">${m.impl}</div><div class="mit-stats"><span>${m.cost?'$'+m.cost.toLocaleString():'No cost'}</span><span>${m.eff}% effective</span></div></div>`).join('');
+    area.appendChild(mit);timeouts.push(setTimeout(()=>mit.classList.add('visible'),wd));
+
+    // Rationale
+    const rat=document.createElement('div');rat.className='rationale-panel';
+    rat.innerHTML=`<h3><img src="../assets/logos/cortex.svg" alt="AI" width="18" height="18" style="border-radius:4px;vertical-align:middle"> AI Analysis</h3><p>${s.sum.text}</p>`;
+    area.appendChild(rat);timeouts.push(setTimeout(()=>rat.classList.add('visible'),wd+300));
+
+    // Briefing
+    const brief=document.createElement('div');brief.className='briefing';
+    brief.innerHTML=`<h3><img src="../assets/logos/cascade.svg" alt="Briefing" width="18" height="18" style="border-radius:4px;vertical-align:middle"> Cascade Briefing — Key Findings</h3><p>CendiaChronos™ mapped <strong>${s.sum.effects} downstream effects</strong> across 3 orders of consequence for the "${s.title}" scenario. Here is the executive summary:</p><ul><li><strong>First-order savings look appealing</strong> — but cascade analysis reveals hidden costs that erode or exceed the projected savings within 18-36 months.</li><li><strong>Butterfly Effect detected:</strong> ${s.bf.name} — a low-probability, high-impact 3rd-order consequence that could fundamentally alter competitive position.</li><li><strong>Net 3-year impact: ${s.sum.net}</strong> — ${s.sum.net.startsWith('-')?'the cascading costs exceed projected savings, making this a net-negative decision without mitigation':'positive but significantly less than the headline savings figure'}.</li><li><strong>${s.mits.length} mitigations identified</strong> — including alternatives that achieve 60-80% of the savings with dramatically reduced cascade risk.</li><li><strong>${s.guards.length} guardrails recommended</strong> — automated triggers to halt or escalate if cascade effects exceed thresholds.</li></ul><p><strong>Bottom line:</strong> ${s.rec==='reconsider'?'The Council recommends reconsidering this decision. The alternative approaches achieve comparable savings with a fraction of the organizational damage.':'Proceed with caution. Implement the recommended mitigations and guardrails before executing to contain cascade risk.'}</p><div class="bf-footer">Cascade Run ID: CSC-2026-0208 · Nodes traversed: ${s.sum.effects*47} · Confidence model: Monte Carlo (10,000 simulations)</div>`;
+    area.appendChild(brief);timeouts.push(setTimeout(()=>brief.style.opacity='1',wd+500));
+
+    // CTA
+    const cta=document.createElement('div');cta.className='demo-cta';
+    cta.innerHTML='<h3>See the ripple effects of your decisions</h3><p>CendiaChronos™ Cascade mode maps consequences before they happen.</p><a href="../briefing.html">Request Briefing →</a>';
+    area.appendChild(cta);
+  },1500));
+}
+
+function resetCascade(){
+  timeouts.forEach(t=>clearTimeout(t));timeouts=[];
+  document.getElementById('contentArea').innerHTML='<div class="backstory"><h3><img src="../assets/logos/audit-provenance.svg" alt="Briefing" width="20" height="20" style="border-radius:4px;vertical-align:middle"> Scenario Briefing</h3><p><strong>Hartwell Manufacturing Corp.</strong> is a $340M industrial components manufacturer headquartered in Columbus, OH with plants in Springfield, Detroit, and Austin. After 18 months of margin compression (EBITDA down from 22% to 14%), the board has demanded a turnaround plan by end of quarter.</p><p>The CFO has presented three options, each with significant organizational consequences. The CEO wants to understand not just the <strong>first-order savings</strong>, but the <strong>2nd and 3rd order ripple effects</strong> that typically blindside companies after major restructuring decisions. She\'s activated <strong>CendiaChronos™ Cascade Analysis</strong> to map every consequence before committing.</p><div class="bs-meta"><span><img src="../assets/logos/cascade.svg" alt="Company" width="14" height="14" style="border-radius:3px;vertical-align:middle"> Hartwell Manufacturing Corp.</span><span><img src="../assets/logos/roi-metrics.svg" alt="Revenue" width="14" height="14" style="border-radius:3px;vertical-align:middle"> $340M revenue</span><span><img src="../assets/logos/cendia-agents.svg" alt="People" width="14" height="14" style="border-radius:3px;vertical-align:middle"> 1,200 employees across 3 plants</span><span><img src="../assets/logos/pre-mortem.svg" alt="EBITDA" width="14" height="14" style="border-radius:3px;vertical-align:middle"> EBITDA: 22% \u2192 14%</span><span>⏰ Board deadline: End of quarter</span></div></div>';
+  document.getElementById('runBtn').disabled=false;document.getElementById('runBtn').style.display='';
+  document.getElementById('resetBtn').style.display='none';
+  document.getElementById('summarySection').style.display='none';
+  document.getElementById('guardSection').style.display='none';
+  document.getElementById('statusBadge').textContent='READY';
+  document.getElementById('statusBadge').style.cssText='background:rgba(249,115,22,.15);color:#f97316';
+}
+</script>
+<div style="text-align:center;padding:12px 20px;font-size:.6rem;color:#4a4a5a;border-top:1px solid #1e1e2e;font-family:'Inter',sans-serif">All names, entities, and scenarios in this demo are entirely fictitious. Any resemblance to real persons, companies, or events is purely coincidental.</div>
+<script src="mobile-sidebar.js"></script>
+<script src="demo-analytics.js"></script>
+<script src="../tiktok-pixel.js"></script>
+  <script src="/nav-mobile.js"></script>
+</body>
+</html>

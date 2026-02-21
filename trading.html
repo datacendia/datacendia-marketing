@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trading AI Governance | Position Risk & Compliance Decisions | Datacendia</title>
+  <meta name="description" content="AI-governed decision intelligence for trading desks. VaR management, position limit compliance, and regulatory oversight — with full audit provenance on every trade decision.">
+  <meta name="keywords" content="trading AI, trading desk governance, VaR management, position limits AI, trading compliance, MiFID II AI, Basel III AI">
+  <meta name="author" content="Datacendia">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Trading AI Governance | Datacendia">
+  <meta property="og:description" content="AI-governed decision intelligence for trading desks. VaR management, position limits, and regulatory oversight.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://datacendia.com/trading.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Trading AI Governance | Datacendia">
+  <meta name="twitter:description" content="AI-governed decision intelligence for trading desks. VaR management, position limits, and regulatory oversight.">
+  <link rel="canonical" href="https://datacendia.com/trading.html">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .v-hero { text-align: center; padding: 60px 24px 40px; max-width: 780px; margin: 0 auto; }
+    .v-hero h1 { font-family: 'Cormorant Garamond', serif; font-size: 2.4rem; font-weight: 400; line-height: 1.2; margin-bottom: 16px; }
+    .v-hero h1 span { color: #06b6d4; }
+    .v-hero p { font-size: 1rem; color: var(--color-text-dim); line-height: 1.7; max-width: 600px; margin: 0 auto 24px; }
+    .v-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 1rem; max-width: 600px; margin: 0 auto 32px; }
+    .v-stat { text-align: center; padding: 16px; background: var(--color-card-bg); border: 1px solid var(--color-border); border-radius: 10px; }
+    .v-stat-val { font-family: 'JetBrains Mono', monospace; font-size: 1.4rem; font-weight: 700; color: #06b6d4; }
+    .v-stat-label { font-size: 0.7rem; color: var(--color-text-muted); margin-top: 4px; }
+    .v-section { max-width: 780px; margin: 0 auto; padding: 0 24px 48px; }
+    .v-section h2 { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; font-weight: 400; margin-bottom: 16px; }
+    .v-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; }
+    .v-card { padding: 20px; background: var(--color-card-bg); border: 1px solid var(--color-border); border-radius: 12px; transition: border-color 0.2s; }
+    .v-card:hover { border-color: rgba(6, 182, 212, 0.3); }
+    .v-card h3 { font-size: 0.9rem; font-weight: 600; margin-bottom: 8px; color: var(--color-text); }
+    .v-card p { font-size: 0.82rem; color: var(--color-text-dim); line-height: 1.6; }
+    .v-card-icon { font-size: 1.5rem; margin-bottom: 10px; }
+    .v-quote { max-width: 600px; margin: 0 auto 40px; padding: 20px 24px; border-left: 3px solid #06b6d4; background: rgba(6, 182, 212, 0.04); border-radius: 0 10px 10px 0; font-style: italic; color: var(--color-text-dim); font-size: 0.92rem; line-height: 1.7; }
+    .v-cta-row { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 24px; }
+    .v-cta-row a { display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; border-radius: 8px; font-weight: 600; text-decoration: none; font-size: 0.85rem; transition: all 0.2s; }
+    .v-cta-primary { background: linear-gradient(135deg, #06b6d4, #0891b2); color: #000; }
+    .v-cta-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(6, 182, 212, 0.3); }
+    .v-cta-secondary { background: var(--color-card-bg); border: 1px solid var(--color-border); color: var(--color-text-dim); }
+    .v-cta-secondary:hover { border-color: #06b6d4; color: #06b6d4; }
+    .v-compliance { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+    .v-compliance span { padding: 4px 12px; background: rgba(6, 182, 212, 0.08); border: 1px solid rgba(6, 182, 212, 0.2); border-radius: 16px; font-size: 0.72rem; color: #06b6d4; }
+    .v-risk-table { width: 100%; border-collapse: collapse; margin-top: 16px; font-size: 0.82rem; }
+    .v-risk-table th { text-align: left; padding: 10px 12px; background: rgba(0,0,0,0.3); color: var(--color-text-muted); font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.08em; border-bottom: 1px solid var(--color-border); }
+    .v-risk-table td { padding: 10px 12px; border-bottom: 1px solid var(--color-border); color: var(--color-text-dim); }
+    .v-risk-table tr:hover td { background: rgba(6, 182, 212, 0.03); }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-top">
+        <a href="index.html" style="text-decoration: none;"><h1 class="logo">DATACENDIA</h1></a>
+      </div>
+      <p class="tagline-sub" data-i18n="taglineSub">Decision Crisis Immunization Infrastructure</p>
+      <nav class="main-nav">
+        <button class="nav-toggle" aria-label="Menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+        <div class="nav-menu">
+        <div class="nav-group">
+          <span class="nav-label" data-i18n="navPlatform">Platform</span>
+          <div class="nav-dropdown">
+            <a href="platform-capabilities.html"><span data-i18n="navPlatformOverview">Platform Overview</span><span class="nav-desc" data-i18n="navPlatformOverviewDesc">Full capability map</span></a>
+            <a href="dcii.html"><span data-i18n="navDcii">DCII Framework</span><span class="nav-desc" data-i18n="navDciiDesc">9 primitives · Crisis immunization</span></a>
+            <a href="diagrams.html"><span data-i18n="navArchitecture">Architecture</span><span class="nav-desc" data-i18n="navArchitectureDesc">12 system diagrams</span></a>
+          </div>
+        </div>
+        <div class="nav-group">
+          <span class="nav-label" data-i18n="navEvidence">Evidence</span>
+          <div class="nav-dropdown">
+            <a href="demos.html"><span data-i18n="navDemos">Interactive Demos</span><span class="nav-desc" data-i18n="navDemosDesc">Council, Chronos, Crucible &amp; more</span></a>
+            <a href="wargames.html"><span data-i18n="navWargames">War Games</span><span class="nav-desc" data-i18n="navWargamesDesc">Would dissent have surfaced the risk?</span></a>
+            <a href="case-studies.html"><span data-i18n="navCaseStudies">Case Studies</span><span class="nav-desc" data-i18n="navCaseStudiesDesc">Real-world decision analysis</span></a>
+          </div>
+        </div>
+        <a href="verticals.html" data-i18n="navIndustries">Industries</a>
+        <div class="nav-group">
+          <span class="nav-label" data-i18n="navPricing">Pricing</span>
+          <div class="nav-dropdown">
+            <a href="pricing.html"><span data-i18n="navTierOverview">Tier Overview</span><span class="nav-desc" data-i18n="navTierOverviewDesc">Foundation · Enterprise · Strategic</span></a>
+            <a href="premium.html"><span data-i18n="navPremiumModules">Premium Modules</span><span class="nav-desc" data-i18n="navPremiumModulesDesc">7 advanced capabilities</span></a>
+            <a href="roi-calculator.html"><span data-i18n="navRoiCalculator">ROI Calculator</span><span class="nav-desc" data-i18n="navRoiCalculatorDesc">Quantify decision risk reduction</span></a>
+            <a href="pilot.html"><span data-i18n="navPilot">90-Day Pilot</span><span class="nav-desc" data-i18n="navPilotDesc">Prove value before scaling</span></a>
+          </div>
+        </div>
+        <div class="nav-group">
+          <span class="nav-label" data-i18n="navTrust">Trust</span>
+          <div class="nav-dropdown">
+            <a href="trust.html"><span data-i18n="navTrustCenter">Trust Center</span><span class="nav-desc" data-i18n="navTrustCenterDesc">Security, compliance &amp; deployment</span></a>
+            <a href="honesty-matrices.html"><span data-i18n="navHonestyMatricesLink">Honesty Matrices</span><span class="nav-desc" data-i18n="navHonestyMatricesDesc">What we can't do — yet</span></a>
+          </div>
+        </div>
+        <a href="briefing.html" class="nav-cta" data-i18n="navRequestBriefing">Request Briefing</a>
+        </div>
+      </nav>
+    </header>
+
+    <div class="v-hero">
+      <p style="font-size: 0.72rem; color: #06b6d4; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 12px;">Trading Vertical</p>
+      <h1 data-i18n="tradingHeroTitle">AI-Governed <span>Trading Desk</span> Risk & Compliance</h1>
+      <p data-i18n="tradingHeroDesc">Multi-agent deliberation for position sizing, VaR management, concentration limits, and regulatory compliance — every decision audit-ready before execution.</p>
+      <div class="v-stats">
+        <div class="v-stat"><div class="v-stat-val">6</div><div class="v-stat-label" data-i18n="tradingStat1Label">Specialist Agents</div></div>
+        <div class="v-stat"><div class="v-stat-val">100%</div><div class="v-stat-label" data-i18n="tradingStat2Label">On-Premises</div></div>
+        <div class="v-stat"><div class="v-stat-val">Real-time</div><div class="v-stat-label" data-i18n="tradingStat3Label">VaR Checks</div></div>
+        <div class="v-stat"><div class="v-stat-val">30+</div><div class="v-stat-label" data-i18n="tradingStat4Label">Compliance Rules</div></div>
+      </div>
+      <div class="v-cta-row">
+        <a href="demos/trading-governance.html" class="v-cta-primary">Try Interactive Demo →</a>
+        <a href="briefing.html" class="v-cta-secondary">Request Briefing →</a>
+      </div>
+    </div>
+
+    <div class="v-section">
+      <h2 data-i18n="tradingS1Title">What Datacendia Does for Trading</h2>
+      <div class="v-grid">
+        <div class="v-card">
+          <div class="v-card-icon">📈</div>
+          <h3 data-i18n="tradingCard1Title">Position Governance</h3>
+          <p>Multi-agent analysis of every significant position — macro thesis validation, risk limits, concentration checks, and execution strategy. Approved or conditional before execution.</p>
+        </div>
+        <div class="v-card">
+          <div class="v-card-icon">⚠️</div>
+          <h3 data-i18n="tradingCard2Title">VaR Limit Enforcement</h3>
+          <p>Real-time VaR calculations against desk limits. When positions breach thresholds, the system enforces conditional approval with mandatory size reduction.</p>
+        </div>
+        <div class="v-card">
+          <div class="v-card-icon">🔄</div>
+          <h3 data-i18n="tradingCard3Title">Concentration Monitoring</h3>
+          <p>Currency, sector, and counterparty concentration tracked against limits. CRO discretionary buffers documented and audit-trailed.</p>
+        </div>
+        <div class="v-card">
+          <div class="v-card-icon">🛡️</div>
+          <h3 data-i18n="tradingCard4Title">Regulatory Compliance</h3>
+          <p>Basel III, MiFID II, Dodd-Frank, FRTB mapping on every trade decision. Compliance gaps flagged before execution, not after.</p>
+        </div>
+        <div class="v-card">
+          <div class="v-card-icon">⚔️</div>
+          <h3 data-i18n="tradingCard5Title">Cross-Examination</h3>
+          <p>Macro strategists challenged by risk managers. Compliance officers question execution assumptions. Every challenge and rebuttal preserved.</p>
+        </div>
+        <div class="v-card">
+          <div class="v-card-icon">📋</div>
+          <h3 data-i18n="tradingCard6Title">Audit Provenance</h3>
+          <p>Cryptographically sealed decision packets for every trade. Regulators can verify who approved, what was considered, and who objected.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="v-quote">"The value wasn't the recommendation — it was the evidence trail." — Anonymized financial services pilot</div>
+
+    <div class="v-section">
+      <h2 data-i18n="tradingS2Title">Trading-Specific Agents</h2>
+      <div class="v-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+        <div class="v-card" style="border-left: 3px solid #22c55e;">
+          <h3 data-i18n="tradingAgent1">Macro Strategist</h3>
+          <p>Thesis validation, central bank divergence analysis, macro regime identification.</p>
+        </div>
+        <div class="v-card" style="border-left: 3px solid #ef4444;">
+          <h3 data-i18n="tradingAgent2">Risk Manager</h3>
+          <p>VaR calculations, position sizing, stop-loss placement, tail risk assessment.</p>
+        </div>
+        <div class="v-card" style="border-left: 3px solid #3b82f6;">
+          <h3 data-i18n="tradingAgent3">Compliance Officer</h3>
+          <p>Regulatory mapping, concentration limits, reporting obligations, conflict checks.</p>
+        </div>
+        <div class="v-card" style="border-left: 3px solid #f59e0b;">
+          <h3 data-i18n="tradingAgent4">Execution Strategist</h3>
+          <p>Liquidity assessment, timing analysis, instrument selection, cost optimization.</p>
+        </div>
+        <div class="v-card" style="border-left: 3px solid #a855f7;">
+          <h3 data-i18n="tradingAgent5">Quant Analyst</h3>
+          <p>Positioning data, sentiment indicators, technical levels, correlation analysis.</p>
+        </div>
+        <div class="v-card" style="border-left: 3px solid #06b6d4;">
+          <h3 data-i18n="tradingAgent6">Portfolio Oversight</h3>
+          <p>Cross-desk impact, hedging interactions, portfolio-level VaR contribution, P&L attribution.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="v-section">
+      <h2 data-i18n="tradingS3Title">Risk Governance Example</h2>
+      <p style="font-size: 0.85rem; color: var(--color-text-dim); line-height: 1.6; margin-bottom: 8px;">How Datacendia governs a $250M EUR/USD short position:</p>
+      <table class="v-risk-table">
+        <thead>
+          <tr><th data-i18n="tradingThCheck">Check</th><th data-i18n="tradingThStatus">Status</th><th data-i18n="tradingThAction">Action</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Macro thesis validation</td><td style="color:#22c55e;">Valid — ECB/Fed divergence confirmed</td><td>Proceed</td></tr>
+          <tr><td>Daily VaR limit ($5M)</td><td style="color:#ef4444;">BREACH — $5.8M at full size</td><td>Reduce to $180M</td></tr>
+          <tr><td>EUR concentration (50% limit)</td><td style="color:#f59e0b;">62% at full, 52% at reduced</td><td>CRO discretionary buffer</td></tr>
+          <tr><td>Stop-loss placement</td><td style="color:#22c55e;">1.0920 technical level identified</td><td>Hard stop required</td></tr>
+          <tr><td>Counterparty exposure</td><td style="color:#22c55e;">Within limits across prime brokers</td><td>No action</td></tr>
+          <tr><td>Regulatory reporting</td><td style="color:#22c55e;">MiFID II transaction reporting ready</td><td>Auto-filed</td></tr>
+        </tbody>
+      </table>
+      <p style="font-size: 0.75rem; color: var(--color-text-muted); margin-top: 12px; font-style: italic;">Final recommendation: CONDITIONAL APPROVAL — proceed at $180M with hard stop at 1.0920 and 72-hour reassessment trigger.</p>
+    </div>
+
+    <div class="v-section">
+      <h2 data-i18n="tradingS4Title">Compliance Frameworks</h2>
+      <p style="font-size: 0.85rem; color: var(--color-text-dim); line-height: 1.6; margin-bottom: 16px;">Every trading decision is mapped against relevant regulatory and internal frameworks:</p>
+      <div class="v-compliance">
+        <span>Basel III/IV</span>
+        <span>MiFID II</span>
+        <span>Dodd-Frank</span>
+        <span>FRTB</span>
+        <span>EMIR</span>
+        <span>MAR</span>
+        <span>Volcker Rule</span>
+        <span>BCBS 239</span>
+        <span>Internal VaR Limits</span>
+        <span>Concentration Policies</span>
+        <span>Best Execution</span>
+        <span>Trade Surveillance</span>
+      </div>
+    </div>
+
+    <div class="cta-box" style="max-width: 780px; margin: 0 auto 60px;">
+      <h3 data-i18n="tradingCtaTitle">See Trading Governance in Action</h3>
+      <p>Watch 6 AI agents deliberate a $250M position with real-time VaR checks and cross-examination. Or request a briefing tailored to your trading desk.</p>
+      <div class="v-cta-row">
+        <a href="demos/trading-governance.html" class="v-cta-primary">Try Demo →</a>
+        <a href="briefing.html" class="v-cta-secondary">Request Briefing →</a>
+        <a href="pilot.html" class="v-cta-secondary">Start 90-Day Pilot →</a>
+      </div>
+    </div>
+  </div>
+  <script src="tiktok-pixel.js"></script>
+  <script src="translations.js?v=6"></script>
+  <script src="app.js"></script>
+  <script src="nav-mobile.js"></script>
+</body>
+</html>

@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>¿Qué es la Inteligencia de Decisiones? Guía Completa para Empresas | Datacendia</title>
+  <meta name="description" content="La inteligencia de decisiones es la disciplina de convertir datos, IA y experiencia humana en decisiones empresariales responsables. Aprenda cómo las empresas utilizan plataformas de inteligencia de decisiones.">
+  <meta name="keywords" content="inteligencia de decisiones, qué es inteligencia de decisiones, plataforma de inteligencia de decisiones, toma de decisiones empresarial, soporte de decisiones IA, decisiones IA explicables">
+  <meta name="author" content="Datacendia">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:0">
+  <meta property="og:title" content="¿Qué es la Inteligencia de Decisiones? Guía Empresarial Completa">
+  <meta property="og:description" content="La inteligencia de decisiones combina datos, IA y experiencia humana en decisiones empresariales responsables.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://datacendia.com/es/learn/decision-intelligence/">
+  <meta property="og:image" content="https://datacendia.com/og-image.png">
+  <meta property="og:locale" content="es_ES">
+  <link rel="canonical" href="https://datacendia.com/es/learn/decision-intelligence/">
+  <link rel="alternate" hreflang="en" href="https://datacendia.com/learn/decision-intelligence/">
+  <link rel="alternate" hreflang="es" href="https://datacendia.com/es/learn/decision-intelligence/">
+  <link rel="alternate" hreflang="fr" href="https://datacendia.com/fr/learn/decision-intelligence/">
+  <link rel="alternate" hreflang="de" href="https://datacendia.com/de/learn/decision-intelligence/">
+  <link rel="alternate" hreflang="pt" href="https://datacendia.com/pt/learn/decision-intelligence/">
+  <link rel="alternate" hreflang="it" href="https://datacendia.com/it/learn/decision-intelligence/">
+  <link rel="alternate" hreflang="ja" href="https://datacendia.com/ja/learn/decision-intelligence/">
+  <link rel="alternate" hreflang="ko" href="https://datacendia.com/ko/learn/decision-intelligence/">
+  <link rel="alternate" hreflang="zh" href="https://datacendia.com/zh/learn/decision-intelligence/">
+  <link rel="alternate" hreflang="ar" href="https://datacendia.com/ar/learn/decision-intelligence/">
+  <link rel="alternate" hreflang="hi" href="https://datacendia.com/hi/learn/decision-intelligence/">
+  <link rel="alternate" hreflang="x-default" href="https://datacendia.com/learn/decision-intelligence/">
+  <link rel="alternate" hreflang="fr" href="https://datacendia.com/fr/learn/decision-intelligence/">
+  <link rel="alternate" hreflang="de" href="https://datacendia.com/de/learn/decision-intelligence/">
+  <link rel="alternate" hreflang="x-default" href="https://datacendia.com/learn/decision-intelligence/">
+  <link rel="icon" type="image/svg+xml" href="../../../assets/favicon.svg">
+  <meta name="theme-color" content="#0a0a0a">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../styles.css">
+  <style>
+    .learn-container { max-width: 800px; margin: 0 auto; padding: 60px 24px 80px; }
+    .learn-breadcrumb { font-size: 0.75rem; color: var(--color-text-dim); margin-bottom: 24px; }
+    .learn-breadcrumb a { color: var(--color-text-dim); text-decoration: none; }
+    .learn-breadcrumb a:hover { color: var(--color-gold); }
+    .learn-meta { display: flex; gap: 24px; font-size: 0.75rem; color: var(--color-text-dim); margin-bottom: 32px; flex-wrap: wrap; }
+    .learn-title { font-family: var(--font-display); font-size: 2.25rem; font-weight: 300; color: var(--color-text); margin-bottom: 16px; line-height: 1.2; }
+    .learn-subtitle { font-size: 1.1rem; color: var(--color-text-muted); margin-bottom: 32px; line-height: 1.6; }
+    .learn-content h2 { font-family: var(--font-display); font-size: 1.5rem; font-weight: 400; color: var(--color-text); margin: 48px 0 16px; padding-top: 24px; border-top: 1px solid var(--color-border); }
+    .learn-content h3 { font-family: var(--font-display); font-size: 1.15rem; font-weight: 400; color: var(--color-text); margin: 32px 0 12px; }
+    .learn-content p { font-size: 0.95rem; color: var(--color-text-muted); line-height: 1.8; margin-bottom: 16px; }
+    .learn-content ul, .learn-content ol { margin: 16px 0 24px 24px; color: var(--color-text-muted); }
+    .learn-content li { font-size: 0.95rem; line-height: 1.7; margin-bottom: 8px; }
+    .learn-content strong { color: var(--color-text); }
+    .definition-box { background: var(--color-card-bg); border: 1px solid var(--color-gold); border-radius: 8px; padding: 24px; margin: 24px 0; }
+    .definition-box p { font-size: 1rem; color: var(--color-text); margin: 0; }
+    .comparison-table { width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 0.85rem; }
+    .comparison-table th { background: var(--color-card-bg); border: 1px solid var(--color-border); padding: 12px 16px; text-align: left; font-weight: 500; color: var(--color-text); }
+    .comparison-table td { border: 1px solid var(--color-border); padding: 12px 16px; color: var(--color-text-muted); }
+    .faq-section { margin-top: 48px; }
+    .faq-item { border-bottom: 1px solid var(--color-border); padding: 24px 0; }
+    .faq-question { font-family: var(--font-display); font-size: 1.1rem; font-weight: 400; color: var(--color-text); margin-bottom: 12px; }
+    .faq-answer { font-size: 0.9rem; color: var(--color-text-muted); line-height: 1.7; }
+    .cta-box { background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(212, 175, 55, 0.02) 100%); border: 1px solid var(--color-gold); border-radius: 8px; padding: 32px; margin-top: 48px; text-align: center; }
+    .cta-box h3 { font-family: var(--font-display); font-size: 1.25rem; color: var(--color-text); margin-bottom: 12px; }
+    .cta-box p { font-size: 0.9rem; color: var(--color-text-muted); margin-bottom: 20px; }
+    .cta-button { display: inline-block; background: var(--color-gold); color: var(--color-bg); padding: 12px 32px; border-radius: 6px; text-decoration: none; font-size: 0.85rem; font-weight: 500; }
+    .related-links { margin-top: 48px; padding-top: 32px; border-top: 1px solid var(--color-border); }
+    .related-links h3 { font-size: 0.85rem; color: var(--color-text-dim); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 16px; }
+    .related-links ul { list-style: none; margin: 0; padding: 0; }
+    .related-links li { margin-bottom: 8px; }
+    .related-links a { color: var(--color-gold); text-decoration: none; font-size: 0.9rem; }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "¿Qué es la Inteligencia de Decisiones? Guía Completa para Empresas",
+    "description": "La inteligencia de decisiones es la disciplina de convertir datos, IA y experiencia humana en decisiones empresariales responsables.",
+    "inLanguage": "es",
+    "author": { "@type": "Organization", "name": "Datacendia" },
+    "publisher": { "@type": "Organization", "name": "Datacendia" },
+    "datePublished": "2025-10-15",
+    "dateModified": "2026-01-09"
+  }
+  </script>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-top">
+        <a href="../../" style="text-decoration: none;"><h1 class="logo"><span class="brand-name">DATACENDIA</span></h1></a>
+      </div>
+      <nav class="main-nav">
+        <button class="nav-toggle" aria-label="Menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+        <div class="nav-menu">
+        <div class="nav-group">
+          <span class="nav-label">Plataforma</span>
+          <div class="nav-dropdown">
+            <a href="/platform-capabilities.html">Vista General<span class="nav-desc">Mapa completo de capacidades</span></a>
+            <a href="/dcii.html">Marco DCII<span class="nav-desc">9 primitivas · Inmunización de crisis</span></a>
+            <a href="/diagrams.html">Arquitectura<span class="nav-desc">8 diagramas de sistema</span></a>
+          </div>
+        </div>
+        <div class="nav-group">
+          <span class="nav-label">Evidencia</span>
+          <div class="nav-dropdown">
+            <a href="/demos.html">Demos Interactivas<span class="nav-desc">Council, Chronos, Crucible y más</span></a>
+            <a href="/wargames.html">Juegos de Guerra<span class="nav-desc">¿La disidencia habría revelado el riesgo?</span></a>
+            <a href="/case-studies.html">Casos de Estudio<span class="nav-desc">Análisis de decisiones reales</span></a>
+          </div>
+        </div>
+        <a href="/verticals.html">Industrias</a>
+        <div class="nav-group">
+          <span class="nav-label">Precios</span>
+          <div class="nav-dropdown">
+            <a href="/pricing.html">Vista de Niveles<span class="nav-desc">Fundación · Empresa · Estratégico</span></a>
+            <a href="/premium.html">Módulos Premium<span class="nav-desc">7 capacidades avanzadas</span></a>
+            <a href="/roi-calculator.html">Calculadora ROI<span class="nav-desc">Cuantifique la reducción de riesgo</span></a>
+            <a href="/pilot.html">Piloto de 90 Días<span class="nav-desc">Demuestre valor antes de escalar</span></a>
+          </div>
+        </div>
+        <div class="nav-group">
+          <span class="nav-label">Confianza</span>
+          <div class="nav-dropdown">
+            <a href="/trust.html">Centro de Confianza<span class="nav-desc">Seguridad, cumplimiento y despliegue</span></a>
+            <a href="/honesty-matrices.html">Matrices de Honestidad<span class="nav-desc">Lo que aún no podemos hacer</span></a>
+          </div>
+        </div>
+        <a href="/briefing.html" class="nav-cta">Solicitar Informe</a>
+        </div>
+      </nav>
+    </header>
+
+    <main class="learn-container">
+      <nav class="learn-breadcrumb">
+        <a href="../../">Inicio</a> / <a href="../">Aprender</a> / Inteligencia de Decisiones
+      </nav>
+
+      <article>
+        <h1 class="learn-title">¿Qué es la Inteligencia de Decisiones?</h1>
+        <p class="learn-subtitle">La inteligencia de decisiones es la disciplina de convertir datos, modelos de IA y experiencia humana en decisiones empresariales responsables y explicables — con pistas de auditoría completas para el cumplimiento normativo.</p>
+        
+        <div class="learn-meta">
+          <span>Última actualización: <time datetime="2026-01-09">9 de enero de 2026</time></span>
+          <span>12 min de lectura</span>
+          <span>Por Datacendia Research</span>
+        </div>
+
+        <div class="definition-box">
+          <p><strong>Inteligencia de Decisiones (ID)</strong> es una disciplina de ingeniería que combina ciencia de datos, inteligencia artificial y teoría de decisiones para ayudar a las organizaciones a tomar mejores decisiones a escala. A diferencia de la analítica tradicional que muestra lo que sucedió, la inteligencia de decisiones prescribe qué hacer, explica por qué y rastrea los resultados.</p>
+        </div>
+
+        <div class="learn-content">
+          <h2>¿Por Qué es Importante la Inteligencia de Decisiones para las Empresas?</h2>
+          <p>Las empresas modernas enfrentan un desafío fundamental: tienen más datos que nunca, pero luchan por convertir esos datos en decisiones consistentes y defendibles. Los enfoques tradicionales—dashboards, informes, incluso modelos ML básicos—dejan una brecha crítica entre el conocimiento y la acción.</p>
+          <p>La inteligencia de decisiones cierra esa brecha proporcionando:</p>
+          <ul>
+            <li><strong>Recomendaciones prescriptivas</strong> — No solo "aquí están los datos" sino "esto es lo que debe hacer"</li>
+            <li><strong>Explicabilidad</strong> — Cada recomendación se remonta a datos específicos, reglas y razonamiento</li>
+            <li><strong>Pistas de auditoría</strong> — Registros inmutables para cumplimiento normativo y gobernanza interna</li>
+            <li><strong>Colaboración humano-IA</strong> — La IA aumenta el juicio humano en lugar de reemplazarlo</li>
+          </ul>
+
+          <h2>¿Cómo se Diferencia la Inteligencia de Decisiones del Business Intelligence?</h2>
+          <p>La distinción es importante. Business intelligence (BI) es retrospectivo y descriptivo. La inteligencia de decisiones es prospectiva y prescriptiva.</p>
+
+          <table class="comparison-table">
+            <thead>
+              <tr>
+                <th>Capacidad</th>
+                <th>Business Intelligence</th>
+                <th>Inteligencia de Decisiones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Pregunta principal</td>
+                <td>¿Qué pasó?</td>
+                <td>¿Qué debemos hacer?</td>
+              </tr>
+              <tr>
+                <td>Resultado</td>
+                <td>Dashboards, informes</td>
+                <td>Recomendaciones con justificación</td>
+              </tr>
+              <tr>
+                <td>Explicabilidad</td>
+                <td>Limitada a visualización de datos</td>
+                <td>Cadenas de razonamiento y evidencia completas</td>
+              </tr>
+              <tr>
+                <td>Capacidad de auditoría</td>
+                <td>Solo logs de consultas</td>
+                <td>Pistas de auditoría de decisiones completas</td>
+              </tr>
+              <tr>
+                <td>Ajuste regulatorio</td>
+                <td>Informativo</td>
+                <td>Listo para cumplimiento (GDPR Art. 22, Ley IA UE)</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h2>¿Cuáles Son los Componentes Principales de una Plataforma de Inteligencia de Decisiones?</h2>
+          <p>Las plataformas de inteligencia de decisiones de nivel empresarial típicamente incluyen estos componentes:</p>
+          
+          <h3>1. Capa de Integración de Datos</h3>
+          <p>Se conecta a fuentes de datos empresariales (ERP, CRM, data lakes, streams en tiempo real) y normaliza los datos para la toma de decisiones.</p>
+          
+          <h3>2. Motor de Modelado de Decisiones</h3>
+          <p>Combina reglas de negocio, modelos ML y lógica de dominio en modelos de decisión ejecutables.</p>
+          
+          <h3>3. Deliberación Multi-Agente</h3>
+          <p>Las plataformas avanzadas utilizan múltiples agentes de IA que representan diferentes perspectivas (financiera, legal, operativa, riesgo) que deliberan antes de llegar a una recomendación.</p>
+          
+          <h3>4. Motor de Explicabilidad</h3>
+          <p>Genera explicaciones legibles para humanos de cada decisión. Crítico para industrias reguladas donde "el algoritmo decidió" no es una respuesta aceptable.</p>
+          
+          <h3>5. Pista de Auditoría Inmutable</h3>
+          <p>Registra cada decisión con integridad criptográfica: qué se decidió, cuándo, basado en qué datos, usando qué modelos y quién lo aprobó.</p>
+          
+          <h3>6. Flujos de Trabajo con Humano en el Bucle</h3>
+          <p>Dirige decisiones de alto riesgo o casos límite a revisores humanos con contexto completo.</p>
+
+          <h2>¿Qué Industrias Utilizan la Inteligencia de Decisiones?</h2>
+          <p>La inteligencia de decisiones entrega el mayor valor en entornos regulados y de alto riesgo:</p>
+          
+          <table class="comparison-table">
+            <thead>
+              <tr>
+                <th>Industria</th>
+                <th>Casos de Uso</th>
+                <th>Impulsores Regulatorios</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Servicios Financieros</td>
+                <td>Decisiones de crédito, detección de fraude, AML</td>
+                <td>GDPR, Basel III</td>
+              </tr>
+              <tr>
+                <td>Salud</td>
+                <td>Protocolos de tratamiento, asignación de recursos</td>
+                <td>HIPAA, FDA</td>
+              </tr>
+              <tr>
+                <td>Defensa e Inteligencia</td>
+                <td>Planificación de misiones, evaluación de amenazas</td>
+                <td>NIST 800-53, FedRAMP</td>
+              </tr>
+              <tr>
+                <td>Seguros</td>
+                <td>Suscripción, adjudicación de reclamaciones</td>
+                <td>Regulaciones estatales</td>
+              </tr>
+              <tr>
+                <td>Manufactura</td>
+                <td>Decisiones de cadena de suministro, control de calidad</td>
+                <td>Estándares ISO</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h2>¿Qué Regulaciones Requieren Decisiones de IA Explicables?</h2>
+          <p>Múltiples regulaciones ahora exigen explicabilidad para decisiones automatizadas:</p>
+          <ul>
+            <li><strong>Ley de IA de la UE (2024)</strong> — Los sistemas de IA de alto riesgo deben proporcionar transparencia y supervisión humana</li>
+            <li><strong>GDPR Artículo 22</strong> — Derecho a explicación para decisiones automatizadas con efectos legales</li>
+            <li><strong>DORA (2025)</strong> — Requisitos de resiliencia operativa digital para entidades financieras</li>
+          </ul>
+
+          <section class="faq-section">
+            <h2>Preguntas Frecuentes</h2>
+            
+            <div class="faq-item">
+              <h3 class="faq-question">¿Qué es la inteligencia de decisiones?</h3>
+              <p class="faq-answer">La inteligencia de decisiones es la disciplina de aplicar ciencia de datos, IA y ciencia del comportamiento para mejorar la toma de decisiones organizacional. Transforma datos brutos en recomendaciones accionables manteniendo explicabilidad completa y pistas de auditoría.</p>
+            </div>
+            
+            <div class="faq-item">
+              <h3 class="faq-question">¿Cómo es diferente la inteligencia de decisiones del business intelligence?</h3>
+              <p class="faq-answer">Business intelligence (BI) se enfoca en analítica descriptiva—mostrando lo que pasó. La inteligencia de decisiones va más allá prescribiendo qué hacer, explicando por qué y rastreando resultados.</p>
+            </div>
+            
+            <div class="faq-item">
+              <h3 class="faq-question">¿Qué industrias usan plataformas de inteligencia de decisiones?</h3>
+              <p class="faq-answer">La inteligencia de decisiones se usa en industrias reguladas incluyendo servicios financieros, salud, defensa, seguros y manufactura.</p>
+            </div>
+          </section>
+
+          <div class="cta-box">
+            <h3>Vea la Inteligencia de Decisiones en Acción</h3>
+            <p>Datacendia proporciona inteligencia de decisiones soberana para empresas reguladas. Despliegue air-gapped, pistas de auditoría inmutables y deliberación multi-agente.</p>
+            <a href="/briefing.html?lang=es" class="cta-button">Solicitar Briefing Técnico</a>
+          </div>
+
+          <nav class="related-links">
+            <h3>Temas Relacionados</h3>
+            <ul>
+              <li><a href="../ai-audit-trail/">¿Qué es una Pista de Auditoría de IA?</a></li>
+              <li><a href="../sovereign-ai/">¿Qué es la IA Soberana?</a></li>
+              <li><a href="../multi-agent-ai/">Sistemas de IA Multi-Agente Explicados</a></li>
+              <li><a href="../eu-ai-act-compliance/">Guía de Cumplimiento de la Ley de IA de la UE</a></li>
+            </ul>
+          </nav>
+        </div>
+      </article>
+    </main>
+
+    <footer style="text-align: center; padding: 40px 24px; border-top: 1px solid var(--color-border); margin-top: 60px;">
+      <p style="font-size: 0.75rem; color: var(--color-text-dim);">© 2026 Datacendia. Inteligencia Empresarial Soberana.</p>
+    </footer>
+  </div>
+  <script src="../../../translations.js"></script>
+  <script src="../../../app.js"></script>
+  <script src="/nav-mobile.js"></script>
+</body>
+</html>

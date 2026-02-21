@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <defs>
+    <linearGradient id="mtGold" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0%" stop-color="#A07B1A"/>
+      <stop offset="100%" stop-color="#E8C840"/>
+    </linearGradient>
+    <filter id="mtGlow">
+      <feGaussianBlur stdDeviation="1.5" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <rect width="200" height="200" fill="#0a0a0a" rx="16"/>
+  <g filter="url(#mtGlow)">
+    <!-- Staircase ascending (maturity levels) -->
+    <!-- Step 1 (lowest) -->
+    <rect x="30" y="130" width="28" height="14" rx="2" fill="url(#mtGold)" opacity="0.35"/>
+    <text x="44" y="140" font-family="'JetBrains Mono', monospace" font-size="7" fill="#0a0a0a" text-anchor="middle" opacity="0.6">L1</text>
+    <!-- Step 2 -->
+    <rect x="60" y="114" width="28" height="30" rx="2" fill="url(#mtGold)" opacity="0.45"/>
+    <text x="74" y="126" font-family="'JetBrains Mono', monospace" font-size="7" fill="#0a0a0a" text-anchor="middle" opacity="0.6">L2</text>
+    <!-- Step 3 -->
+    <rect x="90" y="96" width="28" height="48" rx="2" fill="url(#mtGold)" opacity="0.6"/>
+    <text x="104" y="110" font-family="'JetBrains Mono', monospace" font-size="7" fill="#0a0a0a" text-anchor="middle" opacity="0.6">L3</text>
+    <!-- Step 4 -->
+    <rect x="120" y="76" width="28" height="68" rx="2" fill="url(#mtGold)" opacity="0.75"/>
+    <text x="134" y="92" font-family="'JetBrains Mono', monospace" font-size="7" fill="#0a0a0a" text-anchor="middle" opacity="0.6">L4</text>
+    <!-- Step 5 (highest) -->
+    <rect x="150" y="54" width="28" height="90" rx="2" fill="url(#mtGold)" opacity="0.9"/>
+    <text x="164" y="72" font-family="'JetBrains Mono', monospace" font-size="7" fill="#0a0a0a" text-anchor="middle" opacity="0.7">L5</text>
+    <!-- Ascending trend line -->
+    <polyline points="44,128 74,112 104,94 134,74 164,52" fill="none" stroke="#E8C840" stroke-width="1.5" stroke-dasharray="4 3" opacity="0.5"/>
+    <!-- Star at top -->
+    <polygon points="164,44 166,48 170,48 167,51 168,55 164,52 160,55 161,51 158,48 162,48" fill="#E8C840" opacity="0.8"/>
+    <!-- Baseline -->
+    <line x1="25" y1="144" x2="182" y2="144" stroke="#C9A227" stroke-width="1" opacity="0.3"/>
+    <!-- Arrow indicator showing current position -->
+    <circle cx="104" cy="94" r="4" fill="none" stroke="#E8C840" stroke-width="1.5" opacity="0.7"/>
+    <circle cx="104" cy="94" r="1.5" fill="#E8C840" opacity="0.8"/>
+  </g>
+  <!-- Label -->
+  <text x="100" y="172" font-family="Georgia, serif" font-size="10" fill="#C9A227" text-anchor="middle" letter-spacing="0.08em" opacity="0.9">MATURITY</text>
+</svg>

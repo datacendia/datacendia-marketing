@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Datacendia — Decision Flow</title>
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-bg: #000000;
+      --color-bg-elevated: #080808;
+      --color-gold: #C9A227;
+      --color-gold-dim: rgba(201, 162, 39, 0.15);
+      --color-gold-border: rgba(201, 162, 39, 0.4);
+      --color-text: #FFFFFF;
+      --color-text-muted: #AAAAAA;
+      --color-text-dim: #666666;
+      --color-border: #222222;
+      --color-card-bg: #0A0A0A;
+      --color-green: #4ADE80;
+      --color-green-dim: rgba(74, 222, 128, 0.15);
+      --color-red: #F87171;
+      --color-red-dim: rgba(248, 113, 113, 0.15);
+      --color-amber: #FBBF24;
+      --color-amber-dim: rgba(251, 191, 36, 0.15);
+      --color-blue: #60A5FA;
+      --color-blue-dim: rgba(96, 165, 250, 0.15);
+      --color-purple: #A78BFA;
+      --color-purple-dim: rgba(167, 139, 250, 0.15);
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-body: 'Inter', -apple-system, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: var(--font-body);
+      background: var(--color-bg);
+      color: var(--color-text);
+      min-height: 100vh;
+      padding: 40px 24px 80px;
+    }
+    .diagram-container {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    h1 {
+      font-family: var(--font-display);
+      font-size: 2.4rem;
+      font-weight: 300;
+      text-align: center;
+      margin-bottom: 8px;
+      letter-spacing: .04em;
+    }
+    h1 span { color: var(--color-gold); }
+    .subtitle {
+      text-align: center;
+      color: var(--color-text-muted);
+      font-size: .85rem;
+      margin-bottom: 48px;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+
+    /* Flow step */
+    .flow-step {
+      position: relative;
+      display: flex;
+      gap: 24px;
+      align-items: flex-start;
+      margin-bottom: 0;
+    }
+    .flow-step .step-marker {
+      flex-shrink: 0;
+      width: 56px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .step-number {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-mono);
+      font-size: .85rem;
+      font-weight: 500;
+      border: 2px solid var(--color-gold-border);
+      background: var(--color-gold-dim);
+      color: var(--color-gold);
+      position: relative;
+      z-index: 2;
+    }
+    .step-line {
+      width: 2px;
+      height: 100%;
+      min-height: 40px;
+      background: linear-gradient(to bottom, var(--color-gold-border), var(--color-border));
+      flex-grow: 1;
+    }
+    .flow-step:last-child .step-line { display: none; }
+
+    .step-content {
+      flex: 1;
+      padding-bottom: 32px;
+    }
+    .step-label {
+      font-family: var(--font-mono);
+      font-size: .6rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--color-gold);
+      margin-bottom: 4px;
+    }
+    .step-title {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      font-weight: 400;
+      margin-bottom: 6px;
+    }
+    .step-desc {
+      color: var(--color-text-muted);
+      font-size: .8rem;
+      line-height: 1.6;
+      margin-bottom: 14px;
+      max-width: 600px;
+    }
+
+    /* Detail cards inside steps */
+    .detail-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .detail-card {
+      background: rgba(255,255,255,.03);
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      padding: 10px 14px;
+      transition: border-color .2s;
+      cursor: default;
+    }
+    .detail-card:hover { border-color: var(--color-gold-border); }
+    .dc-icon {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 30px; height: 30px; border-radius: 7px;
+      background: rgba(201,162,39,.08);
+      border: 1px solid rgba(201,162,39,.18);
+      font-size: .85rem; margin-bottom: 6px;
+      filter: grayscale(1) brightness(1.4) sepia(1) hue-rotate(5deg) saturate(2.5);
+    }
+    .dc-title { font-weight: 500; font-size: .75rem; }
+    .dc-sub { color: var(--color-text-dim); font-size: .65rem; margin-top: 2px; }
+
+    /* Agent grid */
+    .agent-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+      gap: 6px;
+    }
+    .agent-chip {
+      background: rgba(255,255,255,.03);
+      border: 1px solid var(--color-border);
+      border-radius: 6px;
+      padding: 8px 10px;
+      text-align: center;
+      font-size: .7rem;
+      transition: border-color .2s, background .2s;
+      cursor: default;
+    }
+    .agent-chip:hover {
+      border-color: var(--color-gold-border);
+      background: var(--color-gold-dim);
+    }
+    .agent-chip .a-icon {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 30px; height: 30px; border-radius: 7px;
+      background: rgba(201,162,39,.08);
+      border: 1px solid rgba(201,162,39,.18);
+      font-size: .85rem; margin: 0 auto 4px;
+      filter: grayscale(1) brightness(1.4) sepia(1) hue-rotate(5deg) saturate(2.5);
+    }
+    .agent-chip .a-name { font-weight: 500; margin-top: 2px; }
+    .agent-chip .a-role { color: var(--color-text-dim); font-size: .6rem; }
+
+    /* Colored badges */
+    .badge {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: .6rem;
+      font-family: var(--font-mono);
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+    .badge-gold { background: var(--color-gold-dim); border: 1px solid var(--color-gold-border); color: var(--color-gold); }
+    .badge-green { background: var(--color-green-dim); border: 1px solid rgba(74,222,128,.3); color: var(--color-green); }
+    .badge-red { background: var(--color-red-dim); border: 1px solid rgba(248,113,113,.3); color: var(--color-red); }
+    .badge-blue { background: var(--color-blue-dim); border: 1px solid rgba(96,165,250,.3); color: var(--color-blue); }
+    .badge-purple { background: var(--color-purple-dim); border: 1px solid rgba(167,139,250,.3); color: var(--color-purple); }
+
+    /* Parallel branch */
+    .parallel-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 8px;
+    }
+    .parallel-box {
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      padding: 14px;
+      background: var(--color-card-bg);
+    }
+    .parallel-box .pb-label {
+      font-family: var(--font-mono);
+      font-size: .6rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .parallel-box .pb-label.lbl-green { color: var(--color-green); }
+    .parallel-box .pb-label.lbl-red { color: var(--color-red); }
+    .parallel-box .pb-label.lbl-gold { color: var(--color-gold); }
+    .parallel-box .pb-label.lbl-blue { color: var(--color-blue); }
+    .pb-item {
+      font-size: .75rem;
+      color: var(--color-text-muted);
+      padding: 3px 0;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .pb-item .dot {
+      width: 5px; height: 5px; border-radius: 50%; flex-shrink: 0;
+    }
+    .dot-gold { background: var(--color-gold); }
+    .dot-green { background: var(--color-green); }
+    .dot-red { background: var(--color-red); }
+    .dot-blue { background: var(--color-blue); }
+
+    /* Output block */
+    .output-block {
+      background: var(--color-card-bg);
+      border: 2px solid var(--color-gold-border);
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin-top: 12px;
+    }
+    .output-block .ob-title {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      color: var(--color-gold);
+      margin-bottom: 8px;
+    }
+    .output-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 8px;
+    }
+    .output-item {
+      background: rgba(255,255,255,.03);
+      border: 1px solid var(--color-border);
+      border-radius: 6px;
+      padding: 10px 12px;
+    }
+    .oi-label { font-size: .65rem; color: var(--color-text-dim); text-transform: uppercase; font-family: var(--font-mono); letter-spacing: .06em; }
+    .oi-value { font-size: .8rem; margin-top: 2px; }
+
+    @media (max-width: 700px) {
+      .parallel-container { grid-template-columns: 1fr; }
+      .agent-grid { grid-template-columns: repeat(3, 1fr); }
+      h1 { font-size: 1.8rem; }
+      .flow-step { gap: 16px; }
+      .modal-body { padding: 20px; max-width: 95vw; }
+    }
+
+    .modal-overlay {
+      position: fixed; inset: 0;
+      background: rgba(0,0,0,.78);
+      backdrop-filter: blur(6px);
+      z-index: 1000;
+      display: none; align-items: center; justify-content: center;
+      padding: 24px;
+    }
+    .modal-overlay.active { display: flex; }
+    .modal-body {
+      background: #0a0a0a;
+      border: 1px solid var(--color-gold-border);
+      border-radius: 14px;
+      max-width: 540px; width: 100%;
+      max-height: 80vh; overflow-y: auto;
+      padding: 28px 32px;
+      position: relative;
+      animation: modalIn .2s ease;
+    }
+    @keyframes modalIn { from { opacity:0; transform:translateY(12px); } to { opacity:1; transform:translateY(0); } }
+    .modal-close {
+      position: absolute; top: 14px; right: 16px;
+      background: none; border: none;
+      color: var(--color-text-dim); font-size: 1.4rem;
+      cursor: pointer; line-height: 1;
+    }
+    .modal-close:hover { color: var(--color-text); }
+    .modal-icon {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 40px; height: 40px; border-radius: 10px;
+      background: rgba(201,162,39,.1);
+      border: 1px solid rgba(201,162,39,.25);
+      font-size: 1.1rem; margin-bottom: 10px;
+      filter: grayscale(1) brightness(1.4) sepia(1) hue-rotate(5deg) saturate(2.5);
+    }
+    .modal-title {
+      font-family: var(--font-display);
+      font-size: 1.35rem; font-weight: 400;
+      color: var(--color-gold); margin-bottom: 18px;
+    }
+    .modal-section { margin-bottom: 14px; }
+    .modal-section:last-child { margin-bottom: 0; }
+    .modal-label {
+      font-family: var(--font-mono);
+      font-size: .58rem; letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--color-gold); margin-bottom: 4px;
+    }
+    .modal-text {
+      font-size: .82rem; color: var(--color-text-muted); line-height: 1.65;
+    }
+    .detail-card, .agent-chip, .output-item { cursor: pointer; }
+    .detail-card:hover, .output-item:hover {
+      border-color: var(--color-gold-border) !important;
+      background: var(--color-gold-dim) !important;
+    }
+  </style>
+</head>
+<body>
+  <div class="diagram-container">
+    <h1>Decision Flow Through <span>The Council</span></h1>
+    <p class="subtitle">From question to cryptographically signed evidence</p>
+
+    <!-- Step 1: Input -->
+    <div class="flow-step">
+      <div class="step-marker">
+        <div class="step-number">01</div>
+        <div class="step-line"></div>
+      </div>
+      <div class="step-content">
+        <div class="step-label">Input</div>
+        <div class="step-title">Decision Question Arrives</div>
+        <div class="step-desc">A human or automated trigger submits a question to The Council. Data is ingested from connected enterprise systems in real-time.</div>
+        <div class="detail-row">
+          <div class="detail-card"><div class="dc-icon">💬</div><div class="dc-title">Natural Language</div><div class="dc-sub">"Should we expand into Europe?"</div></div>
+          <div class="detail-card"><div class="dc-icon">🔗</div><div class="dc-title">Live Data Pull</div><div class="dc-sub">Salesforce, SAP, Jira, Slack</div></div>
+          <div class="detail-card"><div class="dc-icon">📄</div><div class="dc-title">Document Upload</div><div class="dc-sub">Reg PDFs absorbed in 60s</div></div>
+          <div class="detail-card"><div class="dc-icon">🔀</div><div class="dc-title">Mode Selection</div><div class="dc-sub">35+ council modes</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 2: Context Building -->
+    <div class="flow-step">
+      <div class="step-marker">
+        <div class="step-number">02</div>
+        <div class="step-line"></div>
+      </div>
+      <div class="step-content">
+        <div class="step-label">Context</div>
+        <div class="step-title">RAG + Knowledge Graph + Compliance Scan</div>
+        <div class="step-desc">The system builds a rich context envelope: retrieves relevant documents (RAG), maps relationships (Neo4j), scans compliance constraints, and loads any precedent decisions (Decision DNA).</div>
+        <div class="detail-row">
+          <div class="detail-card"><div class="dc-icon">🔍</div><div class="dc-title">RAG Retrieval</div><div class="dc-sub">pgvector semantic search</div></div>
+          <div class="detail-card"><div class="dc-icon">🕸️</div><div class="dc-title">Knowledge Graph</div><div class="dc-sub">Neo4j relationship mapping</div></div>
+          <div class="detail-card"><div class="dc-icon">⚖️</div><div class="dc-title">Compliance Gates</div><div class="dc-sub">10 frameworks, 17 jurisdictions</div></div>
+          <div class="detail-card"><div class="dc-icon">🧬</div><div class="dc-title">Decision DNA</div><div class="dc-sub">Similar past decisions</div></div>
+          <div class="detail-card"><div class="dc-icon">⏱️</div><div class="dc-title">Timestamp Authority</div><div class="dc-sub">RFC 3161 — P1 starts here</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 3: Agent Deliberation -->
+    <div class="flow-step">
+      <div class="step-marker">
+        <div class="step-number">03</div>
+        <div class="step-line"></div>
+      </div>
+      <div class="step-content">
+        <div class="step-label">Deliberation</div>
+        <div class="step-title">Multi-Agent Council Debate</div>
+        <div class="step-desc">Specialized AI agents analyze the question from their domain expertise. Each uses a different AI model optimized for its role. Agents argue, challenge, and build on each other's positions. Streamed live via WebSocket.</div>
+        <div class="agent-grid" style="margin-bottom:14px">
+          <div class="agent-chip"><div class="a-icon">🎯</div><div class="a-name">Chief</div><div class="a-role">Strategy</div></div>
+          <div class="agent-chip"><div class="a-icon">💰</div><div class="a-name">CFO</div><div class="a-role">Financial</div></div>
+          <div class="agent-chip"><div class="a-icon">⚙️</div><div class="a-name">COO</div><div class="a-role">Operations</div></div>
+          <div class="agent-chip"><div class="a-icon">🔒</div><div class="a-name">CISO</div><div class="a-role">Security</div></div>
+          <div class="agent-chip"><div class="a-icon">📊</div><div class="a-name">CMO</div><div class="a-role">Market</div></div>
+          <div class="agent-chip"><div class="a-icon">💵</div><div class="a-name">CRO</div><div class="a-role">Revenue</div></div>
+          <div class="agent-chip"><div class="a-icon">📂</div><div class="a-name">CDO</div><div class="a-role">Data</div></div>
+          <div class="agent-chip"><div class="a-icon">⚠️</div><div class="a-name">Risk</div><div class="a-role">Risk</div></div>
+          <div class="agent-chip"><div class="a-icon">⚖️</div><div class="a-name">CLO</div><div class="a-role">Legal</div></div>
+          <div class="agent-chip"><div class="a-icon">🎁</div><div class="a-name">CPO</div><div class="a-role">Product</div></div>
+          <div class="agent-chip"><div class="a-icon">🤖</div><div class="a-name">CAIO</div><div class="a-role">AI Ethics</div></div>
+          <div class="agent-chip"><div class="a-icon">🌱</div><div class="a-name">CSO</div><div class="a-role">ESG</div></div>
+          <div class="agent-chip"><div class="a-icon">📈</div><div class="a-name">CIO</div><div class="a-role">Investment</div></div>
+          <div class="agent-chip"><div class="a-icon">📢</div><div class="a-name">CCO</div><div class="a-role">Comms</div></div>
+        </div>
+        <div class="detail-row">
+          <span class="badge badge-gold">60 Personality Traits</span>
+          <span class="badge badge-blue">35+ AI Models</span>
+          <span class="badge badge-green">Live WebSocket Stream</span>
+          <span class="badge badge-purple">+ Premium & Vertical Agents</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 4: Governance Gates -->
+    <div class="flow-step">
+      <div class="step-marker">
+        <div class="step-number">04</div>
+        <div class="step-line"></div>
+      </div>
+      <div class="step-content">
+        <div class="step-label">Governance</div>
+        <div class="step-title">Veto Gates, Compliance Enforcement, Human Override</div>
+        <div class="step-desc">Before any decision is finalized, it passes through multiple governance layers. Veto agents can block, compliance is enforced automatically, and humans can intervene at any point.</div>
+        <div class="parallel-container">
+          <div class="parallel-box">
+            <div class="pb-label lbl-red">Veto Agents (Can Block)</div>
+            <div class="pb-item"><span class="dot dot-red"></span>CISO Guardian — Security review</div>
+            <div class="pb-item"><span class="dot dot-red"></span>Ethics Arbiter — Ethics review</div>
+            <div class="pb-item"><span class="dot dot-red"></span>Compliance Sentinel — Regulatory</div>
+            <div class="pb-item"><span class="dot dot-red"></span>Legal Counsel — Legal review</div>
+          </div>
+          <div class="parallel-box">
+            <div class="pb-label lbl-green">Compliance Enforcement</div>
+            <div class="pb-item"><span class="dot dot-green"></span>10 frameworks auto-checked</div>
+            <div class="pb-item"><span class="dot dot-green"></span>17 jurisdictions scanned</div>
+            <div class="pb-item"><span class="dot dot-green"></span>Cross-jurisdiction conflicts flagged</div>
+            <div class="pb-item"><span class="dot dot-green"></span>Human override logged (P3)</div>
+          </div>
+        </div>
+        <div class="parallel-container" style="margin-top:8px">
+          <div class="parallel-box">
+            <div class="pb-label lbl-gold">Dissent Channel</div>
+            <div class="pb-item"><span class="dot dot-gold"></span>Any agent can file formal dissent</div>
+            <div class="pb-item"><span class="dot dot-gold"></span>Dissent is cryptographically protected</div>
+            <div class="pb-item"><span class="dot dot-gold"></span>Retaliation monitoring active</div>
+          </div>
+          <div class="parallel-box">
+            <div class="pb-label lbl-blue">Human Intervention</div>
+            <div class="pb-item"><span class="dot dot-blue"></span>Real-time intervention panel</div>
+            <div class="pb-item"><span class="dot dot-blue"></span>Override with justification required</div>
+            <div class="pb-item"><span class="dot dot-blue"></span>All overrides permanently logged</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 5: Stress Testing (Optional) -->
+    <div class="flow-step">
+      <div class="step-marker">
+        <div class="step-number">05</div>
+        <div class="step-line"></div>
+      </div>
+      <div class="step-content">
+        <div class="step-label">Stress Test (Optional)</div>
+        <div class="step-title">Pre-Mortem, Red Team, Crucible, Collapse</div>
+        <div class="step-desc">For high-stakes decisions, run adversarial testing before finalizing. AI attacks your own decision to find weaknesses.</div>
+        <div class="detail-row">
+          <div class="detail-card"><div class="dc-icon">💀</div><div class="dc-title">PreMortem</div><div class="dc-sub">7 failure modes ranked by probability</div></div>
+          <div class="detail-card"><div class="dc-icon">🔴</div><div class="dc-title">Red Team</div><div class="dc-sub">8 adversarial attack perspectives</div></div>
+          <div class="detail-card"><div class="dc-icon">🔥</div><div class="dc-title">Crucible</div><div class="dc-sub">Monte Carlo stress testing</div></div>
+          <div class="detail-card"><div class="dc-icon">💥</div><div class="dc-title">Collapse</div><div class="dc-sub">18 agents across 7 failure domains</div></div>
+          <div class="detail-card"><div class="dc-icon">👻</div><div class="dc-title">Ghost Board</div><div class="dc-sub">Rehearse against tough stakeholders</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 6: Signing & Packaging -->
+    <div class="flow-step">
+      <div class="step-marker">
+        <div class="step-number">06</div>
+        <div class="step-line"></div>
+      </div>
+      <div class="step-content">
+        <div class="step-label">Signing</div>
+        <div class="step-title">Cryptographic Decision Packet</div>
+        <div class="step-desc">CendiaNotary signs the entire deliberation with your organization's keys. A Merkle tree captures integrity. Every participant, argument, vote, and dissent is sealed.</div>
+        <div class="output-block">
+          <div class="ob-title">Decision Packet Contents</div>
+          <div class="output-grid">
+            <div class="output-item"><div class="oi-label">Question</div><div class="oi-value">Original input + context</div></div>
+            <div class="output-item"><div class="oi-label">Participants</div><div class="oi-value">All agents + humans</div></div>
+            <div class="output-item"><div class="oi-label">Arguments</div><div class="oi-value">Full deliberation transcript</div></div>
+            <div class="output-item"><div class="oi-label">Votes</div><div class="oi-value">Per-agent recommendations</div></div>
+            <div class="output-item"><div class="oi-label">Dissents</div><div class="oi-value">Protected disagreements</div></div>
+            <div class="output-item"><div class="oi-label">Overrides</div><div class="oi-value">Human overrides + reasons</div></div>
+            <div class="output-item"><div class="oi-label">Compliance</div><div class="oi-value">Frameworks checked + status</div></div>
+            <div class="output-item"><div class="oi-label">Evidence</div><div class="oi-value">Data sources + documents</div></div>
+            <div class="output-item"><div class="oi-label">Merkle Root</div><div class="oi-value">SHA-256 integrity hash</div></div>
+            <div class="output-item"><div class="oi-label">Signatures</div><div class="oi-value">Customer-owned keys (KMS)</div></div>
+            <div class="output-item"><div class="oi-label">Timestamp</div><div class="oi-value">RFC 3161 TSA proof</div></div>
+            <div class="output-item"><div class="oi-label">IISS Score</div><div class="oi-value">0–1000 resilience rating</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 7: Storage & Distribution -->
+    <div class="flow-step">
+      <div class="step-marker">
+        <div class="step-number">07</div>
+        <div class="step-line"></div>
+      </div>
+      <div class="step-content">
+        <div class="step-label">Storage & Distribution</div>
+        <div class="step-title">Vault, Ledger, Export</div>
+        <div class="step-desc">The signed packet is stored immutably in CendiaVault, recorded in the decision ledger, and available for one-click export as a court-admissible PDF (Regulator's Receipt).</div>
+        <div class="detail-row">
+          <div class="detail-card"><div class="dc-icon">🏦</div><div class="dc-title">CendiaVault</div><div class="dc-sub">Immutable evidence storage</div></div>
+          <div class="detail-card"><div class="dc-icon">📒</div><div class="dc-title">CendiaLedger</div><div class="dc-sub">Blockchain-style audit log</div></div>
+          <div class="detail-card"><div class="dc-icon">📋</div><div class="dc-title">Regulator's Receipt</div><div class="dc-sub">One-click court-ready PDF</div></div>
+          <div class="detail-card"><div class="dc-icon">🧬</div><div class="dc-title">Decision DNA</div><div class="dc-sub">Searchable lineage record</div></div>
+          <div class="detail-card"><div class="dc-icon">∞</div><div class="dc-title">CendiaEternal</div><div class="dc-sub">100+ year preservation</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 8: Post-Decision -->
+    <div class="flow-step">
+      <div class="step-marker">
+        <div class="step-number">08</div>
+        <div class="step-line"></div>
+      </div>
+      <div class="step-content">
+        <div class="step-label">Post-Decision</div>
+        <div class="step-title">Outcome Tracking, Learning, Self-Improvement</div>
+        <div class="step-desc">CendiaEcho tracks what actually happened. CendiaCascade maps ripple effects. CendiaApotheosis uses outcomes to improve future deliberations overnight.</div>
+        <div class="detail-row">
+          <div class="detail-card"><div class="dc-icon">🔊</div><div class="dc-title">CendiaEcho</div><div class="dc-sub">Did the decision work?</div></div>
+          <div class="detail-card"><div class="dc-icon">🌊</div><div class="dc-title">CendiaCascade</div><div class="dc-sub">2nd/3rd order effects</div></div>
+          <div class="detail-card"><div class="dc-icon">📊</div><div class="dc-title">Decision Debt</div><div class="dc-sub">Track downstream blockers</div></div>
+          <div class="detail-card"><div class="dc-icon">🔍</div><div class="dc-title">Drift Detection</div><div class="dc-sub">Is the org drifting from intent?</div></div>
+          <div class="detail-card"><div class="dc-icon">⚡</div><div class="dc-title">Apotheosis</div><div class="dc-sub">AI self-improves overnight</div></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="modal-overlay" id="modal">
+    <div class="modal-body">
+      <button class="modal-close" id="modal-close">&times;</button>
+      <div class="modal-icon" id="m-icon"></div>
+      <div class="modal-title" id="m-title"></div>
+      <div id="m-content"></div>
+    </div>
+  </div>
+
+  <script src="diagram-data.js"></script>
+  <script>
+  (function(){
+    const modal = document.getElementById('modal');
+    const mIcon = document.getElementById('m-icon');
+    const mTitle = document.getElementById('m-title');
+    const mContent = document.getElementById('m-content');
+
+    function show(name, icon) {
+      const d = DIAGRAM_DATA[name];
+      if (!d) return;
+      mIcon.textContent = d.icon || icon || '';
+      mTitle.textContent = name;
+      mContent.innerHTML =
+        '<div class="modal-section"><div class="modal-label">What It Is</div><div class="modal-text">' + d.what + '</div></div>' +
+        '<div class="modal-section"><div class="modal-label">What It Does</div><div class="modal-text">' + d.does + '</div></div>' +
+        '<div class="modal-section"><div class="modal-label">How It Is Used</div><div class="modal-text">' + d.usage + '</div></div>';
+      modal.classList.add('active');
+    }
+
+    // Detail cards
+    document.querySelectorAll('.detail-card').forEach(function(el) {
+      el.addEventListener('click', function(e) {
+        e.stopPropagation();
+        var t = el.querySelector('.dc-title');
+        var i = el.querySelector('.dc-icon');
+        if (t) show(t.textContent.trim(), i ? i.textContent.trim() : '');
+      });
+    });
+
+    // Agent chips
+    document.querySelectorAll('.agent-chip').forEach(function(el) {
+      el.addEventListener('click', function(e) {
+        e.stopPropagation();
+        var n = el.querySelector('.a-name');
+        var i = el.querySelector('.a-icon');
+        if (n) show(n.textContent.trim(), i ? i.textContent.trim() : '');
+      });
+    });
+
+    // Output items
+    document.querySelectorAll('.output-item').forEach(function(el) {
+      el.addEventListener('click', function(e) {
+        e.stopPropagation();
+        var l = el.querySelector('.oi-label');
+        if (l) show(l.textContent.trim(), '');
+      });
+    });
+
+    document.getElementById('modal-close').addEventListener('click', function(){ modal.classList.remove('active'); });
+    modal.addEventListener('click', function(e){ if(e.target === modal) modal.classList.remove('active'); });
+    document.addEventListener('keydown', function(e){ if(e.key === 'Escape') modal.classList.remove('active'); });
+  })();
+  </script>
+  <script src="/nav-mobile.js"></script>
+</body>
+</html>

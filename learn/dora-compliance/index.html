@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DORA Compliance for AI Systems | Enterprise Guide 2026 | Datacendia</title>
+  <meta name="description" content="Complete guide to the Digital Operational Resilience Act (DORA) for AI systems in financial services. ICT risk management, incident reporting, third-party dependencies, and how to ensure your AI infrastructure meets DORA requirements.">
+  <meta name="keywords" content="DORA compliance, DORA AI, Digital Operational Resilience Act, DORA financial services, ICT risk management, DORA third party, DORA incident reporting, AI resilience, financial AI compliance">
+  <meta name="author" content="Datacendia">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+  <meta property="og:title" content="DORA Compliance for AI Systems | Enterprise Guide 2026">
+  <meta property="og:description" content="How to meet Digital Operational Resilience Act requirements for AI systems in financial services.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://datacendia.com/learn/dora-compliance/">
+  <meta property="og:image" content="https://datacendia.com/og-image.png">
+  <meta property="og:site_name" content="Datacendia">
+  <meta property="article:published_time" content="2026-02-10">
+  <meta property="article:modified_time" content="2026-02-10">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="DORA Compliance for AI Systems | Enterprise Guide 2026">
+  <meta name="twitter:description" content="How to meet DORA requirements for AI systems in financial services.">
+  <meta name="twitter:image" content="https://datacendia.com/og-image.png">
+  <link rel="canonical" href="https://datacendia.com/learn/dora-compliance/">
+  <link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg">
+  <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+  <meta name="theme-color" content="#0a0a0a">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../styles.css">
+  <style>
+    .learn-container { max-width: 800px; margin: 0 auto; padding: 60px 24px 80px; }
+    .learn-breadcrumb { font-size: 0.75rem; color: var(--color-text-dim); margin-bottom: 24px; }
+    .learn-breadcrumb a { color: var(--color-text-dim); text-decoration: none; }
+    .learn-breadcrumb a:hover { color: var(--color-gold); }
+    .learn-meta { display: flex; gap: 24px; font-size: 0.75rem; color: var(--color-text-dim); margin-bottom: 32px; flex-wrap: wrap; }
+    .learn-meta time { color: var(--color-text-muted); }
+    .learn-title { font-family: var(--font-display); font-size: 2.25rem; font-weight: 300; color: var(--color-text); margin-bottom: 16px; line-height: 1.2; }
+    .learn-subtitle { font-size: 1.1rem; color: var(--color-text-muted); margin-bottom: 32px; line-height: 1.6; }
+    .learn-content h2 { font-family: var(--font-display); font-size: 1.5rem; font-weight: 400; color: var(--color-text); margin: 48px 0 16px; padding-top: 24px; border-top: 1px solid var(--color-border); }
+    .learn-content h3 { font-family: var(--font-display); font-size: 1.15rem; font-weight: 400; color: var(--color-text); margin: 32px 0 12px; }
+    .learn-content p { font-size: 0.95rem; color: var(--color-text-muted); line-height: 1.8; margin-bottom: 16px; }
+    .learn-content ul, .learn-content ol { margin: 16px 0 24px 24px; color: var(--color-text-muted); }
+    .learn-content li { font-size: 0.95rem; line-height: 1.7; margin-bottom: 8px; }
+    .learn-content strong { color: var(--color-text); }
+    .definition-box { background: var(--color-card-bg); border: 1px solid var(--color-gold); border-radius: 8px; padding: 24px; margin: 24px 0; }
+    .definition-box p { font-size: 1rem; color: var(--color-text); margin: 0; }
+    .comparison-table { width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 0.85rem; }
+    .comparison-table th { background: var(--color-card-bg); border: 1px solid var(--color-border); padding: 12px 16px; text-align: left; font-weight: 500; color: var(--color-text); }
+    .comparison-table td { border: 1px solid var(--color-border); padding: 12px 16px; color: var(--color-text-muted); }
+    .comparison-table tr:nth-child(even) { background: rgba(255,255,255,0.02); }
+    .timeline-box { background: var(--color-card-bg); border: 1px solid var(--color-border); border-radius: 8px; padding: 24px; margin: 24px 0; }
+    .timeline-item { display: flex; gap: 16px; margin-bottom: 16px; align-items: flex-start; }
+    .timeline-date { font-family: var(--font-mono); font-size: 0.8rem; color: var(--color-gold); min-width: 100px; padding-top: 2px; }
+    .timeline-desc { font-size: 0.9rem; color: var(--color-text-muted); line-height: 1.6; }
+    .faq-section { margin-top: 48px; }
+    .faq-item { border-bottom: 1px solid var(--color-border); padding: 24px 0; }
+    .faq-question { font-family: var(--font-display); font-size: 1.1rem; font-weight: 400; color: var(--color-text); margin-bottom: 12px; }
+    .faq-answer { font-size: 0.9rem; color: var(--color-text-muted); line-height: 1.7; }
+    .cta-box { background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(212, 175, 55, 0.02) 100%); border: 1px solid var(--color-gold); border-radius: 8px; padding: 32px; margin-top: 48px; text-align: center; }
+    .cta-box h3 { font-family: var(--font-display); font-size: 1.25rem; color: var(--color-text); margin-bottom: 12px; }
+    .cta-box p { font-size: 0.9rem; color: var(--color-text-muted); margin-bottom: 20px; }
+    .cta-button { display: inline-block; background: var(--color-gold); color: var(--color-bg); padding: 12px 32px; border-radius: 6px; text-decoration: none; font-size: 0.85rem; font-weight: 500; transition: opacity 0.2s; }
+    .cta-button:hover { opacity: 0.9; }
+    .related-links { margin-top: 48px; padding-top: 32px; border-top: 1px solid var(--color-border); }
+    .related-links h3 { font-size: 0.85rem; color: var(--color-text-dim); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 16px; }
+    .related-links ul { list-style: none; margin: 0; padding: 0; }
+    .related-links li { margin-bottom: 8px; }
+    .related-links a { color: var(--color-gold); text-decoration: none; font-size: 0.9rem; }
+    .related-links a:hover { text-decoration: underline; }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "DORA Compliance for AI Systems | Enterprise Guide 2026",
+    "description": "Complete guide to the Digital Operational Resilience Act (DORA) for AI systems in financial services.",
+    "author": { "@type": "Organization", "name": "Datacendia", "url": "https://datacendia.com" },
+    "publisher": { "@type": "Organization", "name": "Datacendia", "logo": { "@type": "ImageObject", "url": "https://datacendia.com/assets/logo.svg" } },
+    "datePublished": "2026-02-10",
+    "dateModified": "2026-02-10",
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://datacendia.com/learn/dora-compliance/" },
+    "image": "https://datacendia.com/og-image.png"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://datacendia.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Learn", "item": "https://datacendia.com/learn/" },
+      { "@type": "ListItem", "position": 3, "name": "DORA Compliance", "item": "https://datacendia.com/learn/dora-compliance/" }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is DORA?",
+        "acceptedAnswer": { "@type": "Answer", "text": "The Digital Operational Resilience Act (DORA) is an EU regulation (2022/2554) that establishes uniform requirements for ICT risk management, incident reporting, resilience testing, and third-party risk management across the financial sector. It applies from January 17, 2025." }
+      },
+      {
+        "@type": "Question",
+        "name": "Does DORA apply to AI systems?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. AI systems used in financial services are classified as ICT systems under DORA. This means they are subject to ICT risk management requirements (Articles 5-16), incident reporting obligations (Articles 17-23), resilience testing (Articles 24-27), and third-party risk management if provided by external vendors (Articles 28-44)." }
+      },
+      {
+        "@type": "Question",
+        "name": "What are the penalties for DORA non-compliance?",
+        "acceptedAnswer": { "@type": "Answer", "text": "DORA empowers competent authorities to impose administrative penalties and remedial measures. For critical ICT third-party providers, the Lead Overseer can impose periodic penalty payments of up to 1% of average daily worldwide turnover per day for up to 6 months. National competent authorities can also impose fines under their existing regulatory frameworks." }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-top">
+        <a href="../../index.html" style="text-decoration: none;"><h1 class="logo">DATACENDIA</h1></a>
+      </div>
+      <p class="tagline-sub">Decision Crisis Immunization Infrastructure</p>
+      <nav class="main-nav">
+        <button class="nav-toggle" aria-label="Menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+        <div class="nav-menu">
+        <div class="nav-group">
+          <span class="nav-label">Platform</span>
+          <div class="nav-dropdown">
+            <a href="/platform-capabilities.html">Platform Overview<span class="nav-desc">Full capability map</span></a>
+            <a href="/dcii.html">DCII Framework<span class="nav-desc">9 primitives &middot; Crisis immunization</span></a>
+            <a href="/diagrams.html">Architecture<span class="nav-desc">8 system diagrams</span></a>
+          </div>
+        </div>
+        <div class="nav-group">
+          <span class="nav-label">Evidence</span>
+          <div class="nav-dropdown">
+            <a href="/demos.html">Interactive Demos<span class="nav-desc">Council, Chronos, Crucible &amp; more</span></a>
+            <a href="/wargames.html">War Games<span class="nav-desc">Would dissent have surfaced the risk?</span></a>
+            <a href="/case-studies.html">Case Studies<span class="nav-desc">Real-world decision analysis</span></a>
+          </div>
+        </div>
+        <a href="/verticals.html">Industries</a>
+        <div class="nav-group">
+          <span class="nav-label">Pricing</span>
+          <div class="nav-dropdown">
+            <a href="/pricing.html">Tier Overview<span class="nav-desc">Foundation &middot; Enterprise &middot; Strategic</span></a>
+            <a href="/premium.html">Premium Modules<span class="nav-desc">7 advanced capabilities</span></a>
+            <a href="/roi-calculator.html">ROI Calculator<span class="nav-desc">Quantify decision risk reduction</span></a>
+            <a href="/pilot.html">90-Day Pilot<span class="nav-desc">Prove value before scaling</span></a>
+          </div>
+        </div>
+        <div class="nav-group">
+          <span class="nav-label">Trust</span>
+          <div class="nav-dropdown">
+            <a href="/trust.html">Trust Center<span class="nav-desc">Security, compliance &amp; deployment</span></a>
+            <a href="/honesty-matrices.html">Honesty Matrices<span class="nav-desc">What we can't do &mdash; yet</span></a>
+          </div>
+        </div>
+        <a href="/briefing.html" class="nav-cta">Request Briefing</a>
+        </div>
+      </nav>
+    </header>
+
+    <div class="learn-container">
+      <div class="learn-breadcrumb">
+        <a href="../../index.html">Home</a> / <a href="../">Learn</a> / DORA Compliance for AI
+      </div>
+
+      <h1 class="learn-title">DORA Compliance for AI Systems</h1>
+      <p class="learn-subtitle">
+        How the Digital Operational Resilience Act changes AI deployment in financial services — ICT risk management, 
+        incident reporting, resilience testing, and third-party oversight for AI infrastructure.
+      </p>
+
+      <div class="learn-meta">
+        <span>Published: <time datetime="2026-02-10">February 10, 2026</time></span>
+        <span>Reading time: 15 minutes</span>
+        <span>Category: Regulation</span>
+      </div>
+
+      <div class="definition-box">
+        <p><strong>DORA</strong> (Regulation (EU) 2022/2554) is the Digital Operational Resilience Act — an EU regulation that establishes uniform requirements for the security of network and information systems in the financial sector. It applies from <strong>January 17, 2025</strong>, and directly affects any AI system used in financial decision-making, risk management, or customer-facing operations.</p>
+      </div>
+
+      <div class="learn-content">
+
+        <h2>Why DORA Matters for AI in Financial Services</h2>
+        <p>
+          Financial services has been the fastest-growing sector for enterprise AI adoption. Trading algorithms, 
+          credit scoring models, fraud detection systems, AML screening, and robo-advisory platforms all rely on 
+          AI infrastructure that is now explicitly in scope under DORA.
+        </p>
+        <p>
+          Before DORA, ICT risk management in EU financial services was fragmented — each member state had its own 
+          approach, and AI systems often fell into regulatory gaps between financial regulation and data protection law. 
+          DORA closes those gaps by creating a <strong>single, harmonized framework</strong> that treats AI systems as 
+          ICT systems subject to mandatory resilience requirements.
+        </p>
+        <p>
+          The practical impact: if your AI system goes down, produces incorrect outputs, or is compromised by a 
+          cyberattack, you now have <strong>legally mandated procedures</strong> for detection, response, reporting, 
+          and recovery — with specific timelines and documentation requirements.
+        </p>
+
+        <h2>Who DORA Applies To</h2>
+        <p>DORA applies to virtually all regulated financial entities in the EU:</p>
+        <ul>
+          <li><strong>Credit institutions</strong> (banks)</li>
+          <li><strong>Investment firms</strong> and trading venues</li>
+          <li><strong>Insurance and reinsurance undertakings</strong></li>
+          <li><strong>Payment institutions</strong> and e-money institutions</li>
+          <li><strong>Central securities depositories</strong></li>
+          <li><strong>Central counterparties</strong></li>
+          <li><strong>Crypto-asset service providers</strong></li>
+          <li><strong>Fund managers</strong> (UCITS and AIFM)</li>
+          <li><strong>Credit rating agencies</strong></li>
+          <li><strong>Crowdfunding service providers</strong></li>
+        </ul>
+        <p>
+          Critically, DORA also applies to <strong>ICT third-party service providers</strong> — including AI vendors, 
+          cloud providers, and data analytics platforms that serve financial entities. If you provide AI services 
+          to financial institutions, DORA affects you directly.
+        </p>
+
+        <h2>DORA's Five Pillars — Applied to AI</h2>
+
+        <h3>Pillar 1: ICT Risk Management (Articles 5–16)</h3>
+        <p>
+          Financial entities must establish and maintain an <strong>ICT risk management framework</strong> that 
+          identifies, protects against, detects, responds to, and recovers from ICT-related incidents. For AI 
+          systems, this means:
+        </p>
+        <ul>
+          <li><strong>Identification:</strong> Maintain a complete inventory of AI systems, including models, data pipelines, training datasets, and inference endpoints. Document dependencies between AI components and critical business functions.</li>
+          <li><strong>Protection:</strong> Implement access controls, encryption, and data integrity measures for AI models and training data. Protect against model poisoning, adversarial inputs, and unauthorized model extraction.</li>
+          <li><strong>Detection:</strong> Monitor AI system performance continuously. Detect model drift, anomalous outputs, latency degradation, and potential security breaches in real time.</li>
+          <li><strong>Response:</strong> Define incident response procedures specific to AI failures — model misbehavior, biased outputs, data pipeline corruption, and inference service outages.</li>
+          <li><strong>Recovery:</strong> Maintain the ability to roll back to previous model versions, restore training data from immutable backups, and failover to backup inference services within defined RTOs.</li>
+        </ul>
+
+        <h3>Pillar 2: ICT-Related Incident Reporting (Articles 17–23)</h3>
+        <p>
+          DORA mandates a standardized incident classification and reporting framework. AI-related incidents that 
+          must be reported include:
+        </p>
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th>AI Incident Type</th>
+              <th>Classification Criteria</th>
+              <th>Reporting Timeline</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Model failure</strong> — AI produces materially incorrect outputs affecting client transactions</td>
+              <td>Number of affected clients, financial impact, duration, geographic scope</td>
+              <td>Initial notification within 4 hours of classification; intermediate report within 72 hours; final report within 1 month</td>
+            </tr>
+            <tr>
+              <td><strong>Data breach</strong> — training data or inference data compromised</td>
+              <td>Volume of data, sensitivity level, number of affected persons</td>
+              <td>Initial notification within 4 hours; intermediate report within 72 hours; final report within 1 month</td>
+            </tr>
+            <tr>
+              <td><strong>Service outage</strong> — AI inference service unavailable</td>
+              <td>Duration, affected business functions, client impact</td>
+              <td>Initial notification within 4 hours; intermediate report within 72 hours; final report within 1 month</td>
+            </tr>
+            <tr>
+              <td><strong>Cyberattack</strong> — adversarial attack on AI system (model manipulation, prompt injection)</td>
+              <td>Attack vector, systems affected, data compromise</td>
+              <td>Initial notification within 4 hours; intermediate report within 72 hours; final report within 1 month</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3>Pillar 3: Digital Operational Resilience Testing (Articles 24–27)</h3>
+        <p>
+          Financial entities must conduct regular testing of their ICT systems, including AI infrastructure. 
+          DORA specifies two levels of testing:
+        </p>
+        <ul>
+          <li><strong>Basic testing (all entities):</strong> Vulnerability assessments, network security testing, 
+          gap analysis, software security reviews, and source code analysis where feasible. For AI systems, this 
+          includes adversarial robustness testing, bias audits, and model performance benchmarking.</li>
+          <li><strong>Threat-Led Penetration Testing (TLPT) — significant entities only:</strong> Advanced testing 
+          that simulates real-world threat actors attacking AI infrastructure. This includes model extraction attacks, 
+          training data poisoning simulations, adversarial input testing, and supply chain compromise scenarios. 
+          Must be conducted at least every 3 years.</li>
+        </ul>
+        <p>
+          For AI systems specifically, resilience testing should cover:
+        </p>
+        <ul>
+          <li>Model failover and rollback procedures</li>
+          <li>Data pipeline recovery from corruption</li>
+          <li>Graceful degradation when inference services are unavailable</li>
+          <li>Adversarial input detection and rejection</li>
+          <li>Model drift detection and automated retraining triggers</li>
+        </ul>
+
+        <h3>Pillar 4: ICT Third-Party Risk Management (Articles 28–44)</h3>
+        <p>
+          This is where DORA has the most significant impact on AI deployments. Most financial institutions use 
+          third-party AI services — cloud-hosted models, vendor-provided algorithms, or managed AI platforms. 
+          DORA requires:
+        </p>
+        <ul>
+          <li><strong>Contractual requirements:</strong> All ICT service agreements must include specific provisions for service levels, data location, audit rights, incident notification, exit strategies, and subcontracting restrictions.</li>
+          <li><strong>Concentration risk assessment:</strong> Financial entities must assess concentration risk from relying on a single AI vendor or cloud provider. Over-dependence on one provider is a regulatory concern.</li>
+          <li><strong>Exit strategies:</strong> Mandatory exit plans for every critical AI service — including data portability, model migration paths, and transition timelines. No vendor lock-in is acceptable for critical functions.</li>
+          <li><strong>Critical Third-Party Provider oversight:</strong> The European Supervisory Authorities (ESAs) can designate AI providers as "critical" ICT third-party providers, subjecting them to direct regulatory oversight by a Lead Overseer with inspection and enforcement powers.</li>
+        </ul>
+
+        <h3>Pillar 5: Information Sharing (Article 45)</h3>
+        <p>
+          DORA encourages (but does not mandate) information sharing about cyber threats, vulnerabilities, and 
+          tactics among financial entities. For AI systems, this means sharing intelligence about:
+        </p>
+        <ul>
+          <li>New adversarial attack techniques targeting financial AI models</li>
+          <li>Model vulnerabilities discovered in production</li>
+          <li>Supply chain compromises affecting AI libraries or frameworks</li>
+          <li>Indicators of compromise specific to AI infrastructure</li>
+        </ul>
+
+        <h2>DORA Enforcement Timeline</h2>
+        <div class="timeline-box">
+          <div class="timeline-item">
+            <span class="timeline-date">Dec 2022</span>
+            <span class="timeline-desc">DORA published in Official Journal (Regulation (EU) 2022/2554)</span>
+          </div>
+          <div class="timeline-item">
+            <span class="timeline-date">Jan 2023</span>
+            <span class="timeline-desc">DORA enters into force; 24-month implementation period begins</span>
+          </div>
+          <div class="timeline-item">
+            <span class="timeline-date">Jan 2024</span>
+            <span class="timeline-desc">ESAs publish first batch of Regulatory Technical Standards (RTS) and Implementing Technical Standards (ITS)</span>
+          </div>
+          <div class="timeline-item">
+            <span class="timeline-date">Jul 2024</span>
+            <span class="timeline-desc">Second batch of RTS/ITS published, including TLPT framework and critical third-party provider criteria</span>
+          </div>
+          <div class="timeline-item">
+            <span class="timeline-date">Jan 2025</span>
+            <span class="timeline-desc"><strong>DORA applies.</strong> All financial entities must comply. Competent authorities begin supervision.</span>
+          </div>
+          <div class="timeline-item">
+            <span class="timeline-date">2025–2026</span>
+            <span class="timeline-desc">First designation of critical ICT third-party providers; Lead Overseers appointed; TLPT testing cycles begin for significant entities.</span>
+          </div>
+        </div>
+
+        <h2>DORA vs. Other AI Regulations</h2>
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th>Aspect</th>
+              <th>DORA</th>
+              <th>EU AI Act</th>
+              <th>GDPR</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Focus</strong></td>
+              <td>Operational resilience of ICT systems</td>
+              <td>Risk classification and safety of AI systems</td>
+              <td>Personal data protection</td>
+            </tr>
+            <tr>
+              <td><strong>Scope</strong></td>
+              <td>Financial sector only</td>
+              <td>All sectors (risk-based)</td>
+              <td>All sectors processing personal data</td>
+            </tr>
+            <tr>
+              <td><strong>AI-specific?</strong></td>
+              <td>No — AI treated as ICT system</td>
+              <td>Yes — purpose-built for AI</td>
+              <td>No — general data protection</td>
+            </tr>
+            <tr>
+              <td><strong>Third-party oversight</strong></td>
+              <td>Direct oversight of critical providers</td>
+              <td>Provider obligations for high-risk AI</td>
+              <td>Data processor agreements</td>
+            </tr>
+            <tr>
+              <td><strong>Incident reporting</strong></td>
+              <td>4-hour initial notification</td>
+              <td>Serious incident reporting for high-risk</td>
+              <td>72-hour breach notification</td>
+            </tr>
+            <tr>
+              <td><strong>Testing requirements</strong></td>
+              <td>Regular testing + TLPT every 3 years</td>
+              <td>Conformity assessment (pre-market)</td>
+              <td>DPIA for high-risk processing</td>
+            </tr>
+          </tbody>
+        </table>
+        <p>
+          <strong>Key insight:</strong> Financial AI systems must comply with all three simultaneously. DORA governs 
+          operational resilience, the EU AI Act governs the AI system itself, and GDPR governs the personal data it 
+          processes. These are complementary, not alternatives.
+        </p>
+
+        <h2>Practical Compliance Checklist for AI Systems</h2>
+        <ol>
+          <li><strong>Inventory all AI systems</strong> — Document every model, data pipeline, and inference endpoint. Map dependencies to business functions. Classify by criticality.</li>
+          <li><strong>Assess third-party AI dependencies</strong> — Identify all AI vendors, cloud providers, and data sources. Evaluate concentration risk. Ensure contracts include DORA-required provisions.</li>
+          <li><strong>Implement AI-specific monitoring</strong> — Model performance, output quality, latency, availability, and security events. Automate anomaly detection.</li>
+          <li><strong>Define AI incident response procedures</strong> — Model failure playbooks, data breach procedures, service recovery plans. Include classification criteria and escalation paths.</li>
+          <li><strong>Establish exit strategies</strong> — For every critical AI vendor: data portability plan, model migration path, and transition timeline. Test annually.</li>
+          <li><strong>Conduct resilience testing</strong> — Adversarial robustness tests, failover drills, data recovery tests. For significant entities: include AI in TLPT scope.</li>
+          <li><strong>Maintain audit trails</strong> — Immutable logs of all AI decisions, model changes, data pipeline events, and incident responses. Regulator-accessible.</li>
+          <li><strong>Report to the board</strong> — DORA requires the management body to approve and oversee the ICT risk management framework. AI risk must be on the board agenda.</li>
+        </ol>
+
+        <h2>How Sovereign AI Deployment Helps DORA Compliance</h2>
+        <p>
+          On-premises and air-gapped AI deployments have inherent advantages for DORA compliance:
+        </p>
+        <ul>
+          <li><strong>Reduced third-party risk:</strong> When AI runs on your own infrastructure, you eliminate the concentration risk and dependency concerns that DORA scrutinizes most heavily.</li>
+          <li><strong>Full audit control:</strong> On-premises deployment means complete control over audit logs, evidence preservation, and regulator access — without relying on a vendor's logging infrastructure.</li>
+          <li><strong>Data sovereignty:</strong> No cross-border data transfer concerns. No CLOUD Act exposure. Training data and inference data stay within your jurisdiction.</li>
+          <li><strong>Exit strategy simplified:</strong> When you own the infrastructure and the models, exit strategy becomes a non-issue. No vendor lock-in, no data migration, no transition risk.</li>
+          <li><strong>Resilience control:</strong> You control failover, redundancy, and recovery — not a third party. RPO and RTO are under your operational authority.</li>
+        </ul>
+
+        <div class="faq-section">
+          <h2>Frequently Asked Questions</h2>
+
+          <div class="faq-item">
+            <div class="faq-question">Does DORA apply to AI systems specifically?</div>
+            <div class="faq-answer">DORA does not mention "AI" by name — it applies to all ICT systems and services. However, AI systems used in financial services are clearly within scope as ICT systems. The European Supervisory Authorities have confirmed in guidance that algorithmic trading systems, credit scoring models, and automated decision-making tools fall under DORA's requirements.</div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">What happens if an AI vendor is designated as a critical third-party provider?</div>
+            <div class="faq-answer">If an AI vendor is designated as critical, a Lead Overseer (one of the ESAs) will conduct direct oversight, including the power to request information, conduct on-site inspections, and issue recommendations. If the provider doesn't comply with recommendations, the Lead Overseer can impose periodic penalty payments of up to 1% of average daily worldwide turnover per day, for up to 6 months.</div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">How does DORA interact with the EU AI Act?</div>
+            <div class="faq-answer">They are complementary. The EU AI Act governs the AI system's risk classification, safety, and conformity. DORA governs the operational resilience of the ICT infrastructure that the AI runs on. A high-risk AI system used in financial services must comply with both: EU AI Act for the model itself (explainability, bias testing, conformity assessment) and DORA for the operational infrastructure (resilience, incident reporting, third-party management).</div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">Does DORA apply outside the EU?</div>
+            <div class="faq-answer">DORA applies to EU-regulated financial entities and to ICT third-party providers serving them — regardless of where the provider is located. If you are a US-based AI vendor serving European banks, DORA's third-party risk management requirements apply to you through your contractual relationship with the financial entity. The Lead Overseer framework for critical providers has extraterritorial reach.</div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">What's the difference between DORA and NIS2 for AI?</div>
+            <div class="faq-answer">NIS2 (Network and Information Security Directive) applies broadly across critical sectors including energy, transport, health, and digital infrastructure. DORA is a <em>lex specialis</em> — it takes precedence for financial services. If you're a financial entity, DORA is your primary framework. If you're an AI provider serving multiple sectors, you may need to comply with both NIS2 (for non-financial clients) and DORA (for financial clients).</div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="cta-box">
+        <h3>Build DORA-Ready AI Infrastructure</h3>
+        <p>Datacendia's sovereign deployment model eliminates third-party concentration risk, provides immutable audit trails, and gives you full operational control — the three foundations of DORA compliance.</p>
+        <a href="../../briefing.html" class="cta-button">Request DORA Compliance Briefing →</a>
+      </div>
+
+      <div class="related-links">
+        <h3>Related Guides</h3>
+        <ul>
+          <li><a href="../ai-governance/">What is AI Governance? →</a></li>
+          <li><a href="../eu-ai-act-compliance/">EU AI Act Compliance Guide →</a></li>
+          <li><a href="../eu-ai-act-high-risk/">EU AI Act Article 6: High-Risk Classification →</a></li>
+          <li><a href="../ai-audit-trail/">What is an AI Audit Trail? →</a></li>
+          <li><a href="../sovereign-ai/">What is Sovereign AI? →</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <footer style="text-align: center; padding: 40px 24px; border-top: 1px solid var(--color-border); margin-top: 60px;">
+      <p style="font-size: 0.75rem; color: var(--color-text-dim);">&copy; 2026 Datacendia. Sovereign Enterprise Intelligence.</p>
+      <p style="font-size: 0.7rem; color: var(--color-text-dim); margin-top: 8px;">
+        <a href="../../privacy.html" style="color: var(--color-text-dim);">Privacy</a> &middot; 
+        <a href="../../terms.html" style="color: var(--color-text-dim);">Terms</a> &middot; 
+        <a href="../../security.txt" style="color: var(--color-text-dim);">Security</a>
+      </p>
+    </footer>
+  </div>
+  <script src="../../translations.js"></script>
+  <script src="../../app.js"></script>
+  <script src="/nav-mobile.js"></script>
+</body>
+</html>

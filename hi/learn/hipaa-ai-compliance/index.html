@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HIPAA AI अनुपालन गाइड | Datacendia</title>
+  <meta name="description" content="HIPAA अनुपालन बनाए रखते हुए PHI को संभालने वाले AI सिस्टम कैसे तैनात करें।">
+  <meta name="author" content="Datacendia">
+  <meta property="og:title" content="HIPAA AI अनुपालन गाइड">
+  <meta property="og:description" content="HIPAA अनुपालन बनाए रखते हुए PHI को संभालने वाले AI सिस्टम कैसे तैनात करें।">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://datacendia.com/hi/learn/hipaa-ai-compliance/">
+  <meta property="og:locale" content="hi_IN">
+  <link rel="canonical" href="https://datacendia.com/hi/learn/hipaa-ai-compliance/">
+  <link rel="alternate" hreflang="en" href="https://datacendia.com/learn/hipaa-ai-compliance/">
+  <link rel="alternate" hreflang="es" href="https://datacendia.com/es/learn/hipaa-ai-compliance/">
+  <link rel="alternate" hreflang="fr" href="https://datacendia.com/fr/learn/hipaa-ai-compliance/">
+  <link rel="alternate" hreflang="de" href="https://datacendia.com/de/learn/hipaa-ai-compliance/">
+  <link rel="alternate" hreflang="pt" href="https://datacendia.com/pt/learn/hipaa-ai-compliance/">
+  <link rel="alternate" hreflang="it" href="https://datacendia.com/it/learn/hipaa-ai-compliance/">
+  <link rel="alternate" hreflang="ja" href="https://datacendia.com/ja/learn/hipaa-ai-compliance/">
+  <link rel="alternate" hreflang="ko" href="https://datacendia.com/ko/learn/hipaa-ai-compliance/">
+  <link rel="alternate" hreflang="zh" href="https://datacendia.com/zh/learn/hipaa-ai-compliance/">
+  <link rel="alternate" hreflang="ar" href="https://datacendia.com/ar/learn/hipaa-ai-compliance/">
+  <link rel="alternate" hreflang="hi" href="https://datacendia.com/hi/learn/hipaa-ai-compliance/">
+  <link rel="alternate" hreflang="x-default" href="https://datacendia.com/learn/hipaa-ai-compliance/">
+  <link rel="icon" type="image/svg+xml" href="../../../assets/favicon.svg">
+  <meta name="theme-color" content="#0a0a0a">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../styles.css">
+  <style>
+    .learn-container { max-width: 800px; margin: 0 auto; padding: 60px 24px 80px; }
+    .learn-breadcrumb { font-size: 0.75rem; color: var(--color-text-dim); margin-bottom: 24px; }
+    .learn-breadcrumb a { color: var(--color-text-dim); text-decoration: none; }
+    .learn-breadcrumb a:hover { color: var(--color-gold); }
+    .learn-meta { display: flex; gap: 24px; font-size: 0.75rem; color: var(--color-text-dim); margin-bottom: 32px; flex-wrap: wrap; }
+    .learn-title { font-family: var(--font-display); font-size: 2.25rem; font-weight: 300; color: var(--color-text); margin-bottom: 16px; line-height: 1.2; }
+    .learn-subtitle { font-size: 1.1rem; color: var(--color-text-muted); margin-bottom: 32px; line-height: 1.6; }
+    .learn-content h2 { font-family: var(--font-display); font-size: 1.5rem; font-weight: 400; color: var(--color-text); margin: 48px 0 16px; padding-top: 24px; border-top: 1px solid var(--color-border); }
+    .learn-content h3 { font-family: var(--font-display); font-size: 1.15rem; font-weight: 400; color: var(--color-text); margin: 32px 0 12px; }
+    .learn-content p { font-size: 0.95rem; color: var(--color-text-muted); line-height: 1.8; margin-bottom: 16px; }
+    .learn-content ul, .learn-content ol { margin: 16px 0 24px 24px; color: var(--color-text-muted); }
+    .learn-content li { font-size: 0.95rem; line-height: 1.7; margin-bottom: 8px; }
+    .learn-content strong { color: var(--color-text); }
+    .definition-box { background: var(--color-card-bg); border: 1px solid var(--color-gold); border-radius: 8px; padding: 24px; margin: 24px 0; }
+    .definition-box p { font-size: 1rem; color: var(--color-text); margin: 0; }
+    .warning-box { background: rgba(239, 68, 68, 0.08); border: 1px solid rgba(239, 68, 68, 0.3); border-radius: 8px; padding: 24px; margin: 24px 0; }
+    .warning-box p { font-size: 0.9rem; color: var(--color-text-dim); margin: 0; line-height: 1.7; }
+    .comparison-table { width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 0.85rem; }
+    .comparison-table th { background: var(--color-card-bg); border: 1px solid var(--color-border); padding: 12px 16px; text-align: left; font-weight: 500; color: var(--color-text); }
+    .comparison-table td { border: 1px solid var(--color-border); padding: 12px 16px; color: var(--color-text-muted); }
+    .faq-section { margin-top: 48px; }
+    .faq-item { border-bottom: 1px solid var(--color-border); padding: 24px 0; }
+    .faq-question { font-family: var(--font-display); font-size: 1.1rem; font-weight: 400; color: var(--color-text); margin-bottom: 12px; }
+    .faq-answer { font-size: 0.9rem; color: var(--color-text-muted); line-height: 1.7; }
+    .cta-box { background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(212, 175, 55, 0.02) 100%); border: 1px solid var(--color-gold); border-radius: 8px; padding: 32px; margin-top: 48px; text-align: center; }
+    .cta-box h3 { font-family: var(--font-display); font-size: 1.25rem; color: var(--color-text); margin-bottom: 12px; }
+    .cta-box p { font-size: 0.9rem; color: var(--color-text-muted); margin-bottom: 20px; }
+    .cta-button { display: inline-block; background: var(--color-gold); color: var(--color-bg); padding: 12px 32px; border-radius: 6px; text-decoration: none; font-size: 0.85rem; font-weight: 500; transition: opacity 0.2s; }
+    .cta-button:hover { opacity: 0.9; }
+    .related-links { margin-top: 48px; padding-top: 32px; border-top: 1px solid var(--color-border); }
+    .related-links h3 { font-size: 0.85rem; color: var(--color-text-dim); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 16px; }
+    .related-links ul { list-style: none; margin: 0; padding: 0; }
+    .related-links li { margin-bottom: 8px; }
+    .related-links a { color: var(--color-gold); text-decoration: none; font-size: 0.9rem; }
+    .related-links a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-top">
+        <a href="../../" style="text-decoration: none;"><h1 class="logo"><span class="brand-name">DATACENDIA</span></h1></a>
+      </div>
+      <nav class="main-nav">
+        <button class="nav-toggle" aria-label="Menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+        <div class="nav-menu">
+        <div class="nav-group">
+          <span class="nav-label">प्लेटफ़ॉर्म</span>
+          <div class="nav-dropdown">
+            <a href="/platform-capabilities.html">प्लेटफ़ॉर्म अवलोकन<span class="nav-desc">पूर्ण क्षमता मानचित्र</span></a>
+            <a href="/dcii.html">DCII फ्रेमवर्क<span class="nav-desc">9 आधार · संकट प्रतिरक्षण</span></a>
+            <a href="/diagrams.html">आर्किटेक्चर<span class="nav-desc">8 सिस्टम आरेख</span></a>
+          </div>
+        </div>
+        <div class="nav-group">
+          <span class="nav-label">साक्ष्य</span>
+          <div class="nav-dropdown">
+            <a href="/demos.html">इंटरैक्टिव डेमो<span class="nav-desc">काउंसिल, क्रोनोस, क्रूसिबल और अधिक</span></a>
+            <a href="/wargames.html">वॉर गेम्स<span class="nav-desc">क्या असहमति ने जोखिम उजागर किया होता?</span></a>
+            <a href="/case-studies.html">केस स्टडीज़<span class="nav-desc">वास्तविक निर्णय विश्लेषण</span></a>
+          </div>
+        </div>
+        <a href="/verticals.html">उद्योग</a>
+        <div class="nav-group">
+          <span class="nav-label">मूल्य निर्धारण</span>
+          <div class="nav-dropdown">
+            <a href="/pricing.html">टियर अवलोकन<span class="nav-desc">फाउंडेशन · एंटरप्राइज़ · स्ट्रैटेजिक</span></a>
+            <a href="/premium.html">प्रीमियम मॉड्यूल<span class="nav-desc">7 उन्नत क्षमताएँ</span></a>
+            <a href="/roi-calculator.html">ROI कैलकुलेटर<span class="nav-desc">निर्णय जोखिम में कमी मापें</span></a>
+            <a href="/pilot.html">90 दिन का पायलट<span class="nav-desc">स्केलिंग से पहले मूल्य सिद्ध करें</span></a>
+          </div>
+        </div>
+        <div class="nav-group">
+          <span class="nav-label">विश्वास</span>
+          <div class="nav-dropdown">
+            <a href="/trust.html">ट्रस्ट सेंटर<span class="nav-desc">सुरक्षा, अनुपालन और तैनाती</span></a>
+            <a href="/honesty-matrices.html">ईमानदारी मैट्रिसेस<span class="nav-desc">जो हम अभी नहीं कर सकते</span></a>
+          </div>
+        </div>
+        <a href="/briefing.html" class="nav-cta">ब्रीफिंग का अनुरोध</a>
+        </div>
+      </nav>
+    </header>
+
+    <main class="learn-container">
+      <nav class="learn-breadcrumb">
+        <a href="../../">होम</a> / <a href="../">सीखें</a> / HIPAA अनुपालन
+      </nav>
+
+      <article>
+        <h1 class="learn-title">HIPAA AI अनुपालन गाइड</h1>
+        <p class="learn-subtitle">HIPAA अनुपालन बनाए रखते हुए PHI को संभालने वाले AI सिस्टम कैसे तैनात करें।</p>
+
+        <div class="learn-meta">
+          <span>14 मिनट पढ़ने का समय</span>
+          <span>स्वास्थ्य अनुपालन</span>
+        </div>
+
+        <div class="warning-box">
+        <p><strong>Disclaimer:</strong> This guide provides general information about HIPAA requirements in the context of AI systems. It is not legal advice. Consult with qualified healthcare compliance counsel for your specific situation.</p>
+      </div>
+
+      
+      </article>
+    </main>
+
+    <footer style="text-align: center; padding: 40px 24px; border-top: 1px solid var(--color-border); margin-top: 60px;">
+      <p style="font-size: 0.75rem; color: var(--color-text-dim);">© 2026 Datacendia. सॉवरेन एंटरप्राइज़ इंटेलिजेंस।</p>
+    </footer>
+  </div>
+  <script src="../../../translations.js"></script>
+  <script src="../../../app.js"></script>
+  <script src="/nav-mobile.js"></script>
+</body>
+</html>

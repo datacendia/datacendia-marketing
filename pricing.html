@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pricing — Datacendia | Enterprise AI Platform Licensing & Deployment Options</title>
+  <meta name="description" content="Datacendia enterprise pricing: 90-day pilot program, production deployment, and sovereign tier options. Deploy air-gapped, on-premises, or private cloud. AWS, Azure, GCP marketplace available. Procurement-ready for regulated enterprise.">
+  <meta name="keywords" content="enterprise AI pricing, sovereign AI cost, on-premises AI deployment, air-gapped AI pricing, enterprise software licensing, AI platform pricing, AWS marketplace AI, Azure marketplace AI, government AI pricing">
+  <meta name="author" content="Datacendia">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Pricing — Datacendia Enterprise AI Platform">
+  <meta property="og:description" content="Enterprise pricing for sovereign AI. 3-tier model: Foundation, Enterprise, Strategic. Scope is explicit. Contact for custom pricing.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://datacendia.com/pricing.html">
+  <meta property="og:image" content="https://datacendia.com/og-image.png">
+  <meta property="og:site_name" content="Datacendia">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Pricing — Datacendia Enterprise AI Platform">
+  <meta name="twitter:description" content="Enterprise pricing for sovereign AI. Pilot programs, production licenses, and sovereign tier options.">
+  <meta name="twitter:image" content="https://datacendia.com/og-image.png">
+  <link rel="canonical" href="https://datacendia.com/pricing.html">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <meta name="theme-color" content="#0a0a0a">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "PriceSpecification",
+    "name": "Datacendia Enterprise Pricing",
+    "description": "Enterprise AI platform licensing options including pilot programs and production deployments",
+    "url": "https://datacendia.com/pricing.html",
+    "priceCurrency": "USD",
+    "unitText": "per year"
+  }
+  </script>
+  <style>
+    .page-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 80px 24px;
+    }
+    .page-header {
+      text-align: center;
+      margin-bottom: 64px;
+    }
+    .page-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 5vw, 2.5rem);
+      font-weight: 300;
+      color: var(--color-text);
+      margin-bottom: 16px;
+    }
+    .page-subtitle {
+      font-size: 1rem;
+      color: var(--color-text-muted);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .back-link {
+      display: inline-block;
+      margin-bottom: 32px;
+      font-size: 0.75rem;
+      color: var(--color-text-dim);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+    .back-link:hover {
+      color: var(--color-gold);
+    }
+
+    /* Pricing Tiers */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin-bottom: 80px;
+    }
+    .pricing-card {
+      background: var(--color-card-bg);
+      border: 1px solid var(--color-border);
+      border-radius: 12px;
+      padding: 32px 28px;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.3s ease;
+    }
+    .pricing-card:hover {
+      border-color: var(--color-gold-border);
+      transform: translateY(-4px);
+    }
+    .pricing-card.featured {
+      border-color: var(--color-gold);
+      background: linear-gradient(180deg, rgba(201, 162, 39, 0.08) 0%, var(--color-card-bg) 100%);
+    }
+    .tier-label {
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--color-gold);
+      margin-bottom: 8px;
+    }
+    .tier-name {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: var(--color-text);
+      margin-bottom: 8px;
+    }
+    .tier-tagline {
+      font-size: 0.8rem;
+      color: var(--color-text-dim);
+      margin-bottom: 24px;
+      min-height: 40px;
+    }
+    .tier-price {
+      font-family: var(--font-mono);
+      font-size: 1.75rem;
+      font-weight: 500;
+      color: var(--color-text);
+      margin-bottom: 4px;
+    }
+    .tier-price-note {
+      font-size: 0.7rem;
+      color: var(--color-text-dim);
+      margin-bottom: 24px;
+    }
+    .tier-features {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 32px 0;
+      flex-grow: 1;
+    }
+    .tier-features li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 10px 0;
+      font-size: 0.85rem;
+      color: var(--color-text-muted);
+      border-bottom: 1px solid var(--color-border);
+    }
+    .tier-features li:last-child {
+      border-bottom: none;
+    }
+    .tier-features li::before {
+      content: '✓';
+      color: var(--color-gold);
+      font-weight: 600;
+      flex-shrink: 0;
+    }
+    .tier-cta {
+      display: block;
+      text-align: center;
+      padding: 14px 24px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--color-gold);
+      background: transparent;
+      border: 1px solid var(--color-gold);
+      border-radius: 4px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+    .tier-cta:hover {
+      background: var(--color-gold);
+      color: var(--color-bg);
+    }
+    .tier-cta.primary {
+      background: var(--color-gold);
+      color: var(--color-bg);
+    }
+    .tier-cta.primary:hover {
+      background: #d4ad2e;
+    }
+
+    /* Procurement Section */
+    .procurement-section {
+      background: var(--color-bg-elevated);
+      border: 1px solid var(--color-border);
+      border-radius: 12px;
+      padding: 48px;
+      margin-bottom: 80px;
+    }
+    .procurement-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .procurement-header h2 {
+      font-family: var(--font-display);
+      font-size: 1.75rem;
+      font-weight: 400;
+      color: var(--color-text);
+      margin-bottom: 12px;
+    }
+    .procurement-header p {
+      font-size: 0.9rem;
+      color: var(--color-text-muted);
+    }
+    .procurement-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+    .procurement-item {
+      text-align: center;
+    }
+    .procurement-icon {
+      font-size: 1.5rem;
+      margin-bottom: 16px;
+    }
+    .procurement-title {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--color-text);
+      margin-bottom: 12px;
+    }
+    .procurement-desc {
+      font-size: 0.8rem;
+      color: var(--color-text-dim);
+      line-height: 1.6;
+    }
+
+    /* Trust Badges / Deployment Logos */
+    .deployment-section {
+      text-align: center;
+      margin-bottom: 80px;
+    }
+    .deployment-label {
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--color-text-dim);
+      margin-bottom: 24px;
+    }
+    .deployment-logos {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 32px;
+      flex-wrap: wrap;
+      margin-bottom: 32px;
+    }
+    .deployment-logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px 24px;
+      background: var(--color-card-bg);
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      min-width: 120px;
+      transition: all 0.2s ease;
+    }
+    .deployment-logo:hover {
+      border-color: var(--color-gold-border);
+    }
+    .deployment-logo span {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--color-text-muted);
+      letter-spacing: 0.05em;
+    }
+    .marketplace-section {
+      margin-top: 40px;
+      padding-top: 40px;
+      border-top: 1px solid var(--color-border);
+    }
+    .marketplace-logos {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .marketplace-logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 20px;
+      background: var(--color-card-bg);
+      border: 1px solid var(--color-gold-border);
+      border-radius: 6px;
+    }
+    .marketplace-logo span {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--color-gold);
+    }
+
+    /* Final CTA */
+    .final-cta {
+      text-align: center;
+      padding: 60px 40px;
+      background: var(--color-card-bg);
+      border: 1px solid var(--color-border);
+      border-radius: 12px;
+    }
+    .final-cta h2 {
+      font-family: var(--font-display);
+      font-size: 1.75rem;
+      font-weight: 400;
+      color: var(--color-text);
+      margin-bottom: 16px;
+    }
+    .final-cta p {
+      font-size: 0.9rem;
+      color: var(--color-text-muted);
+      margin-bottom: 32px;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .cta-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .cta-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      color: var(--color-gold);
+      background: transparent;
+      border: 1px solid var(--color-gold);
+      border-radius: 4px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+    .cta-button:hover {
+      background: var(--color-gold);
+      color: var(--color-bg);
+    }
+    .cta-button.secondary {
+      border-color: var(--color-border);
+      color: var(--color-text-muted);
+    }
+    .cta-button.secondary:hover {
+      border-color: var(--color-text-muted);
+      background: var(--color-card-bg);
+      color: var(--color-text);
+    }
+
+    /* Responsive */
+    @media (max-width: 1100px) {
+      .pricing-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (max-width: 700px) {
+      .pricing-grid {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .procurement-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+    }
+    @media (max-width: 600px) {
+      .page-container {
+        padding: 48px 20px;
+      }
+      .procurement-section {
+        padding: 32px 24px;
+      }
+      .deployment-logos {
+        gap: 16px;
+      }
+      .deployment-logo {
+        min-width: 100px;
+        padding: 12px 16px;
+      }
+      .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+      .cta-button {
+        width: 100%;
+        max-width: 280px;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="page-container">
+      <div class="page-top-bar">
+        <a href="index.html" class="back-link" data-i18n="returnToDatacendia">&larr; Return to Datacendia</a>
+        <div class="lang-selector">
+          <button class="lang-btn"><span class="lang-current">English</span> &#9662;</button>
+          <div class="lang-dropdown">
+            <button onclick="setLanguage('en')">English</button>
+            <button onclick="setLanguage('es')">Espa&ntilde;ol</button>
+            <button onclick="setLanguage('fr')">Fran&ccedil;ais</button>
+            <button onclick="setLanguage('de')">Deutsch</button>
+            <button onclick="setLanguage('pt')">Portugu&ecirc;s</button>
+            <button onclick="setLanguage('it')">Italiano</button>
+            <button onclick="setLanguage('ja')">&#26085;&#26412;&#35486;</button>
+            <button onclick="setLanguage('ko')">&#54620;&#44397;&#50612;</button>
+            <button onclick="setLanguage('zh')">&#20013;&#25991;</button>
+            <button onclick="setLanguage('ar')">&#1575;&#1604;&#1593;&#1585;&#1576;&#1610;&#1577;</button>
+            <button onclick="setLanguage('hi')">&#2361;&#2367;&#2344;&#2381;&#2342;&#2368;</button>
+          </div>
+        </div>
+      </div>
+      <nav class="main-nav">
+        <button class="nav-toggle" aria-label="Menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+        <div class="nav-menu">
+        <div class="nav-group">
+          <span class="nav-label" data-i18n="navPlatform">Platform</span>
+          <div class="nav-dropdown">
+            <a href="platform-capabilities.html"><span data-i18n="navPlatformOverview">Platform Overview</span><span class="nav-desc" data-i18n="navPlatformOverviewDesc">Full capability map</span></a>
+            <a href="dcii.html"><span data-i18n="navDcii">DCII Framework</span><span class="nav-desc" data-i18n="navDciiDesc">9 primitives · Crisis immunization</span></a>
+            <a href="dgi.html">DGI Framework<span class="nav-desc">Open standard &middot; Vendor-neutral</span></a>
+            <a href="diagrams.html"><span data-i18n="navArchitecture">Architecture</span><span class="nav-desc" data-i18n="navArchitectureDesc">12 system diagrams</span></a>
+          </div>
+        </div>
+        <div class="nav-group">
+          <span class="nav-label" data-i18n="navEvidence">Evidence</span>
+          <div class="nav-dropdown">
+            <a href="demos.html"><span data-i18n="navDemos">Interactive Demos</span><span class="nav-desc" data-i18n="navDemosDesc">Council, Chronos, Crucible &amp; more</span></a>
+            <a href="wargames.html"><span data-i18n="navWargames">War Games</span><span class="nav-desc" data-i18n="navWargamesDesc">Would dissent have surfaced the risk?</span></a>
+            <a href="case-studies.html"><span data-i18n="navCaseStudies">Case Studies</span><span class="nav-desc" data-i18n="navCaseStudiesDesc">Real-world decision analysis</span></a>
+          </div>
+        </div>
+        <a href="verticals.html" data-i18n="navIndustries">Industries</a>
+        <div class="nav-group">
+          <span class="nav-label" data-i18n="navPricing">Pricing</span>
+          <div class="nav-dropdown">
+            <a href="pricing.html"><span data-i18n="navTierOverview">Tier Overview</span><span class="nav-desc" data-i18n="navTierOverviewDesc">Foundation · Enterprise · Strategic</span></a>
+            <a href="premium.html"><span data-i18n="navPremiumModules">Premium Modules</span><span class="nav-desc" data-i18n="navPremiumModulesDesc">7 advanced capabilities</span></a>
+            <a href="roi-calculator.html"><span data-i18n="navRoiCalculator">ROI Calculator</span><span class="nav-desc" data-i18n="navRoiCalculatorDesc">Quantify decision risk reduction</span></a>
+            <a href="pilot.html"><span data-i18n="navPilot">90-Day Pilot</span><span class="nav-desc" data-i18n="navPilotDesc">Prove value before scaling</span></a>
+          </div>
+        </div>
+        <div class="nav-group">
+          <span class="nav-label" data-i18n="navTrust">Trust</span>
+          <div class="nav-dropdown">
+            <a href="trust.html"><span data-i18n="navTrustCenter">Trust Center</span><span class="nav-desc" data-i18n="navTrustCenterDesc">Security, compliance &amp; deployment</span></a>
+            <a href="honesty-matrices.html"><span data-i18n="navHonestyMatricesLink">Honesty Matrices</span><span class="nav-desc" data-i18n="navHonestyMatricesDesc">What we can't do — yet</span></a>
+          </div>
+        </div>
+        <a href="briefing.html" class="nav-cta" data-i18n="navRequestBriefing">Request Briefing</a>
+        </div>
+      </nav>
+      
+      <div class="page-header">
+        <h1 class="page-title" data-i18n="pricingPageTitle">Pricing &amp; Capabilities</h1>
+        <p class="page-subtitle" data-i18n="pricingPageSubtitle">Enterprise software. Annual licenses. Sovereign deployment. Customer-owned infrastructure, keys, and proof.</p>
+        <p style="font-size: 0.75rem; color: var(--color-text-dim); margin-top: 16px;" data-i18n="pricingPageNote">12 pillars across 3 tiers. Start with Foundation, expand as your governance matures.</p>
+      </div>
+
+      <!-- Entry Point: Pilot -->
+      <div style="background: linear-gradient(135deg, rgba(201,162,39,0.08) 0%, var(--color-card-bg) 100%); border: 1px solid rgba(201,162,39,0.3); border-radius: 12px; padding: 32px; margin-bottom: 48px; text-align: center;">
+        <p style="font-size: 0.65rem; color: var(--color-gold); text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 8px;" data-i18n="startHereLabel">Start Here</p>
+        <h2 style="font-family: var(--font-display); font-size: 1.4rem; font-weight: 300; color: var(--color-text); margin-bottom: 8px;" data-i18n="pilotProgramTitle">90-Day Pilot Program</h2>
+        <div style="font-family: var(--font-mono); font-size: 1.75rem; font-weight: 500; color: var(--color-text); margin-bottom: 4px;" data-i18n="pilotCustomScoping">From $50,000</div>
+        <p style="font-size: 0.7rem; color: var(--color-text-dim); margin-bottom: 0;">90-day engagement · Pilot fee credited toward annual license</p>
+        <p style="font-size: 0.8rem; color: var(--color-text-dim); margin-bottom: 20px; max-width: 480px; margin-left: auto; margin-right: auto;" data-i18n="pilotDesc">Prove value on your data, your infrastructure. 1 environment, 10–25 users, 2 workflows, evidence packets with citations. Pilot fee applies to annual license.</p>
+        <a href="pilot.html" style="display: inline-block; padding: 12px 28px; background: linear-gradient(135deg, var(--color-gold), #b8860b); color: #000; border-radius: 6px; font-size: 0.8rem; font-weight: 600; text-decoration: none;" data-i18n="applyForPilotBtn">Apply for Pilot →</a>
+      </div>
+
+      <!-- TIER 1: FOUNDATION -->
+      <div style="margin-bottom: 64px;">
+        <div style="text-align: center; margin-bottom: 32px;">
+          <p style="font-size: 0.65rem; color: var(--color-gold); text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 8px;" data-i18n="pcTier1Badge">Tier 1</p>
+          <h2 style="font-family: var(--font-display); font-size: 1.75rem; font-weight: 300; color: var(--color-text); margin-bottom: 8px;" data-i18n="pcTier1Title">Foundation</h2>
+          <p style="font-size: 0.88rem; color: var(--color-text-muted); margin-bottom: 4px;" data-i18n="pcTier1Flow">Make decisions → Understand them → Prove them</p>
+          <p style="font-family: var(--font-mono); font-size: 1rem; color: var(--color-gold); margin-bottom: 4px;" data-i18n="priceOnRequest">Price Available on Request</p>
+          <p style="font-size: 0.72rem; color: var(--color-text-dim);" data-i18n="tier1Note">3 pillars · Annual license · Customer-owned infrastructure</p>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;">
+          <!-- The Council -->
+          <div class="pricing-card">
+            <div class="tier-label" data-i18n="pcP1Num">Pillar 1</div>
+            <h2 class="tier-name">The Council&trade;</h2>
+            <p class="tier-tagline" data-i18n="pcP1Tag">Multi-Agent Deliberation Engine</p>
+            <ul class="tier-features">
+              <li>14 C-suite AI agents (CFO, CLO, CISO, CTO, CRO, etc.)</li>
+              <li>35+ deliberation modes</li>
+              <li>60-trait personality system per agent</li>
+              <li>Live deliberation with 3D avatars</li>
+              <li>Cross-examination &amp; formal dissent</li>
+              <li>Consensus scoring &amp; confidence metrics</li>
+              <li>Decision Replay Theater&trade;</li>
+            </ul>
+            <a href="resources/the-council.html" class="tier-cta" data-i18n="learnMoreCta">Learn More</a>
+          </div>
+          <!-- Decide -->
+          <div class="pricing-card">
+            <div class="tier-label" data-i18n="pcP2Num">Pillar 2</div>
+            <h2 class="tier-name">Decide&trade;</h2>
+            <p class="tier-tagline" data-i18n="pcP2Tag">Decision Intelligence Suite</p>
+            <ul class="tier-features">
+              <li>CendiaChronos&trade; divergent future simulation</li>
+              <li>PreMortem&trade; failure prediction</li>
+              <li>Decision Debt&trade; (cost of inaction)</li>
+              <li>CendiaCascade&trade; butterfly effect engine</li>
+              <li>CendiaRecall&trade; decision outcome tracking</li>
+              <li>Ghost Board&trade; lightweight red-teaming</li>
+              <li>CendiaLineage&trade; decision tracing</li>
+            </ul>
+            <a href="demos.html" class="tier-cta" data-i18n="seeDemosCta">See Demos</a>
+          </div>
+          <!-- DCII -->
+          <div class="pricing-card featured">
+            <div class="tier-label" data-i18n="pcP3Num">Pillar 3</div>
+            <h2 class="tier-name">DCII&trade;</h2>
+            <p class="tier-tagline" data-i18n="pcP3Tag">Crisis Immunization + Evidence Infrastructure</p>
+            <ul class="tier-features">
+              <li>9 crisis immunization primitives</li>
+              <li>CendiaVault&trade; immutable evidence store</li>
+              <li>CendiaNotary&trade; cryptographic signing</li>
+              <li>Regulator&rsquo;s Receipt&trade; (1-click PDF)</li>
+              <li>IISS&trade; institutional resilience scoring</li>
+              <li>CendiaMediaAuth&trade; deepfake detection</li>
+              <li>Post-quantum key management</li>
+            </ul>
+            <a href="dcii.html" class="tier-cta primary" data-i18n="learnDciiCta">Learn DCII Framework</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- TIER 2: ENTERPRISE -->
+      <div style="margin-bottom: 64px;">
+        <div style="text-align: center; margin-bottom: 32px;">
+          <p style="font-size: 0.65rem; color: #3b82f6; text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 8px;" data-i18n="pcTier2Badge">Tier 2</p>
+          <h2 style="font-family: var(--font-display); font-size: 1.75rem; font-weight: 300; color: var(--color-text); margin-bottom: 8px;" data-i18n="pcTier2Title">Enterprise</h2>
+          <p style="font-size: 0.88rem; color: var(--color-text-muted); margin-bottom: 4px;" data-i18n="pcTier2Flow">Harden → Comply → Govern → Own → Scale</p>
+          <p style="font-family: var(--font-mono); font-size: 1rem; color: var(--color-gold); margin-bottom: 4px;">Price Available on Request</p>
+          <p style="font-size: 0.72rem; color: var(--color-text-dim);" data-i18n="tier2Note">5 pillars · Requires Foundation · 6–12 month adoption typical</p>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px;">
+          <!-- Stress-Test -->
+          <div class="pricing-card">
+            <div class="tier-label" style="color: #3b82f6;" data-i18n="pcP4Num">Pillar 4</div>
+            <h2 class="tier-name" style="font-size: 1.2rem;">Stress-Test</h2>
+            <p class="tier-tagline" data-i18n="pcP4Tag">Adversarial Testing</p>
+            <ul class="tier-features">
+              <li>CendiaCrucible&trade; Monte Carlo red-teaming</li>
+              <li>CendiaRedTeam&trade; 8-perspective attack</li>
+              <li>War Games strategic simulation</li>
+              <li>SCGE synthetic crisis injection</li>
+              <li>Runtime security monitoring</li>
+            </ul>
+            <a href="briefing.html" class="tier-cta">Request Briefing</a>
+          </div>
+          <!-- Comply -->
+          <div class="pricing-card">
+            <div class="tier-label" style="color: #3b82f6;" data-i18n="pcP5Num">Pillar 5</div>
+            <h2 class="tier-name" style="font-size: 1.2rem;">Comply</h2>
+            <p class="tier-tagline" data-i18n="pcP5Tag">Regulatory Compliance</p>
+            <ul class="tier-features">
+              <li>10 compliance frameworks</li>
+              <li>17 jurisdictions simultaneously</li>
+              <li>Regulatory Absorb&trade; (60-sec ingest)</li>
+              <li>CendiaSandbox&trade; pre-enforcement testing</li>
+              <li>CendiaZKP&trade; zero-knowledge proofs</li>
+            </ul>
+            <a href="briefing.html" class="tier-cta">Request Briefing</a>
+          </div>
+          <!-- Govern -->
+          <div class="pricing-card">
+            <div class="tier-label" style="color: #3b82f6;" data-i18n="pcP6Num">Pillar 6</div>
+            <h2 class="tier-name" style="font-size: 1.2rem;">Govern</h2>
+            <p class="tier-tagline" data-i18n="pcP6Tag">Policy Enforcement</p>
+            <ul class="tier-features">
+              <li>CendiaGovern&trade; RBAC + approval workflows</li>
+              <li>CendiaCourt&trade; AI dispute resolution</li>
+              <li>CendiaVeto&trade; configurable blocking</li>
+              <li>CendiaDissent&trade; whistleblower protection</li>
+              <li>CendiaAutopilot&trade; autonomy governance</li>
+            </ul>
+            <a href="briefing.html" class="tier-cta">Request Briefing</a>
+          </div>
+          <!-- Sovereign -->
+          <div class="pricing-card">
+            <div class="tier-label" style="color: #3b82f6;" data-i18n="pcP7Num">Pillar 7</div>
+            <h2 class="tier-name" style="font-size: 1.2rem;">Sovereign</h2>
+            <p class="tier-tagline" data-i18n="pcP7Tag">Air-Gap Architecture</p>
+            <ul class="tier-features">
+              <li>11 sovereign architectural patterns</li>
+              <li>Post-quantum KMS</li>
+              <li>CendiaBlackBox&trade; sealed records</li>
+              <li>CendiaMirage&trade; active deception</li>
+              <li>CAC/PIV authentication</li>
+            </ul>
+            <a href="architecture.html" class="tier-cta" data-i18n="viewArchCta">View Architecture</a>
+          </div>
+          <!-- Operate -->
+          <div class="pricing-card">
+            <div class="tier-label" style="color: #3b82f6;" data-i18n="pcP8Num">Pillar 8</div>
+            <h2 class="tier-name" style="font-size: 1.2rem;">Operate</h2>
+            <p class="tier-tagline" data-i18n="pcP8Tag">CendiaOps™ — 19 AI Co-Pilots</p>
+            <ul class="tier-features">
+              <li>19 department AI co-pilots</li>
+              <li>CendiaMesh&trade; system integration</li>
+              <li>CendiaPulse&trade; mission control</li>
+              <li>CendiaApotheosis&trade; nightly self-improvement</li>
+              <li>100+ language translation</li>
+            </ul>
+            <a href="briefing.html" class="tier-cta">Request Briefing</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- TIER 2 PREMIUM ADD-ONS -->
+      <div style="margin-bottom: 64px;">
+        <div style="text-align: center; margin-bottom: 32px;">
+          <p style="font-size: 0.65rem; color: #f59e0b; text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 8px;" data-i18n="pcTier2PremiumBadge">Tier 2 Premium</p>
+          <h2 style="font-family: var(--font-display); font-size: 1.75rem; font-weight: 300; color: var(--color-text); margin-bottom: 8px;" data-i18n="pcAddonsTitle">Strategic Add-Ons</h2>
+          <p style="font-size: 0.88rem; color: var(--color-text-muted); margin-bottom: 4px;" data-i18n="addonsForEnterprise">Advanced modules for Enterprise licensees</p>
+          <p style="font-family: var(--font-mono); font-size: 1rem; color: var(--color-gold); margin-bottom: 4px;">Price Available on Request</p>
+          <p style="font-size: 0.72rem; color: var(--color-text-dim);" data-i18n="tier2PremiumNote">7 modules · Priced individually · Requires Enterprise tier</p>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; margin-bottom: 20px;">
+          <div style="background: var(--color-card-bg); border: 1px solid var(--color-border); border-radius: 10px; padding: 20px 16px; text-align: center;">
+            <div style="font-size: 0.68rem; color: #f59e0b; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 6px;">Guardian Suite</div>
+            <div style="font-size: 0.88rem; color: var(--color-text); font-weight: 500; margin-bottom: 4px;">CendiaAegis&trade;</div>
+            <div style="font-size: 0.7rem; color: var(--color-text-dim);">Real-time threat intelligence</div>
+          </div>
+          <div style="background: var(--color-card-bg); border: 1px solid var(--color-border); border-radius: 10px; padding: 20px 16px; text-align: center;">
+            <div style="font-size: 0.68rem; color: #f59e0b; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 6px;">Guardian Suite</div>
+            <div style="font-size: 0.88rem; color: var(--color-text); font-weight: 500; margin-bottom: 4px;">CendiaEternal&trade;</div>
+            <div style="font-size: 0.7rem; color: var(--color-text-dim);">100-year knowledge preservation</div>
+          </div>
+          <div style="background: var(--color-card-bg); border: 1px solid var(--color-border); border-radius: 10px; padding: 20px 16px; text-align: center;">
+            <div style="font-size: 0.68rem; color: #f59e0b; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 6px;">Guardian Suite</div>
+            <div style="font-size: 0.88rem; color: var(--color-text); font-weight: 500; margin-bottom: 4px;">CendiaSymbiont&trade;</div>
+            <div style="font-size: 0.7rem; color: var(--color-text-dim);">Partnership ecosystem discovery</div>
+          </div>
+          <div style="background: var(--color-card-bg); border: 1px solid var(--color-border); border-radius: 10px; padding: 20px 16px; text-align: center;">
+            <div style="font-size: 0.68rem; color: #f59e0b; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 6px;">Guardian Suite</div>
+            <div style="font-size: 0.88rem; color: var(--color-text); font-weight: 500; margin-bottom: 4px;">CendiaVox&trade;</div>
+            <div style="font-size: 0.7rem; color: var(--color-text-dim);">Stakeholder voice assembly</div>
+          </div>
+          <div style="background: var(--color-card-bg); border: 1px solid var(--color-border); border-radius: 10px; padding: 20px 16px; text-align: center;">
+            <div style="font-size: 0.68rem; color: #a855f7; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 6px;">Strategic</div>
+            <div style="font-size: 0.88rem; color: var(--color-text); font-weight: 500; margin-bottom: 4px;">CendiaMythos&trade;</div>
+            <div style="font-size: 0.7rem; color: var(--color-text-dim);">Corporate narrative engine</div>
+          </div>
+          <div style="background: var(--color-card-bg); border: 1px solid var(--color-border); border-radius: 10px; padding: 20px 16px; text-align: center;">
+            <div style="font-size: 0.68rem; color: #a855f7; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 6px;">Strategic</div>
+            <div style="font-size: 0.88rem; color: var(--color-text); font-weight: 500; margin-bottom: 4px;">CendiaEthos&trade;</div>
+            <div style="font-size: 0.7rem; color: var(--color-text-dim);">Ethical drift detection</div>
+          </div>
+          <div style="background: var(--color-card-bg); border: 1px solid var(--color-border); border-radius: 10px; padding: 20px 16px; text-align: center;">
+            <div style="font-size: 0.68rem; color: #a855f7; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 6px;">Strategic</div>
+            <div style="font-size: 0.88rem; color: var(--color-text); font-weight: 500; margin-bottom: 4px;">CendiaGaia&trade;</div>
+            <div style="font-size: 0.7rem; color: var(--color-text-dim);">Sustainability boundary engine</div>
+          </div>
+        </div>
+        <div style="text-align: center;">
+          <a href="premium.html" style="font-size: 0.8rem; color: var(--color-gold); text-decoration: none;" data-i18n="pcAddonsViewAll">View all Premium modules with WHO NEEDS IT qualifiers →</a>
+        </div>
+      </div>
+
+      <!-- TIER 3: STRATEGIC -->
+      <div style="margin-bottom: 64px;">
+        <div style="text-align: center; margin-bottom: 32px;">
+          <p style="font-size: 0.65rem; color: #a855f7; text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 8px;" data-i18n="pcTier3Badge">Tier 3</p>
+          <h2 style="font-family: var(--font-display); font-size: 1.75rem; font-weight: 300; color: var(--color-text); margin-bottom: 8px;" data-i18n="pcTier3Title">Strategic</h2>
+          <p style="font-size: 0.88rem; color: var(--color-text-muted); margin-bottom: 4px;" data-i18n="pcTier3Flow">Survive → Model → Dominate → Govern Nations</p>
+          <p style="font-family: var(--font-mono); font-size: 1rem; color: var(--color-gold); margin-bottom: 4px;">Price Available on Request</p>
+          <p style="font-size: 0.72rem; color: var(--color-text-dim);" data-i18n="tier3Note">4 pillars · For institutions whose decisions shape industries and nations</p>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;">
+          <!-- Collapse -->
+          <div class="pricing-card">
+            <div class="tier-label" style="color: #a855f7;" data-i18n="pcP9Num">Pillar 9</div>
+            <h2 class="tier-name" style="font-size: 1.2rem;">Collapse</h2>
+            <p class="tier-tagline" data-i18n="pcP9Tag">Institutional Failure Simulation</p>
+            <ul class="tier-features">
+              <li>18 adversarial agents</li>
+              <li>7 societal failure domains</li>
+              <li>Trust Delta measurement</li>
+              <li>Failure Envelope mapping</li>
+            </ul>
+            <a href="briefing.html" class="tier-cta" data-i18n="contactForBriefing">Contact for Briefing</a>
+          </div>
+          <!-- SGAS -->
+          <div class="pricing-card">
+            <div class="tier-label" style="color: #a855f7;" data-i18n="pcP10Num">Pillar 10</div>
+            <h2 class="tier-name" style="font-size: 1.2rem;">SGAS</h2>
+            <p class="tier-tagline" data-i18n="sgasTagline">Societal-Scale Governance Simulation</p>
+            <ul class="tier-features">
+              <li>5 agent classes at civilizational scale</li>
+              <li>Population-level modeling</li>
+              <li>Policy impact simulation</li>
+              <li>Meta-governance oversight</li>
+            </ul>
+            <a href="briefing.html" class="tier-cta">Contact for Briefing</a>
+          </div>
+          <!-- Verticals -->
+          <div class="pricing-card">
+            <div class="tier-label" style="color: #a855f7;" data-i18n="pcP11Num">Pillar 11</div>
+            <h2 class="tier-name" style="font-size: 1.2rem;">Verticals</h2>
+            <p class="tier-tagline" data-i18n="pcP11Tag">Industry Domination Infrastructure</p>
+            <ul class="tier-features">
+              <li>8 deep industry verticals</li>
+              <li>13 sector templates</li>
+              <li>Legal: 14 agents, 48 modes</li>
+              <li>Sports, Defense, Healthcare flagships</li>
+            </ul>
+            <a href="verticals.html" class="tier-cta" data-i18n="viewIndustriesCta">View Industries</a>
+          </div>
+          <!-- Frontier -->
+          <div class="pricing-card">
+            <div class="tier-label" style="color: #a855f7;" data-i18n="pcP12Num">Pillar 12</div>
+            <h2 class="tier-name" style="font-size: 1.2rem;">Frontier</h2>
+            <p class="tier-tagline" data-i18n="pcP12Tag">Nation-Scale Infrastructure</p>
+            <ul class="tier-features">
+              <li>CendiaNation&trade; economic OS</li>
+              <li>CendiaOmniShield&trade; cyber defense</li>
+              <li>CendiaMarketSovereign&trade; central bank AI</li>
+              <li>CendiaEternum&trade; existential risk</li>
+            </ul>
+            <a href="briefing.html" class="tier-cta">Contact for Briefing</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- When to Upgrade -->
+      <div style="background: var(--color-card-bg); border: 1px solid var(--color-border); border-radius: 12px; padding: 32px; margin-bottom: 48px;">
+        <h3 style="font-size: 0.9rem; font-weight: 500; color: var(--color-text); margin-bottom: 16px;" data-i18n="naturalProgressionTitle">Natural Progression</h3>
+        <div style="font-size: 0.8rem; color: var(--color-text-muted); line-height: 1.8;">
+          <p><strong style="color: var(--color-gold);" data-i18n="progressionPilotLabel">Pilot → Foundation:</strong> <span data-i18n="progressionPilotDesc">Prove value in 90 days, then deploy The Council + Decide + DCII as your decision governance layer.</span></p>
+          <p style="margin-top: 12px;"><strong style="color: #3b82f6;" data-i18n="progressionFoundationLabel">Foundation → Enterprise:</strong> <span data-i18n="progressionFoundationDesc">After 6–12 months, add adversarial testing, automated compliance, governance policies, sovereign deployment, and department-level AI co-pilots.</span></p>
+          <p style="margin-top: 12px;"><strong style="color: #a855f7;" data-i18n="progressionEnterpriseLabel">Enterprise → Strategic:</strong> <span data-i18n="progressionEnterpriseDesc">For institutions whose decisions shape industries, societies, and nations — institutional failure simulation, societal modeling, deep verticals, and nation-scale infrastructure.</span></p>
+        </div>
+      </div>
+
+      <!-- Procurement Accelerator -->
+      <div class="procurement-section">
+        <div class="procurement-header">
+          <h2 data-i18n="streamlinedProcurement">Streamlined Procurement</h2>
+          <p data-i18n="procurementDesc">We've removed the friction. Here's how enterprise buyers acquire Datacendia.</p>
+        </div>
+        <div class="procurement-grid">
+          <div class="procurement-item">
+            <div class="procurement-icon">&#9729;&#65039;</div>
+            <div class="procurement-title" data-i18n="cloudMarketplace">Cloud Marketplace</div>
+            <p class="procurement-desc" data-i18n="cloudMarketplaceDesc">Buy Datacendia using your committed AWS or Azure spend. We support Private Offers to bypass vendor onboarding.</p>
+          </div>
+          <div class="procurement-item">
+            <div class="procurement-icon">&#127963;&#65039;</div>
+            <div class="procurement-title" data-i18n="govDefense">Gov / Defense</div>
+            <p class="procurement-desc" data-i18n="govDefenseDesc">Architecture designed to FedRAMP Moderate controls. CAGE Code available for government contracting. IL4/IL5 pathway documented. CMMC 2.0 Level 2/3 architecture-ready.</p>
+          </div>
+          <div class="procurement-item">
+            <div class="procurement-icon">&#128203;</div>
+            <div class="procurement-title" data-i18n="standardTerms">Standard Terms</div>
+            <p class="procurement-desc" data-i18n="standardTermsDesc">Industry-standard EULAs to speed up legal review. Net 30 / Net 45 terms accepted via Wire or ACH.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Deployment Logos -->
+      <div class="deployment-section">
+        <div class="deployment-label" data-i18n="deployableOn">Deployable On</div>
+        <div class="deployment-logos">
+          <div class="deployment-logo"><span>AWS</span></div>
+          <div class="deployment-logo"><span>Azure</span></div>
+          <div class="deployment-logo"><span>Google Cloud</span></div>
+          <div class="deployment-logo"><span>Kubernetes</span></div>
+          <div class="deployment-logo"><span>OpenShift</span></div>
+          <div class="deployment-logo"><span>Air-Gapped</span></div>
+        </div>
+        <div class="marketplace-section">
+          <div class="deployment-label" data-i18n="procureVia">Procure Via</div>
+          <div class="marketplace-logos">
+            <div class="marketplace-logo"><span>AWS Marketplace</span></div>
+            <div class="marketplace-logo"><span>Azure Marketplace</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Final CTA -->
+      <div class="final-cta">
+        <h2 data-i18n="pricingCtaTitle">Ready to immunize your decisions?</h2>
+        <p data-i18n="pricingCtaDesc">Start with a 90-day pilot. Prove value on your data, your infrastructure. Every tier builds on the last.</p>
+        <div class="cta-buttons">
+          <a href="pilot.html" class="cta-button"><span data-i18n="applyForPilot">Apply for Pilot</span> &rarr;</a>
+          <a href="premium.html" class="cta-button secondary" data-i18n="viewPremiumModules">View Premium Modules</a>
+          <a href="briefing.html" class="cta-button secondary" data-i18n="requestBriefing">Request Briefing</a>
+        </div>
+      </div>
+
+    </div>
+    </main>
+
+    <footer>
+    <div class="footer-section">
+      <p class="footer-outcome" data-i18n="footerOutcome">Ready to own your AI decisions—and prove them to regulators?</p>
+      <div class="footer-ctas">
+        <a href="briefing.html" class="cta-button"><span data-i18n="requestBriefing">Request Briefing</span> <span class="arrow">&rarr;</span></a>
+        <a href="pilot.html" class="cta-button secondary" data-i18n="footerSeeResults">See Results in 90 Days</a>
+        <a href="trust.html" class="cta-button secondary" data-i18n="trustCenter">Trust Center</a>
+      </div>
+      <p class="footer-contact"><a href="mailto:contact@datacendia.com">contact@datacendia.com</a> &middot; <a href="team.html">Leadership</a> &middot; <a href="protocol.html">Protocol</a> &middot; <a href="dcii.html">DCII</a>
+        <a href="wargames.html">War Games</a>
+        <a href="case-studies.html">Case Studies</a>
+        <a href="roi-calculator.html">ROI</a> &middot; <a href="security-controls.html">Security</a> &middot; <a href="pricing.html" data-i18n="pricing">Pricing</a> &middot; <a href="premium.html">Premium</a> &middot; <a href="privacy.html" data-i18n="privacy">Privacy</a> &middot; <a href="terms.html" data-i18n="terms">Terms</a> &middot; <a href="https://www.linkedin.com/company/datacendia/" target="_blank" rel="noopener" data-i18n="linkedin">LinkedIn</a></p>
+      <p class="footer-status" style="font-family: var(--font-mono); font-size: 0.7rem; color: #2ecc71; margin-top: 16px; letter-spacing: 0.05em;" data-i18n="footerStatus">SYSTEM STATUS: AIR-GAP READY · NO TRACKER PIXELS DETECTED</p>
+    </div>
+    </footer>
+  </div>
+  <script src="tiktok-pixel.js"></script>
+  <script src="translations.js?v=6"></script>
+  <script src="app.js"></script>
+  <script src="nav-mobile.js"></script>
+</body>
+</html>

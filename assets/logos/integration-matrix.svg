@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <defs>
+    <linearGradient id="imGold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#E8C840"/>
+      <stop offset="100%" stop-color="#A07B1A"/>
+    </linearGradient>
+    <filter id="imGlow">
+      <feGaussianBlur stdDeviation="1.5" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <rect width="200" height="200" fill="#0a0a0a" rx="16"/>
+  <g filter="url(#imGlow)">
+    <!-- Grid matrix (honesty matrix) -->
+    <!-- Header row -->
+    <rect x="60" y="35" width="30" height="18" rx="2" fill="#C9A227" opacity="0.15"/>
+    <rect x="92" y="35" width="30" height="18" rx="2" fill="#C9A227" opacity="0.15"/>
+    <rect x="124" y="35" width="30" height="18" rx="2" fill="#C9A227" opacity="0.15"/>
+    <rect x="156" y="35" width="26" height="18" rx="2" fill="#C9A227" opacity="0.15"/>
+    <!-- Header labels -->
+    <text x="75" y="47" font-family="'JetBrains Mono', monospace" font-size="5" fill="#C9A227" text-anchor="middle" opacity="0.5">SAP</text>
+    <text x="107" y="47" font-family="'JetBrains Mono', monospace" font-size="5" fill="#C9A227" text-anchor="middle" opacity="0.5">CRM</text>
+    <text x="139" y="47" font-family="'JetBrains Mono', monospace" font-size="5" fill="#C9A227" text-anchor="middle" opacity="0.5">DB</text>
+    <text x="169" y="47" font-family="'JetBrains Mono', monospace" font-size="5" fill="#C9A227" text-anchor="middle" opacity="0.5">API</text>
+    <!-- Row labels -->
+    <text x="48" y="67" font-family="'JetBrains Mono', monospace" font-size="5" fill="#C9A227" text-anchor="end" opacity="0.4">Cloud</text>
+    <text x="48" y="91" font-family="'JetBrains Mono', monospace" font-size="5" fill="#C9A227" text-anchor="end" opacity="0.4">Hybrid</text>
+    <text x="48" y="115" font-family="'JetBrains Mono', monospace" font-size="5" fill="#C9A227" text-anchor="end" opacity="0.4">On-Prem</text>
+    <text x="48" y="139" font-family="'JetBrains Mono', monospace" font-size="5" fill="#C9A227" text-anchor="end" opacity="0.4">Air-Gap</text>
+    <!-- Grid cells with status indicators -->
+    <!-- Row 1 -->
+    <rect x="60" y="56" width="30" height="20" rx="2" fill="none" stroke="#C9A227" stroke-width="0.6" opacity="0.2"/>
+    <circle cx="75" cy="66" r="4" fill="#C9A227" opacity="0.5"/>
+    <rect x="92" y="56" width="30" height="20" rx="2" fill="none" stroke="#C9A227" stroke-width="0.6" opacity="0.2"/>
+    <circle cx="107" cy="66" r="4" fill="#C9A227" opacity="0.5"/>
+    <rect x="124" y="56" width="30" height="20" rx="2" fill="none" stroke="#C9A227" stroke-width="0.6" opacity="0.2"/>
+    <circle cx="139" cy="66" r="4" fill="#C9A227" opacity="0.5"/>
+    <rect x="156" y="56" width="26" height="20" rx="2" fill="none" stroke="#C9A227" stroke-width="0.6" opacity="0.2"/>
+    <circle cx="169" cy="66" r="4" fill="#C9A227" opacity="0.5"/>
+    <!-- Row 2 -->
+    <rect x="60" y="80" width="30" height="20" rx="2" fill="none" stroke="#C9A227" stroke-width="0.6" opacity="0.2"/>
+    <circle cx="75" cy="90" r="4" fill="#C9A227" opacity="0.5"/>
+    <rect x="92" y="80" width="30" height="20" rx="2" fill="none" stroke="#C9A227" stroke-width="0.6" opacity="0.2"/>
+    <circle cx="107" cy="90" r="4" fill="#C9A227" opacity="0.5"/>
+    <rect x="124" y="80" width="30" height="20" rx="2" fill="none" stroke="#C9A227" stroke-width="0.6" opacity="0.2"/>
+    <circle cx="139" cy="90" r="4" fill="#E8C840" opacity="0.5"/>
+    <rect x="156" y="80" width="26" height="20" rx="2" fill="none" stroke="#C9A227" stroke-width="0.6" opacity="0.2"/>
+    <circle cx="169" cy="90" r="4" fill="#C9A227" opacity="0.5"/>
+    <!-- Row 3 -->
+    <rect x="60" y="104" width="30" height="20" rx="2" fill="none" stroke="#C9A227" stroke-width="0.6" opacity="0.2"/>
+    <circle cx="75" cy="114" r="4" fill="#C9A227" opacity="0.5"/>
+    <rect x="92" y="104" width="30" height="20" rx="2" fill="none" stroke="#C9A227" stroke-width="0.6" opacity="0.2"/>
+    <circle cx="107" cy="114" r="4" fill="#E8C840" opacity="0.5"/>
+    <rect x="124" y="104" width="30" height="20" rx="2" fill="none" stroke="#C9A227" stroke-width="0.6" opacity="0.2"/>
+    <circle cx="139" cy="114" r="4" fill="#C9A227" opacity="0.5"/>
+    <rect x="156" y="104" width="26" height="20" rx="2" fill="none" stroke="#C9A227" stroke-width="0.6" opacity="0.2"/>
+    <circle cx="169" cy="114" r="4" fill="#C9A227" opacity="0.5"/>
+    <!-- Row 4 -->
+    <rect x="60" y="128" width="30" height="20" rx="2" fill="none" stroke="#C9A227" stroke-width="0.6" opacity="0.2"/>
+    <circle cx="75" cy="138" r="4" fill="#E8C840" opacity="0.5"/>
+    <rect x="92" y="128" width="30" height="20" rx="2" fill="none" stroke="#C9A227" stroke-width="0.6" opacity="0.2"/>
+    <circle cx="107" cy="138" r="4" fill="#A07B1A" opacity="0.4"/>
+    <rect x="124" y="128" width="30" height="20" rx="2" fill="none" stroke="#C9A227" stroke-width="0.6" opacity="0.2"/>
+    <circle cx="139" cy="138" r="4" fill="#C9A227" opacity="0.5"/>
+    <rect x="156" y="128" width="26" height="20" rx="2" fill="none" stroke="#C9A227" stroke-width="0.6" opacity="0.2"/>
+    <circle cx="169" cy="138" r="4" fill="#E8C840" opacity="0.5"/>
+    <!-- Outer frame -->
+    <rect x="56" y="32" width="130" height="120" rx="4" fill="none" stroke="url(#imGold)" stroke-width="1.5" opacity="0.5"/>
+  </g>
+  <text x="100" y="172" font-family="Georgia, serif" font-size="9" fill="#C9A227" text-anchor="middle" letter-spacing="0.06em" opacity="0.9">INTEGRATION MATRIX</text>
+</svg>

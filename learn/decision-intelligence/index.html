@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>What is Decision Intelligence? Complete Guide for Enterprises | Datacendia</title>
+  <meta name="description" content="Decision intelligence is the discipline of turning data, AI, and human expertise into accountable business decisions. Learn how enterprises use decision intelligence platforms for explainable, auditable AI-driven decisions.">
+  <meta name="keywords" content="decision intelligence, what is decision intelligence, decision intelligence platform, enterprise decision making, AI decision support, explainable AI decisions, auditable AI">
+  <meta name="author" content="Datacendia">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:0">
+  <meta name="googlebot" content="index, follow">
+  <meta property="og:title" content="What is Decision Intelligence? Complete Enterprise Guide">
+  <meta property="og:description" content="Decision intelligence combines data, AI, and human expertise into accountable business decisions. The definitive guide for regulated enterprises.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://datacendia.com/learn/decision-intelligence/">
+  <meta property="og:image" content="https://datacendia.com/og-image.png">
+  <meta property="og:site_name" content="Datacendia">
+  <meta property="article:published_time" content="2025-10-15">
+  <meta property="article:modified_time" content="2026-01-09">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="What is Decision Intelligence? Complete Enterprise Guide">
+  <meta name="twitter:description" content="Decision intelligence combines data, AI, and human expertise into accountable business decisions.">
+  <meta name="twitter:image" content="https://datacendia.com/og-image.png">
+  <link rel="canonical" href="https://datacendia.com/learn/decision-intelligence/">
+  <link rel="alternate" hreflang="en" href="https://datacendia.com/learn/decision-intelligence/">
+  <link rel="alternate" hreflang="es" href="https://datacendia.com/es/learn/decision-intelligence/">
+  <link rel="alternate" hreflang="fr" href="https://datacendia.com/fr/learn/decision-intelligence/">
+  <link rel="alternate" hreflang="de" href="https://datacendia.com/de/learn/decision-intelligence/">
+  <link rel="alternate" hreflang="pt" href="https://datacendia.com/pt/learn/decision-intelligence/">
+  <link rel="alternate" hreflang="it" href="https://datacendia.com/it/learn/decision-intelligence/">
+  <link rel="alternate" hreflang="ja" href="https://datacendia.com/ja/learn/decision-intelligence/">
+  <link rel="alternate" hreflang="ko" href="https://datacendia.com/ko/learn/decision-intelligence/">
+  <link rel="alternate" hreflang="zh" href="https://datacendia.com/zh/learn/decision-intelligence/">
+  <link rel="alternate" hreflang="ar" href="https://datacendia.com/ar/learn/decision-intelligence/">
+  <link rel="alternate" hreflang="hi" href="https://datacendia.com/hi/learn/decision-intelligence/">
+  <link rel="alternate" hreflang="x-default" href="https://datacendia.com/learn/decision-intelligence/">
+  <link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg">
+  <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+  <meta name="theme-color" content="#0a0a0a">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../styles.css">
+  <style>
+    .learn-container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 60px 24px 80px;
+    }
+    .learn-breadcrumb {
+      font-size: 0.75rem;
+      color: var(--color-text-dim);
+      margin-bottom: 24px;
+    }
+    .learn-breadcrumb a {
+      color: var(--color-text-dim);
+      text-decoration: none;
+    }
+    .learn-breadcrumb a:hover {
+      color: var(--color-gold);
+    }
+    .learn-meta {
+      display: flex;
+      gap: 24px;
+      font-size: 0.75rem;
+      color: var(--color-text-dim);
+      margin-bottom: 32px;
+      flex-wrap: wrap;
+    }
+    .learn-meta time {
+      color: var(--color-text-muted);
+    }
+    .learn-title {
+      font-family: var(--font-display);
+      font-size: 2.25rem;
+      font-weight: 300;
+      color: var(--color-text);
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+    .learn-subtitle {
+      font-size: 1.1rem;
+      color: var(--color-text-muted);
+      margin-bottom: 32px;
+      line-height: 1.6;
+    }
+    .learn-content h2 {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: var(--color-text);
+      margin: 48px 0 16px;
+      padding-top: 24px;
+      border-top: 1px solid var(--color-border);
+    }
+    .learn-content h3 {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 400;
+      color: var(--color-text);
+      margin: 32px 0 12px;
+    }
+    .learn-content p {
+      font-size: 0.95rem;
+      color: var(--color-text-muted);
+      line-height: 1.8;
+      margin-bottom: 16px;
+    }
+    .learn-content ul, .learn-content ol {
+      margin: 16px 0 24px 24px;
+      color: var(--color-text-muted);
+    }
+    .learn-content li {
+      font-size: 0.95rem;
+      line-height: 1.7;
+      margin-bottom: 8px;
+    }
+    .learn-content strong {
+      color: var(--color-text);
+    }
+    .definition-box {
+      background: var(--color-card-bg);
+      border: 1px solid var(--color-gold);
+      border-radius: 8px;
+      padding: 24px;
+      margin: 24px 0;
+    }
+    .definition-box p {
+      font-size: 1rem;
+      color: var(--color-text);
+      margin: 0;
+    }
+    .comparison-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 24px 0;
+      font-size: 0.85rem;
+    }
+    .comparison-table th {
+      background: var(--color-card-bg);
+      border: 1px solid var(--color-border);
+      padding: 12px 16px;
+      text-align: left;
+      font-weight: 500;
+      color: var(--color-text);
+    }
+    .comparison-table td {
+      border: 1px solid var(--color-border);
+      padding: 12px 16px;
+      color: var(--color-text-muted);
+    }
+    .comparison-table tr:nth-child(even) {
+      background: rgba(255,255,255,0.02);
+    }
+    .faq-section {
+      margin-top: 48px;
+    }
+    .faq-item {
+      border-bottom: 1px solid var(--color-border);
+      padding: 24px 0;
+    }
+    .faq-question {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 400;
+      color: var(--color-text);
+      margin-bottom: 12px;
+    }
+    .faq-answer {
+      font-size: 0.9rem;
+      color: var(--color-text-muted);
+      line-height: 1.7;
+    }
+    .cta-box {
+      background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(212, 175, 55, 0.02) 100%);
+      border: 1px solid var(--color-gold);
+      border-radius: 8px;
+      padding: 32px;
+      margin-top: 48px;
+      text-align: center;
+    }
+    .cta-box h3 {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      color: var(--color-text);
+      margin-bottom: 12px;
+    }
+    .cta-box p {
+      font-size: 0.9rem;
+      color: var(--color-text-muted);
+      margin-bottom: 20px;
+    }
+    .cta-button {
+      display: inline-block;
+      background: var(--color-gold);
+      color: var(--color-bg);
+      padding: 12px 32px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      transition: opacity 0.2s;
+    }
+    .cta-button:hover {
+      opacity: 0.9;
+    }
+    .related-links {
+      margin-top: 48px;
+      padding-top: 32px;
+      border-top: 1px solid var(--color-border);
+    }
+    .related-links h3 {
+      font-size: 0.85rem;
+      color: var(--color-text-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 16px;
+    }
+    .related-links ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .related-links li {
+      margin-bottom: 8px;
+    }
+    .related-links a {
+      color: var(--color-gold);
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+    .related-links a:hover {
+      text-decoration: underline;
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "What is Decision Intelligence? Complete Guide for Enterprises",
+    "description": "Decision intelligence is the discipline of turning data, AI, and human expertise into accountable business decisions. Learn how enterprises use decision intelligence platforms.",
+    "author": {
+      "@type": "Organization",
+      "name": "Datacendia",
+      "url": "https://datacendia.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Datacendia",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://datacendia.com/assets/logo.svg"
+      }
+    },
+    "datePublished": "2025-10-15",
+    "dateModified": "2026-01-09",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://datacendia.com/learn/decision-intelligence/"
+    },
+    "image": "https://datacendia.com/og-image.png"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is decision intelligence?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Decision intelligence is the discipline of applying data science, AI, and behavioral science to improve organizational decision-making. It transforms raw data into actionable recommendations while maintaining full explainability and audit trails."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How is decision intelligence different from business intelligence?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Business intelligence (BI) focuses on descriptive analytics—showing what happened. Decision intelligence goes further by prescribing what to do, explaining why, and tracking outcomes. BI answers 'what happened?' while decision intelligence answers 'what should we do and why?'"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What industries use decision intelligence platforms?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Decision intelligence is used across regulated industries including financial services (credit decisions, fraud detection), healthcare (treatment protocols, resource allocation), defense (mission planning, threat assessment), and manufacturing (supply chain, quality control)."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Why do enterprises need explainable decision intelligence?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Regulations like GDPR, EU AI Act, and industry-specific requirements mandate that automated decisions be explainable. Explainable decision intelligence provides audit trails showing exactly how each decision was made, which data was used, and which rules applied."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is a decision intelligence platform?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A decision intelligence platform is enterprise software that integrates data sources, applies AI models and business rules, generates recommendations, and maintains complete audit trails. It differs from point solutions by providing end-to-end decision lifecycle management."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-top">
+        <a href="../../" style="text-decoration: none;"><h1 class="logo"><span class="brand-name">DATACENDIA</span></h1></a>
+      </div>
+            <nav class="main-nav">
+        <button class="nav-toggle" aria-label="Menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+        <div class="nav-menu">
+        <div class="nav-group">
+          <span class="nav-label">Platform</span>
+          <div class="nav-dropdown">
+            <a href="/platform-capabilities.html">Platform Overview<span class="nav-desc">Full capability map</span></a>
+            <a href="/dcii.html">DCII Framework<span class="nav-desc">9 primitives &middot; Crisis immunization</span></a>
+            <a href="/diagrams.html">Architecture<span class="nav-desc">8 system diagrams</span></a>
+          </div>
+        </div>
+        <div class="nav-group">
+          <span class="nav-label">Evidence</span>
+          <div class="nav-dropdown">
+            <a href="/demos.html">Interactive Demos<span class="nav-desc">Council, Chronos, Crucible &amp; more</span></a>
+            <a href="/wargames.html">War Games<span class="nav-desc">Would dissent have surfaced the risk?</span></a>
+            <a href="/case-studies.html">Case Studies<span class="nav-desc">Real-world decision analysis</span></a>
+          </div>
+        </div>
+        <a href="/verticals.html">Industries</a>
+        <div class="nav-group">
+          <span class="nav-label">Pricing</span>
+          <div class="nav-dropdown">
+            <a href="/pricing.html">Tier Overview<span class="nav-desc">Foundation &middot; Enterprise &middot; Strategic</span></a>
+            <a href="/premium.html">Premium Modules<span class="nav-desc">7 advanced capabilities</span></a>
+            <a href="/roi-calculator.html">ROI Calculator<span class="nav-desc">Quantify decision risk reduction</span></a>
+            <a href="/pilot.html">90-Day Pilot<span class="nav-desc">Prove value before scaling</span></a>
+          </div>
+        </div>
+        <div class="nav-group">
+          <span class="nav-label">Trust</span>
+          <div class="nav-dropdown">
+            <a href="/trust.html">Trust Center<span class="nav-desc">Security, compliance &amp; deployment</span></a>
+            <a href="/honesty-matrices.html">Honesty Matrices<span class="nav-desc">What we can't do &mdash; yet</span></a>
+          </div>
+        </div>
+        <a href="/briefing.html" class="nav-cta">Request Briefing</a>
+        </div>
+      </nav>
+    </header>
+
+    <main class="learn-container">
+      <nav class="learn-breadcrumb">
+        <a href="../../">Home</a> / <a href="../">Learn</a> / Decision Intelligence
+      </nav>
+
+      <article>
+        <h1 class="learn-title">What is Decision Intelligence?</h1>
+        <p class="learn-subtitle">Decision intelligence is the discipline of turning data, AI models, and human expertise into accountable, explainable business decisions — with full audit trails for regulatory compliance.</p>
+        
+        <div class="learn-meta">
+          <span>Last updated: <time datetime="2026-01-09">January 9, 2026</time></span>
+          <span>12 min read</span>
+          <span>By Datacendia Research</span>
+        </div>
+
+        <div class="definition-box">
+          <p><strong>Decision Intelligence (DI)</strong> is an engineering discipline that combines data science, artificial intelligence, and decision theory to help organizations make better decisions at scale. Unlike traditional analytics that shows what happened, decision intelligence prescribes what to do, explains why, and tracks outcomes.</p>
+        </div>
+
+        <div class="learn-content">
+          <h2>Why Does Decision Intelligence Matter for Enterprises?</h2>
+          <p>Modern enterprises face a fundamental challenge: they have more data than ever, but struggle to turn that data into consistent, defensible decisions. Traditional approaches—dashboards, reports, even basic ML models—leave a critical gap between insight and action.</p>
+          <p>Decision intelligence closes that gap by providing:</p>
+          <ul>
+            <li><strong>Prescriptive recommendations</strong> — Not just "here's the data" but "here's what to do"</li>
+            <li><strong>Explainability</strong> — Every recommendation traces back to specific data, rules, and reasoning</li>
+            <li><strong>Audit trails</strong> — Immutable logs for regulatory compliance and internal governance</li>
+            <li><strong>Human-AI collaboration</strong> — AI augments human judgment rather than replacing it</li>
+          </ul>
+
+          <h2>How is Decision Intelligence Different from Business Intelligence?</h2>
+          <p>The distinction matters. Business intelligence (BI) is retrospective and descriptive. Decision intelligence is prospective and prescriptive.</p>
+
+          <table class="comparison-table">
+            <thead>
+              <tr>
+                <th>Capability</th>
+                <th>Business Intelligence</th>
+                <th>Decision Intelligence</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Primary question</td>
+                <td>What happened?</td>
+                <td>What should we do?</td>
+              </tr>
+              <tr>
+                <td>Output</td>
+                <td>Dashboards, reports</td>
+                <td>Recommendations with rationale</td>
+              </tr>
+              <tr>
+                <td>Explainability</td>
+                <td>Limited to data visualization</td>
+                <td>Full reasoning chains and evidence</td>
+              </tr>
+              <tr>
+                <td>Audit capability</td>
+                <td>Query logs only</td>
+                <td>Complete decision audit trails</td>
+              </tr>
+              <tr>
+                <td>Regulatory fit</td>
+                <td>Informational</td>
+                <td>Compliance-ready (GDPR Art. 22, EU AI Act)</td>
+              </tr>
+              <tr>
+                <td>Human role</td>
+                <td>Interpret data manually</td>
+                <td>Review AI recommendations, override when needed</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h2>What Are the Core Components of a Decision Intelligence Platform?</h2>
+          <p>Enterprise-grade decision intelligence platforms typically include these components:</p>
+          
+          <h3>1. Data Integration Layer</h3>
+          <p>Connects to enterprise data sources (ERP, CRM, data lakes, real-time streams) and normalizes data for decision-making. Handles data quality, lineage tracking, and access controls.</p>
+          
+          <h3>2. Decision Modeling Engine</h3>
+          <p>Combines business rules, ML models, and domain logic into executable decision models. Supports both deterministic rules ("if credit score < 600, require manual review") and probabilistic models ("risk probability based on 47 factors").</p>
+          
+          <h3>3. Multi-Agent Deliberation</h3>
+          <p>Advanced platforms use multiple AI agents representing different perspectives (financial, legal, operational, risk) that deliberate before reaching a recommendation. This mimics how human committees make complex decisions.</p>
+          
+          <h3>4. Explainability Engine</h3>
+          <p>Generates human-readable explanations for every decision. Critical for regulated industries where "the algorithm decided" is not an acceptable answer.</p>
+          
+          <h3>5. Immutable Audit Trail</h3>
+          <p>Records every decision with cryptographic integrity: what was decided, when, based on what data, using which models, and who approved it. Essential for regulatory audits and litigation defense.</p>
+          
+          <h3>6. Human-in-the-Loop Workflows</h3>
+          <p>Routes high-stakes or edge-case decisions to human reviewers with full context. Captures human overrides and reasons to improve future models.</p>
+
+          <h2>Which Industries Use Decision Intelligence?</h2>
+          <p>Decision intelligence delivers the most value in regulated, high-stakes environments:</p>
+          
+          <table class="comparison-table">
+            <thead>
+              <tr>
+                <th>Industry</th>
+                <th>Use Cases</th>
+                <th>Regulatory Drivers</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Financial Services</td>
+                <td>Credit decisions, fraud detection, AML, trading limits</td>
+                <td>GDPR, ECOA, FCRA, Basel III</td>
+              </tr>
+              <tr>
+                <td>Healthcare</td>
+                <td>Treatment protocols, resource allocation, claims processing</td>
+                <td>HIPAA, FDA, clinical trial regulations</td>
+              </tr>
+              <tr>
+                <td>Defense & Intelligence</td>
+                <td>Mission planning, threat assessment, logistics optimization</td>
+                <td>NIST 800-53, FedRAMP, ITAR</td>
+              </tr>
+              <tr>
+                <td>Insurance</td>
+                <td>Underwriting, claims adjudication, fraud detection</td>
+                <td>State regulations, NAIC guidelines</td>
+              </tr>
+              <tr>
+                <td>Manufacturing</td>
+                <td>Supply chain decisions, quality control, predictive maintenance</td>
+                <td>ISO standards, industry-specific compliance</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h2>What Regulations Require Explainable AI Decisions?</h2>
+          <p>Multiple regulations now mandate explainability for automated decisions:</p>
+          <ul>
+            <li><strong>EU AI Act (2024)</strong> — High-risk AI systems must provide transparency and human oversight</li>
+            <li><strong>GDPR Article 22</strong> — Right to explanation for automated decisions with legal effects</li>
+            <li><strong>ECOA / Regulation B</strong> — Adverse action notices must explain credit denials</li>
+            <li><strong>SR 11-7 (OCC)</strong> — Model risk management requires documentation and validation</li>
+            <li><strong>DORA (2025)</strong> — Digital operational resilience requirements for financial entities</li>
+          </ul>
+          <p>Decision intelligence platforms address these requirements by design, not as an afterthought.</p>
+
+          <h2>How Do You Evaluate Decision Intelligence Platforms?</h2>
+          <p>When evaluating platforms, consider these criteria:</p>
+          <ul>
+            <li><strong>Deployment options</strong> — Can it run on-premises, in your private cloud, or air-gapped?</li>
+            <li><strong>Explainability depth</strong> — Does it provide token-level reasoning or just feature importance?</li>
+            <li><strong>Audit trail integrity</strong> — Are logs cryptographically signed and tamper-evident?</li>
+            <li><strong>Integration breadth</strong> — Does it connect to your existing data infrastructure?</li>
+            <li><strong>Human oversight</strong> — How does it handle escalations and manual overrides?</li>
+            <li><strong>Regulatory mapping</strong> — Does it map controls to specific regulatory requirements?</li>
+          </ul>
+
+          <section class="faq-section">
+            <h2>Frequently Asked Questions</h2>
+            
+            <div class="faq-item">
+              <h3 class="faq-question">What is decision intelligence?</h3>
+              <p class="faq-answer">Decision intelligence is the discipline of applying data science, AI, and behavioral science to improve organizational decision-making. It transforms raw data into actionable recommendations while maintaining full explainability and audit trails.</p>
+            </div>
+            
+            <div class="faq-item">
+              <h3 class="faq-question">How is decision intelligence different from business intelligence?</h3>
+              <p class="faq-answer">Business intelligence (BI) focuses on descriptive analytics—showing what happened. Decision intelligence goes further by prescribing what to do, explaining why, and tracking outcomes. BI answers "what happened?" while decision intelligence answers "what should we do and why?"</p>
+            </div>
+            
+            <div class="faq-item">
+              <h3 class="faq-question">What industries use decision intelligence platforms?</h3>
+              <p class="faq-answer">Decision intelligence is used across regulated industries including financial services (credit decisions, fraud detection), healthcare (treatment protocols, resource allocation), defense (mission planning, threat assessment), and manufacturing (supply chain, quality control).</p>
+            </div>
+            
+            <div class="faq-item">
+              <h3 class="faq-question">Why do enterprises need explainable decision intelligence?</h3>
+              <p class="faq-answer">Regulations like GDPR, EU AI Act, and industry-specific requirements mandate that automated decisions be explainable. Explainable decision intelligence provides audit trails showing exactly how each decision was made, which data was used, and which rules applied.</p>
+            </div>
+            
+            <div class="faq-item">
+              <h3 class="faq-question">What is a decision intelligence platform?</h3>
+              <p class="faq-answer">A decision intelligence platform is enterprise software that integrates data sources, applies AI models and business rules, generates recommendations, and maintains complete audit trails. It differs from point solutions by providing end-to-end decision lifecycle management.</p>
+            </div>
+          </section>
+
+          <div class="cta-box">
+            <h3>See Decision Intelligence in Action</h3>
+            <p>Datacendia provides sovereign decision intelligence for regulated enterprises. Air-gapped deployment, immutable audit trails, and multi-agent deliberation.</p>
+            <a href="../../briefing.html" class="cta-button">Request a Technical Briefing</a>
+          </div>
+
+          <nav class="related-links">
+            <h3>Related Topics</h3>
+            <ul>
+              <li><a href="../ai-audit-trail/">What is an AI Audit Trail?</a></li>
+              <li><a href="../sovereign-ai/">What is Sovereign AI?</a></li>
+              <li><a href="../multi-agent-ai/">Multi-Agent AI Systems Explained</a></li>
+              <li><a href="../eu-ai-act-compliance/">EU AI Act Compliance Guide</a></li>
+            </ul>
+          </nav>
+        </div>
+      </article>
+    </main>
+
+    <footer style="text-align: center; padding: 40px 24px; border-top: 1px solid var(--color-border); margin-top: 60px;">
+      <p style="font-size: 0.75rem; color: var(--color-text-dim);">© 2026 Datacendia. Sovereign Enterprise Intelligence.</p>
+      <p style="font-size: 0.7rem; color: var(--color-text-dim); margin-top: 8px;">
+        <a href="../../privacy.html" style="color: var(--color-text-dim);">Privacy</a> · 
+        <a href="../../terms.html" style="color: var(--color-text-dim);">Terms</a> · 
+        <a href="../../security.txt" style="color: var(--color-text-dim);">Security</a>
+      </p>
+    </footer>
+  </div>
+  <script src="../../translations.js"></script>
+  <script src="../../app.js"></script>
+  <script src="/nav-mobile.js"></script>
+</body>
+</html>

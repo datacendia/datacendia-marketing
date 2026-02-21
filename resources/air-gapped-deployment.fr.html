@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guide de Déploiement Air-Gapped | Intelligence d'Entreprise Hors Ligne | Datacendia</title>
+  <meta name="description" content="Guide technique complet pour déployer l'IA dans des environnements air-gapped. Plateforme IA hors ligne pour les contractants de défense, systèmes classifiés et infrastructures critiques.">
+  <meta name="author" content="Datacendia">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://datacendia.com/resources/air-gapped-deployment.fr.html">
+  <link rel="alternate" hreflang="en" href="https://datacendia.com/resources/air-gapped-deployment.html">
+  <link rel="alternate" hreflang="es" href="https://datacendia.com/resources/air-gapped-deployment.es.html">
+  <link rel="alternate" hreflang="fr" href="https://datacendia.com/resources/air-gapped-deployment.fr.html">
+  <link rel="alternate" hreflang="de" href="https://datacendia.com/resources/air-gapped-deployment.de.html">
+  <link rel="alternate" hreflang="pt" href="https://datacendia.com/resources/air-gapped-deployment.pt.html">
+  <link rel="alternate" hreflang="it" href="https://datacendia.com/resources/air-gapped-deployment.it.html">
+  <link rel="alternate" hreflang="ja" href="https://datacendia.com/resources/air-gapped-deployment.ja.html">
+  <link rel="alternate" hreflang="ko" href="https://datacendia.com/resources/air-gapped-deployment.ko.html">
+  <link rel="alternate" hreflang="zh" href="https://datacendia.com/resources/air-gapped-deployment.zh.html">
+  <link rel="alternate" hreflang="ar" href="https://datacendia.com/resources/air-gapped-deployment.ar.html">
+  <link rel="alternate" hreflang="hi" href="https://datacendia.com/resources/air-gapped-deployment.hi.html">
+  <link rel="alternate" hreflang="x-default" href="https://datacendia.com/resources/air-gapped-deployment.html">
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-top">
+        <a href="../fr/" style="text-decoration: none;"><h1 class="logo">DATACENDIA</h1></a>
+        <div class="lang-selector">
+          <button class="lang-btn"><span class="lang-current">Français</span> ▾</button>
+          <div class="lang-dropdown">
+            <a href="air-gapped-deployment.html">English</a>
+            <a href="air-gapped-deployment.es.html">Español</a>
+            <a href="air-gapped-deployment.fr.html" class="active">Français</a>
+            <a href="air-gapped-deployment.de.html">Deutsch</a>
+            <a href="air-gapped-deployment.pt.html">Português</a>
+            <a href="air-gapped-deployment.it.html">Italiano</a>
+            <a href="air-gapped-deployment.ja.html">日本語</a>
+            <a href="air-gapped-deployment.ko.html">한국어</a>
+            <a href="air-gapped-deployment.zh.html">中文</a>
+            <a href="air-gapped-deployment.ar.html">العربية</a>
+            <a href="air-gapped-deployment.hi.html">हिन्दी</a>
+          </div>
+        </div>
+      </div>
+      <p class="tagline-sub">Plateforme d'Intelligence Souveraine</p>
+      <nav class="main-nav">
+        <button class="nav-toggle" aria-label="Menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+        <div class="nav-menu">
+        <div class="nav-group">
+          <span class="nav-label">Platform</span>
+          <div class="nav-dropdown">
+            <a href="/platform-capabilities.html">Platform Overview<span class="nav-desc">Full capability map</span></a>
+            <a href="/dcii.html">DCII Framework<span class="nav-desc">9 primitives &middot; Crisis immunization</span></a>
+            <a href="/diagrams.html">Architecture<span class="nav-desc">8 system diagrams</span></a>
+          </div>
+        </div>
+        <div class="nav-group">
+          <span class="nav-label">Evidence</span>
+          <div class="nav-dropdown">
+            <a href="/demos.html">Interactive Demos<span class="nav-desc">Council, Chronos, Crucible &amp; more</span></a>
+            <a href="/wargames.html">War Games<span class="nav-desc">Would dissent have surfaced the risk?</span></a>
+            <a href="/case-studies.html">Case Studies<span class="nav-desc">Real-world decision analysis</span></a>
+          </div>
+        </div>
+        <a href="/verticals.html">Industries</a>
+        <div class="nav-group">
+          <span class="nav-label">Pricing</span>
+          <div class="nav-dropdown">
+            <a href="/pricing.html">Tier Overview<span class="nav-desc">Foundation &middot; Enterprise &middot; Strategic</span></a>
+            <a href="/premium.html">Premium Modules<span class="nav-desc">7 advanced capabilities</span></a>
+            <a href="/roi-calculator.html">ROI Calculator<span class="nav-desc">Quantify decision risk reduction</span></a>
+            <a href="/pilot.html">90-Day Pilot<span class="nav-desc">Prove value before scaling</span></a>
+          </div>
+        </div>
+        <div class="nav-group">
+          <span class="nav-label">Trust</span>
+          <div class="nav-dropdown">
+            <a href="/trust.html">Trust Center<span class="nav-desc">Security, compliance &amp; deployment</span></a>
+            <a href="/honesty-matrices.html">Honesty Matrices<span class="nav-desc">What we can't do &mdash; yet</span></a>
+          </div>
+        </div>
+        <a href="/briefing.html" class="nav-cta">Request Briefing</a>
+        </div>
+      </nav>
+    </header>
+
+    <div class="page-container">
+      <div class="page-header">
+        <div class="page-icon"><img src="../assets/logos/air-gapped.svg" alt="Air-Gapped" width="64" height="64" style="border-radius:12px"></div>
+        <h1 class="page-title">Guide de Déploiement Air-Gapped</h1>
+        <p class="page-subtitle">Déployez l'IA d'entreprise dans des réseaux complètement isolés. Aucune connectivité internet requise. Conçu pour les contractants de défense, systèmes classifiés et infrastructures critiques.</p>
+      </div>
+
+      <div class="content-section">
+        <h2>Qu'est-ce que le Déploiement Air-Gapped ?</h2>
+        <p>Un déploiement air-gapped signifie que Datacendia fonctionne entièrement au sein de votre réseau isolé avec zéro connectivité externe. Pas d'accès internet. Pas d'APIs cloud. Aucune donnée ne quitte votre infrastructure. C'est le seul modèle de déploiement qui répond aux exigences de sécurité ITAR, traitement classifié et infrastructure critique.</p>
+
+        <p><strong>Air-gapped vs. réseaux VPN ou pare-feu :</strong> Un réseau protégé par VPN ou pare-feu a toujours une connectivité internet—elle est juste restreinte. Air-gapped signifie physiquement isolé : pas de câbles réseau connectés aux systèmes externes, pas de sans-fil, pas de cellulaire. Si le réseau peut atteindre internet (même via plusieurs sauts), ce n'est pas air-gapped.</p>
+
+        <div class="warning-box">
+          <p><strong>Important :</strong> Le déploiement air-gapped est opérationnellement plus complexe que les déploiements cloud ou VPC. La question n'est pas s'il est plus facile d'utiliser l'IA cloud—la question est si vos exigences réglementaires, modèle de menace ou classification des données vous permettent d'accepter les risques de la connectivité externe.</p>
+        </div>
+      </div>
+
+      <div class="content-section">
+        <h2>Qui a Besoin d'un Déploiement Air-Gapped ?</h2>
+
+        <h3>Contractants de Défense</h3>
+        <p>Les organisations manipulant des données techniques contrôlées ITAR, CUI ou informations classifiées ne peuvent pas utiliser l'IA cloud. Les réglementations de contrôle des exportations (ITAR, EAR) interdisent l'accès étranger aux données techniques, et les fournisseurs cloud basés aux États-Unis peuvent être soumis à des demandes légales de gouvernements étrangers.</p>
+        <ul>
+          <li>Conformité ITAR (Réglementations sur le Trafic International d'Armes)</li>
+          <li>Données de programmes classifiés (SECRET, TOP SECRET, SCI)</li>
+          <li>Exigences CMMC Niveau 3</li>
+          <li>Protection de la chaîne d'approvisionnement de la Base Industrielle de Défense (DIB)</li>
+        </ul>
+
+        <h3>Infrastructure Critique</h3>
+        <p>Les réseaux électriques, installations de traitement des eaux, systèmes de transport et réseaux de télécommunications sont désignés comme infrastructure critique. Le déploiement air-gapped empêche l'accès adversaire aux systèmes de contrôle et données opérationnelles.</p>
+        <ul>
+          <li>Isolation des réseaux SCADA / ICS</li>
+          <li>Opérations des installations nucléaires (exigences NRC)</li>
+          <li>Gestion du réseau électrique (NERC CIP)</li>
+          <li>Services d'eau/eaux usées</li>
+        </ul>
+
+        <h3>Communauté du Renseignement</h3>
+        <p>Les agences IC traitent des renseignements classifiés qui ne peuvent pas être exposés aux systèmes externes. Le déploiement air-gapped permet l'analyse IA de SIGINT, HUMINT et autres sources classifiées.</p>
+        <ul>
+          <li>Analyse de renseignement classifié</li>
+          <li>IC ITE (Entreprise de Technologie de l'Information de la Communauté du Renseignement)</li>
+          <li>Déploiement SIPRNet / JWICS</li>
+          <li>Gestion d'informations compartimentées</li>
+        </ul>
+
+        <h3>Commercial Haute Valeur</h3>
+        <p>Certaines organisations commerciales choisissent le déploiement air-gapped pour des raisons de protection concurrentielle ou de PI, même sans exigences réglementaires.</p>
+        <ul>
+          <li>R&D pharmaceutique (candidats médicaments pré-brevet)</li>
+          <li>Secrets commerciaux de fabrication</li>
+          <li>Algorithmes de trading financier</li>
+          <li>Due diligence M&A (données sensibles de transactions)</li>
+        </ul>
+      </div>
+
+      <div class="content-section">
+        <h2>Exigences d'Infrastructure</h2>
+
+        <div class="requirements-box">
+          <h4>Exigences Système Minimales</h4>
+          <div class="requirements-grid">
+            <div class="requirement-item">
+              <div class="requirement-label">Calcul</div>
+              <div class="requirement-value">16 cœurs (32 recommandés)</div>
+            </div>
+            <div class="requirement-item">
+              <div class="requirement-label">Mémoire</div>
+              <div class="requirement-value">64Go RAM (128Go recommandés)</div>
+            </div>
+            <div class="requirement-item">
+              <div class="requirement-label">Stockage</div>
+              <div class="requirement-value">500Go SSD minimum (2To+ recommandés)</div>
+            </div>
+            <div class="requirement-item">
+              <div class="requirement-label">Système d'Exploitation</div>
+              <div class="requirement-value">Ubuntu 22.04 LTS ou RHEL 8+</div>
+            </div>
+            <div class="requirement-item">
+              <div class="requirement-label">Réseau</div>
+              <div class="requirement-value">Interne uniquement (pas de connectivité externe)</div>
+            </div>
+            <div class="requirement-item">
+              <div class="requirement-label">GPU</div>
+              <div class="requirement-value">Optionnel (NVIDIA T4 ou mieux pour accélération)</div>
+            </div>
+          </div>
+        </div>
+
+        <p><strong>Guide de Dimensionnement :</strong> Les exigences ci-dessus supportent 10-20 utilisateurs simultanés avec des volumes de données modérés. Pour des déploiements plus importants (100+ utilisateurs, 10To+ de données), contactez-nous pour une revue d'architecture.</p>
+
+        <div class="info-box">
+          <p><strong>Machines Virtuelles vs. Bare Metal :</strong> Datacendia peut fonctionner sur des machines virtuelles VMware ESXi, Hyper-V ou KVM. Cependant, pour des performances maximales et l'accélération GPU, le déploiement bare metal est recommandé. Assurez-vous que votre hyperviseur supporte le passthrough GPU si vous utilisez des VMs avec GPU.</p>
+        </div>
+      </div>
+
+      <div class="content-section">
+        <h2>Processus de Déploiement</h2>
+
+        <div class="deployment-step">
+          <h4>Étape 1 : Évaluation Pré-Déploiement (Semaine 1)</h4>
+          <p><strong>Objectif :</strong> Valider la préparation de l'infrastructure et identifier les dépendances.</p>
+          <ul>
+            <li>Auditer l'architecture réseau isolée existante</li>
+            <li>Identifier les sources de données internes (bases de données, partages de fichiers, applications)</li>
+            <li>Déterminer les médias sécurisés approuvés pour le transfert de fichiers (USB, DVD, SneakerNet interne)</li>
+            <li>Définir les exigences d'accès utilisateur et d'authentification (LDAP, CAC/PIV, SAML)</li>
+            <li>Revoir les runbooks opérationnels et procédures de gestion des changements</li>
+          </ul>
+        </div>
+
+        <div class="deployment-step">
+          <h4>Étape 2 : Transfert des Packages (Semaine 2)</h4>
+          <p><strong>Objectif :</strong> Déplacer les packages d'installation Datacendia dans l'environnement air-gapped.</p>
+          <ul>
+            <li>Datacendia fournit les packages d'installation sous forme d'archives compressées (.tar.gz)</li>
+            <li>Les packages sont signés cryptographiquement (signatures GPG fournies)</li>
+            <li>Transférer via médias sécurisés approuvés suivant les procédures de transfert de données de votre organisation</li>
+            <li>Vérifier l'intégrité du package en utilisant les checksums et signatures fournis</li>
+          </ul>
+          <p><strong>Taille Typique du Package :</strong> 2-5Go compressé (modèles, code application, dépendances)</p>
+        </div>
+
+        <div class="deployment-step">
+          <h4>Étape 3 : Installation (Semaine 2-3)</h4>
+          <p><strong>Objectif :</strong> Installer Datacendia sur l'infrastructure isolée.</p>
+          <ul>
+            <li>Extraire les packages d'installation sur le serveur cible</li>
+            <li>Exécuter le script d'installation automatisé (valide les dépendances, configure les services)</li>
+            <li>Initialiser la base de données (PostgreSQL embarqué ou connexion à une base existante)</li>
+            <li>Configurer l'intégration d'authentification (LDAP, Active Directory, SAML IdP)</li>
+            <li>Configurer les certificats TLS pour HTTPS interne</li>
+          </ul>
+          <p><strong>Temps d'Installation :</strong> 4-8 heures (dépend de la complexité de l'infrastructure)</p>
+        </div>
+
+        <div class="deployment-step">
+          <h4>Étape 4 : Configuration des Connecteurs de Données (Semaine 3-4)</h4>
+          <p><strong>Objectif :</strong> Connecter Datacendia aux sources de données internes.</p>
+          <ul>
+            <li>Configurer les connecteurs de base de données (PostgreSQL, Oracle, SQL Server, etc.)</li>
+            <li>Configurer l'accès aux partages de fichiers (NFS, SMB/CIFS)</li>
+            <li>Intégrer avec les APIs internes (REST, SOAP)</li>
+            <li>Tester l'ingestion de données et valider la connectivité</li>
+            <li>Configurer les planifications de rafraîchissement pour la synchronisation des données</li>
+          </ul>
+        </div>
+
+        <div class="deployment-step">
+          <h4>Étape 5 : Tests et Validation (Semaine 4-5)</h4>
+          <p><strong>Objectif :</strong> Valider l'installation et vérifier l'absence de dépendances externes.</p>
+          <ul>
+            <li>Tests d'isolation réseau (confirmer qu'aucune connexion sortante n'est tentée)</li>
+            <li>Tests d'acceptation utilisateur avec groupe pilote</li>
+            <li>Benchmarking de performance sous charge</li>
+            <li>Tests de failover et récupération</li>
+            <li>Transfert de documentation et formation des opérateurs</li>
+          </ul>
+        </div>
+
+        <div class="deployment-step">
+          <h4>Étape 6 : Mise en Production (Semaine 5-6)</h4>
+          <p><strong>Objectif :</strong> Déployer aux utilisateurs de production et établir les opérations continues.</p>
+          <ul>
+            <li>Migrer la configuration pilote vers la production</li>
+            <li>Sessions d'intégration et formation des utilisateurs</li>
+            <li>Établir les procédures de monitoring et opérationnelles</li>
+            <li>Documenter les runbooks pour les scénarios courants</li>
+          </ul>
+        </div>
+
+        <p><strong>Calendrier Total de Déploiement :</strong> 4-6 semaines de l'évaluation d'infrastructure à la production. Le calendrier suppose que l'infrastructure est disponible et que votre équipe a des ressources dédiées pour le déploiement.</p>
+      </div>
+
+      <div class="content-section">
+        <h2>Mise à Jour et Maintenance</h2>
+
+        <h3>Comment Fonctionnent les Mises à Jour dans les Environnements Air-Gapped</h3>
+        <p>Datacendia ne peut pas se mettre à jour automatiquement comme les logiciels cloud. Les mises à jour sont livrées sous forme de packages hors ligne transférés via médias sécurisés approuvés.</p>
+
+        <p><strong>Processus de Mise à Jour :</strong></p>
+        <ol>
+          <li>Datacendia publie le package de mise à jour (trimestriellement ou selon les besoins pour les correctifs de sécurité)</li>
+          <li>Le client télécharge le package de mise à jour depuis le portail client Datacendia (depuis un système connecté)</li>
+          <li>Le client transfère le package vers l'environnement air-gapped via médias approuvés</li>
+          <li>Le client valide la signature du package en utilisant la clé GPG</li>
+          <li>Le client exécute le script de mise à jour pendant la fenêtre de maintenance</li>
+          <li>Le système sauvegarde automatiquement la version actuelle avant d'appliquer la mise à jour</li>
+          <li>La mise à jour s'applique, les services redémarrent, les tests de validation s'exécutent</li>
+        </ol>
+
+        <div class="info-box">
+          <p><strong>Fréquence des Mises à Jour :</strong> Versions majeures : Trimestriellement. Correctifs de sécurité : Selon les besoins (typiquement 1-3 par trimestre). Vous contrôlez quand appliquer les mises à jour—il n'y a pas de mises à jour forcées.</p>
+        </div>
+
+        <h3>Capacité de Rollback</h3>
+        <p>Si une mise à jour cause des problèmes, Datacendia supporte le rollback en une commande vers la version précédente. Toutes les données et configurations sont préservées pendant le rollback.</p>
+
+        <h3>Support à Long Terme</h3>
+        <p>Datacendia fournit des versions de support à long terme (LTS) pour les clients qui ne peuvent pas mettre à jour fréquemment. Les versions LTS reçoivent des correctifs de sécurité pendant 18 mois sans forcer les mises à niveau de fonctionnalités.</p>
+      </div>
+
+      <div class="content-section">
+        <h2>Considérations Opérationnelles</h2>
+
+        <h3>Compromis vs. Déploiement Cloud</h3>
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th>Aspect</th>
+              <th>SaaS Cloud</th>
+              <th>Air-Gapped</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Temps de Configuration</td>
+              <td>Heures</td>
+              <td>Semaines</td>
+            </tr>
+            <tr>
+              <td>Mises à Jour</td>
+              <td>Automatiques</td>
+              <td>Manuelles (packages hors ligne)</td>
+            </tr>
+            <tr>
+              <td>Charge Opérationnelle</td>
+              <td>Faible (nous gérons)</td>
+              <td>Élevée (vous gérez)</td>
+            </tr>
+            <tr>
+              <td>Réponse Support</td>
+              <td>Accès distant possible</td>
+              <td>Documentation + partage d'écran uniquement</td>
+            </tr>
+            <tr>
+              <td>Souveraineté des Données</td>
+              <td>Partielle</td>
+              <td>Complète</td>
+            </tr>
+            <tr>
+              <td>Options de Conformité</td>
+              <td>SOC 2, RGPD, HIPAA</td>
+              <td>ITAR, Classifié, CMMC, Tous</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3>Exigences en Personnel</h3>
+        <p>Le déploiement air-gapped nécessite du personnel technique interne pour gérer le système. Équipe recommandée :</p>
+        <ul>
+          <li><strong>Administrateur Système (0.5 ETP) :</strong> Correctifs OS, monitoring, gestion des utilisateurs</li>
+          <li><strong>DBA (0.25 ETP) :</strong> Maintenance base de données, gestion des sauvegardes</li>
+          <li><strong>Ingénieur Réseau (selon besoins) :</strong> Dépannage connectivité, optimisation performance</li>
+          <li><strong>Propriétaire Application (0.25 ETP) :</strong> Support utilisateurs, modifications configuration, gestion connecteurs données</li>
+        </ul>
+
+        <h3>Modèle de Support</h3>
+        <p>Datacendia fournit du support pour les déploiements air-gapped via :</p>
+        <ul>
+          <li>Portail de documentation (accessible depuis systèmes connectés)</li>
+          <li>Sessions de partage d'écran (non invasives, dépannage visuel)</li>
+          <li>Support email et téléphone</li>
+          <li>Points trimestriels avec l'équipe succès client</li>
+        </ul>
+        <p>Nous ne pouvons pas accéder à distance aux systèmes air-gapped, donc le dépannage repose sur votre équipe fournissant logs, captures d'écran et détails de configuration.</p>
+      </div>
+
+      <div class="content-section">
+        <h2>Questions Fréquentes</h2>
+
+        <h3>Datacendia peut-il fonctionner sur SIPRNet ou JWICS ?</h3>
+        <p>Oui. Datacendia est architecturalement conçu pour le déploiement sur des réseaux classifiés incluant SIPRNet (SECRET) et JWICS (TOP SECRET/SCI). Le déploiement suit le même processus de transfert de packages hors ligne via procédures approuvées de manipulation de médias classifiés. <strong>Nous recherchons des partenaires pilotes avec des exigences de réseaux classifiés.</strong></p>
+
+        <h3>Comment ajouter de nouvelles sources de données après le déploiement initial ?</h3>
+        <p>Les connecteurs de données peuvent être configurés via l'interface d'administration Datacendia. Aucun package externe nécessaire sauf si vous vous connectez à un nouveau type de base de données non inclus dans l'installation initiale.</p>
+
+        <h3>Que se passe-t-il si mon système air-gapped tombe en panne ?</h3>
+        <p>Datacendia supporte les configurations haute disponibilité (HA) avec failover automatique. En mode HA, si le nœud primaire tombe, un nœud secondaire prend le relais en 15 minutes. Vous gérez l'infrastructure HA (nous fournissons des conseils de configuration).</p>
+
+        <h3>Puis-je utiliser mes propres modèles IA au lieu des modèles Datacendia ?</h3>
+        <p>Oui. Datacendia supporte le déploiement hétérogène de LLM. Vous pouvez déployer vos propres modèles fine-tunés (compatibles avec le format HuggingFace Transformers) aux côtés ou à la place des modèles Datacendia.</p>
+
+        <h3>Combien coûte le déploiement air-gapped ?</h3>
+        <p>Le prix du déploiement air-gapped commence à 150K$ annuellement (vs. 75K$ pour SaaS cloud). La prime couvre les packages de mise à jour hors ligne, le modèle de support étendu et le conseil architectural pour les déploiements complexes. Voir <a href="../pricing.html?lang=fr" style="color: var(--color-gold);">détails des tarifs</a>.</p>
+      </div>
+
+      <div class="cta-box">
+        <h3>Consultation Déploiement Air-Gapped</h3>
+        <p>Planifiez une revue d'architecture pour évaluer le déploiement air-gapped pour votre environnement.</p>
+        <a href="../briefing.html?lang=fr" class="cta-btn">Demander un Briefing →</a>
+      </div>
+
+      <div class="content-section" style="text-align: center; margin-top: 80px; padding-top: 40px; border-top: 1px solid var(--color-border);">
+        <p style="font-size: 0.85rem; color: var(--color-text-dim);">
+          En savoir plus sur les <a href="sovereignty-matrix.html" style="color: var(--color-gold);">options de déploiement souverain</a> ou explorer les <a href="compliance.html" style="color: var(--color-gold);">cadres de conformité</a>.
+        </p>
+      </div>
+    </div>
+  </div>
+  <script src="../translations.js"></script>
+  <script src="../app.js"></script>
+  <script src="/nav-mobile.js"></script>
+</body>
+</html>

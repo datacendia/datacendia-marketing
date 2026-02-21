@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Datacendia — DCII Framework</title>
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-bg: #000000;
+      --color-bg-elevated: #080808;
+      --color-gold: #C9A227;
+      --color-gold-dim: rgba(201, 162, 39, 0.15);
+      --color-gold-border: rgba(201, 162, 39, 0.4);
+      --color-text: #FFFFFF;
+      --color-text-muted: #AAAAAA;
+      --color-text-dim: #666666;
+      --color-border: #222222;
+      --color-card-bg: #0A0A0A;
+      --color-green: #4ADE80;
+      --color-green-dim: rgba(74, 222, 128, 0.15);
+      --color-red: #F87171;
+      --color-red-dim: rgba(248, 113, 113, 0.15);
+      --color-amber: #FBBF24;
+      --color-amber-dim: rgba(251, 191, 36, 0.15);
+      --color-blue: #60A5FA;
+      --color-blue-dim: rgba(96, 165, 250, 0.15);
+      --color-purple: #A78BFA;
+      --color-purple-dim: rgba(167, 139, 250, 0.15);
+      --color-cyan: #22D3EE;
+      --color-cyan-dim: rgba(34, 211, 238, 0.15);
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-body: 'Inter', -apple-system, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: var(--font-body);
+      background: var(--color-bg);
+      color: var(--color-text);
+      min-height: 100vh;
+      padding: 40px 24px 80px;
+    }
+    .diagram-container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    h1 {
+      font-family: var(--font-display);
+      font-size: 2.4rem;
+      font-weight: 300;
+      text-align: center;
+      margin-bottom: 8px;
+      letter-spacing: .04em;
+    }
+    h1 span { color: var(--color-gold); }
+    .subtitle {
+      text-align: center;
+      color: var(--color-text-muted);
+      font-size: .85rem;
+      margin-bottom: 12px;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+    .intro {
+      text-align: center;
+      color: var(--color-text-dim);
+      font-size: .8rem;
+      line-height: 1.7;
+      max-width: 700px;
+      margin: 0 auto 48px;
+    }
+
+    /* Central IISS score */
+    .iiss-center {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 40px;
+    }
+    .iiss-ring {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      border: 3px solid var(--color-gold);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(circle at center, var(--color-gold-dim), transparent 70%);
+      position: relative;
+    }
+    .iiss-ring::before {
+      content: '';
+      position: absolute;
+      inset: -12px;
+      border-radius: 50%;
+      border: 1px solid var(--color-gold-border);
+    }
+    .iiss-ring::after {
+      content: '';
+      position: absolute;
+      inset: -24px;
+      border-radius: 50%;
+      border: 1px dashed rgba(201, 162, 39, 0.2);
+    }
+    .iiss-score {
+      font-family: var(--font-mono);
+      font-size: 2.4rem;
+      color: var(--color-gold);
+      font-weight: 500;
+      line-height: 1;
+    }
+    .iiss-label {
+      font-family: var(--font-mono);
+      font-size: .6rem;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: var(--color-text-muted);
+      margin-top: 6px;
+    }
+    .iiss-sublabel {
+      font-size: .65rem;
+      color: var(--color-text-dim);
+      margin-top: 2px;
+    }
+    .iiss-bands {
+      display: flex;
+      gap: 8px;
+      margin-top: 16px;
+    }
+    .band {
+      padding: 3px 10px;
+      border-radius: 4px;
+      font-family: var(--font-mono);
+      font-size: .6rem;
+      letter-spacing: .04em;
+    }
+    .band-critical { background: var(--color-red-dim); border: 1px solid rgba(248,113,113,.3); color: var(--color-red); }
+    .band-vulnerable { background: var(--color-amber-dim); border: 1px solid rgba(251,191,36,.3); color: var(--color-amber); }
+    .band-developing { background: var(--color-blue-dim); border: 1px solid rgba(96,165,250,.3); color: var(--color-blue); }
+    .band-resilient { background: var(--color-green-dim); border: 1px solid rgba(74,222,128,.3); color: var(--color-green); }
+    .band-immunized { background: var(--color-gold-dim); border: 1px solid var(--color-gold-border); color: var(--color-gold); }
+
+    /* Primitives grid */
+    .primitives-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 40px;
+    }
+    .primitive {
+      border: 1px solid var(--color-border);
+      border-radius: 12px;
+      padding: 20px;
+      background: var(--color-card-bg);
+      transition: border-color .3s, transform .2s;
+      cursor: default;
+      position: relative;
+      overflow: hidden;
+    }
+    .primitive:hover {
+      border-color: var(--color-gold-border);
+      transform: translateY(-2px);
+    }
+    .primitive::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      border-radius: 12px 12px 0 0;
+    }
+    .primitive.cat-temporal::before { background: var(--color-blue); }
+    .primitive.cat-process::before { background: var(--color-green); }
+    .primitive.cat-accountability::before { background: var(--color-amber); }
+    .primitive.cat-continuity::before { background: var(--color-purple); }
+    .primitive.cat-integrity::before { background: var(--color-cyan); }
+    .primitive.cat-media::before { background: var(--color-red); }
+    .primitive.cat-compliance::before { background: var(--color-gold); }
+
+    .p-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .p-num {
+      font-family: var(--font-mono);
+      font-size: .65rem;
+      font-weight: 500;
+      width: 28px;
+      height: 28px;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .cat-temporal .p-num { background: var(--color-blue-dim); color: var(--color-blue); border: 1px solid rgba(96,165,250,.3); }
+    .cat-process .p-num { background: var(--color-green-dim); color: var(--color-green); border: 1px solid rgba(74,222,128,.3); }
+    .cat-accountability .p-num { background: var(--color-amber-dim); color: var(--color-amber); border: 1px solid rgba(251,191,36,.3); }
+    .cat-continuity .p-num { background: var(--color-purple-dim); color: var(--color-purple); border: 1px solid rgba(167,139,250,.3); }
+    .cat-integrity .p-num { background: var(--color-cyan-dim); color: var(--color-cyan); border: 1px solid rgba(34,211,238,.3); }
+    .cat-media .p-num { background: var(--color-red-dim); color: var(--color-red); border: 1px solid rgba(248,113,113,.3); }
+    .cat-compliance .p-num { background: var(--color-gold-dim); color: var(--color-gold); border: 1px solid var(--color-gold-border); }
+
+    .p-name {
+      font-weight: 500;
+      font-size: .85rem;
+    }
+    .p-question {
+      color: var(--color-text-muted);
+      font-size: .75rem;
+      font-style: italic;
+      line-height: 1.5;
+      margin-bottom: 10px;
+    }
+    .p-desc {
+      color: var(--color-text-dim);
+      font-size: .72rem;
+      line-height: 1.5;
+      margin-bottom: 12px;
+    }
+    .p-tech {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+    }
+    .p-tech-tag {
+      background: rgba(255,255,255,.04);
+      border: 1px solid var(--color-border);
+      border-radius: 3px;
+      padding: 2px 6px;
+      font-family: var(--font-mono);
+      font-size: .58rem;
+      color: var(--color-text-dim);
+    }
+    .p-service {
+      margin-top: 10px;
+      padding-top: 10px;
+      border-top: 1px solid var(--color-border);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .p-service-name {
+      font-family: var(--font-mono);
+      font-size: .65rem;
+      color: var(--color-gold);
+    }
+    .p-service-size {
+      font-family: var(--font-mono);
+      font-size: .55rem;
+      color: var(--color-text-dim);
+    }
+
+    /* Connection explanation */
+    .connections {
+      border: 1px solid var(--color-border);
+      border-radius: 12px;
+      padding: 24px;
+      background: var(--color-card-bg);
+      margin-bottom: 40px;
+    }
+    .conn-title {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      margin-bottom: 16px;
+      color: var(--color-gold);
+    }
+    .conn-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+    .conn-item {
+      padding: 12px;
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      background: rgba(255,255,255,.02);
+    }
+    .ci-flow {
+      font-family: var(--font-mono);
+      font-size: .65rem;
+      color: var(--color-gold);
+      margin-bottom: 4px;
+    }
+    .ci-desc {
+      font-size: .72rem;
+      color: var(--color-text-muted);
+      line-height: 1.4;
+    }
+
+    /* Regulator scenario */
+    .scenario {
+      border: 2px solid var(--color-gold-border);
+      border-radius: 12px;
+      padding: 24px;
+      background: var(--color-card-bg);
+      margin-bottom: 40px;
+    }
+    .scenario-title {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      margin-bottom: 6px;
+    }
+    .scenario-subtitle {
+      color: var(--color-text-dim);
+      font-size: .75rem;
+      margin-bottom: 16px;
+    }
+    .timeline {
+      position: relative;
+      padding-left: 24px;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 8px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: var(--color-gold-border);
+    }
+    .tl-item {
+      position: relative;
+      padding-bottom: 16px;
+      padding-left: 20px;
+    }
+    .tl-item::before {
+      content: '';
+      position: absolute;
+      left: -20px;
+      top: 5px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--color-gold);
+      border: 2px solid var(--color-bg);
+    }
+    .tl-when {
+      font-family: var(--font-mono);
+      font-size: .6rem;
+      color: var(--color-gold);
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .tl-what {
+      font-size: .8rem;
+      margin-top: 2px;
+    }
+    .tl-prim {
+      font-family: var(--font-mono);
+      font-size: .6rem;
+      color: var(--color-text-dim);
+      margin-top: 2px;
+    }
+
+    @media (max-width: 900px) {
+      .primitives-grid { grid-template-columns: repeat(2, 1fr); }
+      .conn-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 600px) {
+      .primitives-grid { grid-template-columns: 1fr; }
+      h1 { font-size: 1.8rem; }
+      .modal-body { padding: 20px; max-width: 95vw; }
+    }
+
+    .modal-overlay {
+      position: fixed; inset: 0;
+      background: rgba(0,0,0,.78);
+      backdrop-filter: blur(6px);
+      z-index: 1000;
+      display: none; align-items: center; justify-content: center;
+      padding: 24px;
+    }
+    .modal-overlay.active { display: flex; }
+    .modal-body {
+      background: #0a0a0a;
+      border: 1px solid var(--color-gold-border);
+      border-radius: 14px;
+      max-width: 540px; width: 100%;
+      max-height: 80vh; overflow-y: auto;
+      padding: 28px 32px;
+      position: relative;
+      animation: modalIn .2s ease;
+    }
+    @keyframes modalIn { from { opacity:0; transform:translateY(12px); } to { opacity:1; transform:translateY(0); } }
+    .modal-close {
+      position: absolute; top: 14px; right: 16px;
+      background: none; border: none;
+      color: var(--color-text-dim); font-size: 1.4rem;
+      cursor: pointer; line-height: 1;
+    }
+    .modal-close:hover { color: var(--color-text); }
+    .modal-icon {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 40px; height: 40px; border-radius: 10px;
+      background: rgba(201,162,39,.1);
+      border: 1px solid rgba(201,162,39,.25);
+      font-size: 1.1rem; margin-bottom: 10px;
+      filter: grayscale(1) brightness(1.4) sepia(1) hue-rotate(5deg) saturate(2.5);
+    }
+    .modal-title {
+      font-family: var(--font-display);
+      font-size: 1.35rem; font-weight: 400;
+      color: var(--color-gold); margin-bottom: 18px;
+    }
+    .modal-section { margin-bottom: 14px; }
+    .modal-section:last-child { margin-bottom: 0; }
+    .modal-label {
+      font-family: var(--font-mono);
+      font-size: .58rem; letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--color-gold); margin-bottom: 4px;
+    }
+    .modal-text {
+      font-size: .82rem; color: var(--color-text-muted); line-height: 1.65;
+    }
+    .primitive, .conn-item { cursor: pointer; }
+    .conn-item:hover {
+      border-color: var(--color-gold-border) !important;
+      background: var(--color-gold-dim) !important;
+    }
+  </style>
+</head>
+<body>
+  <div class="diagram-container">
+    <h1>Decision Crisis <span>Immunization</span> Infrastructure</h1>
+    <p class="subtitle">The 9 Primitives</p>
+    <p class="intro">
+      When regulators, courts, or activists challenge your AI decisions years later,
+      DCII provides irrefutable cryptographic evidence that your process was sound.
+      Every primitive answers a specific question an adversary might ask.
+    </p>
+
+    <!-- IISS Score -->
+    <div class="iiss-center">
+      <div class="iiss-ring">
+        <div class="iiss-score">IISS</div>
+        <div class="iiss-label">0 — 1000</div>
+        <div class="iiss-sublabel">Institutional Immune System Score</div>
+      </div>
+      <div class="iiss-bands">
+        <span class="band band-critical">0–200 Critical</span>
+        <span class="band band-vulnerable">201–400 Vulnerable</span>
+        <span class="band band-developing">401–600 Developing</span>
+        <span class="band band-resilient">601–800 Resilient</span>
+        <span class="band band-immunized">801–1000 Immunized</span>
+      </div>
+    </div>
+
+    <!-- 9 Primitives -->
+    <div class="primitives-grid">
+
+      <!-- P1 -->
+      <div class="primitive cat-temporal">
+        <div class="p-header">
+          <div class="p-num">P1</div>
+          <div class="p-name">Discovery-Time Proof</div>
+        </div>
+        <div class="p-question">"When did you first know about this risk?"</div>
+        <div class="p-desc">Legally admissible timestamps proving when information was known. Cannot be backdated. Multi-provider redundancy prevents single-point manipulation.</div>
+        <div class="p-tech">
+          <span class="p-tech-tag">RFC 3161 TSA</span>
+          <span class="p-tech-tag">Multi-provider</span>
+          <span class="p-tech-tag">Blockchain anchor</span>
+          <span class="p-tech-tag">10-year retention</span>
+        </div>
+        <div class="p-service">
+          <span class="p-service-name">TimestampAuthorityService.ts</span>
+          <span class="p-service-size">26KB</span>
+        </div>
+      </div>
+
+      <!-- P2 -->
+      <div class="primitive cat-process">
+        <div class="p-header">
+          <div class="p-num">P2</div>
+          <div class="p-name">Deliberation Capture</div>
+        </div>
+        <div class="p-question">"What process did you follow to reach this decision?"</div>
+        <div class="p-desc">Complete recording of every argument, counter-argument, trade-off, and vote from all 43+ AI agents. Nothing can be hidden or retroactively changed.</div>
+        <div class="p-tech">
+          <span class="p-tech-tag">Multi-agent capture</span>
+          <span class="p-tech-tag">Full transcript</span>
+          <span class="p-tech-tag">Merkle tree</span>
+          <span class="p-tech-tag">WebSocket stream</span>
+        </div>
+        <div class="p-service">
+          <span class="p-service-name">CouncilService.ts</span>
+          <span class="p-service-size">50KB</span>
+        </div>
+      </div>
+
+      <!-- P3 -->
+      <div class="primitive cat-accountability">
+        <div class="p-header">
+          <div class="p-num">P3</div>
+          <div class="p-name">Override Accountability</div>
+        </div>
+        <div class="p-question">"Who overruled the AI's recommendation, and why?"</div>
+        <div class="p-desc">Every human override is permanently logged with the justification. Non-suppressible — even admins cannot delete override records. Proves governance was real, not theatre.</div>
+        <div class="p-tech">
+          <span class="p-tech-tag">Non-suppressible log</span>
+          <span class="p-tech-tag">Justification required</span>
+          <span class="p-tech-tag">Admin-proof</span>
+          <span class="p-tech-tag">Chain integrity</span>
+        </div>
+        <div class="p-service">
+          <span class="p-service-name">CendiaVetoService.ts</span>
+          <span class="p-service-size">18KB</span>
+        </div>
+      </div>
+
+      <!-- P4 -->
+      <div class="primitive cat-continuity">
+        <div class="p-header">
+          <div class="p-num">P4</div>
+          <div class="p-name">Continuity Memory</div>
+        </div>
+        <div class="p-question">"Did the institutional knowledge survive leadership changes?"</div>
+        <div class="p-desc">Decision context and rationale persist independently of personnel. When executives leave, their decision wisdom stays. Knowledge extraction before departure.</div>
+        <div class="p-tech">
+          <span class="p-tech-tag">Personnel-independent</span>
+          <span class="p-tech-tag">Knowledge extraction</span>
+          <span class="p-tech-tag">Succession capture</span>
+          <span class="p-tech-tag">100+ year archive</span>
+        </div>
+        <div class="p-service">
+          <span class="p-service-name">CendiaEternalService.ts</span>
+          <span class="p-service-size">18KB</span>
+        </div>
+      </div>
+
+      <!-- P5 -->
+      <div class="primitive cat-integrity">
+        <div class="p-header">
+          <div class="p-num">P5</div>
+          <div class="p-name">Drift Detection</div>
+        </div>
+        <div class="p-question">"Did your compliance standards degrade over time?"</div>
+        <div class="p-desc">Continuous monitoring detects when practices drift from stated policies. Catches the slow erosion that precedes scandals. Alerts before regulators notice.</div>
+        <div class="p-tech">
+          <span class="p-tech-tag">Continuous monitoring</span>
+          <span class="p-tech-tag">Baseline comparison</span>
+          <span class="p-tech-tag">10 frameworks</span>
+          <span class="p-tech-tag">Auto-alerts</span>
+        </div>
+        <div class="p-service">
+          <span class="p-service-name">ContinuousComplianceMonitorService.ts</span>
+          <span class="p-service-size">19KB</span>
+        </div>
+      </div>
+
+      <!-- P6 -->
+      <div class="primitive cat-process">
+        <div class="p-header">
+          <div class="p-num">P6</div>
+          <div class="p-name">Cognitive Bias Mitigation</div>
+        </div>
+        <div class="p-question">"Were decisions rubber-stamped or genuinely deliberated?"</div>
+        <div class="p-desc">Detects when humans are just going through the motions. Adversarial challenge forces real engagement. Tracks deliberation quality over time.</div>
+        <div class="p-tech">
+          <span class="p-tech-tag">Rubber-stamp detection</span>
+          <span class="p-tech-tag">Adversarial challenge</span>
+          <span class="p-tech-tag">Quality scoring</span>
+          <span class="p-tech-tag">18 collapse agents</span>
+        </div>
+        <div class="p-service">
+          <span class="p-service-name">CollapseOrchestrator.ts</span>
+          <span class="p-service-size">17KB</span>
+        </div>
+      </div>
+
+      <!-- P7 -->
+      <div class="primitive cat-integrity">
+        <div class="p-header">
+          <div class="p-num">P7</div>
+          <div class="p-name">Quantum-Resistant Integrity</div>
+        </div>
+        <div class="p-question">"Could these signatures be forged with future technology?"</div>
+        <div class="p-desc">Post-quantum cryptographic algorithms ensure that even quantum computers cannot forge decision signatures. Future-proof for decades.</div>
+        <div class="p-tech">
+          <span class="p-tech-tag">Dilithium</span>
+          <span class="p-tech-tag">SPHINCS+</span>
+          <span class="p-tech-tag">Falcon</span>
+          <span class="p-tech-tag">NIST PQC standards</span>
+        </div>
+        <div class="p-service">
+          <span class="p-service-name">PostQuantumKMSService.ts</span>
+          <span class="p-service-size">10KB</span>
+        </div>
+      </div>
+
+      <!-- P8 -->
+      <div class="primitive cat-media">
+        <div class="p-header">
+          <div class="p-num">P8</div>
+          <div class="p-name">Synthetic Media Authentication</div>
+        </div>
+        <div class="p-question">"How do we know this evidence hasn't been doctored?"</div>
+        <div class="p-desc">Proves documents, images, and videos haven't been tampered with. Detects deepfakes at pixel, audio, and metadata levels. C2PA content provenance chain.</div>
+        <div class="p-tech">
+          <span class="p-tech-tag">C2PA signing</span>
+          <span class="p-tech-tag">Deepfake detection</span>
+          <span class="p-tech-tag">Pixel analysis</span>
+          <span class="p-tech-tag">Hardware attestation</span>
+        </div>
+        <div class="p-service">
+          <span class="p-service-name">SyntheticMediaAuthService.ts</span>
+          <span class="p-service-size">25KB</span>
+        </div>
+      </div>
+
+      <!-- P9 -->
+      <div class="primitive cat-compliance">
+        <div class="p-header">
+          <div class="p-num">P9</div>
+          <div class="p-name">Cross-Jurisdiction Compliance</div>
+        </div>
+        <div class="p-question">"Did you consider conflicting regulations across borders?"</div>
+        <div class="p-desc">Simultaneously evaluates decisions against 17 jurisdictions. Detects when GDPR contradicts PIPL, when state law conflicts with federal, and when regulations clash.</div>
+        <div class="p-tech">
+          <span class="p-tech-tag">17 jurisdictions</span>
+          <span class="p-tech-tag">GDPR vs PIPL</span>
+          <span class="p-tech-tag">Conflict detection</span>
+          <span class="p-tech-tag">Auto-resolution</span>
+        </div>
+        <div class="p-service">
+          <span class="p-service-name">CrossJurisdictionConflictService.ts</span>
+          <span class="p-service-size">39KB</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- How they connect -->
+    <div class="connections">
+      <div class="conn-title">How the Primitives Interconnect</div>
+      <div class="conn-grid">
+        <div class="conn-item">
+          <div class="ci-flow">P1 + P2 + P3 → Evidence Chain</div>
+          <div class="ci-desc">Timestamps prove <em>when</em>, deliberation captures prove <em>how</em>, override logs prove <em>who</em> — complete chain of evidence.</div>
+        </div>
+        <div class="conn-item">
+          <div class="ci-flow">P5 + P6 → Continuous Assurance</div>
+          <div class="ci-desc">Drift detection catches slow erosion while bias mitigation catches active negligence. Together they prevent "boiling frog" scenarios.</div>
+        </div>
+        <div class="conn-item">
+          <div class="ci-flow">P7 + P8 → Future-Proof Trust</div>
+          <div class="ci-desc">Quantum-resistant signatures ensure integrity survives technology evolution. Media authentication ensures evidence survives deepfake attacks.</div>
+        </div>
+        <div class="conn-item">
+          <div class="ci-flow">P4 + P9 → Institutional Resilience</div>
+          <div class="ci-desc">Continuity memory ensures knowledge survives people leaving. Cross-jurisdiction ensures decisions survive regulatory complexity.</div>
+        </div>
+        <div class="conn-item">
+          <div class="ci-flow">All 9 → IISS Score</div>
+          <div class="ci-desc">Each primitive contributes to the Institutional Immune System Score (0–1000), providing a single metric for organizational crisis readiness.</div>
+        </div>
+        <div class="conn-item">
+          <div class="ci-flow">IISS → Regulator's Receipt</div>
+          <div class="ci-desc">One-click export of all 9 primitives as a court-admissible PDF that regulators can independently verify.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scenario: Under attack -->
+    <div class="scenario">
+      <div class="scenario-title">Scenario: Regulator Challenges Your AI Decision (3 Years Later)</div>
+      <div class="scenario-subtitle">How DCII protects you when the subpoena arrives</div>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-when">Day 0 — Decision Made</div>
+          <div class="tl-what">Council deliberates with 14 agents. Decision packet signed and vaulted.</div>
+          <div class="tl-prim">P1 timestamps it · P2 captures deliberation · P3 logs overrides</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-when">Year 1 — Executive Leaves</div>
+          <div class="tl-what">CendiaSuccession captures departing executive's tacit knowledge.</div>
+          <div class="tl-prim">P4 preserves continuity memory</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-when">Year 2 — Regulation Changes</div>
+          <div class="tl-what">New regulation contradicts the original framework. CendiaOversight auto-detects conflict.</div>
+          <div class="tl-prim">P5 catches drift · P9 detects jurisdiction conflict</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-when">Year 3 — Subpoena Arrives</div>
+          <div class="tl-what">Regulator demands proof of due diligence. You click "Generate Regulator's Receipt."</div>
+          <div class="tl-prim">All 9 primitives produce evidence</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-when">Day 1 of Audit — Evidence Delivered</div>
+          <div class="tl-what">Court-admissible PDF with Merkle tree verification. Regulator can independently verify every signature, timestamp, and hash.</div>
+          <div class="tl-prim">P7 ensures signatures are quantum-proof · P8 proves evidence isn't doctored</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-when">Result</div>
+          <div class="tl-what" style="color: var(--color-green); font-weight: 500;">Audit closed. Process was provably sound. IISS score: 847/1000 (Immunized).</div>
+          <div class="tl-prim">IISS certification provides industry-benchmarked resilience proof</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="modal-overlay" id="modal">
+    <div class="modal-body">
+      <button class="modal-close" id="modal-close">&times;</button>
+      <div class="modal-icon" id="m-icon"></div>
+      <div class="modal-title" id="m-title"></div>
+      <div id="m-content"></div>
+    </div>
+  </div>
+
+  <script src="diagram-data.js"></script>
+  <script>
+  (function(){
+    const modal = document.getElementById('modal');
+    const mIcon = document.getElementById('m-icon');
+    const mTitle = document.getElementById('m-title');
+    const mContent = document.getElementById('m-content');
+
+    function show(name, icon) {
+      const d = DIAGRAM_DATA[name];
+      if (!d) return;
+      mIcon.textContent = d.icon || icon || '';
+      mTitle.textContent = name;
+      mContent.innerHTML =
+        '<div class="modal-section"><div class="modal-label">What It Is</div><div class="modal-text">' + d.what + '</div></div>' +
+        '<div class="modal-section"><div class="modal-label">What It Does</div><div class="modal-text">' + d.does + '</div></div>' +
+        '<div class="modal-section"><div class="modal-label">How It Is Used</div><div class="modal-text">' + d.usage + '</div></div>';
+      modal.classList.add('active');
+    }
+
+    // Primitive cards
+    document.querySelectorAll('.primitive').forEach(function(el) {
+      el.addEventListener('click', function(e) {
+        e.stopPropagation();
+        var n = el.querySelector('.p-name');
+        if (n) show(n.textContent.trim(), '');
+      });
+    });
+
+    // Connection items
+    document.querySelectorAll('.conn-item').forEach(function(el) {
+      el.addEventListener('click', function(e) {
+        e.stopPropagation();
+        var f = el.querySelector('.ci-flow');
+        if (f) show(f.textContent.trim(), '');
+      });
+    });
+
+    document.getElementById('modal-close').addEventListener('click', function(){ modal.classList.remove('active'); });
+    modal.addEventListener('click', function(e){ if(e.target === modal) modal.classList.remove('active'); });
+    document.addEventListener('keydown', function(e){ if(e.key === 'Escape') modal.classList.remove('active'); });
+  })();
+  </script>
+  <script src="/nav-mobile.js"></script>
+</body>
+</html>

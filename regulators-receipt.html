@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Regulator&rsquo;s Receipt&trade; &mdash; Court-Admissible AI Decision Evidence | Datacendia</title>
+  <meta name="description" content="Datacendia's Regulator's Receipt™ generates three cryptographically signed PDFs from every AI decision: court-admissible evidence, full deliberation record, and executive summary. SHA-256, Merkle tree, RFC 3161 timestamped.">
+  <meta name="keywords" content="regulator's receipt, court admissible AI, AI decision evidence, cryptographic proof, Merkle tree, DCII, compliance PDF, AI governance">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Regulator's Receipt™ — Court-Admissible AI Decision Evidence">
+  <meta property="og:description" content="Three cryptographically signed PDFs from every AI decision. SHA-256, Merkle root, RFC 3161 timestamp. Independently verifiable. Court-admissible.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://datacendia.com/regulators-receipt.html">
+  <meta property="og:image" content="https://datacendia.com/og-image.png">
+  <meta property="og:site_name" content="Datacendia">
+  <link rel="canonical" href="https://datacendia.com/regulators-receipt.html">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .rr-hero{text-align:center;padding:80px 24px 48px;max-width:860px;margin:0 auto}
+    .rr-badge{display:inline-block;font-size:.65rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--color-gold);border:1px solid var(--color-gold-border);border-radius:4px;padding:4px 12px;margin-bottom:20px}
+    .rr-hero h1{font-size:clamp(2rem,5vw,3.2rem);font-weight:700;line-height:1.15;margin-bottom:20px;letter-spacing:-.02em}
+    .rr-hero h1 span{color:var(--color-gold)}
+    .rr-hero>p{font-size:1.05rem;color:var(--color-text-muted);max-width:640px;margin:0 auto 32px;line-height:1.7}
+    .rr-hero-ctas{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+    .rr-cta-primary{background:var(--color-gold);color:#000;font-weight:600;font-size:.85rem;letter-spacing:.06em;padding:12px 28px;border-radius:6px;text-decoration:none;transition:opacity .15s}
+    .rr-cta-primary:hover{opacity:.85}
+    .rr-cta-secondary{background:transparent;color:var(--color-text-muted);font-size:.85rem;padding:12px 28px;border:1px solid var(--color-border);border-radius:6px;text-decoration:none;transition:border-color .15s,color .15s}
+    .rr-cta-secondary:hover{border-color:var(--color-gold);color:var(--color-gold)}
+    .rr-section{max-width:1100px;margin:0 auto;padding:0 24px 64px}
+    .rr-section-label{font-size:.65rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--color-gold);margin-bottom:12px}
+    .rr-section h2{font-size:clamp(1.4rem,3vw,2rem);font-weight:700;margin-bottom:16px;letter-spacing:-.01em}
+    .rr-section>p{color:var(--color-text-muted);font-size:.95rem;line-height:1.7;max-width:680px;margin-bottom:40px}
+    .pdf-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;margin-bottom:64px}
+    .pdf-card{background:var(--color-card-bg);border:1px solid var(--color-border);border-radius:12px;overflow:hidden;transition:border-color .2s}
+    .pdf-card:hover{border-color:var(--color-gold-border)}
+    .pdf-card-header{padding:20px 24px 16px;border-bottom:1px solid var(--color-border);display:flex;align-items:flex-start;gap:14px}
+    .pdf-icon{width:40px;height:40px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0}
+    .pdf-icon.court{background:rgba(239,68,68,.12)}
+    .pdf-icon.evidence{background:rgba(59,130,246,.12)}
+    .pdf-icon.executive{background:rgba(201,168,76,.12)}
+    .pdf-card-title{font-size:.95rem;font-weight:600;margin-bottom:4px}
+    .pdf-card-subtitle{font-size:.72rem;color:var(--color-text-dim);letter-spacing:.04em;text-transform:uppercase}
+    .pdf-card-body{padding:20px 24px}
+    .pdf-card-desc{font-size:.85rem;color:var(--color-text-muted);line-height:1.6;margin-bottom:16px}
+    .pdf-sections-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:6px}
+    .pdf-sections-list li{font-size:.78rem;color:var(--color-text-muted);display:flex;align-items:flex-start;gap:8px}
+    .pdf-sections-list li::before{content:'›';color:var(--color-gold);font-weight:700;flex-shrink:0;margin-top:1px}
+    .pdf-tag{display:inline-block;font-size:.62rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:3px 8px;border-radius:3px;margin-top:14px}
+    .pdf-tag.court{background:rgba(239,68,68,.12);color:#f87171}
+    .pdf-tag.evidence{background:rgba(59,130,246,.12);color:#60a5fa}
+    .pdf-tag.executive{background:rgba(201,168,76,.12);color:var(--color-gold)}
+    .rr-mock-wrap{background:var(--color-card-bg);border:1px solid var(--color-border);border-radius:16px;padding:32px;margin-bottom:64px}
+    .rr-mock-label{font-size:.65rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--color-text-dim);margin-bottom:20px;display:flex;align-items:center;gap:8px}
+    .rr-mock-label::after{content:'';flex:1;height:1px;background:var(--color-border)}
+    .rr-mock{background:#0d0d0d;border:1px solid #2a2a2a;border-radius:10px;padding:28px 32px;font-family:'Courier New',Courier,monospace;font-size:.77rem;line-height:1.75;color:#c9d1d9;overflow-x:auto}
+    .rr-mock .db{color:#444;display:block}
+    .rr-mock .dt{color:#10b981;font-weight:700;text-align:center;display:block}
+    .rr-mock .ds{color:#4a5568;display:block;text-align:center}
+    .rr-mock .dh{color:#f0f6fc;font-weight:700;display:block;margin-top:12px}
+    .rr-mock .dg{color:#10b981;display:block}
+    .rr-mock .dd{color:#6e7681;display:block}
+    .rr-mock .dhash{color:#79c0ff;font-size:.7rem;word-break:break-all;display:block;padding-left:16px}
+    .rr-mock .dkv{display:flex;gap:8px}
+    .rr-mock .dk{color:#8b949e;min-width:190px;flex-shrink:0}
+    .rr-mock .dv{color:#c9d1d9}
+    .rr-mock .dp{color:#10b981;display:block}
+    .rr-mock .dc{color:#79c0ff;font-size:.7rem;display:block;padding-left:16px}
+    .rr-mock .dsec{border-top:1px solid #2a2a2a;margin-top:14px;padding-top:12px}
+    .crypto-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-bottom:64px}
+    .crypto-card{background:var(--color-card-bg);border:1px solid var(--color-border);border-radius:10px;padding:20px 22px}
+    .crypto-card-icon{font-size:1.4rem;margin-bottom:10px}
+    .crypto-card-title{font-size:.85rem;font-weight:600;margin-bottom:6px}
+    .crypto-card-desc{font-size:.78rem;color:var(--color-text-muted);line-height:1.6}
+    .crypto-card-detail{font-size:.7rem;color:var(--color-text-dim);margin-top:8px;font-family:'Courier New',monospace}
+    .verify-block{background:#0d0d0d;border:1px solid #2a2a2a;border-radius:10px;padding:24px 28px;margin-bottom:64px}
+    .verify-block h3{font-size:.9rem;font-weight:600;margin-bottom:16px;color:var(--color-text)}
+    .verify-step{margin-bottom:16px}
+    .verify-step-label{font-size:.75rem;color:#8b949e;margin-bottom:6px;font-family:'Courier New',monospace}
+    .verify-cmd{font-family:'Courier New',monospace;font-size:.75rem;color:#79c0ff;background:#161b22;border:1px solid #30363d;border-radius:6px;padding:10px 14px;white-space:pre-wrap;word-break:break-all}
+    .use-cases-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-bottom:64px}
+    .use-case-card{background:var(--color-card-bg);border:1px solid var(--color-border);border-radius:10px;padding:22px 24px;transition:border-color .2s}
+    .use-case-card:hover{border-color:var(--color-gold-border)}
+    .use-case-icon{font-size:1.5rem;margin-bottom:10px}
+    .use-case-title{font-size:.88rem;font-weight:600;margin-bottom:8px}
+    .use-case-desc{font-size:.78rem;color:var(--color-text-muted);line-height:1.6}
+    .rr-final-cta{text-align:center;padding:64px 24px;border-top:1px solid var(--color-border)}
+    .rr-final-cta h2{font-size:clamp(1.4rem,3vw,2rem);font-weight:700;margin-bottom:14px}
+    .rr-final-cta p{color:var(--color-text-muted);font-size:.95rem;margin-bottom:28px;max-width:520px;margin-left:auto;margin-right:auto}
+    .rr-final-cta-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+    @media(max-width:640px){.rr-mock{padding:16px 12px;font-size:.65rem}.rr-mock .dk{min-width:110px}}
+  </style>
+</head>
+<body>
+
+  <nav class="nav" id="main-nav" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo" aria-label="Datacendia home">
+        <span class="logo-dc">DC</span><span class="logo-full">Datacendia</span>
+      </a>
+      <div class="nav-links">
+        <a href="index.html" data-i18n="rrNavHome">Home</a>
+        <a href="platform-capabilities.html" data-i18n="rrNavPlatform">Platform</a>
+        <a href="dcii.html" data-i18n="rrNavDcii">DCII</a>
+        <a href="regulators-receipt.html" style="color:var(--color-gold)">Regulator&rsquo;s Receipt</a>
+        <a href="pricing.html" data-i18n="rrNavPricing">Pricing</a>
+        <a href="briefing.html" class="nav-cta" data-i18n="navRequestBriefing">Request Briefing</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- HERO -->
+    <div class="rr-hero">
+      <div class="rr-badge">DCII Framework &mdash; Evidence Infrastructure</div>
+      <h1 data-i18n="rrHeroTitle">The <span>Regulator&rsquo;s Receipt&trade;</span><br>Every AI Decision. Court-Admissible.</h1>
+      <p data-i18n="rrHeroDesc">Three cryptographically signed PDFs generated automatically from every council deliberation. SHA-256 hashed, Merkle tree verified, RFC&nbsp;3161 timestamped. Independently verifiable without Datacendia.</p>
+      <div class="rr-hero-ctas">
+        <a href="briefing.html" class="rr-cta-primary" data-i18n="rrHeroCtaDemo">See a Live Demo →</a>
+        <a href="dcii.html" class="rr-cta-secondary" data-i18n="rrHeroCtaDcii">DCII Framework</a>
+        <a href="pilot.html" class="rr-cta-secondary" data-i18n="rrHeroCtaPilot">Start a Pilot</a>
+      </div>
+    </div>
+
+    <!-- 3 PDF TYPES -->
+    <div class="rr-section">
+      <div class="rr-section-label" data-i18n="rrSec1Label">Three Output Formats</div>
+      <h2 data-i18n="rrSec1Title">One Decision. Three Documents.</h2>
+      <p data-i18n="rrSec1Desc">Every council deliberation automatically generates three distinct PDFs — each purpose-built for a different audience. No manual export. No reformatting. Generated in under 2 seconds.</p>
+
+      <div class="pdf-cards">
+        <div class="pdf-card">
+          <div class="pdf-card-header">
+            <div class="pdf-icon court">&#9878;</div>
+            <div>
+              <div class="pdf-card-title" data-i18n="rrPdf1Title">Court-Admissible Record</div>
+              <div class="pdf-card-subtitle">Regulators &middot; Litigation &middot; Auditors</div>
+            </div>
+          </div>
+          <div class="pdf-card-body">
+            <p class="pdf-card-desc">Full Appendix B format. Monospace Courier throughout &mdash; deliberately formatted to match legal document conventions. Every field cryptographically anchored.</p>
+            <ul class="pdf-sections-list">
+              <li>Receipt ID, Decision ID, Organization, timestamps</li>
+              <li>Decision question, recommendation, confidence %, named dissenting agents</li>
+              <li>SHA-256 decision hash (full 64-char hex)</li>
+              <li>Merkle root across deliberation, citations, responses, dissents</li>
+              <li>Ed25519 digital signature + Key ID + signature date</li>
+              <li>Compliance gate checklist: [PASS] / [FAIL] per framework</li>
+              <li>Council participant table: role, response count, citation count, confidence avg</li>
+              <li>Shell verification commands (openssl, sha256sum) &mdash; no vendor needed</li>
+              <li>Running header on every page: <em>CONFIDENTIAL &mdash; COURT ADMISSIBLE</em></li>
+            </ul>
+            <span class="pdf-tag court" data-i18n="rrPdf1Tag">Court Admissible</span>
+          </div>
+        </div>
+
+        <div class="pdf-card">
+          <div class="pdf-card-header">
+            <div class="pdf-icon evidence">&#128220;</div>
+            <div>
+              <div class="pdf-card-title" data-i18n="rrPdf2Title">Evidence Package</div>
+              <div class="pdf-card-subtitle">Compliance Teams &middot; Internal Audit</div>
+            </div>
+          </div>
+          <div class="pdf-card-body">
+            <p class="pdf-card-desc">The complete deliberation evidence dump. Every agent response, every citation, the full reasoning chain &mdash; packaged for internal compliance review and audit trail.</p>
+            <ul class="pdf-sections-list">
+              <li>Full agent response transcripts</li>
+              <li>Citation chain with source references</li>
+              <li>Dissent filings with per-agent rationale</li>
+              <li>Human approver record (if applicable)</li>
+              <li>Compliance framework mapping</li>
+              <li>Complete cryptographic evidence chain</li>
+              <li>Workflow configuration and compliance profile</li>
+              <li>IISS&trade; institutional resilience score at time of decision</li>
+            </ul>
+            <span class="pdf-tag evidence" data-i18n="rrPdf2Tag">Full Evidence</span>
+          </div>
+        </div>
+
+        <div class="pdf-card">
+          <div class="pdf-card-header">
+            <div class="pdf-icon executive">&#128202;</div>
+            <div>
+              <div class="pdf-card-title" data-i18n="rrPdf3Title">Executive Summary</div>
+              <div class="pdf-card-subtitle">Boards &middot; Leadership &middot; Stakeholders</div>
+            </div>
+          </div>
+          <div class="pdf-card-body">
+            <p class="pdf-card-desc">Clean table-based layout for executive audiences. Same cryptographic anchoring as the court-admissible version &mdash; formatted for readability over legal precision.</p>
+            <ul class="pdf-sections-list">
+              <li>Decision summary table: mode, consensus score, timestamps</li>
+              <li>Council participants overview</li>
+              <li>Compliance frameworks satisfied</li>
+              <li>Key recommendation and confidence level</li>
+              <li>Dissent count and summary</li>
+              <li>Receipt ID for cross-reference to full evidence package</li>
+            </ul>
+            <span class="pdf-tag executive" data-i18n="rrPdf3Tag">Executive Ready</span>
+          </div>
+        </div>
+      </div>
+      <!-- MOCK DOCUMENT -->
+      <div class="rr-mock-wrap">
+        <div class="rr-mock-label">Sample &mdash; Court-Admissible Format (actual output structure)</div>
+        <div class="rr-mock">
+<span class="db">================================================================</span>
+<span class="dt">DATACENDIA</span>
+<span class="dt" style="color:#1e3a8a">REGULATOR'S RECEIPT</span>
+<span class="ds">Decision Evidence Package  |  Court Admissible  |  DCII Framework v2.0</span>
+<span class="db">================================================================</span>
+<br>
+<div class="dkv"><span class="dk">RECEIPT ID:</span>      <span class="dv">RR-1771557046091-A4163C09</span></div>
+<div class="dkv"><span class="dk">DECISION ID:</span>     <span class="dv">del-8f3a2c91-4b7e-4d1f-9c2a</span></div>
+<div class="dkv"><span class="dk">ORGANIZATION:</span>    <span class="dv">Acme Financial Group</span></div>
+<div class="dkv"><span class="dk">DECISION DATE:</span>   <span class="dv">2026-02-20 03:10:46 UTC</span></div>
+<div class="dkv"><span class="dk">DECISION TYPE:</span>   <span class="dv">BOARD_COUNCIL (Financial)</span></div>
+<div class="dkv"><span class="dk">COMPLIANCE PROFILE:</span><span class="dv">SOC2 / GDPR / EU AI ACT</span></div>
+<div class="dsec">
+<span class="dh">SECTION 1: DECISION SUMMARY</span>
+<div class="dkv"><span class="dk">Question:</span>        <span class="dv">Should we proceed with the Q2 acquisition of TechCorp at $2.4B?</span></div>
+<div class="dkv"><span class="dk">Recommendation:</span> <span class="dv">Proceed with conditions &mdash; require escrow and IP audit</span></div>
+<div class="dkv"><span class="dk">Confidence:</span>     <span class="dv" style="color:#10b981">87%</span></div>
+<div class="dkv"><span class="dk">Dissenting Views:</span><span class="dv">2 (CFO-Agent, RiskCounsel-Agent)</span></div>
+<div class="dkv"><span class="dk">Human Approver:</span> <span class="dv">J. Martinez (Chief Risk Officer) &mdash; 03:14:22 UTC</span></div>
+</div>
+<div class="dsec">
+<span class="dh">SECTION 2: CRYPTOGRAPHIC INTEGRITY</span>
+<span class="dd">Decision Hash (SHA-256):</span>
+<span class="dhash">  a3f8c2d1e4b7091f6e5d4c3b2a1908f7e6d5c4b3a2918f7e6d5c4b3a2918f7e</span>
+<span class="dd" style="margin-top:6px">Merkle Root:</span>
+<span class="dhash">  7b3e9f2a1c8d4e6f0b5a7c9d2e4f6a8b0c2d4e6f8a0b2c4d6e8f0a2b4c6d8e0</span>
+<span class="dd" style="margin-top:6px">Digital Signature:</span>
+<span class="dg">  [Verified] Signed by: datacendia-kms</span>
+<span class="dd">  Key ID: kms-prod-ed25519-2026-02  |  Signature Date: 2026-02-20 03:10:47 UTC</span>
+</div>
+<div class="dsec">
+<span class="dh">SECTION 3: COMPLIANCE GATES</span>
+<span class="dp">[PASS]  SOC2 Type II &mdash; Audit trail complete</span>
+<span class="dp">[PASS]  GDPR Article 22 &mdash; Human oversight documented</span>
+<span class="dp">[PASS]  EU AI Act Article 14 &mdash; Human-in-the-loop verified</span>
+<span class="dp">[PASS]  ISO 27001 &mdash; Evidence chain integrity confirmed</span>
+</div>
+<div class="dsec">
+<span class="dh">SECTION 4: COUNCIL PARTICIPANTS</span>
+<span class="dd">  Agent                   Role              Responses  Citations  Confidence</span>
+<span class="dd">  -----------------------------------------------------------------------</span>
+<span class="dd">  LegalCounsel-Agent      Legal Review      4          7          91%</span>
+<span class="dd">  FinancialRisk-Agent     Risk Analysis     5          9          84%</span>
+<span class="dd">  CFO-Agent               Finance           3          5          72% [DISSENT]</span>
+<span class="dd">  RiskCounsel-Agent       Risk Counsel      4          6          69% [DISSENT]</span>
+<span class="dd">  Moderator-Agent         Synthesis         1          0          &mdash;</span>
+</div>
+<div class="dsec">
+<span class="dh">SECTION 5: VERIFICATION INSTRUCTIONS</span>
+<span class="dd">1. Verify decision hash:</span>
+<span class="dc">   $ echo "del-8f3a2c91-4b7e-4d1f-9c2a" | sha256sum</span>
+<span class="dd">   Expected: a3f8c2d1e4b7091f...</span>
+<span class="dd" style="margin-top:4px">2. Verify Merkle root: recompute from leaf hashes (deliberation, citations, responses, dissents)</span>
+<span class="dd" style="margin-top:4px">3. Verify digital signature:</span>
+<span class="dc">   $ openssl dgst -sha256 -verify datacendia_public_key.pem \</span>
+<span class="dc">     -signature receipt.sig receipt.json</span>
+<span class="dd" style="margin-top:4px">4. Access full evidence vault: compliance@datacendia.com  |  Ref: RR-1771557046091-A4163C09</span>
+</div>
+<br>
+<span class="db">================================================================</span>
+<span class="ds">DATACENDIA&trade;  |  DCII Framework v2.0  |  Decisional Compliance Intelligence Infrastructure</span>
+<span class="ds">Cryptographically signed. Tamper-evident. Court-admissible.    Page 1 of 4</span>
+<span class="db">================================================================</span>
+        </div>
+      </div>
+
+      <!-- CRYPTOGRAPHIC PROOF -->
+      <div class="rr-section-label" data-i18n="rrSec2Label">Cryptographic Architecture</div>
+      <h2 data-i18n="rrSec2Title">Independently Verifiable. No Vendor Trust Required.</h2>
+      <p>Any third party &mdash; a regulator, a court, an auditor &mdash; can verify the receipt&rsquo;s integrity without contacting Datacendia. All verification uses standard open-source tools.</p>
+
+      <div class="crypto-grid">
+        <div class="crypto-card">
+          <div class="crypto-card-icon">&#128274;</div>
+          <div class="crypto-card-title" data-i18n="rrCrypto1Title">SHA-256 Decision Hash</div>
+          <div class="crypto-card-desc">Every deliberation is hashed at completion. The hash covers the full decision packet &mdash; question, responses, recommendation, dissents, timestamps. Any change invalidates the hash.</div>
+          <div class="crypto-card-detail">Algorithm: SHA-256 &middot; Output: 64-char hex</div>
+        </div>
+        <div class="crypto-card">
+          <div class="crypto-card-icon">&#127795;</div>
+          <div class="crypto-card-title" data-i18n="rrCrypto2Title">Merkle Tree Integrity</div>
+          <div class="crypto-card-desc">Four leaf hashes &mdash; deliberation, citations, agent responses, dissents &mdash; combined into a single Merkle root. Tampering with any leaf invalidates the root.</div>
+          <div class="crypto-card-detail">Leaves: deliberation &middot; citations &middot; responses &middot; dissents</div>
+        </div>
+        <div class="crypto-card">
+          <div class="crypto-card-icon">&#9999;&#65039;</div>
+          <div class="crypto-card-title" data-i18n="rrCrypto3Title">Ed25519 Digital Signature</div>
+          <div class="crypto-card-desc">Applied by the Datacendia KMS at generation time. Public key published for independent verification via standard openssl commands. No proprietary tools required.</div>
+          <div class="crypto-card-detail">Algorithm: Ed25519 &middot; Verifiable: openssl dgst</div>
+        </div>
+        <div class="crypto-card">
+          <div class="crypto-card-icon">&#128336;</div>
+          <div class="crypto-card-title" data-i18n="rrCrypto4Title">RFC 3161 Timestamp</div>
+          <div class="crypto-card-desc">External timestamp authority anchors the exact moment of generation. Proves the document existed at a specific time &mdash; critical for regulatory and litigation timelines.</div>
+          <div class="crypto-card-detail">Standard: RFC 3161 &middot; External TSA</div>
+        </div>
+        <div class="crypto-card">
+          <div class="crypto-card-icon">&#128203;</div>
+          <div class="crypto-card-title" data-i18n="rrCrypto5Title">PDF/A Archival Format</div>
+          <div class="crypto-card-desc">Generated to PDF/A-1.7 standard &mdash; the archival format required by many regulatory bodies. Structured tags, embedded fonts, no external dependencies.</div>
+          <div class="crypto-card-detail">Standard: PDF/A-1.7 &middot; Tagged: yes</div>
+        </div>
+        <div class="crypto-card">
+          <div class="crypto-card-icon">&#128272;</div>
+          <div class="crypto-card-title" data-i18n="rrCrypto6Title">Post-Quantum Option</div>
+          <div class="crypto-card-desc">Optional post-quantum signing with Dilithium or SPHINCS+ for organizations requiring long-term cryptographic durability against quantum computing threats.</div>
+          <div class="crypto-card-detail">Algorithms: Dilithium &middot; SPHINCS+</div>
+        </div>
+      </div>
+
+      <!-- VERIFICATION COMMANDS -->
+      <div class="rr-section-label" data-i18n="rrSec3Label">Independent Verification</div>
+      <h2 data-i18n="rrSec3Title">Verify Without Datacendia</h2>
+      <p>The receipt is designed so verification requires no proprietary software, no Datacendia account, and no internet connection. Standard Unix tools only.</p>
+
+      <div class="verify-block">
+        <h3>Shell Verification Commands (included verbatim in every court-admissible PDF)</h3>
+        <div class="verify-step">
+          <div class="verify-step-label">Step 1 &mdash; Verify decision hash</div>
+          <div class="verify-cmd">$ echo "del-8f3a2c91-4b7e-4d1f-9c2a" | sha256sum
+# Expected: a3f8c2d1e4b7091f6e5d4c3b2a1908f7...</div>
+        </div>
+        <div class="verify-step">
+          <div class="verify-step-label">Step 2 &mdash; Verify Merkle root (recompute from leaf hashes)</div>
+          <div class="verify-cmd">$ cat deliberation.json citations.json responses.json dissents.json \
+  | sha256sum | awk '{print $1}' | sha256sum
+# Compare with Merkle Root in receipt header</div>
+        </div>
+        <div class="verify-step">
+          <div class="verify-step-label">Step 3 &mdash; Verify digital signature</div>
+          <div class="verify-cmd">$ openssl dgst -sha256 -verify datacendia_public_key.pem \
+  -signature receipt.sig receipt.json
+# Expected: Verified OK</div>
+        </div>
+        <div class="verify-step">
+          <div class="verify-step-label">Step 4 &mdash; Verify RFC 3161 timestamp</div>
+          <div class="verify-cmd">$ openssl ts -verify -in receipt.tsr -data receipt.json \
+  -CAfile tsa_ca.pem
+# Expected: Verification: OK</div>
+        </div>
+      </div>
+
+      <!-- USE CASES -->
+      <div class="rr-section-label" data-i18n="rrSec4Label">When You Need It</div>
+      <h2 data-i18n="rrSec4Title">Built for the Moments That Matter</h2>
+      <p>The Regulator&rsquo;s Receipt&trade; is designed for high-stakes situations where AI decision accountability is demanded &mdash; not just preferred.</p>
+
+      <div class="use-cases-grid">
+        <div class="use-case-card">
+          <div class="use-case-icon">&#9878;</div>
+          <div class="use-case-title" data-i18n="rrUseCase1Title">Regulatory Investigation</div>
+          <div class="use-case-desc">Regulator requests evidence of how an AI-assisted decision was made. Hand over the court-admissible PDF. The cryptographic chain speaks for itself.</div>
+        </div>
+        <div class="use-case-card">
+          <div class="use-case-icon">&#9878;</div>
+          <div class="use-case-title" data-i18n="rrUseCase2Title">Litigation Discovery</div>
+          <div class="use-case-desc">Opposing counsel demands AI decision records. The evidence package provides the complete deliberation transcript, agent reasoning, and dissent filings.</div>
+        </div>
+        <div class="use-case-card">
+          <div class="use-case-icon">&#128203;</div>
+          <div class="use-case-title" data-i18n="rrUseCase3Title">SOC 2 / ISO 27001 Audit</div>
+          <div class="use-case-desc">Auditors require proof of AI governance controls. The receipt demonstrates human oversight, compliance gate checks, and immutable audit trail &mdash; in one document.</div>
+        </div>
+        <div class="use-case-card">
+          <div class="use-case-icon">&#127968;</div>
+          <div class="use-case-title" data-i18n="rrUseCase4Title">Board Accountability</div>
+          <div class="use-case-desc">Board members need to understand and stand behind AI-assisted decisions. The executive summary gives them the full picture in a format they can actually read.</div>
+        </div>
+        <div class="use-case-card">
+          <div class="use-case-icon">&#127758;</div>
+          <div class="use-case-title" data-i18n="rrUseCase5Title">EU AI Act Compliance</div>
+          <div class="use-case-desc">Article 14 requires human oversight of high-risk AI systems. The receipt documents human-in-the-loop approval with timestamp, approver identity, and decision context.</div>
+        </div>
+        <div class="use-case-card">
+          <div class="use-case-icon">&#128200;</div>
+          <div class="use-case-title" data-i18n="rrUseCase6Title">Internal Post-Mortems</div>
+          <div class="use-case-desc">When a decision goes wrong, the evidence package provides the complete reasoning chain &mdash; who said what, what was cited, what dissents were filed, what was overridden.</div>
+        </div>
+      </div>
+
+    </div><!-- /rr-section -->
+
+    <!-- FINAL CTA -->
+    <div class="rr-final-cta">
+      <h2 data-i18n="rrFinalCtaTitle">See a Real Receipt in 30 Minutes</h2>
+      <p>Run a council deliberation on your infrastructure. We&rsquo;ll generate all three PDFs live. You keep the output.</p>
+      <div class="rr-final-cta-btns">
+        <a href="briefing.html" class="rr-cta-primary" data-i18n="rrFinalCtaBtn">Request a Briefing →</a>
+        <a href="pilot.html" class="rr-cta-secondary" data-i18n="rrFinalCtaPilot">Start a 90-Day Pilot</a>
+        <a href="dcii.html" class="rr-cta-secondary" data-i18n="rrFinalCtaDcii">DCII Framework</a>
+      </div>
+    </div>
+
+  </main>
+
+  <footer>
+    <div class="footer-section">
+      <p class="footer-outcome" data-i18n="footerOutcome">Ready to own your AI decisions—and prove them to regulators?</p>
+      <div class="footer-ctas">
+        <a href="briefing.html" class="cta-button"><span data-i18n="requestBriefing">Request Briefing</span> <span class="arrow">&rarr;</span></a>
+        <a href="pilot.html" class="cta-button secondary" data-i18n="footerCtaPilot">See Results in 90 Days</a>
+        <a href="pricing.html" class="cta-button secondary" data-i18n="pricing">Pricing</a>
+        <a href="trust.html" class="cta-button secondary" data-i18n="trustCenter">Trust Center</a>
+      </div>
+      <p class="footer-contact">
+        <a href="mailto:contact@datacendia.com">contact@datacendia.com</a> &middot;
+        <a href="team.html">Leadership</a> &middot;
+        <a href="protocol.html">Protocol</a> &middot;
+        <a href="dcii.html">DCII</a> &middot;
+        <a href="platform-capabilities.html">Platform</a> &middot;
+        <a href="pricing.html" data-i18n="pricing">Pricing</a> &middot;
+        <a href="privacy.html" data-i18n="privacy">Privacy</a> &middot;
+        <a href="terms.html" data-i18n="terms">Terms</a>
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>

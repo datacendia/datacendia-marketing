@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI 감사 추적이란? | Datacendia</title>
+  <meta name="description" content="AI 감사 추적은 모든 AI 결정의 완전하고 불변의 기록입니다. GDPR 및 컴플라이언스에 필수적입니다.">
+  <meta property="og:title" content="AI 감사 추적이란?">
+  <meta property="og:description" content="AI 감사 추적은 모든 AI 결정의 완전하고 불변의 기록입니다.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://datacendia.com/ko/learn/ai-audit-trail/">
+  <meta property="og:image" content="https://datacendia.com/og-image.png">
+  <meta property="og:site_name" content="Datacendia">
+  <meta property="og:locale" content="ko_KR">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://datacendia.com/og-image.png">
+  <link rel="canonical" href="https://datacendia.com/ko/learn/ai-audit-trail/">
+  <link rel="alternate" hreflang="en" href="https://datacendia.com/learn/ai-audit-trail/">
+  <link rel="alternate" hreflang="es" href="https://datacendia.com/es/learn/ai-audit-trail/">
+  <link rel="alternate" hreflang="fr" href="https://datacendia.com/fr/learn/ai-audit-trail/">
+  <link rel="alternate" hreflang="de" href="https://datacendia.com/de/learn/ai-audit-trail/">
+  <link rel="alternate" hreflang="pt" href="https://datacendia.com/pt/learn/ai-audit-trail/">
+  <link rel="alternate" hreflang="it" href="https://datacendia.com/it/learn/ai-audit-trail/">
+  <link rel="alternate" hreflang="ja" href="https://datacendia.com/ja/learn/ai-audit-trail/">
+  <link rel="alternate" hreflang="ko" href="https://datacendia.com/ko/learn/ai-audit-trail/">
+  <link rel="alternate" hreflang="zh" href="https://datacendia.com/zh/learn/ai-audit-trail/">
+  <link rel="alternate" hreflang="ar" href="https://datacendia.com/ar/learn/ai-audit-trail/">
+  <link rel="alternate" hreflang="hi" href="https://datacendia.com/hi/learn/ai-audit-trail/">
+  <link rel="alternate" hreflang="x-default" href="https://datacendia.com/learn/ai-audit-trail/">
+  <link rel="canonical" href="https://datacendia.com/ko/learn/ai-audit-trail/">
+  <link rel="icon" type="image/svg+xml" href="../../../assets/favicon.svg">
+  <link rel="stylesheet" href="../../../styles.css">
+  <style>
+    .learn-container { max-width: 800px; margin: 0 auto; padding: 60px 24px 80px; }
+    .learn-title { font-family: var(--font-display); font-size: 2.25rem; font-weight: 300; color: var(--color-text); margin-bottom: 16px; }
+    .learn-subtitle { font-size: 1.1rem; color: var(--color-text-muted); margin-bottom: 32px; line-height: 1.6; }
+    .learn-content h2 { font-family: var(--font-display); font-size: 1.5rem; color: var(--color-text); margin: 48px 0 16px; padding-top: 24px; border-top: 1px solid var(--color-border); }
+    .learn-content p, .learn-content li { font-size: 0.95rem; color: var(--color-text-muted); line-height: 1.8; }
+    .learn-content ul { margin: 16px 0 24px 24px; }
+    .definition-box { background: var(--color-card-bg); border: 1px solid var(--color-gold); border-radius: 8px; padding: 24px; margin: 24px 0; }
+    .cta-box { background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(212, 175, 55, 0.02) 100%); border: 1px solid var(--color-gold); border-radius: 8px; padding: 32px; margin-top: 48px; text-align: center; }
+    .cta-button { display: inline-block; background: var(--color-gold); color: var(--color-bg); padding: 12px 32px; border-radius: 6px; text-decoration: none; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-top"><a href="../../" style="text-decoration: none;"><h1 class="logo"><span class="brand-name">DATACENDIA</span></h1></a></div>
+      <nav class="main-nav">
+        <button class="nav-toggle" aria-label="Menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+        <div class="nav-menu">
+        <div class="nav-group">
+          <span class="nav-label">플랫폼</span>
+          <div class="nav-dropdown">
+            <a href="/platform-capabilities.html">플랫폼 개요<span class="nav-desc">전체 기능 맵</span></a>
+            <a href="/dcii.html">DCII 프레임워크<span class="nav-desc">9가지 기본 요소 · 위기 면역</span></a>
+            <a href="/diagrams.html">아키텍처<span class="nav-desc">8개 시스템 다이어그램</span></a>
+          </div>
+        </div>
+        <div class="nav-group">
+          <span class="nav-label">증거</span>
+          <div class="nav-dropdown">
+            <a href="/demos.html">인터랙티브 데모<span class="nav-desc">Council, Chronos, Crucible 등</span></a>
+            <a href="/wargames.html">워 게임<span class="nav-desc">이의 제기가 위험을 드러냈을까?</span></a>
+            <a href="/case-studies.html">사례 연구<span class="nav-desc">실제 의사결정 분석</span></a>
+          </div>
+        </div>
+        <a href="/verticals.html">산업</a>
+        <div class="nav-group">
+          <span class="nav-label">가격</span>
+          <div class="nav-dropdown">
+            <a href="/pricing.html">티어 개요<span class="nav-desc">Foundation · Enterprise · Strategic</span></a>
+            <a href="/premium.html">프리미엄 모듈<span class="nav-desc">7가지 고급 기능</span></a>
+            <a href="/roi-calculator.html">ROI 계산기<span class="nav-desc">의사결정 위험 감소 정량화</span></a>
+            <a href="/pilot.html">90일 파일럿<span class="nav-desc">확장 전 가치 증명</span></a>
+          </div>
+        </div>
+        <div class="nav-group">
+          <span class="nav-label">신뢰</span>
+          <div class="nav-dropdown">
+            <a href="/trust.html">트러스트 센터<span class="nav-desc">보안, 규정 준수 및 배포</span></a>
+            <a href="/honesty-matrices.html">정직 매트릭스<span class="nav-desc">아직 할 수 없는 것</span></a>
+          </div>
+        </div>
+        <a href="/briefing.html" class="nav-cta">브리핑 요청</a>
+        </div>
+      </nav>
+    </header>
+    <main class="learn-container">
+      <article>
+        <h1 class="learn-title">AI 감사 추적이란?</h1>
+        <p class="learn-subtitle">AI 감사 추적은 AI 시스템이 내린 모든 결정의 완전하고 불변의 타임스탬프가 있는 기록입니다.</p>
+        <div class="definition-box"><p><strong>AI 감사 추적:</strong> AI 시스템에 의해 또는 관련하여 수행된 모든 활동, 결정, 변경의 시간순 불변 기록.</p></div>
+        <div class="learn-content">
+          <h2>왜 AI 감사 추적이 중요한가?</h2>
+          <ul>
+            <li><strong>규제 컴플라이언스</strong> — GDPR, EU AI법, 산업 규정은 설명 가능성을 요구</li>
+            <li><strong>법적 방어</strong> — 이의 제기 시 결정 방법에 대한 증거</li>
+            <li><strong>내부 거버넌스</strong> — AI 시스템 감독 및 지속적 개선</li>
+            <li><strong>모델 개선</strong> — 어떤 결정이 기각되었는지, 그 이유 이해</li>
+          </ul>
+          <h2>완전한 감사 추적의 내용</h2>
+          <ul>
+            <li><strong>입력 컨텍스트</strong> — 데이터 소스, 특성 값</li>
+            <li><strong>모델 컨텍스트</strong> — 모델 버전, 구성, 비즈니스 규칙</li>
+            <li><strong>결정 추론</strong> — 핵심 요인, 신뢰도 점수</li>
+            <li><strong>출력 및 영향</strong> — 최종 결정, 취해진 조치</li>
+            <li><strong>인간 감독</strong> — 누가 검토했는지, 기각 및 이유</li>
+          </ul>
+          <div class="cta-box">
+            <h3>AI 감사 추적 체험하기</h3>
+            <p>Datacendia는 모든 AI 결정에 대해 불변의 감사 추적을 제공합니다.</p>
+            <a href="/briefing.html?lang=ko" class="cta-button">기술 브리핑 요청</a>
+          </div>
+        </div>
+      </article>
+    </main>
+    <footer style="text-align: center; padding: 40px 24px; border-top: 1px solid var(--color-border);"><p style="font-size: 0.75rem; color: var(--color-text-dim);">© 2026 Datacendia</p></footer>
+  </div>
+  <script src="/nav-mobile.js"></script>
+</body>
+</html>

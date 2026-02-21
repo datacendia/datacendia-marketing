@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Security Whitepaper — Datacendia</title>
+  <meta name="description" content="Datacendia Security Whitepaper: architecture, encryption, access controls, and deployment models for enterprise AI decision intelligence.">
+  <link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../styles.css">
+  <style>
+    .doc-container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 60px 24px;
+    }
+    .doc-header {
+      text-align: center;
+      margin-bottom: 48px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid var(--color-border);
+    }
+    .doc-title {
+      font-family: var(--font-display);
+      font-size: 2.2rem;
+      font-weight: 300;
+      color: var(--color-text);
+      margin-bottom: 12px;
+    }
+    .doc-meta {
+      font-size: 0.85rem;
+      color: var(--color-text-muted);
+    }
+    .doc-content h2 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--color-gold);
+      margin-top: 48px;
+      margin-bottom: 20px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--color-border);
+    }
+    .doc-content h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--color-text);
+      margin-top: 32px;
+      margin-bottom: 16px;
+    }
+    .doc-content p {
+      font-size: 0.95rem;
+      color: var(--color-text-muted);
+      line-height: 1.7;
+      margin-bottom: 16px;
+    }
+    .doc-content ul, .doc-content ol {
+      margin-bottom: 16px;
+      padding-left: 24px;
+    }
+    .doc-content li {
+      font-size: 0.95rem;
+      color: var(--color-text-muted);
+      line-height: 1.6;
+      margin-bottom: 8px;
+    }
+    .doc-content strong {
+      color: var(--color-text);
+    }
+    .doc-content table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      font-size: 0.85rem;
+    }
+    .doc-content th, .doc-content td {
+      padding: 12px 16px;
+      text-align: left;
+      border: 1px solid var(--color-border);
+    }
+    .doc-content th {
+      background: var(--color-card-bg);
+      color: var(--color-text);
+      font-weight: 600;
+    }
+    .doc-content td {
+      color: var(--color-text-muted);
+    }
+    .highlight-box {
+      background: var(--color-card-bg);
+      border: 1px solid var(--color-border);
+      border-left: 3px solid var(--color-gold);
+      padding: 20px;
+      margin: 24px 0;
+      border-radius: 0 8px 8px 0;
+    }
+    .highlight-box p {
+      margin-bottom: 8px;
+    }
+    .highlight-box p:last-child {
+      margin-bottom: 0;
+    }
+    .back-link {
+      display: inline-block;
+      margin-bottom: 24px;
+      font-size: 0.8rem;
+      color: var(--color-text-dim);
+      text-decoration: none;
+    }
+    .back-link:hover {
+      color: var(--color-gold);
+    }
+    pre {
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+      padding: 16px;
+      border-radius: 8px;
+      overflow-x: auto;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--color-text-muted);
+      margin: 16px 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="doc-container">
+      <a href="index.html" class="back-link">← Back to Compliance Docs</a>
+      
+      <div class="doc-header">
+        <h1 class="doc-title">🛡️ Security Whitepaper</h1>
+        <p class="doc-meta">Version 1.0 · January 2026</p>
+      </div>
+
+      <div class="doc-content">
+        <div class="highlight-box">
+          <p><strong>Key Security Highlights:</strong></p>
+          <ul style="margin-bottom: 0;">
+            <li><strong>Data Sovereignty:</strong> All data processing can occur entirely on customer infrastructure</li>
+            <li><strong>Zero External Calls:</strong> Sovereign deployment makes no external API calls</li>
+            <li><strong>Cryptographic Integrity:</strong> SHA-256 hash chains for tamper-evident audit trails</li>
+            <li><strong>Customer-Owned Keys:</strong> KMS/HSM integration with customer-controlled encryption keys</li>
+            <li><strong>Air-Gap Ready:</strong> Full functionality without internet connectivity</li>
+          </ul>
+        </div>
+
+        <h2>1. Security Architecture</h2>
+        
+        <h3>Defense in Depth</h3>
+        <p>Datacendia implements multiple layers of security controls:</p>
+        
+        <table>
+          <tr>
+            <th>Layer</th>
+            <th>Controls</th>
+          </tr>
+          <tr>
+            <td><strong>Perimeter</strong></td>
+            <td>WAF, DDoS Protection, Rate Limiting, IP Allowlisting</td>
+          </tr>
+          <tr>
+            <td><strong>Network</strong></td>
+            <td>VPC Isolation, Network Segmentation, TLS 1.3 Everywhere</td>
+          </tr>
+          <tr>
+            <td><strong>Application</strong></td>
+            <td>Authentication, Authorization, Input Validation, CSRF Protection</td>
+          </tr>
+          <tr>
+            <td><strong>Data</strong></td>
+            <td>Encryption at Rest, Encryption in Transit, Key Rotation</td>
+          </tr>
+          <tr>
+            <td><strong>Monitoring</strong></td>
+            <td>Audit Logs, Anomaly Detection, SIEM Integration</td>
+          </tr>
+        </table>
+
+        <h3>Deployment Models</h3>
+        <table>
+          <tr>
+            <th>Model</th>
+            <th>Description</th>
+            <th>Security Profile</th>
+          </tr>
+          <tr>
+            <td><strong>Sovereign (Air-Gapped)</strong></td>
+            <td>100% on-premise, no external connectivity</td>
+            <td>Maximum security, SCIF-compatible</td>
+          </tr>
+          <tr>
+            <td><strong>Private Cloud</strong></td>
+            <td>Customer's cloud account (AWS/Azure/GCP)</td>
+            <td>Customer-controlled infrastructure</td>
+          </tr>
+          <tr>
+            <td><strong>Hybrid</strong></td>
+            <td>Core on-premise, optional cloud AI</td>
+            <td>Balanced security and capability</td>
+          </tr>
+          <tr>
+            <td><strong>Cloud</strong></td>
+            <td>Datacendia-managed infrastructure</td>
+            <td>SOC 2-aligned controls</td>
+          </tr>
+        </table>
+
+        <h2>2. Data Protection</h2>
+        
+        <h3>Data Classification</h3>
+        <table>
+          <tr>
+            <th>Classification</th>
+            <th>Examples</th>
+            <th>Handling</th>
+          </tr>
+          <tr>
+            <td><strong>Restricted</strong></td>
+            <td>Decision packets, deliberation content</td>
+            <td>Encrypted, access-logged, retention-controlled</td>
+          </tr>
+          <tr>
+            <td><strong>Confidential</strong></td>
+            <td>User data, organization config</td>
+            <td>Encrypted, role-based access</td>
+          </tr>
+          <tr>
+            <td><strong>Internal</strong></td>
+            <td>System logs, metrics</td>
+            <td>Encrypted at rest</td>
+          </tr>
+          <tr>
+            <td><strong>Public</strong></td>
+            <td>Documentation, marketing</td>
+            <td>No special handling</td>
+          </tr>
+        </table>
+
+        <h3>Data Residency</h3>
+        <ul>
+          <li><strong>Sovereign deployments:</strong> Data never leaves customer premises</li>
+          <li><strong>Cloud deployments:</strong> Customer selects region (US, EU, APAC available)</li>
+          <li><strong>No data sharing:</strong> Customer data is never used for model training</li>
+          <li><strong>No telemetry:</strong> Sovereign deployments send zero data externally</li>
+        </ul>
+
+        <h2>3. Access Controls</h2>
+        
+        <h3>Authentication Methods</h3>
+        <table>
+          <tr>
+            <th>Method</th>
+            <th>Description</th>
+            <th>Availability</th>
+          </tr>
+          <tr>
+            <td>Username/Password</td>
+            <td>Bcrypt-hashed, complexity enforced</td>
+            <td>All tiers</td>
+          </tr>
+          <tr>
+            <td>Multi-Factor (MFA)</td>
+            <td>TOTP, WebAuthn/FIDO2</td>
+            <td>All tiers</td>
+          </tr>
+          <tr>
+            <td>SSO/SAML</td>
+            <td>Okta, Azure AD, Google Workspace</td>
+            <td>Enterprise</td>
+          </tr>
+          <tr>
+            <td>CAC/PIV</td>
+            <td>Smart card authentication</td>
+            <td>Defense tier</td>
+          </tr>
+          <tr>
+            <td>Certificate-Based</td>
+            <td>mTLS client certificates</td>
+            <td>Sovereign</td>
+          </tr>
+        </table>
+
+        <h3>Role-Based Access Control (RBAC)</h3>
+        <p>Seven predefined roles with granular permissions:</p>
+        <table>
+          <tr>
+            <th>Role</th>
+            <th>Permissions</th>
+          </tr>
+          <tr>
+            <td><strong>Viewer</strong></td>
+            <td>Read decisions, view dashboards</td>
+          </tr>
+          <tr>
+            <td><strong>Decision Owner</strong></td>
+            <td>Create/edit own decisions</td>
+          </tr>
+          <tr>
+            <td><strong>Council Operator</strong></td>
+            <td>Run deliberations, manage agents</td>
+          </tr>
+          <tr>
+            <td><strong>Approver</strong></td>
+            <td>Approve/reject decisions</td>
+          </tr>
+          <tr>
+            <td><strong>Risk & Compliance</strong></td>
+            <td>Access compliance dashboards, export audit data</td>
+          </tr>
+          <tr>
+            <td><strong>Auditor</strong></td>
+            <td>Read-only access to all audit trails</td>
+          </tr>
+          <tr>
+            <td><strong>Admin</strong></td>
+            <td>Full system administration</td>
+          </tr>
+        </table>
+
+        <h2>4. Encryption</h2>
+        
+        <h3>Encryption at Rest</h3>
+        <table>
+          <tr>
+            <th>Component</th>
+            <th>Algorithm</th>
+            <th>Key Management</th>
+          </tr>
+          <tr>
+            <td>Database (PostgreSQL)</td>
+            <td>AES-256</td>
+            <td>Customer KMS or local</td>
+          </tr>
+          <tr>
+            <td>Object Storage (MinIO)</td>
+            <td>AES-256-GCM</td>
+            <td>Customer KMS or local</td>
+          </tr>
+          <tr>
+            <td>Backups</td>
+            <td>AES-256</td>
+            <td>Separate backup keys</td>
+          </tr>
+        </table>
+
+        <h3>Encryption in Transit</h3>
+        <ul>
+          <li><strong>TLS 1.3</strong> required for all connections</li>
+          <li><strong>Certificate pinning</strong> available for mobile/desktop clients</li>
+          <li><strong>mTLS</strong> supported for service-to-service communication</li>
+          <li><strong>Perfect Forward Secrecy</strong> enabled</li>
+        </ul>
+
+        <h3>Key Management Integration</h3>
+        <table>
+          <tr>
+            <th>Provider</th>
+            <th>Integration</th>
+          </tr>
+          <tr>
+            <td>AWS KMS</td>
+            <td>Native SDK integration</td>
+          </tr>
+          <tr>
+            <td>HashiCorp Vault</td>
+            <td>Transit secrets engine</td>
+          </tr>
+          <tr>
+            <td>Azure Key Vault</td>
+            <td>Managed HSM support</td>
+          </tr>
+          <tr>
+            <td>Local HSM</td>
+            <td>PKCS#11 interface</td>
+          </tr>
+          <tr>
+            <td>Air-Gapped</td>
+            <td>File-based keys with manual rotation</td>
+          </tr>
+        </table>
+
+        <h2>5. Audit & Logging</h2>
+        
+        <h3>Immutable Audit Trail</h3>
+        <p>Every significant action is recorded in a cryptographically-linked audit chain:</p>
+        <pre>{
+  "id": "audit-2026-01-05-001",
+  "timestamp": "2026-01-05T14:30:00Z",
+  "action": "DECISION_APPROVED",
+  "actor": "user:jane.doe@company.com",
+  "resource": "decision:acq-quantum-analytics",
+  "hash": "sha256:a3f2c1d4e5b6...",
+  "previousHash": "sha256:9c8b7a6f5e4d...",
+  "signature": "RSA-SHA256:..."
+}</pre>
+
+        <h3>What We Log</h3>
+        <table>
+          <tr>
+            <th>Category</th>
+            <th>Events</th>
+          </tr>
+          <tr>
+            <td>Authentication</td>
+            <td>Login, logout, MFA, failed attempts</td>
+          </tr>
+          <tr>
+            <td>Authorization</td>
+            <td>Permission grants, denials, role changes</td>
+          </tr>
+          <tr>
+            <td>Data Access</td>
+            <td>Read, create, update, delete operations</td>
+          </tr>
+          <tr>
+            <td>Deliberations</td>
+            <td>Council sessions, agent responses, votes</td>
+          </tr>
+          <tr>
+            <td>Administrative</td>
+            <td>Config changes, user management, key rotation</td>
+          </tr>
+          <tr>
+            <td>Security</td>
+            <td>Anomalies, blocked requests, policy violations</td>
+          </tr>
+        </table>
+
+        <h2>6. AI Model Security</h2>
+        
+        <h3>Local Model Execution</h3>
+        <p>Datacendia's Sovereign Stack runs AI models entirely on customer infrastructure:</p>
+        <ul>
+          <li><strong>Ollama Integration:</strong> Local LLM inference</li>
+          <li><strong>No External APIs:</strong> Zero calls to OpenAI, Anthropic, etc. in Sovereign mode</li>
+          <li><strong>Model Provenance:</strong> Verified model checksums</li>
+          <li><strong>Isolated Inference:</strong> Models run in sandboxed containers</li>
+        </ul>
+
+        <h3>Anti-Hallucination</h3>
+        <ul>
+          <li><strong>Citation Verification:</strong> AI responses cite source documents</li>
+          <li><strong>Confidence Scoring:</strong> Low-confidence responses flagged</li>
+          <li><strong>Human Review:</strong> Critical decisions require human approval</li>
+        </ul>
+
+        <h2>7. Compliance Alignment</h2>
+        
+        <div class="highlight-box">
+          <p><strong>Note:</strong> Datacendia's architecture is designed to support compliance with major frameworks. 
+          Formal certifications are available upon enterprise contract.</p>
+        </div>
+
+        <table>
+          <tr>
+            <th>Framework</th>
+            <th>Status</th>
+            <th>Notes</th>
+          </tr>
+          <tr>
+            <td>SOC 2 Type II</td>
+            <td>Architecture aligned</td>
+            <td>Controls implemented; formal audit available on contract</td>
+          </tr>
+          <tr>
+            <td>ISO 27001</td>
+            <td>Architecture aligned</td>
+            <td>ISMS documentation available</td>
+          </tr>
+          <tr>
+            <td>HIPAA</td>
+            <td>Architecture aligned</td>
+            <td>BAA available; technical safeguards implemented</td>
+          </tr>
+          <tr>
+            <td>GDPR</td>
+            <td>Compliant</td>
+            <td>DPA available; data residency controls</td>
+          </tr>
+          <tr>
+            <td>FedRAMP</td>
+            <td>Architecture supports</td>
+            <td>Available for government contracts</td>
+          </tr>
+        </table>
+
+        <h2>8. Contact</h2>
+        <p><strong>Security Team:</strong> <a href="mailto:security@datacendia.com" style="color: var(--color-gold);">security@datacendia.com</a></p>
+        <p><strong>Vulnerability Reports:</strong> See <a href="VULNERABILITY_DISCLOSURE_POLICY.html" style="color: var(--color-gold);">Vulnerability Disclosure Policy</a></p>
+        <p><strong>Compliance Inquiries:</strong> <a href="mailto:compliance@datacendia.com" style="color: var(--color-gold);">compliance@datacendia.com</a></p>
+
+        <hr style="border: none; border-top: 1px solid var(--color-border); margin: 48px 0;">
+        <p style="font-size: 0.8rem; color: var(--color-text-dim); text-align: center;">
+          © 2026 Datacendia, LLC. All rights reserved.<br>
+          This document is provided for informational purposes. Security controls may vary by deployment model and contract terms.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <script src="../../translations.js"></script>
+  <script src="../../app.js"></script>
+  <script src="/nav-mobile.js"></script>
+</body>
+</html>

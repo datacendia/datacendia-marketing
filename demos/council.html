@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Council™ — AI Deliberation Demo | Datacendia</title>
+  <meta name="description" content="Multi-agent AI deliberation. Your C-suite of AI advisors debates every angle before you decide.">
+  <meta property="og:title" content="The Council™ — AI Deliberation Demo | Datacendia">
+  <meta property="og:description" content="Multi-agent AI deliberation. Your C-suite of AI advisors debates every angle before you decide.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://datacendia.com/demos/council.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="The Council™ — AI Deliberation Demo | Datacendia">
+  <meta name="twitter:description" content="Multi-agent AI deliberation. Your C-suite of AI advisors debates every angle before you decide.">
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="demo-platform.css">
+  <style>
+    body{margin:0;background:#fafafa;color:#1a1a1a;font-family:'Inter',sans-serif;overflow:auto;height:auto}
+    .council-page{padding:24px;max-width:1200px;margin:0 auto}
+
+    /* Header */
+    .c-header{margin-bottom:24px}
+    .c-header h1{font-size:1.8rem;font-weight:700;display:flex;align-items:center;gap:12px;margin:0}
+    .c-header p{color:#6b7280;font-size:.95rem;margin:4px 0 0}
+
+    /* Agents Grid */
+    .agents-section{margin-bottom:24px}
+    .agents-section h2{font-size:1rem;font-weight:600;margin-bottom:12px;color:#374151}
+    .agents-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:10px}
+    .agent-card{padding:14px;border-radius:12px;border:2px solid #e5e7eb;background:#fff;cursor:pointer;transition:all .2s;text-align:left}
+    .agent-card:hover{border-color:#a1a1aa;box-shadow:0 2px 8px rgba(0,0,0,.05)}
+    .agent-card.selected{border-color:#6366f1;background:#eef2ff}
+    .agent-card .ac-status{width:8px;height:8px;border-radius:50%;background:#22c55e;position:absolute;top:12px;right:12px}
+    .agent-card{position:relative}
+    .ac-avatar{width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;margin-bottom:8px}
+    .ac-name{font-weight:600;font-size:.85rem;color:#111}
+    .ac-role{font-size:.72rem;color:#6b7280}
+    .ac-caps{display:flex;flex-wrap:wrap;gap:3px;margin-top:6px}
+    .ac-cap{font-size:.58rem;padding:1px 6px;background:#f3f4f6;border-radius:4px;color:#6b7280}
+
+    /* Modes */
+    .modes-section{margin-bottom:20px}
+    .modes-row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+    .mode-btn{padding:8px 16px;border:1px solid #e5e7eb;border-radius:10px;background:#fff;font-size:.78rem;font-weight:500;cursor:pointer;transition:all .2s;font-family:'Inter',sans-serif;display:flex;align-items:center;gap:6px}
+    .mode-btn:hover{border-color:#6366f1;color:#6366f1}
+    .mode-btn.active{border-color:#6366f1;background:#6366f1;color:#fff}
+    .mode-label{font-size:.72rem;color:#6b7280;margin-right:8px;font-weight:600}
+
+    /* Query Input */
+    .query-section{margin-bottom:24px}
+    .query-card{background:#fff;border:1px solid #e5e7eb;border-radius:16px;padding:20px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+    .query-card h3{font-size:.95rem;font-weight:600;margin:0 0 4px;display:flex;align-items:center;gap:8px}
+    .query-card .qc-sub{font-size:.75rem;color:#9ca3af;margin-bottom:12px}
+    .query-input{width:100%;min-height:80px;padding:12px 16px;border:1px solid #e5e7eb;border-radius:12px;font-size:.9rem;font-family:'Inter',sans-serif;resize:vertical;outline:none;transition:border .2s;box-sizing:border-box;position:relative;z-index:1;-webkit-appearance:none;appearance:none;background:#fff;color:#1a1a1a}
+    .query-input:focus{border-color:#6366f1;box-shadow:0 0 0 3px rgba(99,102,241,.1)}
+    .query-actions{display:flex;align-items:center;justify-content:space-between;margin-top:12px}
+    .qa-left{display:flex;align-items:center;gap:8px}
+    .qa-info{font-size:.72rem;color:#9ca3af}
+    .qa-btn{padding:10px 24px;background:#6366f1;color:#fff;border:none;border-radius:10px;font-size:.85rem;font-weight:600;cursor:pointer;transition:all .2s;font-family:'Inter',sans-serif}
+    .qa-btn:hover{background:#4f46e5}
+    .qa-btn:disabled{opacity:.5;cursor:not-allowed}
+    .qa-mode-toggle{display:flex;border:1px solid #e5e7eb;border-radius:8px;overflow:hidden}
+    .qa-toggle{padding:6px 14px;font-size:.72rem;cursor:pointer;transition:all .15s;border:none;background:#fff;font-family:'Inter',sans-serif;color:#6b7280}
+    .qa-toggle.active{background:#6366f1;color:#fff}
+
+    /* Context banner */
+    .context-banner{background:#eef2ff;border:1px solid #c7d2fe;border-radius:12px;padding:10px 16px;margin-bottom:12px;display:flex;align-items:center;gap:8px;font-size:.78rem;color:#4338ca}
+    .context-banner .cb-close{margin-left:auto;cursor:pointer;color:#6366f1;font-size:.85rem}
+
+    /* Starter prompts */
+    .starters{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:16px}
+    .starter-btn{padding:8px 14px;border:1px solid #e5e7eb;border-radius:10px;background:#fff;font-size:.75rem;color:#374151;cursor:pointer;transition:all .15s;font-family:'Inter',sans-serif;display:flex;align-items:center;gap:6px;max-width:280px}
+    .starter-btn:hover{border-color:#6366f1;color:#6366f1;background:#fafafe}
+
+    /* Results / Chat Area */
+    .results-section{background:#fff;border:1px solid #e5e7eb;border-radius:16px;overflow:hidden}
+    .results-header{padding:16px 20px;border-bottom:1px solid #e5e7eb;display:flex;align-items:center;justify-content:space-between}
+    .results-header h3{font-size:1rem;font-weight:600;margin:0}
+    .rh-badges{display:flex;gap:6px}
+    .rh-badge{padding:3px 10px;border-radius:6px;font-size:.65rem;font-weight:600}
+
+    /* Chat messages */
+    .chat-area{max-height:600px;overflow-y:auto;padding:20px}
+    .chat-msg{display:flex;gap:12px;margin-bottom:16px}
+    .cm-avatar{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0}
+    .cm-body{flex:1;min-width:0}
+    .cm-header{display:flex;align-items:center;gap:8px;margin-bottom:4px}
+    .cm-name{font-size:.85rem;font-weight:600}
+    .cm-role{font-size:.65rem;color:#9ca3af}
+    .cm-time{font-size:.6rem;color:#9ca3af;margin-left:auto}
+    .cm-bubble{padding:12px 16px;border-radius:16px;border-top-left-radius:4px;font-size:.85rem;line-height:1.6;color:#374151;max-width:95%}
+    .cm-bubble.agent{background:#f3f4f6}
+    .cm-bubble.system{background:#fef3c7;border-left:3px solid #f59e0b}
+    .cm-bubble.synthesis{background:linear-gradient(135deg,#eef2ff,#e0f2fe);border-left:4px solid #6366f1}
+    .cm-bubble.cross{background:#fef9c3;border-left:3px solid #eab308}
+    .cm-reactions{display:flex;gap:4px;margin-top:6px}
+    .cm-reaction{padding:2px 8px;border-radius:12px;font-size:.65rem;background:#f3f4f6;border:1px solid #e5e7eb;cursor:pointer}
+
+    /* Synthesis */
+    .synthesis-card{margin:16px 20px;padding:16px;background:linear-gradient(135deg,#eef2ff,#dcfce7);border-radius:14px;border-left:4px solid #6366f1}
+    .syn-header{display:flex;align-items:center;gap:8px;margin-bottom:8px}
+    .syn-header h4{margin:0;font-size:.9rem;font-weight:600;color:#4338ca}
+    .syn-confidence{padding:2px 8px;border-radius:6px;font-size:.65rem;font-weight:600}
+    .syn-conf-high{background:rgba(34,197,94,.15);color:#16a34a}
+    .syn-body{font-size:.85rem;color:#374151;line-height:1.7}
+
+    /* Action buttons */
+    .action-bar{padding:16px 20px;border-top:1px solid #e5e7eb;display:flex;gap:8px;flex-wrap:wrap}
+    .act-btn{padding:8px 14px;border-radius:8px;font-size:.75rem;font-weight:500;cursor:pointer;border:none;transition:all .15s;font-family:'Inter',sans-serif;display:flex;align-items:center;gap:4px}
+    .act-primary{background:#6366f1;color:#fff}.act-primary:hover{background:#4f46e5}
+    .act-green{background:#16a34a;color:#fff}.act-green:hover{background:#15803d}
+    .act-neutral{background:#f3f4f6;color:#374151;border:1px solid #e5e7eb}.act-neutral:hover{background:#e5e7eb}
+    .act-purple{background:linear-gradient(135deg,#7c3aed,#6366f1);color:#fff}.act-purple:hover{opacity:.9}
+    .act-pink{background:linear-gradient(135deg,#db2777,#ec4899);color:#fff}.act-pink:hover{opacity:.9}
+    .act-violet{background:linear-gradient(135deg,#7c3aed,#8b5cf6);color:#fff}
+
+    /* Empty state */
+    .empty-state{text-align:center;padding:48px 20px}
+    .empty-state .es-icon{font-size:3rem;margin-bottom:12px}
+    .empty-state p{color:#9ca3af;font-size:.9rem}
+
+    /* Typing indicator */
+    .typing{display:flex;align-items:center;gap:8px;padding:8px 0;font-size:.78rem;color:#9ca3af}
+    .typing-dots{display:flex;gap:3px}
+    .typing-dots span{width:6px;height:6px;background:#6366f1;border-radius:50%;animation:bounce .6s infinite}
+    .typing-dots span:nth-child(2){animation-delay:.15s}
+    .typing-dots span:nth-child(3){animation-delay:.3s}
+    @keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+
+    /* User input */
+    .user-input{padding:12px 20px;border-top:1px solid #e5e7eb;display:flex;gap:8px;align-items:center}
+    .ui-avatar{width:32px;height:32px;border-radius:50%;background:#3b82f6;display:flex;align-items:center;justify-content:center;color:#fff;font-size:.65rem;font-weight:700;flex-shrink:0}
+    .ui-field{flex:1;padding:10px 16px;border:1px solid #e5e7eb;border-radius:24px;font-size:.82rem;outline:none;font-family:'Inter',sans-serif}
+    .ui-field:focus{border-color:#6366f1}
+    .ui-send{padding:10px 20px;background:#3b82f6;color:#fff;border:none;border-radius:24px;font-size:.78rem;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif}
+
+    /* Backstory & Briefing */
+    .backstory{background:linear-gradient(135deg,rgba(99,102,241,.04),rgba(16,185,129,.03));border:1px solid rgba(99,102,241,.15);border-radius:14px;padding:20px;margin-bottom:24px}
+    .backstory h3{font-size:.95rem;font-weight:600;color:#4338ca;margin:0 0 10px;display:flex;align-items:center;gap:8px}
+    .backstory p{font-size:.85rem;color:#4b5563;line-height:1.7;margin:0 0 6px}
+    .backstory strong{color:#111}
+    .backstory .bs-meta{display:flex;flex-wrap:wrap;gap:16px;margin-top:12px;padding-top:12px;border-top:1px solid rgba(99,102,241,.1);font-size:.75rem;color:#6b7280}
+    .backstory .bs-meta span{display:flex;align-items:center;gap:4px}
+    .briefing{background:linear-gradient(135deg,rgba(34,197,94,.04),rgba(6,182,212,.03));border:1px solid rgba(34,197,94,.15);border-radius:14px;padding:20px;margin:16px 20px}
+    .briefing h3{font-size:.95rem;font-weight:600;color:#15803d;margin:0 0 10px;display:flex;align-items:center;gap:8px}
+    .briefing p{font-size:.85rem;color:#4b5563;line-height:1.7;margin:0 0 6px}
+    .briefing strong{color:#111}
+    .briefing ul{margin:8px 0;padding-left:18px;font-size:.85rem;color:#4b5563;line-height:1.8}
+    .briefing li{margin-bottom:2px}
+    .briefing .bf-footer{margin-top:12px;padding-top:12px;border-top:1px solid rgba(34,197,94,.1);font-size:.75rem;color:#6b7280;font-family:'JetBrains Mono',monospace}
+
+    /* Demo CTA */
+    .demo-cta{text-align:center;margin-top:24px;padding:24px;background:linear-gradient(135deg,rgba(99,102,241,.06),rgba(16,185,129,.04));border:1px solid rgba(99,102,241,.15);border-radius:16px}
+    .demo-cta h3{font-size:1.1rem;font-weight:600;color:#4338ca;margin:0 0 6px}
+    .demo-cta p{font-size:.82rem;color:#6b7280;margin:0 0 12px}
+    .demo-cta a{display:inline-block;padding:10px 24px;background:#6366f1;color:#fff;text-decoration:none;border-radius:10px;font-weight:600;font-size:.85rem}
+
+    .ph-back{position:absolute;right:16px;top:50%;transform:translateY(-50%);font-size:.7rem;color:#71717a;text-decoration:none;padding:4px 10px;border:1px solid #27272a;border-radius:8px;transition:all .2s}
+    .ph-back:hover{border-color:#6366f1;color:#6366f1}
+  </style>
+</head>
+<body>
+  <!-- Platform Header -->
+  <div class="platform-header" style="position:relative">
+    <a href="../demos.html" class="ph-logo" style="text-decoration:none;color:inherit">DATACENDIA</a>
+    <div class="ph-divider"></div>
+    <div class="ph-nav">
+      <a class="ph-nav-item active" href="../demos.html#cortex">Cortex</a>
+      <a class="ph-nav-item" href="../demos.html#oversight">Oversight</a>
+      <a class="ph-nav-item" href="../demos.html#evidence">Evidence</a>
+    </div>
+    <span class="ph-breadcrumb">/ Core Suite / <span>The Council</span></span>
+    <span class="ph-spacer"></span>
+    <span class="ph-demo-badge">DEMO MODE</span>
+    <div class="ph-user">
+      <div class="ph-notif"><img src="../assets/logos/cendia-helm.svg" alt="Notifications" width="18" height="18" style="border-radius:4px"><div class="ph-notif-dot"></div></div>
+      <div class="ph-avatar">SR</div>
+    </div>
+    <a href="../demos.html" class="ph-back">← Demos</a>
+  </div>
+
+  <div class="council-page">
+    <!-- Header -->
+    <div class="c-header">
+      <h1><img src="../assets/logos/council.svg" alt="The Council" width="40" height="40" style="border-radius:8px;vertical-align:middle"> The Council</h1>
+      <p>Your AI executive team debates every angle before you decide.</p>
+    </div>
+
+    <!-- Backstory -->
+    <div class="backstory">
+      <h3><img src="../assets/logos/audit-provenance.svg" alt="Briefing" width="20" height="20" style="border-radius:4px;vertical-align:middle"> Scenario Briefing</h3>
+      <p><strong>Pinnacle SaaS Inc.</strong> is a $45M ARR B2B software company based in Austin, TX. After 7 years of domestic growth, the board has mandated international expansion to maintain the 40% YoY growth rate that investors expect. The EU market — particularly the UK, Germany, and France — represents a <strong>$2.4B total addressable market</strong> that Pinnacle currently ignores entirely.</p>
+      <p>However, the CEO is nervous. Four of the last seven US SaaS companies that expanded to Europe underperformed projections by 40%+. GDPR compliance, currency exposure, local hiring, and competitive dynamics all present risk. She has convened <strong>The Council</strong> — Datacendia's multi-agent AI deliberation engine — to stress-test the decision from every executive perspective before committing.</p>
+      <div class="bs-meta">
+        <span><img src="../assets/logos/datacendia-platform.svg" alt="Company" width="14" height="14" style="border-radius:3px;vertical-align:middle"> Pinnacle SaaS Inc.</span>
+        <span><img src="../assets/logos/roi-metrics.svg" alt="Revenue" width="14" height="14" style="border-radius:3px;vertical-align:middle"> $45M ARR</span>
+        <span><img src="../assets/logos/cendia-agents.svg" alt="People" width="14" height="14" style="border-radius:3px;vertical-align:middle"> 158 employees</span>
+        <span><img src="../assets/logos/integration-matrix.svg" alt="Global" width="14" height="14" style="border-radius:3px;vertical-align:middle"> Target: EU (UK-first)</span>
+        <span><img src="../assets/logos/cortex.svg" alt="Analytics" width="14" height="14" style="border-radius:3px;vertical-align:middle"> $2.4B TAM</span>
+        <span><img src="../assets/logos/pre-mortem.svg" alt="Risk" width="14" height="14" style="border-radius:3px;vertical-align:middle"> 40%+ underperformance risk</span>
+      </div>
+    </div>
+
+    <!-- Agent Selection -->
+    <div class="agents-section">
+      <h2>Select Your Council (click to toggle)</h2>
+      <div class="agents-grid" id="agentsGrid"></div>
+    </div>
+
+    <!-- Council Modes -->
+    <div class="modes-section">
+      <div class="modes-row">
+        <span class="mode-label">Council Mode:</span>
+        <button class="mode-btn active" onclick="setMode('war-room',this)"><img src="../assets/logos/wargames.svg" alt="War Room" width="14" height="14" style="border-radius:3px;vertical-align:middle"> War Room</button>
+        <button class="mode-btn" onclick="setMode('rapid',this)"><img src="../assets/logos/chronos.svg" alt="Rapid" width="14" height="14" style="border-radius:3px;vertical-align:middle"> Rapid</button>
+        <button class="mode-btn" onclick="setMode('due-diligence',this)"><img src="../assets/logos/lens.svg" alt="Due Diligence" width="14" height="14" style="border-radius:3px;vertical-align:middle"> Due Diligence</button>
+        <button class="mode-btn" onclick="setMode('innovation',this)"><img src="../assets/logos/cendia-predict.svg" alt="Innovation" width="14" height="14" style="border-radius:3px;vertical-align:middle"> Innovation Lab</button>
+        <button class="mode-btn" onclick="setMode('crisis',this)"><img src="../assets/logos/pre-mortem.svg" alt="Crisis" width="14" height="14" style="border-radius:3px;vertical-align:middle"> Crisis</button>
+        <button class="mode-btn" onclick="setMode('compliance',this)"><img src="../assets/logos/compliance.svg" alt="Compliance" width="14" height="14" style="border-radius:3px;vertical-align:middle"> Compliance</button>
+        <button class="mode-btn" onclick="setMode('governance',this)"><img src="../assets/logos/council.svg" alt="Governance" width="14" height="14" style="border-radius:3px;vertical-align:middle"> Governance</button>
+      </div>
+    </div>
+
+    <!-- Query Input -->
+    <div class="query-section">
+      <div class="query-card">
+        <h3><img src="../assets/logos/council.svg" alt="Council" width="20" height="20" style="border-radius:4px;vertical-align:middle"> Ask The Council</h3>
+        <div class="qc-sub">Pose your question and let the AI executives deliberate.</div>
+        <textarea class="query-input" id="queryInput" placeholder="e.g., Should we expand into the EU market given current regulations?"></textarea>
+        <div class="query-actions">
+          <div class="qa-left">
+            <div class="qa-mode-toggle">
+              <button class="qa-toggle active" onclick="setQueryMode('quick',this)"><img src="../assets/logos/chronos.svg" alt="Quick" width="12" height="12" style="border-radius:2px;vertical-align:middle"> Quick</button>
+              <button class="qa-toggle" onclick="setQueryMode('deliberation',this)"><img src="../assets/logos/council.svg" alt="Deliberation" width="12" height="12" style="border-radius:2px;vertical-align:middle"> Deliberation</button>
+            </div>
+            <span class="qa-info" id="agentCount">5 agents selected · War Room mode</span>
+          </div>
+          <button class="qa-btn" id="submitBtn" onclick="runDeliberation()"><img src="../assets/logos/council.svg" alt="Convene" width="16" height="16" style="border-radius:3px;vertical-align:middle"> Convene Council</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Results Area -->
+    <div class="results-section" id="resultsSection">
+      <div class="results-header">
+        <h3>Recent Decisions</h3>
+        <div class="rh-badges">
+          <span class="rh-badge" style="background:rgba(99,102,241,.1);color:#6366f1" id="phaseLabel">Ready</span>
+        </div>
+      </div>
+
+      <div class="chat-area" id="chatArea">
+        <div class="empty-state" id="emptyState">
+          <div class="es-icon"><img src="../assets/logos/council.svg" alt="Council" width="48" height="48" style="border-radius:10px"></div>
+          <p>No decisions yet. Ask the Council a question to begin.</p>
+          <div class="starters">
+            <button class="starter-btn" onclick="useStarter(this)"><img src="../assets/logos/integration-matrix.svg" alt="Global" width="14" height="14" style="border-radius:3px;vertical-align:middle"> Should we expand into the EU market given current regulations?</button>
+            <button class="starter-btn" onclick="useStarter(this)"><img src="../assets/logos/roi-metrics.svg" alt="ROI" width="14" height="14" style="border-radius:3px;vertical-align:middle"> Analyze the ROI of our AI investment over the next 3 years</button>
+            <button class="starter-btn" onclick="useStarter(this)"><img src="../assets/logos/pre-mortem.svg" alt="Risk" width="14" height="14" style="border-radius:3px;vertical-align:middle"> What are the top 5 risks to our Q4 revenue targets?</button>
+            <button class="starter-btn" onclick="useStarter(this)"><img src="../assets/logos/crucible.svg" alt="Competitor" width="14" height="14" style="border-radius:3px;vertical-align:middle"> How should we respond to the competitor acquisition?</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- User Input (visible during deliberation) -->
+      <div class="user-input" id="userInput" style="display:none">
+        <div class="ui-avatar">You</div>
+        <input class="ui-field" id="userMsg" placeholder="Type a message..." onkeypress="if(event.key==='Enter')sendUserMsg()">
+        <button class="ui-send" onclick="sendUserMsg()">Send</button>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="demo-cta">
+      <h3>Assemble your own AI Council</h3>
+      <p>Real Ollama-powered agents. Real cross-examination. Real decisions.</p>
+      <a href="../briefing.html">Request Briefing →</a>
+    </div>
+  </div>
+
+<script>
+// Agents data matching the real platform
+const AGENTS=[
+  {id:'chief',name:'Chief Executive',role:'Strategic Leadership',avatar:'<img src="../assets/logos/council.svg" alt="CEO" width="28" height="28" style="border-radius:6px">',color:'#6366F1',caps:['Strategy','Vision','M&A'],status:'online'},
+  {id:'cfo',name:'Chief Financial',role:'Financial Analysis',avatar:'<img src="../assets/logos/roi-metrics.svg" alt="CFO" width="28" height="28" style="border-radius:6px">',color:'#10B981',caps:['Revenue','Risk','Budgets'],status:'online'},
+  {id:'cto',name:'Chief Technical',role:'Technology Strategy',avatar:'<img src="../assets/logos/cortex.svg" alt="CTO" width="28" height="28" style="border-radius:6px">',color:'#F59E0B',caps:['Architecture','Innovation','Security'],status:'online'},
+  {id:'cro',name:'Chief Revenue',role:'Growth & Sales',avatar:'<img src="../assets/logos/cendia-predict.svg" alt="CRO" width="28" height="28" style="border-radius:6px">',color:'#EF4444',caps:['Pipeline','Pricing','Markets'],status:'online'},
+  {id:'cmo',name:'Chief Marketing',role:'Brand & Growth',avatar:'<img src="../assets/logos/cendia-helm.svg" alt="CMO" width="28" height="28" style="border-radius:6px">',color:'#EC4899',caps:['Brand','Content','GTM'],status:'online'},
+  {id:'clo',name:'Chief Legal',role:'Legal & Compliance',avatar:'<img src="../assets/logos/legal-compliance.svg" alt="CLO" width="28" height="28" style="border-radius:6px">',color:'#8B5CF6',caps:['Contracts','IP','Regulatory'],status:'online'},
+  {id:'ciso',name:'Chief Security',role:'Information Security',avatar:'<img src="../assets/logos/cendia-guard.svg" alt="CISO" width="28" height="28" style="border-radius:6px">',color:'#06B6D4',caps:['Cyber','Privacy','Risk'],status:'online'},
+  {id:'chro',name:'Chief People',role:'Human Resources',avatar:'<img src="../assets/logos/cendia-agents.svg" alt="CHRO" width="28" height="28" style="border-radius:6px">',color:'#F97316',caps:['Talent','Culture','D&I'],status:'online'},
+  {id:'pessimist',name:'Devil\'s Advocate',role:'Contrarian Analysis',avatar:'<img src="../assets/logos/wargames.svg" alt="Devil" width="28" height="28" style="border-radius:6px">',color:'#EF4444',caps:['Risk','Downside','Critique'],status:'online'},
+  {id:'ethicist',name:'Ethics Officer',role:'Ethical Governance',avatar:'<img src="../assets/logos/cendia-ethics.svg" alt="Ethics" width="28" height="28" style="border-radius:6px">',color:'#14B8A6',caps:['Ethics','Fairness','Impact'],status:'online'},
+];
+let selectedAgents=['chief','cfo','cto','cro','cmo'];
+let mode='war-room',queryMode='quick',isProcessing=false;
+
+// Render agents
+function renderAgents(){
+  const g=document.getElementById('agentsGrid');
+  g.innerHTML=AGENTS.map(a=>{
+    const sel=selectedAgents.includes(a.id);
+    return `<div class="agent-card ${sel?'selected':''}" onclick="toggleAgent('${a.id}')">
+      <div class="ac-status"></div>
+      <div class="ac-avatar" style="background:${a.color}20">${a.avatar}</div>
+      <div class="ac-name">${a.name}</div>
+      <div class="ac-role">${a.role}</div>
+      <div class="ac-caps">${a.caps.map(c=>'<span class="ac-cap">'+c+'</span>').join('')}</div>
+    </div>`;
+  }).join('');
+  document.getElementById('agentCount').textContent=selectedAgents.length+' agents selected · '+mode.replace(/-/g,' ')+' mode';
+}
+
+function toggleAgent(id){
+  if(selectedAgents.includes(id))selectedAgents=selectedAgents.filter(a=>a!==id);
+  else selectedAgents.push(id);
+  renderAgents();
+}
+
+function setMode(m,el){
+  mode=m;
+  document.querySelectorAll('.mode-btn').forEach(b=>b.classList.remove('active'));
+  el.classList.add('active');
+  renderAgents();
+}
+
+function setQueryMode(m,el){
+  queryMode=m;
+  document.querySelectorAll('.qa-toggle').forEach(b=>b.classList.remove('active'));
+  el.classList.add('active');
+}
+
+function useStarter(el){
+  const text=el.textContent.substring(2).trim();
+  document.getElementById('queryInput').value=text;
+  document.getElementById('queryInput').focus();
+}
+
+// Archetype detection — generates contextual responses based on user input
+const ARCHETYPES={
+  mna:{test:/acquir|merger|merge|buy.?out|takeover|m&a|purchase/i,conf:78,rec:'CONDITIONAL PROCEED — Due Diligence Required',recColor:'#f59e0b'},
+  hire:{test:/\bhire|recruit|headcount|talent|staffing|vp of|director of|head of|new role/i,conf:82,rec:'PROCEED — With Structured Evaluation',recColor:'#22c55e'},
+  expand:{test:/expand|enter.+market|international|new market|europe|asia|global|overseas|geographic/i,conf:74,rec:'PROCEED WITH CAUTION — Beachhead Strategy',recColor:'#f59e0b'},
+  vendor:{test:/vendor|migrat|switch|platform|cloud|saas|provider|aws|azure|on.?prem|infrastructure/i,conf:70,rec:'CONDITIONAL — Parallel Run Recommended',recColor:'#f59e0b'},
+  product:{test:/launch|product|feature|build|ship|release|mvp|roadmap|pivot|new.+line/i,conf:76,rec:'PROCEED — With Defined Success Criteria',recColor:'#22c55e'},
+  invest:{test:/invest|fund|raise|capital|budget|spend|allocat|financ/i,conf:66,rec:'CONDITIONAL — Stress-Test Assumptions',recColor:'#f59e0b'},
+  restructure:{test:/restructur|layoff|cut.+staff|reduc|close|shutdown|downsize|reorganiz/i,conf:58,rec:'PROCEED WITH CAUTION — Human Impact Assessment',recColor:'#ef4444'},
+  pricing:{test:/pric|discount|margin|monetiz|subscription|revenue model|cost.?cut/i,conf:72,rec:'PROCEED — With Market Validation',recColor:'#22c55e'},
+  partnership:{test:/partner|alliance|joint venture|collaborat|license|franchise|channel/i,conf:75,rec:'CONDITIONAL — Alignment Assessment Required',recColor:'#f59e0b'},
+  general:{test:/.*/,conf:68,rec:'CONDITIONAL — Further Analysis Recommended',recColor:'#f59e0b'}
+};
+function detectArchetype(q){for(const[k,a]of Object.entries(ARCHETYPES)){if(k==='general')continue;if(a.test.test(q))return k;}return'general';}
+function parseInput(q){const c=q.replace(/\?$/,'').trim();const s=c.replace(/^(should we |should i |we('re| are) (considering|thinking about) |deciding (whether to )?|considering |thinking about )/i,'');const cap=s.charAt(0).toUpperCase()+s.slice(1);const money=q.match(/[\$£€][\d,.]+\s*(?:million|billion|[MBK])?|\d+[\d,.]*\s*(?:million|billion)/i);return{subject:s,cap,money:money?money[0]:null};}
+
+// Per-agent response generators keyed by archetype
+const AGENT_RESPONSES={
+  chief:{
+    mna:p=>({text:`<strong>Strategic rationale is sound.</strong> ${p.cap} accelerates our roadmap by 12–18 months vs building internally. The key question: does the target's customer base overlap >30% with ours? If yes, we're paying a premium for revenue we'd eventually win. ${p.money?'At '+p.money+', we need':'We need'} clear TAM expansion — not just acqui-hire. <strong>I support proceeding to LOI, gated on due diligence.</strong>`,sentiment:'support',confidence:85}),
+    hire:p=>({text:`<strong>The talent gap is real and timing matters.</strong> ${p.cap} — competitors are hiring for the same roles. Delay costs us the candidate AND widens the capability gap. But be disciplined: define success criteria before you post. <strong>Move fast with structure.</strong>`,sentiment:'support',confidence:88}),
+    expand:p=>({text:`<strong>The TAM expansion is genuine.</strong> ${p.cap} — going broad too early dilutes focus; going narrow too late cedes first-mover advantage. I recommend picking ONE beachhead market, achieving $2M+ ARR there, then replicating the playbook. <strong>Phased approach, UK or DACH first.</strong>`,sentiment:'support',confidence:82}),
+    vendor:p=>({text:`<strong>Platform decisions compound.</strong> ${p.cap} — every month of delay locks us deeper into the current stack. The real question isn't "is the new platform better?" but "does it unlock capabilities we literally cannot build on the current one?" <strong>If yes, the migration cost is an investment.</strong>`,sentiment:'support',confidence:79}),
+    product:p=>({text:`<strong>Opportunity cost of NOT launching is underappreciated.</strong> ${p.cap} — if 3+ customers have independently asked for this, that's market signal, not noise. Define the minimum lovable product, ship in 8 weeks. <strong>Velocity beats perfection in new categories.</strong>`,sentiment:'support',confidence:84}),
+    invest:p=>({text:`<strong>Capital allocation is strategy made real.</strong> ${p.cap} — the question isn't whether this is a good use of money in isolation, but whether it's the BEST use vs every alternative. ${p.money?'At '+p.money+', apply':'Apply'} the regret minimization test: in 3 years, which would you regret more?`,sentiment:'support',confidence:80}),
+    restructure:p=>({text:`<strong>Restructuring is a tool, not a strategy.</strong> ${p.cap} — what future state does this enable? The best restructurings cut AND invest simultaneously. <strong>What are we redirecting these resources toward?</strong>`,sentiment:'cautious',confidence:72}),
+    general:p=>({text:`<strong>Every major decision has an opportunity cost.</strong> ${p.cap} — frame this against our top 3 strategic priorities. If it directly advances Priority #1, move fast. If it's #4 or lower, it's a distraction disguised as an opportunity. <strong>Strategy is what you say no to.</strong>`,sentiment:'support',confidence:80})
+  },
+  cfo:{
+    mna:p=>({text:`<strong>Run the numbers backward.</strong> What revenue growth rate justifies this price? If the answer is >25% CAGR for 3+ years, the deal is priced for perfection. ${p.money?'At '+p.money+', ensure':'Ensure'} your model stress-tests at 60% of projected synergies. Also: retention package cost for top 10 employees — that's often the real price. <strong>I recommend a conservative DCF before proceeding.</strong>`,sentiment:'cautious',confidence:78}),
+    hire:p=>({text:`<strong>Fully loaded cost is always higher than you think.</strong> Base + benefits + equity + recruiting fees + onboarding + ramp = typically 1.5–2x posted salary. Breakeven on a senior hire is 8–12 months. <strong>If planning horizon for this role is <12 months, consider fractional.</strong>`,sentiment:'cautious',confidence:82}),
+    expand:p=>({text:`<strong>Model the J-curve.</strong> Expect 18–24 months of negative unit economics in the new market. If this pushes cash runway below 18 months, you're betting the company on execution speed. Minimum viable budget: $500K–$1M for single-market entry. <strong>Can we fund this without touching core business?</strong>`,sentiment:'cautious',confidence:76}),
+    vendor:p=>({text:`<strong>Calculate total cost of migration, not just the licensing delta.</strong> Include: engineering hours, retraining, dual-licensing, productivity loss, rollback risk premium. "Savings" from platform switches are consumed by migration costs in Year 1. <strong>Breakeven is typically 18–24 months.</strong>`,sentiment:'cautious',confidence:74}),
+    product:p=>({text:`<strong>Model the cannibalization risk.</strong> Does this new offering compete with our existing product for the same budget line? If yes, net revenue gain is lower than gross projection. Also: fully loaded cost per feature including design, engineering, QA, docs, support, and 3–5x maintenance multiplier.`,sentiment:'cautious',confidence:79}),
+    invest:p=>({text:`<strong>Separate the investment from the return timeline.</strong> ${p.money?p.money+' deployed today':'Capital deployed today'} with returns starting in Month 18 has a very different risk profile than Month 3. Model three scenarios: base (60%), upside (20%), downside (20%). <strong>Weighted expected return must exceed cost of capital by 2x.</strong>`,sentiment:'cautious',confidence:72}),
+    restructure:p=>({text:`<strong>Model the full P&L impact.</strong> Restructuring charges typically equal 3–6 months of eliminated costs. Revenue risk: if this affects customer-facing teams, model 5–15% revenue impact. <strong>True breakeven is usually 9–15 months, not the "immediate savings" on paper.</strong>`,sentiment:'cautious',confidence:70}),
+    general:p=>({text:`<strong>Quantify the cost of delay.</strong> What does it cost per week to NOT decide? If "nothing meaningful," take more time. If delay has real cost — lost revenue, competitive disadvantage — the framework shifts from "maximize certainty" to "minimize regret." <strong>Set a decision deadline.</strong>`,sentiment:'cautious',confidence:77})
+  },
+  cto:{
+    mna:p=>({text:`<strong>Technical due diligence is non-negotiable.</strong> Key risks: (1) code quality and coverage, (2) stack compatibility with our systems, (3) security posture and SOC 2 status, (4) key person dependency on core architecture. Plan for 2x replatforming estimates. <strong>I need 90 days of technical DD before LOI.</strong>`,sentiment:'support',confidence:88}),
+    hire:p=>({text:`<strong>The build-vs-hire decision has a technology angle.</strong> Can we solve this with tooling or automation instead of headcount? If not, define 3 non-negotiable technical competencies BEFORE interviews. Senior technical mis-hires set architecture back 12+ months. <strong>Structure prevents regret.</strong>`,sentiment:'support',confidence:86}),
+    expand:p=>({text:`<strong>Infrastructure readiness check.</strong> Data residency requirements, latency targets, compliance certifications — these drive timeline more than business readiness. Our stack scales to new regions in 6–8 weeks IF compliance is pre-built. Edge nodes will be needed. <strong>I'm ready to support with a 30-day infrastructure plan.</strong>`,sentiment:'support',confidence:90}),
+    vendor:p=>({text:`<strong>Migration projects are universally underestimated.</strong> Plan for 2x timeline and 1.5x budget. The real risk is the productivity valley: 3–6 months where the team is slower on BOTH systems. <strong>Mandate a parallel-run period. Never hard-cutover on mission-critical infrastructure.</strong>`,sentiment:'cautious',confidence:84}),
+    product:p=>({text:`<strong>Technical feasibility is confirmed.</strong> I can have an architecture proposal in 48 hours. Key question: does this require new infrastructure or can we extend existing? If the latter, we ship in 6 weeks. If the former, add 8 weeks for platform work. <strong>Let's define scope before we commit.</strong>`,sentiment:'support',confidence:91}),
+    general:p=>({text:`<strong>From a technical perspective, every option has a complexity cost.</strong> The question is whether the expected value justifies the engineering investment. I'll need to scope the technical requirements before I can give a firm timeline. <strong>Preliminary assessment: feasible with caveats.</strong>`,sentiment:'support',confidence:85})
+  },
+  cro:{
+    mna:p=>({text:`<strong>Pipeline impact analysis is critical.</strong> ${p.money?'At '+p.money+', we need':'We need'} to map customer overlap. If >30%, we're paying for revenue we'd eventually win organically. I want to see the target's pipeline quality, not just ARR. <strong>Net new logos and expansion potential justify the premium.</strong>`,sentiment:'support',confidence:83}),
+    hire:p=>({text:`<strong>Revenue-generating roles should be measured differently.</strong> For sales hires, track pipeline created within 90 days, not just quota attainment. For support roles, track NPS impact. <strong>Hire for attitude, train for skill — especially in customer-facing roles.</strong>`,sentiment:'support',confidence:85}),
+    expand:p=>({text:`<strong>Market signals are encouraging.</strong> I already have prospect conversations in the target regions. Sales cycle data from comparable companies suggests we should expect 6–9 month cycles vs our domestic 3–4 months. <strong>I recommend a beachhead approach with 3–5 anchor customers.</strong>`,sentiment:'support',confidence:86}),
+    product:p=>({text:`<strong>Customer demand is real.</strong> I've heard this request from at least 4 enterprise accounts in the last quarter. But demand signals and willingness to pay are different things. <strong>Can we get 3 design partners who commit budget before we write code?</strong>`,sentiment:'support',confidence:82}),
+    general:p=>({text:`<strong>Revenue impact is the key metric.</strong> Does this accelerate, maintain, or risk our growth trajectory? I need to model the pipeline impact before taking a firm position. <strong>Preliminary view: cautiously positive if execution is strong.</strong>`,sentiment:'support',confidence:80})
+  },
+  cmo:{
+    mna:p=>({text:`<strong>Brand integration matters more than people realize.</strong> Customer confusion during acquisitions costs 10–15% of combined pipeline for 6 months. We need a day-one communications plan and clear brand architecture decision within 30 days. <strong>Support the deal, but fund the brand integration properly.</strong>`,sentiment:'support',confidence:79}),
+    expand:p=>({text:`<strong>Brand awareness in new markets starts from zero.</strong> Content repurposing gets you 40% of the way; the rest requires local agency partnerships and cultural adaptation. Budget minimum $300K for first-market entry marketing. <strong>Don't underfund the launch and then blame the market.</strong>`,sentiment:'support',confidence:81}),
+    product:p=>({text:`<strong>Product-market messaging is as important as the product itself.</strong> Before we build, I need to validate positioning with 10 customer interviews. A well-positioned average product outsells a poorly-positioned great product. <strong>Give me 2 weeks for positioning research.</strong>`,sentiment:'support',confidence:78}),
+    general:p=>({text:`<strong>Market perception shapes reality.</strong> Whatever we decide, the narrative we craft around it matters as much as the execution. I recommend preparing internal and external communications plans before any announcement. <strong>Perception management is risk management.</strong>`,sentiment:'support',confidence:77})
+  },
+  clo:{
+    mna:p=>({text:`<strong>Legal complexity is manageable but non-trivial.</strong> Key risks: change-of-control clauses in target's contracts, IP assignment gaps, pending litigation, and regulatory approvals. ${p.money?'At '+p.money+', the':'The'} representations and warranties package must be comprehensive. <strong>I need 60 days for full legal DD.</strong>`,sentiment:'cautious',confidence:76}),
+    expand:p=>({text:`<strong>Regulatory landscape varies dramatically by jurisdiction.</strong> GDPR, local employment law, data residency requirements, and tax implications all need assessment. I recommend engaging local counsel in each target market BEFORE any customer-facing activity. <strong>Budget $150K–$300K for legal setup per market.</strong>`,sentiment:'cautious',confidence:74}),
+    restructure:p=>({text:`<strong>Employment law compliance is critical.</strong> WARN Act notifications, severance obligations, discrimination risk in selection criteria, and potential class action exposure. <strong>Document the business rationale exhaustively. Every decision must be defensible.</strong>`,sentiment:'cautious',confidence:71}),
+    general:p=>({text:`<strong>Legal risk assessment requires specifics.</strong> I'll need to review the contractual, regulatory, and liability implications before signing off. Preliminary view: manageable with proper counsel. <strong>No material legal blockers identified yet, but DD is pending.</strong>`,sentiment:'cautious',confidence:75})
+  },
+  ciso:{
+    mna:p=>({text:`<strong>Security posture of the target is a deal condition.</strong> SOC 2 Type II status, vulnerability scan results, incident history, and data handling practices — all must be verified pre-close. Integration of security systems typically takes 6–9 months. <strong>Budget for a full security audit and remediation plan.</strong>`,sentiment:'support',confidence:84}),
+    vendor:p=>({text:`<strong>Security implications of platform migration are significant.</strong> Each transition creates a window of elevated risk. Ensure the new platform meets our compliance requirements BEFORE migration begins. <strong>I need to run a threat model on the proposed architecture.</strong>`,sentiment:'cautious',confidence:82}),
+    general:p=>({text:`<strong>Security and compliance must be embedded from Day 1.</strong> Whatever path we choose, I need to assess the attack surface implications and ensure we maintain our compliance certifications throughout. <strong>I'll have a risk assessment within 48 hours.</strong>`,sentiment:'support',confidence:83})
+  },
+  chro:{
+    mna:p=>({text:`<strong>People integration is where 60% of acquisitions fail.</strong> Cultural compatibility assessment is critical. Key metrics: voluntary attrition in first 12 months should stay below 15%. Retention packages for key talent must be signed BEFORE announcement. <strong>I recommend a dedicated integration team.</strong>`,sentiment:'support',confidence:74}),
+    hire:p=>({text:`<strong>The hidden cost of a mis-hire at senior level is enormous.</strong> 6–18 months of organizational drag, team disruption, opportunity cost. Senior mis-hires have a 40% failure rate within 18 months. <strong>Define 3 non-negotiable competencies BEFORE interviews begin.</strong>`,sentiment:'support',confidence:80}),
+    restructure:p=>({text:`<strong>Hidden costs are consistently underestimated.</strong> Survivor productivity drops 20–40% for 3–6 months. Top performers leave voluntarily. Institutional knowledge walks out. Customer confidence wavers. <strong>Net savings in Year 1 are typically 40–60% of projected.</strong>`,sentiment:'cautious',confidence:68}),
+    general:p=>({text:`<strong>People impact must be factored into every strategic decision.</strong> Change management, communication planning, and talent implications should be assessed early. <strong>I'll prepare a workforce impact analysis within the week.</strong>`,sentiment:'support',confidence:76})
+  },
+  pessimist:{
+    mna:p=>({text:`<strong>Everyone seems optimistic — let me be the contrarian.</strong> 60% of acquisitions fail to deliver projected value. ${p.money?'At '+p.money+', we have':'We have'} zero margin for error. What's our walk-away price? What happens if the integration takes 2x as long? <strong>I see 3 ways this fails catastrophically. Are we prepared for all of them?</strong>`,sentiment:'oppose',confidence:62}),
+    hire:p=>({text:`<strong>Before we hire, have we exhausted internal options?</strong> New senior hires disrupt existing team dynamics. The 40% mis-hire rate isn't a statistic — it's a warning. And what happens to the team's morale if this person doesn't work out in 6 months? <strong>I'm not opposed, but I want to see the downside plan.</strong>`,sentiment:'oppose',confidence:58}),
+    expand:p=>({text:`<strong>International expansion failure rate: ~45% in first 2 years.</strong> Everyone focuses on the upside — I'm focused on what we lose. 15% of engineering resources diverted, management attention fragmented, domestic growth at risk. <strong>What happens to our core business while we chase this?</strong>`,sentiment:'oppose',confidence:55}),
+    product:p=>({text:`<strong>New product launches have a 70% underperformance rate.</strong> We're building what we THINK customers want. Can we get 3 design partners who commit budget before code? If not, we're building on hope. <strong>What does this take AWAY from our core roadmap?</strong>`,sentiment:'oppose',confidence:60}),
+    restructure:p=>({text:`<strong>This is the one time I agree with everyone.</strong> But I'll add: restructurings announced as "one-time" often become serial. Are we solving the root cause or just cutting symptoms? <strong>If we're back here in 12 months doing this again, the strategy failed.</strong>`,sentiment:'cautious',confidence:56}),
+    general:p=>({text:`<strong>I'm paid to find the holes in every plan.</strong> What's the worst-case scenario and have we truly stress-tested it? Not the "reasonable downside" — the actual worst case. <strong>If this fails, what does it cost us, and can we survive it?</strong>`,sentiment:'oppose',confidence:60})
+  },
+  ethicist:{
+    mna:p=>({text:`<strong>Ethical due diligence is as important as financial.</strong> How does the target handle data privacy? What's their track record on workforce treatment? If we inherit ethical liabilities, no amount of financial upside compensates for reputational damage. <strong>I recommend an ESG assessment alongside standard DD.</strong>`,sentiment:'support',confidence:80}),
+    restructure:p=>({text:`<strong>The human cost of restructuring demands ethical scrutiny.</strong> Are we providing adequate severance, outplacement support, and transition assistance? <strong>How we treat people on the way out defines our culture for those who remain.</strong>`,sentiment:'cautious',confidence:72}),
+    general:p=>({text:`<strong>Every decision has stakeholders beyond the boardroom.</strong> Employees, customers, communities, and future generations. I'm not suggesting we ignore economics — but we must ensure this decision is defensible not just financially, but ethically. <strong>What's the impact on people who don't have a seat at this table?</strong>`,sentiment:'support',confidence:78})
+  }
+};
+function getAgentResponse(agentId,archetype,parsed){
+  const agentResps=AGENT_RESPONSES[agentId];
+  if(!agentResps)return{text:'Analyzing from my perspective... I see both opportunities and risks here. Let me review the specifics before giving a firm recommendation.',sentiment:'support',confidence:72};
+  const fn=agentResps[archetype]||agentResps.general;
+  if(!fn)return{text:'This requires careful analysis from my domain. I\'ll prepare a detailed assessment within 48 hours.',sentiment:'support',confidence:70};
+  return fn(parsed);
+}
+
+// Toast notification system
+function showToast(msg,icon,color){
+  const t=document.createElement('div');
+  t.style.cssText=`position:fixed;top:20px;right:20px;padding:14px 20px;background:#18181b;border:1px solid ${color||'#22c55e'};border-radius:10px;color:#e5e5e5;font-size:.8rem;font-family:'Inter',sans-serif;z-index:9999;display:flex;align-items:center;gap:10px;box-shadow:0 8px 24px rgba(0,0,0,.4);animation:toastIn .3s ease;max-width:360px`;
+  t.innerHTML=`<span style="font-size:1.1rem">${icon||'✓'}</span><div><strong style="display:block;color:${color||'#22c55e'};font-size:.75rem;margin-bottom:2px">${msg}</strong><span style="font-size:.65rem;color:#71717a">Packet sealed with SHA-256 · Ed25519 signature</span></div>`;
+  document.body.appendChild(t);
+  setTimeout(()=>{t.style.opacity='0';t.style.transform='translateY(-10px)';t.style.transition='all .3s';setTimeout(()=>t.remove(),300)},3000);
+}
+
+async function runDeliberation(){
+  const q=document.getElementById('queryInput').value.trim();
+  if(!q||isProcessing)return;
+  isProcessing=true;
+  const archetype=detectArchetype(q);
+  const parsed=parseInput(q);
+  const arch=ARCHETYPES[archetype];
+
+  document.getElementById('emptyState').style.display='none';
+  document.getElementById('userInput').style.display='flex';
+  document.getElementById('submitBtn').disabled=true;
+  document.getElementById('phaseLabel').textContent='In Progress';
+  document.getElementById('phaseLabel').style.background='rgba(245,158,11,.1)';
+  document.getElementById('phaseLabel').style.color='#f59e0b';
+
+  const chat=document.getElementById('chatArea');
+  chat.innerHTML='';
+
+  // System message
+  addMsg('<img src="../assets/logos/council.svg" alt="Mod" width="20" height="20" style="border-radius:4px">','Council Moderator','system','Deliberation initiated: "'+q+'"','system');
+  addMsg('<img src="../assets/logos/council.svg" alt="Mod" width="20" height="20" style="border-radius:4px">','Council Moderator','system','Phase 1: Initial Analysis — Each agent provides their perspective.','system');
+
+  // Agent responses — now contextual to user input
+  const activeAgents=AGENTS.filter(a=>selectedAgents.includes(a.id));
+  const responses=[];
+  for(const agent of activeAgents){
+    await delay(800+Math.random()*600);
+    const r=getAgentResponse(agent.id,archetype,parsed);
+    responses.push({agent,r});
+    addMsg(agent.avatar,agent.name,agent.color,r.text,'agent',r.sentiment,r.confidence);
+  }
+
+  // Cross-examination — dynamic based on who's selected and what they said
+  await delay(600);
+  addMsg('<img src="../assets/logos/wargames.svg" alt="Cross" width="20" height="20" style="border-radius:4px">','Council Moderator','system','Phase 2: Cross-Examination — Agents challenge each other.','system');
+  await delay(800);
+
+  const crossExams={
+    mna:[
+      {challenger:'pessimist',target:'chief',cText:'I challenge the strategic rationale. 60% of acquisitions destroy value. What\'s the walk-away price, and has anyone modeled the full integration cost — not the optimistic version?',rAgent:'chief',rText:'Fair challenge. Our walk-away price is modeled at 1.2x the offer. Integration costs are budgeted at $2M with 30% contingency. If we hit the walk-away, we pursue build-not-buy instead.'},
+      {challenger:'cfo',target:'cto',cText:'Technical DD typically surfaces 2x the expected remediation cost. What happens to the financial model if integration takes 24 months instead of 12?',rAgent:'cto',rText:'We\'ve modeled the extended timeline. At 24 months, ROI shifts from Month 18 to Month 30 — still positive but with higher capital lock-up. The phased approach lets us stage-gate spending.'}
+    ],
+    hire:[
+      {challenger:'pessimist',target:'chro',cText:'40% of senior hires fail within 18 months. What\'s our plan if this hire doesn\'t work out? Have we even exhausted internal candidates?',rAgent:'chro',rText:'We\'ve evaluated internal candidates — none meet the technical requirements. Mitigation: 90-day structured onboarding with clear milestones, and a succession backup identified from day one.'}
+    ],
+    expand:[
+      {challenger:'pessimist',target:'cro',cText:'International expansion failure rate is ~45%. What happens to our core business if we divert management attention and 15% of engineering resources?',rAgent:'cro',rText:'Valid concern. That\'s why I\'m recommending a beachhead model — one market, one dedicated team, ring-fenced from core ops. If we can\'t hit $1M ARR in 12 months, we pull back with minimal damage.'}
+    ],
+    product:[
+      {challenger:'cfo',target:'cro',cText:'Customer demand signals and willingness to pay are very different things. Do we have any pre-commitments or just verbal interest?',rAgent:'cro',rText:'Three customers have signed LOIs for pilot pricing. Not full commitment, but real budget allocation. Combined pilot value: $180K. That validates demand beyond verbal interest.'}
+    ],
+    restructure:[
+      {challenger:'ethicist',target:'chief',cText:'Have we fully considered the human impact? Survivor syndrome reduces productivity 20-40%. Top performers leave voluntarily. Are we solving the root cause or just treating symptoms?',rAgent:'chief',rText:'The restructuring enables reinvestment — we\'re cutting to fund growth in the areas that matter. But your point on survivor syndrome is valid. I\'m adding a $200K retention and morale program to the plan.'}
+    ]
+  };
+  const crossPairs=crossExams[archetype]||crossExams.mna;
+  for(const cx of crossPairs){
+    if(selectedAgents.includes(cx.challenger)&&selectedAgents.includes(cx.rAgent)){
+      const challAgent=AGENTS.find(a=>a.id===cx.challenger);
+      const respAgent=AGENTS.find(a=>a.id===cx.rAgent);
+      addMsg(challAgent.avatar,challAgent.name,challAgent.color,cx.cText,'cross');
+      await delay(700);
+      addMsg(respAgent.avatar,respAgent.name,respAgent.color,cx.rText,'agent');
+      await delay(500);
+      break;
+    }
+  }
+
+  // Synthesis — dynamic
+  await delay(800);
+  addMsg('<img src="../assets/logos/council.svg" alt="Mod" width="20" height="20" style="border-radius:4px">','Council Moderator','system','Phase 3: Synthesis — Generating final recommendation.','system');
+  await delay(1000);
+
+  const supportCount=responses.filter(r=>r.r.sentiment==='support').length;
+  const cautiousCount=responses.filter(r=>r.r.sentiment==='cautious').length;
+  const opposeCount=responses.filter(r=>r.r.sentiment==='oppose').length;
+  const avgConf=Math.round(responses.reduce((s,r)=>s+r.r.confidence,0)/responses.length);
+  const confClass=avgConf>=75?'syn-conf-high':avgConf>=60?'syn-conf-med':'syn-conf-low';
+
+  const conditions=responses.filter(r=>r.r.sentiment==='cautious'||r.r.sentiment==='oppose').map(r=>'• '+r.agent.name+': '+r.r.text.replace(/<[^>]+>/g,'').substring(0,100)+'...').join('<br>');
+
+  const synDiv=document.createElement('div');
+  synDiv.className='synthesis-card';
+  synDiv.innerHTML=`<div class="syn-header"><div style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#6366f1,#10b981);display:flex;align-items:center;justify-content:center"><img src="../assets/logos/council.svg" alt="Synthesis" width="24" height="24" style="border-radius:4px"></div><h4>Council Synthesis</h4><span class="rh-badge" style="background:rgba(99,102,241,.1);color:#6366f1">Final Recommendation</span><span class="syn-confidence ${confClass}">${avgConf}% confidence</span></div><div class="syn-body"><strong>Recommendation: ${arch.rec}</strong><br><br>The Council deliberated across ${activeAgents.length} executive perspectives. Consensus: ${supportCount} support, ${cautiousCount} cautious, ${opposeCount} oppose.<br><br>${conditions?'<strong>Key conditions raised:</strong><br>'+conditions+'<br><br>':''}This recommendation is generated from multi-agent deliberation with cross-examination. Each agent's perspective is preserved in the audit trail.</div>`;
+  chat.appendChild(synDiv);
+
+  // Briefing — dynamic
+  const topFindings=responses.slice(0,5).map(r=>`<li><strong>${r.agent.name} (${r.r.sentiment}, ${r.r.confidence}% confident):</strong> ${r.r.text.replace(/<[^>]+>/g,'').substring(0,150)}...</li>`).join('');
+
+  const briefDiv=document.createElement('div');
+  briefDiv.className='briefing';
+  briefDiv.innerHTML=`<h3><img src="../assets/logos/cortex.svg" alt="Briefing" width="18" height="18" style="border-radius:3px;vertical-align:middle"> Executive Briefing — Key Findings</h3><p>The Council deliberated "<em>${q}</em>" across ${activeAgents.length} executive perspectives in ${mode.replace(/-/g,' ')} mode.</p><ul>${topFindings}</ul><p><strong>Bottom line:</strong> ${arch.rec} — ${supportCount} of ${activeAgents.length} agents support proceeding, with ${cautiousCount+opposeCount} raising conditions or concerns. Overall confidence: ${avgConf}%.</p><div class="bf-footer">Deliberation ID: DLB-${Date.now().toString(36).toUpperCase()} · Duration: ${activeAgents.length * 2 + 4}s · Confidence: ${avgConf}% · Packet: Ready for signing</div>`;
+  chat.appendChild(briefDiv);
+
+  // Action buttons with toast notifications instead of alert()
+  const actDiv=document.createElement('div');
+  actDiv.className='action-bar';
+  actDiv.innerHTML=`<button class="act-btn act-primary" onclick="showToast('Executive summary generated','📋','#6366f1')"><img src="../assets/logos/audit-provenance.svg" alt="Summary" width="14" height="14" style="border-radius:3px;vertical-align:middle"> Executive Summary</button><button class="act-btn act-neutral" onclick="showToast('Meeting minutes generated','📝','#9ca3af')"><img src="../assets/logos/cendia-lineage.svg" alt="Minutes" width="14" height="14" style="border-radius:3px;vertical-align:middle"> Generate Minutes</button><button class="act-btn act-green" onclick="showToast('Deliberation saved to vault','💾','#22c55e')"><img src="../assets/logos/data-sovereignty.svg" alt="Save" width="14" height="14" style="border-radius:3px;vertical-align:middle"> Save</button><button class="act-btn act-purple" onclick="showToast('Audit Provenance packet sealed','🔒','#a855f7')"><img src="../assets/logos/audit-provenance.svg" alt="Audit" width="14" height="14" style="border-radius:3px;vertical-align:middle"> Audit Provenance</button><button class="act-btn act-pink" onclick="showToast('Decision packet exported as PDF','📦','#ec4899')"><img src="../assets/logos/sovereign-architecture.svg" alt="Export" width="14" height="14" style="border-radius:3px;vertical-align:middle"> Export Packet</button>`;
+  chat.appendChild(actDiv);
+
+  chat.scrollTop=chat.scrollHeight;
+  document.getElementById('phaseLabel').textContent='Completed';
+  document.getElementById('phaseLabel').style.background='rgba(34,197,94,.1)';
+  document.getElementById('phaseLabel').style.color='#16a34a';
+  document.getElementById('submitBtn').disabled=false;
+  isProcessing=false;
+}
+
+function addMsg(icon,name,color,text,type,sentiment,confidence){
+  const chat=document.getElementById('chatArea');
+  const div=document.createElement('div');
+  div.className='chat-msg';
+  const bubbleClass=type==='system'?'system':type==='cross'?'cross':'agent';
+  const sentBadge=sentiment?`<span style="padding:1px 6px;border-radius:4px;font-size:.6rem;font-weight:600;${sentiment==='support'?'background:rgba(34,197,94,.1);color:#16a34a':sentiment==='cautious'?'background:rgba(245,158,11,.1);color:#f59e0b':'background:rgba(239,68,68,.1);color:#ef4444'}">${sentiment==='support'?'+ Support':sentiment==='cautious'?'! Cautious':'x Challenge'}</span>`:'';
+  const confBadge=confidence?`<span style="font-size:.6rem;color:#9ca3af">${confidence}% confident</span>`:'';
+  div.innerHTML=`<div class="cm-avatar" style="background:${type==='system'?'#fef3c7':color+'20'}">${icon}</div><div class="cm-body"><div class="cm-header"><span class="cm-name" style="color:${type==='system'?'#92400e':color}">${name}</span>${sentBadge}${confBadge}</div><div class="cm-bubble ${bubbleClass}">${text}</div></div>`;
+  chat.appendChild(div);
+  chat.scrollTop=chat.scrollHeight;
+}
+
+function sendUserMsg(){
+  const input=document.getElementById('userMsg');
+  const text=input.value.trim();
+  if(!text)return;
+  addMsg('<img src="../assets/logos/cendia-agents.svg" alt="You" width="20" height="20" style="border-radius:4px">','You (Human)','#3b82f6',text,'agent');
+  input.value='';
+  setTimeout(()=>addMsg('<img src="../assets/logos/council.svg" alt="Mod" width="20" height="20" style="border-radius:4px">','Council Moderator','system','Thank you for your input. The Council is considering your perspective.','system'),500);
+}
+
+function delay(ms){return new Promise(r=>setTimeout(r,ms))}
+
+// Initialize
+renderAgents();
+</script>
+<div style="text-align:center;padding:12px 20px;font-size:.6rem;color:#4a4a5a;border-top:1px solid #1e1e2e;font-family:'Inter',sans-serif">All names, entities, and scenarios in this demo are entirely fictitious. Any resemblance to real persons, companies, or events is purely coincidental.</div>
+<script src="mobile-sidebar.js"></script>
+<script src="demo-analytics.js"></script>
+<script src="../tiktok-pixel.js"></script>
+  <script src="/nav-mobile.js"></script>
+</body>
+</html>

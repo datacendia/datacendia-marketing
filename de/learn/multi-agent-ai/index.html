@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Was ist Multi-Agent-KI? Vollständiger Leitfaden | Datacendia</title>
+  <meta name="description" content="Multi-Agent-KI verwendet mehrere spezialisierte Agenten, die zusammenarbeiten, debattieren und beraten für bessere Entscheidungen.">
+  <meta property="og:title" content="Was ist Multi-Agent-KI?">
+  <meta property="og:description" content="Multi-Agent-KI verwendet mehrere spezialisierte Agenten, die zusammenarbeiten, debattieren und beraten für bessere Entscheidungen.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://datacendia.com/de/learn/multi-agent-ai/">
+  <meta property="og:image" content="https://datacendia.com/og-image.png">
+  <meta property="og:site_name" content="Datacendia">
+  <meta property="og:locale" content="de_DE">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://datacendia.com/og-image.png">
+  <link rel="canonical" href="https://datacendia.com/de/learn/multi-agent-ai/">
+  <link rel="alternate" hreflang="en" href="https://datacendia.com/learn/multi-agent-ai/">
+  <link rel="alternate" hreflang="es" href="https://datacendia.com/es/learn/multi-agent-ai/">
+  <link rel="alternate" hreflang="fr" href="https://datacendia.com/fr/learn/multi-agent-ai/">
+  <link rel="alternate" hreflang="de" href="https://datacendia.com/de/learn/multi-agent-ai/">
+  <link rel="alternate" hreflang="pt" href="https://datacendia.com/pt/learn/multi-agent-ai/">
+  <link rel="alternate" hreflang="it" href="https://datacendia.com/it/learn/multi-agent-ai/">
+  <link rel="alternate" hreflang="ja" href="https://datacendia.com/ja/learn/multi-agent-ai/">
+  <link rel="alternate" hreflang="ko" href="https://datacendia.com/ko/learn/multi-agent-ai/">
+  <link rel="alternate" hreflang="zh" href="https://datacendia.com/zh/learn/multi-agent-ai/">
+  <link rel="alternate" hreflang="ar" href="https://datacendia.com/ar/learn/multi-agent-ai/">
+  <link rel="alternate" hreflang="hi" href="https://datacendia.com/hi/learn/multi-agent-ai/">
+  <link rel="alternate" hreflang="x-default" href="https://datacendia.com/learn/multi-agent-ai/">
+  <link rel="icon" type="image/svg+xml" href="../../../assets/favicon.svg">
+  <link rel="stylesheet" href="../../../styles.css">
+  <style>
+    .learn-container { max-width: 800px; margin: 0 auto; padding: 60px 24px 80px; }
+    .learn-breadcrumb { font-size: 0.75rem; color: var(--color-text-dim); margin-bottom: 24px; }
+    .learn-breadcrumb a { color: var(--color-text-dim); text-decoration: none; }
+    .learn-title { font-family: var(--font-display); font-size: 2.25rem; font-weight: 300; color: var(--color-text); margin-bottom: 16px; }
+    .learn-subtitle { font-size: 1.1rem; color: var(--color-text-muted); margin-bottom: 32px; line-height: 1.6; }
+    .learn-content h2 { font-family: var(--font-display); font-size: 1.5rem; font-weight: 400; color: var(--color-text); margin: 48px 0 16px; padding-top: 24px; border-top: 1px solid var(--color-border); }
+    .learn-content h3 { font-family: var(--font-display); font-size: 1.15rem; font-weight: 400; color: var(--color-text); margin: 32px 0 12px; }
+    .learn-content p { font-size: 0.95rem; color: var(--color-text-muted); line-height: 1.8; margin-bottom: 16px; }
+    .learn-content ul { margin: 16px 0 24px 24px; color: var(--color-text-muted); }
+    .learn-content li { font-size: 0.95rem; line-height: 1.7; margin-bottom: 8px; }
+    .definition-box { background: var(--color-card-bg); border: 1px solid var(--color-gold); border-radius: 8px; padding: 24px; margin: 24px 0; }
+    .definition-box p { font-size: 1rem; color: var(--color-text); margin: 0; }
+    .comparison-table { width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 0.85rem; }
+    .comparison-table th { background: var(--color-card-bg); border: 1px solid var(--color-border); padding: 12px; text-align: left; color: var(--color-text); }
+    .comparison-table td { border: 1px solid var(--color-border); padding: 12px; color: var(--color-text-muted); }
+    .cta-box { background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(212, 175, 55, 0.02) 100%); border: 1px solid var(--color-gold); border-radius: 8px; padding: 32px; margin-top: 48px; text-align: center; }
+    .cta-button { display: inline-block; background: var(--color-gold); color: var(--color-bg); padding: 12px 32px; border-radius: 6px; text-decoration: none; }
+    .related-links { margin-top: 48px; padding-top: 32px; border-top: 1px solid var(--color-border); }
+    .related-links ul { list-style: none; margin: 0; padding: 0; }
+    .related-links a { color: var(--color-gold); text-decoration: none; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-top">
+        <a href="../../" style="text-decoration: none;"><h1 class="logo"><span class="brand-name">DATACENDIA</span></h1></a>
+      </div>
+      <nav class="main-nav">
+        <button class="nav-toggle" aria-label="Menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+        <div class="nav-menu">
+        <div class="nav-group">
+          <span class="nav-label">Plattform</span>
+          <div class="nav-dropdown">
+            <a href="/platform-capabilities.html">Plattformübersicht<span class="nav-desc">Vollständige Fähigkeitskarte</span></a>
+            <a href="/dcii.html">DCII-Framework<span class="nav-desc">9 Grundlagen · Krisenimmunisierung</span></a>
+            <a href="/diagrams.html">Architektur<span class="nav-desc">8 Systemdiagramme</span></a>
+          </div>
+        </div>
+        <div class="nav-group">
+          <span class="nav-label">Evidenz</span>
+          <div class="nav-dropdown">
+            <a href="/demos.html">Interaktive Demos<span class="nav-desc">Council, Chronos, Crucible &amp; mehr</span></a>
+            <a href="/wargames.html">Kriegsspiele<span class="nav-desc">Hätte Widerspruch das Risiko aufgedeckt?</span></a>
+            <a href="/case-studies.html">Fallstudien<span class="nav-desc">Praxisnahe Entscheidungsanalyse</span></a>
+          </div>
+        </div>
+        <a href="/verticals.html">Branchen</a>
+        <div class="nav-group">
+          <span class="nav-label">Preise</span>
+          <div class="nav-dropdown">
+            <a href="/pricing.html">Stufenübersicht<span class="nav-desc">Foundation · Enterprise · Strategic</span></a>
+            <a href="/premium.html">Premium-Module<span class="nav-desc">7 erweiterte Fähigkeiten</span></a>
+            <a href="/roi-calculator.html">ROI-Rechner<span class="nav-desc">Entscheidungsrisikoreduktion quantifizieren</span></a>
+            <a href="/pilot.html">90-Tage-Pilot<span class="nav-desc">Wert beweisen vor Skalierung</span></a>
+          </div>
+        </div>
+        <div class="nav-group">
+          <span class="nav-label">Vertrauen</span>
+          <div class="nav-dropdown">
+            <a href="/trust.html">Vertrauenszentrum<span class="nav-desc">Sicherheit, Compliance &amp; Bereitstellung</span></a>
+            <a href="/honesty-matrices.html">Ehrlichkeitsmatrizen<span class="nav-desc">Was wir noch nicht können</span></a>
+          </div>
+        </div>
+        <a href="/briefing.html" class="nav-cta">Briefing Anfordern</a>
+        </div>
+      </nav>
+    </header>
+
+    <main class="learn-container">
+      <nav class="learn-breadcrumb">
+        <a href="../../">Startseite</a> / <a href="../">Lernen</a> / Multi-Agent-KI
+      </nav>
+
+      <article>
+        <h1 class="learn-title">Was ist Multi-Agent-KI?</h1>
+        <p class="learn-subtitle">Multi-Agent-KI-Systeme verwenden mehrere spezialisierte KI-Agenten, die zusammenarbeiten, debattieren und beraten — wie ein Führungsteam — um bessere Entscheidungen zu treffen als ein einzelnes Modell.</p>
+
+        <div class="definition-box">
+          <p><strong>Multi-Agent-KI:</strong> Eine Architektur, bei der mehrere autonome KI-Agenten, jeder mit spezialisierten Fähigkeiten oder Perspektiven, zusammenarbeiten, um komplexe Probleme zu lösen. Agenten können kooperieren, verhandeln oder sogar die Schlussfolgerungen anderer anfechten.</p>
+        </div>
+
+        <div class="learn-content">
+          <h2>Warum mehrere KI-Agenten verwenden?</h2>
+          <ul>
+            <li><strong>Perspektiven-Bias</strong> — Ein einzelnes Modell optimiert für ein Ziel und kann wichtige Überlegungen übersehen</li>
+            <li><strong>Blinde Flecken</strong> — Modelle können Muster außerhalb ihrer Trainingserfahrung verpassen</li>
+            <li><strong>Übervertrauen</strong> — Modelle liefern oft selbstsichere Antworten auch bei hoher Unsicherheit</li>
+            <li><strong>Fehlende Deliberation</strong> — Einzelmodelle debattieren nicht mit sich selbst</li>
+          </ul>
+
+          <h2>Wie funktionieren Multi-Agent-Systeme?</h2>
+          
+          <h3>Phase 1: Erste Analyse</h3>
+          <p>Jeder Agent analysiert das Problem aus seiner spezialisierten Perspektive.</p>
+          
+          <h3>Phase 2: Kreuzverhör</h3>
+          <p>Agenten hinterfragen die Schlussfolgerungen der anderen. Der Risiko-Agent kann optimistische Annahmen anfechten.</p>
+          
+          <h3>Phase 3: Synthese</h3>
+          <p>Ein Synthese-Agent integriert die Perspektiven in eine kohärente Empfehlung.</p>
+          
+          <h3>Phase 4: Governance-Prüfung</h3>
+          <p>Ein letzter Agent prüft regulatorische und rechtliche Compliance vor der Ausgabe.</p>
+
+          <h2>Agententypen in Multi-Agent-Systemen</h2>
+          <table class="comparison-table">
+            <thead><tr><th>Agententyp</th><th>Rolle</th><th>Perspektive</th></tr></thead>
+            <tbody>
+              <tr><td>Analyst-Agent</td><td>Datenanalyse und Mustererkennung</td><td>Was sagen die Daten?</td></tr>
+              <tr><td>Risiko-Agent</td><td>Risikoidentifikation und -bewertung</td><td>Was könnte schief gehen?</td></tr>
+              <tr><td>Strategie-Agent</td><td>Strategische Zieloptimierung</td><td>Was fördert unsere Ziele?</td></tr>
+              <tr><td>Compliance-Agent</td><td>Regulatorische und Policy-Prüfung</td><td>Ist dies erlaubt?</td></tr>
+              <tr><td>Arbiter-Agent</td><td>Synthese und Konfliktlösung</td><td>Was ist die beste Gesamtentscheidung?</td></tr>
+            </tbody>
+          </table>
+
+          <h2>Vorteile für regulierte Branchen</h2>
+          <ul>
+            <li><strong>Verbesserte Erklärbarkeit</strong> — Das Debattenformat liefert natürlichsprachliche Begründungen</li>
+            <li><strong>Verbesserte Entscheidungsqualität</strong> — Mehrere Perspektiven fangen Fehler ab</li>
+            <li><strong>Eingebaute Compliance</strong> — Dedizierte Governance-Agenten</li>
+            <li><strong>Audit-Trails</strong> — Vollständige Deliberation wird aufgezeichnet</li>
+          </ul>
+
+          <div class="cta-box">
+            <h3>Multi-Agent-KI in Aktion sehen</h3>
+            <p>Das Council von Datacendia verwendet spezialisierte Agenten, die mit vollständigen Audit-Trails deliberieren.</p>
+            <a href="/briefing.html?lang=de" class="cta-button">Technisches Briefing Anfordern</a>
+          </div>
+
+          <nav class="related-links">
+            <h3>Verwandte Themen</h3>
+            <ul>
+              <li><a href="../decision-intelligence/">Was ist Entscheidungsintelligenz?</a></li>
+              <li><a href="../ai-audit-trail/">Was ist ein KI-Audit-Trail?</a></li>
+              <li><a href="../sovereign-ai/">Was ist Souveräne KI?</a></li>
+            </ul>
+          </nav>
+        </div>
+      </article>
+    </main>
+
+    <footer style="text-align: center; padding: 40px 24px; border-top: 1px solid var(--color-border); margin-top: 60px;">
+      <p style="font-size: 0.75rem; color: var(--color-text-dim);">© 2026 Datacendia. Souveräne Unternehmensintelligenz.</p>
+    </footer>
+  </div>
+  <script src="/nav-mobile.js"></script>
+</body>
+</html>

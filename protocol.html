@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Architecture Protocol — Datacendia Cortex Technical Specification</title>
+  <meta name="description" content="The definitive technical specification for the Datacendia Cortex. Complete documentation of the 8-pillar architecture, data flows, security model, and integration protocols for enterprise deployment.">
+  <meta name="keywords" content="Datacendia architecture, Cortex protocol, enterprise AI specification, multi-agent architecture, sovereign AI technical docs, CendiaAgents, CendiaGuard, CendiaChronos">
+  <meta name="author" content="Datacendia">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Architecture Protocol — Datacendia Cortex">
+  <meta property="og:description" content="The definitive technical specification for sovereign enterprise intelligence.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://datacendia.com/protocol.html">
+  <meta property="og:image" content="https://datacendia.com/og-image.png">
+  <meta property="og:site_name" content="Datacendia">
+  <link rel="canonical" href="https://datacendia.com/protocol.html">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <meta name="theme-color" content="#0a0a0a">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .page-container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 80px 24px;
+    }
+    .page-header {
+      text-align: center;
+      margin-bottom: 48px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid var(--color-border);
+    }
+    .page-icon {
+      font-size: 2rem;
+      margin-bottom: 16px;
+    }
+    .page-title {
+      font-family: var(--font-display);
+      font-size: 2.5rem;
+      font-weight: 300;
+      color: var(--color-text);
+      margin-bottom: 12px;
+    }
+    .page-subtitle {
+      font-size: 0.9rem;
+      color: var(--color-text-dim);
+      max-width: 600px;
+      margin: 0 auto 24px;
+    }
+    .version-badge {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      padding: 6px 12px;
+      background: var(--color-card-bg);
+      border: 1px solid var(--color-border);
+      border-radius: 4px;
+      color: var(--color-text-dim);
+    }
+    .toc {
+      background: var(--color-card-bg);
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      padding: 32px;
+      margin-bottom: 48px;
+    }
+    .toc h2 {
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--color-gold);
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      margin-bottom: 20px;
+    }
+    .toc-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      columns: 2;
+      column-gap: 32px;
+    }
+    .toc-list li {
+      margin-bottom: 12px;
+      break-inside: avoid;
+    }
+    .toc-list a {
+      font-size: 0.85rem;
+      color: var(--color-text-muted);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .toc-list a:hover {
+      color: var(--color-gold);
+    }
+    .toc-number {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--color-text-dim);
+      min-width: 24px;
+    }
+    .protocol-section {
+      margin-bottom: 64px;
+    }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 24px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--color-border);
+    }
+    .section-number {
+      font-family: var(--font-mono);
+      font-size: 1.5rem;
+      color: var(--color-gold);
+      font-weight: 500;
+    }
+    .section-title {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: var(--color-text);
+    }
+    .section-content {
+      font-size: 0.9rem;
+      color: var(--color-text-muted);
+      line-height: 1.8;
+    }
+    .section-content p {
+      margin-bottom: 16px;
+    }
+    .section-content h3 {
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--color-text);
+      margin: 32px 0 16px;
+    }
+    .section-content h4 {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--color-gold);
+      margin: 24px 0 12px;
+    }
+    .section-content strong {
+      color: var(--color-text);
+    }
+    .section-content ul, .section-content ol {
+      margin: 16px 0;
+      padding-left: 24px;
+    }
+    .section-content li {
+      margin-bottom: 8px;
+    }
+    .code-block {
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+      border-radius: 6px;
+      padding: 20px;
+      margin: 16px 0;
+      overflow-x: auto;
+    }
+    .code-block pre {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--color-text-muted);
+      margin: 0;
+      white-space: pre-wrap;
+    }
+    .code-block code {
+      color: var(--color-gold);
+    }
+    .diagram-box {
+      background: var(--color-card-bg);
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      padding: 32px;
+      margin: 24px 0;
+      text-align: center;
+    }
+    .diagram-box pre {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--color-text-muted);
+      text-align: left;
+      display: inline-block;
+      line-height: 1.4;
+    }
+    .diagram-caption {
+      font-size: 0.75rem;
+      color: var(--color-text-dim);
+      margin-top: 16px;
+    }
+    .spec-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 24px 0;
+    }
+    .spec-table th {
+      text-align: left;
+      font-size: 0.7rem;
+      font-weight: 500;
+      color: var(--color-text-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--color-border);
+      background: var(--color-bg);
+    }
+    .spec-table td {
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--color-border);
+      font-size: 0.85rem;
+      vertical-align: top;
+    }
+    .spec-table td:first-child {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--color-gold);
+      white-space: nowrap;
+    }
+    .spec-table td:last-child {
+      color: var(--color-text-muted);
+    }
+    .callout {
+      background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(212, 175, 55, 0.02) 100%);
+      border: 1px solid var(--color-gold-border);
+      border-radius: 6px;
+      padding: 20px 24px;
+      margin: 24px 0;
+    }
+    .callout-title {
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--color-gold);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 8px;
+    }
+    .callout p {
+      margin-bottom: 0;
+    }
+    .warning-callout {
+      background: linear-gradient(135deg, rgba(231, 76, 60, 0.1) 0%, rgba(231, 76, 60, 0.02) 100%);
+      border-color: rgba(231, 76, 60, 0.3);
+    }
+    .warning-callout .callout-title {
+      color: #e74c3c;
+    }
+    .back-link {
+      display: inline-block;
+      margin-bottom: 32px;
+      font-size: 0.75rem;
+      color: var(--color-text-dim);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+    .back-link:hover {
+      color: var(--color-gold);
+    }
+    @media (max-width: 600px) {
+      .toc-list {
+        columns: 1;
+      }
+      .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="page-container">
+      <div class="page-top-bar">
+        <a href="index.html" class="back-link" data-i18n="protBackLink">← Return to Datacendia</a>
+        <div class="lang-selector">
+          <button class="lang-btn"><span class="lang-current">English</span> ▾</button>
+          <div class="lang-dropdown">
+            <button onclick="setLanguage('en')">English</button>
+            <button onclick="setLanguage('es')">Español</button>
+            <button onclick="setLanguage('fr')">Français</button>
+            <button onclick="setLanguage('de')">Deutsch</button>
+            <button onclick="setLanguage('pt')">Português</button>
+            <button onclick="setLanguage('it')">Italiano</button>
+            <button onclick="setLanguage('ja')">日本語</button>
+            <button onclick="setLanguage('ko')">한국어</button>
+            <button onclick="setLanguage('zh')">中文</button>
+            <button onclick="setLanguage('ar')">العربية</button>
+            <button onclick="setLanguage('hi')">हिन्दी</button>
+          </div>
+        </div>
+      </div>
+            <nav class="main-nav">
+        <button class="nav-toggle" aria-label="Menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+        <div class="nav-menu">
+        <div class="nav-group">
+          <span class="nav-label" data-i18n="navPlatform">Platform</span>
+          <div class="nav-dropdown">
+            <a href="platform-capabilities.html"><span data-i18n="navPlatformOverview">Platform Overview</span><span class="nav-desc" data-i18n="navPlatformOverviewDesc">Full capability map</span></a>
+            <a href="dcii.html"><span data-i18n="navDcii">DCII Framework</span><span class="nav-desc" data-i18n="navDciiDesc">9 primitives · Crisis immunization</span></a>
+            <a href="diagrams.html"><span data-i18n="navArchitecture">Architecture</span><span class="nav-desc" data-i18n="navArchitectureDesc">12 system diagrams</span></a>
+          </div>
+        </div>
+        <div class="nav-group">
+          <span class="nav-label" data-i18n="navEvidence">Evidence</span>
+          <div class="nav-dropdown">
+            <a href="demos.html"><span data-i18n="navDemos">Interactive Demos</span><span class="nav-desc" data-i18n="navDemosDesc">Council, Chronos, Crucible &amp; more</span></a>
+            <a href="wargames.html"><span data-i18n="navWargames">War Games</span><span class="nav-desc" data-i18n="navWargamesDesc">Would dissent have surfaced the risk?</span></a>
+            <a href="case-studies.html"><span data-i18n="navCaseStudies">Case Studies</span><span class="nav-desc" data-i18n="navCaseStudiesDesc">Real-world decision analysis</span></a>
+          </div>
+        </div>
+        <a href="verticals.html" data-i18n="navIndustries">Industries</a>
+        <div class="nav-group">
+          <span class="nav-label" data-i18n="navPricing">Pricing</span>
+          <div class="nav-dropdown">
+            <a href="pricing.html"><span data-i18n="navTierOverview">Tier Overview</span><span class="nav-desc" data-i18n="navTierOverviewDesc">Foundation · Enterprise · Strategic</span></a>
+            <a href="premium.html"><span data-i18n="navPremiumModules">Premium Modules</span><span class="nav-desc" data-i18n="navPremiumModulesDesc">7 advanced capabilities</span></a>
+            <a href="roi-calculator.html"><span data-i18n="navRoiCalculator">ROI Calculator</span><span class="nav-desc" data-i18n="navRoiCalculatorDesc">Quantify decision risk reduction</span></a>
+            <a href="pilot.html"><span data-i18n="navPilot">90-Day Pilot</span><span class="nav-desc" data-i18n="navPilotDesc">Prove value before scaling</span></a>
+          </div>
+        </div>
+        <div class="nav-group">
+          <span class="nav-label" data-i18n="navTrust">Trust</span>
+          <div class="nav-dropdown">
+            <a href="trust.html"><span data-i18n="navTrustCenter">Trust Center</span><span class="nav-desc" data-i18n="navTrustCenterDesc">Security, compliance &amp; deployment</span></a>
+            <a href="honesty-matrices.html"><span data-i18n="navHonestyMatricesLink">Honesty Matrices</span><span class="nav-desc" data-i18n="navHonestyMatricesDesc">What we can't do — yet</span></a>
+          </div>
+        </div>
+        <a href="briefing.html" class="nav-cta" data-i18n="navRequestBriefing">Request Briefing</a>
+        </div>
+      </nav>
+      
+      <div class="page-header">
+        <div class="page-icon"><img src="assets/logos/cortex.svg" alt="Architecture Protocol" width="64" height="64" style="border-radius:12px"></div>
+        <h1 class="page-title" data-i18n="protPageTitle">Architecture Protocol</h1>
+        <p class="page-subtitle" data-i18n="protPageSubtitle">The definitive technical specification for the Datacendia Cortex. This document serves as the authoritative reference for system architecture, data flows, security boundaries, and integration protocols.</p>
+        <span class="version-badge" data-i18n="protVersionBadge">Version 1.0 · January 2026</span>
+      </div>
+
+      <div class="toc">
+        <h2 data-i18n="protTocTitle">Table of Contents</h2>
+        <ul class="toc-list">
+          <li><a href="#overview"><span class="toc-number">1</span> <span data-i18n="protToc1">System Overview</span></a></li>
+          <li><a href="#principles"><span class="toc-number">2</span> <span data-i18n="protToc2">Design Principles</span></a></li>
+          <li><a href="#pillars"><span class="toc-number">3</span> <span data-i18n="protToc3">The Eight Pillars</span></a></li>
+          <li><a href="#data-flow"><span class="toc-number">4</span> <span data-i18n="protToc4">Data Flow Architecture</span></a></li>
+          <li><a href="#deliberation"><span class="toc-number">5</span> <span data-i18n="protToc5">Deliberation Protocol</span></a></li>
+          <li><a href="#security"><span class="toc-number">6</span> <span data-i18n="protToc6">Security Model</span></a></li>
+          <li><a href="#audit"><span class="toc-number">7</span> <span data-i18n="protToc7">Audit & Lineage</span></a></li>
+          <li><a href="#deployment"><span class="toc-number">8</span> <span data-i18n="protToc8">Deployment Modes</span></a></li>
+          <li><a href="#integration"><span class="toc-number">9</span> <span data-i18n="protToc9">Integration Protocol</span></a></li>
+          <li><a href="#limits"><span class="toc-number">10</span> <span data-i18n="protToc10">Known Limits</span></a></li>
+        </ul>
+      </div>
+
+      <!-- Section 1: Overview -->
+      <div class="protocol-section" id="overview">
+        <div class="section-header">
+          <span class="section-number">1</span>
+          <h2 class="section-title" data-i18n="protS1Title">System Overview</h2>
+        </div>
+        <div class="section-content">
+          <p>
+            The <strong>Datacendia Cortex</strong> is a decision operating system designed for enterprises that require cryptographic proof of AI reasoning. It is not a chatbot, not a copilot, and not a prediction engine. It is an <strong>accountability layer</strong> that sits between raw data and defensible business decisions.
+          </p>
+          <p>
+            The system comprises eight interdependent pillars, each addressing a distinct enterprise requirement:
+          </p>
+          <ol>
+            <li><strong>CendiaAgents</strong> — Cognitive engine (multi-agent deliberation)</li>
+            <li><strong>CendiaEthics</strong> — Governance layer (policy enforcement)</li>
+            <li><strong>CendiaGuard</strong> — Security layer (sovereignty protection)</li>
+            <li><strong>CendiaLineage</strong> — Provenance layer (data lineage & truth)</li>
+            <li><strong>CendiaHelm</strong> — Interface layer (command & control)</li>
+            <li><strong>CendiaPredict</strong> — Forecasting layer (scenario simulation)</li>
+            <li><strong>CendiaFlow</strong> — Execution layer (authorized actions)</li>
+            <li><strong>CendiaHealth</strong> — Reliability layer (system monitoring)</li>
+          </ol>
+          <p>
+            Together, these pillars transform the Cortex from "software" into "infrastructure" — a foundational layer that enterprises can trust with their most consequential decisions.
+          </p>
+        </div>
+      </div>
+
+      <!-- Section 2: Design Principles -->
+      <div class="protocol-section" id="principles">
+        <div class="section-header">
+          <span class="section-number">2</span>
+          <h2 class="section-title" data-i18n="protS2Title">Design Principles</h2>
+        </div>
+        <div class="section-content">
+          <h3 data-i18n="protS2H1">2.1 Sovereignty Over Convenience</h3>
+          <p>
+            Every architectural decision prioritizes customer control over operational simplicity. The customer owns the infrastructure, the encryption keys, and the audit trail. Datacendia provides software; the customer provides sovereignty.
+          </p>
+          <ul>
+            <li>Encryption keys never leave customer-controlled KMS/HSM</li>
+            <li>Data never leaves customer infrastructure perimeter</li>
+            <li>Air-gapped deployment is first-class, not an afterthought</li>
+            <li>No telemetry, no call-home, no license phone-home in offline mode</li>
+          </ul>
+
+          <h3 data-i18n="protS2H2">2.2 Proof Over Trust</h3>
+          <p>
+            The system generates cryptographically signed evidence packets for every decision. When a regulator asks "why did you decide this?", the answer is not a verbal explanation — it is a tamper-evident artifact.
+          </p>
+          <ul>
+            <li>Every decision produces a Decision Trace (inputs, reasoning, output)</li>
+            <li>Traces are cryptographically hashed and chained (Merkle tree)</li>
+            <li>Signatures use Ed25519 or RSA-PSS (customer choice)</li>
+            <li>Export formats: JSON, PDF, XBRL (regulatory)</li>
+          </ul>
+
+          <h3 data-i18n="protS2H3">2.3 Dissent Over Consensus</h3>
+          <p>
+            The Council architecture institutionalizes disagreement. Multiple specialized agents debate each decision. Conflict is a feature, not a bug — it surfaces blind spots before they become liabilities.
+          </p>
+          <ul>
+            <li>Minimum 4 agents per deliberation (configurable up to 14)</li>
+            <li>RedTeam agent always active (adversarial by design)</li>
+            <li>Consensus requires explicit agreement, not averaging</li>
+            <li>Deadlocks escalate to human review with full context</li>
+          </ul>
+
+          <h3 data-i18n="protS2H4">2.4 Depth Over Wrappers</h3>
+          <p>
+            The Cortex is not a thin layer over third-party APIs. Each pillar contains proprietary logic that cannot be replicated by prompt engineering alone. The moat is architectural, not superficial.
+          </p>
+        </div>
+      </div>
+
+      <!-- Section 3: The Eight Pillars -->
+      <div class="protocol-section" id="pillars">
+        <div class="section-header">
+          <span class="section-number">3</span>
+          <h2 class="section-title" data-i18n="protS3Title">The Eight Pillars</h2>
+        </div>
+        <div class="section-content">
+          <h3><img src="assets/logos/cendia-agents.svg" alt="CendiaAgents" width="32" height="32" style="border-radius:6px;vertical-align:middle;margin-right:8px">3.1 CendiaAgents (The Cognitive Engine)</h3>
+          <p>The orchestration layer where The Council lives.</p>
+          <table class="spec-table">
+            <tr><td>The Council</td><td>Multi-agent deliberation environment. Agents represent stakeholder perspectives (CFO, CISO, Risk, Strategy, Legal, Operations).</td></tr>
+            <tr><td>RedTeam Module</td><td>Project HUME. Adversarial agent that challenges consensus. Always active. Cannot be disabled without audit trail.</td></tr>
+            <tr><td>Analyst Module</td><td>Project SMITH. Strategic analysis and efficiency optimization. Primary data synthesizer.</td></tr>
+            <tr><td>Mirror Module</td><td>Stakeholder simulation. Models external perspectives (customers, employees, regulators) before they surface.</td></tr>
+            <tr><td>Synthesis Engine</td><td>Meta-model that resolves agent conflict into final recommendation. Outputs include confidence intervals and dissent logs.</td></tr>
+          </table>
+
+          <h3><img src="assets/logos/cendia-ethics.svg" alt="CendiaEthics" width="32" height="32" style="border-radius:6px;vertical-align:middle;margin-right:8px">3.2 CendiaEthics (The Conscience)</h3>
+          <p>The governance layer that prevents liability before it occurs.</p>
+          <table class="spec-table">
+            <tr><td>CendiaVeto</td><td>Binary logic gate. Blocks actions violating risk policy. No override without human approval + audit trail. The "kill switch."</td></tr>
+            <tr><td>The Spectator</td><td>Impartial Observer module (Adam Smith model). Flags reputational and ethical risks using stakeholder impact analysis.</td></tr>
+            <tr><td>Compliance Oracle</td><td>Real-time regulatory lookup. GDPR, Basel III, HIPAA, SOX, internal bylaws. Updated via secure channel or offline bundle.</td></tr>
+          </table>
+
+          <h3><img src="assets/logos/cendia-guard.svg" alt="CendiaGuard" width="32" height="32" style="border-radius:6px;vertical-align:middle;margin-right:8px">3.3 CendiaGuard (The Shield)</h3>
+          <p>The security layer protecting sovereignty.</p>
+          <table class="spec-table">
+            <tr><td>Audit Provenance</td><td>Immutable audit ledger. Cryptographic hashing (SHA-256) of every decision. Merkle tree structure for efficient verification.</td></tr>
+            <tr><td>Anonymizer Cortex</td><td>PII stripping before context window ingestion. Configurable rules. Supports GDPR Article 17 (right to erasure).</td></tr>
+            <tr><td>Air-Gap Protocol</td><td>Unidirectional data flow management. Optical diode logic for classified environments. No outbound connections required.</td></tr>
+            <tr><td>Shadow Mode Shredder</td><td>Cryptographic deletion of intermediate "thought processes." Minimizes discovery risk in litigation.</td></tr>
+          </table>
+
+          <h3><img src="assets/logos/cendia-lineage.svg" alt="CendiaLineage" width="32" height="32" style="border-radius:6px;vertical-align:middle;margin-right:8px">3.4 CendiaLineage (The Truth)</h3>
+          <p>The memory and provenance layer.</p>
+          <table class="spec-table">
+            <tr><td>CendiaChronos</td><td>Time-travel engine. Replays system state at T-1 to prove why a decision was made at that moment. Point-in-time reconstruction.</td></tr>
+            <tr><td>Knowledge Graph</td><td>Entity relationship mapping. Connects people, policies, documents, and decisions. Neo4j-compatible export.</td></tr>
+            <tr><td>Source Attribution</td><td>Token-level provenance. Every output token tagged with source document, page, and confidence score.</td></tr>
+            <tr><td>Data Broker</td><td>Central nervous system. Routes data between storage, agents, and outputs. Full audit trail of all data movement.</td></tr>
+          </table>
+
+          <h3><img src="assets/logos/cendia-helm.svg" alt="CendiaHelm" width="32" height="32" style="border-radius:6px;vertical-align:middle;margin-right:8px">3.5 CendiaHelm (The Interface)</h3>
+          <p>The command and control layer.</p>
+          <table class="spec-table">
+            <tr><td>NLP Command Processor</td><td>Natural language to structured action translation. Supports complex queries without code.</td></tr>
+            <tr><td>Voice Biometrics</td><td>Optional operator identity verification. Multi-factor for high-stakes decisions.</td></tr>
+            <tr><td>Sovereign Response Generator</td><td>Output formatting engine. PDF, JSON, email, XBRL, custom templates.</td></tr>
+          </table>
+
+          <h3><img src="assets/logos/cendia-predict.svg" alt="CendiaPredict" width="32" height="32" style="border-radius:6px;vertical-align:middle;margin-right:8px">3.6 CendiaPredict (The Foresight)</h3>
+          <p>The forecasting and simulation layer.</p>
+          <table class="spec-table">
+            <tr><td>Scenario Simulator</td><td>Monte Carlo simulations driven by agent debates. Thousands of futures, ranked by probability and impact.</td></tr>
+            <tr><td>Trend Extrapolator</td><td>Time-series projection. Identifies inflection points and emerging risks from historical patterns.</td></tr>
+          </table>
+
+          <h3><img src="assets/logos/cendia-flow.svg" alt="CendiaFlow" width="32" height="32" style="border-radius:6px;vertical-align:middle;margin-right:8px">3.7 CendiaFlow (The Hands)</h3>
+          <p>The execution and automation layer.</p>
+          <table class="spec-table">
+            <tr><td>The Actuator</td><td>Authorized action executor. API calls, emails, workflow triggers. Active only after CendiaVeto approval.</td></tr>
+            <tr><td>Connector Mesh</td><td>Pre-built integrations. ERP (SAP, Oracle), CRM (Salesforce), Banking Core, HRIS. All connections stay within customer perimeter.</td></tr>
+          </table>
+
+          <h3><img src="assets/logos/cendia-health.svg" alt="CendiaHealth" width="32" height="32" style="border-radius:6px;vertical-align:middle;margin-right:8px">3.8 CendiaHealth (The Pulse)</h3>
+          <p>The system reliability layer.</p>
+          <table class="spec-table">
+            <tr><td>Drift Detector</td><td>Model behavior monitoring. Alerts when outputs deviate from baseline distribution.</td></tr>
+            <tr><td>Agent Sanity Check</td><td>Periodic ground truth validation. Catches hallucination before production impact.</td></tr>
+            <tr><td>Resource Monitor</td><td>VRAM/CPU/memory tracking. Prevents resource starvation in constrained environments.</td></tr>
+          </table>
+        </div>
+      </div>
+
+      <!-- Section 4: Data Flow -->
+      <div class="protocol-section" id="data-flow">
+        <div class="section-header">
+          <span class="section-number">4</span>
+          <h2 class="section-title" data-i18n="protS4Title">Data Flow Architecture</h2>
+        </div>
+        <div class="section-content">
+          <p>Data flows through the Cortex in a strictly controlled sequence. No data bypasses the security and ethics gates.</p>
+          
+          <div class="diagram-box">
+            <pre>
+┌─────────────────────────────────────────────────────────────────┐
+│                        CUSTOMER PERIMETER                        │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                  │
+│  ┌──────────┐    ┌──────────────┐    ┌──────────────────────┐   │
+│  │  SOURCE  │───▶│  ANONYMIZER  │───▶│     DATA BROKER      │   │
+│  │   DATA   │    │    CORTEX    │    │  (CendiaLineage)     │   │
+│  └──────────┘    └──────────────┘    └──────────┬───────────┘   │
+│                                                  │               │
+│                                                  ▼               │
+│                                       ┌──────────────────────┐   │
+│                                       │    THE COUNCIL       │   │
+│                                       │   (CendiaAgents)     │   │
+│                                       │  ┌────┐ ┌────┐       │   │
+│                                       │  │ A1 │ │ A2 │ ...   │   │
+│                                       │  └────┘ └────┘       │   │
+│                                       └──────────┬───────────┘   │
+│                                                  │               │
+│                                                  ▼               │
+│  ┌──────────────┐    ┌──────────────┐    ┌──────────────────┐   │
+│  │   WITNESS    │◀───│   SYNTHESIS  │◀───│   CENDIA VETO    │   │
+│  │   LEDGER     │    │    ENGINE    │    │   (Ethics Gate)  │   │
+│  └──────────────┘    └──────┬───────┘    └──────────────────┘   │
+│                             │                                    │
+│                             ▼                                    │
+│                  ┌──────────────────────┐                        │
+│                  │   DECISION OUTPUT    │                        │
+│                  │  (Signed Evidence)   │                        │
+│                  └──────────────────────┘                        │
+│                                                                  │
+└─────────────────────────────────────────────────────────────────┘
+            </pre>
+            <p class="diagram-caption" data-i18n="protDiagCaption">Figure 4.1: Core data flow through the Datacendia Cortex</p>
+          </div>
+
+          <h3 data-i18n="protS4H1">4.1 Ingestion Phase</h3>
+          <p>Source data enters through the Anonymizer Cortex, which:</p>
+          <ul>
+            <li>Identifies and tags PII using configurable rules</li>
+            <li>Strips or pseudonymizes sensitive fields before context window</li>
+            <li>Logs all transformations to Audit Provenance</li>
+          </ul>
+
+          <h3 data-i18n="protS4H2">4.2 Processing Phase</h3>
+          <p>The Data Broker routes cleaned data to The Council, where:</p>
+          <ul>
+            <li>Multiple agents receive the same input simultaneously</li>
+            <li>Each agent processes independently (no cross-contamination)</li>
+            <li>RedTeam agent receives additional adversarial prompting</li>
+          </ul>
+
+          <h3 data-i18n="protS4H3">4.3 Synthesis Phase</h3>
+          <p>Agent outputs flow to the Synthesis Engine, which:</p>
+          <ul>
+            <li>Identifies areas of agreement and disagreement</li>
+            <li>Weights recommendations by agent confidence scores</li>
+            <li>Generates unified recommendation with dissent log</li>
+          </ul>
+
+          <h3 data-i18n="protS4H4">4.4 Veto Phase</h3>
+          <p>Before output, CendiaVeto evaluates the recommendation against:</p>
+          <ul>
+            <li>Configured risk policies (hard limits)</li>
+            <li>Compliance Oracle rules (regulatory constraints)</li>
+            <li>The Spectator assessment (reputational risk)</li>
+          </ul>
+
+          <div class="callout warning-callout">
+            <div class="callout-title" data-i18n="protCallout1">Critical Constraint</div>
+            <p>If CendiaVeto blocks a recommendation, no output is produced until human override with explicit justification. The override itself is logged to Audit Provenance with the approver's identity.</p>
+          </div>
+
+          <h3 data-i18n="protS4H5">4.5 Output Phase</h3>
+          <p>Approved recommendations are:</p>
+          <ul>
+            <li>Cryptographically signed (Ed25519 or RSA-PSS)</li>
+            <li>Hashed and appended to the Witness ledger</li>
+            <li>Formatted per Sovereign Response Generator templates</li>
+            <li>Optionally executed via The Actuator (CendiaFlow)</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Section 5: Deliberation Protocol -->
+      <div class="protocol-section" id="deliberation">
+        <div class="section-header">
+          <span class="section-number">5</span>
+          <h2 class="section-title" data-i18n="protS5Title">Deliberation Protocol</h2>
+        </div>
+        <div class="section-content">
+          <p>The Council's deliberation follows a structured protocol designed to maximize disagreement visibility while converging on actionable recommendations.</p>
+
+          <h3 data-i18n="protS5H1">5.1 Agent Configuration</h3>
+          <table class="spec-table">
+            <thead><tr><th>Parameter</th><th>Default</th><th>Range</th><th>Description</th></tr></thead>
+            <tbody>
+              <tr><td>agent_count</td><td>8</td><td>4-14</td><td>Number of active agents per deliberation</td></tr>
+              <tr><td>max_rounds</td><td>3</td><td>1-5</td><td>Maximum deliberation rounds before forced synthesis</td></tr>
+              <tr><td>consensus_threshold</td><td>0.7</td><td>0.5-1.0</td><td>Agreement level required to skip additional rounds</td></tr>
+              <tr><td>redteam_weight</td><td>1.5x</td><td>1.0-2.0x</td><td>Weighting multiplier for RedTeam dissent</td></tr>
+              <tr><td>timeout_seconds</td><td>300</td><td>60-900</td><td>Maximum time per deliberation</td></tr>
+            </tbody>
+          </table>
+
+          <h3 data-i18n="protS5H2">5.2 Deliberation Rounds</h3>
+          <p><strong>Round 1: Independent Analysis</strong></p>
+          <ul>
+            <li>Each agent receives identical input context</li>
+            <li>Agents produce independent assessments (no visibility to others)</li>
+            <li>Outputs include: recommendation, confidence, key evidence, risks identified</li>
+          </ul>
+          <p><strong>Round 2: Cross-Examination</strong></p>
+          <ul>
+            <li>Agents receive summary of Round 1 positions (anonymized)</li>
+            <li>Each agent responds to contrary positions</li>
+            <li>RedTeam agent specifically targets majority consensus</li>
+          </ul>
+          <p><strong>Round 3: Final Position</strong></p>
+          <ul>
+            <li>Agents issue final recommendations with updated confidence</li>
+            <li>Explicit "agree" or "dissent" on emerging consensus</li>
+            <li>Dissenting agents must provide specific objections</li>
+          </ul>
+
+          <h3 data-i18n="protS5H3">5.3 Deadlock Handling</h3>
+          <p>If consensus_threshold is not met after max_rounds:</p>
+          <ol>
+            <li>Synthesis Engine generates "split recommendation" output</li>
+            <li>All agent positions preserved in Decision Trace</li>
+            <li>Decision escalated to human reviewer with full context</li>
+            <li>Human must select a position or provide alternative</li>
+            <li>Human decision logged with identity and justification</li>
+          </ol>
+
+          <div class="callout">
+            <div class="callout-title" data-i18n="protCallout2">Design Rationale</div>
+            <p>Deadlocks are not failures. They indicate genuine uncertainty or conflicting priorities that require human judgment. The system is designed to surface complexity, not hide it.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 6: Security Model -->
+      <div class="protocol-section" id="security">
+        <div class="section-header">
+          <span class="section-number">6</span>
+          <h2 class="section-title" data-i18n="protS6Title">Security Model</h2>
+        </div>
+        <div class="section-content">
+          <h3 data-i18n="protS6H1">6.1 Trust Boundaries</h3>
+          <p>The Cortex operates within a single trust boundary: the customer perimeter. Datacendia software runs inside this boundary; Datacendia personnel operate outside it.</p>
+          
+          <table class="spec-table">
+            <thead><tr><th>Component</th><th>Location</th><th>Access</th></tr></thead>
+            <tbody>
+              <tr><td>Application Code</td><td>Customer infrastructure</td><td>Customer admins only</td></tr>
+              <tr><td>Customer Data</td><td>Customer storage</td><td>Never leaves perimeter</td></tr>
+              <tr><td>Encryption Keys</td><td>Customer KMS/HSM</td><td>Customer-controlled</td></tr>
+              <tr><td>Audit Logs</td><td>Customer storage</td><td>Immutable, customer-owned</td></tr>
+              <tr><td>Model Weights</td><td>Customer compute</td><td>Encrypted at rest</td></tr>
+            </tbody>
+          </table>
+
+          <h3 data-i18n="protS6H2">6.2 Encryption Standards</h3>
+          <table class="spec-table">
+            <thead><tr><th>Context</th><th>Algorithm</th><th>Key Size</th></tr></thead>
+            <tbody>
+              <tr><td>Data at rest</td><td>AES-256-GCM</td><td>256-bit</td></tr>
+              <tr><td>Data in transit</td><td>TLS 1.3</td><td>256-bit (ECDHE)</td></tr>
+              <tr><td>Decision signatures</td><td>Ed25519 or RSA-PSS</td><td>256-bit / 4096-bit</td></tr>
+              <tr><td>Ledger hashing</td><td>SHA-256</td><td>256-bit</td></tr>
+              <tr><td>Key derivation</td><td>HKDF-SHA256</td><td>Configurable</td></tr>
+            </tbody>
+          </table>
+
+          <h3 data-i18n="protS6H3">6.3 Authentication & Authorization</h3>
+          <ul>
+            <li><strong>Identity:</strong> SAML 2.0, OIDC, or local directory integration</li>
+            <li><strong>MFA:</strong> Required for all administrative access</li>
+            <li><strong>RBAC:</strong> Role-based access control with audit logging</li>
+            <li><strong>Session:</strong> Configurable timeout, secure cookie handling</li>
+          </ul>
+
+          <h3 data-i18n="protS6H4">6.4 Air-Gap Protocol</h3>
+          <p>For air-gapped deployments, the system operates with zero outbound network connectivity:</p>
+          <ul>
+            <li>License validation: Offline cryptographic verification</li>
+            <li>Model updates: Secure offline bundle transfer (USB, optical)</li>
+            <li>Compliance updates: Manual Compliance Oracle refresh</li>
+            <li>Telemetry: Disabled entirely (no stub, no placeholder)</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Section 7: Audit & Lineage -->
+      <div class="protocol-section" id="audit">
+        <div class="section-header">
+          <span class="section-number">7</span>
+          <h2 class="section-title" data-i18n="protS7Title">Audit & Lineage</h2>
+        </div>
+        <div class="section-content">
+          <h3 data-i18n="protS7H1">7.1 Decision Trace Structure</h3>
+          <p>Every deliberation produces a Decision Trace with the following components:</p>
+          <div class="code-block">
+            <pre>{
+  "<code>trace_id</code>": "dt-2025-12-26-a1b2c3d4",
+  "<code>timestamp</code>": "2025-12-26T14:32:17.000Z",
+  "<code>inputs</code>": {
+    "query": "Should we proceed with the acquisition?",
+    "documents": ["doc-001", "doc-002", "doc-003"],
+    "context_hash": "sha256:9f86d08..."
+  },
+  "<code>agents</code>": [
+    {
+      "agent_id": "analyst-001",
+      "recommendation": "PROCEED",
+      "confidence": 0.82,
+      "key_evidence": ["revenue_projection.xlsx:row_47"],
+      "risks": ["integration_complexity"]
+    },
+    {
+      "agent_id": "redteam-001",
+      "recommendation": "CAUTION",
+      "confidence": 0.71,
+      "dissent": "Regulatory approval timeline underestimated",
+      "evidence": ["ftc_precedent_2024.pdf:page_12"]
+    }
+  ],
+  "<code>synthesis</code>": {
+    "recommendation": "PROCEED_WITH_CONDITIONS",
+    "conditions": ["regulatory_contingency_clause"],
+    "consensus_score": 0.73
+  },
+  "<code>veto_status</code>": "APPROVED",
+  "<code>signature</code>": "ed25519:base64...",
+  "<code>ledger_hash</code>": "sha256:3c9909a..."
+}</pre>
+          </div>
+
+          <h3 data-i18n="protS7H2">7.2 Audit Provenance Ledger</h3>
+          <p>The Witness ledger is an append-only data structure with Merkle tree verification:</p>
+          <ul>
+            <li>Each Decision Trace is hashed and appended</li>
+            <li>Each entry includes hash of previous entry (chain)</li>
+            <li>Merkle root updated with each append</li>
+            <li>Verification: Any entry can be proven against root</li>
+          </ul>
+
+          <h3 data-i18n="protS7H3">7.3 CendiaChronos Time-Travel</h3>
+          <p>To prove why a decision was made at a specific point in time:</p>
+          <ol>
+            <li>Specify target timestamp (T-1)</li>
+            <li>CendiaChronos reconstructs system state at T-1</li>
+            <li>Replays deliberation with historical context</li>
+            <li>Produces "Reconstruction Report" showing inputs available at T-1</li>
+          </ol>
+          <p>This is critical for regulatory defense: proving the decision was reasonable <em>given what was known at the time</em>.</p>
+        </div>
+      </div>
+
+      <!-- Section 8: Deployment Modes -->
+      <div class="protocol-section" id="deployment">
+        <div class="section-header">
+          <span class="section-number">8</span>
+          <h2 class="section-title" data-i18n="protS8Title">Deployment Modes</h2>
+        </div>
+        <div class="section-content">
+          <table class="spec-table">
+            <thead><tr><th>Mode</th><th>Infrastructure</th><th>Network</th><th>Datacendia Access</th><th>Use Case</th></tr></thead>
+            <tbody>
+              <tr><td>Private Cloud</td><td>Customer VPC (AWS/Azure/GCP)</td><td>Internet (TLS)</td><td>Metadata only (opt-in)</td><td>Enterprise standard</td></tr>
+              <tr><td>On-Premises</td><td>Customer data center</td><td>Internal only</td><td>None</td><td>Regulated industries</td></tr>
+              <tr><td>Air-Gapped</td><td>Isolated network</td><td>No external</td><td>None</td><td>Defense, intelligence</td></tr>
+            </tbody>
+          </table>
+
+          <h3 data-i18n="protS8H1">8.1 Hardware Requirements</h3>
+          <table class="spec-table">
+            <thead><tr><th>Component</th><th>Minimum</th><th>Recommended</th><th>Notes</th></tr></thead>
+            <tbody>
+              <tr><td>GPU</td><td>NVIDIA A10 (24GB)</td><td>NVIDIA H100 (80GB)</td><td>For local inference</td></tr>
+              <tr><td>CPU</td><td>16 cores</td><td>64 cores</td><td>For orchestration</td></tr>
+              <tr><td>RAM</td><td>64 GB</td><td>256 GB</td><td>For context caching</td></tr>
+              <tr><td>Storage</td><td>500 GB SSD</td><td>2 TB NVMe</td><td>For ledger + models</td></tr>
+            </tbody>
+          </table>
+
+          <h3 data-i18n="protS8H2">8.2 Container Architecture</h3>
+          <p>The Cortex deploys as a set of containerized services:</p>
+          <ul>
+            <li><strong>cortex-core:</strong> Main application (CendiaAgents, CendiaEthics)</li>
+            <li><strong>cortex-guard:</strong> Security services (CendiaGuard, Audit Provenance)</li>
+            <li><strong>cortex-lineage:</strong> Data services (CendiaLineage, CendiaChronos)</li>
+            <li><strong>cortex-health:</strong> Monitoring (CendiaHealth)</li>
+            <li><strong>cortex-inference:</strong> Model serving (GPU-bound)</li>
+          </ul>
+          <p>Orchestration: Kubernetes (preferred) or Docker Compose (small deployments).</p>
+        </div>
+      </div>
+
+      <!-- Section 9: Integration Protocol -->
+      <div class="protocol-section" id="integration">
+        <div class="section-header">
+          <span class="section-number">9</span>
+          <h2 class="section-title" data-i18n="protS9Title">Integration Protocol</h2>
+        </div>
+        <div class="section-content">
+          <h3 data-i18n="protS9H1">9.1 API Surface</h3>
+          <p>The Cortex exposes a REST API for programmatic access:</p>
+          <div class="code-block">
+            <pre>POST /api/v1/deliberate
+Authorization: Bearer {token}
+Content-Type: application/json
+
+{
+  "query": "string",
+  "documents": ["doc_id_1", "doc_id_2"],
+  "agent_config": {
+    "count": 8,
+    "include_redteam": true
+  },
+  "output_format": "json" | "pdf"
+}</pre>
+          </div>
+
+          <h3 data-i18n="protS9H2">9.2 Connector Mesh</h3>
+          <p>Pre-built connectors for enterprise systems:</p>
+          <table class="spec-table">
+            <thead><tr><th>Category</th><th>Systems</th><th>Protocol</th></tr></thead>
+            <tbody>
+              <tr><td>ERP</td><td>SAP S/4HANA, Oracle EBS, NetSuite</td><td>OData, REST</td></tr>
+              <tr><td>CRM</td><td>Salesforce, HubSpot, Dynamics 365</td><td>REST, SOAP</td></tr>
+              <tr><td>Document</td><td>SharePoint, Box, Google Drive</td><td>REST, WebDAV</td></tr>
+              <tr><td>Database</td><td>PostgreSQL, SQL Server, Snowflake</td><td>JDBC, ODBC</td></tr>
+              <tr><td>Identity</td><td>Okta, Azure AD, Ping</td><td>SAML, OIDC</td></tr>
+            </tbody>
+          </table>
+
+          <h3 data-i18n="protS9H3">9.3 Webhook Events</h3>
+          <p>The Cortex emits events for external consumption:</p>
+          <ul>
+            <li><code>deliberation.started</code> — New deliberation initiated</li>
+            <li><code>deliberation.completed</code> — Deliberation finished (includes trace_id)</li>
+            <li><code>veto.triggered</code> — CendiaVeto blocked a recommendation</li>
+            <li><code>escalation.required</code> — Human review needed</li>
+            <li><code>health.alert</code> — System health warning</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Section 10: Known Limits -->
+      <div class="protocol-section" id="limits">
+        <div class="section-header">
+          <span class="section-number">10</span>
+          <h2 class="section-title" data-i18n="protS10Title">Known Limits</h2>
+        </div>
+        <div class="section-content">
+          <p>The following limitations are acknowledged and documented:</p>
+          
+          <h3 data-i18n="protS10H1">10.1 Technical Limits</h3>
+          <table class="spec-table">
+            <thead><tr><th>Limit</th><th>Value</th><th>Mitigation</th></tr></thead>
+            <tbody>
+              <tr><td>Context window</td><td>128K tokens (model-dependent)</td><td>Chunking + retrieval augmentation</td></tr>
+              <tr><td>Concurrent deliberations</td><td>Limited by GPU memory</td><td>Queue management, horizontal scaling</td></tr>
+              <tr><td>Ledger size</td><td>Unbounded (storage-limited)</td><td>Archival policies, cold storage</td></tr>
+              <tr><td>Agent latency</td><td>5-60 seconds per round</td><td>Async processing, timeout controls</td></tr>
+            </tbody>
+          </table>
+
+          <h3 data-i18n="protS10H2">10.2 Operational Limits</h3>
+          <ul>
+            <li><strong>Model drift:</strong> Models may degrade over time. CendiaHealth monitors, but cannot prevent drift — only detect it.</li>
+            <li><strong>Adversarial inputs:</strong> Malicious prompts may cause unexpected behavior. Input sanitization reduces but does not eliminate risk.</li>
+            <li><strong>Consensus deadlocks:</strong> Agents may fail to agree. System escalates to humans, but cannot force consensus.</li>
+            <li><strong>Regulatory lag:</strong> Compliance Oracle updates are periodic. New regulations may not be reflected immediately.</li>
+          </ul>
+
+          <h3 data-i18n="protS10H3">10.3 What The Cortex Does Not Do</h3>
+          <ul>
+            <li>Does not make decisions autonomously (always produces recommendations for human action)</li>
+            <li>Does not guarantee correctness (provides evidence, not truth)</li>
+            <li>Does not replace human judgment (augments and documents it)</li>
+            <li>Does not connect to external networks in air-gapped mode (by design)</li>
+          </ul>
+
+          <div class="callout">
+            <div class="callout-title" data-i18n="protCallout3">The Honesty Principle</div>
+            <p>This document exists because we believe enterprise buyers deserve to know the limits of the systems they depend on. If a failure mode isn't documented here, it's because we haven't discovered it yet — not because we're hiding it.</p>
+          </div>
+          <p style="font-family: var(--font-mono); font-size: 0.7rem; color: #2ecc71; margin-top: 32px; letter-spacing: 0.05em; text-align: center;">SYSTEM STATUS: AIR-GAP READY · NO TRACKER PIXELS DETECTED</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <script src="translations.js"></script>
+  <script src="app.js"></script>
+  <script src="nav-mobile.js"></script>
+</body>
+</html>

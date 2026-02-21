@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cos'è l'IA Multi-Agente? | Datacendia</title>
+  <meta name="description" content="IA multi-agente usa molteplici agenti specializzati che collaborano, dibattono e deliberano per decisioni migliori.">
+  <meta property="og:title" content="Cos'è l'IA Multi-Agente?">
+  <meta property="og:description" content="IA multi-agente usa molteplici agenti specializzati che collaborano, dibattono e deliberano per decisioni migliori.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://datacendia.com/it/learn/multi-agent-ai/">
+  <meta property="og:image" content="https://datacendia.com/og-image.png">
+  <meta property="og:site_name" content="Datacendia">
+  <meta property="og:locale" content="it_IT">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://datacendia.com/og-image.png">
+  <link rel="canonical" href="https://datacendia.com/it/learn/multi-agent-ai/">
+  <link rel="alternate" hreflang="en" href="https://datacendia.com/learn/multi-agent-ai/">
+  <link rel="alternate" hreflang="es" href="https://datacendia.com/es/learn/multi-agent-ai/">
+  <link rel="alternate" hreflang="fr" href="https://datacendia.com/fr/learn/multi-agent-ai/">
+  <link rel="alternate" hreflang="de" href="https://datacendia.com/de/learn/multi-agent-ai/">
+  <link rel="alternate" hreflang="pt" href="https://datacendia.com/pt/learn/multi-agent-ai/">
+  <link rel="alternate" hreflang="it" href="https://datacendia.com/it/learn/multi-agent-ai/">
+  <link rel="alternate" hreflang="ja" href="https://datacendia.com/ja/learn/multi-agent-ai/">
+  <link rel="alternate" hreflang="ko" href="https://datacendia.com/ko/learn/multi-agent-ai/">
+  <link rel="alternate" hreflang="zh" href="https://datacendia.com/zh/learn/multi-agent-ai/">
+  <link rel="alternate" hreflang="ar" href="https://datacendia.com/ar/learn/multi-agent-ai/">
+  <link rel="alternate" hreflang="hi" href="https://datacendia.com/hi/learn/multi-agent-ai/">
+  <link rel="alternate" hreflang="x-default" href="https://datacendia.com/learn/multi-agent-ai/">
+  <link rel="canonical" href="https://datacendia.com/it/learn/multi-agent-ai/">
+  <link rel="icon" type="image/svg+xml" href="../../../assets/favicon.svg">
+  <link rel="stylesheet" href="../../../styles.css">
+  <style>
+    .learn-container { max-width: 800px; margin: 0 auto; padding: 60px 24px 80px; }
+    .learn-title { font-family: var(--font-display); font-size: 2.25rem; font-weight: 300; color: var(--color-text); margin-bottom: 16px; }
+    .learn-subtitle { font-size: 1.1rem; color: var(--color-text-muted); margin-bottom: 32px; line-height: 1.6; }
+    .learn-content h2 { font-family: var(--font-display); font-size: 1.5rem; color: var(--color-text); margin: 48px 0 16px; padding-top: 24px; border-top: 1px solid var(--color-border); }
+    .learn-content p, .learn-content li { font-size: 0.95rem; color: var(--color-text-muted); line-height: 1.8; }
+    .learn-content ul { margin: 16px 0 24px 24px; }
+    .definition-box { background: var(--color-card-bg); border: 1px solid var(--color-gold); border-radius: 8px; padding: 24px; margin: 24px 0; }
+    .comparison-table { width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 0.85rem; }
+    .comparison-table th, .comparison-table td { border: 1px solid var(--color-border); padding: 12px; text-align: left; }
+    .comparison-table th { background: var(--color-card-bg); color: var(--color-text); }
+    .cta-box { background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(212, 175, 55, 0.02) 100%); border: 1px solid var(--color-gold); border-radius: 8px; padding: 32px; margin-top: 48px; text-align: center; }
+    .cta-button { display: inline-block; background: var(--color-gold); color: var(--color-bg); padding: 12px 32px; border-radius: 6px; text-decoration: none; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-top"><a href="../../" style="text-decoration: none;"><h1 class="logo"><span class="brand-name">DATACENDIA</span></h1></a></div>
+      <nav class="main-nav">
+        <button class="nav-toggle" aria-label="Menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+        <div class="nav-menu">
+        <div class="nav-group">
+          <span class="nav-label">Piattaforma</span>
+          <div class="nav-dropdown">
+            <a href="/platform-capabilities.html">Panoramica Piattaforma<span class="nav-desc">Mappa completa delle capacità</span></a>
+            <a href="/dcii.html">Framework DCII<span class="nav-desc">9 primitive · Immunizzazione dalle crisi</span></a>
+            <a href="/diagrams.html">Architettura<span class="nav-desc">8 diagrammi di sistema</span></a>
+          </div>
+        </div>
+        <div class="nav-group">
+          <span class="nav-label">Prove</span>
+          <div class="nav-dropdown">
+            <a href="/demos.html">Demo Interattive<span class="nav-desc">Council, Chronos, Crucible e altro</span></a>
+            <a href="/wargames.html">Giochi di Guerra<span class="nav-desc">Il dissenso avrebbe rivelato il rischio?</span></a>
+            <a href="/case-studies.html">Casi Studio<span class="nav-desc">Analisi decisionale reale</span></a>
+          </div>
+        </div>
+        <a href="/verticals.html">Settori</a>
+        <div class="nav-group">
+          <span class="nav-label">Prezzi</span>
+          <div class="nav-dropdown">
+            <a href="/pricing.html">Panoramica Livelli<span class="nav-desc">Foundation · Enterprise · Strategic</span></a>
+            <a href="/premium.html">Moduli Premium<span class="nav-desc">7 capacità avanzate</span></a>
+            <a href="/roi-calculator.html">Calcolatore ROI<span class="nav-desc">Quantifica la riduzione del rischio</span></a>
+            <a href="/pilot.html">Pilota 90 Giorni<span class="nav-desc">Dimostra il valore prima di scalare</span></a>
+          </div>
+        </div>
+        <div class="nav-group">
+          <span class="nav-label">Fiducia</span>
+          <div class="nav-dropdown">
+            <a href="/trust.html">Centro Fiducia<span class="nav-desc">Sicurezza, conformità e distribuzione</span></a>
+            <a href="/honesty-matrices.html">Matrici di Onestà<span class="nav-desc">Cosa non possiamo ancora fare</span></a>
+          </div>
+        </div>
+        <a href="/briefing.html" class="nav-cta">Richiedi Briefing</a>
+        </div>
+      </nav>
+    </header>
+    <main class="learn-container">
+      <article>
+        <h1 class="learn-title">Cos'è l'IA Multi-Agente?</h1>
+        <p class="learn-subtitle">I sistemi IA multi-agente usano molteplici agenti IA specializzati che collaborano, dibattono e deliberano — come un team esecutivo.</p>
+        <div class="definition-box"><p><strong>IA Multi-Agente:</strong> Un'architettura dove molteplici agenti IA autonomi, ciascuno con capacità specializzate, lavorano insieme per risolvere problemi complessi.</p></div>
+        <div class="learn-content">
+          <h2>Perché Usare Molteplici Agenti IA?</h2>
+          <ul>
+            <li><strong>Bias di Prospettiva</strong> — Un singolo modello ottimizza per un obiettivo e può ignorare considerazioni importanti</li>
+            <li><strong>Punti Ciechi</strong> — I modelli possono perdere pattern fuori dall'esperienza di training</li>
+            <li><strong>Eccesso di Confidenza</strong> — I modelli spesso danno risposte sicure anche con alta incertezza</li>
+          </ul>
+          <h2>Tipi di Agenti</h2>
+          <table class="comparison-table">
+            <tr><th>Tipo Agente</th><th>Ruolo</th><th>Prospettiva</th></tr>
+            <tr><td>Agente Analista</td><td>Analisi dati</td><td>Cosa dicono i dati?</td></tr>
+            <tr><td>Agente Rischio</td><td>Identificazione rischi</td><td>Cosa può andare storto?</td></tr>
+            <tr><td>Agente Strategia</td><td>Ottimizzazione obiettivi</td><td>Cosa avanza i nostri obiettivi?</td></tr>
+            <tr><td>Agente Conformità</td><td>Verifica normativa</td><td>È permesso?</td></tr>
+            <tr><td>Agente Arbitro</td><td>Sintesi e risoluzione</td><td>Qual è la decisione migliore?</td></tr>
+          </table>
+          <h2>Benefici per Settori Regolamentati</h2>
+          <ul>
+            <li><strong>Spiegabilità Migliorata</strong> — Il formato dibattito fornisce ragionamento in linguaggio naturale</li>
+            <li><strong>Qualità Decisionale Migliorata</strong> — Molteplici prospettive catturano errori</li>
+            <li><strong>Conformità Integrata</strong> — Agenti di governance dedicati</li>
+          </ul>
+          <div class="cta-box">
+            <h3>Vedi l'IA Multi-Agente in Azione</h3>
+            <p>Il Council di Datacendia usa agenti specializzati che deliberano con audit trail completi.</p>
+            <a href="/briefing.html?lang=it" class="cta-button">Richiedi Briefing Tecnico</a>
+          </div>
+        </div>
+      </article>
+    </main>
+    <footer style="text-align: center; padding: 40px 24px; border-top: 1px solid var(--color-border);"><p style="font-size: 0.75rem; color: var(--color-text-dim);">© 2026 Datacendia</p></footer>
+  </div>
+  <script src="/nav-mobile.js"></script>
+</body>
+</html>

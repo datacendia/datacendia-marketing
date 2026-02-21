@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <defs>
+    <linearGradient id="crGold" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#E8C840"/>
+      <stop offset="100%" stop-color="#A07B1A"/>
+    </linearGradient>
+    <filter id="crGlow">
+      <feGaussianBlur stdDeviation="2.5" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <radialGradient id="crImpact" cx="50%" cy="60%" r="40%">
+      <stop offset="0%" stop-color="#C9A227" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#C9A227" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="200" height="200" fill="#0a0a0a" rx="16"/>
+  <!-- Impact glow -->
+  <ellipse cx="100" cy="108" rx="50" ry="35" fill="url(#crImpact)"/>
+  <!-- Anvil body -->
+  <g filter="url(#crGlow)">
+    <!-- Anvil horn (left beak) -->
+    <path d="M52 100 Q48 98 45 100 Q42 103 48 106 L68 108" fill="url(#crGold)" opacity="0.85"/>
+    <!-- Anvil face (top flat) -->
+    <rect x="68" y="96" width="64" height="14" rx="2" fill="url(#crGold)" opacity="0.9"/>
+    <!-- Anvil waist -->
+    <path d="M72 110 L76 126 L124 126 L128 110Z" fill="url(#crGold)" opacity="0.75"/>
+    <!-- Anvil base -->
+    <rect x="62" y="126" width="76" height="10" rx="3" fill="url(#crGold)" opacity="0.65"/>
+    <!-- Face highlight -->
+    <rect x="70" y="97" width="60" height="3" rx="1" fill="#E8C840" opacity="0.15"/>
+  </g>
+  <!-- Strike shards — white light beams from multiple angles -->
+  <g stroke="#E8C840" stroke-linecap="round" filter="url(#crGlow)">
+    <!-- Top-center shard -->
+    <line x1="100" y1="30" x2="100" y2="70" stroke-width="2.5" opacity="0.9"/>
+    <line x1="100" y1="30" x2="100" y2="50" stroke-width="3.5" opacity="0.4"/>
+    <!-- Top-left shard -->
+    <line x1="50" y1="40" x2="80" y2="78" stroke-width="2" opacity="0.7"/>
+    <line x1="50" y1="40" x2="62" y2="55" stroke-width="3" opacity="0.3"/>
+    <!-- Top-right shard -->
+    <line x1="150" y1="40" x2="120" y2="78" stroke-width="2" opacity="0.7"/>
+    <line x1="150" y1="40" x2="138" y2="55" stroke-width="3" opacity="0.3"/>
+    <!-- Far left shard -->
+    <line x1="30" y1="70" x2="68" y2="92" stroke-width="1.8" opacity="0.55"/>
+    <!-- Far right shard -->
+    <line x1="170" y1="70" x2="132" y2="92" stroke-width="1.8" opacity="0.55"/>
+    <!-- Upper-left angled -->
+    <line x1="40" y1="52" x2="74" y2="85" stroke-width="1.5" opacity="0.45"/>
+    <!-- Upper-right angled -->
+    <line x1="160" y1="52" x2="126" y2="85" stroke-width="1.5" opacity="0.45"/>
+  </g>
+  <!-- Impact sparks at anvil face -->
+  <g fill="#E8C840">
+    <circle cx="92" cy="94" r="1.5" opacity="0.8"/>
+    <circle cx="108" cy="93" r="1.2" opacity="0.7"/>
+    <circle cx="100" cy="92" r="2" opacity="0.9"/>
+    <circle cx="85" cy="95" r="1" opacity="0.5"/>
+    <circle cx="115" cy="95" r="1" opacity="0.5"/>
+  </g>
+  <!-- Label -->
+  <text x="100" y="162" font-family="Georgia, serif" font-size="10" fill="#C9A227" text-anchor="middle" letter-spacing="0.08em" opacity="0.9">CENDIACRUCIBLE</text>
+</svg>

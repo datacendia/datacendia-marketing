@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hospitality Governance — Hotel Investment Demo | Datacendia</title>
+  <meta name="description" content="Interactive demo of AI-governed hospitality decisions. See how multi-agent deliberation ensures RevPAR optimization, brand compliance, and investment governance for hotel portfolios.">
+  <meta property="og:title" content="Hospitality Governance — Hotel Investment Demo | Datacendia">
+  <meta property="og:description" content="See how multi-agent deliberation ensures RevPAR optimization, brand compliance, and investment governance.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://datacendia.com/demos/hospitality-governance.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Hospitality Governance — Hotel Investment Demo | Datacendia">
+  <meta name="twitter:description" content="See how multi-agent deliberation ensures RevPAR optimization and investment governance.">
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="demo-platform.css">
+  <style>
+    .property-card{padding:12px;background:linear-gradient(135deg,rgba(245,158,11,.06),rgba(168,85,247,.04));border:1px solid rgba(245,158,11,.2);border-radius:10px;text-align:center;margin-bottom:10px}
+    .property-name{font-size:1.1rem;font-weight:700;color:#f59e0b}.property-detail{font-size:.65rem;color:#6b7280;margin-top:2px}
+    .deal-info{padding:8px 10px;background:#27272a;border-radius:8px;font-size:.7rem;margin-bottom:4px;border:1px solid #3f3f46}
+    .di-label{font-size:.55rem;color:#6b7280;font-family:'JetBrains Mono',monospace;text-transform:uppercase}.di-val{color:#d1d5db;font-weight:500}
+    .kpi-meter{padding:12px;background:#27272a;border-radius:10px;border:1px solid #3f3f46}
+    .kpi-title{font-size:.65rem;font-weight:600;margin-bottom:6px}
+    .kpi-bar{height:8px;background:#1f2937;border-radius:4px;overflow:hidden;margin-bottom:4px}
+    .kpi-fill{height:100%;border-radius:4px}
+    .kpi-items{display:flex;flex-direction:column;gap:4px;margin-top:8px}
+    .kpi-item{display:flex;align-items:center;gap:6px;font-size:.65rem}
+    .kpi-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0}
+    .kpi-name{flex:1;color:#9ca3af}.kpi-status{font-family:'JetBrains Mono',monospace;font-size:.55rem}
+    .agent-grid{display:flex;flex-direction:column;gap:4px}
+    .agent-chip{display:flex;align-items:center;gap:8px;padding:6px 8px;background:#27272a;border:1px solid #3f3f46;border-radius:8px;font-size:.65rem;transition:all .3s}
+    .agent-chip.done{border-color:#f59e0b;background:rgba(245,158,11,.05)}
+    .ac-circle{width:24px;height:24px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:.5rem;font-weight:700;color:#fff;flex-shrink:0}
+    .ac-name{color:#9ca3af;flex:1}.ac-check{color:#f59e0b;display:none}.agent-chip.done .ac-check{display:block}
+    .header-info h1{font-size:.95rem;font-weight:700}.header-info p{font-size:.65rem;color:#71717a}
+    .run-btn{margin-left:auto;padding:8px 16px;background:linear-gradient(135deg,#f59e0b,#d97706);color:#fff;border:none;border-radius:8px;font-size:.75rem;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif;box-shadow:0 2px 8px rgba(245,158,11,.25)}
+    .run-btn:hover{opacity:.9}.run-btn:disabled{opacity:.4;cursor:not-allowed}
+    .content-area{flex:1;overflow-y:auto;padding:16px 20px}
+    .msg{display:flex;align-items:flex-start;gap:10px;margin-bottom:8px;opacity:0;transform:translateY(8px);transition:all .4s}
+    .msg.visible{opacity:1;transform:translateY(0)}
+    .msg-avatar{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.55rem;font-weight:700;color:#fff;flex-shrink:0}
+    .msg-body{flex:1;min-width:0}
+    .msg-name{font-size:.75rem;font-weight:600}.msg-role{font-size:.55rem;color:#6b7280;margin-left:4px}
+    .msg-bubble{padding:10px 14px;background:#1f2937;border-radius:12px 12px 12px 2px;font-size:.75rem;color:#9ca3af;line-height:1.7;border-left:3px solid transparent}
+    .msg-bubble strong{color:#e5e5e5}
+    .phase-divider{display:flex;align-items:center;gap:12px;margin:14px 0 10px}
+    .phase-divider .line{flex:1;height:1px;background:#2a2a3e}
+    .phase-divider .pill{padding:4px 14px;border-radius:12px;font-size:.6rem;font-weight:600}
+    .synth-box{margin-top:14px;padding:14px;background:linear-gradient(135deg,rgba(245,158,11,.08),rgba(168,85,247,.05));border:1px solid rgba(245,158,11,.2);border-radius:12px}
+    .synth-title{font-size:.85rem;font-weight:700;color:#f59e0b;margin-bottom:4px}
+    .synth-text{font-size:.75rem;color:#9ca3af;line-height:1.7}.synth-text strong{color:#e5e5e5}
+    .demo-cta{text-align:center;margin-top:20px;padding:32px;background:#111;border:1px solid #1e1e2e;border-radius:12px}
+    .demo-cta h3{font-size:1.1rem;font-weight:300;color:#fff;margin-bottom:6px}.demo-cta p{font-size:.8rem;color:#6b7280;margin-bottom:16px}
+    .demo-cta a{display:inline-block;padding:10px 24px;background:linear-gradient(135deg,#f59e0b,#a855f7);border-radius:8px;color:#fff;text-decoration:none;font-weight:600;font-size:.8rem}
+    @media(max-width:900px){.sidebar{display:none}}
+  </style>
+</head>
+<body>
+  <div class="platform-header">
+    <a href="../demos.html" class="ph-logo" style="text-decoration:none;color:inherit">DATACENDIA</a>
+    <div class="ph-divider"></div>
+    <div class="ph-nav">
+      <a class="ph-nav-item" href="../demos.html#cortex">Cortex</a>
+      <a class="ph-nav-item" href="../demos.html#oversight">Oversight</a>
+      <a class="ph-nav-item" href="../demos.html#evidence">Evidence</a>
+    </div>
+    <span class="ph-breadcrumb">/ Verticals / <span>Hospitality</span></span>
+    <span class="ph-spacer"></span>
+    <span class="ph-demo-badge">DEMO MODE</span>
+    <div class="ph-user">
+      <div class="ph-notif"><img src="../assets/logos/cendia-helm.svg" alt="Notifications" width="18" height="18" style="border-radius:4px"><div class="ph-notif-dot"></div></div>
+      <div class="ph-avatar">SR</div>
+    </div>
+    <a href="../demos.html" class="ph-back">← Demos</a>
+  </div>
+  <div class="app-layout">
+    <div class="sidebar">
+      <div class="sb-section">
+        <div class="sb-label">Property Under Review</div>
+        <div class="property-card">
+          <div class="property-name">The Meridian Grand</div>
+          <div class="property-detail">5-Star · 287 Rooms · Barcelona, Spain</div>
+          <div class="property-detail" style="color:#f59e0b;font-weight:600;margin-top:4px">€42M Acquisition + €8M Renovation</div>
+        </div>
+        <div class="deal-info"><div class="di-label">Seller</div><div class="di-val">Castellana Hospitality Group</div></div>
+        <div class="deal-info"><div class="di-label">Brand</div><div class="di-val">Converting to Prestige Collection</div></div>
+        <div class="deal-info"><div class="di-label">Current RevPAR</div><div class="di-val">€185/night (market avg: €210)</div></div>
+        <div class="deal-info"><div class="di-label">Target RevPAR</div><div class="di-val">€245/night post-renovation</div></div>
+        <div class="deal-info"><div class="di-label">Occupancy</div><div class="di-val">71% (market avg: 78%)</div></div>
+      </div>
+      <div class="sb-section">
+        <div class="sb-label">Investment Health</div>
+        <div class="kpi-meter">
+          <div class="kpi-title">Portfolio Risk Assessment</div>
+          <div class="kpi-bar"><div class="kpi-fill" style="width:62%;background:linear-gradient(90deg,#22c55e,#f59e0b)"></div></div>
+          <div style="display:flex;justify-content:space-between;font-size:.5rem;color:#6b7280"><span>Conservative</span><span>62/100</span><span>Aggressive</span></div>
+          <div class="kpi-items">
+            <div class="kpi-item"><div class="kpi-dot" style="background:#f59e0b"></div><span class="kpi-name">Cap Rate</span><span class="kpi-status" style="color:#f59e0b">5.8% (target 6.5%)</span></div>
+            <div class="kpi-item"><div class="kpi-dot" style="background:#22c55e"></div><span class="kpi-name">Debt-Service Coverage</span><span class="kpi-status" style="color:#22c55e">1.45x (min 1.25x)</span></div>
+            <div class="kpi-item"><div class="kpi-dot" style="background:#ef4444"></div><span class="kpi-name">Barcelona Exposure</span><span class="kpi-status" style="color:#ef4444">28% of portfolio</span></div>
+            <div class="kpi-item"><div class="kpi-dot" style="background:#22c55e"></div><span class="kpi-name">Brand Standards</span><span class="kpi-status" style="color:#22c55e">Pre-qualified</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="sb-section">
+        <div class="sb-label">Council Agents</div>
+        <div class="agent-grid" id="agentGrid"></div>
+      </div>
+    </div>
+    <div class="main-panel">
+      <div class="main-header">
+        <div class="header-icon" style="padding:4px"><img src="../assets/logos/cendia-helm.svg" alt="Hospitality" width="40" height="40" style="border-radius:8px"></div>
+        <div class="header-info"><h1>Hospitality Governance — Property Acquisition Council</h1><p>Multi-agent deliberation with RevPAR analysis, brand compliance, and investment risk assessment</p></div>
+        <button class="run-btn" id="runBtn" onclick="runCouncil()"><img src="../assets/logos/cendia-helm.svg" alt="Run" width="16" height="16" style="border-radius:3px;vertical-align:middle"> Deliberate Acquisition</button>
+      </div>
+      <div class="content-area" id="contentArea">
+        <div class="backstory" style="background:linear-gradient(135deg,rgba(245,158,11,.06),rgba(168,85,247,.04));border-color:rgba(245,158,11,.15)">
+          <h3 style="color:#f59e0b"><img src="../assets/logos/audit-provenance.svg" alt="Briefing" width="20" height="20" style="border-radius:4px;vertical-align:middle"> Scenario Briefing</h3>
+          <p><strong>Prestige Hotel Group</strong>, a luxury portfolio operator with 23 properties across Southern Europe, is evaluating the acquisition of <strong>The Meridian Grand</strong> — a 287-room five-star hotel in Barcelona's Gothic Quarter. The property is currently underperforming its competitive set (RevPAR €185 vs market €210), but its location and architecture are exceptional.</p>
+          <p>The deal: <strong>€42M acquisition + €8M renovation</strong> to bring the property to Prestige Collection brand standards. The renovation includes 14 new suites, a rooftop restaurant, spa expansion, and full digital guest experience integration. The board is split: the CIO sees a flagship Mediterranean asset, but the CFO warns that Barcelona already represents <strong>28% of portfolio revenue</strong> — dangerously concentrated. The group has activated <strong>Datacendia's Hospitality Governance Council</strong> to deliberate the investment.</p>
+          <div class="bs-meta" style="border-color:rgba(245,158,11,.1)">
+            <span><img src="../assets/logos/cendia-helm.svg" alt="Group" width="14" height="14" style="border-radius:3px;vertical-align:middle"> Prestige Hotel Group</span>
+            <span><img src="../assets/logos/roi-metrics.svg" alt="Deal" width="14" height="14" style="border-radius:3px;vertical-align:middle"> €50M total investment</span>
+            <span><img src="../assets/logos/cendia-agents.svg" alt="Rooms" width="14" height="14" style="border-radius:3px;vertical-align:middle"> 287 rooms · 5-star</span>
+            <span><img src="../assets/logos/compliance.svg" alt="RevPAR" width="14" height="14" style="border-radius:3px;vertical-align:middle"> Target RevPAR: €245</span>
+            <span><img src="../assets/logos/pre-mortem.svg" alt="Risk" width="14" height="14" style="border-radius:3px;vertical-align:middle"> 28% geographic concentration</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<script>
+const AGENTS=[
+  {id:'revenue',name:'Revenue Management',role:'RevPAR & Yield Optimization',initials:'RM',color:'#22c55e',
+    msg:'<strong>RevPAR Gap Analysis:</strong> Current €185 vs competitive set €210 represents a <strong>12% underperformance</strong>. Root causes: outdated room product (last renovated 2017), no dynamic pricing system, weak OTA positioning. Post-renovation model: <strong>€245 RevPAR achievable within 18 months</strong> based on comparable conversions (Mandarin Oriental Barcelona achieved €260 post-renovation). Key driver: the 14 new suites at €450-€650/night will lift blended ADR by 22%. <strong>Revenue verdict: Strong upside.</strong>'},
+  {id:'brand',name:'Brand Standards Officer',role:'Prestige Collection Compliance',initials:'BS',color:'#a855f7',
+    msg:'<strong>Brand Audit Complete.</strong> Property scores <strong>68/100 on Prestige Collection standards</strong> (minimum: 80). Key gaps: (1) No concierge lounge — required for 5-star designation, €1.2M to build. (2) Bathroom fixtures below spec in 40% of rooms — €2.1M replacement. (3) F&B offering lacks signature restaurant — rooftop concept approved at €1.8M. (4) Digital guest experience: zero integration — €800K for mobile check-in, in-room tablets, and preference engine. <strong>All gaps addressable within €8M renovation budget.</strong>'},
+  {id:'finance',name:'Investment Controller',role:'Financial Modeling & Returns',initials:'IC',color:'#f59e0b',
+    msg:'<strong>Financial Model Summary:</strong> Total investment: €50M (€42M acquisition + €8M renovation). Projected NOI Year 3: €4.2M. <strong>Cap rate: 5.8% current → 8.4% stabilized.</strong> IRR over 10-year hold: <strong>14.2%</strong> (above 12% hurdle rate). Payback period: 6.8 years. Key sensitivity: if RevPAR reaches only €220 (not €245), IRR drops to 9.1% — below hurdle. <strong>Financial verdict: Proceed, but RevPAR execution is critical.</strong>'},
+  {id:'operations',name:'Operations Risk',role:'Operational Excellence & Staffing',initials:'OR',color:'#3b82f6',
+    msg:'<strong>Operational Assessment:</strong> Current staff: 210 FTE. Post-renovation requirement: 245 FTE (+35). Barcelona labour market: <strong>tight for hospitality</strong> — 4.2% unemployment in sector. Wage inflation: 6.8% YoY. <strong>Key risk:</strong> Spain\'s new hospitality labour law mandates 32-hour work week from 2027 — increases staffing cost by estimated 12-15%. Renovation disruption: 8 months, phased wing-by-wing, projected <strong>15% RevPAR impact during works</strong>. Management contract: existing GM has 2 years remaining — retention critical. <strong>Operational verdict: Manageable but complex.</strong>'},
+  {id:'risk',name:'Portfolio Risk Assessment',role:'Geographic & Market Risk',initials:'PR',color:'#ef4444',
+    msg:'<strong>CONCENTRATION WARNING:</strong> Barcelona already represents 28% of portfolio revenue. Adding The Meridian pushes this to <strong>34%</strong> — well above our 25% single-city limit. <strong>Scenario risk:</strong> Barcelona implemented a tourist accommodation moratorium in 2024. If regulations tighten further, renovation permits could be delayed 6-12 months. Additionally: Catalan political instability (independence movement) creates currency/regulatory tail risk. <strong>Recommendation:</strong> Proceed ONLY if paired with a disposal of one existing Barcelona property (Hotel Catalonia, €18M — bringing net exposure to 22%).'},
+  {id:'guest',name:'Guest Experience Intelligence',role:'Demand & Sentiment Analysis',initials:'GX',color:'#06b6d4',
+    msg:'<strong>Market Demand Signal:</strong> Barcelona luxury hotel demand growing at <strong>8.2% CAGR</strong> — driven by digital nomad long-stays and premium MICE events. Gothic Quarter location scores <strong>94/100 on guest desirability index</strong> (walkability, culture, dining). Online sentiment for The Meridian: 4.1/5.0 on TripAdvisor (below Prestige standard of 4.5). Top complaints: "rooms feel dated," "no spa," "breakfast underwhelming." Post-renovation addressing all three. <strong>Demand verdict: Strong structural tailwind.</strong> Premium travellers specifically seek converted historic properties.'}
+];
+let running=false,step=0;
+function initAgents(){document.getElementById('agentGrid').innerHTML=AGENTS.map(a=>`<div class="agent-chip" id="chip-${a.id}"><div class="ac-circle" style="background:${a.color}">${a.initials}</div><span class="ac-name">${a.name}</span><span class="ac-check">+</span></div>`).join('');}
+initAgents();
+function addPhase(label,color){const area=document.getElementById('contentArea');const d=document.createElement('div');d.className='phase-divider';d.innerHTML=`<div class="line"></div><span class="pill" style="background:${color}20;color:${color}">${label}</span><div class="line"></div>`;area.appendChild(d);}
+function addMsg(agent){return new Promise(r=>{const area=document.getElementById('contentArea');const el=document.createElement('div');el.className='msg';el.innerHTML=`<div class="msg-avatar" style="background:${agent.color}">${agent.initials}</div><div class="msg-body"><div><span class="msg-name">${agent.name}</span><span class="msg-role">${agent.role}</span></div><div class="msg-bubble" style="border-left-color:${agent.color}">${agent.msg}</div></div>`;area.appendChild(el);setTimeout(()=>{el.classList.add('visible');document.getElementById('chip-'+agent.id).classList.add('done');area.scrollTop=area.scrollHeight;r();},50);});}
+
+async function runCouncil(){
+  if(running)return;running=true;document.getElementById('runBtn').disabled=true;
+
+  addPhase('Agent Analysis','#f59e0b');
+  for(const a of AGENTS){await addMsg(a);await new Promise(r=>setTimeout(r,1200));}
+
+  // Cross-examination
+  addPhase('Cross-Examination','#ef4444');
+  await new Promise(r=>setTimeout(r,600));
+  const area=document.getElementById('contentArea');
+
+  const cross1=document.createElement('div');cross1.className='msg';
+  cross1.innerHTML=`<div class="msg-avatar" style="background:#ef4444">PR</div><div class="msg-body"><div><span class="msg-name">Portfolio Risk</span><span class="msg-role">challenges Revenue Management</span></div><div class="msg-bubble" style="border-left-color:#ef4444"><strong>I challenge the €245 RevPAR target.</strong> The Mandarin Oriental comparison is misleading — they had an existing ultra-luxury brand. We're converting from a tired independent to a mid-scale luxury brand. More realistic comp: W Barcelona post-renovation achieved €225. That changes the financial model significantly.</div></div>`;
+  area.appendChild(cross1);setTimeout(()=>cross1.classList.add('visible'),50);
+  await new Promise(r=>setTimeout(r,1000));
+
+  const cross2=document.createElement('div');cross2.className='msg';
+  cross2.innerHTML=`<div class="msg-avatar" style="background:#22c55e">RM</div><div class="msg-body"><div><span class="msg-name">Revenue Management</span><span class="msg-role">responds</span></div><div class="msg-bubble" style="border-left-color:#22c55e"><strong>Fair challenge on the comp.</strong> However, the W Barcelona is a different segment (lifestyle vs classic luxury). Our closest comp is actually the <strong>Cotton House Hotel post-2019 renovation: €238 RevPAR</strong> with 83 rooms — and we'll have 287 rooms with better amenities. I'll adjust the base case to €235 to be conservative. The financial model still works at €220 (9.1% IRR) — above hurdle if we negotiate acquisition price down to €39M.</div></div>`;
+  area.appendChild(cross2);setTimeout(()=>cross2.classList.add('visible'),50);
+  await new Promise(r=>setTimeout(r,800));
+
+  // Synthesis
+  addPhase('Synthesis','#f59e0b');
+  await new Promise(r=>setTimeout(r,600));
+
+  const synth=document.createElement('div');synth.className='synth-box';
+  synth.innerHTML=`<div class="synth-title"><img src="../assets/logos/cendia-helm.svg" alt="Hospitality" width="18" height="18" style="border-radius:4px;vertical-align:middle"> Council Recommendation: CONDITIONAL PROCEED</div><div class="synth-text"><strong>The Hospitality Governance Council recommends proceeding with the following conditions:</strong><br><br>1. <strong>Negotiate acquisition price</strong> down to €39M (7% discount) to improve downside protection — IRR at conservative RevPAR (€220) then hits 10.2%<br>2. <strong>Dispose of Hotel Catalonia</strong> (€18M) to bring Barcelona concentration from 34% back to 22% — below the 25% portfolio limit<br>3. <strong>Performance-linked renovation</strong> — Phase 1 (rooms + spa, €5M) completes first; Phase 2 (rooftop + suites, €3M) gated on Phase 1 RevPAR hitting €210<br>4. <strong>Labour contingency:</strong> Budget 15% additional staffing cost from 2027 for new 32-hour work week regulation<br>5. <strong>GM retention:</strong> Sign 4-year management contract with current GM before close — she is critical to renovation execution<br><br><span style="font-family:'JetBrains Mono',monospace;color:#f59e0b;font-weight:700">Confidence: 74% · Risk Score: 42/100 · RevPAR Target: €235 (revised) · IRR: 13.1%</span></div>`;
+  area.appendChild(synth);
+
+  // Briefing
+  const brief=document.createElement('div');brief.className='briefing';
+  brief.style.cssText='background:linear-gradient(135deg,rgba(245,158,11,.06),rgba(168,85,247,.04));border-color:rgba(245,158,11,.2)';
+  brief.innerHTML=`<h3 style="color:#f59e0b"><img src="../assets/logos/cendia-helm.svg" alt="Briefing" width="20" height="20" style="border-radius:4px;vertical-align:middle"> Investment Briefing — Key Findings</h3><p>The Hospitality Governance Council deliberated the Meridian Grand acquisition across <strong>6 specialist perspectives</strong>. Here is the executive summary:</p><ul><li><strong>Revenue potential: STRONG.</strong> Gothic Quarter location scores 94/100 on desirability. Barcelona luxury demand growing at 8.2% CAGR. Post-renovation RevPAR target revised to €235 (conservative) from €245 after cross-examination. The 14 new suites at €450-€650/night are the primary ADR driver.</li><li><strong>Brand standards: ACHIEVABLE.</strong> Property currently scores 68/100 — all gaps (concierge lounge, bathrooms, F&B, digital integration) addressable within €8M renovation budget. No structural or heritage constraints blocking conversion.</li><li><strong>Financial model: POSITIVE.</strong> IRR 13.1% over 10-year hold (above 12% hurdle). Payback: 6.8 years. Key sensitivity: at €220 RevPAR (downside case), IRR drops to 10.2% — still viable with renegotiated acquisition price of €39M.</li><li><strong>CRITICAL RISK: Geographic concentration.</strong> Adding this property pushes Barcelona to 34% of portfolio — well above 25% limit. Mitigation: dispose of Hotel Catalonia (€18M) to bring exposure to 22%.</li><li><strong>Operational complexity: HIGH but manageable.</strong> 8-month phased renovation, +35 FTE required, Spain's 32-hour work week from 2027 adds 12-15% to staffing costs. GM retention is critical.</li><li><strong>Guest demand: STRUCTURAL TAILWIND.</strong> Digital nomad long-stays + premium MICE events driving luxury demand. Current 4.1/5.0 rating will improve with renovation addressing top 3 guest complaints.</li></ul><p><strong>Bottom line:</strong> Proceed at €39M with phased renovation and mandatory disposal of Hotel Catalonia. The property is a potential Mediterranean flagship, but only with disciplined execution and concentration risk management.</p><div class="bf-footer" style="border-color:rgba(245,158,11,.1)">Hospitality Council Run ID: HSP-${Date.now().toString(36).toUpperCase()} · Agents: 6 · Confidence: 74% · Risk: 42/100 · IRR: 13.1%</div>`;
+  area.appendChild(brief);
+
+  const cta=document.createElement('div');cta.className='demo-cta';
+  cta.innerHTML=`<h3>Govern every hospitality investment with AI</h3><p>Hospitality Governance ensures RevPAR optimization, brand compliance, and portfolio risk management for every property decision.</p><a href="../briefing.html">Request Briefing →</a>`;
+  area.appendChild(cta);area.scrollTop=area.scrollHeight;running=false;
+}
+setTimeout(()=>runCouncil(),800);
+</script>
+<div style="text-align:center;padding:12px 20px;font-size:.6rem;color:#4a4a5a;border-top:1px solid #1e1e2e;font-family:'Inter',sans-serif">All names, entities, and scenarios in this demo are entirely fictitious. Any resemblance to real persons, companies, or events is purely coincidental.</div>
+<script src="mobile-sidebar.js"></script>
+<script src="demo-analytics.js"></script>
+<script src="../tiktok-pixel.js"></script>
+  <script src="/nav-mobile.js"></script>
+</body>
+</html>

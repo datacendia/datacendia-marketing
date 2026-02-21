@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Decision Governance Infrastructure (DGI) | Open Framework | Datacendia</title>
+  <meta name="description" content="Decision Governance Infrastructure (DGI) is an open, vendor-neutral framework for institutional decision accountability. Published by Datacendia to advance governance standards worldwide.">
+  <meta name="keywords" content="decision governance, DGI framework, institutional accountability, governance primitives, decision provenance, audit framework, vendor-neutral governance, standards submission">
+  <meta name="author" content="Datacendia">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Decision Governance Infrastructure (DGI) | Open Framework">
+  <meta property="og:description" content="An open, vendor-neutral framework for institutional decision accountability. Five governance primitives enabling procedural integrity and evidence survivability.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://datacendia.com/dgi.html">
+  <meta property="og:image" content="https://datacendia.com/og-image.png">
+  <meta property="og:site_name" content="Datacendia">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Decision Governance Infrastructure (DGI) | Open Framework">
+  <meta name="twitter:description" content="Five governance primitives for institutional decision accountability. Open standard published by Datacendia.">
+  <meta name="twitter:image" content="https://datacendia.com/og-image.png">
+  <link rel="canonical" href="https://datacendia.com/dgi.html">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <meta name="theme-color" content="#0a0a0a">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Decision Governance Infrastructure (DGI)",
+    "description": "An open, vendor-neutral framework for treating institutional decisions as auditable lifecycle artifacts.",
+    "url": "https://datacendia.com/dgi.html",
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://datacendia.com/" },
+        { "@type": "ListItem", "position": 2, "name": "DGI Framework", "item": "https://datacendia.com/dgi.html" }
+      ]
+    }
+  }
+  </script>
+  <style>
+    .page-container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 80px 24px;
+    }
+    .page-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+    .page-title {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 300;
+      color: var(--color-text);
+      margin-bottom: 12px;
+    }
+    .page-subtitle {
+      font-size: 0.9rem;
+      color: var(--color-text-muted);
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+    .framework-badge {
+      display: inline-block;
+      padding: 6px 12px;
+      background: var(--color-bg-elevated);
+      border: 1px solid var(--color-border);
+      border-radius: 4px;
+      font-size: 0.7rem;
+      font-family: var(--font-mono);
+      color: var(--color-accent);
+      margin-bottom: 24px;
+    }
+    .intro-section {
+      font-size: 0.85rem;
+      color: var(--color-text-muted);
+      line-height: 1.7;
+      margin-bottom: 40px;
+      padding: 24px;
+      background: var(--color-bg-elevated);
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+    }
+    .intro-section strong {
+      color: var(--color-text);
+    }
+    .primitives-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      margin: 40px 0;
+    }
+    .primitive-card {
+      padding: 20px;
+      background: var(--color-bg-elevated);
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      transition: border-color 0.2s;
+    }
+    .primitive-card:hover {
+      border-color: var(--color-accent);
+    }
+    .primitive-label {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--color-accent);
+      margin-bottom: 8px;
+    }
+    .primitive-name {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      color: var(--color-text);
+      margin-bottom: 8px;
+    }
+    .primitive-desc {
+      font-size: 0.8rem;
+      color: var(--color-text-muted);
+      line-height: 1.6;
+    }
+    .lifecycle-diagram {
+      margin: 40px 0;
+      padding: 32px;
+      background: var(--color-bg-elevated);
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      text-align: center;
+    }
+    .lifecycle-steps {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+    .lifecycle-step {
+      padding: 12px 20px;
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+      border-radius: 6px;
+      font-size: 0.75rem;
+      font-family: var(--font-mono);
+      color: var(--color-text);
+    }
+    .lifecycle-arrow {
+      color: var(--color-accent);
+      font-size: 1.2rem;
+    }
+    .maturity-index {
+      margin: 40px 0;
+    }
+    .maturity-level {
+      padding: 16px;
+      margin-bottom: 12px;
+      background: var(--color-bg-elevated);
+      border-left: 3px solid var(--color-border);
+      border-radius: 4px;
+    }
+    .maturity-level:nth-child(5) {
+      border-left-color: var(--color-accent);
+    }
+    .maturity-number {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--color-accent);
+      margin-bottom: 4px;
+    }
+    .maturity-name {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--color-text);
+      margin-bottom: 4px;
+    }
+    .maturity-desc {
+      font-size: 0.75rem;
+      color: var(--color-text-muted);
+    }
+    .cta-section {
+      margin-top: 60px;
+      padding: 32px;
+      background: var(--color-bg-elevated);
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      text-align: center;
+    }
+    .cta-buttons {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      margin-top: 24px;
+      flex-wrap: wrap;
+    }
+    .btn {
+      padding: 12px 24px;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      text-decoration: none;
+      transition: all 0.2s;
+      display: inline-block;
+    }
+    .btn-primary {
+      background: var(--color-accent);
+      color: var(--color-bg);
+      border: 1px solid var(--color-accent);
+    }
+    .btn-primary:hover {
+      background: transparent;
+      color: var(--color-accent);
+    }
+    .btn-secondary {
+      background: transparent;
+      color: var(--color-text);
+      border: 1px solid var(--color-border);
+    }
+    .btn-secondary:hover {
+      border-color: var(--color-accent);
+      color: var(--color-accent);
+    }
+    .section-heading {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      font-weight: 400;
+      color: var(--color-text);
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .comparison-note {
+      margin-top: 40px;
+      padding: 20px;
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+      border-radius: 6px;
+      font-size: 0.75rem;
+      color: var(--color-text-muted);
+      text-align: center;
+    }
+    .comparison-note a {
+      color: var(--color-accent);
+      text-decoration: none;
+    }
+    .comparison-note a:hover {
+      text-decoration: underline;
+    }
+    .citation-box {
+      margin: 40px 0;
+      padding: 24px;
+      background: var(--color-bg-elevated);
+      border: 2px solid var(--color-accent);
+      border-radius: 8px;
+    }
+    .citation-title {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--color-accent);
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .citation-text {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--color-text);
+      line-height: 1.7;
+      padding: 16px;
+      background: var(--color-bg);
+      border-radius: 4px;
+      border-left: 3px solid var(--color-accent);
+    }
+    .use-cases-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+      margin: 40px 0;
+    }
+    .use-case-card {
+      padding: 20px;
+      background: var(--color-bg-elevated);
+      border: 1px solid var(--color-border);
+      border-radius: 6px;
+      transition: border-color 0.2s;
+    }
+    .use-case-card:hover {
+      border-color: var(--color-accent);
+    }
+    .use-case-icon {
+      font-size: 1.5rem;
+      margin-bottom: 12px;
+    }
+    .use-case-title {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--color-text);
+      margin-bottom: 8px;
+    }
+    .use-case-desc {
+      font-size: 0.75rem;
+      color: var(--color-text-muted);
+      line-height: 1.6;
+    }
+    .adoption-path {
+      margin: 40px 0;
+      padding: 32px;
+      background: var(--color-bg-elevated);
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+    }
+    .adoption-steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      margin-top: 24px;
+    }
+    .adoption-step {
+      text-align: center;
+      position: relative;
+    }
+    .adoption-step-number {
+      width: 40px;
+      height: 40px;
+      margin: 0 auto 12px;
+      background: var(--color-bg);
+      border: 2px solid var(--color-accent);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--color-accent);
+    }
+    .adoption-step-title {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--color-text);
+      margin-bottom: 8px;
+    }
+    .adoption-step-desc {
+      font-size: 0.7rem;
+      color: var(--color-text-muted);
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav-container">
+    <div class="nav-content">
+      <a href="index.html" class="nav-logo">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+          <path d="M2 17l10 5 10-5"/>
+          <path d="M2 12l10 5 10-5"/>
+        </svg>
+        <span>Datacendia</span>
+      </a>
+      <div class="nav-links">
+        <a href="index.html" data-i18n="navHome">Home</a>
+        <a href="dcii.html" data-i18n="navDciiShort">DCII</a>
+        <a href="dgi.html" class="active" data-i18n="navDgiShort">DGI</a>
+        <a href="demos.html" data-i18n="navDemosShort">Demos</a>
+        <a href="pricing.html" data-i18n="navPricingShort">Pricing</a>
+        <a href="team.html" data-i18n="navTeamShort">Team</a>
+      </div>
+      <button class="nav-toggle" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="page-container">
+    <div class="page-header">
+      <div class="framework-badge" data-i18n="dgiBadge">OPEN FRAMEWORK v1.0</div>
+      <h1 class="page-title" data-i18n="dgiPageTitle">Decision Governance Infrastructure</h1>
+      <p class="page-subtitle" data-i18n="dgiPageSubtitle">A vendor-neutral framework for institutional decision accountability</p>
+    </div>
+
+    <div class="intro-section">
+      <p><strong>Decision Governance Infrastructure (DGI)</strong> is an open framework that treats institutional decisions as auditable lifecycle artifacts rather than transient operational events.</p>
+      <p style="margin-top: 16px;">Published by Datacendia in 2026, DGI defines five core governance primitives enabling organizations to preserve procedural integrity, decision provenance, and evidentiary continuity under scrutiny. The framework is implementation-agnostic and designed for compatibility with formal standards processes.</p>
+      <p style="margin-top: 16px;"><strong>Purpose:</strong> DGI addresses the structural gap in existing compliance frameworks by formalizing decision provenance. Organizations can implement DGI through diverse architectures to improve transparency, resilience, and defensibility.</p>
+    </div>
+
+    <div class="citation-box">
+      <div class="citation-title" data-i18n="dgiCitationTitle">How to Cite This Framework</div>
+      <div class="citation-text">
+        Rainey, Stuart. <em>Decision Governance Infrastructure (DGI): A Vendor-Neutral Framework for Institutional Decision Accountability.</em> Datacendia LLC, 2026.
+      </div>
+    </div>
+
+    <h2 class="section-heading" data-i18n="dgiWhoTitle">Who Should Use DGI</h2>
+    <div class="use-cases-grid">
+      <div class="use-case-card">
+        <div class="use-case-icon">📋</div>
+        <div class="use-case-title" data-i18n="dgiUC1Title">Standards Bodies</div>
+        <div class="use-case-desc" data-i18n="dgiUC1Desc">Organizations evaluating governance frameworks for formal adoption (ISO/IEC, IEEE, NIST)</div>
+      </div>
+      <div class="use-case-card">
+        <div class="use-case-icon">🏗️</div>
+        <div class="use-case-title" data-i18n="dgiUC2Title">System Architects</div>
+        <div class="use-case-desc" data-i18n="dgiUC2Desc">Teams building custom decision accountability systems with vendor-neutral primitives</div>
+      </div>
+      <div class="use-case-card">
+        <div class="use-case-icon">🎓</div>
+        <div class="use-case-title" data-i18n="dgiUC3Title">Academic Researchers</div>
+        <div class="use-case-desc" data-i18n="dgiUC3Desc">Scholars studying AI governance, institutional accountability, and decision provenance</div>
+      </div>
+      <div class="use-case-card">
+        <div class="use-case-icon">⚖️</div>
+        <div class="use-case-title" data-i18n="dgiUC4Title">Policy Makers</div>
+        <div class="use-case-desc" data-i18n="dgiUC4Desc">Regulators designing frameworks for decision transparency and institutional resilience</div>
+      </div>
+    </div>
+
+    <h2 class="section-heading" data-i18n="dgiAdoptionTitle">DGI Adoption Path</h2>
+    <div class="adoption-path">
+      <p style="font-size: 0.8rem; color: var(--color-text-muted); text-align: center; margin-bottom: 24px;">
+        A structured approach to implementing decision governance infrastructure
+      </p>
+      <div class="adoption-steps">
+        <div class="adoption-step">
+          <div class="adoption-step-number">1</div>
+          <div class="adoption-step-title" data-i18n="dgiStep1Title">Review Framework</div>
+          <div class="adoption-step-desc" data-i18n="dgiStep1Desc">Study the five governance primitives and lifecycle model</div>
+        </div>
+        <div class="adoption-step">
+          <div class="adoption-step-number">2</div>
+          <div class="adoption-step-title" data-i18n="dgiStep2Title">Assess Maturity</div>
+          <div class="adoption-step-desc" data-i18n="dgiStep2Desc">Evaluate current state using DGMI (Levels 1–5)</div>
+        </div>
+        <div class="adoption-step">
+          <div class="adoption-step-number">3</div>
+          <div class="adoption-step-title" data-i18n="dgiStep3Title">Implement Primitives</div>
+          <div class="adoption-step-desc" data-i18n="dgiStep3Desc">Build or integrate governance controls using your architecture</div>
+        </div>
+        <div class="adoption-step">
+          <div class="adoption-step-number">4</div>
+          <div class="adoption-step-title" data-i18n="dgiStep4Title">Consider DCII</div>
+          <div class="adoption-step-desc" data-i18n="dgiStep4Desc">Evaluate production-ready implementation for rapid deployment</div>
+        </div>
+      </div>
+    </div>
+
+    <h2 class="section-heading" data-i18n="dgiPrinciplesTitle">Framework Principles</h2>
+    <div class="primitives-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); margin-bottom: 40px;">
+      <div class="primitive-card">
+        <div class="primitive-name" data-i18n="dgiPrinciple1Name">Decisions as Lifecycle Artifacts</div>
+        <div class="primitive-desc" data-i18n="dgiPrinciple1Desc">Structured, inspectable events with traceable phases</div>
+      </div>
+      <div class="primitive-card">
+        <div class="primitive-name" data-i18n="dgiPrinciple2Name">Procedural Integrity</div>
+        <div class="primitive-desc" data-i18n="dgiPrinciple2Desc">Demonstrable governance pathways</div>
+      </div>
+      <div class="primitive-card">
+        <div class="primitive-name" data-i18n="dgiPrinciple3Name">Evidence Survivability</div>
+        <div class="primitive-desc" data-i18n="dgiPrinciple3Desc">Artifacts remain verifiable over time</div>
+      </div>
+      <div class="primitive-card">
+        <div class="primitive-name" data-i18n="dgiPrinciple4Name">Institutional Continuity</div>
+        <div class="primitive-desc" data-i18n="dgiPrinciple4Desc">Knowledge persists beyond personnel change</div>
+      </div>
+    </div>
+
+    <h2 class="section-heading" data-i18n="dgiPrimitivesTitle">Five Governance Primitives</h2>
+    <div class="primitives-grid">
+      <div class="primitive-card">
+        <div class="primitive-label">PRIMITIVE A</div>
+        <div class="primitive-name" data-i18n="dgiPrimAName">Context Capture</div>
+        <div class="primitive-desc" data-i18n="dgiPrimADesc">Preserve discovery-time knowledge, triggers, and inputs with source attribution and timestamped metadata.</div>
+      </div>
+      <div class="primitive-card">
+        <div class="primitive-label">PRIMITIVE B</div>
+        <div class="primitive-name" data-i18n="dgiPrimBName">Deliberation Traceability</div>
+        <div class="primitive-desc" data-i18n="dgiPrimBDesc">Record reasoning pathways, alternatives considered, and contributor attribution for reproducible decision sequences.</div>
+      </div>
+      <div class="primitive-card">
+        <div class="primitive-label">PRIMITIVE C</div>
+        <div class="primitive-name" data-i18n="dgiPrimCName">Override Accountability</div>
+        <div class="primitive-desc" data-i18n="dgiPrimCDesc">Document deviations from established processes with explicit justification and authorization tracking.</div>
+      </div>
+      <div class="primitive-card">
+        <div class="primitive-label">PRIMITIVE D</div>
+        <div class="primitive-name" data-i18n="dgiPrimDName">Evidence Integrity</div>
+        <div class="primitive-desc" data-i18n="dgiPrimDDesc">Maintain tamper-evident storage and integrity verification procedures for independent review.</div>
+      </div>
+      <div class="primitive-card">
+        <div class="primitive-label">PRIMITIVE E</div>
+        <div class="primitive-name" data-i18n="dgiPrimEName">Drift Detection</div>
+        <div class="primitive-desc" data-i18n="dgiPrimEDesc">Identify divergence between policy intent and operational behavior through pattern analysis.</div>
+      </div>
+    </div>
+
+    <h2 class="section-heading" data-i18n="dgiLifecycleTitle">Decision Lifecycle Model</h2>
+    <div class="lifecycle-diagram">
+      <p style="font-size: 0.8rem; color: var(--color-text-muted); margin-bottom: 20px;">
+        Decisions are modeled as a five-phase lifecycle, with each phase producing artifacts enabling inspection and verification.
+      </p>
+      <div class="lifecycle-steps">
+        <div class="lifecycle-step" data-i18n="dgiLifeStep1">Initiation</div>
+        <div class="lifecycle-arrow">→</div>
+        <div class="lifecycle-step" data-i18n="dgiLifeStep2">Deliberation</div>
+        <div class="lifecycle-arrow">→</div>
+        <div class="lifecycle-step" data-i18n="dgiLifeStep3">Resolution</div>
+        <div class="lifecycle-arrow">→</div>
+        <div class="lifecycle-step" data-i18n="dgiLifeStep4">Preservation</div>
+        <div class="lifecycle-arrow">→</div>
+        <div class="lifecycle-step" data-i18n="dgiLifeStep5">Reconstruction</div>
+      </div>
+    </div>
+
+    <h2 class="section-heading" data-i18n="dgiDgmiTitle">Decision Governance Maturity Index (DGMI)</h2>
+    <div class="maturity-index">
+      <div class="maturity-level">
+        <div class="maturity-number">LEVEL 1</div>
+        <div class="maturity-name" data-i18n="dgiDgmi1Name">Informal Capture</div>
+        <div class="maturity-desc" data-i18n="dgiDgmi1Desc">Ad hoc documentation with inconsistent artifact preservation</div>
+      </div>
+      <div class="maturity-level">
+        <div class="maturity-number">LEVEL 2</div>
+        <div class="maturity-name" data-i18n="dgiDgmi2Name">Structured Recording</div>
+        <div class="maturity-desc" data-i18n="dgiDgmi2Desc">Consistent artifact capture with defined formats</div>
+      </div>
+      <div class="maturity-level">
+        <div class="maturity-number">LEVEL 3</div>
+        <div class="maturity-name" data-i18n="dgiDgmi3Name">Procedural Traceability</div>
+        <div class="maturity-desc" data-i18n="dgiDgmi3Desc">Full lifecycle preservation with governance pathway documentation</div>
+      </div>
+      <div class="maturity-level">
+        <div class="maturity-number">LEVEL 4</div>
+        <div class="maturity-name" data-i18n="dgiDgmi4Name">Integrity Assurance</div>
+        <div class="maturity-desc" data-i18n="dgiDgmi4Desc">Tamper-evident verification and cryptographic integrity controls</div>
+      </div>
+      <div class="maturity-level">
+        <div class="maturity-number">LEVEL 5</div>
+        <div class="maturity-name" data-i18n="dgiDgmi5Name">Governance Optimization</div>
+        <div class="maturity-desc" data-i18n="dgiDgmi5Desc">Continuous monitoring, drift analytics, and proactive governance improvement</div>
+      </div>
+    </div>
+
+    <div class="comparison-note">
+      <strong>DGI vs DCII:</strong> DGI defines the open standard. DCII is Datacendia's reference implementation with extended primitives for AI governance.
+      <a href="dgi-dcii-comparison.html">View detailed comparison →</a>
+    </div>
+
+    <div class="cta-section">
+      <h3 style="font-family: var(--font-display); font-size: 1.2rem; margin-bottom: 12px; color: var(--color-text);">
+        Framework Resources
+      </h3>
+      <p style="font-size: 0.8rem; color: var(--color-text-muted); margin-bottom: 24px;">
+        DGI is published as an open framework to advance institutional accountability standards.
+      </p>
+      <div class="cta-buttons">
+        <a href="DGI-Framework-v1.0.pdf" download class="btn btn-primary" data-i18n="dgiCtaDownload">Download Framework PDF</a>
+        <a href="dcii.html" class="btn btn-secondary" data-i18n="dgiCtaDcii">View DCII Implementation</a>
+        <a href="dgi-dcii-comparison.html" class="btn btn-secondary" data-i18n="dgiCtaCompare">Compare DGI vs DCII</a>
+      </div>
+      <p style="font-size: 0.7rem; color: var(--color-text-muted); margin-top: 24px;">
+        Framework v1.0 | Published 2026 | Author: Stuart Rainey | Publisher: Datacendia LLC
+      </p>
+    </div>
+  </div>
+
+  <footer style="margin-top: 80px; padding: 40px 24px; border-top: 1px solid var(--color-border); text-align: center;">
+    <p style="font-size: 0.7rem; color: var(--color-text-muted);">
+      © 2024-2026 Datacendia, LLC. All Rights Reserved.
+    </p>
+    <p style="font-size: 0.7rem; color: var(--color-text-muted); margin-top: 8px;">
+      <a href="index.html" style="color: var(--color-text-muted); text-decoration: none;">Home</a> ·
+      <a href="dcii.html" style="color: var(--color-text-muted); text-decoration: none;">DCII</a> ·
+      <a href="dgi.html" style="color: var(--color-text-muted); text-decoration: none;">DGI</a> ·
+      <a href="team.html" style="color: var(--color-text-muted); text-decoration: none;">Team</a> ·
+      <a href="pricing.html" style="color: var(--color-text-muted); text-decoration: none;">Pricing</a>
+    </p>
+  </footer>
+
+  <script src="nav-mobile.js"></script>
+</body>
+</html>

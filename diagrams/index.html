@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Architecture Diagrams — Datacendia</title>
+  <meta name="description" content="Explore Datacendia's interactive architecture diagrams: platform infrastructure, decision flow pipeline, and DCII crisis immunization framework.">
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+  <style>
+    .diagrams-hero {
+      text-align: center;
+      padding: 80px 24px 48px;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .diagrams-hero h1 {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 2.4rem;
+      font-weight: 300;
+      color: #fff;
+      margin-bottom: 16px;
+      letter-spacing: -0.02em;
+    }
+    .diagrams-hero p {
+      font-size: 0.9rem;
+      color: #999;
+      line-height: 1.7;
+      max-width: 520px;
+      margin: 0 auto;
+    }
+    .diagrams-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 24px 80px;
+    }
+    .diagram-card {
+      position: relative;
+      background: #080808;
+      border: 1px solid #222;
+      border-radius: 16px;
+      padding: 40px 32px;
+      text-decoration: none;
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      overflow: hidden;
+    }
+    .diagram-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+    .diagram-card:hover {
+      border-color: transparent;
+      transform: translateY(-4px);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    }
+    .diagram-card:hover::before {
+      opacity: 1;
+    }
+    .diagram-card.gold::before { background: linear-gradient(90deg, #C9A227, #E8D48B); }
+    .diagram-card.gold:hover { border-color: rgba(201,162,39,0.3); }
+    .diagram-card.cyan::before { background: linear-gradient(90deg, #06b6d4, #67e8f9); }
+    .diagram-card.cyan:hover { border-color: rgba(6,182,212,0.3); }
+    .diagram-card.purple::before { background: linear-gradient(90deg, #8b5cf6, #c4b5fd); }
+    .diagram-card.purple:hover { border-color: rgba(139,92,246,0.3); }
+
+    .card-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+      font-size: 1.5rem;
+    }
+    .gold .card-icon { background: rgba(201,162,39,0.1); border: 1px solid rgba(201,162,39,0.25); }
+    .cyan .card-icon { background: rgba(6,182,212,0.1); border: 1px solid rgba(6,182,212,0.25); }
+    .purple .card-icon { background: rgba(139,92,246,0.1); border: 1px solid rgba(139,92,246,0.25); }
+
+    .card-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 10px;
+      display: block;
+    }
+    .gold .card-label { color: #C9A227; }
+    .cyan .card-label { color: #06b6d4; }
+    .purple .card-label { color: #8b5cf6; }
+
+    .card-title {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: #fff;
+      margin-bottom: 12px;
+      line-height: 1.3;
+    }
+    .card-desc {
+      font-size: 0.82rem;
+      color: #888;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+    .card-stats {
+      display: flex;
+      gap: 20px;
+      padding-top: 16px;
+      border-top: 1px solid #1a1a1a;
+    }
+    .card-stat {
+      text-align: center;
+    }
+    .card-stat-num {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #fff;
+      display: block;
+    }
+    .card-stat-label {
+      font-size: 0.65rem;
+      color: #555;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-top: 2px;
+    }
+    .card-arrow {
+      position: absolute;
+      top: 40px;
+      right: 32px;
+      font-size: 1.2rem;
+      color: #333;
+      transition: all 0.3s ease;
+    }
+    .diagram-card:hover .card-arrow {
+      color: #fff;
+      transform: translateX(4px);
+    }
+    .breadcrumb {
+      text-align: center;
+      padding: 24px 24px 0;
+      font-size: 0.75rem;
+    }
+    .breadcrumb a {
+      color: #555;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .breadcrumb a:hover { color: #C9A227; }
+    .breadcrumb span { color: #333; }
+
+    @media (max-width: 600px) {
+      .diagrams-grid { grid-template-columns: 1fr; }
+      .diagrams-hero h1 { font-size: 1.8rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-top">
+        <a href="../index.html" style="text-decoration: none;"><h1 class="logo">DATACENDIA</h1></a>
+      </div>
+      <p class="tagline-sub" data-i18n="tagline">Decision Crisis Immunization Infrastructure</p>
+      <nav class="main-nav">
+        <button class="nav-toggle" aria-label="Menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+        <div class="nav-menu">
+        <div class="nav-group">
+          <span class="nav-label">Platform</span>
+          <div class="nav-dropdown">
+            <a href="/platform-capabilities.html">Platform Overview<span class="nav-desc">Full capability map</span></a>
+            <a href="/dcii.html">DCII Framework<span class="nav-desc">9 primitives &middot; Crisis immunization</span></a>
+            <a href="/diagrams.html">Architecture<span class="nav-desc">8 system diagrams</span></a>
+          </div>
+        </div>
+        <div class="nav-group">
+          <span class="nav-label">Evidence</span>
+          <div class="nav-dropdown">
+            <a href="/demos.html">Interactive Demos<span class="nav-desc">Council, Chronos, Crucible &amp; more</span></a>
+            <a href="/wargames.html">War Games<span class="nav-desc">Would dissent have surfaced the risk?</span></a>
+            <a href="/case-studies.html">Case Studies<span class="nav-desc">Real-world decision analysis</span></a>
+          </div>
+        </div>
+        <a href="/verticals.html">Industries</a>
+        <div class="nav-group">
+          <span class="nav-label">Pricing</span>
+          <div class="nav-dropdown">
+            <a href="/pricing.html">Tier Overview<span class="nav-desc">Foundation &middot; Enterprise &middot; Strategic</span></a>
+            <a href="/premium.html">Premium Modules<span class="nav-desc">7 advanced capabilities</span></a>
+            <a href="/roi-calculator.html">ROI Calculator<span class="nav-desc">Quantify decision risk reduction</span></a>
+            <a href="/pilot.html">90-Day Pilot<span class="nav-desc">Prove value before scaling</span></a>
+          </div>
+        </div>
+        <div class="nav-group">
+          <span class="nav-label">Trust</span>
+          <div class="nav-dropdown">
+            <a href="/trust.html">Trust Center<span class="nav-desc">Security, compliance &amp; deployment</span></a>
+            <a href="/honesty-matrices.html">Honesty Matrices<span class="nav-desc">What we can't do &mdash; yet</span></a>
+          </div>
+        </div>
+        <a href="/briefing.html" class="nav-cta">Request Briefing</a>
+        </div>
+      </nav>
+    </header>
+
+    <div class="breadcrumb">
+      <a href="../index.html">Home</a> <span>/</span> <a href="../architecture.html">Architecture</a> <span>/</span> <span style="color:#888;">Diagrams</span>
+    </div>
+
+    <div class="diagrams-hero">
+      <h1>Interactive Architecture Diagrams</h1>
+      <p>Click into any diagram to explore Datacendia's infrastructure. Every component is interactive — click to learn what it does, how it works, and why it matters.</p>
+    </div>
+
+    <div class="diagrams-grid">
+      <a href="platform-architecture.html" class="diagram-card gold">
+        <span class="card-arrow">→</span>
+        <div class="card-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C9A227" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="18" rx="2"/><line x1="2" y1="9" x2="22" y2="9"/><line x1="2" y1="15" x2="22" y2="15"/><line x1="8" y1="3" x2="8" y2="21"/><line x1="16" y1="3" x2="16" y2="21"/></svg>
+        </div>
+        <span class="card-label">Infrastructure</span>
+        <div class="card-title">Platform Architecture</div>
+        <div class="card-desc">The complete 8-layer infrastructure stack powering the Datacendia Cortex. From bare-metal infrastructure to the executive interface layer.</div>
+        <div class="card-stats">
+          <div class="card-stat"><span class="card-stat-num">8</span><span class="card-stat-label">Layers</span></div>
+          <div class="card-stat"><span class="card-stat-num">40+</span><span class="card-stat-label">Components</span></div>
+          <div class="card-stat"><span class="card-stat-num">6</span><span class="card-stat-label">Pillars</span></div>
+        </div>
+      </a>
+
+      <a href="decision-flow.html" class="diagram-card cyan">
+        <span class="card-arrow">→</span>
+        <div class="card-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v4"/><path d="M12 18v4"/><path d="M4.93 4.93l2.83 2.83"/><path d="M16.24 16.24l2.83 2.83"/><path d="M2 12h4"/><path d="M18 12h4"/><path d="M4.93 19.07l2.83-2.83"/><path d="M16.24 7.76l2.83-2.83"/></svg>
+        </div>
+        <span class="card-label">Deliberation</span>
+        <div class="card-title">Decision Flow</div>
+        <div class="card-desc">How The Council deliberates. Trace a decision from ingestion through multi-agent analysis, adversarial challenge, and final evidence packaging.</div>
+        <div class="card-stats">
+          <div class="card-stat"><span class="card-stat-num">7</span><span class="card-stat-label">Stages</span></div>
+          <div class="card-stat"><span class="card-stat-num">5</span><span class="card-stat-label">Agents</span></div>
+          <div class="card-stat"><span class="card-stat-num">1</span><span class="card-stat-label">RedTeam</span></div>
+        </div>
+      </a>
+
+      <a href="dcii-framework.html" class="diagram-card purple">
+        <span class="card-arrow">→</span>
+        <div class="card-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+        </div>
+        <span class="card-label">Framework</span>
+        <div class="card-title">DCII Framework</div>
+        <div class="card-desc">The 9 crisis immunization primitives that make organizations structurally immune to decision crises. Scored via the IISS metric (0–1000).</div>
+        <div class="card-stats">
+          <div class="card-stat"><span class="card-stat-num">9</span><span class="card-stat-label">Primitives</span></div>
+          <div class="card-stat"><span class="card-stat-num">1000</span><span class="card-stat-label">Max IISS</span></div>
+          <div class="card-stat"><span class="card-stat-num">7</span><span class="card-stat-label">Categories</span></div>
+        </div>
+      </a>
+    </div>
+
+    <footer>
+    <div class="footer-section">
+      <p class="footer-outcome">Ready to own your AI decisions—and prove them to regulators?</p>
+      <div class="footer-ctas">
+        <a href="../briefing.html" class="cta-button"><span data-i18n="requestBriefing">Request Briefing</span> <span class="arrow">→</span></a>
+        <a href="../pilot.html" class="cta-button secondary">See Results in 90 Days</a>
+        <a href="../pricing.html" class="cta-button secondary" data-i18n="pricing">Pricing</a>
+        <a href="../trust.html" class="cta-button secondary" data-i18n="trustCenter">Trust Center</a>
+      </div>
+      <p class="footer-contact"><a href="mailto:contact@datacendia.com">contact@datacendia.com</a> · <a href="../team.html">Leadership</a> · <a href="../protocol.html">Protocol</a> · <a href="../wargames.html">War Games</a> · <a href="../security-controls.html">Security</a> · <a href="../roi-calculator.html">ROI Calculator</a> · <a href="../changelog.html">Changelog</a> · <a href="../api-docs.html">API Docs</a> · <a href="../partners.html">Partners</a> · <a href="../pricing.html" data-i18n="pricing">Pricing</a> · <a href="../privacy.html" data-i18n="privacy">Privacy</a> · <a href="../terms.html" data-i18n="terms">Terms</a> · <a href="https://www.linkedin.com/company/datacendia/" target="_blank" rel="noopener" data-i18n="linkedin">LinkedIn</a></p>
+      <p class="footer-status" style="font-family: var(--font-mono); font-size: 0.7rem; color: #2ecc71; margin-top: 16px; letter-spacing: 0.05em;">SYSTEM STATUS: AIR-GAP READY · NO TRACKER PIXELS DETECTED</p>
+    </div>
+    </footer>
+  </div>
+  <script src="../translations.js"></script>
+  <script src="../app.js"></script>
+  <script src="/nav-mobile.js"></script>
+</body>
+</html>

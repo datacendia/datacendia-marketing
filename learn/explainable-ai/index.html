@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Explainable AI for Enterprises | Complete Guide 2026 | Datacendia</title>
+  <meta name="description" content="Complete guide to Explainable AI (XAI) for enterprises. Techniques for making AI decisions interpretable: reasoning chains, confidence scoring, audit-ready explanations, and regulatory requirements for AI transparency in regulated industries.">
+  <meta name="keywords" content="explainable AI, XAI, AI explainability, AI transparency, interpretable AI, AI reasoning, enterprise AI, audit-ready AI, AI compliance, EU AI Act explainability">
+  <meta name="author" content="Datacendia">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+  <meta property="og:title" content="Explainable AI for Enterprises | Complete Guide 2026">
+  <meta property="og:description" content="How to make AI decisions interpretable with reasoning chains, confidence scoring, and audit-ready explanations.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://datacendia.com/learn/explainable-ai/">
+  <meta property="og:image" content="https://datacendia.com/og-image.png">
+  <meta property="og:site_name" content="Datacendia">
+  <meta property="article:published_time" content="2026-02-10">
+  <meta property="article:modified_time" content="2026-02-10">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Explainable AI for Enterprises | Complete Guide 2026">
+  <meta name="twitter:description" content="Making AI decisions interpretable for regulators, boards, and compliance teams.">
+  <meta name="twitter:image" content="https://datacendia.com/og-image.png">
+  <link rel="canonical" href="https://datacendia.com/learn/explainable-ai/">
+  <link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg">
+  <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+  <meta name="theme-color" content="#0a0a0a">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../styles.css">
+  <style>
+    .learn-container { max-width: 800px; margin: 0 auto; padding: 60px 24px 80px; }
+    .learn-breadcrumb { font-size: 0.75rem; color: var(--color-text-dim); margin-bottom: 24px; }
+    .learn-breadcrumb a { color: var(--color-text-dim); text-decoration: none; }
+    .learn-breadcrumb a:hover { color: var(--color-gold); }
+    .learn-meta { display: flex; gap: 24px; font-size: 0.75rem; color: var(--color-text-dim); margin-bottom: 32px; flex-wrap: wrap; }
+    .learn-meta time { color: var(--color-text-muted); }
+    .learn-title { font-family: var(--font-display); font-size: 2.25rem; font-weight: 300; color: var(--color-text); margin-bottom: 16px; line-height: 1.2; }
+    .learn-subtitle { font-size: 1.1rem; color: var(--color-text-muted); margin-bottom: 32px; line-height: 1.6; }
+    .learn-content h2 { font-family: var(--font-display); font-size: 1.5rem; font-weight: 400; color: var(--color-text); margin: 48px 0 16px; padding-top: 24px; border-top: 1px solid var(--color-border); }
+    .learn-content h3 { font-family: var(--font-display); font-size: 1.15rem; font-weight: 400; color: var(--color-text); margin: 32px 0 12px; }
+    .learn-content p { font-size: 0.95rem; color: var(--color-text-muted); line-height: 1.8; margin-bottom: 16px; }
+    .learn-content ul, .learn-content ol { margin: 16px 0 24px 24px; color: var(--color-text-muted); }
+    .learn-content li { font-size: 0.95rem; line-height: 1.7; margin-bottom: 8px; }
+    .learn-content strong { color: var(--color-text); }
+    .definition-box { background: var(--color-card-bg); border: 1px solid var(--color-gold); border-radius: 8px; padding: 24px; margin: 24px 0; }
+    .definition-box p { font-size: 1rem; color: var(--color-text); margin: 0; }
+    .comparison-table { width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 0.85rem; }
+    .comparison-table th { background: var(--color-card-bg); border: 1px solid var(--color-border); padding: 12px 16px; text-align: left; font-weight: 500; color: var(--color-text); }
+    .comparison-table td { border: 1px solid var(--color-border); padding: 12px 16px; color: var(--color-text-muted); }
+    .comparison-table tr:nth-child(even) { background: rgba(255,255,255,0.02); }
+    .example-box { background: var(--color-card-bg); border: 1px solid var(--color-border); border-radius: 8px; padding: 24px; margin: 24px 0; }
+    .example-box h4 { font-family: var(--font-display); font-size: 1rem; color: var(--color-gold); margin: 0 0 12px; }
+    .example-box p { font-size: 0.9rem; color: var(--color-text-muted); margin: 0 0 8px; line-height: 1.7; }
+    .example-box code { font-family: var(--font-mono); font-size: 0.8rem; color: var(--color-cyan, #06b6d4); background: rgba(6, 182, 212, 0.08); padding: 2px 6px; border-radius: 3px; }
+    .spectrum-bar { display: flex; margin: 24px 0; border-radius: 8px; overflow: hidden; font-size: 0.75rem; }
+    .spectrum-bar div { padding: 12px 16px; text-align: center; color: white; font-weight: 500; }
+    .faq-section { margin-top: 48px; }
+    .faq-item { border-bottom: 1px solid var(--color-border); padding: 24px 0; }
+    .faq-question { font-family: var(--font-display); font-size: 1.1rem; font-weight: 400; color: var(--color-text); margin-bottom: 12px; }
+    .faq-answer { font-size: 0.9rem; color: var(--color-text-muted); line-height: 1.7; }
+    .cta-box { background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(212, 175, 55, 0.02) 100%); border: 1px solid var(--color-gold); border-radius: 8px; padding: 32px; margin-top: 48px; text-align: center; }
+    .cta-box h3 { font-family: var(--font-display); font-size: 1.25rem; color: var(--color-text); margin-bottom: 12px; }
+    .cta-box p { font-size: 0.9rem; color: var(--color-text-muted); margin-bottom: 20px; }
+    .cta-button { display: inline-block; background: var(--color-gold); color: var(--color-bg); padding: 12px 32px; border-radius: 6px; text-decoration: none; font-size: 0.85rem; font-weight: 500; transition: opacity 0.2s; }
+    .cta-button:hover { opacity: 0.9; }
+    .related-links { margin-top: 48px; padding-top: 32px; border-top: 1px solid var(--color-border); }
+    .related-links h3 { font-size: 0.85rem; color: var(--color-text-dim); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 16px; }
+    .related-links ul { list-style: none; margin: 0; padding: 0; }
+    .related-links li { margin-bottom: 8px; }
+    .related-links a { color: var(--color-gold); text-decoration: none; font-size: 0.9rem; }
+    .related-links a:hover { text-decoration: underline; }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Explainable AI for Enterprises | Complete Guide 2026",
+    "description": "Complete guide to Explainable AI (XAI) for enterprises — techniques for making AI decisions interpretable, audit-ready, and compliant.",
+    "author": { "@type": "Organization", "name": "Datacendia", "url": "https://datacendia.com" },
+    "publisher": { "@type": "Organization", "name": "Datacendia", "logo": { "@type": "ImageObject", "url": "https://datacendia.com/assets/logo.svg" } },
+    "datePublished": "2026-02-10",
+    "dateModified": "2026-02-10",
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://datacendia.com/learn/explainable-ai/" },
+    "image": "https://datacendia.com/og-image.png"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://datacendia.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Learn", "item": "https://datacendia.com/learn/" },
+      { "@type": "ListItem", "position": 3, "name": "Explainable AI", "item": "https://datacendia.com/learn/explainable-ai/" }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is Explainable AI?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Explainable AI (XAI) refers to techniques and methods that make AI system outputs understandable to humans. This includes providing reasoning chains for decisions, confidence scores, feature importance rankings, and natural-language explanations that stakeholders — regulators, boards, customers — can review and challenge." }
+      },
+      {
+        "@type": "Question",
+        "name": "Is explainability legally required?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes, in many contexts. The EU AI Act requires transparency and explainability for high-risk AI systems (Articles 13-14). GDPR Article 22 gives individuals the right not to be subject to solely automated decisions and the right to obtain meaningful information about the logic involved. US regulators (CFPB, OCC, Fed) require adverse action notices that explain credit decisions. HIPAA requires that clinical AI decisions be interpretable by healthcare providers." }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the difference between interpretability and explainability?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Interpretability means the model itself is inherently understandable — you can inspect its logic directly (e.g., decision trees, linear models). Explainability means producing post-hoc explanations for a model's outputs — even if the model itself is a black box. In practice, enterprise AI needs both: interpretable architectures where possible, and robust explanation systems for complex models." }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-top">
+        <a href="../../index.html" style="text-decoration: none;"><h1 class="logo">DATACENDIA</h1></a>
+      </div>
+      <p class="tagline-sub">Decision Crisis Immunization Infrastructure</p>
+      <nav class="main-nav">
+        <button class="nav-toggle" aria-label="Menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+        <div class="nav-menu">
+        <div class="nav-group">
+          <span class="nav-label">Platform</span>
+          <div class="nav-dropdown">
+            <a href="/platform-capabilities.html">Platform Overview<span class="nav-desc">Full capability map</span></a>
+            <a href="/dcii.html">DCII Framework<span class="nav-desc">9 primitives &middot; Crisis immunization</span></a>
+            <a href="/diagrams.html">Architecture<span class="nav-desc">8 system diagrams</span></a>
+          </div>
+        </div>
+        <div class="nav-group">
+          <span class="nav-label">Evidence</span>
+          <div class="nav-dropdown">
+            <a href="/demos.html">Interactive Demos<span class="nav-desc">Council, Chronos, Crucible &amp; more</span></a>
+            <a href="/wargames.html">War Games<span class="nav-desc">Would dissent have surfaced the risk?</span></a>
+            <a href="/case-studies.html">Case Studies<span class="nav-desc">Real-world decision analysis</span></a>
+          </div>
+        </div>
+        <a href="/verticals.html">Industries</a>
+        <div class="nav-group">
+          <span class="nav-label">Pricing</span>
+          <div class="nav-dropdown">
+            <a href="/pricing.html">Tier Overview<span class="nav-desc">Foundation &middot; Enterprise &middot; Strategic</span></a>
+            <a href="/premium.html">Premium Modules<span class="nav-desc">7 advanced capabilities</span></a>
+            <a href="/roi-calculator.html">ROI Calculator<span class="nav-desc">Quantify decision risk reduction</span></a>
+            <a href="/pilot.html">90-Day Pilot<span class="nav-desc">Prove value before scaling</span></a>
+          </div>
+        </div>
+        <div class="nav-group">
+          <span class="nav-label">Trust</span>
+          <div class="nav-dropdown">
+            <a href="/trust.html">Trust Center<span class="nav-desc">Security, compliance &amp; deployment</span></a>
+            <a href="/honesty-matrices.html">Honesty Matrices<span class="nav-desc">What we can't do &mdash; yet</span></a>
+          </div>
+        </div>
+        <a href="/briefing.html" class="nav-cta">Request Briefing</a>
+        </div>
+      </nav>
+    </header>
+
+    <div class="learn-container">
+      <div class="learn-breadcrumb">
+        <a href="../../index.html">Home</a> / <a href="../">Learn</a> / Explainable AI for Enterprises
+      </div>
+
+      <h1 class="learn-title">Explainable AI for Enterprises</h1>
+      <p class="learn-subtitle">
+        How to make AI decisions interpretable, auditable, and defensible — reasoning chains, 
+        confidence scoring, dissent trails, and regulatory-grade explanations for high-stakes decisions.
+      </p>
+
+      <div class="learn-meta">
+        <span>Published: <time datetime="2026-02-10">February 10, 2026</time></span>
+        <span>Reading time: 14 minutes</span>
+        <span>Category: AI Governance</span>
+      </div>
+
+      <div class="definition-box">
+        <p><strong>Explainable AI (XAI)</strong> is the set of techniques, processes, and architectures that make AI system outputs understandable to humans — enabling stakeholders to inspect, challenge, and trust AI-assisted decisions. For enterprises, explainability is not optional: it is a regulatory requirement, a liability shield, and a prerequisite for board-level AI adoption.</p>
+      </div>
+
+      <div class="learn-content">
+
+        <h2>Why Explainability Is Non-Negotiable in 2026</h2>
+        <p>
+          The era of "trust the algorithm" is over. Across every regulated industry, the same question is being 
+          asked by boards, regulators, and courts: <strong>"Why did the AI recommend this?"</strong>
+        </p>
+        <p>
+          If you cannot answer that question with specific, documented, reproducible reasoning, you have a 
+          compliance gap, a liability exposure, and a governance failure. Here's why:
+        </p>
+        <ul>
+          <li><strong>EU AI Act (Articles 13–14):</strong> High-risk AI systems must be designed to be "sufficiently transparent to enable deployers to interpret a system's output and use it appropriately." Users must be able to understand the AI's capabilities, limitations, and the logic behind its decisions.</li>
+          <li><strong>GDPR (Article 22):</strong> Individuals have the right not to be subject to decisions based solely on automated processing, and the right to obtain "meaningful information about the logic involved" in automated decisions that significantly affect them.</li>
+          <li><strong>US Fair Lending (ECOA/Regulation B):</strong> Lenders must provide specific reasons for adverse credit decisions. "The model said no" is not an acceptable adverse action notice.</li>
+          <li><strong>HIPAA / Clinical AI:</strong> Healthcare providers remain responsible for clinical decisions. An AI recommendation that cannot be explained to a clinician cannot safely inform patient care.</li>
+          <li><strong>Board fiduciary duty:</strong> Directors who approve AI-driven strategies they cannot explain may face personal liability if those decisions cause harm.</li>
+        </ul>
+
+        <h2>The Explainability Spectrum</h2>
+        <p>
+          Not all AI systems require the same level of explainability. The appropriate level depends on the 
+          decision's stakes, regulatory context, and audience:
+        </p>
+
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th>Level</th>
+              <th>What It Provides</th>
+              <th>Suitable For</th>
+              <th>Example</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Level 1: Output Only</strong></td>
+              <td>Decision + confidence score</td>
+              <td>Low-stakes recommendations, content suggestions</td>
+              <td>"Recommended: Approve (87% confidence)"</td>
+            </tr>
+            <tr>
+              <td><strong>Level 2: Feature Attribution</strong></td>
+              <td>Key factors that influenced the decision</td>
+              <td>Credit scoring, fraud alerts, risk flags</td>
+              <td>"Top factors: high debt-to-income (35%), short credit history (2yr)"</td>
+            </tr>
+            <tr>
+              <td><strong>Level 3: Reasoning Chain</strong></td>
+              <td>Step-by-step logic from inputs to conclusion</td>
+              <td>Medical diagnosis, legal analysis, compliance decisions</td>
+              <td>"Patient presents symptoms A, B, C → consistent with condition X per guideline Y → recommend test Z"</td>
+            </tr>
+            <tr>
+              <td><strong>Level 4: Deliberative Trace</strong></td>
+              <td>Full multi-perspective analysis with dissent, cross-examination, and evidence citations</td>
+              <td>M&amp;A decisions, regulatory enforcement, high-stakes governance</td>
+              <td>"6 agents deliberated. 4 recommended approval. 2 dissented citing Basel III concerns. Cross-examination resolved 3 of 4 objections."</td>
+            </tr>
+            <tr>
+              <td><strong>Level 5: Audit Packet</strong></td>
+              <td>Complete, cryptographically signed, Merkle-tree verified evidence package</td>
+              <td>Regulatory submissions, court evidence, board-level decisions</td>
+              <td>"Decision packet DEC-2026-001: 47 pages, 6 agent reports, 12 citations, Ed25519 signed, Merkle root verified"</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p>
+          Most enterprise AI vendors stop at Level 2. Regulated industries increasingly require Level 3 or above. 
+          For decisions that may face regulatory scrutiny or litigation, Level 5 is the only defensible standard.
+        </p>
+
+        <h2>Explainability Techniques</h2>
+
+        <h3>1. Inherently Interpretable Models</h3>
+        <p>
+          The simplest path to explainability: use models that are transparent by design. Decision trees, 
+          linear/logistic regression, rule-based systems, and Bayesian networks produce outputs that can be 
+          directly inspected.
+        </p>
+        <p>
+          <strong>Trade-off:</strong> Interpretable models often sacrifice predictive performance on complex tasks. 
+          For enterprise use, the question is whether the performance gap is acceptable given the explainability 
+          requirement. In many regulated contexts, a slightly less accurate but fully explainable model is preferable 
+          to a black-box model with marginally better metrics.
+        </p>
+
+        <h3>2. Post-Hoc Explanation Methods</h3>
+        <p>
+          When complex models (deep learning, large language models, ensemble methods) are necessary, post-hoc 
+          methods generate explanations after the fact:
+        </p>
+        <ul>
+          <li><strong>SHAP (SHapley Additive exPlanations):</strong> Assigns each feature an importance value for a specific prediction based on game-theoretic Shapley values. Mathematically rigorous but computationally expensive for large models.</li>
+          <li><strong>LIME (Local Interpretable Model-agnostic Explanations):</strong> Creates a simple, interpretable model that approximates the complex model's behavior in the neighborhood of a specific prediction. Fast but potentially unstable.</li>
+          <li><strong>Attention visualization:</strong> For transformer-based models, attention weights show which parts of the input the model "focused on." Useful for intuition but does not reliably indicate causal reasoning.</li>
+          <li><strong>Counterfactual explanations:</strong> "The decision would have been different if X had been Y." Particularly useful for adverse action notices: "Your application would have been approved if your debt-to-income ratio were below 40%."</li>
+          <li><strong>Concept-based explanations:</strong> Map model activations to human-understandable concepts rather than raw features. "The model identified this as high-risk because it detected patterns associated with 'market manipulation' and 'unusual volume.'"</li>
+        </ul>
+
+        <h3>3. Reasoning Chains (Chain-of-Thought)</h3>
+        <p>
+          For large language models and generative AI, chain-of-thought prompting and structured reasoning 
+          produce step-by-step explanations:
+        </p>
+        <div class="example-box">
+          <h4>Example: Chain-of-Thought Reasoning</h4>
+          <p><strong>Input:</strong> "Should we approve the $4.2M vendor contract with CloudNova?"</p>
+          <p><strong>Step 1:</strong> Retrieve relevant policies → Procurement Policy §4.3 requires security assessment for contracts &gt;$1M</p>
+          <p><strong>Step 2:</strong> Check security assessment → CloudNova failed 3 of 12 controls (network segmentation, encryption at rest, incident response)</p>
+          <p><strong>Step 3:</strong> Check regulatory requirements → FedRAMP authorization required for government data; CloudNova lacks FedRAMP</p>
+          <p><strong>Step 4:</strong> Assess alternatives → AzureGov meets all 12 controls, has FedRAMP High authorization, costs $4.8M (14% premium)</p>
+          <p><strong>Conclusion:</strong> <code>RECOMMEND: REJECT</code> — Security assessment failures and missing FedRAMP authorization create unacceptable regulatory risk. AzureGov recommended as alternative despite 14% cost premium.</p>
+        </div>
+
+        <h3>4. Multi-Agent Deliberation</h3>
+        <p>
+          The most powerful explainability architecture for high-stakes decisions: multiple specialized AI agents 
+          that deliberate, debate, and cross-examine each other's reasoning. This produces:
+        </p>
+        <ul>
+          <li><strong>Multiple perspectives:</strong> Each agent brings a different lens (financial, legal, ethical, operational, risk) to the same decision</li>
+          <li><strong>Documented disagreement:</strong> Dissent is captured, not suppressed. When agents disagree, the disagreement itself is evidence of thorough analysis.</li>
+          <li><strong>Cross-examination:</strong> Agents challenge each other's assumptions, forcing weak reasoning to be strengthened or abandoned</li>
+          <li><strong>Confidence calibration:</strong> Individual agent confidence scores aggregate into an overall confidence that reflects genuine uncertainty</li>
+          <li><strong>Audit trail:</strong> The full deliberation is preserved — every argument, counterargument, evidence citation, and vote</li>
+        </ul>
+
+        <div class="example-box">
+          <h4>Example: Multi-Agent Deliberation Output</h4>
+          <p><strong>Decision:</strong> $8.5M wire transfer to Redline Holdings</p>
+          <p><strong>Risk Sentinel:</strong> "OPPOSE — 67% probability of PEP exposure. Enhanced due diligence not completed." <code>Confidence: 82%</code></p>
+          <p><strong>Compliance Guardian:</strong> "OPPOSE — OFAC secondary sanctions risk. Beneficial ownership chain includes a jurisdiction on the FATF grey list." <code>Confidence: 78%</code></p>
+          <p><strong>Alpha Hunter:</strong> "SUPPORT — Expected return of 340bps above benchmark. Risk-adjusted return is positive even accounting for compliance costs." <code>Confidence: 71%</code></p>
+          <p><strong>Cross-examination result:</strong> Alpha Hunter's return projection does not account for potential $10M+ regulatory fine. When adjusted, risk-adjusted return becomes negative.</p>
+          <p><strong>Council decision:</strong> <code>PROCEED WITH CAUTION</code> — Conditional on completion of enhanced due diligence and OFAC screening. 58% overall confidence.</p>
+        </div>
+
+        <h2>Explainability Requirements by Regulation</h2>
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th>Regulation</th>
+              <th>Explainability Requirement</th>
+              <th>Minimum Level</th>
+              <th>Penalty for Non-Compliance</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>EU AI Act</strong></td>
+              <td>High-risk systems must enable deployers to "interpret the system's output and use it appropriately" (Art. 13)</td>
+              <td>Level 3 (Reasoning Chain)</td>
+              <td>Up to &euro;35M or 7% of global revenue</td>
+            </tr>
+            <tr>
+              <td><strong>GDPR</strong></td>
+              <td>"Meaningful information about the logic involved" in automated decisions (Art. 22, Recital 71)</td>
+              <td>Level 2 (Feature Attribution)</td>
+              <td>Up to &euro;20M or 4% of global revenue</td>
+            </tr>
+            <tr>
+              <td><strong>ECOA / Reg B</strong> (US)</td>
+              <td>Specific reasons for adverse credit decisions</td>
+              <td>Level 2 (Feature Attribution)</td>
+              <td>Actual damages + punitive damages up to $10K individual / $500K class</td>
+            </tr>
+            <tr>
+              <td><strong>SR 11-7</strong> (Fed/OCC)</td>
+              <td>Model risk management requires "effective challenge" and documented validation</td>
+              <td>Level 3 (Reasoning Chain)</td>
+              <td>MRA / MRIA enforcement actions</td>
+            </tr>
+            <tr>
+              <td><strong>HIPAA</strong></td>
+              <td>Clinicians must understand AI recommendations to exercise clinical judgment</td>
+              <td>Level 3 (Reasoning Chain)</td>
+              <td>Up to $2.1M per violation category per year</td>
+            </tr>
+            <tr>
+              <td><strong>DORA</strong></td>
+              <td>ICT systems must be understood by management body; incident analysis requires root cause</td>
+              <td>Level 2 (Feature Attribution)</td>
+              <td>Up to 1% of daily global turnover/day (critical providers)</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2>Building an Explainability Architecture</h2>
+        <p>
+          Enterprise explainability is not a feature you bolt on — it's an architecture decision. Here's 
+          a practical framework:
+        </p>
+
+        <h3>Layer 1: Decision Logging</h3>
+        <p>
+          Every AI decision must be logged with: the input data (or hash), the model version, the output, 
+          the confidence score, and a timestamp. This is the minimum viable audit trail. Without it, no 
+          explanation is reproducible.
+        </p>
+
+        <h3>Layer 2: Reasoning Capture</h3>
+        <p>
+          Beyond the decision itself, capture the reasoning: which rules or patterns the model matched, 
+          which features drove the output, and which alternative outputs were considered. For LLMs, this 
+          means capturing the full chain-of-thought, not just the final answer.
+        </p>
+
+        <h3>Layer 3: Multi-Perspective Analysis</h3>
+        <p>
+          For high-stakes decisions, a single model's explanation is insufficient. Multiple agents or models 
+          should analyze the same decision from different angles. The disagreements between perspectives are 
+          often more informative than the agreements.
+        </p>
+
+        <h3>Layer 4: Cross-Examination</h3>
+        <p>
+          Explanations that go unchallenged are untested. A robust explainability architecture includes 
+          adversarial review: agents that specifically attempt to find weaknesses in the reasoning, 
+          identify missing considerations, and stress-test assumptions.
+        </p>
+
+        <h3>Layer 5: Evidence Packaging</h3>
+        <p>
+          The final layer assembles everything into an immutable, cryptographically signed evidence packet: 
+          the decision, the reasoning, the multi-perspective analysis, the cross-examination results, and 
+          all supporting data — Merkle-tree verified and ready for regulator review.
+        </p>
+
+        <h2>Common Explainability Pitfalls</h2>
+        <ul>
+          <li><strong>"Explanation theater":</strong> Generating plausible-sounding explanations that don't actually reflect the model's internal reasoning. LIME and SHAP can produce misleading attributions if not carefully validated. Always verify that explanations are faithful to the model's actual decision process.</li>
+          <li><strong>Over-simplification:</strong> Reducing a complex decision to "top 3 factors" may satisfy a UI requirement but fails regulatory scrutiny. A compliance officer needs the full reasoning chain, not a summary.</li>
+          <li><strong>Explanation inconsistency:</strong> If the same input produces different explanations on different runs, the explanation system is unreliable. Explanations must be deterministic and reproducible.</li>
+          <li><strong>Confusing correlation with causation:</strong> Feature attribution methods show which features correlated with the output, not which features caused it. This distinction matters enormously in legal and regulatory contexts.</li>
+          <li><strong>Ignoring the audience:</strong> A data scientist, a compliance officer, a board member, and a customer all need different explanations of the same decision. Build for multiple audiences, not one.</li>
+        </ul>
+
+        <h2>Explainability Maturity Model</h2>
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th>Stage</th>
+              <th>Capability</th>
+              <th>Evidence</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Stage 1: Ad Hoc</strong></td>
+              <td>Explanations generated manually when requested</td>
+              <td>No systematic logging; explanations are after-the-fact narratives</td>
+            </tr>
+            <tr>
+              <td><strong>Stage 2: Documented</strong></td>
+              <td>Decision logs with basic feature attribution</td>
+              <td>SHAP/LIME values stored; reproducible on request</td>
+            </tr>
+            <tr>
+              <td><strong>Stage 3: Systematic</strong></td>
+              <td>Automated reasoning chains for every decision</td>
+              <td>Chain-of-thought logged; multiple explanation levels for different audiences</td>
+            </tr>
+            <tr>
+              <td><strong>Stage 4: Adversarial</strong></td>
+              <td>Multi-agent deliberation with cross-examination</td>
+              <td>Dissent captured; assumptions challenged; blind spots identified</td>
+            </tr>
+            <tr>
+              <td><strong>Stage 5: Audit-Grade</strong></td>
+              <td>Cryptographically signed evidence packets</td>
+              <td>Merkle-tree verified; regulator-exportable; legally defensible</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="faq-section">
+          <h2>Frequently Asked Questions</h2>
+
+          <div class="faq-item">
+            <div class="faq-question">Does explainability reduce AI accuracy?</div>
+            <div class="faq-answer">Not necessarily. The accuracy-explainability trade-off is often overstated. Multi-agent deliberation architectures can actually <em>improve</em> decision quality by surfacing blind spots and challenging weak reasoning — while simultaneously producing the most comprehensive explanations. The real trade-off is computational cost, not accuracy.</div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">Can large language models (LLMs) explain their own reasoning?</div>
+            <div class="faq-answer">LLMs can generate explanations, but self-explanation has a critical flaw: the explanation may not accurately reflect the model's actual computation. This is called "unfaithful explanation" or "post-hoc rationalization." The solution is external verification: use a separate agent or system to validate that the explanation is consistent with the inputs, outputs, and known model behavior. Multi-agent architectures address this by having agents cross-examine each other's reasoning.</div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">How much does explainability cost?</div>
+            <div class="faq-answer">Basic logging and SHAP values add minimal overhead (&lt;5% compute cost). Reasoning chains add 10–20%. Full multi-agent deliberation with cross-examination adds 3–5x the compute of a single-model inference. However, the cost of <em>not</em> having explainability — regulatory fines, litigation exposure, board liability — dwarfs the infrastructure cost. Budget for explainability as a core requirement, not an add-on.</div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">What's the minimum explainability needed for EU AI Act compliance?</div>
+            <div class="faq-answer">For high-risk AI systems (Annex III), the EU AI Act requires transparency "sufficient to enable deployers to interpret the system's output and use it appropriately" (Article 13). In practice, this means at minimum Level 3 (reasoning chains) with documentation. The regulation also requires logging of system operations for traceability (Article 12). Simply showing a confidence score (Level 1) is not sufficient for high-risk classification.</div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">How do you explain AI decisions to a board of directors?</div>
+            <div class="faq-answer">Board-level explanations require a different format than technical explanations. Provide: (1) the decision and its business impact, (2) the confidence level and what it means, (3) the key arguments for and against, (4) what the AI considered that humans might have missed, and (5) what the AI cannot account for. The most effective format is the multi-agent deliberation summary — it reads like a board briefing because it <em>is</em> one, generated by specialized AI agents playing executive roles.</div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="cta-box">
+        <h3>See Explainable AI in Action</h3>
+        <p>Datacendia's multi-agent architecture produces Level 5 audit-grade explanations by default — every decision comes with a full deliberation trace, cross-examination results, and cryptographically signed evidence packet.</p>
+        <a href="../../demos/council.html" class="cta-button">Try the Council Demo →</a>
+      </div>
+
+      <div class="related-links">
+        <h3>Related Guides</h3>
+        <ul>
+          <li><a href="../ai-governance/">What is AI Governance? →</a></li>
+          <li><a href="../ai-audit-trail/">What is an AI Audit Trail? →</a></li>
+          <li><a href="../multi-agent-ai/">What is Multi-Agent AI? →</a></li>
+          <li><a href="../eu-ai-act-compliance/">EU AI Act Compliance Guide →</a></li>
+          <li><a href="../dora-compliance/">DORA Compliance for AI →</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <footer style="text-align: center; padding: 40px 24px; border-top: 1px solid var(--color-border); margin-top: 60px;">
+      <p style="font-size: 0.75rem; color: var(--color-text-dim);">&copy; 2026 Datacendia. Sovereign Enterprise Intelligence.</p>
+      <p style="font-size: 0.7rem; color: var(--color-text-dim); margin-top: 8px;">
+        <a href="../../privacy.html" style="color: var(--color-text-dim);">Privacy</a> &middot; 
+        <a href="../../terms.html" style="color: var(--color-text-dim);">Terms</a> &middot; 
+        <a href="../../security.txt" style="color: var(--color-text-dim);">Security</a>
+      </p>
+    </footer>
+  </div>
+  <script src="../../translations.js"></script>
+  <script src="../../app.js"></script>
+  <script src="/nav-mobile.js"></script>
+</body>
+</html>

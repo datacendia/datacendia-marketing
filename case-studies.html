@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anonymized Pilot Case Studies | Datacendia</title>
+  <meta name="description" content="Anonymized pilot case studies demonstrating governed AI deliberation, dissent preservation, and audit-ready decision records across industrial, financial, healthcare, and public-sector organizations.">
+  <meta property="og:title" content="Anonymized Pilot Case Studies | Datacendia">
+  <meta property="og:description" content="Real pilots. No exaggeration. See how organizations use Datacendia for governed decision-making.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://datacendia.com/case-studies.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Anonymized Pilot Case Studies | Datacendia">
+  <meta name="twitter:description" content="Real pilots. No exaggeration. See how organizations use Datacendia for governed decision-making.">
+  <meta name="author" content="Datacendia">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .cs-section { margin-bottom: 4rem; }
+    .cs-badge { display: inline-block; padding: 4px 14px; border-radius: 20px; font-size: 0.72rem; font-weight: 600; margin-bottom: 1rem; }
+    .cs-title { font-size: 1.4rem; font-weight: 600; color: white; margin-bottom: 0.5rem; line-height: 1.3; }
+    .cs-subtitle { font-size: 0.88rem; color: var(--color-text-dim); line-height: 1.6; margin-bottom: 1.5rem; }
+    .cs-profile { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 1rem; margin-bottom: 2rem; }
+    .cs-profile-item { padding: 1rem; background: rgba(0,0,0,0.2); border-radius: 8px; border: 1px solid var(--color-border); }
+    .cs-profile-label { font-size: 0.65rem; color: var(--color-text-muted); text-transform: uppercase; letter-spacing: 0.1em; font-family: 'JetBrains Mono', monospace; margin-bottom: 4px; }
+    .cs-profile-val { font-size: 0.85rem; color: var(--color-text-dim); font-weight: 500; }
+    .cs-body h3 { font-size: 1rem; font-weight: 600; color: var(--color-text); margin-bottom: 0.75rem; margin-top: 2rem; }
+    .cs-body p { font-size: 0.88rem; color: var(--color-text-dim); line-height: 1.7; margin-bottom: 1rem; }
+    .cs-body ul { color: var(--color-text-dim); font-size: 0.88rem; line-height: 1.8; margin-bottom: 1rem; padding-left: 1.2rem; }
+    .cs-quote { padding: 1.2rem 1.5rem; border-left: 3px solid var(--color-gold); background: rgba(201,162,39,0.04); border-radius: 0 8px 8px 0; margin: 1.5rem 0; font-style: italic; color: var(--color-text-dim); font-size: 0.92rem; line-height: 1.7; }
+    .cs-card { background: var(--color-card-bg); border: 1px solid var(--color-border); border-radius: 16px; padding: 2.5rem; margin-bottom: 2rem; transition: border-color 0.3s; }
+    .cs-card:hover { border-color: rgba(201,162,39,0.3); }
+    .cs-outcomes { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin: 1.5rem 0; }
+    .cs-outcome-col h4 { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.75rem; }
+    .cs-outcome-col ul { font-size: 0.85rem; line-height: 1.8; color: var(--color-text-dim); padding-left: 1rem; }
+    .cs-divider { height: 1px; background: var(--color-border); margin: 3rem 0; }
+    .cs-nav { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 2rem; }
+    .cs-nav a { padding: 8px 16px; background: rgba(0,0,0,0.2); border: 1px solid var(--color-border); border-radius: 8px; color: var(--color-text-dim); text-decoration: none; font-size: 0.8rem; transition: all 0.2s; }
+    .cs-nav a:hover { border-color: var(--color-gold); color: var(--color-gold); }
+    @media (max-width: 640px) { .cs-outcomes { grid-template-columns: 1fr; } .cs-profile { grid-template-columns: 1fr 1fr; } }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header>
+      <div class="header-top">
+        <a href="index.html" style="text-decoration: none;"><h1 class="logo">DATACENDIA</h1></a>
+      </div>
+      <p class="tagline-sub" data-i18n="taglineSub">Decision Crisis Immunization Infrastructure</p>
+            <nav class="main-nav">
+        <button class="nav-toggle" aria-label="Menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+        <div class="nav-menu">
+        <div class="nav-group">
+          <span class="nav-label" data-i18n="navPlatform">Platform</span>
+          <div class="nav-dropdown">
+            <a href="platform-capabilities.html"><span data-i18n="navPlatformOverview">Platform Overview</span><span class="nav-desc" data-i18n="navPlatformOverviewDesc">Full capability map</span></a>
+            <a href="dcii.html"><span data-i18n="navDcii">DCII Framework</span><span class="nav-desc" data-i18n="navDciiDesc">9 primitives · Crisis immunization</span></a>
+            <a href="diagrams.html"><span data-i18n="navArchitecture">Architecture</span><span class="nav-desc" data-i18n="navArchitectureDesc">12 system diagrams</span></a>
+          </div>
+        </div>
+        <div class="nav-group">
+          <span class="nav-label" data-i18n="navEvidence">Evidence</span>
+          <div class="nav-dropdown">
+            <a href="demos.html"><span data-i18n="navDemos">Interactive Demos</span><span class="nav-desc" data-i18n="navDemosDesc">Council, Chronos, Crucible &amp; more</span></a>
+            <a href="wargames.html"><span data-i18n="navWargames">War Games</span><span class="nav-desc" data-i18n="navWargamesDesc">Would dissent have surfaced the risk?</span></a>
+            <a href="case-studies.html"><span data-i18n="navCaseStudies">Case Studies</span><span class="nav-desc" data-i18n="navCaseStudiesDesc">Real-world decision analysis</span></a>
+          </div>
+        </div>
+        <a href="verticals.html" data-i18n="navIndustries">Industries</a>
+        <div class="nav-group">
+          <span class="nav-label" data-i18n="navPricing">Pricing</span>
+          <div class="nav-dropdown">
+            <a href="pricing.html"><span data-i18n="navTierOverview">Tier Overview</span><span class="nav-desc" data-i18n="navTierOverviewDesc">Foundation · Enterprise · Strategic</span></a>
+            <a href="premium.html"><span data-i18n="navPremiumModules">Premium Modules</span><span class="nav-desc" data-i18n="navPremiumModulesDesc">7 advanced capabilities</span></a>
+            <a href="roi-calculator.html"><span data-i18n="navRoiCalculator">ROI Calculator</span><span class="nav-desc" data-i18n="navRoiCalculatorDesc">Quantify decision risk reduction</span></a>
+            <a href="pilot.html"><span data-i18n="navPilot">90-Day Pilot</span><span class="nav-desc" data-i18n="navPilotDesc">Prove value before scaling</span></a>
+          </div>
+        </div>
+        <div class="nav-group">
+          <span class="nav-label" data-i18n="navTrust">Trust</span>
+          <div class="nav-dropdown">
+            <a href="trust.html"><span data-i18n="navTrustCenter">Trust Center</span><span class="nav-desc" data-i18n="navTrustCenterDesc">Security, compliance &amp; deployment</span></a>
+            <a href="honesty-matrices.html"><span data-i18n="navHonestyMatricesLink">Honesty Matrices</span><span class="nav-desc" data-i18n="navHonestyMatricesDesc">What we can't do — yet</span></a>
+          </div>
+        </div>
+        <a href="briefing.html" class="nav-cta" data-i18n="navRequestBriefing">Request Briefing</a>
+        </div>
+      </nav>
+    </header>
+
+    <div class="page-container">
+      <div class="page-header" style="text-align: center;">
+        <div class="page-icon"><img src="assets/logos/audit-provenance.svg" alt="Case Studies" width="64" height="64" style="border-radius:12px"></div>
+        <h1 class="page-title" data-i18n="csPageTitle">Anonymized Pilot Case Studies</h1>
+        <p class="page-subtitle" data-i18n="csPageSubtitle">Real pilots. No inflated metrics. No AI accuracy claims. These anonymized case studies demonstrate what Datacendia actually does in production environments.</p>
+      </div>
+
+      <!-- Navigation -->
+      <div class="cs-nav">
+        <a href="#industrial" data-i18n="csNav1">Industrial Manufacturing</a>
+        <a href="#financial" data-i18n="csNav2">Financial Services</a>
+        <a href="#healthcare" data-i18n="csNav3">Healthcare</a>
+        <a href="#public-sector" data-i18n="csNav4">Public-Sector Adjacent</a>
+      </div>
+
+      <!-- Case Study 1: Industrial Manufacturing -->
+      <div class="cs-card" id="industrial">
+        <span class="cs-badge" style="background:rgba(245,158,11,0.1);border:1px solid rgba(245,158,11,0.3);color:#f59e0b;">Pilot · Industrial Manufacturing</span>
+        <h2 class="cs-title" data-i18n="cs1Title">Industrial Manufacturer Uses Datacendia to Preserve Decision Accountability Across Leadership Transition</h2>
+        <p class="cs-subtitle">An anonymized pilot demonstrating governed AI deliberation, dissent preservation, and audit-ready decision records in a regulated industrial environment.</p>
+
+        <div class="cs-profile">
+          <div class="cs-profile-item"><div class="cs-profile-label" data-i18n="csProfileOrg">Organization</div><div class="cs-profile-val">Mid-sized industrial manufacturer</div></div>
+          <div class="cs-profile-item"><div class="cs-profile-label" data-i18n="csProfileRegion">Region</div><div class="cs-profile-val">Latin America</div></div>
+          <div class="cs-profile-item"><div class="cs-profile-label">Employees</div><div class="cs-profile-val">200–500</div></div>
+          <div class="cs-profile-item"><div class="cs-profile-label" data-i18n="csProfileDuration">Duration</div><div class="cs-profile-val">90-day pilot</div></div>
+          <div class="cs-profile-item"><div class="cs-profile-label" data-i18n="csProfileDeployment">Deployment</div><div class="cs-profile-val">On-premises</div></div>
+          <div class="cs-profile-item"><div class="cs-profile-label">Constraint</div><div class="cs-profile-val">No cloud data exposure</div></div>
+        </div>
+
+        <div class="cs-body">
+          <h3 data-i18n="csH3Problem">The Problem</h3>
+          <p>The organization faced a recurring challenge: strategic decisions were made by a small leadership group. Rationale lived in emails, meetings, or personal memory. When leadership changed, institutional reasoning was lost. Disagreements were informal and undocumented. Post-decision reviews relied on recollection, not evidence.</p>
+          <div class="cs-quote">"We could explain what we decided, but not how we arrived there — especially months later."</div>
+
+          <h3 data-i18n="cs1H3Tools">Why Existing Tools Failed</h3>
+          <ul>
+            <li><strong>BI dashboards</strong> — showed metrics, not reasoning</li>
+            <li><strong>Spreadsheets & reports</strong> — static, no deliberation trace</li>
+            <li><strong>Chat-based AI tools</strong> — produced answers, not accountability</li>
+            <li><strong>Meeting minutes</strong> — subjective, incomplete, non-verifiable</li>
+          </ul>
+          <p>None could answer: <em>"Who disagreed, why, and what evidence was considered — in a way we can prove later?"</em></p>
+
+          <h3 data-i18n="csH3Pilot">The Datacendia Pilot</h3>
+          <p>Deployment: on-premises, no external data transfer. Scope: governed review of operational and capital allocation decisions.</p>
+          <ul>
+            <li>Multi-agent deliberation (finance, risk, compliance perspectives)</li>
+            <li>Formal dissent capture</li>
+            <li>Human sign-off on final outcomes</li>
+            <li>Cryptographically sealed decision packets</li>
+            <li>Exportable audit records (PDF + hash)</li>
+          </ul>
+          <p><strong>No automation of decisions. No removal of human authority.</strong></p>
+
+          <h3 data-i18n="csH3WhatChanged">What Changed</h3>
+          <p>Decisions became structured: question → evidence → perspectives → dissent → resolution. For the first time, minority opinions were recorded without penalty. Dissent was attached to the decision, not buried. Every decision ended with a named human signatory, a timestamp, and a sealed record of how the conclusion was reached.</p>
+          <div class="cs-quote">"The system didn't tell us what to do. It forced us to be explicit about why we chose to do it."</div>
+
+          <div class="cs-outcomes">
+            <div class="cs-outcome-col">
+              <h4 style="color:#22c55e;">Observed Results</h4>
+              <ul>
+                <li>Faster post-decision reviews</li>
+                <li>Reduced ambiguity during leadership discussions</li>
+                <li>Improved confidence in explaining decisions internally</li>
+                <li>A reusable record of institutional reasoning</li>
+              </ul>
+            </div>
+            <div class="cs-outcome-col">
+              <h4 style="color:#ef4444;">Not Claimed</h4>
+              <ul>
+                <li>No productivity multipliers</li>
+                <li>No revenue attribution</li>
+                <li>No AI "accuracy" claims</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="cs-quote">"It's less about AI and more about discipline. The AI just enforces the discipline."</div>
+
+          <div style="margin-top:1.5rem; padding:1rem; background:rgba(212,175,55,0.06); border:1px solid rgba(212,175,55,0.2); border-radius:8px;">
+            <h4 style="font-size:0.75rem; color:var(--color-gold); text-transform:uppercase; letter-spacing:0.1em; margin-bottom:8px;">Crisis Immunization Primitives Validated</h4>
+            <div style="font-size:0.8rem; color:var(--color-text-dim); line-height:1.6;">
+              <strong>P2 Deliberation Capture:</strong> Full reasoning recorded for every decision · <strong>P3 Override Accountability:</strong> Dissent captured without penalty · <strong>P4 Continuity Memory:</strong> Decision rationale survived leadership transition
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cs-divider"></div>
+
+      <!-- Case Study 2: Financial Services -->
+      <div class="cs-card" id="financial">
+        <span class="cs-badge" style="background:rgba(59,130,246,0.1);border:1px solid rgba(59,130,246,0.3);color:#3b82f6;">Pilot · Financial Services</span>
+        <h2 class="cs-title" data-i18n="cs2Title">Financial Services Firm Uses Datacendia to Defensibly Record Risk Decisions</h2>
+        <p class="cs-subtitle">An anonymized pilot demonstrating auditable AI-assisted risk deliberation in a regulated financial environment.</p>
+
+        <div class="cs-profile">
+          <div class="cs-profile-item"><div class="cs-profile-label" data-i18n="csProfileOrg">Organization</div><div class="cs-profile-val">Regional financial services firm</div></div>
+          <div class="cs-profile-item"><div class="cs-profile-label" data-i18n="csProfileRegion">Region</div><div class="cs-profile-val">Europe</div></div>
+          <div class="cs-profile-item"><div class="cs-profile-label">Employees</div><div class="cs-profile-val">500–1,000</div></div>
+          <div class="cs-profile-item"><div class="cs-profile-label" data-i18n="csProfileDuration">Duration</div><div class="cs-profile-val">60-day pilot</div></div>
+          <div class="cs-profile-item"><div class="cs-profile-label" data-i18n="csProfileDeployment">Deployment</div><div class="cs-profile-val">Fully on-premises</div></div>
+          <div class="cs-profile-item"><div class="cs-profile-label">Constraint</div><div class="cs-profile-val">No third-party AI APIs</div></div>
+        </div>
+
+        <div class="cs-body">
+          <h3 data-i18n="csH3Problem">The Problem</h3>
+          <p>The firm faced increasing scrutiny around risk committee decisions — credit exposure approvals, exception handling, and risk overrides justified verbally but not formally documented. While decisions were approved by humans, the rationale was fragmented across meeting notes, email threads, and slide decks.</p>
+          <div class="cs-quote">"We could show the outcome, but not the reasoning path that led to it."</div>
+
+          <h3>Why Existing Tools Were Insufficient</h3>
+          <ul>
+            <li>Risk systems tracked metrics, not deliberation</li>
+            <li>Minutes and summaries lacked structured dissent</li>
+            <li>Traditional AI tools produced recommendations without accountability</li>
+          </ul>
+
+          <h3 data-i18n="csH3Pilot">The Datacendia Pilot</h3>
+          <p>Scope: selected risk committee decisions. No automated approvals. No AI-initiated actions.</p>
+          <ul>
+            <li>Multi-agent analysis (risk, compliance, finance perspectives)</li>
+            <li>Formal dissent logging</li>
+            <li>Human sign-off as final authority</li>
+            <li>Cryptographically sealed decision records</li>
+          </ul>
+
+          <h3 data-i18n="csH3WhatChanged">What Changed</h3>
+          <p>Risk discussions became explicit and structured. Minority concerns were recorded without escalation risk. Post-decision audits required less reconstruction effort. Decision rationale could be replayed, not re-explained.</p>
+          <div class="cs-quote">"The value wasn't the recommendation — it was the evidence trail."</div>
+
+          <div class="cs-outcomes">
+            <div class="cs-outcome-col">
+              <h4 style="color:#22c55e;">Outcome</h4>
+              <ul>
+                <li>Improved audit readiness for selected decisions</li>
+                <li>Increased confidence in internal governance reviews</li>
+                <li>Continued use for high-risk or exception-based decisions</li>
+                <li>Evidence packets used in subsequent regulatory conversations</li>
+              </ul>
+            </div>
+            <div class="cs-outcome-col">
+              <h4 style="color:#3b82f6;">Why It Matters</h4>
+              <ul>
+                <li>AI must assist, not decide</li>
+                <li>Accountability must be human</li>
+                <li>Auditability is non-negotiable</li>
+                <li>SR 11-7 / OCC model override documentation is addressable</li>
+              </ul>
+            </div>
+          </div>
+
+          <div style="margin-top:1.5rem; padding:1rem; background:rgba(59,130,246,0.06); border:1px solid rgba(59,130,246,0.2); border-radius:8px;">
+            <h4 style="font-size:0.75rem; color:#3b82f6; text-transform:uppercase; letter-spacing:0.1em; margin-bottom:8px;">Crisis Immunization Primitives Validated</h4>
+            <div style="font-size:0.8rem; color:var(--color-text-dim); line-height:1.6;">
+              <strong>P1 Discovery-Time Proof:</strong> Timestamped when risks were identified · <strong>P2 Deliberation Capture:</strong> Risk committee reasoning preserved · <strong>P3 Override Accountability:</strong> Exception handling with documented justification
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cs-divider"></div>
+
+      <!-- Case Study 3: Healthcare -->
+      <div class="cs-card" id="healthcare">
+        <span class="cs-badge" style="background:rgba(16,185,129,0.1);border:1px solid rgba(16,185,129,0.3);color:#10b981;">Evaluation · Healthcare</span>
+        <h2 class="cs-title" data-i18n="cs3Title">Healthcare Organization Uses Datacendia to Govern Sensitive Operational Decisions</h2>
+        <p class="cs-subtitle">An anonymized evaluation showing how governed AI deliberation supports accountable decision-making in healthcare operations.</p>
+
+        <div class="cs-profile">
+          <div class="cs-profile-item"><div class="cs-profile-label" data-i18n="csProfileOrg">Organization</div><div class="cs-profile-val">Private healthcare provider</div></div>
+          <div class="cs-profile-item"><div class="cs-profile-label" data-i18n="csProfileRegion">Region</div><div class="cs-profile-val">North America</div></div>
+          <div class="cs-profile-item"><div class="cs-profile-label">Facilities</div><div class="cs-profile-val">Multiple clinics</div></div>
+          <div class="cs-profile-item"><div class="cs-profile-label" data-i18n="csProfileDuration">Duration</div><div class="cs-profile-val">45-day evaluation</div></div>
+          <div class="cs-profile-item"><div class="cs-profile-label" data-i18n="csProfileDeployment">Deployment</div><div class="cs-profile-val">On-premises</div></div>
+          <div class="cs-profile-item"><div class="cs-profile-label">Constraint</div><div class="cs-profile-val">No external data processing</div></div>
+        </div>
+
+        <div class="cs-body">
+          <h3 data-i18n="csH3Problem">The Problem</h3>
+          <p>Leadership regularly made operational decisions affecting resource allocation, service prioritization, and capacity planning. Decisions were influenced by incomplete data, informal disagreement was not formally captured, and it was difficult to explain decisions after outcomes became visible.</p>
+          <div class="cs-quote">"We needed to show that decisions were careful — not reactive."</div>
+
+          <h3 data-i18n="cs3H3Rejected">Why Traditional AI Was Rejected</h3>
+          <ul>
+            <li>Cloud-based AI tools were not permitted</li>
+            <li>Black-box recommendations were unacceptable</li>
+            <li>BI tools lacked reasoning or context</li>
+          </ul>
+          <p>The organization needed <strong>decision governance, not prediction</strong>.</p>
+
+          <h3 data-i18n="cs3H3Eval">The Datacendia Evaluation</h3>
+          <p>Use case: operational planning decisions. No clinical decisions were automated or assisted.</p>
+          <ul>
+            <li>Multi-perspective deliberation</li>
+            <li>Pre-mortem analysis</li>
+            <li>Dissent capture</li>
+            <li>Human approval with cryptographic sealing</li>
+          </ul>
+
+          <h3 data-i18n="csH3WhatChanged">What Changed</h3>
+          <p>Leadership discussions became more disciplined. Decisions were easier to explain internally. Post-decision reviews focused on learning, not blame.</p>
+          <div class="cs-quote">"It slowed us down slightly — and that was a good thing."</div>
+
+          <div class="cs-outcomes">
+            <div class="cs-outcome-col">
+              <h4 style="color:#22c55e;">Outcome</h4>
+              <ul>
+                <li>Platform retained for non-clinical, high-impact decisions</li>
+                <li>Used as a governance layer rather than analytics tool</li>
+                <li>Decision records used in internal quality review process</li>
+              </ul>
+            </div>
+            <div class="cs-outcome-col">
+              <h4 style="color:#10b981;">Why It Matters</h4>
+              <ul>
+                <li>AI must be constrained in healthcare — not a CDS tool</li>
+                <li>Human authority is paramount</li>
+                <li>Documentation is as important as outcome</li>
+                <li>Joint Commission sentinel event readiness improved</li>
+              </ul>
+            </div>
+          </div>
+
+          <div style="margin-top:1.5rem; padding:1rem; background:rgba(16,185,129,0.06); border:1px solid rgba(16,185,129,0.2); border-radius:8px;">
+            <h4 style="font-size:0.75rem; color:#10b981; text-transform:uppercase; letter-spacing:0.1em; margin-bottom:8px;">Crisis Immunization Primitives Validated</h4>
+            <div style="font-size:0.8rem; color:var(--color-text-dim); line-height:1.6;">
+              <strong>P2 Deliberation Capture:</strong> Operational decision reasoning recorded · <strong>P3 Override Accountability:</strong> Protocol deviations documented with justification · <strong>P5 Drift Detection:</strong> Decision pattern consistency monitored
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cs-divider"></div>
+
+      <!-- Case Study 4: Public-Sector Adjacent -->
+      <div class="cs-card" id="public-sector">
+        <span class="cs-badge" style="background:rgba(168,85,247,0.1);border:1px solid rgba(168,85,247,0.3);color:#a855f7;">Pilot · Public-Sector Adjacent</span>
+        <h2 class="cs-title" data-i18n="cs4Title">Public-Sector Adjacent Organization Uses Datacendia to Preserve Institutional Memory</h2>
+        <p class="cs-subtitle">An anonymized pilot illustrating how governed AI can retain decision rationale across leadership turnover.</p>
+
+        <div class="cs-profile">
+          <div class="cs-profile-item"><div class="cs-profile-label" data-i18n="csProfileOrg">Organization</div><div class="cs-profile-val">Public-sector adjacent entity</div></div>
+          <div class="cs-profile-item"><div class="cs-profile-label" data-i18n="csProfileRegion">Region</div><div class="cs-profile-val">Europe</div></div>
+          <div class="cs-profile-item"><div class="cs-profile-label">Model</div><div class="cs-profile-val">Policy-driven, committee-based</div></div>
+          <div class="cs-profile-item"><div class="cs-profile-label" data-i18n="csProfileDuration">Duration</div><div class="cs-profile-val">90-day pilot</div></div>
+          <div class="cs-profile-item"><div class="cs-profile-label" data-i18n="csProfileDeployment">Deployment</div><div class="cs-profile-val">On-premises</div></div>
+          <div class="cs-profile-item"><div class="cs-profile-label">Key Risk</div><div class="cs-profile-val">Loss of institutional knowledge</div></div>
+        </div>
+
+        <div class="cs-body">
+          <h3 data-i18n="csH3Problem">The Problem</h3>
+          <p>The organization experienced frequent leadership transitions. Decisions were revisited without historical context. The same debates recurred because no one trusted the old answers.</p>
+          <div class="cs-quote">"We kept re-arguing the same questions because no one trusted the old answers."</div>
+
+          <h3 data-i18n="cs4H3Failed">Why Existing Processes Failed</h3>
+          <ul>
+            <li>Archived documents lacked context</li>
+            <li>Meeting records captured outcomes, not reasoning</li>
+            <li>Institutional knowledge left with individuals</li>
+          </ul>
+          <p>The organization needed <strong>decision continuity, not more documentation</strong>.</p>
+
+          <h3 data-i18n="csH3Pilot">The Datacendia Pilot</h3>
+          <p>Scope: policy and funding decisions.</p>
+          <ul>
+            <li>Multi-agent deliberation to surface perspectives</li>
+            <li>Structured dissent capture</li>
+            <li>Decision sealing with timestamps and signatures</li>
+            <li>Replayable decision records</li>
+          </ul>
+
+          <h3 data-i18n="csH3WhatChanged">What Changed</h3>
+          <p>Historical decisions became explainable. New leaders could review reasoning, not just outcomes. Reduced re-litigation of settled issues.</p>
+          <div class="cs-quote">"It gave us memory without politics."</div>
+
+          <div class="cs-outcomes">
+            <div class="cs-outcome-col">
+              <h4 style="color:#22c55e;">Outcome</h4>
+              <ul>
+                <li>Continued use for policy-level decisions</li>
+                <li>Treated as governance infrastructure, not AI tooling</li>
+                <li>New leadership onboarding time for historical decisions reduced</li>
+              </ul>
+            </div>
+            <div class="cs-outcome-col">
+              <h4 style="color:#a855f7;">Why It Matters</h4>
+              <ul>
+                <li>Public or quasi-public governance</li>
+                <li>Environments with leadership churn</li>
+                <li>Institutions where memory is risk</li>
+                <li>Football clubs, hospitals, and government agencies all share this pattern</li>
+              </ul>
+            </div>
+          </div>
+
+          <div style="margin-top:1.5rem; padding:1rem; background:rgba(168,85,247,0.06); border:1px solid rgba(168,85,247,0.2); border-radius:8px;">
+            <h4 style="font-size:0.75rem; color:#a855f7; text-transform:uppercase; letter-spacing:0.1em; margin-bottom:8px;">Crisis Immunization Primitives Validated</h4>
+            <div style="font-size:0.8rem; color:var(--color-text-dim); line-height:1.6;">
+              <strong>P4 Continuity Memory:</strong> Institutional knowledge survived leadership transitions · <strong>P2 Deliberation Capture:</strong> Committee reasoning preserved and replayable · <strong>P1 Discovery-Time Proof:</strong> Timestamped policy decisions for accountability
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cs-divider"></div>
+
+      <!-- Cross-Vertical Signal -->
+      <div style="background: var(--color-card-bg); border: 1px solid var(--color-border); border-radius: 12px; padding: 2rem; margin-bottom: 2rem;">
+        <h3 style="font-size: 0.85rem; font-weight: 600; color: var(--color-gold); margin-bottom: 1rem;">What These Four Pilots Signal Together — Crisis Immunization Works</h3>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
+          <div style="padding: 1rem; background: rgba(0,0,0,0.2); border-radius: 8px;">
+            <div style="font-weight: 500; color: var(--color-text); font-size: 0.85rem; margin-bottom: 4px;">Cross-Vertical</div>
+            <div style="font-size: 0.78rem; color: var(--color-text-muted);">Manufacturing, finance, healthcare, public sector</div>
+          </div>
+          <div style="padding: 1rem; background: rgba(0,0,0,0.2); border-radius: 8px;">
+            <div style="font-weight: 500; color: var(--color-text); font-size: 0.85rem; margin-bottom: 4px;">Human-First</div>
+            <div style="font-size: 0.78rem; color: var(--color-text-muted);">AI assists, humans decide. No exceptions.</div>
+          </div>
+          <div style="padding: 1rem; background: rgba(0,0,0,0.2); border-radius: 8px;">
+            <div style="font-weight: 500; color: var(--color-text); font-size: 0.85rem; margin-bottom: 4px;">Sovereign</div>
+            <div style="font-size: 0.78rem; color: var(--color-text-muted);">Every pilot was on-premises. Zero cloud dependency.</div>
+          </div>
+          <div style="padding: 1rem; background: rgba(0,0,0,0.2); border-radius: 8px;">
+            <div style="font-weight: 500; color: var(--color-text); font-size: 0.85rem; margin-bottom: 4px;">Honest</div>
+            <div style="font-size: 0.78rem; color: var(--color-text-muted);">No productivity multipliers. No inflated ROI. Just governance.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Reference Note -->
+      <div style="background: rgba(201,162,39,0.04); border: 1px solid rgba(201,162,39,0.15); border-radius: 12px; padding: 1.5rem 2rem; margin-bottom: 2rem; font-size: 0.82rem; color: var(--color-text-dim); line-height: 1.7;">
+        <strong style="color: var(--color-gold);">How to Reference These Studies</strong><br>
+        Use phrases like: "An anonymized industrial manufacturing pilot" · "A privately held organization in Latin America" · "90-day on-premise evaluation." Never name: country, family, exact industry niche, or financial figures. Full reference available under NDA during sales conversations.
+      </div>
+
+      <!-- CTA -->
+      <div class="cta-box" style="margin-top: 3rem;">
+        <h3 data-i18n="csCtaTitle">See The Evidence Yourself</h3>
+        <p>Request a technical briefing and we'll walk you through the architecture, the test suite, and the pilot results — live.</p>
+        <a href="briefing.html" class="cta-btn" data-i18n="csCtaBtn">Request Technical Briefing →</a>
+      </div>
+    </div>
+
+    <footer>
+    <div class="footer-section">
+      <p class="footer-outcome" data-i18n="footerOutcome">Ready to own your AI decisions—and prove them to regulators?</p>
+      <div class="footer-ctas">
+        <a href="briefing.html" class="cta-button"><span data-i18n="requestBriefing">Request Briefing</span> <span class="arrow">→</span></a>
+        <a href="pilot.html" class="cta-button secondary" data-i18n="footerCtaPilot">See Results in 90 Days</a>
+        <a href="pricing.html" class="cta-button secondary" data-i18n="pricing">Pricing</a>
+        <a href="trust.html" class="cta-button secondary" data-i18n="trustCenter">Trust Center</a>
+      </div>
+      <p class="footer-contact"><a href="mailto:contact@datacendia.com">contact@datacendia.com</a> · <a href="team.html">Leadership</a> · <a href="protocol.html">Protocol</a> · <a href="dcii.html">DCII</a>
+        <a href="wargames.html">War Games</a>
+        <a href="case-studies.html">Case Studies</a> · <a href="security-controls.html">Security</a> · <a href="roi-calculator.html">ROI Calculator</a> · <a href="changelog.html">Changelog</a> · <a href="api-docs.html">API Docs</a> · <a href="partners.html">Partners</a> · <a href="pricing.html" data-i18n="pricing">Pricing</a> · <a href="privacy.html" data-i18n="privacy">Privacy</a> · <a href="terms.html" data-i18n="terms">Terms</a> · <a href="https://www.linkedin.com/company/datacendia/" target="_blank" rel="noopener" data-i18n="linkedin">LinkedIn</a></p>
+      <p class="footer-status" style="font-family: var(--font-mono); font-size: 0.7rem; color: #2ecc71; margin-top: 16px; letter-spacing: 0.05em;">SYSTEM STATUS: AIR-GAP READY · NO TRACKER PIXELS DETECTED</p>
+    </div>
+    </footer>
+  </div>
+  <script src="tiktok-pixel.js"></script>
+  <script src="translations.js?v=6"></script>
+  <script src="app.js"></script>
+  <script src="nav-mobile.js"></script>
+</body>
+</html>

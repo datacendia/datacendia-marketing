@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <defs>
+    <linearGradient id="ceGold" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#E8C840"/>
+      <stop offset="100%" stop-color="#A07B1A"/>
+    </linearGradient>
+    <filter id="ceGlow">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <rect width="200" height="200" fill="#0a0a0a" rx="16"/>
+  <g filter="url(#ceGlow)">
+    <!-- Eye of conscience (all-seeing eye motif) -->
+    <!-- Outer eye shape -->
+    <path d="M30 90 Q65 45 100 45 Q135 45 170 90 Q135 135 100 135 Q65 135 30 90Z" fill="none" stroke="url(#ceGold)" stroke-width="2" opacity="0.7"/>
+    <!-- Inner eye -->
+    <path d="M48 90 Q72 60 100 60 Q128 60 152 90 Q128 120 100 120 Q72 120 48 90Z" fill="none" stroke="#C9A227" stroke-width="1" opacity="0.3"/>
+    <!-- Iris -->
+    <circle cx="100" cy="90" r="22" fill="none" stroke="url(#ceGold)" stroke-width="2" opacity="0.7"/>
+    <circle cx="100" cy="90" r="16" fill="none" stroke="#C9A227" stroke-width="1" opacity="0.35"/>
+    <!-- Pupil -->
+    <circle cx="100" cy="90" r="9" fill="#C9A227" opacity="0.7"/>
+    <circle cx="100" cy="90" r="4" fill="#E8C840" opacity="0.9"/>
+    <!-- Light reflection -->
+    <circle cx="106" cy="84" r="3" fill="#E8C840" opacity="0.15"/>
+    <!-- Radiance lines above (conscience/moral light) -->
+    <line x1="100" y1="38" x2="100" y2="26" stroke="#E8C840" stroke-width="1" opacity="0.4" stroke-linecap="round"/>
+    <line x1="82" y1="42" x2="76" y2="32" stroke="#C9A227" stroke-width="0.8" opacity="0.3" stroke-linecap="round"/>
+    <line x1="118" y1="42" x2="124" y2="32" stroke="#C9A227" stroke-width="0.8" opacity="0.3" stroke-linecap="round"/>
+    <line x1="66" y1="52" x2="58" y2="44" stroke="#C9A227" stroke-width="0.6" opacity="0.2" stroke-linecap="round"/>
+    <line x1="134" y1="52" x2="142" y2="44" stroke="#C9A227" stroke-width="0.6" opacity="0.2" stroke-linecap="round"/>
+    <!-- Scales of judgment below eye -->
+    <line x1="90" y1="140" x2="110" y2="140" stroke="#C9A227" stroke-width="1.5" opacity="0.5"/>
+    <line x1="100" y1="135" x2="100" y2="148" stroke="#C9A227" stroke-width="1.2" opacity="0.4"/>
+    <path d="M88 148 L92 152 L108 152 L112 148" fill="none" stroke="#C9A227" stroke-width="1" opacity="0.35"/>
+  </g>
+  <text x="100" y="174" font-family="Georgia, serif" font-size="10" fill="#C9A227" text-anchor="middle" letter-spacing="0.08em" opacity="0.9">CENDIAETHICS</text>
+</svg>

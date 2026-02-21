@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Learn | Enterprise AI Guides & Resources | Datacendia</title>
+  <meta name="description" content="Comprehensive guides on decision intelligence, AI audit trails, sovereign AI, multi-agent systems, and EU AI Act compliance for enterprise organizations.">
+  <meta name="keywords" content="decision intelligence, AI audit trail, sovereign AI, multi-agent AI, EU AI Act, enterprise AI, AI compliance, AI governance">
+  <meta name="author" content="Datacendia">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:0">
+  <meta name="googlebot" content="index, follow">
+  <meta property="og:title" content="Learn | Enterprise AI Guides & Resources">
+  <meta property="og:description" content="Comprehensive guides on decision intelligence, AI audit trails, sovereign AI, and compliance for enterprise organizations.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://datacendia.com/learn/">
+  <meta property="og:image" content="https://datacendia.com/og-image.png">
+  <meta property="og:site_name" content="Datacendia">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Learn | Enterprise AI Guides & Resources">
+  <meta name="twitter:description" content="Comprehensive guides on decision intelligence, AI audit trails, sovereign AI, and compliance.">
+  <meta name="twitter:image" content="https://datacendia.com/og-image.png">
+  <link rel="canonical" href="https://datacendia.com/learn/">
+  <link rel="alternate" hreflang="en" href="https://datacendia.com/learn/">
+  <link rel="alternate" hreflang="es" href="https://datacendia.com/es/learn/">
+  <link rel="alternate" hreflang="fr" href="https://datacendia.com/fr/learn/">
+  <link rel="alternate" hreflang="de" href="https://datacendia.com/de/learn/">
+  <link rel="alternate" hreflang="pt" href="https://datacendia.com/pt/learn/">
+  <link rel="alternate" hreflang="it" href="https://datacendia.com/it/learn/">
+  <link rel="alternate" hreflang="ja" href="https://datacendia.com/ja/learn/">
+  <link rel="alternate" hreflang="ko" href="https://datacendia.com/ko/learn/">
+  <link rel="alternate" hreflang="zh" href="https://datacendia.com/zh/learn/">
+  <link rel="alternate" hreflang="ar" href="https://datacendia.com/ar/learn/">
+  <link rel="alternate" hreflang="hi" href="https://datacendia.com/hi/learn/">
+  <link rel="alternate" hreflang="x-default" href="https://datacendia.com/learn/">
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <link rel="apple-touch-icon" href="../apple-touch-icon.png">
+  <meta name="theme-color" content="#0a0a0a">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+  <style>
+    .learn-hub {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 60px 24px 80px;
+    }
+    .learn-hub-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+    .learn-hub-title {
+      font-family: var(--font-display);
+      font-size: 2.5rem;
+      font-weight: 300;
+      color: var(--color-text);
+      margin-bottom: 16px;
+    }
+    .learn-hub-subtitle {
+      font-size: 1rem;
+      color: var(--color-text-muted);
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+    .learn-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      margin-top: 48px;
+    }
+    .learn-card {
+      background: var(--color-card-bg);
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      padding: 28px;
+      text-decoration: none;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .learn-card:hover {
+      border-color: var(--color-gold);
+      transform: translateY(-2px);
+    }
+    .learn-card-icon {
+      font-size: 1.5rem;
+      margin-bottom: 16px;
+    }
+    .learn-card-title {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 400;
+      color: var(--color-text);
+      margin-bottom: 8px;
+    }
+    .learn-card-desc {
+      font-size: 0.85rem;
+      color: var(--color-text-muted);
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+    .learn-card-meta {
+      font-size: 0.75rem;
+      color: var(--color-text-dim);
+      display: flex;
+      gap: 16px;
+    }
+    .learn-card-tag {
+      background: rgba(212, 175, 55, 0.1);
+      color: var(--color-gold);
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .featured-card {
+      grid-column: 1 / -1;
+      background: linear-gradient(135deg, rgba(212, 175, 55, 0.08) 0%, rgba(212, 175, 55, 0.02) 100%);
+      border-color: var(--color-gold);
+    }
+    .featured-card .learn-card-title {
+      font-size: 1.5rem;
+    }
+    .learn-section-title {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      color: var(--color-text-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin: 48px 0 24px;
+      padding-top: 32px;
+      border-top: 1px solid var(--color-border);
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Learn | Enterprise AI Guides & Resources",
+    "description": "Comprehensive guides on decision intelligence, AI audit trails, sovereign AI, multi-agent systems, and EU AI Act compliance.",
+    "url": "https://datacendia.com/learn/",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Datacendia",
+      "url": "https://datacendia.com"
+    },
+    "mainEntity": {
+      "@type": "ItemList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "url": "https://datacendia.com/learn/decision-intelligence/",
+          "name": "What is Decision Intelligence?"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "url": "https://datacendia.com/learn/ai-audit-trail/",
+          "name": "What is an AI Audit Trail?"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "url": "https://datacendia.com/learn/sovereign-ai/",
+          "name": "What is Sovereign AI?"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "url": "https://datacendia.com/learn/multi-agent-ai/",
+          "name": "What is Multi-Agent AI?"
+        },
+        {
+          "@type": "ListItem",
+          "position": 5,
+          "url": "https://datacendia.com/learn/eu-ai-act-compliance/",
+          "name": "EU AI Act Compliance Guide"
+        },
+        {
+          "@type": "ListItem",
+          "position": 6,
+          "url": "https://datacendia.com/learn/ai-governance/",
+          "name": "What is AI Governance?"
+        },
+        {
+          "@type": "ListItem",
+          "position": 7,
+          "url": "https://datacendia.com/learn/hipaa-ai-compliance/",
+          "name": "HIPAA AI Compliance Guide"
+        },
+        {
+          "@type": "ListItem",
+          "position": 8,
+          "url": "https://datacendia.com/learn/air-gapped-ai-deployment/",
+          "name": "Air-Gapped AI Deployment Guide"
+        },
+        {
+          "@type": "ListItem",
+          "position": 9,
+          "url": "https://datacendia.com/learn/multi-agent-vs-single-model/",
+          "name": "Multi-Agent AI vs Single-Model"
+        },
+        {
+          "@type": "ListItem",
+          "position": 10,
+          "url": "https://datacendia.com/learn/eu-ai-act-high-risk/",
+          "name": "EU AI Act Article 6: High-Risk Classification"
+        },
+        {
+          "@type": "ListItem",
+          "position": 11,
+          "url": "https://datacendia.com/learn/dora-compliance/",
+          "name": "DORA Compliance for AI Systems"
+        },
+        {
+          "@type": "ListItem",
+          "position": 12,
+          "url": "https://datacendia.com/learn/explainable-ai/",
+          "name": "Explainable AI for Enterprises"
+        }
+      ]
+    }
+  }
+  </script>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-top">
+        <a href="../" style="text-decoration: none;"><h1 class="logo"><span class="brand-name">DATACENDIA</span></h1></a>
+      </div>
+            <nav class="main-nav">
+        <button class="nav-toggle" aria-label="Menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+        <div class="nav-menu">
+        <div class="nav-group">
+          <span class="nav-label">Platform</span>
+          <div class="nav-dropdown">
+            <a href="/platform-capabilities.html">Platform Overview<span class="nav-desc">Full capability map</span></a>
+            <a href="/dcii.html">DCII Framework<span class="nav-desc">9 primitives &middot; Crisis immunization</span></a>
+            <a href="/diagrams.html">Architecture<span class="nav-desc">8 system diagrams</span></a>
+          </div>
+        </div>
+        <div class="nav-group">
+          <span class="nav-label">Evidence</span>
+          <div class="nav-dropdown">
+            <a href="/demos.html">Interactive Demos<span class="nav-desc">Council, Chronos, Crucible &amp; more</span></a>
+            <a href="/wargames.html">War Games<span class="nav-desc">Would dissent have surfaced the risk?</span></a>
+            <a href="/case-studies.html">Case Studies<span class="nav-desc">Real-world decision analysis</span></a>
+          </div>
+        </div>
+        <a href="/verticals.html">Industries</a>
+        <div class="nav-group">
+          <span class="nav-label">Pricing</span>
+          <div class="nav-dropdown">
+            <a href="/pricing.html">Tier Overview<span class="nav-desc">Foundation &middot; Enterprise &middot; Strategic</span></a>
+            <a href="/premium.html">Premium Modules<span class="nav-desc">7 advanced capabilities</span></a>
+            <a href="/roi-calculator.html">ROI Calculator<span class="nav-desc">Quantify decision risk reduction</span></a>
+            <a href="/pilot.html">90-Day Pilot<span class="nav-desc">Prove value before scaling</span></a>
+          </div>
+        </div>
+        <div class="nav-group">
+          <span class="nav-label">Trust</span>
+          <div class="nav-dropdown">
+            <a href="/trust.html">Trust Center<span class="nav-desc">Security, compliance &amp; deployment</span></a>
+            <a href="/honesty-matrices.html">Honesty Matrices<span class="nav-desc">What we can't do &mdash; yet</span></a>
+          </div>
+        </div>
+        <a href="/briefing.html" class="nav-cta">Request Briefing</a>
+        </div>
+      </nav>
+    </header>
+
+    <main class="learn-hub">
+      <div class="learn-hub-header">
+        <h1 class="learn-hub-title" data-i18n="learnHubTitle">Learn</h1>
+        <p class="learn-hub-subtitle" data-i18n="learnHubSubtitle">Comprehensive guides on decision intelligence, AI governance, and enterprise AI for regulated industries. Built for practitioners, compliance officers, and technical leaders.</p>
+      </div>
+
+      <div class="learn-grid">
+        <a href="decision-intelligence/" class="learn-card featured-card">
+          <div class="learn-card-icon"><img src="../assets/logos/cortex.svg" alt="Decision Intelligence" width="36" height="36" style="border-radius:8px"></div>
+          <h2 class="learn-card-title" data-i18n="learnDecisionIntelTitle">What is Decision Intelligence?</h2>
+          <p class="learn-card-desc" data-i18n="learnDecisionIntelDesc">The discipline of turning data, AI, and human expertise into accountable, explainable business decisions. Learn why decision intelligence is replacing traditional BI for high-stakes enterprise decisions.</p>
+          <div class="learn-card-meta">
+            <span data-i18n="learnReadTime12">12 min read</span>
+            <span data-i18n="learnUpdatedJan2026">Updated Jan 2026</span>
+            <span class="learn-card-tag" data-i18n="learnFeatured">Featured</span>
+          </div>
+        </a>
+
+        <a href="ai-audit-trail/" class="learn-card">
+          <div class="learn-card-icon"><img src="../assets/logos/audit-provenance.svg" alt="AI Audit Trail" width="36" height="36" style="border-radius:8px"></div>
+          <h2 class="learn-card-title" data-i18n="learnAuditTrailTitle">What is an AI Audit Trail?</h2>
+          <p class="learn-card-desc" data-i18n="learnAuditTrailDesc">Complete, immutable records of every AI decision — inputs, models, reasoning, outputs, and human approvals. Essential for GDPR, EU AI Act, and regulatory compliance.</p>
+          <div class="learn-card-meta">
+            <span data-i18n="learnReadTime14">14 min read</span>
+            <span data-i18n="learnUpdatedJan2026">Updated Jan 2026</span>
+          </div>
+        </a>
+
+        <a href="sovereign-ai/" class="learn-card">
+          <div class="learn-card-icon"><img src="../assets/logos/sovereign-architecture.svg" alt="Sovereign AI" width="36" height="36" style="border-radius:8px"></div>
+          <h2 class="learn-card-title" data-i18n="learnSovereignAITitle">What is Sovereign AI?</h2>
+          <p class="learn-card-desc" data-i18n="learnSovereignAIDesc">AI that runs on your infrastructure, with your encryption keys, under your complete control. Why data residency, regulatory compliance, and national security demand sovereign AI deployment.</p>
+          <div class="learn-card-meta">
+            <span data-i18n="learnReadTime15">15 min read</span>
+            <span data-i18n="learnUpdatedJan2026">Updated Jan 2026</span>
+          </div>
+        </a>
+
+        <a href="multi-agent-ai/" class="learn-card">
+          <div class="learn-card-icon"><img src="../assets/logos/council.svg" alt="Multi-Agent AI" width="36" height="36" style="border-radius:8px"></div>
+          <h2 class="learn-card-title" data-i18n="learnMultiAgentTitle">What is Multi-Agent AI?</h2>
+          <p class="learn-card-desc" data-i18n="learnMultiAgentDesc">Multiple specialized AI agents that collaborate, debate, and deliberate — like an executive team. Learn how multi-agent architectures improve complex decision-making.</p>
+          <div class="learn-card-meta">
+            <span data-i18n="learnReadTime13">13 min read</span>
+            <span data-i18n="learnUpdatedJan2026">Updated Jan 2026</span>
+          </div>
+        </a>
+
+        <a href="eu-ai-act-compliance/" class="learn-card">
+          <div class="learn-card-icon"><img src="../assets/logos/legal-compliance.svg" alt="EU AI Act" width="36" height="36" style="border-radius:8px"></div>
+          <h2 class="learn-card-title" data-i18n="learnEUAIActTitle">EU AI Act Compliance Guide</h2>
+          <p class="learn-card-desc" data-i18n="learnEUAIActDesc">Complete guide to the world's first comprehensive AI regulation. Risk classifications, requirements, enforcement timelines, and penalties up to €35M or 7% of revenue.</p>
+          <div class="learn-card-meta">
+            <span data-i18n="learnReadTime18">18 min read</span>
+            <span data-i18n="learnUpdatedJan2026">Updated Jan 2026</span>
+            <span class="learn-card-tag" data-i18n="learnRegulation">Regulation</span>
+          </div>
+        </a>
+
+        <a href="ai-governance/" class="learn-card">
+          <div class="learn-card-icon"><img src="../assets/logos/cendia-ethics.svg" alt="AI Governance" width="36" height="36" style="border-radius:8px"></div>
+          <h2 class="learn-card-title">What is AI Governance?</h2>
+          <p class="learn-card-desc">The framework of policies, processes, and controls that ensure AI systems are accountable, transparent, and compliant. The five pillars, frameworks, and implementation roadmap.</p>
+          <div class="learn-card-meta">
+            <span>12 min read</span>
+            <span>Feb 2026</span>
+            <span class="learn-card-tag">New</span>
+          </div>
+        </a>
+
+        <a href="hipaa-ai-compliance/" class="learn-card">
+          <div class="learn-card-icon"><img src="../assets/logos/compliance.svg" alt="HIPAA Compliance" width="36" height="36" style="border-radius:8px"></div>
+          <h2 class="learn-card-title">HIPAA AI Compliance Guide</h2>
+          <p class="learn-card-desc">Deploy AI with Protected Health Information without violating HIPAA. Privacy Rule, Security Rule, BAA requirements, and technical safeguards for healthcare AI.</p>
+          <div class="learn-card-meta">
+            <span>14 min read</span>
+            <span>Feb 2026</span>
+            <span class="learn-card-tag">New</span>
+          </div>
+        </a>
+
+        <a href="air-gapped-ai-deployment/" class="learn-card">
+          <div class="learn-card-icon"><img src="../assets/logos/air-gapped.svg" alt="Air-Gapped" width="36" height="36" style="border-radius:8px"></div>
+          <h2 class="learn-card-title">Air-Gapped AI Deployment</h2>
+          <p class="learn-card-desc">Deploy AI with zero internet connectivity. Architecture, model delivery, update mechanisms, and compliance advantages for defense, government, and regulated industries.</p>
+          <div class="learn-card-meta">
+            <span>15 min read</span>
+            <span>Feb 2026</span>
+            <span class="learn-card-tag">New</span>
+          </div>
+        </a>
+
+        <a href="multi-agent-vs-single-model/" class="learn-card">
+          <div class="learn-card-icon"><img src="../assets/logos/crucible.svg" alt="Multi-Agent vs Single" width="36" height="36" style="border-radius:8px"></div>
+          <h2 class="learn-card-title">Multi-Agent AI vs Single-Model</h2>
+          <p class="learn-card-desc">Why multiple specialized AI agents that debate and cross-examine produce better decisions than a single model. Side-by-side comparison with evidence and use cases.</p>
+          <div class="learn-card-meta">
+            <span>11 min read</span>
+            <span>Feb 2026</span>
+            <span class="learn-card-tag">New</span>
+          </div>
+        </a>
+
+        <a href="eu-ai-act-high-risk/" class="learn-card">
+          <div class="learn-card-icon"><img src="../assets/logos/legal-compliance.svg" alt="EU AI Act" width="36" height="36" style="border-radius:8px"></div>
+          <h2 class="learn-card-title">EU AI Act Article 6: High-Risk Classification</h2>
+          <p class="learn-card-desc">Which AI systems are high-risk? Understanding Annex III categories, Article 6 classification rules, obligations under Articles 8–15, and the penalty structure.</p>
+          <div class="learn-card-meta">
+            <span>13 min read</span>
+            <span>Feb 2026</span>
+            <span class="learn-card-tag">Regulation</span>
+          </div>
+        </a>
+      </div>
+
+      <h2 class="learn-section-title">Latest Guides</h2>
+      <div class="learn-grid">
+        <a href="dora-compliance/" class="learn-card">
+          <div class="learn-card-icon"><img src="../assets/logos/compliance.svg" alt="DORA Compliance" width="36" height="36" style="border-radius:8px"></div>
+          <h2 class="learn-card-title">DORA Compliance for AI</h2>
+          <p class="learn-card-desc">Digital Operational Resilience Act requirements for AI systems in financial services. ICT risk management, incident reporting, resilience testing, and third-party oversight.</p>
+          <div class="learn-card-meta">
+            <span>15 min read</span>
+            <span>Feb 2026</span>
+            <span class="learn-card-tag">Regulation</span>
+          </div>
+        </a>
+
+        <a href="explainable-ai/" class="learn-card">
+          <div class="learn-card-icon"><img src="../assets/logos/cendia-agents.svg" alt="Explainable AI" width="36" height="36" style="border-radius:8px"></div>
+          <h2 class="learn-card-title">Explainable AI for Enterprises</h2>
+          <p class="learn-card-desc">Techniques for making AI decisions interpretable: reasoning chains, confidence scoring, multi-agent deliberation, and audit-ready explanations for regulated industries.</p>
+          <div class="learn-card-meta">
+            <span>14 min read</span>
+            <span>Feb 2026</span>
+            <span class="learn-card-tag">New</span>
+          </div>
+        </a>
+      </div>
+    </main>
+
+    <footer style="text-align: center; padding: 40px 24px; border-top: 1px solid var(--color-border); margin-top: 60px;">
+      <p style="font-size: 0.75rem; color: var(--color-text-dim);"> 2026 Datacendia. Sovereign Enterprise Intelligence.</p>
+      <p style="font-size: 0.7rem; color: var(--color-text-dim); margin-top: 8px;">
+        <a href="../privacy.html" style="color: var(--color-text-dim);">Privacy</a> · 
+        <a href="../terms.html" style="color: var(--color-text-dim);">Terms</a> · 
+        <a href="../security.txt" style="color: var(--color-text-dim);">Security</a>
+      </p>
+    </footer>
+  </div>
+  <script src="../translations.js"></script>
+  <script src="../app.js"></script>
+  <script src="/nav-mobile.js"></script>
+</body>
+</html>

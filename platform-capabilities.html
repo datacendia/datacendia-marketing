@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Platform Overview — Datacendia | 12 Pillars, 3 Tiers, Full Capability Map</title>
+  <meta name="description" content="Complete Datacendia platform capability map: 12 pillars across 3 tiers — Foundation (Council, Decide, DCII), Enterprise (Stress-Test, Comply, Govern, Sovereign, Operate), Strategic (Collapse, SGAS, Verticals, Frontier) plus 7 premium add-ons.">
+  <meta name="keywords" content="Datacendia platform, enterprise AI capabilities, decision crisis immunization, multi-agent deliberation, DCII framework, sovereign AI, air-gapped AI, 12 pillars">
+  <meta property="og:title" content="Platform Overview — Datacendia | Full Capability Map">
+  <meta property="og:description" content="12 pillars across 3 tiers. The complete Decision Crisis Immunization Infrastructure capability map.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://datacendia.com/platform-capabilities.html">
+  <meta property="og:image" content="https://datacendia.com/og-image.png">
+  <meta property="og:site_name" content="Datacendia">
+  <link rel="canonical" href="https://datacendia.com/platform-capabilities.html">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .pc-container { max-width: 1100px; margin: 0 auto; padding: 80px 24px; }
+    .pc-header { text-align: center; margin-bottom: 48px; }
+    .pc-header h1 { font-family: var(--font-display); font-size: clamp(2rem, 5vw, 2.5rem); font-weight: 300; color: var(--color-text); margin-bottom: 12px; }
+    .pc-header .pc-sub { font-size: 0.9rem; color: var(--color-text-muted); max-width: 640px; margin: 0 auto; line-height: 1.6; }
+    .pc-stats { display: flex; justify-content: center; gap: 32px; flex-wrap: wrap; margin: 32px 0 48px; }
+    .pc-stat { text-align: center; }
+    .pc-stat-num { font-family: var(--font-mono); font-size: 1.6rem; font-weight: 600; color: var(--color-gold); display: block; }
+    .pc-stat-label { font-size: 0.7rem; color: var(--color-text-dim); text-transform: uppercase; letter-spacing: 0.1em; }
+    .tier-section { margin-bottom: 56px; }
+    .tier-header { text-align: center; margin-bottom: 28px; }
+    .tier-badge { display: inline-block; font-size: 0.65rem; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; padding: 4px 14px; border-radius: 20px; margin-bottom: 10px; }
+    .tier-badge--gold { background: rgba(201,162,39,0.12); color: var(--color-gold); border: 1px solid rgba(201,162,39,0.3); }
+    .tier-badge--blue { background: rgba(59,130,246,0.12); color: #3b82f6; border: 1px solid rgba(59,130,246,0.3); }
+    .tier-badge--purple { background: rgba(168,85,247,0.12); color: #a855f7; border: 1px solid rgba(168,85,247,0.3); }
+    .tier-badge--amber { background: rgba(245,158,11,0.12); color: #f59e0b; border: 1px solid rgba(245,158,11,0.3); }
+    .pc-tier-title { font-family: var(--font-display); font-size: 1.6rem; font-weight: 300; color: var(--color-text); margin-bottom: 6px; }
+    .pc-tier-flow { font-size: 0.8rem; color: var(--color-text-dim); }
+    .pillar-grid { display: grid; gap: 16px; }
+    .pillar-grid--3 { grid-template-columns: repeat(3, 1fr); }
+    .pillar-grid--5 { grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); }
+    .pillar-grid--4 { grid-template-columns: repeat(4, 1fr); }
+    .pillar-grid--7 { grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); }
+    .p-card { background: var(--color-card-bg); border: 1px solid var(--color-border); border-radius: 10px; padding: 24px 20px; transition: all 0.3s ease; }
+    .p-card:hover { border-color: var(--color-gold-border); transform: translateY(-3px); }
+    .p-card.featured { border-color: var(--color-gold); background: linear-gradient(180deg, rgba(201,162,39,0.06) 0%, var(--color-card-bg) 100%); }
+    .p-num { font-family: var(--font-mono); font-size: 0.65rem; color: var(--color-text-dim); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 8px; }
+    .p-name { font-family: var(--font-display); font-size: 1.15rem; font-weight: 400; color: var(--color-text); margin-bottom: 4px; }
+    .p-tag { font-size: 0.7rem; color: var(--color-gold); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 12px; }
+    .p-desc { font-size: 0.78rem; color: var(--color-text-muted); line-height: 1.55; margin-bottom: 14px; }
+    .p-features { list-style: none; padding: 0; margin: 0; }
+    .p-features li { font-size: 0.75rem; color: var(--color-text-dim); padding: 4px 0; display: flex; align-items: flex-start; gap: 6px; }
+    .p-features li::before { content: '\2713'; color: var(--color-gold); font-weight: 600; flex-shrink: 0; font-size: 0.7rem; }
+    .p-link { display: inline-block; margin-top: 12px; font-size: 0.72rem; color: var(--color-gold); text-decoration: none; }
+    .p-link:hover { text-decoration: underline; }
+    .primitives-strip { display: grid; grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); gap: 8px; margin: 20px 0 12px; }
+    .prim-item { background: var(--color-bg); border: 1px solid var(--color-border); border-radius: 6px; padding: 10px 8px; text-align: center; }
+    .prim-id { font-family: var(--font-mono); font-size: 0.7rem; font-weight: 600; color: var(--color-gold); }
+    .prim-label { font-size: 0.62rem; color: var(--color-text-dim); margin-top: 2px; line-height: 1.3; }
+    .prim-desc { font-size: 0.58rem; color: var(--color-text-dim); margin-top: 4px; line-height: 1.3; font-style: italic; opacity: 0.75; }
+    .addon-card { background: var(--color-card-bg); border: 1px solid var(--color-border); border-radius: 8px; padding: 16px 14px; text-align: center; transition: all 0.3s ease; }
+    .addon-card:hover { border-color: var(--color-gold-border); }
+    .addon-suite { font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 4px; }
+    .addon-name { font-size: 0.85rem; font-weight: 500; color: var(--color-text); margin-bottom: 3px; }
+    .addon-desc { font-size: 0.68rem; color: var(--color-text-dim); }
+    .cross-section { background: var(--color-bg-elevated); border: 1px solid var(--color-border); border-radius: 12px; padding: 36px 32px; margin-top: 48px; }
+    .cross-title { font-family: var(--font-display); font-size: 1.2rem; font-weight: 400; color: var(--color-text); margin-bottom: 20px; text-align: center; }
+    .cross-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+    .cross-item { padding: 16px; background: var(--color-bg); border: 1px solid var(--color-border); border-radius: 8px; }
+    .cross-item h4 { font-family: var(--font-mono); font-size: 0.75rem; color: var(--color-gold); margin-bottom: 6px; }
+    .cross-item p { font-size: 0.72rem; color: var(--color-text-dim); line-height: 1.5; }
+    .deploy-strip { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; margin: 24px 0; }
+    .deploy-chip { padding: 8px 18px; background: var(--color-card-bg); border: 1px solid var(--color-border); border-radius: 6px; font-family: var(--font-mono); font-size: 0.72rem; color: var(--color-text-muted); }
+    .pc-final-cta { text-align: center; padding: 48px 32px; background: var(--color-card-bg); border: 1px solid var(--color-border); border-radius: 12px; margin-top: 48px; }
+    .pc-final-cta h2 { font-family: var(--font-display); font-size: 1.5rem; font-weight: 400; color: var(--color-text); margin-bottom: 12px; }
+    .pc-final-cta p { font-size: 0.85rem; color: var(--color-text-muted); margin-bottom: 24px; }
+    .pc-cta-btn { display: inline-block; padding: 14px 28px; font-size: 0.8rem; font-weight: 500; letter-spacing: 0.05em; color: #000; background: linear-gradient(135deg, var(--color-gold), #b8860b); border-radius: 6px; text-decoration: none; transition: all 0.2s; }
+    .pc-cta-btn:hover { opacity: 0.9; }
+    .pc-cta-link { display: inline-block; margin-left: 16px; font-size: 0.8rem; color: var(--color-gold); text-decoration: none; }
+    .pc-cta-link:hover { text-decoration: underline; }
+    @media (max-width: 900px) {
+      .pillar-grid--3, .pillar-grid--4 { grid-template-columns: 1fr; }
+      .pillar-grid--5 { grid-template-columns: repeat(2, 1fr); }
+      .pc-stats { gap: 20px; }
+    }
+    @media (max-width: 600px) {
+      .pillar-grid--5 { grid-template-columns: 1fr; }
+      .primitives-strip { grid-template-columns: repeat(3, 1fr); }
+      .pillar-grid--7 { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-top">
+        <a href="index.html" style="text-decoration: none;"><h1 class="logo">DATACENDIA</h1></a>
+      </div>
+      <p class="tagline-sub" data-i18n="tagline">Decision Crisis Immunization Infrastructure</p>
+            <nav class="main-nav">
+        <button class="nav-toggle" aria-label="Menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+        <div class="nav-menu">
+        <div class="nav-group">
+          <span class="nav-label" data-i18n="navPlatform">Platform</span>
+          <div class="nav-dropdown">
+            <a href="platform-capabilities.html"><span data-i18n="navPlatformOverview">Platform Overview</span><span class="nav-desc" data-i18n="navPlatformOverviewDesc">Full capability map</span></a>
+            <a href="dcii.html"><span data-i18n="navDcii">DCII Framework</span><span class="nav-desc" data-i18n="navDciiDesc">9 primitives · Crisis immunization</span></a>
+            <a href="diagrams.html"><span data-i18n="navArchitecture">Architecture</span><span class="nav-desc" data-i18n="navArchitectureDesc">12 system diagrams</span></a>
+          </div>
+        </div>
+        <div class="nav-group">
+          <span class="nav-label" data-i18n="navEvidence">Evidence</span>
+          <div class="nav-dropdown">
+            <a href="demos.html"><span data-i18n="navDemos">Interactive Demos</span><span class="nav-desc" data-i18n="navDemosDesc">Council, Chronos, Crucible &amp; more</span></a>
+            <a href="wargames.html"><span data-i18n="navWargames">War Games</span><span class="nav-desc" data-i18n="navWargamesDesc">Would dissent have surfaced the risk?</span></a>
+            <a href="case-studies.html"><span data-i18n="navCaseStudies">Case Studies</span><span class="nav-desc" data-i18n="navCaseStudiesDesc">Real-world decision analysis</span></a>
+          </div>
+        </div>
+        <a href="verticals.html" data-i18n="navIndustries">Industries</a>
+        <div class="nav-group">
+          <span class="nav-label" data-i18n="navPricing">Pricing</span>
+          <div class="nav-dropdown">
+            <a href="pricing.html"><span data-i18n="navTierOverview">Tier Overview</span><span class="nav-desc" data-i18n="navTierOverviewDesc">Foundation · Enterprise · Strategic</span></a>
+            <a href="premium.html"><span data-i18n="navPremiumModules">Premium Modules</span><span class="nav-desc" data-i18n="navPremiumModulesDesc">7 advanced capabilities</span></a>
+            <a href="roi-calculator.html"><span data-i18n="navRoiCalculator">ROI Calculator</span><span class="nav-desc" data-i18n="navRoiCalculatorDesc">Quantify decision risk reduction</span></a>
+            <a href="pilot.html"><span data-i18n="navPilot">90-Day Pilot</span><span class="nav-desc" data-i18n="navPilotDesc">Prove value before scaling</span></a>
+          </div>
+        </div>
+        <div class="nav-group">
+          <span class="nav-label" data-i18n="navTrust">Trust</span>
+          <div class="nav-dropdown">
+            <a href="trust.html"><span data-i18n="navTrustCenter">Trust Center</span><span class="nav-desc" data-i18n="navTrustCenterDesc">Security, compliance &amp; deployment</span></a>
+            <a href="honesty-matrices.html"><span data-i18n="navHonestyMatricesLink">Honesty Matrices</span><span class="nav-desc" data-i18n="navHonestyMatricesDesc">What we can't do — yet</span></a>
+          </div>
+        </div>
+        <a href="briefing.html" class="nav-cta" data-i18n="navRequestBriefing">Request Briefing</a>
+        </div>
+      </nav>
+    </header>
+
+    <div class="pc-container">
+        <a href="index.html" style="display:inline-block; margin-bottom:32px; font-size:0.75rem; color:var(--color-text-dim); text-decoration:none;" data-i18n="pcReturnLink">← Return to Datacendia</a>
+
+        <div class="pc-header">
+          <h1 data-i18n="pcHeaderTitle">Platform Capability Map</h1>
+          <p class="pc-sub" data-i18n="pcHeaderSub">12 pillars across 3 tiers. 9 crisis immunization primitives. 7 premium add-ons. Sovereign deployment on your infrastructure.</p>
+        </div>
+
+        <div class="pc-stats">
+          <div class="pc-stat"><span class="pc-stat-num">12</span><span class="pc-stat-label" data-i18n="pcStatPillars">Pillars</span></div>
+          <div class="pc-stat"><span class="pc-stat-num">3</span><span class="pc-stat-label" data-i18n="pcStatTiers">Tiers</span></div>
+          <div class="pc-stat"><span class="pc-stat-num">9</span><span class="pc-stat-label" data-i18n="pcStatPrimitives">DCII Primitives</span></div>
+          <div class="pc-stat"><span class="pc-stat-num">7</span><span class="pc-stat-label" data-i18n="pcStatAddons">Premium Add-Ons</span></div>
+          <div class="pc-stat"><span class="pc-stat-num">8+</span><span class="pc-stat-label" data-i18n="pcStatVerticals">Deep Verticals</span></div>
+          <div class="pc-stat"><span class="pc-stat-num">4</span><span class="pc-stat-label" data-i18n="pcStatDeploy">Deployment Modes</span></div>
+        </div>
+
+        <!-- TIER 1: FOUNDATION -->
+        <div class="tier-section">
+          <div class="tier-header">
+            <span class="tier-badge tier-badge--gold" data-i18n="pcTier1Badge">Tier 1</span>
+            <h2 class="pc-tier-title" data-i18n="pcTier1Title">Foundation</h2>
+            <p class="pc-tier-flow" data-i18n="pcTier1Flow">Make decisions → Understand them → Prove them</p>
+          </div>
+          <div class="pillar-grid pillar-grid--3">
+            <div class="p-card">
+              <div class="p-num" data-i18n="pcP1Num">Pillar 1</div>
+              <h3 class="p-name">The Council&trade;</h3>
+              <div class="p-tag" data-i18n="pcP1Tag">Multi-Agent Deliberation Engine</div>
+              <p class="p-desc" data-i18n="pcP1Desc">14 C-suite AI agents debate every decision from their domain — surfacing blind spots, conflicts, and consensus before you commit.</p>
+              <ul class="p-features">
+                <li data-i18n="pcP1F1">14 core agents (CFO, CLO, CISO, CTO, CRO, etc.)</li>
+                <li data-i18n="pcP1F2">35+ deliberation modes</li>
+                <li data-i18n="pcP1F3">60-trait personality system per agent</li>
+                <li data-i18n="pcP1F4">Live deliberation with 3D avatars</li>
+                <li data-i18n="pcP1F5">Cross-examination &amp; formal dissent</li>
+                <li data-i18n="pcP1F6">Consensus scoring &amp; confidence metrics</li>
+                <li data-i18n="pcP1F7">Decision Replay Theater™</li>
+              </ul>
+              <a href="resources/the-council.html" class="p-link" data-i18n="pcP1Link">Learn more →</a>
+            </div>
+            <div class="p-card">
+              <div class="p-num" data-i18n="pcP2Num">Pillar 2</div>
+              <h3 class="p-name">Decide&trade;</h3>
+              <div class="p-tag" data-i18n="pcP2Tag">Decision Intelligence Suite</div>
+              <p class="p-desc" data-i18n="pcP2Desc">Intelligence for every decision — past, present, and future. Time machines, failure prediction, consequence mapping, and explainability.</p>
+              <ul class="p-features">
+                <li data-i18n="pcP2F1">CendiaChronos™ divergent future simulation</li>
+                <li data-i18n="pcP2F2">PreMortem™ failure prediction</li>
+                <li data-i18n="pcP2F3">Decision Debt™ (cost of inaction)</li>
+                <li data-i18n="pcP2F4">CendiaCascade™ butterfly effect engine</li>
+                <li data-i18n="pcP2F5">CendiaRecall™ decision outcome tracking</li>
+                <li data-i18n="pcP2F6">Ghost Board™ lightweight red-teaming</li>
+                <li data-i18n="pcP2F7">CendiaLineage™ decision tracing</li>
+              </ul>
+              <a href="demos.html" class="p-link" data-i18n="pcP2Link">See demos →</a>
+            </div>
+            <div class="p-card featured">
+              <div class="p-num" data-i18n="pcP3Num">Pillar 3</div>
+              <h3 class="p-name">DCII&trade;</h3>
+              <div class="p-tag" data-i18n="pcP3Tag">Crisis Immunization + Evidence Infrastructure</div>
+              <p class="p-desc" data-i18n="pcP3Desc">The 9 primitives + cryptographic proof infrastructure. When regulators challenge your decisions, DCII is what you show them.</p>
+              <ul class="p-features">
+                <li data-i18n="pcP3F1">9 crisis immunization primitives</li>
+                <li data-i18n="pcP3F2">CendiaVault™ immutable evidence store</li>
+                <li data-i18n="pcP3F3">CendiaNotary™ cryptographic signing</li>
+                <li data-i18n="pcP3F4">Regulator's Receipt™ (1-click PDF)</li>
+                <li data-i18n="pcP3F5">IISS™ institutional resilience scoring</li>
+                <li data-i18n="pcP3F6">CendiaMediaAuth™ deepfake detection</li>
+                <li data-i18n="pcP3F7">Post-quantum key management</li>
+              </ul>
+              <a href="dcii.html" class="p-link" data-i18n="pcP3Link">Learn the framework →</a>
+            </div>
+          </div>
+          <p style="text-align:center; font-size:0.7rem; color:var(--color-text-dim); margin-top:20px; text-transform:uppercase; letter-spacing:0.12em;" data-i18n="pcPrimitivesLabel">The 9 Crisis Immunization Primitives</p>
+          <div class="primitives-strip">
+            <div class="prim-item"><div class="prim-id">P1</div><div class="prim-label" data-i18n="pcPrim1Label">Discovery-Time Proof</div><div class="prim-desc" data-i18n="pcPrim1Desc">Cryptographic timestamps proving when knowledge became actionable</div></div>
+            <div class="prim-item"><div class="prim-id">P2</div><div class="prim-label" data-i18n="pcPrim2Label">Deliberation Capture</div><div class="prim-desc" data-i18n="pcPrim2Desc">Multi-agent, multi-perspective decision process recording</div></div>
+            <div class="prim-item"><div class="prim-id">P3</div><div class="prim-label" data-i18n="pcPrim3Label">Override Accountability</div><div class="prim-desc" data-i18n="pcPrim3Desc">Non-suppressible tracking of recommendation overrides</div></div>
+            <div class="prim-item"><div class="prim-id">P4</div><div class="prim-label" data-i18n="pcPrim4Label">Continuity Memory</div><div class="prim-desc" data-i18n="pcPrim4Desc">Personnel-independent institutional knowledge preservation</div></div>
+            <div class="prim-item"><div class="prim-id">P5</div><div class="prim-label" data-i18n="pcPrim5Label">Drift Detection</div><div class="prim-desc" data-i18n="pcPrim5Desc">Continuous compliance degradation monitoring</div></div>
+            <div class="prim-item"><div class="prim-id">P6</div><div class="prim-label" data-i18n="pcPrim6Label">Cognitive Bias Mitigation</div><div class="prim-desc" data-i18n="pcPrim6Desc">Adversarial challenge of assumptions and rubber-stamp detection</div></div>
+            <div class="prim-item"><div class="prim-id">P7</div><div class="prim-label" data-i18n="pcPrim7Label">Quantum-Resistant Integrity</div><div class="prim-desc" data-i18n="pcPrim7Desc">Post-quantum cryptographic protection of evidence</div></div>
+            <div class="prim-item"><div class="prim-id">P8</div><div class="prim-label" data-i18n="pcPrim8Label">Synthetic Media Auth</div><div class="prim-desc" data-i18n="pcPrim8Desc">Content provenance signing and deepfake detection</div></div>
+            <div class="prim-item"><div class="prim-id">P9</div><div class="prim-label" data-i18n="pcPrim9Label">Cross-Jurisdiction Compliance</div><div class="prim-desc" data-i18n="pcPrim9Desc">Multi-jurisdiction conflict detection and resolution</div></div>
+          </div>
+        </div>
+
+        <!-- TIER 2: ENTERPRISE -->
+        <div class="tier-section">
+          <div class="tier-header">
+            <span class="tier-badge tier-badge--blue" data-i18n="pcTier2Badge">Tier 2</span>
+            <h2 class="pc-tier-title" data-i18n="pcTier2Title">Enterprise</h2>
+            <p class="pc-tier-flow" data-i18n="pcTier2Flow">Harden → Comply → Govern → Own → Scale</p>
+          </div>
+          <div class="pillar-grid pillar-grid--5">
+            <div class="p-card">
+              <div class="p-num" data-i18n="pcP4Num">Pillar 4</div>
+              <h3 class="p-name">Stress-Test</h3>
+              <div class="p-tag" data-i18n="pcP4Tag">Adversarial Testing</div>
+              <p class="p-desc" data-i18n="pcP4Desc">Break your decisions before they break you.</p>
+              <ul class="p-features">
+                <li data-i18n="pcP4F1">CendiaCrucible™ Monte Carlo red-teaming</li>
+                <li data-i18n="pcP4F2">CendiaRedTeam™ 8-perspective attack</li>
+                <li data-i18n="pcP4F3">War Games strategic simulation</li>
+                <li data-i18n="pcP4F4">SCGE synthetic crisis injection</li>
+                <li data-i18n="pcP4F5">Runtime security monitoring</li>
+              </ul>
+              <a href="wargames.html" class="p-link" data-i18n="pcP4Link">War Games →</a>
+            </div>
+            <div class="p-card">
+              <div class="p-num" data-i18n="pcP5Num">Pillar 5</div>
+              <h3 class="p-name">Comply</h3>
+              <div class="p-tag" data-i18n="pcP5Tag">Regulatory Compliance</div>
+              <p class="p-desc" data-i18n="pcP5Desc">10 frameworks. 17 jurisdictions. Simultaneously.</p>
+              <ul class="p-features">
+                <li data-i18n="pcP5F1">10 compliance frameworks</li>
+                <li data-i18n="pcP5F2">17 jurisdictions simultaneously</li>
+                <li data-i18n="pcP5F3">Regulatory Absorb™ (60-sec ingest)</li>
+                <li data-i18n="pcP5F4">CendiaSandbox™ pre-enforcement testing</li>
+                <li data-i18n="pcP5F5">CendiaZKP™ zero-knowledge proofs</li>
+              </ul>
+              <a href="trust.html" class="p-link" data-i18n="pcP5Link">Trust Center →</a>
+            </div>
+            <div class="p-card">
+              <div class="p-num" data-i18n="pcP6Num">Pillar 6</div>
+              <h3 class="p-name">Govern</h3>
+              <div class="p-tag" data-i18n="pcP6Tag">Policy Enforcement</div>
+              <p class="p-desc" data-i18n="pcP6Desc">Configurable guardrails, dispute resolution, and whistleblower protection.</p>
+              <ul class="p-features">
+                <li data-i18n="pcP6F1">CendiaGovern™ RBAC + approval workflows</li>
+                <li data-i18n="pcP6F2">CendiaCourt™ AI dispute resolution</li>
+                <li data-i18n="pcP6F3">CendiaVeto™ configurable blocking</li>
+                <li data-i18n="pcP6F4">CendiaDissent™ whistleblower protection</li>
+                <li data-i18n="pcP6F5">CendiaAutopilot™ autonomy governance</li>
+              </ul>
+            </div>
+            <div class="p-card">
+              <div class="p-num" data-i18n="pcP7Num">Pillar 7</div>
+              <h3 class="p-name">Sovereign</h3>
+              <div class="p-tag" data-i18n="pcP7Tag">Air-Gap Architecture</div>
+              <p class="p-desc" data-i18n="pcP7Desc">Your infrastructure. Your keys. Your data. No vendor custody.</p>
+              <ul class="p-features">
+                <li data-i18n="pcP7F1">11 sovereign architectural patterns</li>
+                <li data-i18n="pcP7F2">Post-quantum KMS</li>
+                <li data-i18n="pcP7F3">CendiaBlackBox™ sealed records</li>
+                <li data-i18n="pcP7F4">CendiaMirage™ active deception</li>
+                <li data-i18n="pcP7F5">CAC/PIV authentication</li>
+              </ul>
+              <a href="architecture.html" class="p-link" data-i18n="pcP7Link">Architecture →</a>
+            </div>
+            <div class="p-card">
+              <div class="p-num" data-i18n="pcP8Num">Pillar 8</div>
+              <h3 class="p-name">Operate</h3>
+              <div class="p-tag" data-i18n="pcP8Tag">CendiaOps™ — 19 AI Co-Pilots</div>
+              <p class="p-desc" data-i18n="pcP8Desc">AI co-pilots for every department, plus system integration and self-improvement.</p>
+              <ul class="p-features">
+                <li data-i18n="pcP8F1">19 department AI co-pilots</li>
+                <li data-i18n="pcP8F2">CendiaMesh™ system integration</li>
+                <li data-i18n="pcP8F3">CendiaPulse™ mission control</li>
+                <li data-i18n="pcP8F4">CendiaApotheosis™ nightly self-improvement</li>
+                <li data-i18n="pcP8F5">100+ language translation</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- TIER 2 PREMIUM ADD-ONS -->
+        <div class="tier-section">
+          <div class="tier-header">
+            <span class="tier-badge tier-badge--amber" data-i18n="pcTier2PremiumBadge">Tier 2 Premium</span>
+            <h2 class="pc-tier-title" data-i18n="pcAddonsTitle">Strategic Add-Ons</h2>
+            <p class="pc-tier-flow" data-i18n="pcAddonsFlow">7 advanced modules for Enterprise licensees</p>
+          </div>
+          <div class="pillar-grid pillar-grid--7">
+            <div class="addon-card"><div class="addon-suite" style="color:#f59e0b;">Guardian Suite</div><div class="addon-name">CendiaAegis&trade;</div><div class="addon-desc" data-i18n="pcAddon1Desc">Real-time threat intelligence</div></div>
+            <div class="addon-card"><div class="addon-suite" style="color:#f59e0b;">Guardian Suite</div><div class="addon-name">CendiaEternal&trade;</div><div class="addon-desc" data-i18n="pcAddon2Desc">100-year knowledge preservation</div></div>
+            <div class="addon-card"><div class="addon-suite" style="color:#f59e0b;">Guardian Suite</div><div class="addon-name">CendiaSymbiont&trade;</div><div class="addon-desc" data-i18n="pcAddon3Desc">Partnership ecosystem discovery</div></div>
+            <div class="addon-card"><div class="addon-suite" style="color:#f59e0b;">Guardian Suite</div><div class="addon-name">CendiaVox&trade;</div><div class="addon-desc" data-i18n="pcAddon4Desc">Stakeholder voice assembly</div></div>
+            <div class="addon-card"><div class="addon-suite" style="color:#a855f7;">Strategic</div><div class="addon-name">CendiaMythos&trade;</div><div class="addon-desc" data-i18n="pcAddon5Desc">Corporate narrative engine</div></div>
+            <div class="addon-card"><div class="addon-suite" style="color:#a855f7;">Strategic</div><div class="addon-name">CendiaEthos&trade;</div><div class="addon-desc" data-i18n="pcAddon6Desc">Ethical drift detection</div></div>
+            <div class="addon-card"><div class="addon-suite" style="color:#a855f7;">Strategic</div><div class="addon-name">CendiaGaia&trade;</div><div class="addon-desc" data-i18n="pcAddon7Desc">Sustainability boundary engine</div></div>
+          </div>
+          <p style="text-align:center; margin-top:16px;"><a href="premium.html" style="font-size:0.78rem; color:var(--color-gold); text-decoration:none;" data-i18n="pcAddonsViewAll">View all Premium modules with WHO NEEDS IT qualifiers →</a></p>
+        </div>
+
+        <!-- TIER 3: STRATEGIC -->
+        <div class="tier-section">
+          <div class="tier-header">
+            <span class="tier-badge tier-badge--purple" data-i18n="pcTier3Badge">Tier 3</span>
+            <h2 class="pc-tier-title" data-i18n="pcTier3Title">Strategic</h2>
+            <p class="pc-tier-flow" data-i18n="pcTier3Flow">Survive → Model → Dominate → Govern Nations</p>
+          </div>
+          <div class="pillar-grid pillar-grid--4">
+            <div class="p-card">
+              <div class="p-num" data-i18n="pcP9Num">Pillar 9</div>
+              <h3 class="p-name">Collapse</h3>
+              <div class="p-tag" data-i18n="pcP9Tag">Institutional Failure Simulation</div>
+              <p class="p-desc" data-i18n="pcP9Desc">18 adversarial agents simulate how institutions fail — so yours doesn't.</p>
+              <ul class="p-features">
+                <li data-i18n="pcP9F1">18 adversarial agents</li>
+                <li data-i18n="pcP9F2">7 societal failure domains</li>
+                <li data-i18n="pcP9F3">Trust Delta measurement</li>
+                <li data-i18n="pcP9F4">Failure Envelope mapping</li>
+              </ul>
+            </div>
+            <div class="p-card">
+              <div class="p-num" data-i18n="pcP10Num">Pillar 10</div>
+              <h3 class="p-name">SGAS</h3>
+              <div class="p-tag" data-i18n="pcP10Tag">Societal-Scale Governance</div>
+              <p class="p-desc" data-i18n="pcP10Desc">Model the consequences of policy at civilizational scale.</p>
+              <ul class="p-features">
+                <li data-i18n="pcP10F1">5 agent classes at civilizational scale</li>
+                <li data-i18n="pcP10F2">Population-level modeling</li>
+                <li data-i18n="pcP10F3">Policy impact simulation</li>
+                <li data-i18n="pcP10F4">Meta-governance oversight</li>
+              </ul>
+            </div>
+            <div class="p-card">
+              <div class="p-num" data-i18n="pcP11Num">Pillar 11</div>
+              <h3 class="p-name">Verticals</h3>
+              <div class="p-tag" data-i18n="pcP11Tag">Industry Domination Infrastructure</div>
+              <p class="p-desc" data-i18n="pcP11Desc">Deep, sector-specific governance with pre-built agents, workflows, and compliance mappings.</p>
+              <ul class="p-features">
+                <li data-i18n="pcP11F1">8 deep industry verticals</li>
+                <li data-i18n="pcP11F2">13 sector templates</li>
+                <li data-i18n="pcP11F3">Legal: 14 agents, 48 modes</li>
+                <li data-i18n="pcP11F4">Sports, Defense, Healthcare flagships</li>
+              </ul>
+              <a href="verticals.html" class="p-link" data-i18n="pcP11Link">View Industries →</a>
+            </div>
+            <div class="p-card">
+              <div class="p-num" data-i18n="pcP12Num">Pillar 12</div>
+              <h3 class="p-name">Frontier</h3>
+              <div class="p-tag" data-i18n="pcP12Tag">Nation-Scale Infrastructure</div>
+              <p class="p-desc" data-i18n="pcP12Desc">For institutions whose decisions shape economies, populations, and sovereign futures.</p>
+              <ul class="p-features">
+                <li data-i18n="pcP12F1">CendiaNation™ economic OS</li>
+                <li data-i18n="pcP12F2">CendiaOmniShield™ cyber defense</li>
+                <li data-i18n="pcP12F3">CendiaMarketSovereign™ central bank AI</li>
+                <li data-i18n="pcP12F4">CendiaEternum™ existential risk</li>
+            </div>
+          </div>
+        </div>
+
+        <!-- CROSS-CUTTING CAPABILITIES -->
+        <div class="cross-section">
+          <h3 class="cross-title" data-i18n="pcCrossTitle">Cross-Cutting Platform Capabilities</h3>
+          <div class="cross-grid">
+            <div class="cross-item">
+              <h4 data-i18n="pcCross1Title">Universal Data Adapters</h4>
+              <p data-i18n="pcCross1Desc">5 universal adapters connect to your existing databases. Data never leaves your infrastructure — File Watcher, Webhook, Database, Protocol, and REST connectors. No ETL. No data movement.</p>
+            </div>
+            <div class="cross-item">
+              <h4 data-i18n="pcCross2Title">Cryptographic Evidence</h4>
+              <p data-i18n="pcCross2Desc">Merkle tree integrity, Ed25519 signatures, RFC 3161 timestamps, post-quantum option (Dilithium, SPHINCS+).</p>
+            </div>
+            <div class="cross-item">
+              <h4 data-i18n="pcCross3Title">CendiaOmniTranslate™</h4>
+              <p data-i18n="pcCross3Desc">100+ language translation with glossary management, translation memory, and RTL support. Runs entirely on your infrastructure.</p>
+            </div>
+            <div class="cross-item">
+              <h4 data-i18n="pcCross4Title">Connector Suites</h4>
+              <p data-i18n="pcCross4Desc">16 connector suites on 6 universal adapters. ERP, CRM, BI, EHR, databases — plug into your existing stack.</p>
+            </div>
+            <div class="cross-item">
+              <h4 data-i18n="pcCross5Title">CendiaCarbonAware™</h4>
+              <p data-i18n="pcCross5Desc">Carbon-aware workload scheduling across 10 cloud regions. Reduce AI carbon footprint by 30–50%. ESG reporting built in.</p>
+            </div>
+            <div class="cross-item">
+              <h4 data-i18n="pcCross6Title">Platform AI Assistant</h4>
+              <p data-i18n="pcCross6Desc">Built-in conversational guide on every page. Context-aware suggestions, step-by-step workflows, quick action buttons.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- SOVEREIGN DEPLOYMENT -->
+        <div style="text-align:center; margin-top:48px;">
+          <p style="font-size:0.7rem; color:var(--color-text-dim); text-transform:uppercase; letter-spacing:0.12em; margin-bottom:16px;" data-i18n="pcDeployLabel">Sovereign Deployment Options</p>
+          <div class="deploy-strip">
+            <div class="deploy-chip" data-i18n="pcDeployChip1">Cloud (AWS · Azure · GCP)</div>
+            <div class="deploy-chip" data-i18n="pcDeployChip2">Private Cloud (Your VPC)</div>
+            <div class="deploy-chip" data-i18n="pcDeployChip3">On-Premises (Your Data Center)</div>
+            <div class="deploy-chip" data-i18n="pcDeployChip4">Air-Gapped (Isolated Networks)</div>
+          </div>
+          <p style="font-size:0.72rem; color:var(--color-text-dim); max-width:600px; margin:0 auto;" data-i18n="pcDeployNote">All modes: your encryption keys (KMS/HSM) · immutable audit ledger (your control) · evidence export (standard formats) · no vendor lock-in</p>
+        </div>
+
+        <!-- FINAL CTA -->
+        <div class="pc-final-cta">
+          <h2 data-i18n="pcCtaTitle">Ready to See the Full Platform?</h2>
+          <p data-i18n="pcCtaDesc">Start with a 90-day pilot on your infrastructure. Prove value before scaling.</p>
+          <a href="briefing.html" class="pc-cta-btn" data-i18n="pcCtaBtn">Request Briefing →</a>
+          <a href="pilot.html" class="pc-cta-link" data-i18n="pcCtaLink">Or start with a pilot →</a>
+        </div>
+      </div>
+
+      <footer>
+      <div class="footer-section">
+        <p class="footer-outcome" data-i18n="footerOutcome">Ready to own your AI decisions—and prove them to regulators?</p>
+        <div class="footer-ctas">
+          <a href="briefing.html" class="cta-button"><span data-i18n="requestBriefing">Request Briefing</span> <span class="arrow">&rarr;</span></a>
+          <a href="pilot.html" class="cta-button secondary" data-i18n="footerSeeResults">See Results in 90 Days</a>
+          <a href="pricing.html" class="cta-button secondary" data-i18n="pricing">Pricing</a>
+          <a href="trust.html" class="cta-button secondary" data-i18n="trustCenter">Trust Center</a>
+        </div>
+        <p class="footer-contact"><a href="mailto:contact@datacendia.com">contact@datacendia.com</a> &middot; <a href="team.html">Leadership</a> &middot; <a href="protocol.html">Protocol</a> &middot; <a href="dcii.html">DCII</a> &middot; <a href="pricing.html" data-i18n="pricing">Pricing</a> &middot; <a href="privacy.html" data-i18n="privacy">Privacy</a> &middot; <a href="terms.html" data-i18n="terms">Terms</a></p>
+      </div>
+      </footer>
+    </div>
+    <script src="translations.js"></script>
+    <script src="app.js"></script>
+    <script src="nav-mobile.js"></script>
+  </body>
+</html>

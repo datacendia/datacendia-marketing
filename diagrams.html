@@ -1,0 +1,2100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Platform Architecture Diagrams — Datacendia</title>
+  <meta name="description" content="Visual architecture diagrams for the Datacendia platform: 12-pillar tier model, DCII 9 primitives, decision lifecycle, sovereign patterns, industry verticals, SGAS agents, trust chain, compliance matrix, multi-model AI architecture, evidence packet anatomy, deployment stack, and license tier gating.">
+  <meta name="keywords" content="datacendia architecture, AI platform diagrams, decision intelligence architecture, sovereign AI deployment, DCII primitives, compliance matrix">
+  <meta name="author" content="Datacendia">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Platform Architecture Diagrams — Datacendia">
+  <meta property="og:description" content="12 interactive architecture diagrams showing how the Datacendia platform is structured, deployed, and scaled.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://datacendia.com/diagrams.html">
+  <meta property="og:image" content="https://datacendia.com/og-image.png">
+  <meta property="og:site_name" content="Datacendia">
+  <link rel="canonical" href="https://datacendia.com/diagrams.html">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <meta name="theme-color" content="#0a0a0a">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .page-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 80px 24px;
+    }
+    .page-header {
+      text-align: center;
+      margin-bottom: 64px;
+    }
+    .page-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 5vw, 2.5rem);
+      font-weight: 300;
+      color: var(--color-text);
+      margin-bottom: 16px;
+    }
+    .page-subtitle {
+      font-size: 1rem;
+      color: var(--color-text-muted);
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .back-link {
+      display: inline-block;
+      margin-bottom: 32px;
+      font-size: 0.75rem;
+      color: var(--color-text-dim);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+    .back-link:hover { color: var(--color-gold); }
+
+    /* Diagram Navigation */
+    .diagram-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: center;
+      margin-bottom: 64px;
+    }
+    .diagram-nav a {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      padding: 8px 16px;
+      border: 1px solid var(--color-border);
+      border-radius: 20px;
+      color: var(--color-text-muted);
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .diagram-nav a:hover {
+      border-color: var(--color-gold);
+      color: var(--color-gold);
+    }
+
+    /* Section wrapper */
+    .diagram-section {
+      margin-bottom: 96px;
+      scroll-margin-top: 40px;
+    }
+    .diagram-section-label {
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--color-gold);
+      margin-bottom: 8px;
+      text-align: center;
+    }
+    .diagram-section-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.4rem, 3vw, 1.8rem);
+      font-weight: 300;
+      color: var(--color-text);
+      text-align: center;
+      margin-bottom: 12px;
+    }
+    .diagram-section-desc {
+      font-size: 0.85rem;
+      color: var(--color-text-dim);
+      text-align: center;
+      max-width: 640px;
+      margin: 0 auto 40px;
+      line-height: 1.6;
+    }
+
+    /* ===== DIAGRAM 1: TIER PYRAMID ===== */
+    .tier-pyramid {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .tier-row {
+      display: flex;
+      align-items: stretch;
+      justify-content: center;
+      width: 100%;
+    }
+    .tier-block {
+      border: 1px solid var(--color-border);
+      padding: 28px 24px;
+      background: var(--color-card-bg);
+      transition: border-color 0.3s, transform 0.2s;
+      position: relative;
+    }
+    .tier-block:hover {
+      border-color: var(--color-gold-border);
+      transform: translateY(-2px);
+      z-index: 2;
+    }
+    .tier-block .tier-label {
+      font-size: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .tier-block .tier-name {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 400;
+      color: var(--color-text);
+      margin-bottom: 4px;
+    }
+    .tier-block .tier-price {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--color-text-dim);
+      margin-bottom: 10px;
+    }
+    .tier-block .tier-pillars {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .tier-block .tier-pillars li {
+      font-size: 0.72rem;
+      color: var(--color-text-muted);
+      padding: 3px 0;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .tier-block .tier-pillars li .pillar-num {
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      color: var(--color-gold);
+      width: 16px;
+      text-align: right;
+      flex-shrink: 0;
+    }
+
+    /* Tier 3 - top (narrow) */
+    .tier-row.t3 { max-width: 480px; }
+    .tier-row.t3 .tier-block { width: 100%; border-radius: 12px 12px 0 0; }
+    .tier-row.t3 .tier-label { color: #ef4444; }
+
+    /* Premium - between */
+    .tier-row.tp { max-width: 620px; }
+    .tier-row.tp .tier-block { width: 100%; border-top: none; }
+    .tier-row.tp .tier-label { color: #a855f7; }
+
+    /* Tier 2 - wider */
+    .tier-row.t2 { max-width: 780px; }
+    .tier-row.t2 .tier-block { width: 100%; border-top: none; }
+    .tier-row.t2 .tier-label { color: #3b82f6; }
+
+    /* Tier 1 - widest (base) */
+    .tier-row.t1 { max-width: 1000px; }
+    .tier-row.t1 .tier-block { width: 100%; border-top: none; border-radius: 0 0 12px 12px; }
+    .tier-row.t1 .tier-label { color: #22c55e; }
+
+    /* ===== DIAGRAM 2: DCII PRIMITIVES ===== */
+    .dcii-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      max-width: 720px;
+      margin: 0 auto 32px;
+    }
+    .dcii-cell {
+      background: var(--color-card-bg);
+      border: 1px solid var(--color-border);
+      border-radius: 10px;
+      padding: 24px 20px;
+      text-align: center;
+      transition: border-color 0.3s, transform 0.2s;
+    }
+    .dcii-cell:hover {
+      border-color: var(--color-gold-border);
+      transform: translateY(-2px);
+    }
+    .dcii-cell .dcii-num {
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      color: var(--color-gold);
+      margin-bottom: 6px;
+    }
+    .dcii-cell .dcii-name {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 400;
+      color: var(--color-text);
+      margin-bottom: 4px;
+    }
+    .dcii-cell .dcii-desc {
+      font-size: 0.7rem;
+      color: var(--color-text-dim);
+      line-height: 1.5;
+    }
+    .dcii-center-badge {
+      text-align: center;
+      margin-top: 20px;
+    }
+    .dcii-center-badge .iiss-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, rgba(201,162,39,0.12) 0%, var(--color-card-bg) 100%);
+      border: 1px solid rgba(201,162,39,0.3);
+      border-radius: 12px;
+      padding: 20px 40px;
+    }
+    .dcii-center-badge .iiss-label {
+      font-size: 0.6rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--color-gold);
+      margin-bottom: 4px;
+    }
+    .dcii-center-badge .iiss-score {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 300;
+      color: var(--color-text);
+    }
+    .dcii-center-badge .iiss-scale {
+      font-size: 0.65rem;
+      color: var(--color-text-dim);
+      margin-top: 4px;
+    }
+
+    /* ===== DIAGRAM 3: DECISION LIFECYCLE ===== */
+    .lifecycle-flow {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .lifecycle-step {
+      width: 100%;
+      background: var(--color-card-bg);
+      border: 1px solid var(--color-border);
+      border-radius: 10px;
+      padding: 24px 28px;
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      transition: border-color 0.3s;
+    }
+    .lifecycle-step:hover { border-color: var(--color-gold-border); }
+    .lifecycle-step .step-num {
+      font-family: var(--font-mono);
+      font-size: 1.4rem;
+      color: var(--color-gold);
+      flex-shrink: 0;
+      width: 36px;
+      text-align: center;
+      line-height: 1;
+      padding-top: 4px;
+    }
+    .lifecycle-step .step-content { flex: 1; }
+    .lifecycle-step .step-title {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-weight: 400;
+      color: var(--color-text);
+      margin-bottom: 4px;
+    }
+    .lifecycle-step .step-detail {
+      font-size: 0.75rem;
+      color: var(--color-text-dim);
+      line-height: 1.6;
+    }
+    .lifecycle-step .step-services {
+      margin-top: 8px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .lifecycle-step .step-services span {
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      padding: 3px 8px;
+      border: 1px solid var(--color-border);
+      border-radius: 4px;
+      color: var(--color-text-muted);
+    }
+    .lifecycle-arrow {
+      width: 2px;
+      height: 28px;
+      background: linear-gradient(to bottom, var(--color-border), var(--color-gold), var(--color-border));
+      position: relative;
+    }
+    .lifecycle-arrow::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-top: 6px solid var(--color-gold);
+    }
+
+    /* ===== DIAGRAM 4: SOVEREIGN PATTERNS ===== */
+    .sovereign-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 12px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .sovereign-card {
+      background: var(--color-card-bg);
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      padding: 16px 18px;
+      transition: border-color 0.3s;
+    }
+    .sovereign-card:hover { border-color: var(--color-gold-border); }
+    .sovereign-card .sov-num {
+      font-family: var(--font-mono);
+      font-size: 0.55rem;
+      color: var(--color-gold);
+      margin-bottom: 4px;
+    }
+    .sovereign-card .sov-name {
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--color-text);
+      margin-bottom: 3px;
+    }
+    .sovereign-card .sov-desc {
+      font-size: 0.65rem;
+      color: var(--color-text-dim);
+      line-height: 1.5;
+    }
+    .sovereign-category {
+      font-size: 0.6rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--color-text-muted);
+      margin: 28px 0 12px;
+      text-align: center;
+    }
+    .sovereign-category:first-of-type { margin-top: 0; }
+
+    /* ===== DIAGRAM 5: VERTICALS MATRIX ===== */
+    .verticals-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 8px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .vert-cell {
+      background: var(--color-card-bg);
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      padding: 14px 16px;
+      text-align: center;
+      transition: all 0.2s;
+      cursor: default;
+    }
+    .vert-cell:hover {
+      border-color: var(--color-gold-border);
+      transform: scale(1.03);
+    }
+    .vert-cell .vert-icon {
+      font-size: 1.2rem;
+      margin-bottom: 4px;
+    }
+    .vert-cell .vert-name {
+      font-size: 0.72rem;
+      font-weight: 500;
+      color: var(--color-text);
+    }
+    .vert-cell .vert-agents {
+      font-family: var(--font-mono);
+      font-size: 0.55rem;
+      color: var(--color-text-dim);
+      margin-top: 2px;
+    }
+    .vert-cell.flagship {
+      border-color: rgba(201,162,39,0.3);
+      background: linear-gradient(135deg, rgba(201,162,39,0.06) 0%, var(--color-card-bg) 100%);
+    }
+    .vert-cell.flagship .vert-name { color: var(--color-gold); }
+
+    /* ===== DIAGRAM 6: SGAS AGENTS ===== */
+    .sgas-layout {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .sgas-orchestrator {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+    .sgas-orchestrator .sgas-orch-box {
+      display: inline-block;
+      background: linear-gradient(135deg, rgba(201,162,39,0.1) 0%, var(--color-card-bg) 100%);
+      border: 1px solid rgba(201,162,39,0.3);
+      border-radius: 12px;
+      padding: 20px 48px;
+    }
+    .sgas-orchestrator .sgas-orch-label {
+      font-size: 0.6rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--color-gold);
+      margin-bottom: 4px;
+    }
+    .sgas-orchestrator .sgas-orch-name {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: var(--color-text);
+    }
+    .sgas-connector {
+      text-align: center;
+      height: 32px;
+      position: relative;
+    }
+    .sgas-connector::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: 2px;
+      height: 100%;
+      background: linear-gradient(to bottom, rgba(201,162,39,0.4), var(--color-border));
+    }
+    .sgas-agents-ring {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
+    }
+    .sgas-agent-card {
+      background: var(--color-card-bg);
+      border: 1px solid var(--color-border);
+      border-radius: 10px;
+      padding: 20px 14px;
+      text-align: center;
+      transition: border-color 0.3s, transform 0.2s;
+    }
+    .sgas-agent-card:hover {
+      border-color: var(--color-gold-border);
+      transform: translateY(-3px);
+    }
+    .sgas-agent-card .sgas-icon {
+      font-size: 1.4rem;
+      margin-bottom: 8px;
+    }
+    .sgas-agent-card .sgas-agent-name {
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--color-text);
+      margin-bottom: 4px;
+    }
+    .sgas-agent-card .sgas-agent-role {
+      font-size: 0.62rem;
+      color: var(--color-text-dim);
+      line-height: 1.5;
+    }
+
+    /* ===== DIAGRAM 7: TRUST / EVIDENCE CHAIN ===== */
+    .trust-chain {
+      display: flex;
+      align-items: stretch;
+      gap: 0;
+      max-width: 900px;
+      margin: 0 auto;
+      overflow-x: auto;
+    }
+    .trust-node {
+      flex: 1;
+      min-width: 140px;
+      background: var(--color-card-bg);
+      border: 1px solid var(--color-border);
+      padding: 24px 18px;
+      text-align: center;
+      position: relative;
+      transition: border-color 0.3s;
+    }
+    .trust-node:first-child { border-radius: 10px 0 0 10px; }
+    .trust-node:last-child { border-radius: 0 10px 10px 0; }
+    .trust-node:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      right: -12px;
+      top: 50%;
+      transform: translateY(-50%);
+      border-left: 10px solid var(--color-gold);
+      border-top: 8px solid transparent;
+      border-bottom: 8px solid transparent;
+      z-index: 2;
+    }
+    .trust-node:not(:first-child) { border-left: none; }
+    .trust-node:hover { border-color: var(--color-gold-border); }
+    .trust-node .trust-icon { font-size: 1.3rem; margin-bottom: 8px; }
+    .trust-node .trust-name {
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--color-text);
+      margin-bottom: 4px;
+    }
+    .trust-node .trust-desc {
+      font-size: 0.62rem;
+      color: var(--color-text-dim);
+      line-height: 1.5;
+    }
+
+    /* ===== DIAGRAM 8: COMPLIANCE MATRIX ===== */
+    .compliance-table-wrap {
+      overflow-x: auto;
+      max-width: 1000px;
+      margin: 0 auto;
+      border: 1px solid var(--color-border);
+      border-radius: 10px;
+    }
+    .compliance-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.68rem;
+    }
+    .compliance-table th {
+      background: var(--color-card-bg);
+      color: var(--color-text-muted);
+      font-weight: 500;
+      padding: 10px 8px;
+      text-align: center;
+      border-bottom: 1px solid var(--color-border);
+      position: sticky;
+      top: 0;
+      z-index: 1;
+    }
+    .compliance-table th:first-child {
+      text-align: left;
+      padding-left: 14px;
+      min-width: 100px;
+    }
+    .compliance-table td {
+      padding: 8px;
+      text-align: center;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      color: var(--color-text-dim);
+    }
+    .compliance-table td:first-child {
+      text-align: left;
+      padding-left: 14px;
+      font-weight: 500;
+      color: var(--color-text-muted);
+      white-space: nowrap;
+    }
+    .compliance-table tr:hover td { background: rgba(201,162,39,0.03); }
+    .compliance-table .dot {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+    .compliance-table .dot.full { background: var(--color-gold); }
+    .compliance-table .dot.partial { background: rgba(201,162,39,0.4); }
+    .compliance-table .dot.none { background: rgba(255,255,255,0.08); }
+
+    /* ===== DIAGRAM 9: MULTI-MODEL ARCHITECTURE ===== */
+    .model-arch-flow {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .model-arch-router {
+      background: var(--color-card-bg);
+      border: 1px solid var(--color-gold-border);
+      border-radius: 10px;
+      padding: 20px 28px;
+      text-align: center;
+      width: 100%;
+    }
+    .model-arch-router .router-title {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      color: var(--color-gold);
+      margin-bottom: 4px;
+    }
+    .model-arch-router .router-desc {
+      font-size: 0.7rem;
+      color: var(--color-text-dim);
+    }
+    .model-slots-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      width: 100%;
+    }
+    .model-slot {
+      background: var(--color-card-bg);
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      padding: 14px 12px;
+      text-align: center;
+      transition: border-color 0.3s, transform 0.2s;
+    }
+    .model-slot:hover { border-color: var(--color-gold-border); transform: translateY(-2px); }
+    .model-slot .slot-role {
+      font-size: 0.55rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--color-gold);
+      margin-bottom: 6px;
+    }
+    .model-slot .slot-model {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--color-text);
+      margin-bottom: 3px;
+    }
+    .model-slot .slot-params {
+      font-size: 0.6rem;
+      color: var(--color-text-muted);
+      margin-bottom: 2px;
+    }
+    .model-slot .slot-use {
+      font-size: 0.6rem;
+      color: var(--color-text-dim);
+      line-height: 1.4;
+    }
+    .model-arch-footer {
+      font-size: 0.7rem;
+      color: var(--color-text-dim);
+      text-align: center;
+      margin-top: 16px;
+      line-height: 1.6;
+    }
+
+    /* ===== DIAGRAM 10: EVIDENCE PACKET ANATOMY ===== */
+    .packet-anatomy {
+      max-width: 700px;
+      margin: 0 auto;
+      background: var(--color-card-bg);
+      border: 1px solid var(--color-gold-border);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .packet-header {
+      background: linear-gradient(135deg, rgba(201,162,39,0.15), rgba(201,162,39,0.05));
+      padding: 20px 24px;
+      border-bottom: 1px solid var(--color-border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .packet-header .packet-title {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      color: var(--color-gold);
+    }
+    .packet-header .packet-id {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      color: var(--color-text-muted);
+    }
+    .packet-layer {
+      padding: 14px 24px;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      transition: background 0.2s;
+    }
+    .packet-layer:hover { background: rgba(201,162,39,0.03); }
+    .packet-layer:last-child { border-bottom: none; }
+    .packet-layer .layer-icon {
+      font-size: 1.2rem;
+      flex-shrink: 0;
+      width: 28px;
+      text-align: center;
+    }
+    .packet-layer .layer-name {
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--color-text);
+      min-width: 160px;
+    }
+    .packet-layer .layer-detail {
+      font-size: 0.65rem;
+      color: var(--color-text-dim);
+      line-height: 1.5;
+    }
+    .packet-footer {
+      background: rgba(0,0,0,0.15);
+      padding: 14px 24px;
+      display: flex;
+      justify-content: space-between;
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      color: var(--color-text-muted);
+    }
+
+    /* ===== DIAGRAM 11: DEPLOYMENT STACK ===== */
+    .stack-diagram {
+      max-width: 800px;
+      margin: 0 auto;
+      border: 2px solid var(--color-border);
+      border-radius: 14px;
+      overflow: hidden;
+      position: relative;
+    }
+    .stack-diagram::before {
+      content: 'YOUR INFRASTRUCTURE';
+      position: absolute;
+      top: 10px;
+      right: 14px;
+      font-family: var(--font-mono);
+      font-size: 0.55rem;
+      letter-spacing: 0.12em;
+      color: var(--color-gold);
+      opacity: 0.7;
+    }
+    .stack-row {
+      display: grid;
+      gap: 8px;
+      padding: 12px 16px;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+    .stack-row:last-child { border-bottom: none; }
+    .stack-row-label {
+      font-size: 0.55rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--color-text-muted);
+      padding: 8px 16px 0;
+    }
+    .stack-item {
+      background: var(--color-card-bg);
+      border: 1px solid var(--color-border);
+      border-radius: 6px;
+      padding: 10px 14px;
+      text-align: center;
+      transition: border-color 0.3s;
+    }
+    .stack-item:hover { border-color: var(--color-gold-border); }
+    .stack-item .stack-name {
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--color-text);
+      margin-bottom: 2px;
+    }
+    .stack-item .stack-role {
+      font-size: 0.6rem;
+      color: var(--color-text-dim);
+    }
+    .stack-sovereignty {
+      text-align: center;
+      padding: 14px;
+      font-size: 0.7rem;
+      color: var(--color-gold);
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      background: linear-gradient(135deg, rgba(201,162,39,0.08), transparent);
+    }
+
+    /* ===== DIAGRAM 12: LICENSE TIER GATING ===== */
+    .tier-gating {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .tier-gate {
+      background: var(--color-card-bg);
+      border: 1px solid var(--color-border);
+      border-radius: 10px;
+      overflow: hidden;
+      transition: border-color 0.3s, transform 0.2s;
+    }
+    .tier-gate:hover { border-color: var(--color-gold-border); transform: translateY(-3px); }
+    .tier-gate-header {
+      padding: 16px 18px;
+      border-bottom: 1px solid var(--color-border);
+      text-align: center;
+    }
+    .tier-gate-header .gate-name {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      color: var(--color-text);
+      margin-bottom: 2px;
+    }
+    .tier-gate-header .gate-price {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--color-gold);
+    }
+    .tier-gate-body {
+      padding: 14px 18px;
+    }
+    .tier-gate-body .gate-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 5px 0;
+      font-size: 0.68rem;
+      border-bottom: 1px solid rgba(255,255,255,0.03);
+    }
+    .tier-gate-body .gate-row:last-child { border-bottom: none; }
+    .tier-gate-body .gate-label { color: var(--color-text-dim); }
+    .tier-gate-body .gate-value { color: var(--color-text); font-weight: 500; }
+    .tier-gate-body .gate-value.disabled { color: rgba(255,255,255,0.15); }
+    .tier-gate-body .gate-value.enabled { color: #10b981; }
+    .tier-gate-footer {
+      padding: 12px 18px;
+      text-align: center;
+      font-size: 0.65rem;
+      color: var(--color-text-dim);
+      background: rgba(0,0,0,0.1);
+      font-style: italic;
+    }
+
+    /* Mobile overrides */
+    @media (max-width: 768px) {
+      .page-container { padding: 60px 16px; }
+      .tier-row.t3, .tier-row.tp, .tier-row.t2, .tier-row.t1 { max-width: 100%; }
+      .dcii-grid { grid-template-columns: 1fr 1fr; }
+      .sgas-agents-ring { grid-template-columns: repeat(2, 1fr); }
+      .verticals-grid { grid-template-columns: repeat(3, 1fr); }
+      .trust-chain { flex-direction: column; }
+      .trust-node { border-radius: 0 !important; border-left: 1px solid var(--color-border) !important; }
+      .trust-node:first-child { border-radius: 10px 10px 0 0 !important; }
+      .trust-node:last-child { border-radius: 0 0 10px 10px !important; }
+      .trust-node:not(:last-child)::after { display: none; }
+      .sovereign-grid { grid-template-columns: repeat(2, 1fr); }
+      .model-slots-grid { grid-template-columns: repeat(2, 1fr); }
+      .tier-gating { grid-template-columns: 1fr; }
+      .stack-row { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 480px) {
+      .dcii-grid { grid-template-columns: 1fr; }
+      .sgas-agents-ring { grid-template-columns: 1fr; }
+      .verticals-grid { grid-template-columns: repeat(2, 1fr); }
+      .model-slots-grid { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="page-container">
+      <div class="page-top-bar">
+        <a href="index.html" class="back-link" data-i18n="diagBackLink">&larr; Return to Datacendia</a>
+      </div>
+      <nav class="main-nav">
+        <button class="nav-toggle" aria-label="Menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+        <div class="nav-menu">
+        <div class="nav-group">
+          <span class="nav-label" data-i18n="navPlatform">Platform</span>
+          <div class="nav-dropdown">
+            <a href="platform-capabilities.html"><span data-i18n="navPlatformOverview">Platform Overview</span><span class="nav-desc" data-i18n="navPlatformOverviewDesc">Full capability map</span></a>
+            <a href="dcii.html"><span data-i18n="navDcii">DCII Framework</span><span class="nav-desc" data-i18n="navDciiDesc">9 primitives · Crisis immunization</span></a>
+            <a href="diagrams.html"><span data-i18n="navArchitecture">Architecture</span><span class="nav-desc" data-i18n="navArchitectureDesc">12 system diagrams</span></a>
+          </div>
+        </div>
+        <div class="nav-group">
+          <span class="nav-label" data-i18n="navEvidence">Evidence</span>
+          <div class="nav-dropdown">
+            <a href="demos.html"><span data-i18n="navDemos">Interactive Demos</span><span class="nav-desc" data-i18n="navDemosDesc">Council, Chronos, Crucible &amp; more</span></a>
+            <a href="wargames.html"><span data-i18n="navWargames">War Games</span><span class="nav-desc" data-i18n="navWargamesDesc">Would dissent have surfaced the risk?</span></a>
+            <a href="case-studies.html"><span data-i18n="navCaseStudies">Case Studies</span><span class="nav-desc" data-i18n="navCaseStudiesDesc">Real-world decision analysis</span></a>
+          </div>
+        </div>
+        <a href="verticals.html" data-i18n="navIndustries">Industries</a>
+        <div class="nav-group">
+          <span class="nav-label" data-i18n="navPricing">Pricing</span>
+          <div class="nav-dropdown">
+            <a href="pricing.html"><span data-i18n="navTierOverview">Tier Overview</span><span class="nav-desc" data-i18n="navTierOverviewDesc">Foundation · Enterprise · Strategic</span></a>
+            <a href="premium.html"><span data-i18n="navPremiumModules">Premium Modules</span><span class="nav-desc" data-i18n="navPremiumModulesDesc">7 advanced capabilities</span></a>
+            <a href="roi-calculator.html"><span data-i18n="navRoiCalculator">ROI Calculator</span><span class="nav-desc" data-i18n="navRoiCalculatorDesc">Quantify decision risk reduction</span></a>
+            <a href="pilot.html"><span data-i18n="navPilot">90-Day Pilot</span><span class="nav-desc" data-i18n="navPilotDesc">Prove value before scaling</span></a>
+          </div>
+        </div>
+        <div class="nav-group">
+          <span class="nav-label" data-i18n="navTrust">Trust</span>
+          <div class="nav-dropdown">
+            <a href="trust.html"><span data-i18n="navTrustCenter">Trust Center</span><span class="nav-desc" data-i18n="navTrustCenterDesc">Security, compliance &amp; deployment</span></a>
+            <a href="honesty-matrices.html"><span data-i18n="navHonestyMatricesLink">Honesty Matrices</span><span class="nav-desc" data-i18n="navHonestyMatricesDesc">What we can't do — yet</span></a>
+          </div>
+        </div>
+        <a href="briefing.html" class="nav-cta" data-i18n="navRequestBriefing">Request Briefing</a>
+        </div>
+      </nav>
+
+      <div class="page-header">
+        <h1 class="page-title" data-i18n="diagPageTitle">Platform Architecture</h1>
+        <p class="page-subtitle" data-i18n="diagPageSubtitle">12 diagrams showing how Datacendia is structured, how decisions flow, and how sovereign infrastructure is deployed.</p>
+      </div>
+
+      <div class="diagram-nav">
+        <a href="#tier-model" data-i18n="diagNav1">Tier Model</a>
+        <a href="#dcii-primitives" data-i18n="diagNav2">DCII Primitives</a>
+        <a href="#decision-lifecycle" data-i18n="diagNav3">Decision Lifecycle</a>
+        <a href="#sovereign-patterns" data-i18n="diagNav4">Sovereign Patterns</a>
+        <a href="#verticals-matrix" data-i18n="diagNav5">Industry Verticals</a>
+        <a href="#sgas-agents" data-i18n="diagNav6">SGAS Agents</a>
+        <a href="#trust-chain" data-i18n="diagNav7">Trust Chain</a>
+        <a href="#compliance-matrix" data-i18n="diagNav8">Compliance Matrix</a>
+        <a href="#model-architecture" data-i18n="diagNav9">AI Models</a>
+        <a href="#evidence-packet" data-i18n="diagNav10">Evidence Packet</a>
+        <a href="#deployment-stack" data-i18n="diagNav11">Deploy Stack</a>
+        <a href="#tier-gating" data-i18n="diagNav12">Tier Gating</a>
+      </div>
+
+      <!-- ============================================================ -->
+      <!-- DIAGRAM 1: 3-TIER REVELATION MODEL (PYRAMID)                 -->
+      <!-- ============================================================ -->
+      <section id="tier-model" class="diagram-section">
+        <p class="diagram-section-label" data-i18n="diag1Label">Diagram 1 of 12</p>
+        <h2 class="diagram-section-title" data-i18n="diag1Title">The 12-Pillar Tier Model</h2>
+        <p class="diagram-section-desc" data-i18n="diag1Desc">12 pillars across 3 tiers plus premium add-ons. Each tier builds on the one below it. Foundation is required; Enterprise extends; Strategic transforms.</p>
+
+        <div class="tier-pyramid">
+          <!-- Tier 3: Strategic -->
+          <div class="tier-row t3">
+            <div class="tier-block">
+              <div class="tier-label" data-i18n="diag1T3Label">Tier 3 — Strategic</div>
+              <div class="tier-name" data-i18n="diag1T3Name">Nation-Scale Transformation</div>
+              <div class="tier-price" data-i18n="diag1T3Price">Custom Pricing / by engagement</div>
+              <ul class="tier-pillars">
+                <li><span class="pillar-num">9</span> COLLAPSE &mdash; 18-agent institutional failure simulation</li>
+                <li><span class="pillar-num">10</span> SGAS &mdash; Societal-scale governance simulation</li>
+                <li><span class="pillar-num">11</span> VERTICALS &mdash; 8 deep industry verticals + 13 sector templates</li>
+                <li><span class="pillar-num">12</span> FRONTIER &mdash; Nation-scale sovereign AI deployment</li>
+              </ul>
+            </div>
+          </div>
+          <!-- Tier 2 Premium Add-Ons -->
+          <div class="tier-row tp">
+            <div class="tier-block">
+              <div class="tier-label" data-i18n="diag1TpLabel">Tier 2 Premium Add-Ons</div>
+              <div class="tier-name" data-i18n="diag1TpName">Advanced Modules</div>
+              <div class="tier-price" data-i18n="diag1TpPrice">Custom pricing per module</div>
+              <ul class="tier-pillars">
+                <li><span class="pillar-num">&bull;</span> Guardian Suite &mdash; CendiaAegis, CendiaEternal, CendiaSymbiont, CendiaVox</li>
+                <li><span class="pillar-num">&bull;</span> Strategic Suite &mdash; CendiaMythos, CendiaEthos, CendiaGaia</li>
+              </ul>
+            </div>
+          </div>
+          <!-- Tier 2: Enterprise -->
+          <div class="tier-row t2">
+            <div class="tier-block">
+              <div class="tier-label" data-i18n="diag1T2Label">Tier 2 — Enterprise</div>
+              <div class="tier-name" data-i18n="diag1T2Name">Full Enterprise Governance</div>
+              <div class="tier-price" data-i18n="diag1T2Price">Custom Pricing / annual license</div>
+              <ul class="tier-pillars">
+                <li><span class="pillar-num">4</span> STRESS-TEST &mdash; Crucible + RedTeam + War Games + SCGE</li>
+                <li><span class="pillar-num">5</span> COMPLY &mdash; 10 frameworks, 17 jurisdictions</li>
+                <li><span class="pillar-num">6</span> GOVERN &mdash; Constitutional Court, Veto, Dissent, Autopilot</li>
+                <li><span class="pillar-num">7</span> SOVEREIGN &mdash; 11 air-gap architecture patterns</li>
+                <li><span class="pillar-num">8</span> OPERATE &mdash; CendiaOps (19 AI department co-pilots)</li>
+              </ul>
+            </div>
+          </div>
+          <!-- Tier 1: Foundation -->
+          <div class="tier-row t1">
+            <div class="tier-block">
+              <div class="tier-label" data-i18n="diag1T1Label">Tier 1 — Foundation</div>
+              <div class="tier-name" data-i18n="diag1T1Name">Core Decision Intelligence</div>
+              <div class="tier-price" data-i18n="diag1T2Price">Custom Pricing / annual license</div>
+              <ul class="tier-pillars">
+                <li><span class="pillar-num">1</span> THE COUNCIL &mdash; Multi-agent deliberation engine (15+ agents, 35+ modes)</li>
+                <li><span class="pillar-num">2</span> DECIDE &mdash; Chronos, PreMortem, Cascade, Ghost Board, Lens, Decision Debt</li>
+                <li><span class="pillar-num">3</span> DCII &mdash; Crisis Immunization Infrastructure (9 primitives, IISS scoring)</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================ -->
+      <!-- DIAGRAM 2: DCII 9 PRIMITIVES                                 -->
+      <!-- ============================================================ -->
+      <section id="dcii-primitives" class="diagram-section">
+        <p class="diagram-section-label" data-i18n="diag2Label">Diagram 2 of 12</p>
+        <h2 class="diagram-section-title" data-i18n="diag2Title">DCII — 9 Primitives</h2>
+        <p class="diagram-section-desc" data-i18n="diag2Desc">The Decision Crisis Immunization Infrastructure scores institutional resilience across 9 measurable primitives. Together they produce the Institutional Immune System Score (IISS).</p>
+
+        <div class="dcii-grid">
+          <div class="dcii-cell">
+            <div class="dcii-num">P1</div>
+            <div class="dcii-name" data-i18n="diag2P1Name">Ledger</div>
+            <div class="dcii-desc" data-i18n="diag2P1Desc">Immutable audit trail with blockchain-style hash chaining</div>
+          </div>
+          <div class="dcii-cell">
+            <div class="dcii-num">P2</div>
+            <div class="dcii-name" data-i18n="diag2P2Name">Notary</div>
+            <div class="dcii-desc" data-i18n="diag2P2Desc">Cryptographic signing with customer-owned keys</div>
+          </div>
+          <div class="dcii-cell">
+            <div class="dcii-num">P3</div>
+            <div class="dcii-name" data-i18n="diag2P3Name">Vault</div>
+            <div class="dcii-desc" data-i18n="diag2P3Desc">Unified evidence storage for decision packets</div>
+          </div>
+          <div class="dcii-cell">
+            <div class="dcii-num">P4</div>
+            <div class="dcii-name" data-i18n="diag2P4Name">Provenance</div>
+            <div class="dcii-desc" data-i18n="diag2P4Desc">Full decision lineage and court-admissible export</div>
+          </div>
+          <div class="dcii-cell">
+            <div class="dcii-num">P5</div>
+            <div class="dcii-name" data-i18n="diag2P5Name">Timestamp</div>
+            <div class="dcii-desc" data-i18n="diag2P5Desc">RFC 3161 external timestamp authority with blockchain anchoring</div>
+          </div>
+          <div class="dcii-cell">
+            <div class="dcii-num">P6</div>
+            <div class="dcii-name" data-i18n="diag2P6Name">MediaAuth</div>
+            <div class="dcii-desc" data-i18n="diag2P6Desc">C2PA synthetic media authentication and deepfake detection</div>
+          </div>
+          <div class="dcii-cell">
+            <div class="dcii-num">P7</div>
+            <div class="dcii-name" data-i18n="diag2P7Name">Jurisdiction</div>
+            <div class="dcii-desc" data-i18n="diag2P7Desc">Cross-jurisdiction compliance conflict detection (GDPR vs PIPL)</div>
+          </div>
+          <div class="dcii-cell">
+            <div class="dcii-num">P8</div>
+            <div class="dcii-name" data-i18n="diag2P8Name">Similarity</div>
+            <div class="dcii-desc" data-i18n="diag2P8Desc">Decision pattern matching with TF-IDF semantic search</div>
+          </div>
+          <div class="dcii-cell">
+            <div class="dcii-num">P9</div>
+            <div class="dcii-name" data-i18n="diag2P9Name">Bias Mitigation</div>
+            <div class="dcii-desc" data-i18n="diag2P9Desc">Cognitive bias detection and decision debiasing engine</div>
+          </div>
+        </div>
+
+        <div class="dcii-center-badge">
+          <div class="iiss-badge">
+            <div class="iiss-label" data-i18n="diag2IissLabel">Composite Output</div>
+            <div class="iiss-score" data-i18n="diag2IissScore">IISS™ Score</div>
+            <div class="iiss-scale" data-i18n="diag2IissScale">0–1000 scale · 5-band certification</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================ -->
+      <!-- DIAGRAM 3: DECISION LIFECYCLE                                -->
+      <!-- ============================================================ -->
+      <section id="decision-lifecycle" class="diagram-section">
+        <p class="diagram-section-label" data-i18n="diag3Label">Diagram 3 of 12</p>
+        <h2 class="diagram-section-title" data-i18n="diag3Title">Decision Lifecycle</h2>
+        <p class="diagram-section-desc" data-i18n="diag3Desc">End-to-end flow from question to auditable, court-admissible decision record.</p>
+
+        <div class="lifecycle-flow">
+          <div class="lifecycle-step">
+            <div class="step-num">01</div>
+            <div class="step-content">
+              <div class="step-title" data-i18n="diag3Step1Title">Ingest &amp; Frame</div>
+              <div class="step-detail">Decision question is submitted. Context is gathered from data sources, knowledge graph, and historical decisions. The question is framed for deliberation.</div>
+              <div class="step-services"><span>Data Sources</span><span>Neo4j</span><span>CendiaSimilarity</span></div>
+            </div>
+          </div>
+          <div class="lifecycle-arrow"></div>
+          <div class="lifecycle-step">
+            <div class="step-num">02</div>
+            <div class="step-content">
+              <div class="step-title" data-i18n="diag3Step2Title">Council Deliberation</div>
+              <div class="step-detail">Multi-agent council convenes. Agents analyze in parallel, then cross-examine each other's assumptions. Dissent is captured and preserved.</div>
+              <div class="step-services"><span>The Council</span><span>CendiaLive</span><span>CendiaDissent</span><span>Ollama LLM</span></div>
+            </div>
+          </div>
+          <div class="lifecycle-arrow"></div>
+          <div class="lifecycle-step">
+            <div class="step-num">03</div>
+            <div class="step-content">
+              <div class="step-title" data-i18n="diag3Step3Title">Governance &amp; Ethics Check</div>
+              <div class="step-detail">Ethics review, stakeholder impact (CendiaVox), and veto rules are applied. Compliance is checked against active regulatory frameworks.</div>
+              <div class="step-services"><span>CendiaVeto</span><span>CendiaVox</span><span>CendiaCompliance</span><span>Constitutional Court</span></div>
+            </div>
+          </div>
+          <div class="lifecycle-arrow"></div>
+          <div class="lifecycle-step">
+            <div class="step-num">04</div>
+            <div class="step-content">
+              <div class="step-title" data-i18n="diag3Step4Title">Stress Test &amp; Red Team</div>
+              <div class="step-detail">Decision is attacked from 8 adversarial perspectives. Cascade analysis maps second/third-order consequences. Pre-mortem identifies failure modes.</div>
+              <div class="step-services"><span>CendiaCrucible</span><span>CendiaRedTeam</span><span>CendiaCascade</span><span>CendiaPreMortem</span></div>
+            </div>
+          </div>
+          <div class="lifecycle-arrow"></div>
+          <div class="lifecycle-step">
+            <div class="step-num">05</div>
+            <div class="step-content">
+              <div class="step-title" data-i18n="diag3Step5Title">Synthesis &amp; Recommendation</div>
+              <div class="step-detail">Final recommendation is synthesized with confidence score, key conditions, and dissenting views preserved. Executive summary is generated.</div>
+              <div class="step-services"><span>Executive Summary</span><span>CendiaRecall</span><span>Decision Debt</span></div>
+            </div>
+          </div>
+          <div class="lifecycle-arrow"></div>
+          <div class="lifecycle-step">
+            <div class="step-num">06</div>
+            <div class="step-content">
+              <div class="step-title" data-i18n="diag3Step6Title">Evidence &amp; Immutable Record</div>
+              <div class="step-detail">Decision packet is cryptographically signed, timestamped via RFC 3161, and stored in the immutable ledger. Full provenance chain is exportable as court-admissible evidence.</div>
+              <div class="step-services"><span>CendiaLedger</span><span>CendiaNotary</span><span>CendiaVault</span><span>CendiaTimestamp</span><span>CendiaProvenance</span></div>
+            </div>
+          </div>
+          <div class="lifecycle-arrow"></div>
+          <div class="lifecycle-step">
+            <div class="step-num">07</div>
+            <div class="step-content">
+              <div class="step-title" data-i18n="diag3Step7Title">Outcome Tracking &amp; Learning</div>
+              <div class="step-detail">CendiaEcho tracks what actually happened. CendiaChronos snapshots the state for time-travel replay. IISS score is recalculated. The institution gets smarter.</div>
+              <div class="step-services"><span>CendiaEcho</span><span>CendiaChronos</span><span>CendiaReplay</span><span>IISS</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================ -->
+      <!-- DIAGRAM 4: SOVEREIGN ARCHITECTURE PATTERNS                    -->
+      <!-- ============================================================ -->
+      <section id="sovereign-patterns" class="diagram-section">
+        <p class="diagram-section-label" data-i18n="diag4Label">Diagram 4 of 12</p>
+        <h2 class="diagram-section-title" data-i18n="diag4Title">Sovereign Architecture Patterns</h2>
+        <p class="diagram-section-desc" data-i18n="diag4Desc">11 sovereign architectural patterns. Every pattern runs on your infrastructure. No cloud dependency. No data exfiltration. Full sovereign control. All 11 patterns are production-ready.</p>
+
+        <p class="sovereign-category" data-i18n="diag4Cat1">Isolation &amp; Air-Gap</p>
+        <div class="sovereign-grid">
+          <div class="sovereign-card">
+            <div class="sov-num">01</div>
+            <div class="sov-name">Data Diode</div>
+            <div class="sov-desc">Unidirectional gateway &mdash; import only, no exfiltration</div>
+          </div>
+          <div class="sovereign-card">
+            <div class="sov-num">02</div>
+            <div class="sov-name">QR Air-Gap Bridge</div>
+            <div class="sov-desc">Transfer decisions across air gaps via QR code sequences</div>
+          </div>
+          <div class="sovereign-card">
+            <div class="sov-num">03</div>
+            <div class="sov-name">Shadow Council</div>
+            <div class="sov-desc">Parallel deliberation on isolated network with sync protocol</div>
+          </div>
+          <div class="sovereign-card">
+            <div class="sov-num">04</div>
+            <div class="sov-name">Portable Instance</div>
+            <div class="sov-desc">Self-contained deployment on removable media</div>
+          </div>
+        </div>
+
+        <p class="sovereign-category" data-i18n="diag4Cat2">Cryptography &amp; Trust</p>
+        <div class="sovereign-grid">
+          <div class="sovereign-card">
+            <div class="sov-num">05</div>
+            <div class="sov-name">TPM Attestation</div>
+            <div class="sov-desc">Hardware root of trust verification for compute nodes</div>
+          </div>
+          <div class="sovereign-card">
+            <div class="sov-num">06</div>
+            <div class="sov-name">CendiaKey</div>
+            <div class="sov-desc">Customer-owned key management with HSM integration</div>
+          </div>
+          <div class="sovereign-card">
+            <div class="sov-num">07</div>
+            <div class="sov-name">CendiaBlackBox</div>
+            <div class="sov-desc">Tamper-evident sealed execution environment</div>
+          </div>
+          <div class="sovereign-card">
+            <div class="sov-num">08</div>
+            <div class="sov-name">TimeLock</div>
+            <div class="sov-desc">Time-locked encryption for embargoed decisions</div>
+          </div>
+        </div>
+
+        <p class="sovereign-category" data-i18n="diag4Cat3">Resilience &amp; Integrity</p>
+        <div class="sovereign-grid">
+          <div class="sovereign-card">
+            <div class="sov-num">09</div>
+            <div class="sov-name">CendiaWitness</div>
+            <div class="sov-desc">Independent verification of decision integrity</div>
+          </div>
+          <div class="sovereign-card">
+            <div class="sov-num">10</div>
+            <div class="sov-name">CendiaMirror</div>
+            <div class="sov-desc">Real-time replication for disaster recovery</div>
+          </div>
+          <div class="sovereign-card">
+            <div class="sov-num">11</div>
+            <div class="sov-name">CendiaVault</div>
+            <div class="sov-desc">Encrypted evidence storage with AES-256 at rest</div>
+          </div>
+          <div class="sovereign-card">
+            <div class="sov-num">12</div>
+            <div class="sov-name">Canary Tripwire</div>
+            <div class="sov-desc">Intrusion detection via decision integrity canaries</div>
+          </div>
+        </div>
+
+        <p class="sovereign-category" data-i18n="diag4Cat4">Network &amp; Federation</p>
+        <div class="sovereign-grid">
+          <div class="sovereign-card">
+            <div class="sov-num">13</div>
+            <div class="sov-name">Federated Mesh</div>
+            <div class="sov-desc">Multi-site federation without centralized data store</div>
+          </div>
+          <div class="sovereign-card">
+            <div class="sov-num">14</div>
+            <div class="sov-name">CendiaMesh</div>
+            <div class="sov-desc">Service mesh for zero-trust inter-service communication</div>
+          </div>
+          <div class="sovereign-card">
+            <div class="sov-num">15</div>
+            <div class="sov-name">CendiaMirage</div>
+            <div class="sov-desc">Decoy infrastructure to mislead attackers</div>
+          </div>
+          <div class="sovereign-card">
+            <div class="sov-num">16</div>
+            <div class="sov-name">CendiaGlass</div>
+            <div class="sov-desc">Transparent audit layer for all network traffic</div>
+          </div>
+        </div>
+
+        <p class="sovereign-category" data-i18n="diag4Cat5">AI &amp; Inference</p>
+        <div class="sovereign-grid">
+          <div class="sovereign-card">
+            <div class="sov-num">17</div>
+            <div class="sov-name">Local RLHF</div>
+            <div class="sov-desc">On-premise reinforcement learning from human feedback</div>
+          </div>
+          <div class="sovereign-card">
+            <div class="sov-num">18</div>
+            <div class="sov-name">Deterministic Replay</div>
+            <div class="sov-desc">Bit-exact reproduction of any past inference</div>
+          </div>
+          <div class="sovereign-card">
+            <div class="sov-num">19</div>
+            <div class="sov-name">Decision DNA</div>
+            <div class="sov-desc">Portable decision fingerprint for cross-system verification</div>
+          </div>
+          <div class="sovereign-card">
+            <div class="sov-num">20</div>
+            <div class="sov-name">CendiaOracle</div>
+            <div class="sov-desc">Deterministic AI oracle for policy-bound inference</div>
+          </div>
+          <div class="sovereign-card">
+            <div class="sov-num">21</div>
+            <div class="sov-name">CendiaLegacy</div>
+            <div class="sov-desc">Long-term archival with format migration guarantees</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================ -->
+      <!-- DIAGRAM 5: INDUSTRY VERTICALS MATRIX                          -->
+      <!-- ============================================================ -->
+      <section id="verticals-matrix" class="diagram-section">
+        <p class="diagram-section-label" data-i18n="diag5Label">Diagram 5 of 12</p>
+        <h2 class="diagram-section-title" data-i18n="diag5Title">Industry Verticals</h2>
+        <p class="diagram-section-desc" data-i18n="diag5Desc">8 deep industry verticals with full agent stacks, compliance mappings, and decision schemas. 13 additional sector templates in active development. Flagship verticals highlighted in gold.</p>
+
+        <div class="verticals-grid">
+          <div class="vert-cell flagship">
+            <div class="vert-icon">&#9878;</div>
+            <div class="vert-name">Legal</div>
+            <div class="vert-agents">Flagship</div>
+          </div>
+          <div class="vert-cell flagship">
+            <div class="vert-icon">&#9917;</div>
+            <div class="vert-name">Sports</div>
+            <div class="vert-agents">Flagship</div>
+          </div>
+          <div class="vert-cell flagship">
+            <div class="vert-icon">&#9872;</div>
+            <div class="vert-name">Defense</div>
+            <div class="vert-agents">Flagship</div>
+          </div>
+          <div class="vert-cell">
+            <div class="vert-icon">&#127973;</div>
+            <div class="vert-name">Financial</div>
+            <div class="vert-agents">Agents + Modes</div>
+          </div>
+          <div class="vert-cell">
+            <div class="vert-icon">&#127975;</div>
+            <div class="vert-name">Healthcare</div>
+            <div class="vert-agents">Agents + Modes</div>
+          </div>
+          <div class="vert-cell">
+            <div class="vert-icon">&#127979;</div>
+            <div class="vert-name">Government</div>
+            <div class="vert-agents">Agents + Modes</div>
+          </div>
+          <div class="vert-cell">
+            <div class="vert-icon">&#9889;</div>
+            <div class="vert-name">Energy</div>
+            <div class="vert-agents">Agents + Modes</div>
+          </div>
+          <div class="vert-cell">
+            <div class="vert-icon">&#128187;</div>
+            <div class="vert-name">Technology</div>
+            <div class="vert-agents">Agents + Modes</div>
+          </div>
+          <div class="vert-cell">
+            <div class="vert-icon">&#128640;</div>
+            <div class="vert-name">Aerospace</div>
+            <div class="vert-agents">Agents + Modes</div>
+          </div>
+          <div class="vert-cell">
+            <div class="vert-icon">&#127981;</div>
+            <div class="vert-name">Manufacturing</div>
+            <div class="vert-agents">Agents + Modes</div>
+          </div>
+          <div class="vert-cell">
+            <div class="vert-icon">&#128218;</div>
+            <div class="vert-name">Education</div>
+            <div class="vert-agents">Agents + Modes</div>
+          </div>
+          <div class="vert-cell">
+            <div class="vert-icon">&#127968;</div>
+            <div class="vert-name">Real Estate</div>
+            <div class="vert-agents">Agents + Modes</div>
+          </div>
+          <div class="vert-cell">
+            <div class="vert-icon">&#128247;</div>
+            <div class="vert-name">Media</div>
+            <div class="vert-agents">Agents + Modes</div>
+          </div>
+          <div class="vert-cell">
+            <div class="vert-icon">&#128241;</div>
+            <div class="vert-name">Telecom</div>
+            <div class="vert-agents">Agents + Modes</div>
+          </div>
+          <div class="vert-cell">
+            <div class="vert-icon">&#128661;</div>
+            <div class="vert-name">Automotive</div>
+            <div class="vert-agents">Agents + Modes</div>
+          </div>
+          <div class="vert-cell">
+            <div class="vert-icon">&#128137;</div>
+            <div class="vert-name">Pharmaceutical</div>
+            <div class="vert-agents">Agents + Modes</div>
+          </div>
+          <div class="vert-cell">
+            <div class="vert-icon">&#9968;</div>
+            <div class="vert-name">Insurance</div>
+            <div class="vert-agents">Agents + Modes</div>
+          </div>
+          <div class="vert-cell">
+            <div class="vert-icon">&#128690;</div>
+            <div class="vert-name">Transportation</div>
+            <div class="vert-agents">Agents + Modes</div>
+          </div>
+          <div class="vert-cell">
+            <div class="vert-icon">&#127806;</div>
+            <div class="vert-name">Agriculture</div>
+            <div class="vert-agents">Agents + Modes</div>
+          </div>
+          <div class="vert-cell">
+            <div class="vert-icon">&#128711;</div>
+            <div class="vert-name">Nonprofit</div>
+            <div class="vert-agents">Agents + Modes</div>
+          </div>
+          <div class="vert-cell">
+            <div class="vert-icon">&#127960;</div>
+            <div class="vert-name">Construction</div>
+            <div class="vert-agents">Agents + Modes</div>
+          </div>
+          <div class="vert-cell">
+            <div class="vert-icon">&#127958;</div>
+            <div class="vert-name">Hospitality</div>
+            <div class="vert-agents">Agents + Modes</div>
+          </div>
+          <div class="vert-cell">
+            <div class="vert-icon">&#128717;</div>
+            <div class="vert-name">Retail</div>
+            <div class="vert-agents">Agents + Modes</div>
+          </div>
+          <div class="vert-cell">
+            <div class="vert-icon">&#127961;</div>
+            <div class="vert-name">Smart City</div>
+            <div class="vert-agents">Agents + Modes</div>
+          </div>
+          <div class="vert-cell">
+            <div class="vert-icon">&#128188;</div>
+            <div class="vert-name">Professional Svcs</div>
+            <div class="vert-agents">Agents + Modes</div>
+          </div>
+          <div class="vert-cell">
+            <div class="vert-icon">&#9881;</div>
+            <div class="vert-name">Industrial Svcs</div>
+            <div class="vert-agents">Agents + Modes</div>
+          </div>
+          <div class="vert-cell">
+            <div class="vert-icon">&#128736;</div>
+            <div class="vert-name">Core Platform</div>
+            <div class="vert-agents">Cross-vertical</div>
+          </div>
+          <div class="vert-cell">
+            <div class="vert-icon">&#128300;</div>
+            <div class="vert-name">Meta / R&amp;D</div>
+            <div class="vert-agents">Internal</div>
+          </div>
+          <div class="vert-cell">
+            <div class="vert-icon">&#128736;</div>
+            <div class="vert-name">Internal Ops</div>
+            <div class="vert-agents">Internal</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================ -->
+      <!-- DIAGRAM 6: SGAS 5 AGENT CLASSES                             -->
+      <!-- ============================================================ -->
+      <section id="sgas-agents" class="diagram-section">
+        <p class="diagram-section-label" data-i18n="diag6Label">Diagram 6 of 12</p>
+        <h2 class="diagram-section-title" data-i18n="diag6Title">SGAS — 5 Agent Classes</h2>
+        <p class="diagram-section-desc" data-i18n="diag6Desc">The Synthetic Governance Agent System runs societal-scale simulations with 5 distinct agent classes, orchestrated by a central coordinator.</p>
+
+        <div class="sgas-layout">
+          <div class="sgas-orchestrator">
+            <div class="sgas-orch-box">
+              <div class="sgas-orch-label" data-i18n="diag6OrchLabel">Central Coordinator</div>
+              <div class="sgas-orch-name" data-i18n="diag6OrchName">SGAS Orchestrator</div>
+            </div>
+          </div>
+          <div class="sgas-connector"></div>
+          <div class="sgas-agents-ring">
+            <div class="sgas-agent-card">
+              <div class="sgas-icon">&#128101;</div>
+              <div class="sgas-agent-name" data-i18n="diag6Agent1Name">Institutional</div>
+              <div class="sgas-agent-role">Simulate organizations, governments, and regulatory bodies at macro scale</div>
+            </div>
+            <div class="sgas-agent-card">
+              <div class="sgas-icon">&#128269;</div>
+              <div class="sgas-agent-name" data-i18n="diag6Agent2Name">Observer</div>
+              <div class="sgas-agent-role">Monitor simulation dynamics, detect emergent patterns, flag anomalies</div>
+            </div>
+            <div class="sgas-agent-card">
+              <div class="sgas-icon">&#9878;</div>
+              <div class="sgas-agent-name" data-i18n="diag6Agent3Name">Decision</div>
+              <div class="sgas-agent-role">Execute governance decisions within simulated institutional frameworks</div>
+            </div>
+            <div class="sgas-agent-card">
+              <div class="sgas-icon">&#128520;</div>
+              <div class="sgas-agent-name" data-i18n="diag6Agent4Name">Adversarial</div>
+              <div class="sgas-agent-role">Attack governance structures, exploit weak policies, stress-test resilience</div>
+            </div>
+            <div class="sgas-agent-card">
+              <div class="sgas-icon">&#127760;</div>
+              <div class="sgas-agent-name" data-i18n="diag6Agent5Name">Meta-Governance</div>
+              <div class="sgas-agent-role">Govern the governance &mdash; ensure simulation rules and agent behaviors remain valid</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================ -->
+      <!-- DIAGRAM 7: TRUST / EVIDENCE CHAIN                           -->
+      <!-- ============================================================ -->
+      <section id="trust-chain" class="diagram-section">
+        <p class="diagram-section-label" data-i18n="diag7Label">Diagram 7 of 12</p>
+        <h2 class="diagram-section-title" data-i18n="diag7Title">Trust &amp; Evidence Chain</h2>
+        <p class="diagram-section-desc" data-i18n="diag7Desc">Every decision passes through a cryptographic chain of custody. From deliberation to court-admissible evidence in 6 steps.</p>
+
+        <div class="trust-chain">
+          <div class="trust-node">
+            <div class="trust-icon">&#128172;</div>
+            <div class="trust-name" data-i18n="diag7Node1Name">Deliberation</div>
+            <div class="trust-desc" data-i18n="diag7Node1Desc">Council produces reasoning, dissent, and recommendation</div>
+          </div>
+          <div class="trust-node">
+            <div class="trust-icon">&#128221;</div>
+            <div class="trust-name" data-i18n="diag7Node2Name">Ledger</div>
+            <div class="trust-desc" data-i18n="diag7Node2Desc">Immutable hash-chained record created</div>
+          </div>
+          <div class="trust-node">
+            <div class="trust-icon">&#128274;</div>
+            <div class="trust-name" data-i18n="diag7Node3Name">Notary</div>
+            <div class="trust-desc" data-i18n="diag7Node3Desc">Cryptographic signature with customer-owned keys</div>
+          </div>
+          <div class="trust-node">
+            <div class="trust-icon">&#128336;</div>
+            <div class="trust-name" data-i18n="diag7Node4Name">Timestamp</div>
+            <div class="trust-desc" data-i18n="diag7Node4Desc">RFC 3161 external timestamp authority</div>
+          </div>
+          <div class="trust-node">
+            <div class="trust-icon">&#128451;</div>
+            <div class="trust-name" data-i18n="diag7Node5Name">Vault</div>
+            <div class="trust-desc" data-i18n="diag7Node5Desc">Encrypted evidence bundle stored with AES-256</div>
+          </div>
+          <div class="trust-node">
+            <div class="trust-icon">&#128220;</div>
+            <div class="trust-name" data-i18n="diag7Node6Name">Provenance</div>
+            <div class="trust-desc" data-i18n="diag7Node6Desc">Court-admissible export with full lineage</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================ -->
+      <!-- DIAGRAM 8: COMPLIANCE FRAMEWORK MATRIX                      -->
+      <!-- ============================================================ -->
+      <section id="compliance-matrix" class="diagram-section">
+        <p class="diagram-section-label" data-i18n="diag8Label">Diagram 8 of 12</p>
+        <h2 class="diagram-section-title" data-i18n="diag8Title">Compliance Framework &times; Jurisdiction Matrix</h2>
+        <p class="diagram-section-desc" data-i18n="diag8Desc">10 compliance frameworks mapped against 17 supported jurisdictions. Gold = full coverage. Dim gold = partial. Dark = not applicable.</p>
+
+        <div class="compliance-table-wrap">
+          <table class="compliance-table">
+            <thead>
+              <tr>
+                <th data-i18n="diag8ColFramework">Framework</th>
+                <th>US</th>
+                <th>EU</th>
+                <th>UK</th>
+                <th>CA</th>
+                <th>AU</th>
+                <th>JP</th>
+                <th>KR</th>
+                <th>SG</th>
+                <th>BR</th>
+                <th>IN</th>
+                <th>CH</th>
+                <th>AE</th>
+                <th>SA</th>
+                <th>CN</th>
+                <th>DE</th>
+                <th>FR</th>
+                <th>IL</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>SOC 2</td>
+                <td><span class="dot full"></span></td>
+                <td><span class="dot partial"></span></td>
+                <td><span class="dot partial"></span></td>
+                <td><span class="dot full"></span></td>
+                <td><span class="dot partial"></span></td>
+                <td><span class="dot partial"></span></td>
+                <td><span class="dot partial"></span></td>
+                <td><span class="dot full"></span></td>
+                <td><span class="dot partial"></span></td>
+                <td><span class="dot partial"></span></td>
+                <td><span class="dot partial"></span></td>
+                <td><span class="dot partial"></span></td>
+                <td><span class="dot partial"></span></td>
+                <td><span class="dot none"></span></td>
+                <td><span class="dot partial"></span></td>
+                <td><span class="dot partial"></span></td>
+                <td><span class="dot partial"></span></td>
+              </tr>
+              <tr>
+                <td>GDPR</td>
+                <td><span class="dot partial"></span></td>
+                <td><span class="dot full"></span></td>
+                <td><span class="dot full"></span></td>
+                <td><span class="dot partial"></span></td>
+                <td><span class="dot partial"></span></td>
+                <td><span class="dot partial"></span></td>
+                <td><span class="dot partial"></span></td>
+                <td><span class="dot partial"></span></td>
+                <td><span class="dot partial"></span></td>
+                <td><span class="dot partial"></span></td>
+                <td><span class="dot full"></span></td>
+                <td><span class="dot partial"></span></td>
+                <td><span class="dot partial"></span></td>
+                <td><span class="dot none"></span></td>
+                <td><span class="dot full"></span></td>
+                <td><span class="dot full"></span></td>
+                <td><span class="dot partial"></span></td>
+              </tr>
+              <tr>
+                <td>HIPAA</td>
+                <td><span class="dot full"></span></td>
+                <td><span class="dot none"></span></td>
+                <td><span class="dot none"></span></td>
+                <td><span class="dot partial"></span></td>
+                <td><span class="dot none"></span></td>
+                <td><span class="dot none"></span></td>
+                <td><span class="dot none"></span></td>
+                <td><span class="dot none"></span></td>
+                <td><span class="dot none"></span></td>
+                <td><span class="dot none"></span></td>
+                <td><span class="dot none"></span></td>
+                <td><span class="dot none"></span></td>
+                <td><span class="dot none"></span></td>
+                <td><span class="dot none"></span></td>
+                <td><span class="dot none"></span></td>
+                <td><span class="dot none"></span></td>
+                <td><span class="dot none"></span></td>
+              </tr>
+              <tr>
+                <td>FedRAMP</td>
+                <td><span class="dot full"></span></td>
+                <td><span class="dot none"></span></td>
+                <td><span class="dot none"></span></td>
+                <td><span class="dot partial"></span></td>
+                <td><span class="dot none"></span></td>
+                <td><span class="dot none"></span></td>
+                <td><span class="dot none"></span></td>
+                <td><span class="dot none"></span></td>
+                <td><span class="dot none"></span></td>
+                <td><span class="dot none"></span></td>
+                <td><span class="dot none"></span></td>
+                <td><span class="dot none"></span></td>
+                <td><span class="dot none"></span></td>
+                <td><span class="dot none"></span></td>
+                <td><span class="dot none"></span></td>
+                <td><span class="dot none"></span></td>
+                <td><span class="dot partial"></span></td>
+              </tr>
+              <tr>
+                <td>ISO 27001</td>
+                <td><span class="dot full"></span></td>
+                <td><span class="dot full"></span></td>
+                <td><span class="dot full"></span></td>
+                <td><span class="dot full"></span></td>
+                <td><span class="dot full"></span></td>
+                <td><span class="dot full"></span></td>
+                <td><span class="dot full"></span></td>
+                <td><span class="dot full"></span></td>
+                <td><span class="dot full"></span></td>
+                <td><span class="dot full"></span></td>
+                <td><span class="dot full"></span></td>
+                <td><span class="dot full"></span></td>
+                <td><span class="dot full"></span></td>
+                <td><span class="dot full"></span></td>
+                <td><span class="dot full"></span></td>
+                <td><span class="dot full"></span></td>
+                <td><span class="dot full"></span></td>
+              </tr>
+              <tr>
+                <td>DORA</td>
+                <td><span class="dot none"></span></td>
+                <td><span class="dot full"></span></td>
+                <td><span class="dot partial"></span></td>
+                <td><span class="dot none"></span></td>
+                <td><span class="dot none"></span></td>
+                <td><span class="dot none"></span></td>
+                <td><span class="dot none"></span></td>
+                <td><span class="dot none"></span></td>
+                <td><span class="dot none"></span></td>
+                <td><span class="dot none"></span></td>
+                <td><span class="dot partial"></span></td>
+                <td><span class="dot none"></span></td>
+                <td><span class="dot none"></span></td>
+                <td><span class="dot none"></span></td>
+                <td><span class="dot full"></span></td>
+                <td><span class="dot full"></span></td>
+                <td><span class="dot none"></span></td>
+              </tr>
+              <tr>
+                <td>EU AI Act</td>
+                <td><span class="dot partial"></span></td>
+                <td><span class="dot full"></span></td>
+                <td><span class="dot partial"></span></td>
+                <td><span class="dot partial"></span></td>
+                <td><span class="dot partial"></span></td>
+                <td><span class="dot partial"></span></td>
+                <td><span class="dot partial"></span></td>
+                <td><span class="dot partial"></span></td>
+                <td><span class="dot partial"></span></td>
+                <td><span class="dot partial"></span></td>
+                <td><span class="dot partial"></span></td>
+                <td><span class="dot partial"></span></td>
+                <td><span class="dot partial"></span></td>
+                <td><span class="dot none"></span></td>
+                <td><span class="dot full"></span></td>
+                <td><span class="dot full"></span></td>
+                <td><span class="dot partial"></span></td>
+              </tr>
+              <tr>
+                <td>NIST AI RMF</td>
+                <td><span class="dot full"></span></td>
+                <td><span class="dot partial"></span></td>
+                <td><span class="dot partial"></span></td>
+                <td><span class="dot partial"></span></td>
+                <td><span class="dot partial"></span></td>
+                <td><span class="dot partial"></span></td>
+                <td><span class="dot partial"></span></td>
+                <td><span class="dot partial"></span></td>
+                <td><span class="dot partial"></span></td>
+                <td><span class="dot partial"></span></td>
+                <td><span class="dot partial"></span></td>
+                <td><span class="dot partial"></span></td>
+                <td><span class="dot partial"></span></td>
+                <td><span class="dot none"></span></td>
+                <td><span class="dot partial"></span></td>
+                <td><span class="dot partial"></span></td>
+                <td><span class="dot full"></span></td>
+              </tr>
+              <tr>
+                <td>PCI-DSS</td>
+                <td><span class="dot full"></span></td>
+                <td><span class="dot full"></span></td>
+                <td><span class="dot full"></span></td>
+                <td><span class="dot full"></span></td>
+                <td><span class="dot full"></span></td>
+                <td><span class="dot full"></span></td>
+                <td><span class="dot full"></span></td>
+                <td><span class="dot full"></span></td>
+                <td><span class="dot full"></span></td>
+                <td><span class="dot full"></span></td>
+                <td><span class="dot full"></span></td>
+                <td><span class="dot full"></span></td>
+                <td><span class="dot full"></span></td>
+                <td><span class="dot full"></span></td>
+                <td><span class="dot full"></span></td>
+                <td><span class="dot full"></span></td>
+                <td><span class="dot full"></span></td>
+              </tr>
+              <tr>
+                <td>CMMC / ITAR</td>
+                <td><span class="dot full"></span></td>
+                <td><span class="dot none"></span></td>
+                <td><span class="dot partial"></span></td>
+                <td><span class="dot partial"></span></td>
+                <td><span class="dot partial"></span></td>
+                <td><span class="dot partial"></span></td>
+                <td><span class="dot partial"></span></td>
+                <td><span class="dot none"></span></td>
+                <td><span class="dot none"></span></td>
+                <td><span class="dot none"></span></td>
+                <td><span class="dot none"></span></td>
+                <td><span class="dot partial"></span></td>
+                <td><span class="dot partial"></span></td>
+                <td><span class="dot none"></span></td>
+                <td><span class="dot partial"></span></td>
+                <td><span class="dot partial"></span></td>
+                <td><span class="dot full"></span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div style="text-align: center; margin-top: 20px; font-size: 0.65rem; color: var(--color-text-dim);">
+          <span style="display: inline-flex; align-items: center; gap: 6px; margin-right: 16px;"><span class="dot full" style="width: 8px; height: 8px; border-radius: 50; display: inline-block;"></span> Full coverage</span>
+          <span style="display: inline-flex; align-items: center; gap: 6px; margin-right: 16px;"><span class="dot partial" style="width: 8px; height: 8px; border-radius: 50; display: inline-block;"></span> Partial / mapped</span>
+          <span style="display: inline-flex; align-items: center; gap: 6px;"><span class="dot none" style="width: 8px; height: 8px; border-radius: 50%; display: inline-block; background: rgba(255,255,255,0.08);"></span> Not applicable</span>
+        </div>
+      </section>
+
+      <!-- ============================================================ -->
+      <!-- DIAGRAM 9: MULTI-MODEL ARCHITECTURE                         -->
+      <!-- ============================================================ -->
+      <section id="model-architecture" class="diagram-section">
+        <p class="diagram-section-label">Diagram 9 of 12</p>
+        <h2 class="diagram-section-title">Multi-Model AI Architecture</h2>
+        <p class="diagram-section-desc">&ldquo;Right Brain for the Right Job.&rdquo; 8 purpose-built AI model slots, each optimized for a specific task type. All running locally via Ollama on your infrastructure. No API calls to external providers.</p>
+
+        <div class="model-arch-flow">
+          <div class="model-arch-router">
+            <div class="router-title">QueryRouter &rarr; Task Classifier &rarr; Tier Gate &rarr; Ollama</div>
+            <div class="router-desc">Natural language query is classified by intent, routed to the optimal model slot, and tier-gated based on your license level</div>
+          </div>
+          <div class="lifecycle-arrow"></div>
+          <div class="model-slots-grid">
+            <div class="model-slot">
+              <div class="slot-role">Large</div>
+              <div class="slot-model">llama3.3:70b</div>
+              <div class="slot-params">70B &middot; 128K ctx</div>
+              <div class="slot-use">Complex strategy, board-level analysis</div>
+            </div>
+            <div class="model-slot">
+              <div class="slot-role">Flagship</div>
+              <div class="slot-model">qwen3:32b</div>
+              <div class="slot-params">32B &middot; 32K ctx</div>
+              <div class="slot-use">General deliberation, council agents</div>
+            </div>
+            <div class="model-slot">
+              <div class="slot-role">Reasoning</div>
+              <div class="slot-model">deepseek-r1:32b</div>
+              <div class="slot-params">32B &middot; 128K ctx</div>
+              <div class="slot-use">Compliance, risk analysis, logic chains</div>
+            </div>
+            <div class="model-slot">
+              <div class="slot-role">Coder</div>
+              <div class="slot-model">qwen3-coder:30b</div>
+              <div class="slot-params">30B &middot; 131K ctx</div>
+              <div class="slot-use">SQL generation, data transforms, code</div>
+            </div>
+            <div class="model-slot">
+              <div class="slot-role">Fast</div>
+              <div class="slot-model">llama3.2:3b</div>
+              <div class="slot-params">3B &middot; 128K ctx</div>
+              <div class="slot-use">Classification, routing, quick lookups</div>
+            </div>
+            <div class="model-slot">
+              <div class="slot-role">Vision</div>
+              <div class="slot-model">qwen3-vl:30b</div>
+              <div class="slot-params">30B &middot; multimodal</div>
+              <div class="slot-use">Document OCR, image analysis, charts</div>
+            </div>
+            <div class="model-slot">
+              <div class="slot-role">Translator</div>
+              <div class="slot-model">qwen2.5:32b</div>
+              <div class="slot-params">32B &middot; 128K ctx</div>
+              <div class="slot-use">100+ languages, RTL, glossary-aware</div>
+            </div>
+            <div class="model-slot">
+              <div class="slot-role">Embed</div>
+              <div class="slot-model">qwen3-embed:4b</div>
+              <div class="slot-params">4B &middot; 2560-dim</div>
+              <div class="slot-use">Semantic search, RAG, similarity</div>
+            </div>
+          </div>
+          <p class="model-arch-footer">All models are env-var configurable &middot; Swap any model without code changes &middot; License tier controls which slots are available</p>
+        </div>
+      </section>
+
+      <!-- ============================================================ -->
+      <!-- DIAGRAM 10: EVIDENCE PACKET ANATOMY                          -->
+      <!-- ============================================================ -->
+      <section id="evidence-packet" class="diagram-section">
+        <p class="diagram-section-label">Diagram 10 of 12</p>
+        <h2 class="diagram-section-title">Evidence Packet Anatomy</h2>
+        <p class="diagram-section-desc">What&rsquo;s inside a Regulator&rsquo;s Receipt&trade;. Every layer is independently verifiable. This is what you hand to the auditor.</p>
+
+        <div class="packet-anatomy">
+          <div class="packet-header">
+            <div class="packet-title">Decision Packet</div>
+            <div class="packet-id">run_id: 2026-0221-1430-a7f3b2</div>
+          </div>
+          <div class="packet-layer">
+            <div class="layer-icon">&#128279;</div>
+            <div class="layer-name">Merkle Root</div>
+            <div class="layer-detail">SHA-256 integrity tree &mdash; any single leaf change invalidates the root. Tamper-proof by construction.</div>
+          </div>
+          <div class="packet-layer">
+            <div class="layer-icon">&#129302;</div>
+            <div class="layer-name">Agent Contributions</div>
+            <div class="layer-detail">Each agent&rsquo;s analysis, vote, confidence score, and reasoning chain. CFO, CLO, CISO, CTO, Ethics, Risk, Strategy&hellip;</div>
+          </div>
+          <div class="packet-layer">
+            <div class="layer-icon">&#9888;&#65039;</div>
+            <div class="layer-name">Dissenting Opinions</div>
+            <div class="layer-detail">Preserved, timestamped, non-suppressible. Tracked to outcome for institutional learning.</div>
+          </div>
+          <div class="packet-layer">
+            <div class="layer-icon">&#128206;</div>
+            <div class="layer-name">Evidence Citations</div>
+            <div class="layer-detail">Source documents, data points, and knowledge base references &mdash; each with content hash and retrieval timestamp.</div>
+          </div>
+          <div class="packet-layer">
+            <div class="layer-icon">&#128736;&#65039;</div>
+            <div class="layer-name">Tool Call Traces</div>
+            <div class="layer-detail">Every external tool invoked during deliberation: database queries, API calls, calculations &mdash; with inputs, outputs, and duration.</div>
+          </div>
+          <div class="packet-layer">
+            <div class="layer-icon">&#128275;</div>
+            <div class="layer-name">Policy Gate Results</div>
+            <div class="layer-detail">Which compliance frameworks were checked, which rules triggered, what approvals were required and obtained.</div>
+          </div>
+          <div class="packet-layer">
+            <div class="layer-icon">&#127919;</div>
+            <div class="layer-name">IISS Score Snapshot</div>
+            <div class="layer-detail">Institutional Immune System Score at time of decision &mdash; 9 primitive scores, weighted composite, certification band.</div>
+          </div>
+          <div class="packet-layer">
+            <div class="layer-icon">&#128396;&#65039;</div>
+            <div class="layer-name">Digital Signature</div>
+            <div class="layer-detail">KMS/HSM-backed signature (AWS KMS, HashiCorp Vault, Azure Key Vault, or local). Post-quantum ready (Dilithium, SPHINCS+).</div>
+          </div>
+          <div class="packet-footer">
+            <span>Verification: any leaf &rarr; root provable</span>
+            <span>Export: PDF/A-3 &middot; JSON &middot; XML</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================ -->
+      <!-- DIAGRAM 11: DEPLOYMENT STACK                                 -->
+      <!-- ============================================================ -->
+      <section id="deployment-stack" class="diagram-section">
+        <p class="diagram-section-label">Diagram 11 of 12</p>
+        <h2 class="diagram-section-title">Deployment Stack</h2>
+        <p class="diagram-section-desc">Everything runs on your infrastructure. Every component is a recognized, auditable technology. Nothing proprietary in the data path.</p>
+
+        <div class="stack-diagram">
+          <div class="stack-row-label">Presentation</div>
+          <div class="stack-row" style="grid-template-columns: 1fr 1fr;">
+            <div class="stack-item">
+              <div class="stack-name">React SPA</div>
+              <div class="stack-role">Dashboard, Council UI, DCII tabs</div>
+            </div>
+            <div class="stack-item">
+              <div class="stack-name">WebSocket</div>
+              <div class="stack-role">Live deliberation streaming</div>
+            </div>
+          </div>
+          <div class="stack-row-label">API &amp; Auth</div>
+          <div class="stack-row" style="grid-template-columns: 1fr 1fr 1fr;">
+            <div class="stack-item">
+              <div class="stack-name">Express REST</div>
+              <div class="stack-role">59+ API endpoints</div>
+            </div>
+            <div class="stack-item">
+              <div class="stack-name">JWT + Keycloak</div>
+              <div class="stack-role">SSO, RBAC, Casbin policy</div>
+            </div>
+            <div class="stack-item">
+              <div class="stack-name">Rate Limiter</div>
+              <div class="stack-role">CSRF, Helmet, OWASP</div>
+            </div>
+          </div>
+          <div class="stack-row-label">AI Layer</div>
+          <div class="stack-row" style="grid-template-columns: 1fr 1fr;">
+            <div class="stack-item">
+              <div class="stack-name">Ollama</div>
+              <div class="stack-role">8 local AI models &middot; no cloud calls</div>
+            </div>
+            <div class="stack-item">
+              <div class="stack-name">Qdrant</div>
+              <div class="stack-role">2560-dim vector search &middot; RAG</div>
+            </div>
+          </div>
+          <div class="stack-row-label">Data</div>
+          <div class="stack-row" style="grid-template-columns: repeat(5, 1fr);">
+            <div class="stack-item">
+              <div class="stack-name">PostgreSQL</div>
+              <div class="stack-role">Prisma ORM</div>
+            </div>
+            <div class="stack-item">
+              <div class="stack-name">Neo4j</div>
+              <div class="stack-role">Knowledge graph</div>
+            </div>
+            <div class="stack-item">
+              <div class="stack-name">Redis</div>
+              <div class="stack-role">Cache &middot; sessions</div>
+            </div>
+            <div class="stack-item">
+              <div class="stack-name">ClickHouse</div>
+              <div class="stack-role">Analytics &middot; OLAP</div>
+            </div>
+            <div class="stack-item">
+              <div class="stack-name">MinIO</div>
+              <div class="stack-role">Object storage</div>
+            </div>
+          </div>
+          <div class="stack-row-label">Security &amp; Integrity</div>
+          <div class="stack-row" style="grid-template-columns: repeat(4, 1fr);">
+            <div class="stack-item">
+              <div class="stack-name">PostQuantum KMS</div>
+              <div class="stack-role">Dilithium &middot; SPHINCS+</div>
+            </div>
+            <div class="stack-item">
+              <div class="stack-name">Apache Tika</div>
+              <div class="stack-role">Document extraction</div>
+            </div>
+            <div class="stack-item">
+              <div class="stack-name">ClamAV</div>
+              <div class="stack-role">Malware scanning</div>
+            </div>
+            <div class="stack-item">
+              <div class="stack-name">OpenTelemetry</div>
+              <div class="stack-role">Observability &middot; tracing</div>
+            </div>
+          </div>
+          <div class="stack-sovereignty">&#128274; Nothing leaves this box. Your keys. Your data. Your infrastructure.</div>
+        </div>
+      </section>
+
+      <!-- ============================================================ -->
+      <!-- DIAGRAM 12: LICENSE TIER GATING                              -->
+      <!-- ============================================================ -->
+      <section id="tier-gating" class="diagram-section">
+        <p class="diagram-section-label">Diagram 12 of 12</p>
+        <h2 class="diagram-section-title">License Tier Model Gating</h2>
+        <p class="diagram-section-desc">Each license tier unlocks progressively more powerful AI models. Automatic downgrade ensures graceful degradation. No feature breaks &mdash; just smaller models.</p>
+
+        <div class="tier-gating">
+          <div class="tier-gate">
+            <div class="tier-gate-header">
+              <div class="gate-name">Pilot</div>
+              <div class="gate-price">$50K &middot; 90 days</div>
+            </div>
+            <div class="tier-gate-body">
+              <div class="gate-row"><span class="gate-label">Max model size</span><span class="gate-value">14B</span></div>
+              <div class="gate-row"><span class="gate-label">Flagship</span><span class="gate-value">qwen2.5:14b</span></div>
+              <div class="gate-row"><span class="gate-label">Reasoning</span><span class="gate-value">deepseek-r1:14b</span></div>
+              <div class="gate-row"><span class="gate-label">Fast</span><span class="gate-value enabled">llama3.2:3b</span></div>
+              <div class="gate-row"><span class="gate-label">Embed</span><span class="gate-value enabled">qwen3-embed:4b</span></div>
+              <div class="gate-row"><span class="gate-label">Large (70B)</span><span class="gate-value disabled">&mdash;</span></div>
+              <div class="gate-row"><span class="gate-label">Coder</span><span class="gate-value disabled">&mdash;</span></div>
+              <div class="gate-row"><span class="gate-label">Vision</span><span class="gate-value disabled">&mdash;</span></div>
+              <div class="gate-row"><span class="gate-label">Consensus</span><span class="gate-value disabled">&mdash;</span></div>
+              <div class="gate-row"><span class="gate-label">Red-team</span><span class="gate-value disabled">&mdash;</span></div>
+            </div>
+            <div class="tier-gate-footer">Prove it &mdash; 3 models + embed</div>
+          </div>
+
+          <div class="tier-gate" style="border-color: var(--color-gold-border);">
+            <div class="tier-gate-header" style="background: linear-gradient(135deg, rgba(201,162,39,0.1), transparent);">
+              <div class="gate-name">Enterprise</div>
+              <div class="gate-price">$150K&ndash;$500K / year</div>
+            </div>
+            <div class="tier-gate-body">
+              <div class="gate-row"><span class="gate-label">Max model size</span><span class="gate-value">32B</span></div>
+              <div class="gate-row"><span class="gate-label">Flagship</span><span class="gate-value enabled">qwen3:32b</span></div>
+              <div class="gate-row"><span class="gate-label">Reasoning</span><span class="gate-value enabled">deepseek-r1:32b</span></div>
+              <div class="gate-row"><span class="gate-label">Fast</span><span class="gate-value enabled">llama3.2:3b</span></div>
+              <div class="gate-row"><span class="gate-label">Embed</span><span class="gate-value enabled">qwen3-embed:4b</span></div>
+              <div class="gate-row"><span class="gate-label">Large (70B)</span><span class="gate-value disabled">&mdash;</span></div>
+              <div class="gate-row"><span class="gate-label">Coder</span><span class="gate-value enabled">qwen3-coder:30b</span></div>
+              <div class="gate-row"><span class="gate-label">Vision</span><span class="gate-value enabled">qwen3-vl:30b</span></div>
+              <div class="gate-row"><span class="gate-label">Consensus</span><span class="gate-value enabled">&#10003;</span></div>
+              <div class="gate-row"><span class="gate-label">Red-team</span><span class="gate-value enabled">&#10003;</span></div>
+            </div>
+            <div class="tier-gate-footer">Scale it &mdash; full 32B stack</div>
+          </div>
+
+          <div class="tier-gate">
+            <div class="tier-gate-header">
+              <div class="gate-name">Sovereign</div>
+              <div class="gate-price">$500K&ndash;$1.5M / year</div>
+            </div>
+            <div class="tier-gate-body">
+              <div class="gate-row"><span class="gate-label">Max model size</span><span class="gate-value">70B+</span></div>
+              <div class="gate-row"><span class="gate-label">Flagship</span><span class="gate-value enabled">qwen3:32b</span></div>
+              <div class="gate-row"><span class="gate-label">Reasoning</span><span class="gate-value enabled">deepseek-r1:32b</span></div>
+              <div class="gate-row"><span class="gate-label">Fast</span><span class="gate-value enabled">llama3.2:3b</span></div>
+              <div class="gate-row"><span class="gate-label">Embed</span><span class="gate-value enabled">qwen3-embed:4b</span></div>
+              <div class="gate-row"><span class="gate-label">Large (70B)</span><span class="gate-value enabled">llama3.3:70b</span></div>
+              <div class="gate-row"><span class="gate-label">Coder</span><span class="gate-value enabled">qwen3-coder:30b</span></div>
+              <div class="gate-row"><span class="gate-label">Vision</span><span class="gate-value enabled">qwen3-vl:30b</span></div>
+              <div class="gate-row"><span class="gate-label">Consensus</span><span class="gate-value enabled">&#10003;</span></div>
+              <div class="gate-row"><span class="gate-label">Red-team</span><span class="gate-value enabled">&#10003;</span></div>
+            </div>
+            <div class="tier-gate-footer">Own everything &mdash; 70B + air-gap + PQ crypto</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Final CTA -->
+      <section style="text-align: center; padding: 48px 0 0;">
+        <p style="font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--color-gold); margin-bottom: 12px;" data-i18n="diagCtaLabel">Ready to explore?</p>
+        <h2 style="font-family: var(--font-display); font-size: 1.6rem; font-weight: 300; color: var(--color-text); margin-bottom: 20px;" data-i18n="diagCtaTitle">See it running on your infrastructure</h2>
+        <a href="briefing.html" style="display: inline-block; padding: 14px 36px; font-size: 0.8rem; font-weight: 500; letter-spacing: 0.05em; color: var(--color-gold); border: 1px solid var(--color-gold); border-radius: 4px; text-decoration: none; transition: all 0.2s;" data-i18n="diagCtaBtn">Request Technical Briefing →</a>
+      </section>
+
+    </div>
+  </div>
+
+  <footer style="text-align: center; padding: 48px 24px; font-size: 0.65rem; color: var(--color-text-dim);">
+    <p data-i18n="diagFooterCopy">&copy; 2024–2026 Datacendia, LLC. All rights reserved.</p>
+    <p style="margin-top: 8px;">
+      <a href="index.html" style="color: var(--color-text-dim); text-decoration: none;">Home</a> &middot;
+      <a href="pricing.html" style="color: var(--color-text-dim); text-decoration: none;">Pricing</a> &middot;
+      <a href="premium.html" style="color: var(--color-text-dim); text-decoration: none;">Premium</a> &middot;
+      <a href="trust.html" style="color: var(--color-text-dim); text-decoration: none;">Trust</a> &middot;
+      <a href="briefing.html" style="color: var(--color-text-dim); text-decoration: none;">Briefing</a>
+    </p>
+  </footer>
+  <script src="nav-mobile.js"></script>
+</body>
+</html>

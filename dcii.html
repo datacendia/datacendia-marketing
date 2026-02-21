@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crisis Immunization Framework | Decision Crisis Immunization Infrastructure | Datacendia</title>
+  <meta name="description" content="Datacendia is Decision Crisis Immunization Infrastructure. Our framework is Crisis Immunization — the 9 primitives that prevent institutional failure. Measured by the Institutional Immune System Score (IISS).">
+  <meta name="keywords" content="decision crisis immunization, DCII, institutional immune system, IISS score, synthetic media authentication, cross-jurisdiction compliance, RFC 3161 timestamp, decision similarity, AI governance framework, enterprise risk management">
+  <meta name="author" content="Datacendia">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Crisis Immunization Framework | Decision Crisis Immunization Infrastructure | Datacendia">
+  <meta property="og:description" content="Datacendia is Decision Crisis Immunization Infrastructure. Our framework is Crisis Immunization — the 9 primitives that prevent institutional failure.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://datacendia.com/dcii.html">
+  <meta property="og:image" content="https://datacendia.com/og-image.png">
+  <meta property="og:site_name" content="Datacendia">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Crisis Immunization Framework | Decision Crisis Immunization Infrastructure">
+  <meta name="twitter:description" content="The 9 primitives that prevent institutional failure. Measured by IISS score.">
+  <meta name="twitter:image" content="https://datacendia.com/og-image.png">
+  <link rel="canonical" href="https://datacendia.com/dcii.html">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <meta name="theme-color" content="#0a0a0a">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "CendiaDCII™ — Decision Crisis Immunization Infrastructure",
+    "description": "A framework that makes organizations structurally immune to decision crises through five integrated services: IISS scoring, synthetic media authentication, cross-jurisdiction compliance, RFC 3161 timestamping, and decision similarity detection.",
+    "url": "https://datacendia.com/dcii.html",
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://datacendia.com/" },
+        { "@type": "ListItem", "position": 2, "name": "DCII", "item": "https://datacendia.com/dcii.html" }
+      ]
+    }
+  }
+  </script>
+  <style>
+    .page-container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 80px 24px;
+    }
+    .page-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+    .page-title {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 300;
+      color: var(--color-text);
+      margin-bottom: 12px;
+    }
+    .page-subtitle {
+      font-size: 0.9rem;
+      color: var(--color-text-muted);
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+    .dcii-intro {
+      font-size: 0.85rem;
+      color: var(--color-text-muted);
+      line-height: 1.7;
+      margin-bottom: 40px;
+      padding: 24px;
+      background: var(--color-bg-elevated);
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+    }
+    .dcii-intro strong {
+      color: var(--color-text);
+    }
+    .score-visual {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin: 32px 0;
+      flex-wrap: wrap;
+    }
+    .score-band {
+      padding: 10px 16px;
+      border-radius: 6px;
+      text-align: center;
+      font-size: 0.7rem;
+      font-family: var(--font-mono);
+      min-width: 100px;
+    }
+    .score-band .band-range {
+      font-weight: 600;
+      display: block;
+      margin-bottom: 2px;
+    }
+    .score-band .band-name {
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      opacity: 0.8;
+    }
+    .band-critical { background: rgba(239, 68, 68, 0.15); color: #ef4444; border: 1px solid rgba(239, 68, 68, 0.3); }
+    .band-vulnerable { background: rgba(245, 158, 11, 0.15); color: #f59e0b; border: 1px solid rgba(245, 158, 11, 0.3); }
+    .band-developing { background: rgba(234, 179, 8, 0.15); color: #eab308; border: 1px solid rgba(234, 179, 8, 0.3); }
+    .band-resilient { background: rgba(34, 197, 94, 0.15); color: #22c55e; border: 1px solid rgba(34, 197, 94, 0.3); }
+    .band-exceptional { background: rgba(6, 182, 212, 0.15); color: #06b6d4; border: 1px solid rgba(6, 182, 212, 0.3); }
+
+    .service-section {
+      background: var(--color-bg-elevated);
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      padding: 28px;
+      margin-bottom: 24px;
+    }
+    .service-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+    .service-number {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, rgba(212, 175, 55, 0.2), rgba(212, 175, 55, 0.05));
+      border: 1px solid var(--color-gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--color-gold);
+      flex-shrink: 0;
+    }
+    .service-title-group { flex: 1; }
+    .service-name {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 400;
+      color: var(--color-text);
+      margin-bottom: 2px;
+    }
+    .service-tagline {
+      font-size: 0.7rem;
+      color: var(--color-gold);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+    .service-desc {
+      font-size: 0.85rem;
+      color: var(--color-text-muted);
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+    .capability-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 10px;
+    }
+    .capability-item {
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+      border-radius: 6px;
+      padding: 14px;
+    }
+    .capability-name {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--color-gold);
+      margin-bottom: 4px;
+    }
+    .capability-desc {
+      font-size: 0.72rem;
+      color: var(--color-text-dim);
+      line-height: 1.5;
+    }
+    .dimension-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 10px;
+      margin-top: 16px;
+    }
+    .dimension-item {
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+      border-radius: 6px;
+      padding: 14px;
+      text-align: center;
+    }
+    .dimension-num {
+      font-family: var(--font-mono);
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--color-gold);
+    }
+    .dimension-name {
+      font-size: 0.7rem;
+      color: var(--color-text-muted);
+      margin-top: 4px;
+      line-height: 1.4;
+    }
+    .dimension-desc {
+      font-size: 0.65rem;
+      color: var(--color-text-dim);
+      margin-top: 4px;
+      line-height: 1.4;
+      font-style: italic;
+    }
+    .standards-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 12px;
+    }
+    .standard-tag {
+      font-size: 0.65rem;
+      font-family: var(--font-mono);
+      padding: 3px 8px;
+      border-radius: 3px;
+      background: rgba(212, 175, 55, 0.08);
+      border: 1px solid rgba(212, 175, 55, 0.2);
+      color: var(--color-gold);
+    }
+    .impact-section {
+      background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(212, 175, 55, 0.02) 100%);
+      border: 1px solid var(--color-gold);
+      border-radius: 8px;
+      padding: 32px;
+      margin-top: 40px;
+      margin-bottom: 24px;
+    }
+    .impact-section h2 {
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--color-gold);
+      margin-bottom: 16px;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+    }
+    .impact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+    }
+    .impact-item {
+      text-align: center;
+    }
+    .impact-stat {
+      font-family: var(--font-mono);
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: var(--color-gold);
+    }
+    .impact-label {
+      font-size: 0.75rem;
+      color: var(--color-text-muted);
+      margin-top: 4px;
+    }
+    .contact-box {
+      text-align: center;
+      padding: 32px;
+      background: var(--color-bg-elevated);
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      margin-top: 40px;
+    }
+    .contact-box p {
+      font-size: 0.9rem;
+      color: var(--color-text-muted);
+      margin-bottom: 16px;
+    }
+    .contact-box a {
+      color: var(--color-gold);
+      text-decoration: none;
+    }
+    .contact-box a:hover {
+      text-decoration: underline;
+    }
+    .back-link {
+      display: inline-block;
+      margin-bottom: 32px;
+      font-size: 0.75rem;
+      color: var(--color-text-dim);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+    .back-link:hover {
+      color: var(--color-gold);
+    }
+    @media (max-width: 600px) {
+      .capability-grid { grid-template-columns: 1fr; }
+      .dimension-grid { grid-template-columns: repeat(2, 1fr); }
+      .impact-grid { grid-template-columns: 1fr; }
+      .score-visual { flex-direction: column; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-top">
+        <a href="index.html" style="text-decoration: none;"><h1 class="logo">DATACENDIA</h1></a>
+      </div>
+      <p class="tagline-sub" data-i18n="tagline">Decision Crisis Immunization Infrastructure</p>
+            <nav class="main-nav">
+        <button class="nav-toggle" aria-label="Menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+        <div class="nav-menu">
+        <div class="nav-group">
+          <span class="nav-label" data-i18n="navPlatform">Platform</span>
+          <div class="nav-dropdown">
+            <a href="platform-capabilities.html"><span data-i18n="navPlatformOverview">Platform Overview</span><span class="nav-desc" data-i18n="navPlatformOverviewDesc">Full capability map</span></a>
+            <a href="dcii.html"><span data-i18n="navDcii">DCII Framework</span><span class="nav-desc" data-i18n="navDciiDesc">9 primitives · Crisis immunization</span></a>
+            <a href="dgi.html">DGI Framework<span class="nav-desc">Open standard &middot; Vendor-neutral</span></a>
+            <a href="diagrams.html"><span data-i18n="navArchitecture">Architecture</span><span class="nav-desc" data-i18n="navArchitectureDesc">12 system diagrams</span></a>
+          </div>
+        </div>
+        <div class="nav-group">
+          <span class="nav-label" data-i18n="navEvidence">Evidence</span>
+          <div class="nav-dropdown">
+            <a href="demos.html"><span data-i18n="navDemos">Interactive Demos</span><span class="nav-desc" data-i18n="navDemosDesc">Council, Chronos, Crucible &amp; more</span></a>
+            <a href="wargames.html"><span data-i18n="navWargames">War Games</span><span class="nav-desc" data-i18n="navWargamesDesc">Would dissent have surfaced the risk?</span></a>
+            <a href="case-studies.html"><span data-i18n="navCaseStudies">Case Studies</span><span class="nav-desc" data-i18n="navCaseStudiesDesc">Real-world decision analysis</span></a>
+          </div>
+        </div>
+        <a href="verticals.html" data-i18n="navIndustries">Industries</a>
+        <div class="nav-group">
+          <span class="nav-label" data-i18n="navPricing">Pricing</span>
+          <div class="nav-dropdown">
+            <a href="pricing.html"><span data-i18n="navTierOverview">Tier Overview</span><span class="nav-desc" data-i18n="navTierOverviewDesc">Foundation · Enterprise · Strategic</span></a>
+            <a href="premium.html"><span data-i18n="navPremiumModules">Premium Modules</span><span class="nav-desc" data-i18n="navPremiumModulesDesc">7 advanced capabilities</span></a>
+            <a href="roi-calculator.html"><span data-i18n="navRoiCalculator">ROI Calculator</span><span class="nav-desc" data-i18n="navRoiCalculatorDesc">Quantify decision risk reduction</span></a>
+            <a href="pilot.html"><span data-i18n="navPilot">90-Day Pilot</span><span class="nav-desc" data-i18n="navPilotDesc">Prove value before scaling</span></a>
+          </div>
+        </div>
+        <div class="nav-group">
+          <span class="nav-label" data-i18n="navTrust">Trust</span>
+          <div class="nav-dropdown">
+            <a href="trust.html"><span data-i18n="navTrustCenter">Trust Center</span><span class="nav-desc" data-i18n="navTrustCenterDesc">Security, compliance &amp; deployment</span></a>
+            <a href="honesty-matrices.html"><span data-i18n="navHonestyMatricesLink">Honesty Matrices</span><span class="nav-desc" data-i18n="navHonestyMatricesDesc">What we can't do — yet</span></a>
+          </div>
+        </div>
+        <a href="briefing.html" class="nav-cta" data-i18n="navRequestBriefing">Request Briefing</a>
+        </div>
+      </nav>
+    </header>
+
+    <div class="page-container">
+      <a href="index.html" class="back-link" data-i18n="pcReturnLink">← Return to Datacendia</a>
+
+      <div class="page-header">
+        <p style="font-size:0.75rem; color:var(--color-text-dim); letter-spacing:0.12em; text-transform:uppercase; margin-bottom:16px;" data-i18n="dciiPageLabel">Datacendia is Decision Crisis Immunization Infrastructure</p>
+        <h1 class="page-title" data-i18n="dciiPageTitle">Crisis Immunization</h1>
+        <p class="page-subtitle" data-i18n="dciiPageSubtitle">The 9 primitives that prevent institutional failure. Not reactive compliance. Proactive immunization.</p>
+      </div>
+
+      <div class="dcii-intro">
+        <p>
+          Most governance frameworks treat crises as inevitable — then scramble to respond. <strong>Crisis Immunization inverts this</strong>. It builds structural antibodies into your decision-making process: proof of when decisions were made, complete capture of the reasoning behind them, accountability when humans override AI recommendations, institutional memory that survives leadership turnover, and detection of policy drift before it becomes a scandal.
+        </p>
+        <p style="margin-top: 12px;">
+          Every primitive maps to a dimension of the <strong>Institutional Immune System Score (IISS)</strong> — a standardized 0–1000 score that quantifies an organization's resilience to decision crises.
+        </p>
+        <p style="margin-top: 16px;">
+          <a href="DCII-Framework-White-Paper-2026-02-19.pdf" download style="display:inline-block; padding:10px 24px; font-size:0.8rem; font-weight:500; letter-spacing:0.05em; color:var(--color-gold); border:1px solid var(--color-gold); border-radius:4px; text-decoration:none; transition:all 0.2s;" data-i18n="dciiDownloadBtn">Download DCII Framework White Paper v2.1 (PDF) ↓</a>
+        </p>
+      </div>
+
+      <!-- IISS Score Bands -->
+      <div class="score-visual">
+        <div class="score-band band-critical">
+          <span class="band-range">0–200</span>
+          <span class="band-name" data-i18n="iissBandCritical">Critical</span>
+        </div>
+        <div class="score-band band-vulnerable">
+          <span class="band-range">201–400</span>
+          <span class="band-name" data-i18n="iissBandVulnerable">Vulnerable</span>
+        </div>
+        <div class="score-band band-developing">
+          <span class="band-range">401–600</span>
+          <span class="band-name" data-i18n="iissBandDeveloping">Developing</span>
+        </div>
+        <div class="score-band band-resilient">
+          <span class="band-range">601–800</span>
+          <span class="band-name" data-i18n="iissBandResilient">Resilient</span>
+        </div>
+        <div class="score-band band-exceptional">
+          <span class="band-range">801–1000</span>
+          <span class="band-name" data-i18n="iissBandExceptional">Exceptional</span>
+        </div>
+      </div>
+
+      <!-- Service 1: IISS -->
+      <div class="service-section">
+        <div class="service-header">
+          <div class="service-number">1</div>
+          <div class="service-title-group">
+            <h2 class="service-name">CendiaIISS™</h2>
+            <p class="service-tagline" data-i18n="dciiS1Tagline">Institutional Immune System Score</p>
+          </div>
+        </div>
+        <p class="service-desc">
+          A standardized 0–1000 score measuring an organization's ability to survive institutional crises. Assessed across 9 dimensions — each mapped to a DCII primitive. Organizations compete for high scores. Investors require them. Insurers price premiums against them.
+        </p>
+        <div class="dimension-grid">
+          <div class="dimension-item">
+            <div class="dimension-num">D1</div>
+            <div class="dimension-name" data-i18n="dciiD1Name">Discovery-Time Proof Coverage</div>
+            <div class="dimension-desc" data-i18n="dciiD1Desc">Cryptographic timestamps proving when knowledge became actionable</div>
+          </div>
+          <div class="dimension-item">
+            <div class="dimension-num">D2</div>
+            <div class="dimension-name" data-i18n="dciiD2Name">Deliberation Capture Completeness</div>
+            <div class="dimension-desc" data-i18n="dciiD2Desc">Multi-agent, multi-perspective decision process recording</div>
+          </div>
+          <div class="dimension-item">
+            <div class="dimension-num">D3</div>
+            <div class="dimension-name" data-i18n="dciiD3Name">Override Accountability Tracking</div>
+            <div class="dimension-desc" data-i18n="dciiD3Desc">Non-suppressible tracking of recommendation overrides</div>
+          </div>
+          <div class="dimension-item">
+            <div class="dimension-num">D4</div>
+            <div class="dimension-name" data-i18n="dciiD4Name">Continuity Memory Depth</div>
+            <div class="dimension-desc" data-i18n="dciiD4Desc">Personnel-independent institutional knowledge preservation</div>
+          </div>
+          <div class="dimension-item">
+            <div class="dimension-num">D5</div>
+            <div class="dimension-name" data-i18n="dciiD5Name">Drift Detection Effectiveness</div>
+            <div class="dimension-desc" data-i18n="dciiD5Desc">Continuous compliance degradation monitoring</div>
+          </div>
+          <div class="dimension-item">
+            <div class="dimension-num">D6</div>
+            <div class="dimension-name" data-i18n="dciiD6Name">Cognitive Bias Mitigation</div>
+            <div class="dimension-desc" data-i18n="dciiD6Desc">Adversarial challenge of assumptions and rubber-stamp detection</div>
+          </div>
+          <div class="dimension-item">
+            <div class="dimension-num">D7</div>
+            <div class="dimension-name" data-i18n="dciiD7Name">Quantum-Resistant Integrity</div>
+            <div class="dimension-desc" data-i18n="dciiD7Desc">Post-quantum cryptographic protection of evidence</div>
+          </div>
+          <div class="dimension-item">
+            <div class="dimension-num">D8</div>
+            <div class="dimension-name" data-i18n="dciiD8Name">Synthetic Media Authentication</div>
+            <div class="dimension-desc" data-i18n="dciiD8Desc">Content provenance signing and deepfake detection</div>
+          </div>
+          <div class="dimension-item">
+            <div class="dimension-num">D9</div>
+            <div class="dimension-name" data-i18n="dciiD9Name">Cross-Jurisdiction Compliance</div>
+            <div class="dimension-desc" data-i18n="dciiD9Desc">Multi-jurisdiction conflict detection and resolution</div>
+          </div>
+        </div>
+        <div class="capability-grid" style="margin-top: 16px;">
+          <div class="capability-item">
+            <div class="capability-name" data-i18n="dciiS1Cap1Name">Certification Bands</div>
+            <div class="capability-desc" data-i18n="dciiS1Cap1Desc">Bronze, Silver, Gold, Platinum — tiered certification based on IISS score thresholds.</div>
+          </div>
+          <div class="capability-item">
+            <div class="capability-name" data-i18n="dciiS1Cap2Name">Insurance Impact</div>
+            <div class="capability-desc" data-i18n="dciiS1Cap2Desc">20–40% premium reduction for IISS &gt;800. Insurers can price against verifiable governance metrics.</div>
+          </div>
+          <div class="capability-item">
+            <div class="capability-name" data-i18n="dciiS1Cap3Name">Trend Analysis</div>
+            <div class="capability-desc" data-i18n="dciiS1Cap3Desc">Track improving, stable, or declining trajectories per dimension over time.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Service 2: MediaAuth -->
+      <div class="service-section">
+        <div class="service-header">
+          <div class="service-number">2</div>
+          <div class="service-title-group">
+            <h2 class="service-name">CendiaMediaAuth&trade;</h2>
+            <p class="service-tagline" data-i18n="dciiS2Tagline">Synthetic Media Authentication</p>
+          </div>
+        </div>
+        <p class="service-desc">
+          Proving digital evidence is authentic — not synthetic, not manipulated, not fabricated. Signs media at creation time with C2PA-compatible metadata, tracks chain of custody for every access and transformation, and detects deepfakes at the pixel, audio, and metadata level.
+        </p>
+        <div class="capability-grid">
+          <div class="capability-item">
+            <div class="capability-name" data-i18n="dciiS2Cap1Name">C2PA Provenance Signing</div>
+            <div class="capability-desc" data-i18n="dciiS2Cap1Desc">Sign images, video, audio, and documents at creation time with Coalition for Content Provenance and Authenticity standards.</div>
+          </div>
+          <div class="capability-item">
+            <div class="capability-name" data-i18n="dciiS2Cap2Name">Chain of Custody</div>
+            <div class="capability-desc" data-i18n="dciiS2Cap2Desc">Track every access, copy, edit, export, and transmission of digital evidence with cryptographic proof.</div>
+          </div>
+          <div class="capability-item">
+            <div class="capability-name" data-i18n="dciiS2Cap3Name">Deepfake Detection</div>
+            <div class="capability-desc" data-i18n="dciiS2Cap3Desc">AI-powered analysis for synthetic manipulation markers across pixel-level, audio-level, and metadata-level artifacts.</div>
+          </div>
+          <div class="capability-item">
+            <div class="capability-name" data-i18n="dciiS2Cap4Name">Hardware Attestation</div>
+            <div class="capability-desc" data-i18n="dciiS2Cap4Desc">TPM/HSM attestation for evidence capture devices — prove which physical device captured the evidence.</div>
+          </div>
+        </div>
+        <div class="standards-list">
+          <span class="standard-tag">C2PA</span>
+          <span class="standard-tag">IPTC Photo Metadata</span>
+          <span class="standard-tag">EXIF Integrity</span>
+        </div>
+      </div>
+
+      <!-- Service 3: Jurisdiction -->
+      <div class="service-section">
+        <div class="service-header">
+          <div class="service-number">3</div>
+          <div class="service-title-group">
+            <h2 class="service-name">CendiaJurisdiction&trade;</h2>
+            <p class="service-tagline" data-i18n="dciiS3Tagline">Cross-Jurisdiction Compliance Conflict Detection</p>
+          </div>
+        </div>
+        <p class="service-desc">
+          When GDPR says delete and China's PIPL says retain, what do you do? CendiaJurisdiction&trade; detects regulatory conflicts across 17+ jurisdictions simultaneously, proposes resolution strategies, and generates "good-faith maximum compliance" documentation when perfect compliance across all jurisdictions is structurally impossible.
+        </p>
+        <div class="capability-grid">
+          <div class="capability-item">
+            <div class="capability-name" data-i18n="dciiS3Cap1Name">Conflict Detection</div>
+            <div class="capability-desc" data-i18n="dciiS3Cap1Desc">Simultaneous evaluation against multiple regulatory frameworks with automated conflict identification and severity ranking.</div>
+          </div>
+          <div class="capability-item">
+            <div class="capability-name" data-i18n="dciiS3Cap2Name">Good-Faith Documentation</div>
+            <div class="capability-desc" data-i18n="dciiS3Cap2Desc">When regulations conflict irreconcilably, generate documentation proving maximum compliance effort across all jurisdictions.</div>
+          </div>
+          <div class="capability-item">
+            <div class="capability-name" data-i18n="dciiS3Cap3Name">Resolution Strategies</div>
+            <div class="capability-desc" data-i18n="dciiS3Cap3Desc">Legal authority ranking, mutual recognition agreements, and recommended approaches to navigate conflicting requirements.</div>
+          </div>
+          <div class="capability-item">
+            <div class="capability-name" data-i18n="dciiS3Cap4Name">17+ Jurisdictions</div>
+            <div class="capability-desc" data-i18n="dciiS3Cap4Desc">EU, US (federal + state), UK, China, Japan, Brazil, Canada, Australia, Singapore, India, South Korea, Switzerland, South Africa, and more.</div>
+          </div>
+        </div>
+        <div class="standards-list">
+          <span class="standard-tag">GDPR</span>
+          <span class="standard-tag">EU AI Act</span>
+          <span class="standard-tag">CCPA/CPRA</span>
+          <span class="standard-tag">HIPAA</span>
+          <span class="standard-tag">SOX</span>
+          <span class="standard-tag">China PIPL</span>
+          <span class="standard-tag">Japan APPI</span>
+          <span class="standard-tag">Brazil LGPD</span>
+          <span class="standard-tag">UK GDPR</span>
+          <span class="standard-tag">DORA</span>
+          <span class="standard-tag">Basel III</span>
+          <span class="standard-tag">FedRAMP</span>
+        </div>
+      </div>
+
+      <!-- Service 4: Timestamp -->
+      <div class="service-section">
+        <div class="service-header">
+          <div class="service-number">4</div>
+          <div class="service-title-group">
+            <h2 class="service-name">CendiaTimestamp&trade;</h2>
+            <p class="service-tagline" data-i18n="dciiS4Tagline">RFC 3161 External Timestamp Authority</p>
+          </div>
+        </div>
+        <p class="service-desc">
+          Internal timestamps can be disputed. External timestamps from trusted third-party authorities cannot. CendiaTimestamp&trade; provides RFC 3161-compliant timestamping from multiple TSA providers with optional blockchain anchoring for the highest-stakes decisions.
+        </p>
+        <div class="capability-grid">
+          <div class="capability-item">
+            <div class="capability-name" data-i18n="dciiS4Cap1Name">Multi-Provider TSA</div>
+            <div class="capability-desc" data-i18n="dciiS4Cap1Desc">DigiCert, Comodo, GlobalSign, Entrust, or internal TSA. Dual-timestamp strategy: internal + external for defense-in-depth.</div>
+          </div>
+          <div class="capability-item">
+            <div class="capability-name" data-i18n="dciiS4Cap2Name">Blockchain Anchoring</div>
+            <div class="capability-desc" data-i18n="dciiS4Cap2Desc">Optional anchoring to Bitcoin or Ethereum for decisions where the highest level of temporal proof is required.</div>
+          </div>
+          <div class="capability-item">
+            <div class="capability-name" data-i18n="dciiS4Cap3Name">Batch Timestamping</div>
+            <div class="capability-desc" data-i18n="dciiS4Cap3Desc">High-volume operations timestamped efficiently with certificate chain validation and token storage.</div>
+          </div>
+          <div class="capability-item">
+            <div class="capability-name" data-i18n="dciiS4Cap4Name">EU Qualified Timestamps</div>
+            <div class="capability-desc" data-i18n="dciiS4Cap4Desc">ETSI EN 319 421 compliant for legally binding timestamps recognized across EU member states.</div>
+          </div>
+        </div>
+        <div class="standards-list">
+          <span class="standard-tag">RFC 3161</span>
+          <span class="standard-tag">RFC 3628</span>
+          <span class="standard-tag">ETSI EN 319 421</span>
+        </div>
+      </div>
+
+      <!-- Service 5: Similarity -->
+      <div class="service-section">
+        <div class="service-header">
+          <div class="service-number">5</div>
+          <div class="service-title-group">
+            <h2 class="service-name">CendiaSimilarity&trade;</h2>
+            <p class="service-tagline" data-i18n="dciiS5Tagline">Decision Similarity Engine</p>
+          </div>
+        </div>
+        <p class="service-desc">
+          "A similar decision was made in 2019 by former CTO X. The dissenters were proven correct. Here's what happened." CendiaSimilarity&trade; turns organizational memory into a proactive warning system — automatically surfacing historical decisions, their outcomes, and whether the people who disagreed were right.
+        </p>
+        <div class="capability-grid">
+          <div class="capability-item">
+            <div class="capability-name" data-i18n="dciiS5Cap1Name">Semantic Search</div>
+            <div class="capability-desc" data-i18n="dciiS5Cap1Desc">TF-IDF semantic similarity across all historical Decision DNA records. Context-aware matching by industry, department, urgency, and decision type.</div>
+          </div>
+          <div class="capability-item">
+            <div class="capability-name" data-i18n="dciiS5Cap2Name">Outcome-Aware Matching</div>
+            <div class="capability-desc" data-i18n="dciiS5Cap2Desc">When a new decision is proposed, automatically surface what happened last time — including whether the decision succeeded or failed.</div>
+          </div>
+          <div class="capability-item">
+            <div class="capability-name" data-i18n="dciiS5Cap3Name">Cross-Silo Detection</div>
+            <div class="capability-desc" data-i18n="dciiS5Cap3Desc">Detect the same mistake being made in different departments. Break organizational amnesia across business units.</div>
+          </div>
+          <div class="capability-item">
+            <div class="capability-name" data-i18n="dciiS5Cap4Name">Dissenter Accuracy</div>
+            <div class="capability-desc" data-i18n="dciiS5Cap4Desc">Track whether dissenters were ultimately proven correct. Surface their historical accuracy when the same concerns arise again.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Service 6: Cognitive Bias Mitigation -->
+      <div class="service-section">
+        <div class="service-header">
+          <div class="service-number">6</div>
+          <div class="service-title-group">
+            <h2 class="service-name">CendiaBiasMitigation&trade;</h2>
+            <p class="service-tagline" data-i18n="dciiS6Tagline">Cognitive Bias Detection &amp; Correction</p>
+          </div>
+        </div>
+        <p class="service-desc">
+          Humans don't decide rationally — they decide predictably irrationally. CendiaBiasMitigation&trade; detects 24 cognitive biases in deliberation transcripts and decision inputs, flags them in real time, and provides structured de-biasing interventions before the decision is finalized.
+        </p>
+        <div class="capability-grid">
+          <div class="capability-item">
+            <div class="capability-name" data-i18n="dciiS6Cap1Name">24 Bias Classifiers</div>
+            <div class="capability-desc" data-i18n="dciiS6Cap1Desc">Anchoring, confirmation bias, sunk cost fallacy, groupthink, availability heuristic, authority bias, and 18 more — detected in text, voting patterns, and agent reasoning.</div>
+          </div>
+          <div class="capability-item">
+            <div class="capability-name" data-i18n="dciiS6Cap2Name">Real-Time Flagging</div>
+            <div class="capability-desc" data-i18n="dciiS6Cap2Desc">During Council deliberations, biases are flagged inline with confidence scores and suggested counter-perspectives.</div>
+          </div>
+          <div class="capability-item">
+            <div class="capability-name" data-i18n="dciiS6Cap3Name">De-Biasing Protocols</div>
+            <div class="capability-desc" data-i18n="dciiS6Cap3Desc">Structured interventions: red team injection, devil's advocate assignment, pre-mortem reframing, and reference-class forecasting.</div>
+          </div>
+          <div class="capability-item">
+            <div class="capability-name" data-i18n="dciiS6Cap4Name">Bias Audit Trail</div>
+            <div class="capability-desc" data-i18n="dciiS6Cap4Desc">Every detected bias, every intervention, every override is logged in the decision evidence packet. Prove you tried to decide rationally.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Service 7: Quantum-Resistant Integrity -->
+      <div class="service-section">
+        <div class="service-header">
+          <div class="service-number">7</div>
+          <div class="service-title-group">
+            <h2 class="service-name">CendiaQuantumKMS&trade;</h2>
+            <p class="service-tagline" data-i18n="dciiS7Tagline">Quantum-Resistant Cryptographic Integrity</p>
+          </div>
+        </div>
+        <p class="service-desc">
+          Today's RSA and ECDSA signatures will be breakable by quantum computers. Decisions signed today may need to be verified in 2040. CendiaQuantumKMS&trade; ensures evidence integrity survives the quantum transition by implementing NIST-standardized post-quantum algorithms alongside classical cryptography.
+        </p>
+        <div class="capability-grid">
+          <div class="capability-item">
+            <div class="capability-name" data-i18n="dciiS7Cap1Name">Post-Quantum Algorithms</div>
+            <div class="capability-desc" data-i18n="dciiS7Cap1Desc">NIST-standardized Dilithium (ML-DSA), SPHINCS+ (SLH-DSA), and Falcon for digital signatures. NIST security levels 1–5.</div>
+          </div>
+          <div class="capability-item">
+            <div class="capability-name" data-i18n="dciiS7Cap2Name">Hybrid Signatures</div>
+            <div class="capability-desc" data-i18n="dciiS7Cap2Desc">Dual RSA-4096 + Dilithium signing during the transition period. If either algorithm breaks, the other still protects evidence integrity.</div>
+          </div>
+          <div class="capability-item">
+            <div class="capability-name" data-i18n="dciiS7Cap3Name">Key Rotation &amp; Migration</div>
+            <div class="capability-desc" data-i18n="dciiS7Cap3Desc">Automated key rotation with signature chain-of-custody. Migrate existing evidence to post-quantum signatures before quantum computers arrive.</div>
+          </div>
+          <div class="capability-item">
+            <div class="capability-name" data-i18n="dciiS7Cap4Name">HSM Integration</div>
+            <div class="capability-desc" data-i18n="dciiS7Cap4Desc">Hardware Security Module support for key generation and signing. Customer-controlled keys — Datacendia never holds your private keys.</div>
+          </div>
+        </div>
+        <div class="standards-list">
+          <span class="standard-tag">NIST FIPS 204 (ML-DSA)</span>
+          <span class="standard-tag">NIST FIPS 205 (SLH-DSA)</span>
+          <span class="standard-tag">NIST SP 800-208</span>
+          <span class="standard-tag">CNSA 2.0</span>
+        </div>
+      </div>
+
+      <!-- Impact -->
+      <div class="impact-section">
+        <h2 data-i18n="dciiImpactTitle">Why Crisis Immunization Matters</h2>
+        <div class="impact-grid">
+          <div class="impact-item">
+            <div class="impact-stat">20–40%</div>
+            <div class="impact-label" data-i18n="dciiImpact1Label">Potential insurance premium reduction for IISS &gt;800</div>
+          </div>
+          <div class="impact-item">
+            <div class="impact-stat">17+</div>
+            <div class="impact-label" data-i18n="dciiImpact2Label">Jurisdictions with cross-border conflict detection</div>
+          </div>
+          <div class="impact-item">
+            <div class="impact-stat">9</div>
+            <div class="impact-label" data-i18n="dciiImpact3Label">DCII primitive dimensions scored</div>
+          </div>
+          <div class="impact-item">
+            <div class="impact-stat">RFC 3161</div>
+            <div class="impact-label" data-i18n="dciiImpact4Label">Legally recognized external timestamps</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-box">
+        <p data-i18n="dciiContactDesc">DCII transforms governance from a cost center to a competitive advantage.</p>
+        <p><a href="briefing.html" data-i18n="dciiContactBriefing">Request a DCII Briefing</a> · <a href="architecture.html" data-i18n="dciiContactArch">View Full Architecture</a> · <a href="pilot.html" data-i18n="dciiContactPilot">Explore the Pilot Program</a> · <a href="DCII-Framework-White-Paper-2026-02-19.pdf" download data-i18n="dciiContactDownload">Download White Paper v2.1 (PDF)</a></p>
+      </div>
+    </div>
+
+    <footer>
+    <div class="footer-section">
+      <p class="footer-outcome" data-i18n="footerOutcome">Ready to own your AI decisions—and prove them to regulators?</p>
+      <div class="footer-ctas">
+        <a href="briefing.html" class="cta-button"><span data-i18n="requestBriefing">Request Briefing</span> <span class="arrow">→</span></a>
+        <a href="pilot.html" class="cta-button secondary" data-i18n="footerSeeResults">See Results in 90 Days</a>
+        <a href="pricing.html" class="cta-button secondary" data-i18n="pricing">Pricing</a>
+        <a href="trust.html" class="cta-button secondary" data-i18n="trustCenter">Trust Center</a>
+      </div>
+      <p class="footer-contact"><a href="mailto:contact@datacendia.com">contact@datacendia.com</a> · <a href="team.html">Leadership</a> · <a href="protocol.html">Protocol</a> · <a href="dcii.html">DCII</a>
+        <a href="wargames.html">War Games</a>
+        <a href="case-studies.html">Case Studies</a> · <a href="security-controls.html">Security</a> · <a href="roi-calculator.html">ROI Calculator</a> · <a href="changelog.html">Changelog</a> · <a href="api-docs.html">API Docs</a> · <a href="partners.html">Partners</a> · <a href="pricing.html" data-i18n="pricing">Pricing</a> · <a href="privacy.html" data-i18n="privacy">Privacy</a> · <a href="terms.html" data-i18n="terms">Terms</a> · <a href="https://www.linkedin.com/company/datacendia/" target="_blank" rel="noopener" data-i18n="linkedin">LinkedIn</a></p>
+      <p class="footer-status" style="font-family: var(--font-mono); font-size: 0.7rem; color: #2ecc71; margin-top: 16px; letter-spacing: 0.05em;" data-i18n="footerStatus">SYSTEM STATUS: AIR-GAP READY · NO TRACKER PIXELS DETECTED</p>
+    </div>
+    </footer>
+  </div>
+  <script src="translations.js"></script>
+  <script src="app.js"></script>
+  <script src="nav-mobile.js"></script>
+</body>
+</html>

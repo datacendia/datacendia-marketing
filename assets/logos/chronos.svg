@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <defs>
+    <linearGradient id="chWing" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#E8C840"/>
+      <stop offset="100%" stop-color="#A07B1A"/>
+    </linearGradient>
+    <filter id="chGlow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <radialGradient id="chCenter" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#C9A227" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#C9A227" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="200" height="200" fill="#0a0a0a" rx="16"/>
+  <!-- Subtle center glow -->
+  <circle cx="100" cy="95" r="50" fill="url(#chCenter)"/>
+  <!-- Butterfly body -->
+  <line x1="100" y1="60" x2="100" y2="130" stroke="#C9A227" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- Antennae -->
+  <path d="M100 62 Q92 48 85 42" fill="none" stroke="#C9A227" stroke-width="1.2" stroke-linecap="round"/>
+  <circle cx="84" cy="41" r="2.5" fill="#E8C840"/>
+  <path d="M100 62 Q108 48 115 42" fill="none" stroke="#C9A227" stroke-width="1.2" stroke-linecap="round"/>
+  <circle cx="116" cy="41" r="2.5" fill="#E8C840"/>
+  <!-- Left wing (upper) — made of descending data nodes -->
+  <g filter="url(#chGlow)">
+    <path d="M98 68 Q75 50 55 55 Q38 60 35 78 Q33 92 50 95 Q65 97 98 88Z" fill="none" stroke="url(#chWing)" stroke-width="1.8"/>
+    <!-- Data nodes on left upper wing -->
+    <circle cx="62" cy="60" r="3" fill="#C9A227" opacity="0.9"/>
+    <circle cx="48" cy="70" r="2.5" fill="#C9A227" opacity="0.7"/>
+    <circle cx="42" cy="82" r="2" fill="#C9A227" opacity="0.55"/>
+    <circle cx="55" cy="90" r="1.8" fill="#C9A227" opacity="0.4"/>
+    <circle cx="72" cy="65" r="2.2" fill="#C9A227" opacity="0.8"/>
+    <circle cx="58" cy="78" r="1.5" fill="#C9A227" opacity="0.5"/>
+  </g>
+  <!-- Right wing (upper) -->
+  <g filter="url(#chGlow)">
+    <path d="M102 68 Q125 50 145 55 Q162 60 165 78 Q167 92 150 95 Q135 97 102 88Z" fill="none" stroke="url(#chWing)" stroke-width="1.8"/>
+    <circle cx="138" cy="60" r="3" fill="#C9A227" opacity="0.9"/>
+    <circle cx="152" cy="70" r="2.5" fill="#C9A227" opacity="0.7"/>
+    <circle cx="158" cy="82" r="2" fill="#C9A227" opacity="0.55"/>
+    <circle cx="145" cy="90" r="1.8" fill="#C9A227" opacity="0.4"/>
+    <circle cx="128" cy="65" r="2.2" fill="#C9A227" opacity="0.8"/>
+    <circle cx="142" cy="78" r="1.5" fill="#C9A227" opacity="0.5"/>
+  </g>
+  <!-- Left wing (lower) -->
+  <g filter="url(#chGlow)">
+    <path d="M98 92 Q78 95 62 108 Q50 118 55 130 Q60 138 75 132 Q88 126 98 110Z" fill="none" stroke="url(#chWing)" stroke-width="1.5"/>
+    <circle cx="70" cy="108" r="2.5" fill="#C9A227" opacity="0.65"/>
+    <circle cx="60" cy="120" r="2" fill="#C9A227" opacity="0.45"/>
+    <circle cx="72" cy="126" r="1.5" fill="#C9A227" opacity="0.35"/>
+  </g>
+  <!-- Right wing (lower) -->
+  <g filter="url(#chGlow)">
+    <path d="M102 92 Q122 95 138 108 Q150 118 145 130 Q140 138 125 132 Q112 126 102 110Z" fill="none" stroke="url(#chWing)" stroke-width="1.5"/>
+    <circle cx="130" cy="108" r="2.5" fill="#C9A227" opacity="0.65"/>
+    <circle cx="140" cy="120" r="2" fill="#C9A227" opacity="0.45"/>
+    <circle cx="128" cy="126" r="1.5" fill="#C9A227" opacity="0.35"/>
+  </g>
+  <!-- Central body nodes -->
+  <circle cx="100" cy="72" r="3.5" fill="#E8C840"/>
+  <circle cx="100" cy="85" r="3" fill="#C9A227"/>
+  <circle cx="100" cy="97" r="2.5" fill="#C9A227" opacity="0.8"/>
+  <circle cx="100" cy="108" r="2" fill="#C9A227" opacity="0.6"/>
+  <circle cx="100" cy="118" r="1.8" fill="#C9A227" opacity="0.4"/>
+  <!-- Label -->
+  <text x="100" y="160" font-family="Georgia, serif" font-size="10" fill="#C9A227" text-anchor="middle" letter-spacing="0.08em" opacity="0.9">CENDIACHRONOS</text>
+</svg>

@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <defs>
+    <linearGradient id="lcGold" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#E8C840"/>
+      <stop offset="100%" stop-color="#A07B1A"/>
+    </linearGradient>
+    <filter id="lcGlow">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <radialGradient id="lcBg" cx="50%" cy="45%" r="45%">
+      <stop offset="0%" stop-color="#C9A227" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="#C9A227" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="200" height="200" fill="#0a0a0a" rx="16"/>
+  <circle cx="100" cy="90" r="60" fill="url(#lcBg)"/>
+  <g filter="url(#lcGlow)">
+    <!-- Fulcrum / center post -->
+    <rect x="97" y="56" width="6" height="70" rx="2" fill="url(#lcGold)" opacity="0.8"/>
+    <!-- Balance beam -->
+    <rect x="40" y="54" width="120" height="5" rx="2.5" fill="url(#lcGold)" opacity="0.9"/>
+    <!-- Top finial -->
+    <circle cx="100" cy="50" r="5" fill="#C9A227" opacity="0.9"/>
+    <!-- Left chain -->
+    <line x1="55" y1="59" x2="55" y2="88" stroke="#C9A227" stroke-width="1.2" opacity="0.6"/>
+    <line x1="65" y1="59" x2="65" y2="88" stroke="#C9A227" stroke-width="1.2" opacity="0.6"/>
+    <!-- Left bowl (geometric) -->
+    <path d="M40 88 L48 88 L52 100 L55 108 L65 108 L68 100 L72 88 L80 88 L75 104 L68 116 L52 116 L45 104Z" fill="none" stroke="url(#lcGold)" stroke-width="1.8"/>
+    <path d="M48 88 L72 88" stroke="#C9A227" stroke-width="1" opacity="0.4"/>
+    <!-- Left bowl glow fill -->
+    <path d="M52 100 L55 108 L65 108 L68 100Z" fill="#C9A227" opacity="0.08"/>
+    <!-- Right chain -->
+    <line x1="135" y1="59" x2="135" y2="88" stroke="#C9A227" stroke-width="1.2" opacity="0.6"/>
+    <line x1="145" y1="59" x2="145" y2="88" stroke="#C9A227" stroke-width="1.2" opacity="0.6"/>
+    <!-- Right bowl (geometric) -->
+    <path d="M120 88 L128 88 L132 100 L135 108 L145 108 L148 100 L152 88 L160 88 L155 104 L148 116 L132 116 L125 104Z" fill="none" stroke="url(#lcGold)" stroke-width="1.8"/>
+    <path d="M128 88 L152 88" stroke="#C9A227" stroke-width="1" opacity="0.4"/>
+    <!-- Right bowl glow fill -->
+    <path d="M132 100 L135 108 L145 108 L148 100Z" fill="#C9A227" opacity="0.08"/>
+  </g>
+  <!-- Digital receipt icon in center -->
+  <g transform="translate(88, 70)">
+    <rect x="0" y="0" width="24" height="30" rx="2" fill="none" stroke="#C9A227" stroke-width="1.2" opacity="0.7"/>
+    <!-- Receipt lines -->
+    <line x1="5" y1="8" x2="19" y2="8" stroke="#C9A227" stroke-width="1" opacity="0.5"/>
+    <line x1="5" y1="13" x2="16" y2="13" stroke="#C9A227" stroke-width="1" opacity="0.4"/>
+    <line x1="5" y1="18" x2="19" y2="18" stroke="#C9A227" stroke-width="1" opacity="0.5"/>
+    <line x1="5" y1="23" x2="14" y2="23" stroke="#C9A227" stroke-width="1" opacity="0.35"/>
+    <!-- Checkmark on receipt -->
+    <path d="M14 21 L17 25 L22 17" fill="none" stroke="#E8C840" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.8"/>
+  </g>
+  <!-- Base -->
+  <rect x="80" y="126" width="40" height="5" rx="2.5" fill="url(#lcGold)" opacity="0.5"/>
+  <!-- Label -->
+  <text x="100" y="158" font-family="Georgia, serif" font-size="9" fill="#C9A227" text-anchor="middle" letter-spacing="0.06em" opacity="0.9">LEGAL COMPLIANCE</text>
+</svg>

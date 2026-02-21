@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>멀티에이전트 AI란? | Datacendia</title>
+  <meta name="description" content="멀티에이전트 AI는 더 나은 결정을 위해 협력하고, 토론하고, 심의하는 여러 전문 에이전트를 사용합니다.">
+  <meta property="og:title" content="멀티에이전트 AI란?">
+  <meta property="og:description" content="멀티에이전트 AI는 더 나은 결정을 위해 협력하고, 토론하고, 심의하는 여러 전문 에이전트를 사용합니다.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://datacendia.com/ko/learn/multi-agent-ai/">
+  <meta property="og:image" content="https://datacendia.com/og-image.png">
+  <meta property="og:site_name" content="Datacendia">
+  <meta property="og:locale" content="ko_KR">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://datacendia.com/og-image.png">
+  <link rel="canonical" href="https://datacendia.com/ko/learn/multi-agent-ai/">
+  <link rel="alternate" hreflang="en" href="https://datacendia.com/learn/multi-agent-ai/">
+  <link rel="alternate" hreflang="es" href="https://datacendia.com/es/learn/multi-agent-ai/">
+  <link rel="alternate" hreflang="fr" href="https://datacendia.com/fr/learn/multi-agent-ai/">
+  <link rel="alternate" hreflang="de" href="https://datacendia.com/de/learn/multi-agent-ai/">
+  <link rel="alternate" hreflang="pt" href="https://datacendia.com/pt/learn/multi-agent-ai/">
+  <link rel="alternate" hreflang="it" href="https://datacendia.com/it/learn/multi-agent-ai/">
+  <link rel="alternate" hreflang="ja" href="https://datacendia.com/ja/learn/multi-agent-ai/">
+  <link rel="alternate" hreflang="ko" href="https://datacendia.com/ko/learn/multi-agent-ai/">
+  <link rel="alternate" hreflang="zh" href="https://datacendia.com/zh/learn/multi-agent-ai/">
+  <link rel="alternate" hreflang="ar" href="https://datacendia.com/ar/learn/multi-agent-ai/">
+  <link rel="alternate" hreflang="hi" href="https://datacendia.com/hi/learn/multi-agent-ai/">
+  <link rel="alternate" hreflang="x-default" href="https://datacendia.com/learn/multi-agent-ai/">
+  <link rel="canonical" href="https://datacendia.com/ko/learn/multi-agent-ai/">
+  <link rel="icon" type="image/svg+xml" href="../../../assets/favicon.svg">
+  <link rel="stylesheet" href="../../../styles.css">
+  <style>
+    .learn-container { max-width: 800px; margin: 0 auto; padding: 60px 24px 80px; }
+    .learn-title { font-family: var(--font-display); font-size: 2.25rem; font-weight: 300; color: var(--color-text); margin-bottom: 16px; }
+    .learn-subtitle { font-size: 1.1rem; color: var(--color-text-muted); margin-bottom: 32px; line-height: 1.6; }
+    .learn-content h2 { font-family: var(--font-display); font-size: 1.5rem; color: var(--color-text); margin: 48px 0 16px; padding-top: 24px; border-top: 1px solid var(--color-border); }
+    .learn-content p, .learn-content li { font-size: 0.95rem; color: var(--color-text-muted); line-height: 1.8; }
+    .learn-content ul { margin: 16px 0 24px 24px; }
+    .definition-box { background: var(--color-card-bg); border: 1px solid var(--color-gold); border-radius: 8px; padding: 24px; margin: 24px 0; }
+    .comparison-table { width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 0.85rem; }
+    .comparison-table th, .comparison-table td { border: 1px solid var(--color-border); padding: 12px; text-align: left; }
+    .comparison-table th { background: var(--color-card-bg); color: var(--color-text); }
+    .cta-box { background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(212, 175, 55, 0.02) 100%); border: 1px solid var(--color-gold); border-radius: 8px; padding: 32px; margin-top: 48px; text-align: center; }
+    .cta-button { display: inline-block; background: var(--color-gold); color: var(--color-bg); padding: 12px 32px; border-radius: 6px; text-decoration: none; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-top"><a href="../../" style="text-decoration: none;"><h1 class="logo"><span class="brand-name">DATACENDIA</span></h1></a></div>
+      <nav class="main-nav">
+        <button class="nav-toggle" aria-label="Menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+        <div class="nav-menu">
+        <div class="nav-group">
+          <span class="nav-label">플랫폼</span>
+          <div class="nav-dropdown">
+            <a href="/platform-capabilities.html">플랫폼 개요<span class="nav-desc">전체 기능 맵</span></a>
+            <a href="/dcii.html">DCII 프레임워크<span class="nav-desc">9가지 기본 요소 · 위기 면역</span></a>
+            <a href="/diagrams.html">아키텍처<span class="nav-desc">8개 시스템 다이어그램</span></a>
+          </div>
+        </div>
+        <div class="nav-group">
+          <span class="nav-label">증거</span>
+          <div class="nav-dropdown">
+            <a href="/demos.html">인터랙티브 데모<span class="nav-desc">Council, Chronos, Crucible 등</span></a>
+            <a href="/wargames.html">워 게임<span class="nav-desc">이의 제기가 위험을 드러냈을까?</span></a>
+            <a href="/case-studies.html">사례 연구<span class="nav-desc">실제 의사결정 분석</span></a>
+          </div>
+        </div>
+        <a href="/verticals.html">산업</a>
+        <div class="nav-group">
+          <span class="nav-label">가격</span>
+          <div class="nav-dropdown">
+            <a href="/pricing.html">티어 개요<span class="nav-desc">Foundation · Enterprise · Strategic</span></a>
+            <a href="/premium.html">프리미엄 모듈<span class="nav-desc">7가지 고급 기능</span></a>
+            <a href="/roi-calculator.html">ROI 계산기<span class="nav-desc">의사결정 위험 감소 정량화</span></a>
+            <a href="/pilot.html">90일 파일럿<span class="nav-desc">확장 전 가치 증명</span></a>
+          </div>
+        </div>
+        <div class="nav-group">
+          <span class="nav-label">신뢰</span>
+          <div class="nav-dropdown">
+            <a href="/trust.html">트러스트 센터<span class="nav-desc">보안, 규정 준수 및 배포</span></a>
+            <a href="/honesty-matrices.html">정직 매트릭스<span class="nav-desc">아직 할 수 없는 것</span></a>
+          </div>
+        </div>
+        <a href="/briefing.html" class="nav-cta">브리핑 요청</a>
+        </div>
+      </nav>
+    </header>
+    <main class="learn-container">
+      <article>
+        <h1 class="learn-title">멀티에이전트 AI란?</h1>
+        <p class="learn-subtitle">멀티에이전트 AI 시스템은 경영진처럼 협력하고, 토론하고, 심의하는 여러 전문 AI 에이전트를 사용합니다.</p>
+        <div class="definition-box"><p><strong>멀티에이전트 AI:</strong> 각각 전문 능력을 가진 여러 자율 AI 에이전트가 협력하여 복잡한 문제를 해결하는 아키텍처.</p></div>
+        <div class="learn-content">
+          <h2>왜 여러 AI 에이전트를 사용하는가?</h2>
+          <ul>
+            <li><strong>관점 편향</strong> — 단일 모델은 하나의 목표에 최적화하고 중요한 고려사항을 놓칠 수 있음</li>
+            <li><strong>맹점</strong> — 모델은 훈련 경험 외의 패턴을 놓칠 수 있음</li>
+            <li><strong>과신</strong> — 모델은 불확실성이 높아도 자신감 있는 답변을 제공하는 경우가 많음</li>
+          </ul>
+          <h2>에이전트 유형</h2>
+          <table class="comparison-table">
+            <tr><th>에이전트 유형</th><th>역할</th><th>관점</th></tr>
+            <tr><td>분석 에이전트</td><td>데이터 분석</td><td>데이터가 무엇을 말하는가?</td></tr>
+            <tr><td>리스크 에이전트</td><td>위험 식별</td><td>무엇이 잘못될 수 있는가?</td></tr>
+            <tr><td>전략 에이전트</td><td>목표 최적화</td><td>무엇이 목표를 전진시키는가?</td></tr>
+            <tr><td>컴플라이언스 에이전트</td><td>규제 확인</td><td>이것이 허용되는가?</td></tr>
+            <tr><td>중재 에이전트</td><td>종합 및 해결</td><td>최선의 전체 결정은?</td></tr>
+          </table>
+          <h2>규제 산업을 위한 이점</h2>
+          <ul>
+            <li><strong>향상된 설명 가능성</strong> — 토론 형식이 자연어 추론을 제공</li>
+            <li><strong>향상된 결정 품질</strong> — 여러 관점이 오류를 포착</li>
+            <li><strong>내장된 컴플라이언스</strong> — 전용 거버넌스 에이전트</li>
+          </ul>
+          <div class="cta-box">
+            <h3>멀티에이전트 AI 체험하기</h3>
+            <p>Datacendia의 Council은 완전한 감사 추적으로 심의하는 전문 에이전트를 사용합니다.</p>
+            <a href="/briefing.html?lang=ko" class="cta-button">기술 브리핑 요청</a>
+          </div>
+        </div>
+      </article>
+    </main>
+    <footer style="text-align: center; padding: 40px 24px; border-top: 1px solid var(--color-border);"><p style="font-size: 0.75rem; color: var(--color-text-dim);">© 2026 Datacendia</p></footer>
+  </div>
+  <script src="/nav-mobile.js"></script>
+</body>
+</html>

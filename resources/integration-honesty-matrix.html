@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Integration Honesty Matrix | Datacendia</title>
+  <meta name="description" content="Transparent documentation of Datacendia's integration capabilities. What's implemented, what's planned, and how we connect to your existing systems.">
+  <meta name="keywords" content="integrations, API, connectors, enterprise integration, data sources, honest marketing">
+  <meta name="author" content="Datacendia">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Integration Honesty Matrix | Datacendia">
+  <meta property="og:description" content="Transparent documentation of what integrations are implemented, planned, or require client configuration.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://datacendia.com/resources/integration-honesty-matrix.html">
+  <link rel="canonical" href="https://datacendia.com/resources/integration-honesty-matrix.html">
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header>
+      <div class="header-top">
+        <a href="../index.html" style="text-decoration: none;"><h1 class="logo" aria-label="Datacendia — Decision Crisis Immunization Infrastructure">DATACENDIA</h1></a>
+        <div class="lang-selector">
+          <button class="lang-btn"><span class="lang-current">English</span> ▾</button>
+          <div class="lang-dropdown">
+            <button onclick="setLanguage('en')">English</button>
+            <button onclick="setLanguage('es')">Español</button>
+            <button onclick="setLanguage('fr')">Français</button>
+            <button onclick="setLanguage('de')">Deutsch</button>
+            <button onclick="setLanguage('pt')">Português</button>
+            <button onclick="setLanguage('it')">Italiano</button>
+            <button onclick="setLanguage('ja')">日本語</button>
+            <button onclick="setLanguage('ko')">한국어</button>
+            <button onclick="setLanguage('zh')">中文</button>
+            <button onclick="setLanguage('ar')">العربية</button>
+            <button onclick="setLanguage('hi')">हिन्दी</button>
+          </div>
+        </div>
+      </div>
+      <p class="tagline-sub" data-i18n="tagline">Decision Crisis Immunization Infrastructure</p>
+      <nav class="main-nav">
+        <button class="nav-toggle" aria-label="Menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+        <div class="nav-menu">
+        <div class="nav-group">
+          <span class="nav-label">Platform</span>
+          <div class="nav-dropdown">
+            <a href="/platform-capabilities.html">Platform Overview<span class="nav-desc">Full capability map</span></a>
+            <a href="/dcii.html">DCII Framework<span class="nav-desc">9 primitives &middot; Crisis immunization</span></a>
+            <a href="/diagrams.html">Architecture<span class="nav-desc">8 system diagrams</span></a>
+          </div>
+        </div>
+        <div class="nav-group">
+          <span class="nav-label">Evidence</span>
+          <div class="nav-dropdown">
+            <a href="/demos.html">Interactive Demos<span class="nav-desc">Council, Chronos, Crucible &amp; more</span></a>
+            <a href="/wargames.html">War Games<span class="nav-desc">Would dissent have surfaced the risk?</span></a>
+            <a href="/case-studies.html">Case Studies<span class="nav-desc">Real-world decision analysis</span></a>
+          </div>
+        </div>
+        <a href="/verticals.html">Industries</a>
+        <div class="nav-group">
+          <span class="nav-label">Pricing</span>
+          <div class="nav-dropdown">
+            <a href="/pricing.html">Tier Overview<span class="nav-desc">Foundation &middot; Enterprise &middot; Strategic</span></a>
+            <a href="/premium.html">Premium Modules<span class="nav-desc">7 advanced capabilities</span></a>
+            <a href="/roi-calculator.html">ROI Calculator<span class="nav-desc">Quantify decision risk reduction</span></a>
+            <a href="/pilot.html">90-Day Pilot<span class="nav-desc">Prove value before scaling</span></a>
+          </div>
+        </div>
+        <div class="nav-group">
+          <span class="nav-label">Trust</span>
+          <div class="nav-dropdown">
+            <a href="/trust.html">Trust Center<span class="nav-desc">Security, compliance &amp; deployment</span></a>
+            <a href="/honesty-matrices.html">Honesty Matrices<span class="nav-desc">What we can't do &mdash; yet</span></a>
+          </div>
+        </div>
+        <a href="/briefing.html" class="nav-cta">Request Briefing</a>
+        </div>
+      </nav>
+    </header>
+
+    <div class="page-container">
+      
+      <div class="page-header">
+        <div class="page-icon"><img src="../assets/logos/integration-matrix.svg" alt="Integration Matrix" width="64" height="64" style="border-radius:12px"></div>
+        <h1 class="page-title">Integration Honesty Matrix</h1>
+        <p class="page-subtitle">Transparent documentation of what's implemented, what requires configuration, and what's on the roadmap.</p>
+      </div>
+
+      <div class="content-section">
+        <h2>Our Integration Philosophy</h2>
+        <p>Enterprise software vendors often claim "integrations with 500+ systems" when they really mean "we have an API." We believe in honesty about what works out of the box versus what requires your team's effort.</p>
+        
+        <div class="info-box">
+          <p><strong>The Sovereign Adapter Architecture:</strong> Rather than maintaining hundreds of brittle vendor-specific connectors, Datacendia provides 5 universal adapters that work with standard protocols. We provide the socket; you bring the plug that fits your specific systems.</p>
+        </div>
+      </div>
+
+      <div class="content-section">
+        <h2>Integration Status Legend</h2>
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th>Status</th>
+              <th>Meaning</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span style="color: #22c55e;">✅ Implemented</span></td>
+              <td>Works out of the box with standard configuration</td>
+            </tr>
+            <tr>
+              <td><span style="color: #f59e0b;">⚙️ Client-Configured</span></td>
+              <td>Adapter ready; requires your credentials/endpoint configuration</td>
+            </tr>
+            <tr>
+              <td><span style="color: #3b82f6;">🔧 BYO-Connector</span></td>
+              <td>You provide the connector; we provide the integration framework</td>
+            </tr>
+            <tr>
+              <td><span style="color: #8b5cf6;">📋 Roadmap</span></td>
+              <td>Planned for future release</td>
+            </tr>
+            <tr>
+              <td><span style="color: #ef4444;">❌ Not Planned</span></td>
+              <td>Not supported due to licensing, compliance, or technical constraints</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="content-section">
+        <h2>Universal Adapters (Implemented)</h2>
+        <p>These adapters work with any system that supports the respective protocol:</p>
+        
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th>Adapter</th>
+              <th>Protocol</th>
+              <th>Use Cases</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Database Adapter</strong></td>
+              <td>SQL (PostgreSQL, MySQL, SQL Server, Oracle)</td>
+              <td>ERP systems, data warehouses, custom databases</td>
+              <td><span style="color: #22c55e;">✅ Implemented</span></td>
+            </tr>
+            <tr>
+              <td><strong>Webhook Ingest Adapter</strong></td>
+              <td>HTTP/HTTPS webhooks</td>
+              <td>SaaS applications, event-driven integrations</td>
+              <td><span style="color: #22c55e;">✅ Implemented</span></td>
+            </tr>
+            <tr>
+              <td><strong>File Watcher Adapter</strong></td>
+              <td>File system monitoring</td>
+              <td>Legacy systems, batch exports, air-gapped transfers</td>
+              <td><span style="color: #22c55e;">✅ Implemented</span></td>
+            </tr>
+            <tr>
+              <td><strong>FHIR Adapter</strong></td>
+              <td>HL7 FHIR R4</td>
+              <td>Healthcare EHR systems (Epic, Cerner via FHIR)</td>
+              <td><span style="color: #22c55e;">✅ Implemented</span></td>
+            </tr>
+            <tr>
+              <td><strong>FIX Protocol Adapter</strong></td>
+              <td>FIX 4.4/5.0</td>
+              <td>Financial trading systems, market data</td>
+              <td><span style="color: #22c55e;">✅ Implemented</span></td>
+            </tr>
+            <tr>
+              <td><strong>MQTT Adapter</strong></td>
+              <td>MQTT 3.1.1/5.0</td>
+              <td>IoT sensors, industrial systems</td>
+              <td><span style="color: #22c55e;">✅ Implemented</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="content-section">
+        <h2>Database Connectivity</h2>
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th>Database</th>
+              <th>Status</th>
+              <th>Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>PostgreSQL</td>
+              <td><span style="color: #22c55e;">✅ Implemented</span></td>
+              <td>Native driver included</td>
+            </tr>
+            <tr>
+              <td>MySQL / MariaDB</td>
+              <td><span style="color: #22c55e;">✅ Implemented</span></td>
+              <td>Native driver included</td>
+            </tr>
+            <tr>
+              <td>Microsoft SQL Server</td>
+              <td><span style="color: #f59e0b;">⚙️ Client-Configured</span></td>
+              <td>Driver available; requires your connection string</td>
+            </tr>
+            <tr>
+              <td>Oracle Database</td>
+              <td><span style="color: #f59e0b;">⚙️ Client-Configured</span></td>
+              <td>Requires Oracle Instant Client (licensing on you)</td>
+            </tr>
+            <tr>
+              <td>MongoDB</td>
+              <td><span style="color: #22c55e;">✅ Implemented</span></td>
+              <td>Native driver included</td>
+            </tr>
+            <tr>
+              <td>IBM DB2</td>
+              <td><span style="color: #3b82f6;">🔧 BYO-Connector</span></td>
+              <td>Requires IBM client libraries</td>
+            </tr>
+            <tr>
+              <td>Snowflake</td>
+              <td><span style="color: #f59e0b;">⚙️ Client-Configured</span></td>
+              <td>Via SQL adapter with your credentials</td>
+            </tr>
+            <tr>
+              <td>Databricks</td>
+              <td><span style="color: #f59e0b;">⚙️ Client-Configured</span></td>
+              <td>Via SQL adapter with your credentials</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="content-section">
+        <h2>Enterprise Systems</h2>
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th>System</th>
+              <th>Status</th>
+              <th>Integration Method</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>SAP (S/4HANA, ECC)</td>
+              <td><span style="color: #3b82f6;">🔧 BYO-Connector</span></td>
+              <td>Via RFC/BAPI or OData—you provide SAP connector</td>
+            </tr>
+            <tr>
+              <td>Salesforce</td>
+              <td><span style="color: #f59e0b;">⚙️ Client-Configured</span></td>
+              <td>REST API with your OAuth credentials</td>
+            </tr>
+            <tr>
+              <td>Microsoft 365 / SharePoint</td>
+              <td><span style="color: #f59e0b;">⚙️ Client-Configured</span></td>
+              <td>Graph API with your Azure AD registration</td>
+            </tr>
+            <tr>
+              <td>Workday</td>
+              <td><span style="color: #f59e0b;">⚙️ Client-Configured</span></td>
+              <td>REST API with your tenant credentials</td>
+            </tr>
+            <tr>
+              <td>ServiceNow</td>
+              <td><span style="color: #f59e0b;">⚙️ Client-Configured</span></td>
+              <td>REST API with your instance credentials</td>
+            </tr>
+            <tr>
+              <td>Jira / Confluence</td>
+              <td><span style="color: #f59e0b;">⚙️ Client-Configured</span></td>
+              <td>REST API with your Atlassian credentials</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="content-section">
+        <h2>Financial Data (Regulated)</h2>
+        <div class="info-box" style="background: rgba(239, 68, 68, 0.1); border-color: #ef4444;">
+          <p><strong>⚠️ Important:</strong> Premium financial data feeds (Bloomberg, Refinitiv, FactSet) require expensive licensing agreements between you and the data provider. We cannot bundle these—their redistribution terms prohibit it. We provide the integration framework; you bring the license.</p>
+        </div>
+        
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th>Provider</th>
+              <th>Status</th>
+              <th>Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Bloomberg Terminal</td>
+              <td><span style="color: #3b82f6;">🔧 BYO-Connector</span></td>
+              <td>Requires Bloomberg B-PIPE license ($24k+/user/year)</td>
+            </tr>
+            <tr>
+              <td>Refinitiv/Reuters</td>
+              <td><span style="color: #3b82f6;">🔧 BYO-Connector</span></td>
+              <td>Requires Refinitiv Elektron license</td>
+            </tr>
+            <tr>
+              <td>Public Market Data (Yahoo, Alpha Vantage)</td>
+              <td><span style="color: #f59e0b;">⚙️ Client-Configured</span></td>
+              <td>Via REST adapter with your API keys</td>
+            </tr>
+            <tr>
+              <td>SWIFT</td>
+              <td><span style="color: #ef4444;">❌ Not Planned</span></td>
+              <td>Requires SWIFT CSP certification—out of scope</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="content-section">
+        <h2>Healthcare (HIPAA-Sensitive)</h2>
+        <div class="info-box" style="background: rgba(239, 68, 68, 0.1); border-color: #ef4444;">
+          <p><strong>⚠️ Important:</strong> Healthcare integrations require a Business Associate Agreement (BAA) between you and your EHR vendor. Datacendia provides the FHIR adapter; you bring the BAA and credentials.</p>
+        </div>
+        
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th>System</th>
+              <th>Status</th>
+              <th>Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Epic (via FHIR)</td>
+              <td><span style="color: #f59e0b;">⚙️ Client-Configured</span></td>
+              <td>FHIR R4 adapter ready; requires your Epic credentials + BAA</td>
+            </tr>
+            <tr>
+              <td>Cerner (via FHIR)</td>
+              <td><span style="color: #f59e0b;">⚙️ Client-Configured</span></td>
+              <td>FHIR R4 adapter ready; requires your Cerner credentials + BAA</td>
+            </tr>
+            <tr>
+              <td>Epic (proprietary APIs)</td>
+              <td><span style="color: #ef4444;">❌ Not Planned</span></td>
+              <td>Non-standard APIs require Epic certification</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="content-section">
+        <h2>Security & Key Management</h2>
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th>System</th>
+              <th>Status</th>
+              <th>Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Local File-based Keys</td>
+              <td><span style="color: #22c55e;">✅ Implemented</span></td>
+              <td>Default for development and air-gapped environments</td>
+            </tr>
+            <tr>
+              <td>HashiCorp Vault</td>
+              <td><span style="color: #22c55e;">✅ Implemented</span></td>
+              <td>Transit secrets engine for signing/encryption</td>
+            </tr>
+            <tr>
+              <td>AWS KMS</td>
+              <td><span style="color: #f59e0b;">⚙️ Client-Configured</span></td>
+              <td>Adapter ready; requires your AWS credentials and key ARN</td>
+            </tr>
+            <tr>
+              <td>Azure Key Vault</td>
+              <td><span style="color: #f59e0b;">⚙️ Client-Configured</span></td>
+              <td>Adapter ready; requires your Azure AD credentials</td>
+            </tr>
+            <tr>
+              <td>Hardware HSM (PKCS#11)</td>
+              <td><span style="color: #8b5cf6;">📋 Roadmap</span></td>
+              <td>Planned for enterprise deployments</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="content-section">
+        <h2>Authentication & Identity</h2>
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th>Provider</th>
+              <th>Status</th>
+              <th>Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Keycloak (OIDC)</td>
+              <td><span style="color: #22c55e;">✅ Implemented</span></td>
+              <td>Full SSO integration</td>
+            </tr>
+            <tr>
+              <td>Azure AD / Entra ID</td>
+              <td><span style="color: #f59e0b;">⚙️ Client-Configured</span></td>
+              <td>Via OIDC with your tenant configuration</td>
+            </tr>
+            <tr>
+              <td>Okta</td>
+              <td><span style="color: #f59e0b;">⚙️ Client-Configured</span></td>
+              <td>Via OIDC with your Okta credentials</td>
+            </tr>
+            <tr>
+              <td>SAML 2.0</td>
+              <td><span style="color: #f59e0b;">⚙️ Client-Configured</span></td>
+              <td>Supported via Keycloak federation</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="content-section">
+        <h2>What We Won't Claim</h2>
+        <p>Some vendors claim integrations that are technically impossible or legally problematic. We're explicit about what we don't support:</p>
+        <ul>
+          <li><strong>Proprietary hardware buses</strong> (ARINC 429, MIL-STD-1553)—these are physical interfaces, not software APIs</li>
+          <li><strong>Systems requiring vendor certification</strong> (SWIFT CSP, Epic proprietary)—we won't claim compliance we haven't achieved</li>
+          <li><strong>Data feeds with redistribution restrictions</strong>—we can't bundle Bloomberg/Refinitiv data; you need your own license</li>
+          <li><strong>"500+ integrations"</strong>—we have 6 universal adapters that work with thousands of systems, but we won't inflate numbers</li>
+        </ul>
+      </div>
+
+      <div class="content-section">
+        <h2>The Honest Answer</h2>
+        <div class="info-box">
+          <p><strong>What we actually provide:</strong> 6 universal adapters (Database, Webhook, File Watcher, FHIR, FIX, MQTT) + a framework for client-configured connections. If your system speaks SQL, REST, or a standard protocol, we can connect. If it requires expensive licenses or vendor certifications, that's on you to provide.</p>
+          <p style="margin-top: 16px;"><strong>Our principle:</strong> "We provide the socket; you bring the plug."</p>
+        </div>
+      </div>
+
+      <div class="cta-box">
+        <h3>Questions About a Specific Integration?</h3>
+        <p>Request a technical briefing to discuss your specific systems and integration requirements.</p>
+        <a href="../briefing.html" class="cta-btn">Request Briefing →</a>
+      </div>
+
+      <div class="content-section" style="text-align: center; margin-top: 80px; padding-top: 40px; border-top: 1px solid var(--color-border);">
+        <p style="font-size: 0.85rem; color: var(--color-text-dim);">
+          See also: <a href="sovereignty-matrix.html" style="color: var(--color-gold);">Sovereignty Deployment Options</a> | <a href="the-council.html" style="color: var(--color-gold);">The Council Multi-Agent System</a> | <a href="compliance.html" style="color: var(--color-gold);">Compliance Framework Mapping</a>
+        </p>
+      </div>
+    </div>
+  </div>
+  <script src="../translations.js?v=6"></script>
+  <script src="../app.js"></script>
+  <script src="/nav-mobile.js"></script>
+</body>
+</html>

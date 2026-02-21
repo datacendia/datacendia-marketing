@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page Not Found — Datacendia | 404 Error</title>
+  <meta name="description" content="The page you're looking for doesn't exist or has been moved. Return to Datacendia's Decision Crisis Immunization Infrastructure.">
+  <meta name="robots" content="noindex, follow">
+  <meta property="og:title" content="Page Not Found — Datacendia">
+  <meta property="og:description" content="The page you're looking for doesn't exist. Return to Datacendia.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Datacendia">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <meta name="theme-color" content="#0a0a0a">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .error-container {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 24px;
+    }
+    .error-code {
+      font-family: var(--font-mono);
+      font-size: 4rem;
+      font-weight: 500;
+      color: var(--color-gold);
+      margin-bottom: 16px;
+    }
+    .error-title {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 300;
+      color: var(--color-text);
+      margin-bottom: 12px;
+    }
+    .error-message {
+      font-size: 0.9rem;
+      color: var(--color-text-dim);
+      margin-bottom: 32px;
+      max-width: 400px;
+    }
+    .error-links {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .error-link {
+      padding: 12px 24px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      color: var(--color-gold);
+      background: transparent;
+      border: 1px solid var(--color-gold);
+      border-radius: 4px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+    .error-link:hover {
+      background: var(--color-gold);
+      color: var(--color-bg);
+    }
+    .error-link.secondary {
+      border-color: var(--color-border);
+      color: var(--color-text-muted);
+    }
+    .error-link.secondary:hover {
+      border-color: var(--color-text-muted);
+      background: var(--color-card-bg);
+      color: var(--color-text);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-top">
+        <a href="index.html" style="text-decoration: none;"><h1 class="logo">DATACENDIA</h1></a>
+      </div>
+      <p class="tagline-sub" data-i18n="tagline">Decision Crisis Immunization Infrastructure</p>
+      <nav class="main-nav">
+        <button class="nav-toggle" aria-label="Menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+        <div class="nav-menu">
+        <div class="nav-group">
+          <span class="nav-label" data-i18n="navPlatform">Platform</span>
+          <div class="nav-dropdown">
+            <a href="platform-capabilities.html"><span data-i18n="navPlatformOverview">Platform Overview</span><span class="nav-desc" data-i18n="navPlatformOverviewDesc">Full capability map</span></a>
+            <a href="dcii.html"><span data-i18n="navDcii">DCII Framework</span><span class="nav-desc" data-i18n="navDciiDesc">9 primitives · Crisis immunization</span></a>
+            <a href="diagrams.html"><span data-i18n="navArchitecture">Architecture</span><span class="nav-desc" data-i18n="navArchitectureDesc">12 system diagrams</span></a>
+          </div>
+        </div>
+        <div class="nav-group">
+          <span class="nav-label" data-i18n="navEvidence">Evidence</span>
+          <div class="nav-dropdown">
+            <a href="demos.html"><span data-i18n="navDemos">Interactive Demos</span><span class="nav-desc" data-i18n="navDemosDesc">Council, Chronos, Crucible &amp; more</span></a>
+            <a href="wargames.html"><span data-i18n="navWargames">War Games</span><span class="nav-desc" data-i18n="navWargamesDesc">Would dissent have surfaced the risk?</span></a>
+            <a href="case-studies.html"><span data-i18n="navCaseStudies">Case Studies</span><span class="nav-desc" data-i18n="navCaseStudiesDesc">Real-world decision analysis</span></a>
+          </div>
+        </div>
+        <a href="verticals.html" data-i18n="navIndustries">Industries</a>
+        <div class="nav-group">
+          <span class="nav-label" data-i18n="navPricing">Pricing</span>
+          <div class="nav-dropdown">
+            <a href="pricing.html"><span data-i18n="navTierOverview">Tier Overview</span><span class="nav-desc" data-i18n="navTierOverviewDesc">Foundation · Enterprise · Strategic</span></a>
+            <a href="premium.html"><span data-i18n="navPremiumModules">Premium Modules</span><span class="nav-desc" data-i18n="navPremiumModulesDesc">7 advanced capabilities</span></a>
+            <a href="roi-calculator.html"><span data-i18n="navRoiCalculator">ROI Calculator</span><span class="nav-desc" data-i18n="navRoiCalculatorDesc">Quantify decision risk reduction</span></a>
+            <a href="pilot.html"><span data-i18n="navPilot">90-Day Pilot</span><span class="nav-desc" data-i18n="navPilotDesc">Prove value before scaling</span></a>
+          </div>
+        </div>
+        <div class="nav-group">
+          <span class="nav-label" data-i18n="navTrust">Trust</span>
+          <div class="nav-dropdown">
+            <a href="trust.html"><span data-i18n="navTrustCenter">Trust Center</span><span class="nav-desc" data-i18n="navTrustCenterDesc">Security, compliance &amp; deployment</span></a>
+            <a href="honesty-matrices.html"><span data-i18n="navHonestyMatricesLink">Honesty Matrices</span><span class="nav-desc" data-i18n="navHonestyMatricesDesc">What we can't do — yet</span></a>
+          </div>
+        </div>
+        <a href="briefing.html" class="nav-cta" data-i18n="navRequestBriefing">Request Briefing</a>
+        </div>
+      </nav>
+    </header>
+  </div>
+  <div class="error-container">
+    <div class="lang-selector" style="position: absolute; top: 24px; right: 24px;">
+      <button class="lang-btn"><span class="lang-current">English</span> ▾</button>
+      <div class="lang-dropdown">
+        <button onclick="setLanguage('en')">English</button>
+        <button onclick="setLanguage('es')">Español</button>
+        <button onclick="setLanguage('fr')">Français</button>
+        <button onclick="setLanguage('de')">Deutsch</button>
+        <button onclick="setLanguage('pt')">Português</button>
+        <button onclick="setLanguage('it')">Italiano</button>
+        <button onclick="setLanguage('ja')">日本語</button>
+        <button onclick="setLanguage('ko')">한국어</button>
+        <button onclick="setLanguage('zh')">中文</button>
+        <button onclick="setLanguage('ar')">العربية</button>
+        <button onclick="setLanguage('hi')">हिन्दी</button>
+      </div>
+    </div>
+    <div class="error-code">404</div>
+    <h1 class="error-title" data-i18n="pageNotFound">Page Not Found</h1>
+    <p class="error-message" data-i18n="pageNotFoundDesc">The page you're looking for doesn't exist or has been moved. Let's get you back on track.</p>
+    <div class="error-links">
+      <a href="/" class="error-link" data-i18n="returnHome">Return Home</a>
+      <a href="/briefing.html" class="error-link secondary" data-i18n="requestBriefing">Request Briefing</a>
+    </div>
+  </div>
+  <script src="translations.js?v=6"></script>
+  <script src="app.js"></script>
+  <script src="nav-mobile.js"></script>
+</body>
+</html>

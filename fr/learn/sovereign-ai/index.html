@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Qu'est-ce que l'IA Souveraine ? Guide Complet | Datacendia</title>
+  <meta name="description" content="L'IA souveraine fonctionne sur votre infrastructure, avec vos clés de chiffrement, sous votre contrôle total. Guide pour la résidence des données et la sécurité.">
+  <meta property="og:title" content="Qu'est-ce que l'IA Souveraine ?">
+  <meta property="og:description" content="L'IA souveraine fonctionne sur votre infrastructure, avec vos clés de chiffrement, sous votre contrôle total.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://datacendia.com/fr/learn/sovereign-ai/">
+  <meta property="og:image" content="https://datacendia.com/og-image.png">
+  <meta property="og:site_name" content="Datacendia">
+  <meta property="og:locale" content="fr_FR">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://datacendia.com/og-image.png">
+  <link rel="canonical" href="https://datacendia.com/fr/learn/sovereign-ai/">
+  <link rel="alternate" hreflang="en" href="https://datacendia.com/learn/sovereign-ai/">
+  <link rel="alternate" hreflang="es" href="https://datacendia.com/es/learn/sovereign-ai/">
+  <link rel="alternate" hreflang="fr" href="https://datacendia.com/fr/learn/sovereign-ai/">
+  <link rel="alternate" hreflang="de" href="https://datacendia.com/de/learn/sovereign-ai/">
+  <link rel="alternate" hreflang="pt" href="https://datacendia.com/pt/learn/sovereign-ai/">
+  <link rel="alternate" hreflang="it" href="https://datacendia.com/it/learn/sovereign-ai/">
+  <link rel="alternate" hreflang="ja" href="https://datacendia.com/ja/learn/sovereign-ai/">
+  <link rel="alternate" hreflang="ko" href="https://datacendia.com/ko/learn/sovereign-ai/">
+  <link rel="alternate" hreflang="zh" href="https://datacendia.com/zh/learn/sovereign-ai/">
+  <link rel="alternate" hreflang="ar" href="https://datacendia.com/ar/learn/sovereign-ai/">
+  <link rel="alternate" hreflang="hi" href="https://datacendia.com/hi/learn/sovereign-ai/">
+  <link rel="alternate" hreflang="x-default" href="https://datacendia.com/learn/sovereign-ai/">
+  <link rel="icon" type="image/svg+xml" href="../../../assets/favicon.svg">
+  <link rel="stylesheet" href="../../../styles.css">
+  <style>
+    .learn-container { max-width: 800px; margin: 0 auto; padding: 60px 24px 80px; }
+    .learn-breadcrumb { font-size: 0.75rem; color: var(--color-text-dim); margin-bottom: 24px; }
+    .learn-breadcrumb a { color: var(--color-text-dim); text-decoration: none; }
+    .learn-title { font-family: var(--font-display); font-size: 2.25rem; font-weight: 300; color: var(--color-text); margin-bottom: 16px; }
+    .learn-subtitle { font-size: 1.1rem; color: var(--color-text-muted); margin-bottom: 32px; line-height: 1.6; }
+    .learn-content h2 { font-family: var(--font-display); font-size: 1.5rem; font-weight: 400; color: var(--color-text); margin: 48px 0 16px; padding-top: 24px; border-top: 1px solid var(--color-border); }
+    .learn-content h3 { font-family: var(--font-display); font-size: 1.15rem; font-weight: 400; color: var(--color-text); margin: 32px 0 12px; }
+    .learn-content p { font-size: 0.95rem; color: var(--color-text-muted); line-height: 1.8; margin-bottom: 16px; }
+    .learn-content ul { margin: 16px 0 24px 24px; color: var(--color-text-muted); }
+    .learn-content li { font-size: 0.95rem; line-height: 1.7; margin-bottom: 8px; }
+    .definition-box { background: var(--color-card-bg); border: 1px solid var(--color-gold); border-radius: 8px; padding: 24px; margin: 24px 0; }
+    .definition-box p { font-size: 1rem; color: var(--color-text); margin: 0; }
+    .comparison-table { width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 0.85rem; }
+    .comparison-table th { background: var(--color-card-bg); border: 1px solid var(--color-border); padding: 12px; text-align: left; color: var(--color-text); }
+    .comparison-table td { border: 1px solid var(--color-border); padding: 12px; color: var(--color-text-muted); }
+    .cta-box { background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(212, 175, 55, 0.02) 100%); border: 1px solid var(--color-gold); border-radius: 8px; padding: 32px; margin-top: 48px; text-align: center; }
+    .cta-button { display: inline-block; background: var(--color-gold); color: var(--color-bg); padding: 12px 32px; border-radius: 6px; text-decoration: none; }
+    .related-links { margin-top: 48px; padding-top: 32px; border-top: 1px solid var(--color-border); }
+    .related-links ul { list-style: none; margin: 0; padding: 0; }
+    .related-links a { color: var(--color-gold); text-decoration: none; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-top">
+        <a href="../../" style="text-decoration: none;"><h1 class="logo"><span class="brand-name">DATACENDIA</span></h1></a>
+      </div>
+      <nav class="main-nav">
+        <button class="nav-toggle" aria-label="Menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+        <div class="nav-menu">
+        <div class="nav-group">
+          <span class="nav-label">Plateforme</span>
+          <div class="nav-dropdown">
+            <a href="/platform-capabilities.html">Vue d’Ensemble<span class="nav-desc">Carte complète des capacités</span></a>
+            <a href="/dcii.html">Cadre DCII<span class="nav-desc">9 primitives · Immunisation de crise</span></a>
+            <a href="/diagrams.html">Architecture<span class="nav-desc">8 diagrammes système</span></a>
+          </div>
+        </div>
+        <div class="nav-group">
+          <span class="nav-label">Preuves</span>
+          <div class="nav-dropdown">
+            <a href="/demos.html">Démos Interactives<span class="nav-desc">Council, Chronos, Crucible et plus</span></a>
+            <a href="/wargames.html">Jeux de Guerre<span class="nav-desc">La dissidence aurait-elle révélé le risque ?</span></a>
+            <a href="/case-studies.html">Études de Cas<span class="nav-desc">Analyse de décisions réelles</span></a>
+          </div>
+        </div>
+        <a href="/verticals.html">Industries</a>
+        <div class="nav-group">
+          <span class="nav-label">Tarifs</span>
+          <div class="nav-dropdown">
+            <a href="/pricing.html">Aperçu des Niveaux<span class="nav-desc">Foundation · Enterprise · Strategic</span></a>
+            <a href="/premium.html">Modules Premium<span class="nav-desc">7 capacités avancées</span></a>
+            <a href="/roi-calculator.html">Calculateur ROI<span class="nav-desc">Quantifiez la réduction du risque</span></a>
+            <a href="/pilot.html">Pilote de 90 Jours<span class="nav-desc">Prouvez la valeur avant de passer à l’échelle</span></a>
+          </div>
+        </div>
+        <div class="nav-group">
+          <span class="nav-label">Confiance</span>
+          <div class="nav-dropdown">
+            <a href="/trust.html">Centre de Confiance<span class="nav-desc">Sécurité, conformité et déploiement</span></a>
+            <a href="/honesty-matrices.html">Matrices d’Honnêteté<span class="nav-desc">Ce que nous ne pouvons pas encore faire</span></a>
+          </div>
+        </div>
+        <a href="/briefing.html" class="nav-cta">Demander un Briefing</a>
+        </div>
+      </nav>
+    </header>
+
+    <main class="learn-container">
+      <nav class="learn-breadcrumb">
+        <a href="../../">Accueil</a> / <a href="../">Apprendre</a> / IA Souveraine
+      </nav>
+
+      <article>
+        <h1 class="learn-title">Qu'est-ce que l'IA Souveraine ?</h1>
+        <p class="learn-subtitle">L'IA souveraine est une intelligence artificielle qui fonctionne entièrement sur votre infrastructure, avec vos clés de chiffrement, sous votre contrôle total — sans dépendance aux services cloud externes.</p>
+
+        <div class="definition-box">
+          <p><strong>IA Souveraine :</strong> Systèmes d'intelligence artificielle qui opèrent entièrement dans l'infrastructure contrôlée d'une organisation, sans transmission de données vers des services externes, avec gestion des clés de chiffrement détenue par l'organisation.</p>
+        </div>
+
+        <div class="learn-content">
+          <h2>Pourquoi les Organisations ont-elles Besoin d'IA Souveraine ?</h2>
+          <ul>
+            <li><strong>Exigences de Résidence des Données</strong> — RGPD, lois de localisation des données et exigences sectorielles</li>
+            <li><strong>Sécurité Nationale</strong> — Organisations de défense, renseignement et infrastructures critiques</li>
+            <li><strong>Propriété Intellectuelle</strong> — Modèles propriétaires et données d'entraînement</li>
+            <li><strong>Conformité Réglementaire</strong> — Industries financières, santé et gouvernement</li>
+            <li><strong>Continuité Opérationnelle</strong> — Indépendance des fournisseurs cloud</li>
+          </ul>
+
+          <h2>Modèles de Déploiement d'IA Souveraine</h2>
+          
+          <h3>1. Cloud Privé</h3>
+          <p>Infrastructure cloud dédiée dans votre VPC avec isolation réseau et gestion des clés détenue par le client.</p>
+          
+          <h3>2. On-Premise</h3>
+          <p>Déploiement complet dans votre centre de données sur du matériel que vous possédez et opérez.</p>
+          
+          <h3>3. Air-Gapped</h3>
+          <p>Isolation complète des réseaux externes. Requis pour les environnements classifiés et de haute sécurité.</p>
+
+          <h2>IA Cloud vs. IA Souveraine</h2>
+          <table class="comparison-table">
+            <thead>
+              <tr><th>Aspect</th><th>IA Cloud</th><th>IA Souveraine</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Emplacement des Données</td><td>Serveurs du fournisseur cloud</td><td>Votre infrastructure</td></tr>
+              <tr><td>Contrôle des Clés</td><td>Géré par le fournisseur</td><td>Propriété du client</td></tr>
+              <tr><td>Accès Réseau</td><td>Connexion internet requise</td><td>Peut opérer air-gapped</td></tr>
+              <tr><td>Conformité</td><td>Dépendante du fournisseur</td><td>Auto-certifiée</td></tr>
+            </tbody>
+          </table>
+
+          <h2>Industries Nécessitant l'IA Souveraine</h2>
+          <ul>
+            <li><strong>Défense et Renseignement</strong> — Environnements classifiés, analyse de renseignement</li>
+            <li><strong>Services Financiers</strong> — Banques avec exigences de résidence des données</li>
+            <li><strong>Santé</strong> — Données patients, recherche pharmaceutique</li>
+            <li><strong>Infrastructures Critiques</strong> — Énergie, services publics, transports</li>
+            <li><strong>Gouvernement</strong> — Données citoyens, registres fiscaux</li>
+          </ul>
+
+          <div class="cta-box">
+            <h3>Voir l'IA Souveraine en Action</h3>
+            <p>Datacendia se déploie on-premise, dans votre cloud privé, ou entièrement air-gapped. Gestion des clés détenue par le client, sans télémétrie.</p>
+            <a href="/briefing.html?lang=fr" class="cta-button">Demander un Briefing Technique</a>
+          </div>
+
+          <nav class="related-links">
+            <h3>Sujets Connexes</h3>
+            <ul>
+              <li><a href="../decision-intelligence/">Qu'est-ce que l'Intelligence Décisionnelle ?</a></li>
+              <li><a href="../ai-audit-trail/">Qu'est-ce qu'une Piste d'Audit IA ?</a></li>
+              <li><a href="../multi-agent-ai/">Systèmes IA Multi-Agent</a></li>
+            </ul>
+          </nav>
+        </div>
+      </article>
+    </main>
+
+    <footer style="text-align: center; padding: 40px 24px; border-top: 1px solid var(--color-border); margin-top: 60px;">
+      <p style="font-size: 0.75rem; color: var(--color-text-dim);">© 2026 Datacendia. Intelligence d'Entreprise Souveraine.</p>
+    </footer>
+  </div>
+  <script src="/nav-mobile.js"></script>
+</body>
+</html>

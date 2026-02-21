@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>API Documentation | Datacendia Developer Hub</title>
+  <meta name="description" content="Datacendia REST API documentation. 50+ endpoints for multi-agent deliberation, audit trails, compliance monitoring, evidence export, and sovereign AI operations. OpenAPI 3.0 specification available.">
+  <meta name="keywords" content="Datacendia API, enterprise AI API, decision intelligence API, audit trail API, multi-agent API, compliance API, sovereign AI API, REST API">
+  <meta name="author" content="Datacendia">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="API Documentation | Datacendia Developer Hub">
+  <meta property="og:description" content="50+ REST API endpoints for enterprise decision intelligence. OpenAPI 3.0 spec available.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://datacendia.com/api-docs.html">
+  <meta property="og:image" content="https://datacendia.com/og-image.png">
+  <meta property="og:site_name" content="Datacendia">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="API Documentation | Datacendia">
+  <meta name="twitter:description" content="50+ REST API endpoints for enterprise decision intelligence.">
+  <link rel="canonical" href="https://datacendia.com/api-docs.html">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <meta name="theme-color" content="#0a0a0a">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .page-container { max-width: 900px; margin: 0 auto; padding: 80px 24px; }
+    .page-header { text-align: center; margin-bottom: 48px; }
+    .page-icon { font-size: 2rem; margin-bottom: 16px; }
+    .page-title { font-family: var(--font-display); font-size: 2.25rem; font-weight: 300; color: var(--color-text); margin-bottom: 12px; }
+    .page-subtitle { font-size: 0.95rem; color: var(--color-text-dim); max-width: 600px; margin: 0 auto; line-height: 1.6; }
+
+    .api-section { background: var(--color-card-bg); border: 1px solid var(--color-border); border-radius: 12px; padding: 28px; margin-bottom: 20px; }
+    .api-section h2 { font-size: 0.75rem; font-weight: 500; color: var(--color-gold); margin-bottom: 16px; text-transform: uppercase; letter-spacing: 0.15em; }
+    .api-section h3 { font-size: 1rem; color: var(--color-text); margin: 20px 0 8px; }
+    .api-section p { font-size: 0.85rem; color: var(--color-text-muted); line-height: 1.6; margin-bottom: 12px; }
+
+    .endpoint-group { margin-bottom: 24px; }
+    .endpoint-group-title { font-size: 0.9rem; font-weight: 600; color: var(--color-text); margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+    .endpoint-group-title .badge { font-size: 0.65rem; padding: 2px 8px; border-radius: 10px; font-weight: 500; }
+    .badge-core { background: rgba(6, 182, 212, 0.15); color: #06b6d4; }
+    .badge-trust { background: rgba(16, 185, 129, 0.15); color: #10b981; }
+    .badge-sovereign { background: rgba(139, 92, 246, 0.15); color: #8b5cf6; }
+    .badge-vertical { background: rgba(249, 115, 22, 0.15); color: #f97316; }
+
+    .endpoint { display: flex; align-items: flex-start; gap: 12px; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.03); font-size: 0.8rem; }
+    .endpoint:last-child { border-bottom: none; }
+    .method { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; font-weight: 700; padding: 3px 8px; border-radius: 4px; min-width: 48px; text-align: center; flex-shrink: 0; }
+    .method-get { background: rgba(34, 197, 94, 0.15); color: #22c55e; }
+    .method-post { background: rgba(59, 130, 246, 0.15); color: #3b82f6; }
+    .method-put { background: rgba(249, 115, 22, 0.15); color: #f97316; }
+    .method-delete { background: rgba(239, 68, 68, 0.15); color: #ef4444; }
+    .endpoint-path { font-family: 'JetBrains Mono', monospace; color: var(--color-text-dim); font-size: 0.75rem; flex-shrink: 0; min-width: 280px; }
+    .endpoint-desc { color: var(--color-text-muted); font-size: 0.75rem; }
+
+    .auth-info { background: rgba(234, 179, 8, 0.08); border: 1px solid rgba(234, 179, 8, 0.2); border-radius: 8px; padding: 20px; margin-bottom: 24px; }
+    .auth-info h3 { color: #eab308; font-size: 0.85rem; margin: 0 0 8px; }
+    .auth-info p { font-size: 0.8rem; color: var(--color-text-dim); margin: 0; line-height: 1.6; }
+
+    .code-block { background: #0d1117; border: 1px solid #30363d; border-radius: 8px; padding: 16px; margin: 12px 0; font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: #c9d1d9; overflow-x: auto; line-height: 1.8; }
+    .code-block .comment { color: #8b949e; }
+    .code-block .key { color: #79c0ff; }
+    .code-block .string { color: #a5d6ff; }
+    .code-block .number { color: #79c0ff; }
+
+    .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 12px; margin-bottom: 24px; }
+    .stat-item { text-align: center; padding: 16px; background: rgba(0,0,0,0.2); border-radius: 8px; }
+    .stat-value { font-family: 'JetBrains Mono', monospace; font-size: 1.5rem; font-weight: 700; color: #06b6d4; }
+    .stat-label { font-size: 0.7rem; color: var(--color-text-muted); margin-top: 4px; }
+
+    .cta-box { text-align: center; margin-top: 40px; padding: 32px; background: linear-gradient(135deg, rgba(6, 182, 212, 0.08) 0%, rgba(59, 130, 246, 0.08) 100%); border: 1px solid rgba(6, 182, 212, 0.3); border-radius: 12px; }
+    .cta-box h3 { font-family: var(--font-display); font-size: 1.25rem; color: var(--color-text); margin-bottom: 8px; }
+    .cta-box p { font-size: 0.85rem; color: var(--color-text-dim); margin-bottom: 20px; }
+    .cta-btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; background: linear-gradient(135deg, var(--color-cyan) 0%, #3b82f6 100%); border: none; border-radius: 8px; color: white; font-weight: 600; text-decoration: none; transition: all 0.3s ease; margin: 0 6px; }
+    .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(6, 182, 212, 0.3); }
+    .cta-btn.secondary { background: transparent; border: 1px solid rgba(6, 182, 212, 0.3); color: var(--color-cyan); }
+
+    @media (max-width: 768px) {
+      .endpoint { flex-direction: column; gap: 4px; }
+      .endpoint-path { min-width: auto; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-top">
+        <a href="index.html" style="text-decoration: none;"><h1 class="logo">DATACENDIA</h1></a>
+      </div>
+      <p class="tagline-sub" data-i18n="tagline">Decision Crisis Immunization Infrastructure</p>
+      <nav class="main-nav">
+        <button class="nav-toggle" aria-label="Menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+        <div class="nav-menu">
+        <div class="nav-group">
+          <span class="nav-label" data-i18n="navPlatform">Platform</span>
+          <div class="nav-dropdown">
+            <a href="platform-capabilities.html"><span data-i18n="navPlatformOverview">Platform Overview</span><span class="nav-desc" data-i18n="navPlatformOverviewDesc">Full capability map</span></a>
+            <a href="dcii.html"><span data-i18n="navDcii">DCII Framework</span><span class="nav-desc" data-i18n="navDciiDesc">9 primitives · Crisis immunization</span></a>
+            <a href="diagrams.html"><span data-i18n="navArchitecture">Architecture</span><span class="nav-desc" data-i18n="navArchitectureDesc">12 system diagrams</span></a>
+          </div>
+        </div>
+        <div class="nav-group">
+          <span class="nav-label" data-i18n="navEvidence">Evidence</span>
+          <div class="nav-dropdown">
+            <a href="demos.html"><span data-i18n="navDemos">Interactive Demos</span><span class="nav-desc" data-i18n="navDemosDesc">Council, Chronos, Crucible &amp; more</span></a>
+            <a href="wargames.html"><span data-i18n="navWargames">War Games</span><span class="nav-desc" data-i18n="navWargamesDesc">Would dissent have surfaced the risk?</span></a>
+            <a href="case-studies.html"><span data-i18n="navCaseStudies">Case Studies</span><span class="nav-desc" data-i18n="navCaseStudiesDesc">Real-world decision analysis</span></a>
+          </div>
+        </div>
+        <a href="verticals.html" data-i18n="navIndustries">Industries</a>
+        <div class="nav-group">
+          <span class="nav-label" data-i18n="navPricing">Pricing</span>
+          <div class="nav-dropdown">
+            <a href="pricing.html"><span data-i18n="navTierOverview">Tier Overview</span><span class="nav-desc" data-i18n="navTierOverviewDesc">Foundation · Enterprise · Strategic</span></a>
+            <a href="premium.html"><span data-i18n="navPremiumModules">Premium Modules</span><span class="nav-desc" data-i18n="navPremiumModulesDesc">7 advanced capabilities</span></a>
+            <a href="roi-calculator.html"><span data-i18n="navRoiCalculator">ROI Calculator</span><span class="nav-desc" data-i18n="navRoiCalculatorDesc">Quantify decision risk reduction</span></a>
+            <a href="pilot.html"><span data-i18n="navPilot">90-Day Pilot</span><span class="nav-desc" data-i18n="navPilotDesc">Prove value before scaling</span></a>
+          </div>
+        </div>
+        <div class="nav-group">
+          <span class="nav-label" data-i18n="navTrust">Trust</span>
+          <div class="nav-dropdown">
+            <a href="trust.html"><span data-i18n="navTrustCenter">Trust Center</span><span class="nav-desc" data-i18n="navTrustCenterDesc">Security, compliance &amp; deployment</span></a>
+            <a href="honesty-matrices.html"><span data-i18n="navHonestyMatricesLink">Honesty Matrices</span><span class="nav-desc" data-i18n="navHonestyMatricesDesc">What we can't do — yet</span></a>
+          </div>
+        </div>
+        <a href="briefing.html" class="nav-cta" data-i18n="navRequestBriefing">Request Briefing</a>
+        </div>
+      </nav>
+    </header>
+
+    <div class="page-container">
+      <div class="page-header">
+        <div class="page-icon"><img src="assets/logos/cendia-helm.svg" alt="API Docs" width="64" height="64" style="border-radius:12px"></div>
+        <h1 class="page-title" data-i18n="apiPageTitle">API Documentation</h1>
+        <p class="page-subtitle">
+          Datacendia exposes a comprehensive REST API for programmatic access to decision intelligence, 
+          audit trails, compliance monitoring, and sovereign operations.
+        </p>
+      </div>
+
+      <!-- Stats -->
+      <div class="stats-grid">
+        <div class="stat-item">
+          <div class="stat-value">50+</div>
+          <div class="stat-label" data-i18n="apiStatEndpoints">Endpoints</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value">REST</div>
+          <div class="stat-label" data-i18n="apiStatProtocol">Protocol</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value">3.0</div>
+          <div class="stat-label" data-i18n="apiStatSpec">OpenAPI Spec</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value">JSON</div>
+          <div class="stat-label" data-i18n="apiStatFormat">Format</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value">v1</div>
+          <div class="stat-label" data-i18n="apiStatVersion">API Version</div>
+        </div>
+      </div>
+
+      <!-- Auth -->
+      <div class="auth-info">
+        <h3 data-i18n="apiAuthTitle">Authentication</h3>
+        <p>All API endpoints require authentication via Bearer token (JWT) or API key. In Keycloak-enabled deployments, tokens are issued via OIDC. All requests must use HTTPS (or mTLS in air-gapped environments).</p>
+      </div>
+
+      <!-- Base URL -->
+      <div class="api-section">
+        <h2 data-i18n="apiBaseUrl">Base URL</h2>
+        <div class="code-block">
+<span class="comment"># Your deployment URL (on-premises, private cloud, or air-gapped)</span>
+https://your-datacendia-instance.internal/api/v1
+        </div>
+      </div>
+
+      <!-- Core Suite APIs -->
+      <div class="api-section">
+        <h2 data-i18n="apiSec1Title">Core Suite — The Council</h2>
+        <p>Multi-agent deliberation, cross-examination, dissent management, and decision synthesis.</p>
+        <div class="endpoint-group">
+          <div class="endpoint">
+            <span class="method method-post">POST</span>
+            <span class="endpoint-path">/council/deliberate</span>
+            <span class="endpoint-desc">Start a new multi-agent deliberation session</span>
+          </div>
+          <div class="endpoint">
+            <span class="method method-get">GET</span>
+            <span class="endpoint-path">/council/deliberations/:id</span>
+            <span class="endpoint-desc">Get deliberation status, agent responses, and synthesis</span>
+          </div>
+          <div class="endpoint">
+            <span class="method method-get">GET</span>
+            <span class="endpoint-path">/council/deliberations</span>
+            <span class="endpoint-desc">List recent deliberations with filtering</span>
+          </div>
+          <div class="endpoint">
+            <span class="method method-post">POST</span>
+            <span class="endpoint-path">/council/deliberations/:id/approve</span>
+            <span class="endpoint-desc">Approve a deliberation outcome (human oversight)</span>
+          </div>
+          <div class="endpoint">
+            <span class="method method-post">POST</span>
+            <span class="endpoint-path">/council/deliberations/:id/veto</span>
+            <span class="endpoint-desc">Veto a deliberation outcome with reason</span>
+          </div>
+          <div class="endpoint">
+            <span class="method method-get">GET</span>
+            <span class="endpoint-path">/council/agents</span>
+            <span class="endpoint-desc">List available governance agents and their roles</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Decision Intelligence APIs -->
+      <div class="api-section">
+        <h2 data-i18n="apiSec2Title">Decision Intelligence — Chronos &amp; Cascade</h2>
+        <p>Timeline analysis, pivotal moment detection, and consequence propagation modeling.</p>
+        <div class="endpoint-group">
+          <div class="endpoint">
+            <span class="method method-post">POST</span>
+            <span class="endpoint-path">/decision-intel/chronos/ai/pivotal-moments</span>
+            <span class="endpoint-desc">Detect pivotal decision moments in organizational timeline</span>
+          </div>
+          <div class="endpoint">
+            <span class="method method-get">GET</span>
+            <span class="endpoint-path">/decision-intel/chronos/timeline</span>
+            <span class="endpoint-desc">Retrieve full decision timeline with filtering</span>
+          </div>
+          <div class="endpoint">
+            <span class="method method-post">POST</span>
+            <span class="endpoint-path">/cascade/analyze</span>
+            <span class="endpoint-desc">Run butterfly effect analysis on a proposed change</span>
+          </div>
+          <div class="endpoint">
+            <span class="method method-get">GET</span>
+            <span class="endpoint-path">/cascade/reports/:id</span>
+            <span class="endpoint-desc">Get cascade analysis report with consequence chains</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Audit & Evidence APIs -->
+      <div class="api-section">
+        <h2 data-i18n="apiSec3Title">Trust Layer — Audit &amp; Evidence</h2>
+        <p>Immutable audit trails, decision packets, evidence export, and audit provenance.</p>
+        <div class="endpoint-group">
+          <div class="endpoint">
+            <span class="method method-post">POST</span>
+            <span class="endpoint-path">/council-packets/build</span>
+            <span class="endpoint-desc">Build a signed decision packet from a deliberation</span>
+          </div>
+          <div class="endpoint">
+            <span class="method method-post">POST</span>
+            <span class="endpoint-path">/council-packets/:id/sign</span>
+            <span class="endpoint-desc">Cryptographically sign a decision packet (KMS/HSM)</span>
+          </div>
+          <div class="endpoint">
+            <span class="method method-post">POST</span>
+            <span class="endpoint-path">/council-packets/:id/verify</span>
+            <span class="endpoint-desc">Verify signature and Merkle tree integrity</span>
+          </div>
+          <div class="endpoint">
+            <span class="method method-get">GET</span>
+            <span class="endpoint-path">/council-packets/:id/export</span>
+            <span class="endpoint-desc">Export decision packet as JSON (evidentiary-grade format)</span>
+          </div>
+          <div class="endpoint">
+            <span class="method method-post">POST</span>
+            <span class="endpoint-path">/audit-provenance/generate</span>
+            <span class="endpoint-desc">Generate an audit provenance packet with evidence chain</span>
+          </div>
+          <div class="endpoint">
+            <span class="method method-get">GET</span>
+            <span class="endpoint-path">/audit/ledger</span>
+            <span class="endpoint-desc">Query the immutable audit ledger</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Compliance APIs -->
+      <div class="api-section">
+        <h2 data-i18n="apiSec4Title">Compliance &amp; Governance</h2>
+        <p>Continuous compliance monitoring, cross-jurisdiction analysis, and policy enforcement.</p>
+        <div class="endpoint-group">
+          <div class="endpoint">
+            <span class="method method-post">POST</span>
+            <span class="endpoint-path">/compliance-monitor/scan</span>
+            <span class="endpoint-desc">Run compliance scan against selected frameworks</span>
+          </div>
+          <div class="endpoint">
+            <span class="method method-get">GET</span>
+            <span class="endpoint-path">/compliance-monitor/status</span>
+            <span class="endpoint-desc">Get current compliance posture across all frameworks</span>
+          </div>
+          <div class="endpoint">
+            <span class="method method-post">POST</span>
+            <span class="endpoint-path">/cross-jurisdiction/assess</span>
+            <span class="endpoint-desc">Cross-border transfer compliance assessment</span>
+          </div>
+          <div class="endpoint">
+            <span class="method method-get">GET</span>
+            <span class="endpoint-path">/cross-jurisdiction/matrix</span>
+            <span class="endpoint-desc">Get compliance matrix across 17 jurisdictions</span>
+          </div>
+          <div class="endpoint">
+            <span class="method method-post">POST</span>
+            <span class="endpoint-path">/enterprise/check-permission</span>
+            <span class="endpoint-desc">Check Casbin policy for user action permission</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Security APIs -->
+      <div class="api-section">
+        <h2 data-i18n="apiSec5Title">Security &amp; Cryptography</h2>
+        <p>Key management, signing, verification, and post-quantum cryptographic operations.</p>
+        <div class="endpoint-group">
+          <div class="endpoint">
+            <span class="method method-post">POST</span>
+            <span class="endpoint-path">/kms/sign</span>
+            <span class="endpoint-desc">Sign data with KMS/HSM managed key</span>
+          </div>
+          <div class="endpoint">
+            <span class="method method-post">POST</span>
+            <span class="endpoint-path">/kms/verify</span>
+            <span class="endpoint-desc">Verify a cryptographic signature</span>
+          </div>
+          <div class="endpoint">
+            <span class="method method-post">POST</span>
+            <span class="endpoint-path">/post-quantum/sign</span>
+            <span class="endpoint-desc">Sign with post-quantum algorithm (Dilithium, SPHINCS+)</span>
+          </div>
+          <div class="endpoint">
+            <span class="method method-post">POST</span>
+            <span class="endpoint-path">/post-quantum/verify</span>
+            <span class="endpoint-desc">Verify post-quantum signature</span>
+          </div>
+          <div class="endpoint">
+            <span class="method method-post">POST</span>
+            <span class="endpoint-path">/kms/keys</span>
+            <span class="endpoint-desc">Create a new cryptographic key</span>
+          </div>
+          <div class="endpoint">
+            <span class="method method-post">POST</span>
+            <span class="endpoint-path">/kms/keys/:keyId/rotate</span>
+            <span class="endpoint-desc">Rotate an existing key</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sovereign Architecture APIs -->
+      <div class="api-section">
+        <h2 data-i18n="apiSec6Title">Sovereign Architecture</h2>
+        <p>Air-gap bridge, data diode, TPM attestation, and other sovereign deployment operations.</p>
+        <div class="endpoint-group">
+          <div class="endpoint">
+            <span class="method method-post">POST</span>
+            <span class="endpoint-path">/sovereign-arch/qr/encode</span>
+            <span class="endpoint-desc">Encode data as animated QR sequence for air-gap transfer</span>
+          </div>
+          <div class="endpoint">
+            <span class="method method-post">POST</span>
+            <span class="endpoint-path">/sovereign-arch/diode/ingest</span>
+            <span class="endpoint-desc">Ingest data through unidirectional data diode</span>
+          </div>
+          <div class="endpoint">
+            <span class="method method-post">POST</span>
+            <span class="endpoint-path">/sovereign-arch/tpm/attest</span>
+            <span class="endpoint-desc">Get TPM hardware attestation for a decision</span>
+          </div>
+          <div class="endpoint">
+            <span class="method method-post">POST</span>
+            <span class="endpoint-path">/sovereign-arch/timelock/create</span>
+            <span class="endpoint-desc">Create time-locked encrypted decision (embargo)</span>
+          </div>
+          <div class="endpoint">
+            <span class="method method-post">POST</span>
+            <span class="endpoint-path">/sovereign-arch/canary/create</span>
+            <span class="endpoint-desc">Create canary tripwire for exfiltration detection</span>
+          </div>
+          <div class="endpoint">
+            <span class="method method-post">POST</span>
+            <span class="endpoint-path">/sovereign-arch/replay/capture</span>
+            <span class="endpoint-desc">Capture state for deterministic replay</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Translation -->
+      <div class="api-section">
+        <h2 data-i18n="apiSec7Title">CendiaOmniTranslate</h2>
+        <p>100+ language enterprise translation with glossary management and translation memory.</p>
+        <div class="endpoint-group">
+          <div class="endpoint">
+            <span class="method method-post">POST</span>
+            <span class="endpoint-path">/omnitranslate/translate</span>
+            <span class="endpoint-desc">Translate text between 100+ languages</span>
+          </div>
+          <div class="endpoint">
+            <span class="method method-post">POST</span>
+            <span class="endpoint-path">/omnitranslate/detect</span>
+            <span class="endpoint-desc">Auto-detect source language</span>
+          </div>
+          <div class="endpoint">
+            <span class="method method-post">POST</span>
+            <span class="endpoint-path">/omnitranslate/batch</span>
+            <span class="endpoint-desc">Batch translate multiple text segments</span>
+          </div>
+          <div class="endpoint">
+            <span class="method method-get">GET</span>
+            <span class="endpoint-path">/omnitranslate/languages</span>
+            <span class="endpoint-desc">List supported languages and capabilities</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Verticals -->
+      <div class="api-section">
+        <h2 data-i18n="apiSec8Title">Vertical-Specific APIs</h2>
+        <p>Industry-specific endpoints for compliance frameworks, decision schemas, and agent presets across multiple verticals.</p>
+        <div class="endpoint-group">
+          <div class="endpoint">
+            <span class="method method-get">GET</span>
+            <span class="endpoint-path">/verticals/:vertical/agents</span>
+            <span class="endpoint-desc">List agents for a specific industry vertical</span>
+          </div>
+          <div class="endpoint">
+            <span class="method method-get">GET</span>
+            <span class="endpoint-path">/verticals/:vertical/compliance</span>
+            <span class="endpoint-desc">Get compliance frameworks for a vertical</span>
+          </div>
+          <div class="endpoint">
+            <span class="method method-get">GET</span>
+            <span class="endpoint-path">/verticals/:vertical/schemas</span>
+            <span class="endpoint-desc">Get decision schemas for a vertical</span>
+          </div>
+          <div class="endpoint">
+            <span class="method method-post">POST</span>
+            <span class="endpoint-path">/:vertical/knowledge/query</span>
+            <span class="endpoint-desc">Query vertical-specific knowledge base (RAG)</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Example Request -->
+      <div class="api-section">
+        <h2 data-i18n="apiSec9Title">Example: Start a Council Deliberation</h2>
+        <div class="code-block">
+<span class="comment">// POST /api/v1/council/deliberate</span>
+{
+  <span class="key">"question"</span>: <span class="string">"Should we acquire TargetCorp for $200M?"</span>,
+  <span class="key">"context"</span>: <span class="string">"TargetCorp has $45M ARR, 23% growth rate..."</span>,
+  <span class="key">"agents"</span>: [<span class="string">"financial-analyst"</span>, <span class="string">"legal-advisor"</span>, <span class="string">"risk-assessor"</span>, <span class="string">"operations-lead"</span>, <span class="string">"compliance-officer"</span>, <span class="string">"strategy-advisor"</span>],
+  <span class="key">"mode"</span>: <span class="string">"full-deliberation"</span>,
+  <span class="key">"options"</span>: {
+    <span class="key">"cross_examination"</span>: true,
+    <span class="key">"allow_dissent"</span>: true,
+    <span class="key">"confidence_threshold"</span>: <span class="number">0.7</span>
+  }
+}
+        </div>
+        <div class="code-block">
+<span class="comment">// Response (200 OK)</span>
+{
+  <span class="key">"deliberation_id"</span>: <span class="string">"dlb_2026020812345"</span>,
+  <span class="key">"status"</span>: <span class="string">"in_progress"</span>,
+  <span class="key">"agents_assigned"</span>: <span class="number">6</span>,
+  <span class="key">"estimated_duration_seconds"</span>: <span class="number">45</span>,
+  <span class="key">"poll_url"</span>: <span class="string">"/api/v1/council/deliberations/dlb_2026020812345"</span>
+}
+        </div>
+      </div>
+
+      <!-- Access -->
+      <div class="api-section">
+        <h2 data-i18n="apiSec10Title">Getting API Access</h2>
+        <p>
+          Full API documentation (OpenAPI 3.0 spec, Postman collection, and SDK examples) is provided 
+          to all pilot partners and licensed customers. The API runs entirely on your infrastructure — 
+          there are no cloud-hosted API endpoints.
+        </p>
+        <p>
+          During your pilot evaluation, you'll receive:
+        </p>
+        <ul style="color: var(--color-text-dim); font-size: 0.85rem; line-height: 1.8; margin: 12px 0 0 24px;">
+          <li>Complete OpenAPI 3.0 specification (machine-readable)</li>
+          <li>Postman collection with example requests for every endpoint</li>
+          <li>TypeScript SDK with full type definitions</li>
+          <li>Integration guides for common enterprise patterns</li>
+          <li>Webhook configuration for event-driven architectures</li>
+        </ul>
+      </div>
+
+      <div class="cta-box">
+        <h3 data-i18n="apiCtaTitle">Get Full API Access</h3>
+        <p>Request a technical briefing and we'll walk you through the API, provide the OpenAPI spec, and set up a sandbox environment.</p>
+        <a href="briefing.html" class="cta-btn" data-i18n="apiCtaBtn">Request Technical Briefing →</a>
+        <a href="trust/test-results.html" class="cta-btn secondary">See Test Results</a>
+      </div>
+    </div>
+    </main>
+
+    <footer>
+    <div class="footer-section">
+      <p class="footer-outcome" data-i18n="footerOutcome">Ready to own your AI decisions — and prove them to regulators?</p>
+      <div class="footer-ctas">
+        <a href="briefing.html" class="cta-button"><span data-i18n="footerCtaBriefing">Request Briefing</span> <span class="arrow">→</span></a>
+        <a href="pilot.html" class="cta-button secondary" data-i18n="footerCtaPilot">See Results in 90 Days</a>
+        <a href="pricing.html" class="cta-button secondary" data-i18n="navPricingShort">Pricing</a>
+        <a href="trust.html" class="cta-button secondary" data-i18n="navTrustCenterShort">Trust Center</a>
+      </div>
+      <p class="footer-contact"><a href="mailto:contact@datacendia.com">contact@datacendia.com</a> · <a href="team.html">Leadership</a> · <a href="protocol.html">Protocol</a> · <a href="trust.html">Trust</a> · <a href="roi-calculator.html">ROI Calculator</a> · <a href="changelog.html">Changelog</a> · <a href="pricing.html">Pricing</a> · <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a> · <a href="https://www.linkedin.com/company/datacendia/" target="_blank" rel="noopener">LinkedIn</a></p>
+      <p class="footer-status" style="font-family: var(--font-mono); font-size: 0.7rem; color: #2ecc71; margin-top: 16px; letter-spacing: 0.05em;">SYSTEM STATUS: AIR-GAP READY · NO TRACKER PIXELS DETECTED</p>
+    </div>
+    </footer>
+  </div>
+  <script src="translations.js"></script>
+  <script src="app.js"></script>
+  <script src="nav-mobile.js"></script>
+</body>
+</html>

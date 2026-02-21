@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EU AI Act Article 6: High-Risk AI Classification Guide | Datacendia</title>
+  <meta name="description" content="Understanding EU AI Act Article 6 high-risk AI classification. Which AI systems are high-risk, what obligations apply, and how to comply with Annex III categories. Practical guide for enterprises.">
+  <meta name="keywords" content="EU AI Act Article 6, high-risk AI, EU AI Act classification, Annex III AI, AI risk classification, EU AI Act compliance, high-risk AI obligations, AI regulation Europe">
+  <meta name="author" content="Datacendia">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+  <meta property="og:title" content="EU AI Act Article 6: High-Risk AI Classification Guide">
+  <meta property="og:description" content="Which AI systems are high-risk under the EU AI Act? Understand Article 6, Annex III, and your compliance obligations.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://datacendia.com/learn/eu-ai-act-high-risk/">
+  <meta property="og:image" content="https://datacendia.com/og-image.png">
+  <meta property="og:site_name" content="Datacendia">
+  <meta property="article:published_time" content="2026-02-08">
+  <meta property="article:modified_time" content="2026-02-08">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="EU AI Act Article 6: High-Risk Classification">
+  <meta name="twitter:description" content="Which AI systems are high-risk under the EU AI Act? Practical compliance guide.">
+  <meta name="twitter:image" content="https://datacendia.com/og-image.png">
+  <link rel="canonical" href="https://datacendia.com/learn/eu-ai-act-high-risk/">
+  <link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg">
+  <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+  <meta name="theme-color" content="#0a0a0a">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../styles.css">
+  <style>
+    .learn-container { max-width: 800px; margin: 0 auto; padding: 60px 24px 80px; }
+    .learn-breadcrumb { font-size: 0.75rem; color: var(--color-text-dim); margin-bottom: 24px; }
+    .learn-breadcrumb a { color: var(--color-text-dim); text-decoration: none; }
+    .learn-breadcrumb a:hover { color: var(--color-gold); }
+    .learn-meta { display: flex; gap: 24px; font-size: 0.75rem; color: var(--color-text-dim); margin-bottom: 32px; flex-wrap: wrap; }
+    .learn-title { font-family: var(--font-display); font-size: 2.25rem; font-weight: 300; color: var(--color-text); margin-bottom: 16px; line-height: 1.2; }
+    .learn-subtitle { font-size: 1.1rem; color: var(--color-text-muted); margin-bottom: 32px; line-height: 1.6; }
+    .learn-content h2 { font-family: var(--font-display); font-size: 1.5rem; font-weight: 400; color: var(--color-text); margin: 48px 0 16px; padding-top: 24px; border-top: 1px solid var(--color-border); }
+    .learn-content h3 { font-family: var(--font-display); font-size: 1.15rem; font-weight: 400; color: var(--color-text); margin: 32px 0 12px; }
+    .learn-content p { font-size: 0.95rem; color: var(--color-text-muted); line-height: 1.8; margin-bottom: 16px; }
+    .learn-content ul, .learn-content ol { margin: 16px 0 24px 24px; color: var(--color-text-muted); }
+    .learn-content li { font-size: 0.95rem; line-height: 1.7; margin-bottom: 8px; }
+    .learn-content strong { color: var(--color-text); }
+    .definition-box { background: var(--color-card-bg); border: 1px solid var(--color-gold); border-radius: 8px; padding: 24px; margin: 24px 0; }
+    .definition-box p { font-size: 1rem; color: var(--color-text); margin: 0; line-height: 1.7; }
+    .warning-box { background: rgba(239, 68, 68, 0.08); border: 1px solid rgba(239, 68, 68, 0.3); border-radius: 8px; padding: 24px; margin: 24px 0; }
+    .warning-box p { font-size: 0.9rem; color: var(--color-text-dim); margin: 0; line-height: 1.7; }
+    .comparison-table { width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 0.85rem; }
+    .comparison-table th { background: var(--color-card-bg); border: 1px solid var(--color-border); padding: 12px 16px; text-align: left; font-weight: 500; color: var(--color-text); }
+    .comparison-table td { border: 1px solid var(--color-border); padding: 12px 16px; color: var(--color-text-muted); }
+    .comparison-table tr:nth-child(even) { background: rgba(255,255,255,0.02); }
+    .faq-section { margin-top: 48px; }
+    .faq-item { border-bottom: 1px solid var(--color-border); padding: 24px 0; }
+    .faq-question { font-family: var(--font-display); font-size: 1.1rem; font-weight: 400; color: var(--color-text); margin-bottom: 12px; }
+    .faq-answer { font-size: 0.9rem; color: var(--color-text-muted); line-height: 1.7; }
+    .cta-box { background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(212, 175, 55, 0.02) 100%); border: 1px solid var(--color-gold); border-radius: 8px; padding: 32px; margin-top: 48px; text-align: center; }
+    .cta-box h3 { font-family: var(--font-display); font-size: 1.25rem; color: var(--color-text); margin-bottom: 12px; }
+    .cta-box p { font-size: 0.9rem; color: var(--color-text-muted); margin-bottom: 20px; }
+    .cta-button { display: inline-block; background: var(--color-gold); color: var(--color-bg); padding: 12px 32px; border-radius: 6px; text-decoration: none; font-size: 0.85rem; font-weight: 500; transition: opacity 0.2s; }
+    .cta-button:hover { opacity: 0.9; }
+    .related-links { margin-top: 48px; padding-top: 32px; border-top: 1px solid var(--color-border); }
+    .related-links h3 { font-size: 0.85rem; color: var(--color-text-dim); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 16px; }
+    .related-links ul { list-style: none; margin: 0; padding: 0; }
+    .related-links li { margin-bottom: 8px; }
+    .related-links a { color: var(--color-gold); text-decoration: none; font-size: 0.9rem; }
+    .related-links a:hover { text-decoration: underline; }
+    .risk-level { display: inline-block; padding: 3px 10px; border-radius: 12px; font-size: 0.7rem; font-weight: 600; }
+    .risk-prohibited { background: rgba(239,68,68,0.15); color: #ef4444; }
+    .risk-high { background: rgba(249,115,22,0.15); color: #f97316; }
+    .risk-limited { background: rgba(234,179,8,0.15); color: #eab308; }
+    .risk-minimal { background: rgba(34,197,94,0.15); color: #22c55e; }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://datacendia.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Learn", "item": "https://datacendia.com/learn/" },
+      { "@type": "ListItem", "position": 3, "name": "EU AI Act High-Risk Classification", "item": "https://datacendia.com/learn/eu-ai-act-high-risk/" }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Does the EU AI Act apply to companies outside the EU?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. The EU AI Act applies to providers who place AI systems on the EU market or put them into service in the EU, regardless of where the provider is established. It also applies to deployers located within the EU, and to providers outside the EU whose AI system output is used in the EU. Like GDPR, it has extraterritorial reach." }
+      },
+      {
+        "@type": "Question",
+        "name": "Is a decision support tool high-risk under the EU AI Act?",
+        "acceptedAnswer": { "@type": "Answer", "text": "It depends on what decisions it supports. A tool that helps with marketing copy is minimal risk. A tool that assists with credit scoring, employment decisions, or healthcare diagnoses likely falls under Annex III. The Article 6(3) exception may apply if the AI only performs preparatory or narrow procedural tasks." }
+      },
+      {
+        "@type": "Question",
+        "name": "What are the penalties for EU AI Act non-compliance?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Prohibited AI practices: up to 35 million EUR or 7% of global annual revenue. High-risk obligations: up to 15 million EUR or 3% of global annual revenue. Incorrect information to authorities: up to 7.5 million EUR or 1% of global annual revenue." }
+      }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "EU AI Act Article 6: High-Risk AI Classification Guide",
+    "description": "Understanding EU AI Act Article 6 high-risk AI classification and compliance obligations.",
+    "author": { "@type": "Organization", "name": "Datacendia", "url": "https://datacendia.com" },
+    "publisher": { "@type": "Organization", "name": "Datacendia", "logo": { "@type": "ImageObject", "url": "https://datacendia.com/assets/logo.svg" } },
+    "datePublished": "2026-02-08",
+    "dateModified": "2026-02-08",
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://datacendia.com/learn/eu-ai-act-high-risk/" },
+    "image": "https://datacendia.com/og-image.png"
+  }
+  </script>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-top">
+        <a href="../../index.html" style="text-decoration: none;"><h1 class="logo">DATACENDIA</h1></a>
+      </div>
+      <p class="tagline-sub">Decision Crisis Immunization Infrastructure</p>
+      <nav class="main-nav">
+        <button class="nav-toggle" aria-label="Menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+        <div class="nav-menu">
+        <div class="nav-group">
+          <span class="nav-label">Platform</span>
+          <div class="nav-dropdown">
+            <a href="/platform-capabilities.html">Platform Overview<span class="nav-desc">Full capability map</span></a>
+            <a href="/dcii.html">DCII Framework<span class="nav-desc">9 primitives &middot; Crisis immunization</span></a>
+            <a href="/diagrams.html">Architecture<span class="nav-desc">8 system diagrams</span></a>
+          </div>
+        </div>
+        <div class="nav-group">
+          <span class="nav-label">Evidence</span>
+          <div class="nav-dropdown">
+            <a href="/demos.html">Interactive Demos<span class="nav-desc">Council, Chronos, Crucible &amp; more</span></a>
+            <a href="/wargames.html">War Games<span class="nav-desc">Would dissent have surfaced the risk?</span></a>
+            <a href="/case-studies.html">Case Studies<span class="nav-desc">Real-world decision analysis</span></a>
+          </div>
+        </div>
+        <a href="/verticals.html">Industries</a>
+        <div class="nav-group">
+          <span class="nav-label">Pricing</span>
+          <div class="nav-dropdown">
+            <a href="/pricing.html">Tier Overview<span class="nav-desc">Foundation &middot; Enterprise &middot; Strategic</span></a>
+            <a href="/premium.html">Premium Modules<span class="nav-desc">7 advanced capabilities</span></a>
+            <a href="/roi-calculator.html">ROI Calculator<span class="nav-desc">Quantify decision risk reduction</span></a>
+            <a href="/pilot.html">90-Day Pilot<span class="nav-desc">Prove value before scaling</span></a>
+          </div>
+        </div>
+        <div class="nav-group">
+          <span class="nav-label">Trust</span>
+          <div class="nav-dropdown">
+            <a href="/trust.html">Trust Center<span class="nav-desc">Security, compliance &amp; deployment</span></a>
+            <a href="/honesty-matrices.html">Honesty Matrices<span class="nav-desc">What we can't do &mdash; yet</span></a>
+          </div>
+        </div>
+        <a href="/briefing.html" class="nav-cta">Request Briefing</a>
+        </div>
+      </nav>
+    </header>
+
+    <div class="learn-container">
+      <div class="learn-breadcrumb">
+        <a href="../../index.html">Home</a> / <a href="../">Learn</a> / EU AI Act High-Risk Classification
+      </div>
+
+      <h1 class="learn-title">EU AI Act Article 6: High-Risk Classification</h1>
+      <p class="learn-subtitle">
+        Which AI systems are classified as high-risk under the EU AI Act? 
+        What obligations apply? A practical guide to Article 6, Annex III categories, 
+        and the compliance requirements that take effect in 2026.
+      </p>
+
+      <div class="learn-meta">
+        <span>Published: <time datetime="2026-02-08">February 8, 2026</time></span>
+        <span>Reading time: 13 minutes</span>
+        <span>Category: EU AI Act</span>
+      </div>
+
+      <div class="warning-box">
+        <p><strong>Note:</strong> This article covers Regulation (EU) 2024/1689 as published. The European Commission may issue delegated acts and guidance that refine these classifications. This is educational content, not legal advice.</p>
+      </div>
+
+      <div class="learn-content">
+
+        <h2>The EU AI Act Risk Pyramid</h2>
+        <p>
+          The EU AI Act classifies AI systems into four risk levels, each with different regulatory requirements:
+        </p>
+
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th>Risk Level</th>
+              <th>Regulatory Treatment</th>
+              <th>Examples</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="risk-prohibited">PROHIBITED</span></td>
+              <td>Banned entirely (Article 5)</td>
+              <td>Social scoring by governments, real-time biometric mass surveillance (with exceptions), manipulative AI targeting vulnerabilities</td>
+            </tr>
+            <tr>
+              <td><span class="risk-high">HIGH-RISK</span></td>
+              <td>Permitted with strict obligations (Articles 6–15)</td>
+              <td>AI in healthcare, employment, credit scoring, law enforcement, education, critical infrastructure</td>
+            </tr>
+            <tr>
+              <td><span class="risk-limited">LIMITED RISK</span></td>
+              <td>Transparency obligations only (Article 50)</td>
+              <td>Chatbots (must disclose they're AI), deepfake generators, emotion recognition systems</td>
+            </tr>
+            <tr>
+              <td><span class="risk-minimal">MINIMAL RISK</span></td>
+              <td>No specific obligations</td>
+              <td>Spam filters, AI in video games, inventory management</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2>Article 6: The High-Risk Classification Rules</h2>
+        <p>Article 6 establishes two pathways for an AI system to be classified as high-risk:</p>
+
+        <h3>Pathway 1: Product Safety Legislation (Article 6(1))</h3>
+        <p>
+          An AI system is high-risk if it is a <strong>safety component</strong> of a product covered by EU harmonized 
+          legislation listed in Annex I, and that product requires third-party conformity assessment. This covers:
+        </p>
+        <ul>
+          <li>Medical devices and in-vitro diagnostic devices</li>
+          <li>Machinery and lifts</li>
+          <li>Toys safety</li>
+          <li>Marine equipment</li>
+          <li>Civil aviation security</li>
+          <li>Motor vehicles and their trailers</li>
+          <li>Radio equipment</li>
+        </ul>
+
+        <h3>Pathway 2: Annex III Stand-Alone Systems (Article 6(2))</h3>
+        <p>
+          An AI system is high-risk if it falls into one of the categories listed in <strong>Annex III</strong>. 
+          These are the categories most relevant to enterprise decision intelligence:
+        </p>
+
+        <h2>Annex III: The Eight High-Risk Categories</h2>
+
+        <h3>1. Biometric Identification and Categorisation</h3>
+        <p>
+          Real-time and post remote biometric identification systems. This includes facial recognition, 
+          fingerprint matching, and other biometric systems used to identify individuals in public or 
+          semi-public spaces.
+        </p>
+
+        <h3>2. Critical Infrastructure Management</h3>
+        <p>
+          AI used as safety components in the management and operation of critical digital infrastructure, 
+          road traffic, and the supply of water, gas, heating, and electricity. If your AI controls or 
+          monitors critical systems where failure could endanger public safety, it's high-risk.
+        </p>
+
+        <h3>3. Education and Vocational Training</h3>
+        <p>
+          AI systems that determine access to education, evaluate learning outcomes, assess appropriate 
+          levels of education, or monitor cheating during examinations. Automated grading systems and 
+          student performance prediction tools fall here.
+        </p>
+
+        <h3>4. Employment, Workers Management, and Self-Employment</h3>
+        <p>
+          AI used for recruitment (resume screening, interview analysis), promotion decisions, task allocation, 
+          performance monitoring, or termination decisions. This is one of the broadest categories and 
+          catches many HR-tech AI tools.
+        </p>
+
+        <h3>5. Essential Private and Public Services</h3>
+        <p>
+          AI that evaluates creditworthiness, sets risk premiums for life and health insurance, evaluates 
+          eligibility for public benefits, dispatches emergency services, or determines credit scores. 
+          Financial services AI is heavily impacted.
+        </p>
+
+        <h3>6. Law Enforcement</h3>
+        <p>
+          AI used for risk assessment (recidivism), polygraph and deception detection, evidence reliability 
+          assessment, crime prediction (predictive policing), and profiling.
+        </p>
+
+        <h3>7. Migration, Asylum, and Border Control</h3>
+        <p>
+          AI for polygraph use in immigration, document authenticity assessment, application evaluation, 
+          and migration monitoring and forecasting.
+        </p>
+
+        <h3>8. Administration of Justice and Democratic Processes</h3>
+        <p>
+          AI used to assist judicial authorities in researching and interpreting facts and law, 
+          and in applying the law to facts. AI used in electoral processes also falls here.
+        </p>
+
+        <h2>The Article 6(3) Exception</h2>
+        <div class="definition-box">
+          <p><strong>Important:</strong> Article 6(3) provides an exception. An Annex III AI system is NOT high-risk if it does not pose a <strong>significant risk of harm</strong> to health, safety, or fundamental rights. Specifically, it's excluded if the AI performs a narrow procedural task, improves the result of a previously completed human activity, detects decision-making patterns without replacing human assessment, or performs a preparatory task for an assessment listed in Annex III. However, AI systems that <strong>profile natural persons</strong> are always considered high-risk regardless of this exception.</p>
+        </div>
+
+        <h2>High-Risk AI Obligations (Articles 8–15)</h2>
+        <p>If your AI system is classified as high-risk, you must comply with these requirements:</p>
+
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th>Article</th>
+              <th>Requirement</th>
+              <th>What It Means in Practice</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Art. 9</strong></td>
+              <td>Risk Management System</td>
+              <td>Continuous risk identification, analysis, mitigation, and testing throughout the AI lifecycle</td>
+            </tr>
+            <tr>
+              <td><strong>Art. 10</strong></td>
+              <td>Data Governance</td>
+              <td>Training data must be relevant, representative, free of errors, and complete. Bias examination required.</td>
+            </tr>
+            <tr>
+              <td><strong>Art. 11</strong></td>
+              <td>Technical Documentation</td>
+              <td>Detailed documentation of the AI system before it's placed on the market</td>
+            </tr>
+            <tr>
+              <td><strong>Art. 12</strong></td>
+              <td>Record-Keeping</td>
+              <td>Automatic logging of events during operation, with traceability throughout the lifecycle</td>
+            </tr>
+            <tr>
+              <td><strong>Art. 13</strong></td>
+              <td>Transparency</td>
+              <td>Instructions for use that enable deployers to interpret outputs and use the system appropriately</td>
+            </tr>
+            <tr>
+              <td><strong>Art. 14</strong></td>
+              <td>Human Oversight</td>
+              <td>Designed to allow effective human oversight, including the ability to override or stop the AI</td>
+            </tr>
+            <tr>
+              <td><strong>Art. 15</strong></td>
+              <td>Accuracy, Robustness, Cybersecurity</td>
+              <td>Appropriate levels of accuracy, resilience against errors and adversarial attacks, cybersecurity measures</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2>Penalties for Non-Compliance</h2>
+        <ul>
+          <li><strong>Prohibited AI practices:</strong> Up to 35 million EUR or 7% of global annual revenue</li>
+          <li><strong>High-risk obligations:</strong> Up to 15 million EUR or 3% of global annual revenue</li>
+          <li><strong>Incorrect information to authorities:</strong> Up to 7.5 million EUR or 1% of global annual revenue</li>
+        </ul>
+
+        <h2>Timeline: When Does This Apply?</h2>
+        <ul>
+          <li><strong>February 2, 2025:</strong> Prohibited AI practices provisions apply</li>
+          <li><strong>August 2, 2025:</strong> Obligations for general-purpose AI models apply</li>
+          <li><strong>August 2, 2026:</strong> Most high-risk AI obligations apply (Article 6(1) systems)</li>
+          <li><strong>August 2, 2027:</strong> Remaining high-risk obligations apply (Annex I product safety systems)</li>
+        </ul>
+
+        <h2>How Decision Intelligence Platforms Address High-Risk Requirements</h2>
+        <p>
+          Enterprise decision intelligence platforms that deploy AI for governance, compliance, or 
+          advisory purposes may fall under Annex III categories — particularly Category 5 (essential services) 
+          and Category 8 (administration of justice). A well-designed platform addresses the Article 8–15 
+          obligations natively:
+        </p>
+        <ul>
+          <li><strong>Record-keeping (Art. 12):</strong> Immutable audit trails with cryptographic integrity — every decision logged with full evidence chain</li>
+          <li><strong>Transparency (Art. 13):</strong> Multi-agent deliberation with per-agent reasoning — not a black box, but a documented debate</li>
+          <li><strong>Human oversight (Art. 14):</strong> Recommendations only, never autonomous action — humans approve, override, or reject every decision</li>
+          <li><strong>Robustness (Art. 15):</strong> Adversarial red-team testing, bias monitoring, and continuous compliance scanning</li>
+        </ul>
+
+        <div class="faq-section">
+          <h2>Frequently Asked Questions</h2>
+
+          <div class="faq-item">
+            <div class="faq-question">Does the EU AI Act apply to companies outside the EU?</div>
+            <div class="faq-answer">
+              Yes. The EU AI Act applies to providers who place AI systems on the EU market or put them into 
+              service in the EU, regardless of where the provider is established. It also applies to deployers 
+              of AI systems located within the EU, and to providers/deployers outside the EU whose AI system 
+              output is used in the EU. Like GDPR, it has extraterritorial reach.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">Is a decision support tool high-risk?</div>
+            <div class="faq-answer">
+              It depends on what decisions it supports. A tool that helps with marketing copy is minimal risk. 
+              A tool that assists with credit scoring, employment decisions, or healthcare diagnoses likely 
+              falls under Annex III. The Article 6(3) exception may apply if the AI only performs preparatory 
+              or narrow procedural tasks — but this must be carefully assessed.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">What's the difference between a provider and a deployer?</div>
+            <div class="faq-answer">
+              A <strong>provider</strong> develops or has an AI system developed and places it on the market or 
+              puts it into service under its own name. A <strong>deployer</strong> uses an AI system under its 
+              own authority. Both have obligations, but providers bear the primary compliance burden for 
+              high-risk systems (conformity assessment, technical documentation, CE marking). Deployers must 
+              ensure proper use, human oversight, and input data quality.
+            </div>
+          </div>
+        </div>
+
+        <div class="cta-box">
+          <h3>EU AI Act Compliance Built In</h3>
+          <p>Datacendia maps to EU AI Act Articles 9–15 with immutable audit trails, human oversight controls, adversarial testing, and automated compliance monitoring.</p>
+          <a href="../../trust.html" class="cta-button">See Trust Center →</a>
+        </div>
+
+        <div class="related-links">
+          <h3>Related Articles</h3>
+          <ul>
+            <li><a href="../eu-ai-act-compliance/">EU AI Act Compliance Guide (Overview)</a></li>
+            <li><a href="../ai-governance/">What is AI Governance?</a></li>
+            <li><a href="../hipaa-ai-compliance/">HIPAA AI Compliance Guide</a></li>
+            <li><a href="../ai-audit-trail/">What is an AI Audit Trail?</a></li>
+            <li><a href="../decision-intelligence/">What is Decision Intelligence?</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    </main>
+
+    <footer>
+    <div class="footer-section">
+      <p class="footer-outcome">Ready to own your AI decisions — and prove them to regulators?</p>
+      <div class="footer-ctas">
+        <a href="../../briefing.html" class="cta-button">Request Briefing <span class="arrow">→</span></a>
+        <a href="../../pilot.html" class="cta-button secondary">See Results in 90 Days</a>
+      </div>
+      <p class="footer-contact"><a href="mailto:contact@datacendia.com">contact@datacendia.com</a> · <a href="../../team.html">Leadership</a> · <a href="../../trust.html">Trust</a> · <a href="../../pricing.html">Pricing</a> · <a href="../../privacy.html">Privacy</a> · <a href="../../terms.html">Terms</a></p>
+    </div>
+    </footer>
+  </div>
+  <script src="/nav-mobile.js"></script>
+</body>
+</html>
