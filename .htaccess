@@ -73,6 +73,19 @@ ErrorDocument 404 /404.html
 </IfModule>
 
 # ============================================================================
+# Clean URLs — serve .html files without extension
+# ============================================================================
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # If the request doesn't have an extension and a matching .html file exists, serve it
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_FILENAME}.html -f
+  RewriteRule ^(.+)$ $1.html [L]
+</IfModule>
+
+# ============================================================================
 # Force HTTPS (uncomment if Namecheap SSL is active)
 # ============================================================================
 # RewriteEngine On
