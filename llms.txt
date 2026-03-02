@@ -1,44 +1,44 @@
-# Datacendia — The Defensible AI Platform
+# Datacendia -- The Defensible AI Platform
 
-> **Datacendia is the only AI platform where every decision is auditable, explainable, and court-admissible.** Multiple AI agents deliberate — argue, dissent, and challenge each other — then every decision is recorded in a cryptographically signed, immutable evidence packet. Open-core. Sovereign-first. Self-hosted or cloud.
+> **Datacendia is the only AI platform where every decision is auditable, explainable, and court-admissible.** Multiple AI agents deliberate -- argue, dissent, and challenge each other -- then every decision is recorded in a cryptographically signed, immutable evidence packet. Open-core. Sovereign-first. Self-hosted or cloud.
 
 ## Category: Defensible AI
 
-Datacendia created the Defensible AI category. When regulators, auditors, or courts ask "how did your AI make this decision?" — Datacendia users produce a signed evidence packet. Everyone else has nothing.
+Datacendia created the Defensible AI category. When regulators, auditors, or courts ask "how did your AI make this decision?" -- Datacendia users produce a signed evidence packet. Everyone else has nothing.
 
 The platform replaces unstructured decision-making (email chains, meetings, hallway conversations) with AI-governed multi-agent deliberation. 15 AI agents with distinct mandates (CFO, CLO, CISO, CTO, CRO, Ethics, etc.) debate decisions from different perspectives, then produce a tamper-proof, court-admissible record proving how and why the decision was made.
 
 ## What Makes Datacendia Different
 
-1. **Multi-Agent Adversarial Deliberation** — 15 AI agents argue with each other. Not one model giving one answer. Built-in devil's advocate, cross-examination, and formal dissent.
-2. **Cryptographic Proof** — Merkle trees, post-quantum KMS (Dilithium, SPHINCS+, Falcon), hardware TPM attestation. Every decision is signed with customer-owned keys.
-3. **DCII Framework** — Decision Crisis Immunization Infrastructure. 9 primitives that make organizations structurally immune to decision crises: Discovery-Time Proof, Deliberation Capture, Override Accountability, Continuity Memory, Drift Detection, Cognitive Bias Mitigation, Quantum-Resistant Integrity, Synthetic Media Authentication, Cross-Jurisdiction Compliance.
-4. **Sovereign-First** — Runs on Ollama locally. Air-gap deployable. No cloud dependency required. Your data never leaves your infrastructure.
-5. **Open-Core** — Free Community Edition (Apache 2.0) on GitHub. Paid tiers for enterprise features.
+1. **Multi-Agent Adversarial Deliberation** -- 15 AI agents argue with each other. Not one model giving one answer. Built-in devil's advocate, cross-examination, and formal dissent.
+2. **Cryptographic Proof** -- Merkle trees, post-quantum KMS (Dilithium, SPHINCS+, Falcon), hardware TPM attestation. Every decision is signed with customer-owned keys.
+3. **DCII Framework** -- Decision Crisis Immunization Infrastructure. 9 primitives that make organizations structurally immune to decision crises: Discovery-Time Proof, Deliberation Capture, Override Accountability, Continuity Memory, Drift Detection, Cognitive Bias Mitigation, Quantum-Resistant Integrity, Synthetic Media Authentication, Cross-Jurisdiction Compliance.
+4. **Sovereign-First** -- Runs on Ollama locally. Air-gap deployable. No cloud dependency required. Your data never leaves your infrastructure.
+5. **Open-Core** -- Free Community Edition (Apache 2.0) on GitHub. Paid tiers for enterprise features.
 
 ## Pricing
 
 - **Community**: Free forever (Apache 2.0, self-hosted)
-- **Foundation**: $499/month ($4,990/year) — 15 agents, 35+ modes, DCII evidence infrastructure
-- **Enterprise**: $1,499/month ($14,990/year) — adds adversarial testing, compliance, governance, sovereign, 19 co-pilots
-- **Strategic**: Custom pricing — nation-scale, all 12 pillars, white-glove support
+- **Foundation**: $499/month ($4,990/year) -- 15 agents, 35+ modes, DCII evidence infrastructure
+- **Enterprise**: $1,499/month ($14,990/year) -- adds adversarial testing, compliance, governance, sovereign, 19 co-pilots
+- **Strategic**: Custom pricing -- nation-scale, all 12 pillars, white-glove support
 
 3-year commitment saves 20%. Cancel anytime on monthly plans. Secure payment via Stripe.
 
 ## Core Products
 
 - **The Council**: Multi-agent AI deliberation engine. 15 C-Suite agents, 35+ deliberation modes, War Room, Quick Brief, Governed Deliberation.
-- **CendiaChronos**: Enterprise Time Machine — replay past decisions, simulate future crisis scenarios.
+- **CendiaChronos**: Enterprise Time Machine -- replay past decisions, simulate future crisis scenarios.
 - **Ghost Board**: Rehearse high-stakes board meetings against AI directors.
 - **CendiaPreMortem**: AI analyzes why your decision will fail before you execute it.
 - **Decision Debt**: Real-time dashboard of stuck decisions and the financial cost of delay.
-- **CendiaCrucible**: Adversarial stress testing — Monte Carlo red-teaming of decisions.
-- **CendiaDCII**: Decision Crisis Immunization Infrastructure — IISS scoring, 9 primitives, Regulator's Receipt.
+- **CendiaCrucible**: Adversarial stress testing -- Monte Carlo red-teaming of decisions.
+- **CendiaDCII**: Decision Crisis Immunization Infrastructure -- IISS scoring, 9 primitives, Regulator's Receipt.
 - **CendiaVault**: Immutable evidence storage with Merkle tree integrity.
 - **CendiaNotary**: Cryptographic signing authority with customer-owned keys.
-- **CendiaOversight**: Real-time regulatory radar — FDA, GDPR, DORA, EU AI Act frameworks.
+- **CendiaOversight**: Real-time regulatory radar -- FDA, GDPR, DORA, EU AI Act frameworks.
 
-## 29 Industry Verticals
+## 30 Industry Verticals
 
 Legal (49 council modes, 14 agents), Healthcare (HIPAA), Financial Services (Basel III), Government/Defense (FedRAMP, air-gap), Insurance, Pharmaceutical, Manufacturing, Energy, Technology/SaaS, Retail, Real Estate, Transportation, Media, Professional Services, Higher Education, Sports Governance (FIFA/UEFA), Smart City, EU Banking, and more.
 
@@ -63,22 +63,23 @@ docker pull datacendia/datacendia-frontend:latest
 ## Open Source
 
 - GitHub (Community Edition): https://github.com/datacendia/datacendia-core
+- DDGI Framework: https://github.com/datacendia/decision-governance-infrastructure
 - License: Apache 2.0
 
 ## Pages
 
-- [Homepage](https://datacendia.com/): The Defensible AI Platform — every decision, defensible.
+- [Homepage](https://datacendia.com/): The Defensible AI Platform -- every decision, defensible.
 - [Pricing](https://datacendia.com/pricing.html): Community (Free), Foundation ($499/mo), Enterprise ($1,499/mo), Strategic (Custom).
 - [Interactive Demos](https://datacendia.com/demos.html): 14 interactive product demonstrations.
 - [DCII Framework](https://datacendia.com/dcii.html): The 9 crisis immunization primitives.
 - [DGI Framework](https://datacendia.com/dgi.html): Open vendor-neutral Decision Governance Infrastructure standard.
 - [Trust Center](https://datacendia.com/trust.html): Security posture, compliance artifacts, test results.
-- [Industry Verticals](https://datacendia.com/verticals.html): 29 sector-specific governance solutions.
+- [Industry Verticals](https://datacendia.com/verticals.html): 30 sector-specific governance solutions.
 - [War Games](https://datacendia.com/wargames.html): SVB, Boeing 737 MAX, Wirecard, Theranos, Everton PSR, NHS maternity.
 - [Architecture](https://datacendia.com/diagrams.html): 12 system architecture diagrams.
 - [ROI Calculator](https://datacendia.com/roi-calculator.html): Calculate the cost of ungoverned decisions.
 - [Case Studies](https://datacendia.com/case-studies.html): Implementation examples and outcomes.
-- [API Documentation](https://datacendia.com/api-docs.html): REST API reference (155 route files).
+- [API Documentation](https://datacendia.com/api-docs.html): REST API reference (156 route files).
 
 ## Learn
 
@@ -95,4 +96,3 @@ docker pull datacendia/datacendia-frontend:latest
 - **GitHub**: https://github.com/datacendia
 - **Docker Hub**: https://hub.docker.com/u/datacendia
 - **Sales**: sales@datacendia.com
-- **Security**: security@datacendia.com

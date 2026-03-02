@@ -1,3 +1,10 @@
+﻿/**
+ * Mobile Navigation Handler
+ *
+ * Manages hamburger menu toggle, mobile nav overlay,
+ * and responsive breakpoint behavior.
+ */
+
 // Mobile nav toggle
 document.addEventListener('DOMContentLoaded', function() {
   var toggle = document.querySelector('.nav-toggle');

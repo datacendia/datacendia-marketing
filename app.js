@@ -1,3 +1,11 @@
+﻿/**
+ * Datacendia Marketing Site — Main Application Script
+ *
+ * Handles navigation state, mobile menu, scroll effects,
+ * smooth scrolling, and dynamic UI interactions for the
+ * static marketing site.
+ */
+
 document.addEventListener('DOMContentLoaded', function() {
   const tabs = document.querySelectorAll('.tab');
   const subTabs = document.querySelectorAll('.sub-tab');
