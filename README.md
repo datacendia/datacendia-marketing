@@ -183,9 +183,10 @@ Security headers are enforced via `.htaccess` (Apache):
 
 ### HTTPS
 
-Uncomment the rewrite rules in `.htaccess` once your Namecheap SSL certificate is active:
+HTTPS redirect is **enabled** in `.htaccess`. All HTTP requests are automatically redirected to HTTPS via 301.
 
 ```apache
+# Already active in .htaccess
 RewriteEngine On
 RewriteCond %{HTTPS} off
 RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
@@ -297,4 +298,4 @@ Proprietary. See [LICENSE](LICENSE) file.
 
 ---
 
-**Last Updated:** February 2026
+**Last Updated:** March 2026
