@@ -421,7 +421,7 @@
       <div class="gw-card">
         <div class="gw-card-label">Data Leakage</div>
         <h3>PII is being sent to AI models</h3>
-        <p>Social security numbers, patient data, financial records, source code. Once it reaches an external model, you've lost control. Samsung learned this the hard way.</p>
+        <p>Social security numbers, patient data, financial records, source code. Once it reaches an external model, you've lost control. In 2023, Samsung engineers pasted proprietary semiconductor code into ChatGPT — the company only discovered it after an employee report.</p>
       </div>
       <div class="gw-card">
         <div class="gw-card-label">No Audit Trail</div>
@@ -456,7 +456,7 @@
     <div class="gw-grid-3">
       <div class="gw-card gw-feature">
         <h4>PII Detection</h4>
-        <p>10 PII types scanned on every prompt: SSN, credit card, email, phone, IP, DOB, medical records, bank accounts, passport, driver's license.</p>
+        <p>Core high-risk PII classes scanned on every prompt — SSN, credit card, email, phone, IP, DOB, medical records, bank accounts, passport, driver's license — with an extensible rule engine for custom patterns.</p>
       </div>
       <div class="gw-card gw-feature">
         <h4>Policy Enforcement</h4>
@@ -476,7 +476,7 @@
       </div>
       <div class="gw-card gw-feature">
         <h4>30-Minute Deploy</h4>
-        <p>Change one environment variable. Point OPENAI_API_BASE at the gateway. Done. No certificates, no DNS changes, no employee training.</p>
+        <p>For API-based model usage: change one environment variable. Point OPENAI_API_BASE at the gateway. Done. Browser-based AI tools require additional configuration (extension or network proxy).</p>
       </div>
     </div>
   </div>
@@ -508,10 +508,10 @@
         </tr>
         <tr>
           <td>PII detection in prompts</td>
-          <td class="y">Yes</td>
+          <td class="y">Yes (deep DLP)</td>
           <td class="n">Limited</td>
           <td class="n">No</td>
-          <td class="y hl">Yes (10 types)</td>
+          <td class="y hl">Yes (extensible)</td>
         </tr>
         <tr>
           <td>Policy enforcement</td>
@@ -522,16 +522,16 @@
         </tr>
         <tr>
           <td>Cryptographic evidence packets</td>
-          <td class="n">No</td>
-          <td class="n">No</td>
-          <td class="n">No</td>
+          <td class="n">Not available</td>
+          <td class="n">Not available</td>
+          <td class="n">Not available</td>
           <td class="y hl">SHA-256 + HMAC + Merkle</td>
         </tr>
         <tr>
           <td>Signed compliance artifact</td>
-          <td class="n">No</td>
-          <td class="n">No</td>
-          <td class="n">No</td>
+          <td class="n">Not available</td>
+          <td class="n">Not available</td>
+          <td class="n">Not available</td>
           <td class="y hl">AI Manifest™</td>
         </tr>
         <tr>
@@ -550,9 +550,9 @@
         </tr>
         <tr>
           <td>AI decision governance</td>
-          <td class="n">No</td>
-          <td class="n">No</td>
-          <td class="n">No</td>
+          <td class="n">Not focus</td>
+          <td class="n">Not focus</td>
+          <td class="n">Not focus</td>
           <td class="y hl">Yes (The Council)</td>
         </tr>
       </tbody>
@@ -565,7 +565,7 @@
   <!-- Deploy -->
   <div class="gw-section" style="text-align: center;">
     <h2 class="gw-section-title">Deploy in 30 Minutes</h2>
-    <p class="gw-section-sub">One environment variable change. That's the entire deployment.</p>
+    <p class="gw-section-sub">For API-based AI usage (developer tools, internal apps, Copilot integrations) — one environment variable change.</p>
     <div class="gw-code">
 <span class="cm"># Before — employees hit OpenAI directly, zero governance</span>
 <span class="k">OPENAI_API_BASE</span>=<span class="v">https://api.openai.com</span>
@@ -591,7 +591,7 @@
         <li><span class="ck">✓</span> Department breakdown — users, interactions, tokens, cost per department</li>
         <li><span class="ck">✓</span> Cryptographic integrity proof — Merkle root, SHA-256 hash, HMAC signature</li>
         <li><span class="ck">✓</span> Chain verification — entries verified, chain intact status</li>
-        <li><span class="ck">✓</span> Compliance posture indicators — EU AI Act, GDPR, HIPAA, SOX alignment</li>
+        <li><span class="ck">✓</span> Evidence documentation supporting compliance posture under EU AI Act, GDPR, HIPAA, and SOX frameworks</li>
       </ul>
     </div>
   </div>
