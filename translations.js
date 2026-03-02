@@ -1,3 +1,11 @@
+﻿/**
+ * Internationalization (i18n) Translation Database
+ *
+ * Client-side translation system supporting 11 languages:
+ * en, es, fr, de, pt, it, ja, ko, zh, ar, hi.
+ * Loaded by all HTML pages for dynamic language switching.
+ */
+
 const translations = {
   en: {
     lang: "English",

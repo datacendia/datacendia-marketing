@@ -1,3 +1,11 @@
+﻿/**
+ * Translation Verification Script
+ *
+ * Checks all translation keys for completeness across
+ * all 11 supported languages. Reports missing keys.
+ * Run: node verify-translations.js
+ */
+
 const fs = require('fs');
 const path = require('path');
 

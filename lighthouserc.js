@@ -1,3 +1,10 @@
+﻿/**
+ * Lighthouse CI Configuration
+ *
+ * Performance, accessibility, and SEO audit thresholds
+ * for automated testing in CI/CD pipeline.
+ */
+
 module.exports = {
   ci: {
     collect: {
