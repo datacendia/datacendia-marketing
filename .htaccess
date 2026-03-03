@@ -86,8 +86,8 @@ ErrorDocument 404 /404.html
 </IfModule>
 
 # ============================================================================
-# Force HTTPS (uncomment if Namecheap SSL is active)
+# Force HTTPS
 # ============================================================================
-# RewriteEngine On
-# RewriteCond %{HTTPS} off
-# RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+RewriteEngine On
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
