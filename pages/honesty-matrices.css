@@ -1,0 +1,17 @@
+/* Page-specific styles for honesty-matrices.html — extracted from inline <style> for CSP compliance */
+.page-container { max-width: 900px; margin: 0 auto; padding: 60px 24px 80px; }
+    .page-header { text-align: center; margin-bottom: 48px; }
+    .page-title { font-family: var(--font-display); font-size: 2rem; font-weight: 300; color: var(--color-text); margin-bottom: 12px; }
+    .page-subtitle { font-size: 0.85rem; color: var(--color-text-dim); max-width: 540px; margin: 0 auto; }
+    .matrix-nav { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px; margin-bottom: 48px; }
+    .matrix-nav-card { display: block; padding: 20px; background: var(--color-card-bg); border: 1px solid var(--color-border); border-radius: 8px; text-decoration: none; transition: all 0.3s ease; }
+    .matrix-nav-card:hover { border-color: var(--color-gold); transform: translateY(-2px); }
+    .matrix-nav-card h3 { font-size: 0.85rem; color: var(--color-text); margin-bottom: 4px; }
+    .matrix-nav-card p { font-size: 0.75rem; color: var(--color-text-dim); margin: 0; }
+    .matrix-section { margin-bottom: 64px; scroll-margin-top: 24px; }
+    .matrix-section-header { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; padding-bottom: 16px; border-bottom: 1px solid var(--color-border); }
+    .matrix-section-header img { border-radius: 8px; }
+    .matrix-section-header h2 { font-family: var(--font-display); font-size: 1.4rem; font-weight: 300; color: var(--color-text); margin: 0; }
+    .matrix-section-header p { font-size: 0.8rem; color: var(--color-text-dim); margin: 4px 0 0; }
+    .back-to-top { display: inline-block; font-size: 0.7rem; color: var(--color-text-dim); text-decoration: none; margin-top: 16px; }
+    .back-to-top:hover { color: var(--color-gold); }

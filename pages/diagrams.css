@@ -1,0 +1,864 @@
+/* Page-specific styles for diagrams.html — extracted from inline <style> for CSP compliance */
+.page-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 80px 24px;
+    }
+    .page-header {
+      text-align: center;
+      margin-bottom: 64px;
+    }
+    .page-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 5vw, 2.5rem);
+      font-weight: 300;
+      color: var(--color-text);
+      margin-bottom: 16px;
+    }
+    .page-subtitle {
+      font-size: 1rem;
+      color: var(--color-text-muted);
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .back-link {
+      display: inline-block;
+      margin-bottom: 32px;
+      font-size: 0.75rem;
+      color: var(--color-text-dim);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+    .back-link:hover { color: var(--color-gold); }
+
+    /* Diagram Navigation */
+    .diagram-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: center;
+      margin-bottom: 64px;
+    }
+    .diagram-nav a {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      padding: 8px 16px;
+      border: 1px solid var(--color-border);
+      border-radius: 20px;
+      color: var(--color-text-muted);
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .diagram-nav a:hover {
+      border-color: var(--color-gold);
+      color: var(--color-gold);
+    }
+
+    /* Section wrapper */
+    .diagram-section {
+      margin-bottom: 96px;
+      scroll-margin-top: 40px;
+    }
+    .diagram-section-label {
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--color-gold);
+      margin-bottom: 8px;
+      text-align: center;
+    }
+    .diagram-section-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.4rem, 3vw, 1.8rem);
+      font-weight: 300;
+      color: var(--color-text);
+      text-align: center;
+      margin-bottom: 12px;
+    }
+    .diagram-section-desc {
+      font-size: 0.85rem;
+      color: var(--color-text-dim);
+      text-align: center;
+      max-width: 640px;
+      margin: 0 auto 40px;
+      line-height: 1.6;
+    }
+
+    /* ===== DIAGRAM 1: TIER PYRAMID ===== */
+    .tier-pyramid {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .tier-row {
+      display: flex;
+      align-items: stretch;
+      justify-content: center;
+      width: 100%;
+    }
+    .tier-block {
+      border: 1px solid var(--color-border);
+      padding: 28px 24px;
+      background: var(--color-card-bg);
+      transition: border-color 0.3s, transform 0.2s;
+      position: relative;
+    }
+    .tier-block:hover {
+      border-color: var(--color-gold-border);
+      transform: translateY(-2px);
+      z-index: 2;
+    }
+    .tier-block .tier-label {
+      font-size: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .tier-block .tier-name {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 400;
+      color: var(--color-text);
+      margin-bottom: 4px;
+    }
+    .tier-block .tier-price {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--color-text-dim);
+      margin-bottom: 10px;
+    }
+    .tier-block .tier-pillars {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .tier-block .tier-pillars li {
+      font-size: 0.72rem;
+      color: var(--color-text-muted);
+      padding: 3px 0;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .tier-block .tier-pillars li .pillar-num {
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      color: var(--color-gold);
+      width: 16px;
+      text-align: right;
+      flex-shrink: 0;
+    }
+
+    /* Tier 3 - top (narrow) */
+    .tier-row.t3 { max-width: 480px; }
+    .tier-row.t3 .tier-block { width: 100%; border-radius: 12px 12px 0 0; }
+    .tier-row.t3 .tier-label { color: #ef4444; }
+
+    /* Premium - between */
+    .tier-row.tp { max-width: 620px; }
+    .tier-row.tp .tier-block { width: 100%; border-top: none; }
+    .tier-row.tp .tier-label { color: #a855f7; }
+
+    /* Tier 2 - wider */
+    .tier-row.t2 { max-width: 780px; }
+    .tier-row.t2 .tier-block { width: 100%; border-top: none; }
+    .tier-row.t2 .tier-label { color: #3b82f6; }
+
+    /* Tier 1 - widest (base) */
+    .tier-row.t1 { max-width: 1000px; }
+    .tier-row.t1 .tier-block { width: 100%; border-top: none; border-radius: 0 0 12px 12px; }
+    .tier-row.t1 .tier-label { color: #22c55e; }
+
+    /* ===== DIAGRAM 2: DCII PRIMITIVES ===== */
+    .dcii-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      max-width: 720px;
+      margin: 0 auto 32px;
+    }
+    .dcii-cell {
+      background: var(--color-card-bg);
+      border: 1px solid var(--color-border);
+      border-radius: 10px;
+      padding: 24px 20px;
+      text-align: center;
+      transition: border-color 0.3s, transform 0.2s;
+    }
+    .dcii-cell:hover {
+      border-color: var(--color-gold-border);
+      transform: translateY(-2px);
+    }
+    .dcii-cell .dcii-num {
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      color: var(--color-gold);
+      margin-bottom: 6px;
+    }
+    .dcii-cell .dcii-name {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 400;
+      color: var(--color-text);
+      margin-bottom: 4px;
+    }
+    .dcii-cell .dcii-desc {
+      font-size: 0.7rem;
+      color: var(--color-text-dim);
+      line-height: 1.5;
+    }
+    .dcii-center-badge {
+      text-align: center;
+      margin-top: 20px;
+    }
+    .dcii-center-badge .iiss-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, rgba(201,162,39,0.12) 0%, var(--color-card-bg) 100%);
+      border: 1px solid rgba(201,162,39,0.3);
+      border-radius: 12px;
+      padding: 20px 40px;
+    }
+    .dcii-center-badge .iiss-label {
+      font-size: 0.6rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--color-gold);
+      margin-bottom: 4px;
+    }
+    .dcii-center-badge .iiss-score {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 300;
+      color: var(--color-text);
+    }
+    .dcii-center-badge .iiss-scale {
+      font-size: 0.65rem;
+      color: var(--color-text-dim);
+      margin-top: 4px;
+    }
+
+    /* ===== DIAGRAM 3: DECISION LIFECYCLE ===== */
+    .lifecycle-flow {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .lifecycle-step {
+      width: 100%;
+      background: var(--color-card-bg);
+      border: 1px solid var(--color-border);
+      border-radius: 10px;
+      padding: 24px 28px;
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      transition: border-color 0.3s;
+    }
+    .lifecycle-step:hover { border-color: var(--color-gold-border); }
+    .lifecycle-step .step-num {
+      font-family: var(--font-mono);
+      font-size: 1.4rem;
+      color: var(--color-gold);
+      flex-shrink: 0;
+      width: 36px;
+      text-align: center;
+      line-height: 1;
+      padding-top: 4px;
+    }
+    .lifecycle-step .step-content { flex: 1; }
+    .lifecycle-step .step-title {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-weight: 400;
+      color: var(--color-text);
+      margin-bottom: 4px;
+    }
+    .lifecycle-step .step-detail {
+      font-size: 0.75rem;
+      color: var(--color-text-dim);
+      line-height: 1.6;
+    }
+    .lifecycle-step .step-services {
+      margin-top: 8px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .lifecycle-step .step-services span {
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      padding: 3px 8px;
+      border: 1px solid var(--color-border);
+      border-radius: 4px;
+      color: var(--color-text-muted);
+    }
+    .lifecycle-arrow {
+      width: 2px;
+      height: 28px;
+      background: linear-gradient(to bottom, var(--color-border), var(--color-gold), var(--color-border));
+      position: relative;
+    }
+    .lifecycle-arrow::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-top: 6px solid var(--color-gold);
+    }
+
+    /* ===== DIAGRAM 4: SOVEREIGN PATTERNS ===== */
+    .sovereign-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 12px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .sovereign-card {
+      background: var(--color-card-bg);
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      padding: 16px 18px;
+      transition: border-color 0.3s;
+    }
+    .sovereign-card:hover { border-color: var(--color-gold-border); }
+    .sovereign-card .sov-num {
+      font-family: var(--font-mono);
+      font-size: 0.55rem;
+      color: var(--color-gold);
+      margin-bottom: 4px;
+    }
+    .sovereign-card .sov-name {
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--color-text);
+      margin-bottom: 3px;
+    }
+    .sovereign-card .sov-desc {
+      font-size: 0.65rem;
+      color: var(--color-text-dim);
+      line-height: 1.5;
+    }
+    .sovereign-category {
+      font-size: 0.6rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--color-text-muted);
+      margin: 28px 0 12px;
+      text-align: center;
+    }
+    .sovereign-category:first-of-type { margin-top: 0; }
+
+    /* ===== DIAGRAM 5: VERTICALS MATRIX ===== */
+    .verticals-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 8px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .vert-cell {
+      background: var(--color-card-bg);
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      padding: 14px 16px;
+      text-align: center;
+      transition: all 0.2s;
+      cursor: default;
+    }
+    .vert-cell:hover {
+      border-color: var(--color-gold-border);
+      transform: scale(1.03);
+    }
+    .vert-cell .vert-icon {
+      font-size: 1.2rem;
+      margin-bottom: 4px;
+    }
+    .vert-cell .vert-name {
+      font-size: 0.72rem;
+      font-weight: 500;
+      color: var(--color-text);
+    }
+    .vert-cell .vert-agents {
+      font-family: var(--font-mono);
+      font-size: 0.55rem;
+      color: var(--color-text-dim);
+      margin-top: 2px;
+    }
+    .vert-cell.flagship {
+      border-color: rgba(201,162,39,0.3);
+      background: linear-gradient(135deg, rgba(201,162,39,0.06) 0%, var(--color-card-bg) 100%);
+    }
+    .vert-cell.flagship .vert-name { color: var(--color-gold); }
+
+    /* ===== DIAGRAM 6: SGAS AGENTS ===== */
+    .sgas-layout {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .sgas-orchestrator {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+    .sgas-orchestrator .sgas-orch-box {
+      display: inline-block;
+      background: linear-gradient(135deg, rgba(201,162,39,0.1) 0%, var(--color-card-bg) 100%);
+      border: 1px solid rgba(201,162,39,0.3);
+      border-radius: 12px;
+      padding: 20px 48px;
+    }
+    .sgas-orchestrator .sgas-orch-label {
+      font-size: 0.6rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--color-gold);
+      margin-bottom: 4px;
+    }
+    .sgas-orchestrator .sgas-orch-name {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: var(--color-text);
+    }
+    .sgas-connector {
+      text-align: center;
+      height: 32px;
+      position: relative;
+    }
+    .sgas-connector::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: 2px;
+      height: 100%;
+      background: linear-gradient(to bottom, rgba(201,162,39,0.4), var(--color-border));
+    }
+    .sgas-agents-ring {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
+    }
+    .sgas-agent-card {
+      background: var(--color-card-bg);
+      border: 1px solid var(--color-border);
+      border-radius: 10px;
+      padding: 20px 14px;
+      text-align: center;
+      transition: border-color 0.3s, transform 0.2s;
+    }
+    .sgas-agent-card:hover {
+      border-color: var(--color-gold-border);
+      transform: translateY(-3px);
+    }
+    .sgas-agent-card .sgas-icon {
+      font-size: 1.4rem;
+      margin-bottom: 8px;
+    }
+    .sgas-agent-card .sgas-agent-name {
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--color-text);
+      margin-bottom: 4px;
+    }
+    .sgas-agent-card .sgas-agent-role {
+      font-size: 0.62rem;
+      color: var(--color-text-dim);
+      line-height: 1.5;
+    }
+
+    /* ===== DIAGRAM 7: TRUST / EVIDENCE CHAIN ===== */
+    .trust-chain {
+      display: flex;
+      align-items: stretch;
+      gap: 0;
+      max-width: 900px;
+      margin: 0 auto;
+      overflow-x: auto;
+    }
+    .trust-node {
+      flex: 1;
+      min-width: 140px;
+      background: var(--color-card-bg);
+      border: 1px solid var(--color-border);
+      padding: 24px 18px;
+      text-align: center;
+      position: relative;
+      transition: border-color 0.3s;
+    }
+    .trust-node:first-child { border-radius: 10px 0 0 10px; }
+    .trust-node:last-child { border-radius: 0 10px 10px 0; }
+    .trust-node:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      right: -12px;
+      top: 50%;
+      transform: translateY(-50%);
+      border-left: 10px solid var(--color-gold);
+      border-top: 8px solid transparent;
+      border-bottom: 8px solid transparent;
+      z-index: 2;
+    }
+    .trust-node:not(:first-child) { border-left: none; }
+    .trust-node:hover { border-color: var(--color-gold-border); }
+    .trust-node .trust-icon { font-size: 1.3rem; margin-bottom: 8px; }
+    .trust-node .trust-name {
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--color-text);
+      margin-bottom: 4px;
+    }
+    .trust-node .trust-desc {
+      font-size: 0.62rem;
+      color: var(--color-text-dim);
+      line-height: 1.5;
+    }
+
+    /* ===== DIAGRAM 8: COMPLIANCE MATRIX ===== */
+    .compliance-table-wrap {
+      overflow-x: auto;
+      max-width: 1000px;
+      margin: 0 auto;
+      border: 1px solid var(--color-border);
+      border-radius: 10px;
+    }
+    .compliance-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.68rem;
+    }
+    .compliance-table th {
+      background: var(--color-card-bg);
+      color: var(--color-text-muted);
+      font-weight: 500;
+      padding: 10px 8px;
+      text-align: center;
+      border-bottom: 1px solid var(--color-border);
+      position: sticky;
+      top: 0;
+      z-index: 1;
+    }
+    .compliance-table th:first-child {
+      text-align: left;
+      padding-left: 14px;
+      min-width: 100px;
+    }
+    .compliance-table td {
+      padding: 8px;
+      text-align: center;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      color: var(--color-text-dim);
+    }
+    .compliance-table td:first-child {
+      text-align: left;
+      padding-left: 14px;
+      font-weight: 500;
+      color: var(--color-text-muted);
+      white-space: nowrap;
+    }
+    .compliance-table tr:hover td { background: rgba(201,162,39,0.03); }
+    .compliance-table .dot {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+    .compliance-table .dot.full { background: var(--color-gold); }
+    .compliance-table .dot.partial { background: rgba(201,162,39,0.4); }
+    .compliance-table .dot.none { background: rgba(255,255,255,0.08); }
+
+    /* ===== DIAGRAM 9: MULTI-MODEL ARCHITECTURE ===== */
+    .model-arch-flow {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .model-arch-router {
+      background: var(--color-card-bg);
+      border: 1px solid var(--color-gold-border);
+      border-radius: 10px;
+      padding: 20px 28px;
+      text-align: center;
+      width: 100%;
+    }
+    .model-arch-router .router-title {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      color: var(--color-gold);
+      margin-bottom: 4px;
+    }
+    .model-arch-router .router-desc {
+      font-size: 0.7rem;
+      color: var(--color-text-dim);
+    }
+    .model-slots-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      width: 100%;
+    }
+    .model-slot {
+      background: var(--color-card-bg);
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      padding: 14px 12px;
+      text-align: center;
+      transition: border-color 0.3s, transform 0.2s;
+    }
+    .model-slot:hover { border-color: var(--color-gold-border); transform: translateY(-2px); }
+    .model-slot .slot-role {
+      font-size: 0.55rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--color-gold);
+      margin-bottom: 6px;
+    }
+    .model-slot .slot-model {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--color-text);
+      margin-bottom: 3px;
+    }
+    .model-slot .slot-params {
+      font-size: 0.6rem;
+      color: var(--color-text-muted);
+      margin-bottom: 2px;
+    }
+    .model-slot .slot-use {
+      font-size: 0.6rem;
+      color: var(--color-text-dim);
+      line-height: 1.4;
+    }
+    .model-arch-footer {
+      font-size: 0.7rem;
+      color: var(--color-text-dim);
+      text-align: center;
+      margin-top: 16px;
+      line-height: 1.6;
+    }
+
+    /* ===== DIAGRAM 10: EVIDENCE PACKET ANATOMY ===== */
+    .packet-anatomy {
+      max-width: 700px;
+      margin: 0 auto;
+      background: var(--color-card-bg);
+      border: 1px solid var(--color-gold-border);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .packet-header {
+      background: linear-gradient(135deg, rgba(201,162,39,0.15), rgba(201,162,39,0.05));
+      padding: 20px 24px;
+      border-bottom: 1px solid var(--color-border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .packet-header .packet-title {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      color: var(--color-gold);
+    }
+    .packet-header .packet-id {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      color: var(--color-text-muted);
+    }
+    .packet-layer {
+      padding: 14px 24px;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      transition: background 0.2s;
+    }
+    .packet-layer:hover { background: rgba(201,162,39,0.03); }
+    .packet-layer:last-child { border-bottom: none; }
+    .packet-layer .layer-icon {
+      font-size: 1.2rem;
+      flex-shrink: 0;
+      width: 28px;
+      text-align: center;
+    }
+    .packet-layer .layer-name {
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--color-text);
+      min-width: 160px;
+    }
+    .packet-layer .layer-detail {
+      font-size: 0.65rem;
+      color: var(--color-text-dim);
+      line-height: 1.5;
+    }
+    .packet-footer {
+      background: rgba(0,0,0,0.15);
+      padding: 14px 24px;
+      display: flex;
+      justify-content: space-between;
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      color: var(--color-text-muted);
+    }
+
+    /* ===== DIAGRAM 11: DEPLOYMENT STACK ===== */
+    .stack-diagram {
+      max-width: 800px;
+      margin: 0 auto;
+      border: 2px solid var(--color-border);
+      border-radius: 14px;
+      overflow: hidden;
+      position: relative;
+    }
+    .stack-diagram::before {
+      content: 'YOUR INFRASTRUCTURE';
+      position: absolute;
+      top: 10px;
+      right: 14px;
+      font-family: var(--font-mono);
+      font-size: 0.55rem;
+      letter-spacing: 0.12em;
+      color: var(--color-gold);
+      opacity: 0.7;
+    }
+    .stack-row {
+      display: grid;
+      gap: 8px;
+      padding: 12px 16px;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+    .stack-row:last-child { border-bottom: none; }
+    .stack-row-label {
+      font-size: 0.55rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--color-text-muted);
+      padding: 8px 16px 0;
+    }
+    .stack-item {
+      background: var(--color-card-bg);
+      border: 1px solid var(--color-border);
+      border-radius: 6px;
+      padding: 10px 14px;
+      text-align: center;
+      transition: border-color 0.3s;
+    }
+    .stack-item:hover { border-color: var(--color-gold-border); }
+    .stack-item .stack-name {
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--color-text);
+      margin-bottom: 2px;
+    }
+    .stack-item .stack-role {
+      font-size: 0.6rem;
+      color: var(--color-text-dim);
+    }
+    .stack-sovereignty {
+      text-align: center;
+      padding: 14px;
+      font-size: 0.7rem;
+      color: var(--color-gold);
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      background: linear-gradient(135deg, rgba(201,162,39,0.08), transparent);
+    }
+
+    /* ===== DIAGRAM 12: LICENSE TIER GATING ===== */
+    .tier-gating {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .tier-gate {
+      background: var(--color-card-bg);
+      border: 1px solid var(--color-border);
+      border-radius: 10px;
+      overflow: hidden;
+      transition: border-color 0.3s, transform 0.2s;
+    }
+    .tier-gate:hover { border-color: var(--color-gold-border); transform: translateY(-3px); }
+    .tier-gate-header {
+      padding: 16px 18px;
+      border-bottom: 1px solid var(--color-border);
+      text-align: center;
+    }
+    .tier-gate-header .gate-name {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      color: var(--color-text);
+      margin-bottom: 2px;
+    }
+    .tier-gate-header .gate-price {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--color-gold);
+    }
+    .tier-gate-body {
+      padding: 14px 18px;
+    }
+    .tier-gate-body .gate-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 5px 0;
+      font-size: 0.68rem;
+      border-bottom: 1px solid rgba(255,255,255,0.03);
+    }
+    .tier-gate-body .gate-row:last-child { border-bottom: none; }
+    .tier-gate-body .gate-label { color: var(--color-text-dim); }
+    .tier-gate-body .gate-value { color: var(--color-text); font-weight: 500; }
+    .tier-gate-body .gate-value.disabled { color: rgba(255,255,255,0.15); }
+    .tier-gate-body .gate-value.enabled { color: #10b981; }
+    .tier-gate-footer {
+      padding: 12px 18px;
+      text-align: center;
+      font-size: 0.65rem;
+      color: var(--color-text-dim);
+      background: rgba(0,0,0,0.1);
+      font-style: italic;
+    }
+
+    /* Mobile overrides */
+    @media (max-width: 768px) {
+      .page-container { padding: 60px 16px; }
+      .tier-row.t3, .tier-row.tp, .tier-row.t2, .tier-row.t1 { max-width: 100%; }
+      .dcii-grid { grid-template-columns: 1fr 1fr; }
+      .sgas-agents-ring { grid-template-columns: repeat(2, 1fr); }
+      .verticals-grid { grid-template-columns: repeat(3, 1fr); }
+      .trust-chain { flex-direction: column; }
+      .trust-node { border-radius: 0 !important; border-left: 1px solid var(--color-border) !important; }
+      .trust-node:first-child { border-radius: 10px 10px 0 0 !important; }
+      .trust-node:last-child { border-radius: 0 0 10px 10px !important; }
+      .trust-node:not(:last-child)::after { display: none; }
+      .sovereign-grid { grid-template-columns: repeat(2, 1fr); }
+      .model-slots-grid { grid-template-columns: repeat(2, 1fr); }
+      .tier-gating { grid-template-columns: 1fr; }
+      .stack-row { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 480px) {
+      .dcii-grid { grid-template-columns: 1fr; }
+      .sgas-agents-ring { grid-template-columns: 1fr; }
+      .verticals-grid { grid-template-columns: repeat(2, 1fr); }
+      .model-slots-grid { grid-template-columns: 1fr 1fr; }
+    }

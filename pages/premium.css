@@ -1,0 +1,179 @@
+/* Page-specific styles for premium.html — extracted from inline <style> for CSP compliance */
+.page-container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 80px 24px;
+    }
+    .page-header {
+      text-align: center;
+      margin-bottom: 64px;
+    }
+    .page-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 5vw, 2.5rem);
+      font-weight: 300;
+      color: var(--color-text);
+      margin-bottom: 16px;
+    }
+    .page-subtitle {
+      font-size: 1rem;
+      color: var(--color-text-muted);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .back-link {
+      display: inline-block;
+      margin-bottom: 32px;
+      font-size: 0.75rem;
+      color: var(--color-text-dim);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+    .back-link:hover {
+      color: var(--color-gold);
+    }
+
+    .module-card {
+      background: var(--color-card-bg);
+      border: 1px solid var(--color-border);
+      border-radius: 12px;
+      padding: 40px 36px;
+      margin-bottom: 32px;
+      transition: border-color 0.3s;
+    }
+    .module-card:hover {
+      border-color: var(--color-gold-border);
+    }
+    .module-suite {
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .module-suite.guardian { color: #f59e0b; }
+    .module-suite.strategic { color: #a855f7; }
+    .module-name {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: var(--color-text);
+      margin-bottom: 4px;
+    }
+    .module-tagline {
+      font-size: 0.85rem;
+      color: var(--color-text-dim);
+      font-style: italic;
+      margin-bottom: 20px;
+    }
+    .module-desc {
+      font-size: 0.85rem;
+      color: var(--color-text-muted);
+      line-height: 1.7;
+      margin-bottom: 24px;
+    }
+    .module-features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+    .module-features li {
+      font-size: 0.78rem;
+      color: var(--color-text-muted);
+      padding: 6px 0;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      list-style: none;
+    }
+    .module-features li::before {
+      content: '\2713';
+      color: var(--color-gold);
+      font-weight: 600;
+      flex-shrink: 0;
+    }
+    .who-needs-it {
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      padding: 20px 24px;
+      margin-bottom: 20px;
+    }
+    .who-needs-it h4 {
+      font-size: 0.72rem;
+      color: var(--color-gold);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 10px;
+    }
+    .who-needs-it ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .who-needs-it li {
+      font-size: 0.72rem;
+      color: var(--color-text-dim);
+      padding: 4px 12px;
+      background: var(--color-card-bg);
+      border: 1px solid var(--color-border);
+      border-radius: 20px;
+    }
+    .module-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      color: var(--color-gold);
+      background: transparent;
+      border: 1px solid var(--color-gold);
+      border-radius: 4px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+    .module-cta:hover {
+      background: var(--color-gold);
+      color: var(--color-bg);
+    }
+
+    .bundle-card {
+      background: linear-gradient(135deg, rgba(201,162,39,0.06) 0%, var(--color-card-bg) 100%);
+      border: 1px solid rgba(201,162,39,0.25);
+      border-radius: 12px;
+      padding: 28px 32px;
+      margin-bottom: 16px;
+    }
+    .bundle-name {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 400;
+      color: var(--color-text);
+      margin-bottom: 4px;
+    }
+    .bundle-components {
+      font-size: 0.72rem;
+      color: var(--color-gold);
+      margin-bottom: 8px;
+    }
+    .bundle-desc {
+      font-size: 0.8rem;
+      color: var(--color-text-dim);
+      line-height: 1.6;
+    }
+    .bundle-who {
+      font-size: 0.72rem;
+      color: var(--color-text-muted);
+      margin-top: 8px;
+    }
+
+    @media (max-width: 700px) {
+      .module-card { padding: 28px 20px; }
+      .module-features { grid-template-columns: 1fr; }
+    }

@@ -1,0 +1,251 @@
+/* Page-specific styles for protocol.html — extracted from inline <style> for CSP compliance */
+.page-container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 80px 24px;
+    }
+    .page-header {
+      text-align: center;
+      margin-bottom: 48px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid var(--color-border);
+    }
+    .page-icon {
+      font-size: 2rem;
+      margin-bottom: 16px;
+    }
+    .page-title {
+      font-family: var(--font-display);
+      font-size: 2.5rem;
+      font-weight: 300;
+      color: var(--color-text);
+      margin-bottom: 12px;
+    }
+    .page-subtitle {
+      font-size: 0.9rem;
+      color: var(--color-text-dim);
+      max-width: 600px;
+      margin: 0 auto 24px;
+    }
+    .version-badge {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      padding: 6px 12px;
+      background: var(--color-card-bg);
+      border: 1px solid var(--color-border);
+      border-radius: 4px;
+      color: var(--color-text-dim);
+    }
+    .toc {
+      background: var(--color-card-bg);
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      padding: 32px;
+      margin-bottom: 48px;
+    }
+    .toc h2 {
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--color-gold);
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      margin-bottom: 20px;
+    }
+    .toc-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      columns: 2;
+      column-gap: 32px;
+    }
+    .toc-list li {
+      margin-bottom: 12px;
+      break-inside: avoid;
+    }
+    .toc-list a {
+      font-size: 0.85rem;
+      color: var(--color-text-muted);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .toc-list a:hover {
+      color: var(--color-gold);
+    }
+    .toc-number {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--color-text-dim);
+      min-width: 24px;
+    }
+    .protocol-section {
+      margin-bottom: 64px;
+    }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 24px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--color-border);
+    }
+    .section-number {
+      font-family: var(--font-mono);
+      font-size: 1.5rem;
+      color: var(--color-gold);
+      font-weight: 500;
+    }
+    .section-title {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: var(--color-text);
+    }
+    .section-content {
+      font-size: 0.9rem;
+      color: var(--color-text-muted);
+      line-height: 1.8;
+    }
+    .section-content p {
+      margin-bottom: 16px;
+    }
+    .section-content h3 {
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--color-text);
+      margin: 32px 0 16px;
+    }
+    .section-content h4 {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--color-gold);
+      margin: 24px 0 12px;
+    }
+    .section-content strong {
+      color: var(--color-text);
+    }
+    .section-content ul, .section-content ol {
+      margin: 16px 0;
+      padding-left: 24px;
+    }
+    .section-content li {
+      margin-bottom: 8px;
+    }
+    .code-block {
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+      border-radius: 6px;
+      padding: 20px;
+      margin: 16px 0;
+      overflow-x: auto;
+    }
+    .code-block pre {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--color-text-muted);
+      margin: 0;
+      white-space: pre-wrap;
+    }
+    .code-block code {
+      color: var(--color-gold);
+    }
+    .diagram-box {
+      background: var(--color-card-bg);
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      padding: 32px;
+      margin: 24px 0;
+      text-align: center;
+    }
+    .diagram-box pre {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--color-text-muted);
+      text-align: left;
+      display: inline-block;
+      line-height: 1.4;
+    }
+    .diagram-caption {
+      font-size: 0.75rem;
+      color: var(--color-text-dim);
+      margin-top: 16px;
+    }
+    .spec-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 24px 0;
+    }
+    .spec-table th {
+      text-align: left;
+      font-size: 0.7rem;
+      font-weight: 500;
+      color: var(--color-text-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--color-border);
+      background: var(--color-bg);
+    }
+    .spec-table td {
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--color-border);
+      font-size: 0.85rem;
+      vertical-align: top;
+    }
+    .spec-table td:first-child {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--color-gold);
+      white-space: nowrap;
+    }
+    .spec-table td:last-child {
+      color: var(--color-text-muted);
+    }
+    .callout {
+      background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(212, 175, 55, 0.02) 100%);
+      border: 1px solid var(--color-gold-border);
+      border-radius: 6px;
+      padding: 20px 24px;
+      margin: 24px 0;
+    }
+    .callout-title {
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--color-gold);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 8px;
+    }
+    .callout p {
+      margin-bottom: 0;
+    }
+    .warning-callout {
+      background: linear-gradient(135deg, rgba(231, 76, 60, 0.1) 0%, rgba(231, 76, 60, 0.02) 100%);
+      border-color: rgba(231, 76, 60, 0.3);
+    }
+    .warning-callout .callout-title {
+      color: #e74c3c;
+    }
+    .back-link {
+      display: inline-block;
+      margin-bottom: 32px;
+      font-size: 0.75rem;
+      color: var(--color-text-dim);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+    .back-link:hover {
+      color: var(--color-gold);
+    }
+    @media (max-width: 600px) {
+      .toc-list {
+        columns: 1;
+      }
+      .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+      }
+    }
