@@ -372,7 +372,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://datacendia.com/premium.html"/>
   </url>
 
-  <!-- DGI - Decision Governance Intelligence -->
+  <!-- DDGI - Datacendia Decision Governance Infrastructure -->
   <url>
     <loc>https://datacendia.com/dgi.html</loc>
     <lastmod>2026-02-20T12:00:00+00:00</lastmod>
@@ -382,7 +382,7 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://datacendia.com/dgi.html"/>
   </url>
 
-  <!-- DGI vs DCII Comparison -->
+  <!-- DDGI vs DCII Comparison -->
   <url>
     <loc>https://datacendia.com/dgi-dcii-comparison.html</loc>
     <lastmod>2026-02-20T12:00:00+00:00</lastmod>

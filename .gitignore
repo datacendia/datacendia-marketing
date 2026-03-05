@@ -11,5 +11,8 @@ Thumbs.db
 # Deployment
 windsurf_deployment.yaml
 
+# Dependencies
+node_modules/
+
 # Logs
 *.log
