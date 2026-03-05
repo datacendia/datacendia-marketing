@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Datacendia Cortex™ Architecture | 8 Pillars of Decision Crisis Immunization Infrastructure</title>
+  <title>Datacendia Cortex™ Architecture | 8 Pillars of The Defensible AI Platform</title>
   <meta name="description" content="Technical architecture of the Datacendia Cortex™ — the proprietary decision operating system with 8 strategic pillars: CendiaAgents, CendiaEthics, CendiaGuard, CendiaLineage, CendiaHelm, CendiaPredict, CendiaFlow, and CendiaHealth.">
   <meta name="keywords" content="Datacendia Cortex, enterprise AI architecture, multi-agent AI, CendiaAgents, CendiaGuard, CendiaChronos, sovereign AI, decision operating system, air-gapped AI">
   <meta name="author" content="Datacendia">
@@ -26,207 +26,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
-  <style>
-    .page-container {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 80px 24px;
-    }
-    .page-header {
-      text-align: center;
-      margin-bottom: 48px;
-    }
-    .page-icon {
-      font-size: 2rem;
-      margin-bottom: 16px;
-    }
-    .page-title {
-      font-family: var(--font-display);
-      font-size: 2rem;
-      font-weight: 300;
-      color: var(--color-text);
-      margin-bottom: 12px;
-    }
-    .page-subtitle {
-      font-size: 0.85rem;
-      color: var(--color-text-dim);
-      max-width: 600px;
-      margin: 0 auto;
-    }
-    .cortex-intro {
-      background: var(--color-card-bg);
-      border: 1px solid var(--color-border);
-      border-radius: 8px;
-      padding: 32px;
-      margin-bottom: 32px;
-      text-align: center;
-    }
-    .cortex-intro p {
-      font-size: 0.9rem;
-      color: var(--color-text-muted);
-      line-height: 1.7;
-      max-width: 700px;
-      margin: 0 auto;
-    }
-    .cortex-intro strong {
-      color: var(--color-text);
-    }
-    .pillar-section {
-      background: var(--color-card-bg);
-      border: 1px solid var(--color-border);
-      border-radius: 8px;
-      padding: 32px;
-      margin-bottom: 24px;
-    }
-    .pillar-header {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      margin-bottom: 20px;
-    }
-    .pillar-number {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      background: var(--color-gold);
-      color: var(--color-bg);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: var(--font-mono);
-      font-size: 0.85rem;
-      font-weight: 600;
-      flex-shrink: 0;
-    }
-    .pillar-title-group {
-      flex: 1;
-    }
-    .pillar-name {
-      font-family: var(--font-display);
-      font-size: 1.25rem;
-      font-weight: 400;
-      color: var(--color-text);
-      margin-bottom: 2px;
-    }
-    .pillar-tagline {
-      font-size: 0.75rem;
-      color: var(--color-gold);
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-    }
-    .pillar-desc {
-      font-size: 0.85rem;
-      color: var(--color-text-muted);
-      line-height: 1.6;
-      margin-bottom: 20px;
-    }
-    .module-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 12px;
-    }
-    .module-item {
-      background: var(--color-bg);
-      border: 1px solid var(--color-border);
-      border-radius: 6px;
-      padding: 16px;
-    }
-    .module-name {
-      font-family: var(--font-mono);
-      font-size: 0.8rem;
-      color: var(--color-gold);
-      margin-bottom: 6px;
-    }
-    .module-desc {
-      font-size: 0.75rem;
-      color: var(--color-text-dim);
-      line-height: 1.5;
-    }
-    .moat-section {
-      background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(212, 175, 55, 0.02) 100%);
-      border: 1px solid var(--color-gold);
-      border-radius: 8px;
-      padding: 32px;
-      margin-top: 40px;
-      margin-bottom: 24px;
-    }
-    .moat-section h2 {
-      font-size: 0.75rem;
-      font-weight: 500;
-      color: var(--color-gold);
-      margin-bottom: 16px;
-      text-transform: uppercase;
-      letter-spacing: 0.15em;
-    }
-    .moat-section p {
-      font-size: 0.85rem;
-      color: var(--color-text-muted);
-      line-height: 1.6;
-      margin-bottom: 16px;
-    }
-    .moat-list {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 12px;
-    }
-    .moat-item {
-      background: var(--color-bg);
-      border: 1px solid var(--color-border);
-      border-radius: 6px;
-      padding: 16px;
-      text-align: center;
-    }
-    .moat-item-name {
-      font-family: var(--font-mono);
-      font-size: 0.85rem;
-      color: var(--color-gold);
-      margin-bottom: 4px;
-    }
-    .moat-item-pillar {
-      font-size: 0.7rem;
-      color: var(--color-text-dim);
-    }
-    .contact-box {
-      text-align: center;
-      padding: 32px;
-      background: var(--color-bg-elevated);
-      border: 1px solid var(--color-border);
-      border-radius: 8px;
-      margin-top: 40px;
-    }
-    .contact-box p {
-      font-size: 0.9rem;
-      color: var(--color-text-muted);
-      margin-bottom: 16px;
-    }
-    .contact-box a {
-      color: var(--color-gold);
-      text-decoration: none;
-    }
-    .contact-box a:hover {
-      text-decoration: underline;
-    }
-    .back-link {
-      display: inline-block;
-      margin-bottom: 32px;
-      font-size: 0.75rem;
-      color: var(--color-text-dim);
-      text-decoration: none;
-      transition: color 0.2s ease;
-    }
-    .back-link:hover {
-      color: var(--color-gold);
-    }
-    @media (max-width: 600px) {
-      .pillar-header {
-        flex-direction: column;
-        text-align: center;
-      }
-      .module-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
+    <link rel="stylesheet" href="pages/architecture.css">
 </head>
 <body>
   <div class="container">
@@ -583,7 +383,7 @@
           </div>
           <div class="module-item">
             <div class="module-name"><a href="dcii.html" style="color:var(--color-gold);text-decoration:none">CendiaDCII™</a></div>
-            <div class="module-desc">Decision Crisis Immunization Infrastructure — institutional immune system scoring, synthetic media authentication, and RFC 3161 timestamping. <a href="dcii.html" style="color:var(--color-gold);font-size:0.7rem">Learn more →</a></div>
+            <div class="module-desc">The Defensible AI Platform — institutional immune system scoring, synthetic media authentication, and RFC 3161 timestamping. <a href="dcii.html" style="color:var(--color-gold);font-size:0.7rem">Learn more →</a></div>
           </div>
         </div>
       </div>
@@ -641,7 +441,7 @@
       </div>
     </div>
   </div>
-  <script src="translations.js"></script>
+  <script src="translations-loader.js?v=7"></script>
   <script src="app.js"></script>
   <script src="nav-mobile.js"></script>
 </body>

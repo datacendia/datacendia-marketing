@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Product Demos | Datacendia</title>
-  <meta name="description" content="Watch Datacendia product demos. See Decision Crisis Immunization Infrastructure in action — multi-agent deliberation, audit compliance, and industry-specific deployments.">
+  <meta name="description" content="Watch Datacendia product demos. See The Defensible AI Platform in action — multi-agent deliberation, audit compliance, and industry-specific deployments.">
   <meta name="keywords" content="Datacendia demo, enterprise AI demo, multi-agent AI demo, sovereign AI demo, product walkthrough">
   <meta name="author" content="Datacendia">
   <meta name="robots" content="index, follow">
@@ -18,181 +18,14 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
-  <style>
-    .demo-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-      gap: 2rem;
-      margin-top: 3rem;
-    }
-    .demo-card {
-      background: linear-gradient(135deg, rgba(6, 182, 212, 0.05) 0%, rgba(59, 130, 246, 0.05) 100%);
-      border: 1px solid rgba(6, 182, 212, 0.2);
-      border-radius: 16px;
-      overflow: hidden;
-      transition: all 0.3s ease;
-    }
-    .demo-card:hover {
-      border-color: rgba(6, 182, 212, 0.5);
-      transform: translateY(-4px);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-    }
-    .demo-thumbnail {
-      position: relative;
-      width: 100%;
-      aspect-ratio: 16/9;
-      background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-    }
-    .demo-thumbnail-icon {
-      font-size: 4rem;
-      opacity: 0.8;
-    }
-    .demo-thumbnail video {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-    .demo-play-btn {
-      position: absolute;
-      width: 80px;
-      height: 80px;
-      background: rgba(6, 182, 212, 0.9);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      box-shadow: 0 10px 30px rgba(6, 182, 212, 0.4);
-    }
-    .demo-play-btn:hover {
-      transform: scale(1.1);
-      background: rgba(6, 182, 212, 1);
-    }
-    .demo-play-btn svg {
-      width: 32px;
-      height: 32px;
-      fill: white;
-      margin-left: 4px;
-    }
-    .demo-content {
-      padding: 1.5rem;
-    }
-    .demo-badge {
-      display: inline-block;
-      padding: 4px 12px;
-      background: rgba(6, 182, 212, 0.1);
-      border: 1px solid rgba(6, 182, 212, 0.3);
-      border-radius: 20px;
-      font-size: 0.75rem;
-      color: var(--color-cyan);
-      margin-bottom: 0.75rem;
-    }
-    .demo-title {
-      font-size: 1.25rem;
-      font-weight: 600;
-      color: white;
-      margin-bottom: 0.5rem;
-    }
-    .demo-description {
-      font-size: 0.9rem;
-      color: var(--color-text-dim);
-      margin-bottom: 1rem;
-      line-height: 1.6;
-    }
-    .demo-meta {
-      display: flex;
-      gap: 1rem;
-      font-size: 0.8rem;
-      color: var(--color-text-muted);
-    }
-    .demo-meta span {
-      display: flex;
-      align-items: center;
-      gap: 4px;
-    }
-    .featured-demo {
-      grid-column: 1 / -1;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2rem;
-      padding: 2rem;
-      background: linear-gradient(135deg, rgba(6, 182, 212, 0.1) 0%, rgba(59, 130, 246, 0.1) 100%);
-      border: 2px solid rgba(6, 182, 212, 0.3);
-    }
-    .featured-demo .demo-thumbnail {
-      aspect-ratio: 16/9;
-      border-radius: 12px;
-    }
-    .featured-demo .demo-content {
-      padding: 0;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-    .featured-label {
-      color: var(--color-gold);
-      font-size: 0.8rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      margin-bottom: 0.5rem;
-    }
-    .featured-demo .demo-title {
-      font-size: 1.75rem;
-    }
-    .featured-demo .demo-description {
-      font-size: 1rem;
-    }
-    .watch-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 12px 24px;
-      background: linear-gradient(135deg, var(--color-cyan) 0%, #3b82f6 100%);
-      border: none;
-      border-radius: 8px;
-      color: white;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      margin-top: 1rem;
-    }
-    .watch-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 10px 20px rgba(6, 182, 212, 0.3);
-    }
-    .section-icon {
-      display: inline-flex; align-items: center; justify-content: center;
-      width: 32px; height: 32px; border-radius: 8px;
-      background: rgba(201,162,39,.1); border: 1px solid rgba(201,162,39,.25);
-      margin-right: 10px; vertical-align: middle;
-    }
-    .section-icon svg { width: 16px; height: 16px; stroke: #C9A227; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-    .mi { display: inline-block; width: 6px; height: 6px; border-radius: 50%; margin-right: 4px; vertical-align: middle; flex-shrink: 0; }
-    .mi-gold { background: #C9A227; }
-    .mi-green { background: #4ADE80; }
-    .mi-cyan { background: #22D3EE; }
-    @media (max-width: 768px) {
-      .featured-demo {
-        grid-template-columns: 1fr;
-      }
-      .demo-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
+    <link rel="stylesheet" href="pages/demos.css">
 </head>
 <body>
   <div class="container">
     <!-- Header -->
     <header>
       <div class="header-top">
-        <a href="index.html" style="text-decoration: none;"><h1 class="logo" aria-label="Datacendia — Decision Crisis Immunization Infrastructure">DATACENDIA</h1></a>
+        <a href="index.html" style="text-decoration: none;"><h1 class="logo" aria-label="Datacendia — The Defensible AI Platform">DATACENDIA</h1></a>
         <div class="lang-selector">
           <button class="lang-btn"><span class="lang-current">English</span> ▾</button>
           <div class="lang-dropdown">
@@ -210,7 +43,7 @@
           </div>
         </div>
       </div>
-      <p class="tagline-sub" data-i18n="tagline">Decision Crisis Immunization Infrastructure</p>
+      <p class="tagline-sub" data-i18n="tagline">The Defensible AI Platform</p>
             <nav class="main-nav">
         <button class="nav-toggle" aria-label="Menu" aria-expanded="false">
           <span></span><span></span><span></span>
@@ -259,7 +92,7 @@
       <div class="page-header">
         <div class="page-icon"><img src="assets/logos/cortex.svg" alt="Demos" width="64" height="64" style="border-radius:12px"></div>
         <h1 class="page-title" data-i18n="demosPageTitle">Product Demos</h1>
-        <p class="page-subtitle" data-i18n="demosPageSubtitle">See Datacendia in action. Watch guided walkthroughs of our Decision Crisis Immunization Infrastructure.</p>
+        <p class="page-subtitle" data-i18n="demosPageSubtitle">See Datacendia in action. Watch guided walkthroughs of our The Defensible AI Platform.</p>
         <p style="font-size:0.85rem; color:var(--color-gold); margin-top:12px; font-style:italic; letter-spacing:0.02em;" data-i18n="demosEngineNote">These are not separate products. They are governance modes of a single decision engine.</p>
       </div>
 
@@ -729,10 +562,7 @@
       <p class="footer-status" style="font-family: var(--font-mono); font-size: 0.7rem; color: #2ecc71; margin-top: 16px; letter-spacing: 0.05em;" data-i18n="footerStatus">SYSTEM STATUS: AIR-GAP READY · NO TRACKER PIXELS DETECTED</p>
     </div>
     </footer>
-  </div>
-
-  <script src="tiktok-pixel.js"></script>
-  <script src="translations.js?v=6"></script>
+  </div>  <script src="translations-loader.js?v=7"></script>
   <script src="app.js"></script>
   <script src="nav-mobile.js"></script>
 </body>

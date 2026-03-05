@@ -1,114 +1,98 @@
-# Datacendia
+# Datacendia -- The Defensible AI Platform
 
-> **Datacendia is Decision Crisis Immunization Infrastructure.** We created a new category: the evidentiary layer that proves AI decisions were made correctly when challenged years later under adversarial scrutiny. Built on 9 primitives that prevent institutional failure.
+> **Datacendia is the only AI platform where every decision is auditable, explainable, and court-admissible.** Multiple AI agents deliberate -- argue, dissent, and challenge each other -- then every decision is recorded in a cryptographically signed, immutable evidence packet. Open-core. Sovereign-first. Self-hosted or cloud.
 
-## The Category: Decision Crisis Immunization Infrastructure (DCII)
+## Category: Defensible AI
 
-Datacendia replaces unstructured decision-making (email chains, meetings, hallway conversations) with AI-governed deliberation. Multiple AI agents debate decisions from different perspectives — CFO, Risk, Legal, Ethics, Strategy — then produce a cryptographically sealed evidence packet proving how and why the decision was made. This packet is tamper-proof, designed to support evidentiary standards, and regulator-ready. Sovereign deployment (on-premises, private cloud, air-gapped) ensures data never leaves your infrastructure.
+Datacendia created the Defensible AI category. When regulators, auditors, or courts ask "how did your AI make this decision?" -- Datacendia users produce a signed evidence packet. Everyone else has nothing.
 
-## The Positioning: Crisis Immunization
+The platform replaces unstructured decision-making (email chains, meetings, hallway conversations) with AI-governed multi-agent deliberation. 15 AI agents with distinct mandates (CFO, CLO, CISO, CTO, CRO, Ethics, etc.) debate decisions from different perspectives, then produce a tamper-proof, court-admissible record proving how and why the decision was made.
 
-Crisis Immunization is the framework that makes organizations structurally immune to decision crises. It consists of 9 primitives — each mapped to a dimension of the Institutional Immune System Score (IISS):
+## What Makes Datacendia Different
 
-1. **Discovery-Time Proof** — Prove *when* you knew what you knew. Cryptographically timestamped with RFC 3161 external authorities.
-2. **Deliberation Capture** — Record the full reasoning: every argument, every trade-off, every vote. Not just the outcome.
-3. **Override Accountability** — When humans overrule the AI, the override is logged, justified, and tracked to outcome.
-4. **Continuity Memory** — Institutional knowledge that survives leadership transitions. "A similar decision was made in 2019 — the dissenters were right."
-5. **Drift Detection** — Detect when decisions deviate from established policy before the deviation becomes a crisis.
-6. **Cognitive Bias Mitigation** — Detect 24 cognitive biases in deliberation transcripts. Flag anchoring, confirmation bias, groupthink, and sunk cost fallacy in real time with structured de-biasing interventions.
-7. **Quantum-Resistant Integrity** — Post-quantum cryptographic signatures (Dilithium, SPHINCS+, Falcon) ensure evidence signed today remains verifiable in 2040+ when quantum computers break RSA/ECDSA.
-8. **Synthetic Media Authentication** — Prove digital evidence is authentic, not fabricated. C2PA provenance signing, chain-of-custody tracking, deepfake detection, and hardware attestation.
-9. **Cross-Jurisdiction Compliance** — When GDPR says delete and China's PIPL says retain, detect regulatory conflicts across 17+ jurisdictions simultaneously and generate good-faith maximum compliance documentation.
+1. **Multi-Agent Adversarial Deliberation** -- 15 AI agents argue with each other. Not one model giving one answer. Built-in devil's advocate, cross-examination, and formal dissent.
+2. **Cryptographic Proof** -- Merkle trees, post-quantum KMS (Dilithium, SPHINCS+, Falcon), hardware TPM attestation. Every decision is signed with customer-owned keys.
+3. **DCII Framework** -- Decision Crisis Immunization Infrastructure. 9 primitives that make organizations structurally immune to decision crises: Discovery-Time Proof, Deliberation Capture, Override Accountability, Continuity Memory, Drift Detection, Cognitive Bias Mitigation, Quantum-Resistant Integrity, Synthetic Media Authentication, Cross-Jurisdiction Compliance.
+4. **Sovereign-First** -- Runs on Ollama locally. Air-gap deployable. No cloud dependency required. Your data never leaves your infrastructure.
+5. **Open-Core** -- Free Community Edition (Apache 2.0) on GitHub. Paid tiers for enterprise features.
+
+## Pricing
+
+- **Community**: Free forever (Apache 2.0, self-hosted)
+- **Foundation**: $499/month ($4,990/year) -- 15 agents, 35+ modes, DCII evidence infrastructure
+- **Enterprise**: $1,499/month ($14,990/year) -- adds adversarial testing, compliance, governance, sovereign, 19 co-pilots
+- **Strategic**: Custom pricing -- nation-scale, all 12 pillars, white-glove support
+
+3-year commitment saves 20%. Cancel anytime on monthly plans. Secure payment via Stripe.
 
 ## Core Products
 
-- [The Council](https://datacendia.com/demos.html#cortex): Multi-agent AI deliberation engine. Your AI executive team debates every angle before you decide.
-- [CendiaChronos](https://datacendia.com/demos.html#cortex): Organizational decision timeline with pivotal moment detection and temporal analysis.
-- [Cascade Analysis](https://datacendia.com/demos.html#cortex): Maps 2nd and 3rd order ripple effects of decisions before you commit.
-- [Ghost Board](https://datacendia.com/demos.html#cortex): AI board meeting rehearsal — practice presentations against AI directors.
-- [Pre-Mortem Engine](https://datacendia.com/demos.html#cortex): Reverse-engineers failure modes before decisions are made.
-- [CendiaDissent](https://datacendia.com/demos.html#cortex): Formal disagreement tracking with tamper-proof records and outcome monitoring.
-- [CendiaCrucible](https://datacendia.com/demos.html#oversight): Adversarial red team stress testing from 8+ attack perspectives.
-- [Audit Provenance](https://datacendia.com/demos.html#evidence): Cryptographically sealed decision packets with Merkle tree integrity and Ed25519 signatures.
-- [QR Air-Gap Bridge](https://datacendia.com/demos.html#evidence): Zero-network data transfer via animated QR codes for air-gapped environments.
+- **The Council**: Multi-agent AI deliberation engine. 15 C-Suite agents, 35+ deliberation modes, War Room, Quick Brief, Governed Deliberation.
+- **CendiaChronos**: Enterprise Time Machine -- replay past decisions, simulate future crisis scenarios.
+- **Ghost Board**: Rehearse high-stakes board meetings against AI directors.
+- **CendiaPreMortem**: AI analyzes why your decision will fail before you execute it.
+- **Decision Debt**: Real-time dashboard of stuck decisions and the financial cost of delay.
+- **CendiaCrucible**: Adversarial stress testing -- Monte Carlo red-teaming of decisions.
+- **CendiaDCII**: Decision Crisis Immunization Infrastructure -- IISS scoring, 9 primitives, Regulator's Receipt.
+- **CendiaVault**: Immutable evidence storage with Merkle tree integrity.
+- **CendiaNotary**: Cryptographic signing authority with customer-owned keys.
+- **CendiaOversight**: Real-time regulatory radar -- FDA, GDPR, DORA, EU AI Act frameworks.
 
-## Key Differentiators
+## 30 Industry Verticals
 
-- **Decision Crisis Immunization Infrastructure (DCII)**: The category. Nobody else owns it. We created it.
-- **Crisis Immunization**: The framework. 9 primitives that prevent institutional failure. Reframes governance from "buy our tool" to "immunize yourself against the next scandal."
-- **Sovereign Architecture**: Runs entirely on-premise. Zero cloud dependency. Air-gap capable.
-- **Multi-Agent Deliberation**: Decisions stress-tested by 6+ AI agents with cross-examination.
-- **Cryptographic Evidence**: Every decision sealed with Merkle trees and digital signatures.
-- **Formal Dissent Protection**: Disagreement is preserved in tamper-proof records — never buried.
-- **IISS Score**: Institutional Immune System Score — 0-1000 standardized resilience metric.
-- **Regulatory Compliance**: SOC 2 aligned, ISO 42001, NIST AI RMF, EU AI Act Article 14, Basel III, HIPAA architecture-aligned, CMMC 2.0, FedRAMP control-ready, SR 11-7 model override documentation, Premier League PSR, UEFA CFSR.
-- **205K+ Automated Tests**: Verified test suite across 228 test files (Feb 21, 2026).
-- **8-Slot Multi-Model Architecture**: Purpose-built AI model per task type (reasoning, coder, vision, embed, etc.) — all running locally via Ollama. License tier gating controls which models each customer tier can access.
+Legal (49 council modes, 14 agents), Healthcare (HIPAA), Financial Services (Basel III), Government/Defense (FedRAMP, air-gap), Insurance, Pharmaceutical, Manufacturing, Energy, Technology/SaaS, Retail, Real Estate, Transportation, Media, Professional Services, Higher Education, Sports Governance (FIFA/UEFA), Smart City, EU Banking, and more.
 
-## 11 Sovereign Architectural Patterns
+## Technology Stack
 
-- **Data Diode**: Unidirectional data ingest with quarantine, ClamAV scanning, and signature verification.
-- **Local RLHF**: Zero-cloud reinforcement learning from human feedback — no external data transfer.
-- **Decision DNA**: One-click audit artifact export (PDF+JSON bundles with Merkle tree integrity).
-- **Shadow Council**: Sandbox parallel deliberation mode for testing radical ideas without ledger.
-- **Deterministic Replay**: Bit-perfect decision reproducibility with pinned random seeds and state capture.
-- **QR Air-Gap Bridge**: Animated QR code sequences for zero-media air-gap data transfer.
-- **Canary Tripwires**: Honeypot records for exfiltration detection with multiple canary types.
-- **TPM Attestation**: Hardware-signed decisions via Trusted Platform Module (software fallback).
-- **Time-Lock**: Cryptographic time-lock for embargoed decisions (RSA time-lock puzzles).
-- **Federated Mesh**: Multi-site learning via sneakernet with differential privacy.
-- **Portable Instance**: Bootable USB deployment configuration generator.
+TypeScript, React 18, Express, PostgreSQL, Redis, Neo4j, Ollama (local LLM), Docker, Kubernetes, Helm. NVIDIA Inception Program member.
 
-## Industry Verticals
+## Deployment Options
 
-- **Legal Governance**: AML/KYC compliance, PEP screening, OFAC sanctions, cross-jurisdiction harmonization. Deep-dive on verticals page.
-- **Sports / Football Clubs**: Transfer governance, Premier League PSR monitoring, UEFA CFSR (squad cost ratio 70%), EFL FFP, FIFA Agent Regulations, wage-to-revenue drift detection, manager succession continuity. 8 specialized agents. Interactive transfer decision demo available. Everton PSR breach war game.
-- **Financial Services**: SR 11-7 / OCC 2011-12 model risk management, Basel III/IV capital adequacy, SOX §302/§404, BSA/AML, DORA. Override documentation for regulatory exams. SVB war game. Deep-dive on verticals page.
-- **Healthcare**: Decision governance for patient safety — NOT a clinical decision support tool (does not fall under FDA CDS guidance, 21st Century Cures Act §3060). EHR integration (Epic, Cerner/Oracle Health, MEDITECH) via HL7 FHIR. Joint Commission sentinel event evidence. CMS CoP documentation. HIPAA/HITECH architecture-aligned. NHS maternity failures war game. Deep-dive on verticals page.
-- **Government & Defense**: Sovereign, air-gapped deployment. FedRAMP Moderate control-ready. IL4/IL5 pathway documented. CMMC 2.0 Level 2/3 architecture-ready. CAGE Code available.
+- **Self-hosted**: Docker Compose or Kubernetes (Helm chart provided)
+- **Private Cloud**: AWS, Azure, GCP with customer-managed keys
+- **Air-Gapped**: Zero external dependencies, bootable USB option
+- **Managed Cloud**: Hosted at app.datacendia.com (coming soon)
+
+## Docker
+
+```
+docker pull datacendia/datacendia-api:latest
+docker pull datacendia/datacendia-frontend:latest
+```
+
+## Open Source
+
+- GitHub (Community Edition): https://github.com/datacendia/datacendia-core
+- DDGI Framework: https://github.com/datacendia/decision-governance-infrastructure
+- License: Apache 2.0
 
 ## Pages
 
-- [Homepage](https://datacendia.com/): Decision Crisis Immunization Infrastructure — category, 9 primitives, IISS score, war games.
-- [Crisis Immunization Framework](https://datacendia.com/dcii.html): The 9 primitives, IISS scoring, and the services that implement them.
+- [Homepage](https://datacendia.com/): The Defensible AI Platform -- every decision, defensible.
+- [Pricing](https://datacendia.com/pricing.html): Community (Free), Foundation ($499/mo), Enterprise ($1,499/mo), Strategic (Custom).
 - [Interactive Demos](https://datacendia.com/demos.html): 14 interactive product demonstrations.
-- [Try Your Decision](https://datacendia.com/demos/try.html): Type any business decision and watch AI agents deliberate it.
-- [Decision Maturity Assessment](https://datacendia.com/demos/maturity.html): 6-question organizational assessment.
-- [Before & After](https://datacendia.com/demos/before-after.html): Visual comparison of governed vs ungoverned decisions.
+- [DCII Framework](https://datacendia.com/dcii.html): The 9 crisis immunization primitives.
+- [DGI Framework](https://datacendia.com/dgi.html): Open vendor-neutral Decision Governance Infrastructure standard.
 - [Trust Center](https://datacendia.com/trust.html): Security posture, compliance artifacts, test results.
-- [Pricing](https://datacendia.com/pricing.html): Sovereign, Enterprise, and Department tier pricing.
+- [Industry Verticals](https://datacendia.com/verticals.html): 30 sector-specific governance solutions.
+- [War Games](https://datacendia.com/wargames.html): SVB, Boeing 737 MAX, Wirecard, Theranos, Everton PSR, NHS maternity.
+- [Architecture](https://datacendia.com/diagrams.html): 12 system architecture diagrams.
 - [ROI Calculator](https://datacendia.com/roi-calculator.html): Calculate the cost of ungoverned decisions.
-- [Architecture](https://datacendia.com/architecture.html): Technical architecture and deployment patterns.
 - [Case Studies](https://datacendia.com/case-studies.html): Implementation examples and outcomes.
-- [API Documentation](https://datacendia.com/api-docs.html): REST API reference.
-- [Security Controls](https://datacendia.com/security-controls.html): Detailed security implementation.
-- [Industry Verticals](https://datacendia.com/verticals.html): Sector-specific governance solutions with deep-dives for Legal, Sports/Football, Healthcare, and Financial Services.
-- [War Game Simulations](https://datacendia.com/wargames.html): 6 retrospective simulations — SVB, Boeing 737 MAX, Wirecard, Theranos, Everton PSR breach, NHS maternity failures.
-- [Sports Transfer Demo](https://datacendia.com/demos/sports-governance.html): Interactive football transfer decision with FFP compliance agents.
-- [Request Briefing](https://datacendia.com/briefing.html): Request a personalized technical briefing.
-- [Pilot Program](https://datacendia.com/pilot.html): Join the pilot evaluation program.
-
-## Resources
-
-- [The Council Deep Dive](https://datacendia.com/resources/the-council.html): How multi-agent deliberation works.
-- [Data Sovereignty Guide](https://datacendia.com/resources/data-sovereignty-guide.html): Why sovereignty matters for AI decisions.
-- [Air-Gapped Deployment](https://datacendia.com/resources/air-gapped-deployment.html): Deploying in disconnected environments.
-- [Compliance Framework](https://datacendia.com/resources/compliance.html): Regulatory alignment details.
-- [Sovereignty Matrix](https://datacendia.com/resources/sovereignty-matrix.html): Vendor sovereignty comparison.
-- [Integration Honesty Matrix](https://datacendia.com/resources/integration-honesty-matrix.html): Transparent integration readiness.
+- [API Documentation](https://datacendia.com/api-docs.html): REST API reference (156 route files).
 
 ## Learn
 
-- [What is AI Governance?](https://datacendia.com/learn/ai-governance/): Introduction to AI governance frameworks.
-- [Multi-Agent AI](https://datacendia.com/learn/multi-agent-ai/): How multi-agent systems improve decision quality.
+- [What is Defensible AI?](https://datacendia.com/learn/ai-governance/): Why every AI decision needs proof.
+- [Multi-Agent AI](https://datacendia.com/learn/multi-agent-ai/): How multi-agent deliberation improves decisions.
 - [Decision Intelligence](https://datacendia.com/learn/decision-intelligence/): The discipline of organizational decision-making.
 - [EU AI Act Compliance](https://datacendia.com/learn/eu-ai-act-compliance/): Navigating EU AI Act requirements.
 - [Sovereign AI](https://datacendia.com/learn/sovereign-ai/): Why organizations need sovereign AI infrastructure.
 - [AI Audit Trails](https://datacendia.com/learn/ai-audit-trail/): Building defensible audit trails for AI decisions.
-- [HIPAA AI Compliance](https://datacendia.com/learn/hipaa-ai-compliance/): AI governance in healthcare.
 
 ## Contact
 
-- **General**: contact@datacendia.com
-- **Security**: security@datacendia.com
 - **Website**: https://datacendia.com
+- **GitHub**: https://github.com/datacendia
+- **Docker Hub**: https://hub.docker.com/u/datacendia
+- **Sales**: sales@datacendia.com

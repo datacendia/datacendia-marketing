@@ -1,0 +1,156 @@
+/* Page-specific styles for verticals.html — extracted from inline <style> for CSP compliance */
+.verticals-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    .vertical-card {
+      background: linear-gradient(135deg, rgba(6, 182, 212, 0.05) 0%, rgba(59, 130, 246, 0.05) 100%);
+      border: 1px solid rgba(6, 182, 212, 0.2);
+      border-radius: 16px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+    .vertical-card:hover {
+      border-color: rgba(6, 182, 212, 0.5);
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+    .vertical-card.priority {
+      border-color: rgba(212, 175, 55, 0.4);
+    }
+    .vertical-card.priority:hover {
+      border-color: rgba(212, 175, 55, 0.7);
+    }
+    .vertical-header {
+      padding: 2rem;
+      background: linear-gradient(135deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.1) 100%);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    .vertical-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+    .vertical-tier {
+      display: inline-block;
+      padding: 4px 12px;
+      background: rgba(6, 182, 212, 0.1);
+      border: 1px solid rgba(6, 182, 212, 0.3);
+      border-radius: 20px;
+      font-size: 0.75rem;
+      color: var(--color-cyan);
+      margin-bottom: 0.75rem;
+    }
+    .vertical-tier.priority {
+      background: rgba(212, 175, 55, 0.1);
+      border-color: rgba(212, 175, 55, 0.3);
+      color: var(--color-gold);
+    }
+    .vertical-name {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: white;
+      margin-bottom: 0.5rem;
+    }
+    .vertical-tagline {
+      font-size: 0.9rem;
+      color: var(--color-text-dim);
+    }
+    .vertical-content {
+      padding: 2rem;
+    }
+    .vertical-compliance {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .compliance-badge {
+      padding: 4px 10px;
+      background: rgba(16, 185, 129, 0.1);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      border-radius: 6px;
+      font-size: 0.7rem;
+      color: #10b981;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .vertical-agents {
+      margin-bottom: 1.5rem;
+    }
+    .vertical-agents-title {
+      font-size: 0.8rem;
+      color: var(--color-text-muted);
+      margin-bottom: 0.5rem;
+    }
+    .vertical-agents-list {
+      font-size: 0.85rem;
+      color: var(--color-text-dim);
+      line-height: 1.6;
+    }
+    .vertical-metric {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem;
+      background: rgba(0,0,0,0.2);
+      border-radius: 8px;
+      margin-bottom: 1rem;
+    }
+    .metric-value {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #10b981;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .metric-label {
+      font-size: 0.8rem;
+      color: var(--color-text-muted);
+    }
+    .vertical-cta {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      background: rgba(6, 182, 212, 0.1);
+      border: 1px solid rgba(6, 182, 212, 0.3);
+      border-radius: 8px;
+      color: var(--color-cyan);
+      text-align: center;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+    .vertical-cta:hover {
+      background: rgba(6, 182, 212, 0.2);
+      border-color: var(--color-cyan);
+    }
+    .tier-section {
+      margin-top: 4rem;
+    }
+    .tier-label {
+      font-size: 0.8rem;
+      color: var(--color-gold);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+    .tier-title {
+      font-size: 1.8rem;
+      color: white;
+      margin-bottom: 0.5rem;
+    }
+    .tier-desc {
+      color: var(--color-text-dim);
+      margin-bottom: 2rem;
+    }
+    .new-badge {
+      display: inline-block;
+      padding: 2px 8px;
+      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+      border-radius: 4px;
+      font-size: 0.65rem;
+      color: white;
+      font-weight: 600;
+      margin-left: 8px;
+      vertical-align: middle;
+    }
