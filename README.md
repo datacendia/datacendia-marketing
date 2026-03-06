@@ -92,7 +92,7 @@ Static HTML/CSS/JS website with comprehensive internationalization support (11 l
 │   ├── eu-ai-act-conformance.pdf
 │   ├── iso-42001-conformance.pdf
 │   ├── nist-ai-rmf-alignment.pdf
-│   └── sbom.json               # Software bill of materials
+│   └── sbom.json               # Software bill of materials (platform application, not marketing site)
 │
 ├── assets/                     # Static assets
 │   ├── favicon.svg
@@ -277,12 +277,14 @@ All metrics must be:
 | `trust.html` | Trust center with compliance statements |
 | `trust/` | Downloadable trust artifacts (PDFs, SBOM) |
 | `docs/DATACENDIA_BIBLE.md` | Comprehensive platform documentation |
+| `docs/CLAIM-GOVERNANCE.md` | Process for verifying public claims before publication |
+| `docs/CLAIM-REGISTRY.md` | Registry of high-impact claims with verification status |
 
 ## Security
 
 - **No tracking pixels** — Zero third-party analytics
 - **No cookies** — Privacy-first design
-- **Zero npm dependencies** — No supply chain vulnerabilities
+- **Zero runtime dependencies** — No client-side npm packages; one dev-only dependency (`pdf-lib`) for build scripts
 - **CSP enforced** — Strict resource loading policies
 - **Vulnerability disclosure:** security@datacendia.com
 

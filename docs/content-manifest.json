@@ -1,0 +1,2468 @@
+{
+  "generated": "2026-03-06T14:16:06.845Z",
+  "locales": [
+    "en",
+    "ar",
+    "de",
+    "es",
+    "fr",
+    "hi",
+    "it",
+    "ja",
+    "ko",
+    "pt",
+    "zh"
+  ],
+  "topLevelPages": [
+    {
+      "page": "404.html",
+      "path": "/404.html",
+      "size": 6589,
+      "title": "Page Not Found — Datacendia | 404 Error",
+      "localeCount": 10,
+      "missingLocales": [],
+      "locales": {
+        "ar": {
+          "size": 1028,
+          "isRedirect": true
+        },
+        "de": {
+          "size": 934,
+          "isRedirect": true
+        },
+        "es": {
+          "size": 936,
+          "isRedirect": true
+        },
+        "fr": {
+          "size": 929,
+          "isRedirect": true
+        },
+        "hi": {
+          "size": 1170,
+          "isRedirect": true
+        },
+        "it": {
+          "size": 945,
+          "isRedirect": true
+        },
+        "ja": {
+          "size": 1010,
+          "isRedirect": true
+        },
+        "ko": {
+          "size": 1000,
+          "isRedirect": true
+        },
+        "pt": {
+          "size": 952,
+          "isRedirect": true
+        },
+        "zh": {
+          "size": 902,
+          "isRedirect": true
+        }
+      }
+    },
+    {
+      "page": "api-docs.html",
+      "path": "/api-docs.html",
+      "size": 27550,
+      "title": "API Documentation | Datacendia Developer Hub",
+      "localeCount": 10,
+      "missingLocales": [],
+      "locales": {
+        "ar": {
+          "size": 1096,
+          "isRedirect": true
+        },
+        "de": {
+          "size": 1024,
+          "isRedirect": true
+        },
+        "es": {
+          "size": 1046,
+          "isRedirect": true
+        },
+        "fr": {
+          "size": 1037,
+          "isRedirect": true
+        },
+        "hi": {
+          "size": 1276,
+          "isRedirect": true
+        },
+        "it": {
+          "size": 1039,
+          "isRedirect": true
+        },
+        "ja": {
+          "size": 1158,
+          "isRedirect": true
+        },
+        "ko": {
+          "size": 1002,
+          "isRedirect": true
+        },
+        "pt": {
+          "size": 1040,
+          "isRedirect": true
+        },
+        "zh": {
+          "size": 960,
+          "isRedirect": true
+        }
+      }
+    },
+    {
+      "page": "architecture.html",
+      "path": "/architecture.html",
+      "size": 28291,
+      "title": "Datacendia Cortex™ Architecture | 8 Pillars of The Defensible AI Platform",
+      "localeCount": 10,
+      "missingLocales": [],
+      "locales": {
+        "ar": {
+          "size": 1252,
+          "isRedirect": true
+        },
+        "de": {
+          "size": 1110,
+          "isRedirect": true
+        },
+        "es": {
+          "size": 1084,
+          "isRedirect": true
+        },
+        "fr": {
+          "size": 1097,
+          "isRedirect": true
+        },
+        "hi": {
+          "size": 1512,
+          "isRedirect": true
+        },
+        "it": {
+          "size": 1095,
+          "isRedirect": true
+        },
+        "ja": {
+          "size": 1234,
+          "isRedirect": true
+        },
+        "ko": {
+          "size": 1086,
+          "isRedirect": true
+        },
+        "pt": {
+          "size": 1090,
+          "isRedirect": true
+        },
+        "zh": {
+          "size": 1000,
+          "isRedirect": true
+        }
+      }
+    },
+    {
+      "page": "briefing.html",
+      "path": "/briefing.html",
+      "size": 11975,
+      "title": "Request Sensitive Briefing — Datacendia | Enterprise AI Security Consultation",
+      "localeCount": 10,
+      "missingLocales": [],
+      "locales": {
+        "ar": {
+          "size": 1116,
+          "isRedirect": true
+        },
+        "de": {
+          "size": 1036,
+          "isRedirect": true
+        },
+        "es": {
+          "size": 1028,
+          "isRedirect": true
+        },
+        "fr": {
+          "size": 1015,
+          "isRedirect": true
+        },
+        "hi": {
+          "size": 1438,
+          "isRedirect": true
+        },
+        "it": {
+          "size": 1017,
+          "isRedirect": true
+        },
+        "ja": {
+          "size": 1180,
+          "isRedirect": true
+        },
+        "ko": {
+          "size": 1056,
+          "isRedirect": true
+        },
+        "pt": {
+          "size": 1024,
+          "isRedirect": true
+        },
+        "zh": {
+          "size": 952,
+          "isRedirect": true
+        }
+      }
+    },
+    {
+      "page": "case-studies.html",
+      "path": "/case-studies.html",
+      "size": 32713,
+      "title": "Anonymized Pilot Case Studies | Datacendia",
+      "localeCount": 10,
+      "missingLocales": [],
+      "locales": {
+        "ar": {
+          "size": 1182,
+          "isRedirect": true
+        },
+        "de": {
+          "size": 1042,
+          "isRedirect": true
+        },
+        "es": {
+          "size": 1068,
+          "isRedirect": true
+        },
+        "fr": {
+          "size": 1077,
+          "isRedirect": true
+        },
+        "hi": {
+          "size": 1380,
+          "isRedirect": true
+        },
+        "it": {
+          "size": 1057,
+          "isRedirect": true
+        },
+        "ja": {
+          "size": 1108,
+          "isRedirect": true
+        },
+        "ko": {
+          "size": 1060,
+          "isRedirect": true
+        },
+        "pt": {
+          "size": 1062,
+          "isRedirect": true
+        },
+        "zh": {
+          "size": 1012,
+          "isRedirect": true
+        }
+      }
+    },
+    {
+      "page": "changelog.html",
+      "path": "/changelog.html",
+      "size": 18536,
+      "title": "Changelog | Datacendia",
+      "localeCount": 10,
+      "missingLocales": [],
+      "locales": {
+        "ar": {
+          "size": 1130,
+          "isRedirect": true
+        },
+        "de": {
+          "size": 1028,
+          "isRedirect": true
+        },
+        "es": {
+          "size": 1032,
+          "isRedirect": true
+        },
+        "fr": {
+          "size": 1079,
+          "isRedirect": true
+        },
+        "hi": {
+          "size": 1226,
+          "isRedirect": true
+        },
+        "it": {
+          "size": 1065,
+          "isRedirect": true
+        },
+        "ja": {
+          "size": 1012,
+          "isRedirect": true
+        },
+        "ko": {
+          "size": 1026,
+          "isRedirect": true
+        },
+        "pt": {
+          "size": 1048,
+          "isRedirect": true
+        },
+        "zh": {
+          "size": 970,
+          "isRedirect": true
+        }
+      }
+    },
+    {
+      "page": "dcii.html",
+      "path": "/dcii.html",
+      "size": 34400,
+      "title": "Crisis Immunization Framework | The Defensible AI Platform | Datacendia",
+      "localeCount": 10,
+      "missingLocales": [],
+      "locales": {
+        "ar": {
+          "size": 1014,
+          "isRedirect": true
+        },
+        "de": {
+          "size": 896,
+          "isRedirect": true
+        },
+        "es": {
+          "size": 899,
+          "isRedirect": true
+        },
+        "fr": {
+          "size": 889,
+          "isRedirect": true
+        },
+        "hi": {
+          "size": 1173,
+          "isRedirect": true
+        },
+        "it": {
+          "size": 892,
+          "isRedirect": true
+        },
+        "ja": {
+          "size": 963,
+          "isRedirect": true
+        },
+        "ko": {
+          "size": 906,
+          "isRedirect": true
+        },
+        "pt": {
+          "size": 900,
+          "isRedirect": true
+        },
+        "zh": {
+          "size": 840,
+          "isRedirect": true
+        }
+      }
+    },
+    {
+      "page": "demos.html",
+      "path": "/demos.html",
+      "size": 36015,
+      "title": "Product Demos | Datacendia",
+      "localeCount": 10,
+      "missingLocales": [],
+      "locales": {
+        "ar": {
+          "size": 1004,
+          "isRedirect": true
+        },
+        "de": {
+          "size": 871,
+          "isRedirect": true
+        },
+        "es": {
+          "size": 883,
+          "isRedirect": true
+        },
+        "fr": {
+          "size": 893,
+          "isRedirect": true
+        },
+        "hi": {
+          "size": 1145,
+          "isRedirect": true
+        },
+        "it": {
+          "size": 884,
+          "isRedirect": true
+        },
+        "ja": {
+          "size": 954,
+          "isRedirect": true
+        },
+        "ko": {
+          "size": 877,
+          "isRedirect": true
+        },
+        "pt": {
+          "size": 882,
+          "isRedirect": true
+        },
+        "zh": {
+          "size": 828,
+          "isRedirect": true
+        }
+      }
+    },
+    {
+      "page": "dgi-dcii-comparison.html",
+      "path": "/dgi-dcii-comparison.html",
+      "size": 23345,
+      "title": "DDGI vs DCII Comparison | Framework vs Implementation | Datacendia",
+      "localeCount": 10,
+      "missingLocales": [],
+      "locales": {
+        "ar": {
+          "size": 1156,
+          "isRedirect": true
+        },
+        "de": {
+          "size": 1110,
+          "isRedirect": true
+        },
+        "es": {
+          "size": 1098,
+          "isRedirect": true
+        },
+        "fr": {
+          "size": 1089,
+          "isRedirect": true
+        },
+        "hi": {
+          "size": 1312,
+          "isRedirect": true
+        },
+        "it": {
+          "size": 1081,
+          "isRedirect": true
+        },
+        "ja": {
+          "size": 1114,
+          "isRedirect": true
+        },
+        "ko": {
+          "size": 1092,
+          "isRedirect": true
+        },
+        "pt": {
+          "size": 1098,
+          "isRedirect": true
+        },
+        "zh": {
+          "size": 1036,
+          "isRedirect": true
+        }
+      }
+    },
+    {
+      "page": "dgi.html",
+      "path": "/dgi.html",
+      "size": 18250,
+      "title": "Datacendia Decision Governance Infrastructure (DDGI) | Open Framework | Datacendia",
+      "localeCount": 10,
+      "missingLocales": [],
+      "locales": {
+        "ar": {
+          "size": 1226,
+          "isRedirect": true
+        },
+        "de": {
+          "size": 1112,
+          "isRedirect": true
+        },
+        "es": {
+          "size": 1130,
+          "isRedirect": true
+        },
+        "fr": {
+          "size": 1139,
+          "isRedirect": true
+        },
+        "hi": {
+          "size": 1446,
+          "isRedirect": true
+        },
+        "it": {
+          "size": 1127,
+          "isRedirect": true
+        },
+        "ja": {
+          "size": 1244,
+          "isRedirect": true
+        },
+        "ko": {
+          "size": 1166,
+          "isRedirect": true
+        },
+        "pt": {
+          "size": 1134,
+          "isRedirect": true
+        },
+        "zh": {
+          "size": 998,
+          "isRedirect": true
+        }
+      }
+    },
+    {
+      "page": "diagrams.html",
+      "path": "/diagrams.html",
+      "size": 73321,
+      "title": "Platform Architecture Diagrams — Datacendia",
+      "localeCount": 10,
+      "missingLocales": [],
+      "locales": {
+        "ar": {
+          "size": 1070,
+          "isRedirect": true
+        },
+        "de": {
+          "size": 978,
+          "isRedirect": true
+        },
+        "es": {
+          "size": 992,
+          "isRedirect": true
+        },
+        "fr": {
+          "size": 997,
+          "isRedirect": true
+        },
+        "hi": {
+          "size": 1184,
+          "isRedirect": true
+        },
+        "it": {
+          "size": 997,
+          "isRedirect": true
+        },
+        "ja": {
+          "size": 1092,
+          "isRedirect": true
+        },
+        "ko": {
+          "size": 1012,
+          "isRedirect": true
+        },
+        "pt": {
+          "size": 976,
+          "isRedirect": true
+        },
+        "zh": {
+          "size": 924,
+          "isRedirect": true
+        }
+      }
+    },
+    {
+      "page": "gateway.html",
+      "path": "/gateway.html",
+      "size": 17138,
+      "title": "CendiaGateway™ — AI Governance Control Plane | Datacendia",
+      "localeCount": 0,
+      "missingLocales": [
+        "ar",
+        "de",
+        "es",
+        "fr",
+        "hi",
+        "it",
+        "ja",
+        "ko",
+        "pt",
+        "zh"
+      ],
+      "locales": {}
+    },
+    {
+      "page": "honesty-matrices.html",
+      "path": "/honesty-matrices.html",
+      "size": 40625,
+      "title": "Honesty Matrices | Datacendia",
+      "localeCount": 10,
+      "missingLocales": [],
+      "locales": {
+        "ar": {
+          "size": 1146,
+          "isRedirect": true
+        },
+        "de": {
+          "size": 1090,
+          "isRedirect": true
+        },
+        "es": {
+          "size": 1084,
+          "isRedirect": true
+        },
+        "fr": {
+          "size": 1115,
+          "isRedirect": true
+        },
+        "hi": {
+          "size": 1456,
+          "isRedirect": true
+        },
+        "it": {
+          "size": 1057,
+          "isRedirect": true
+        },
+        "ja": {
+          "size": 1136,
+          "isRedirect": true
+        },
+        "ko": {
+          "size": 1152,
+          "isRedirect": true
+        },
+        "pt": {
+          "size": 1114,
+          "isRedirect": true
+        },
+        "zh": {
+          "size": 1040,
+          "isRedirect": true
+        }
+      }
+    },
+    {
+      "page": "hospitality.html",
+      "path": "/hospitality.html",
+      "size": 13509,
+      "title": "Hospitality AI Governance | Hotel Investment & Revenue Decisions | Datacendia",
+      "localeCount": 10,
+      "missingLocales": [],
+      "locales": {
+        "ar": {
+          "size": 1196,
+          "isRedirect": true
+        },
+        "de": {
+          "size": 1058,
+          "isRedirect": true
+        },
+        "es": {
+          "size": 1066,
+          "isRedirect": true
+        },
+        "fr": {
+          "size": 1059,
+          "isRedirect": true
+        },
+        "hi": {
+          "size": 1294,
+          "isRedirect": true
+        },
+        "it": {
+          "size": 1051,
+          "isRedirect": true
+        },
+        "ja": {
+          "size": 1132,
+          "isRedirect": true
+        },
+        "ko": {
+          "size": 1076,
+          "isRedirect": true
+        },
+        "pt": {
+          "size": 1068,
+          "isRedirect": true
+        },
+        "zh": {
+          "size": 1006,
+          "isRedirect": true
+        }
+      }
+    },
+    {
+      "page": "index.html",
+      "path": "/index.html",
+      "size": 69262,
+      "title": "Datacendia — Decision Crisis Immunization Infrastructure",
+      "localeCount": 10,
+      "missingLocales": [],
+      "locales": {
+        "ar": {
+          "size": 79450,
+          "isRedirect": false
+        },
+        "de": {
+          "size": 74640,
+          "isRedirect": false
+        },
+        "es": {
+          "size": 74752,
+          "isRedirect": false
+        },
+        "fr": {
+          "size": 75437,
+          "isRedirect": false
+        },
+        "hi": {
+          "size": 90921,
+          "isRedirect": false
+        },
+        "it": {
+          "size": 74457,
+          "isRedirect": false
+        },
+        "ja": {
+          "size": 77502,
+          "isRedirect": false
+        },
+        "ko": {
+          "size": 75265,
+          "isRedirect": false
+        },
+        "pt": {
+          "size": 74761,
+          "isRedirect": false
+        },
+        "zh": {
+          "size": 71767,
+          "isRedirect": false
+        }
+      }
+    },
+    {
+      "page": "manifesto.html",
+      "path": "/manifesto.html",
+      "size": 14366,
+      "title": "Manifesto | Datacendia",
+      "localeCount": 10,
+      "missingLocales": [],
+      "locales": {
+        "ar": {
+          "size": 1114,
+          "isRedirect": true
+        },
+        "de": {
+          "size": 1032,
+          "isRedirect": true
+        },
+        "es": {
+          "size": 1034,
+          "isRedirect": true
+        },
+        "fr": {
+          "size": 1009,
+          "isRedirect": true
+        },
+        "hi": {
+          "size": 1336,
+          "isRedirect": true
+        },
+        "it": {
+          "size": 1021,
+          "isRedirect": true
+        },
+        "ja": {
+          "size": 1076,
+          "isRedirect": true
+        },
+        "ko": {
+          "size": 1042,
+          "isRedirect": true
+        },
+        "pt": {
+          "size": 1018,
+          "isRedirect": true
+        },
+        "zh": {
+          "size": 992,
+          "isRedirect": true
+        }
+      }
+    },
+    {
+      "page": "partners.html",
+      "path": "/partners.html",
+      "size": 14364,
+      "title": "Partner Program | Datacendia",
+      "localeCount": 10,
+      "missingLocales": [],
+      "locales": {
+        "ar": {
+          "size": 1096,
+          "isRedirect": true
+        },
+        "de": {
+          "size": 1012,
+          "isRedirect": true
+        },
+        "es": {
+          "size": 1008,
+          "isRedirect": true
+        },
+        "fr": {
+          "size": 1033,
+          "isRedirect": true
+        },
+        "hi": {
+          "size": 1268,
+          "isRedirect": true
+        },
+        "it": {
+          "size": 1005,
+          "isRedirect": true
+        },
+        "ja": {
+          "size": 1146,
+          "isRedirect": true
+        },
+        "ko": {
+          "size": 1012,
+          "isRedirect": true
+        },
+        "pt": {
+          "size": 1014,
+          "isRedirect": true
+        },
+        "zh": {
+          "size": 984,
+          "isRedirect": true
+        }
+      }
+    },
+    {
+      "page": "pilot.html",
+      "path": "/pilot.html",
+      "size": 19242,
+      "title": "90-Day Pilot Program — Datacendia | Enterprise AI Proof of Value",
+      "localeCount": 10,
+      "missingLocales": [],
+      "locales": {
+        "ar": {
+          "size": 1076,
+          "isRedirect": true
+        },
+        "de": {
+          "size": 909,
+          "isRedirect": true
+        },
+        "es": {
+          "size": 924,
+          "isRedirect": true
+        },
+        "fr": {
+          "size": 929,
+          "isRedirect": true
+        },
+        "hi": {
+          "size": 1316,
+          "isRedirect": true
+        },
+        "it": {
+          "size": 922,
+          "isRedirect": true
+        },
+        "ja": {
+          "size": 1041,
+          "isRedirect": true
+        },
+        "ko": {
+          "size": 960,
+          "isRedirect": true
+        },
+        "pt": {
+          "size": 919,
+          "isRedirect": true
+        },
+        "zh": {
+          "size": 876,
+          "isRedirect": true
+        }
+      }
+    },
+    {
+      "page": "platform-capabilities.html",
+      "path": "/platform-capabilities.html",
+      "size": 30507,
+      "title": "Platform Overview — Datacendia | 12 Pillars, 3 Tiers, Full Capability Map",
+      "localeCount": 10,
+      "missingLocales": [],
+      "locales": {
+        "ar": {
+          "size": 1150,
+          "isRedirect": true
+        },
+        "de": {
+          "size": 1094,
+          "isRedirect": true
+        },
+        "es": {
+          "size": 1106,
+          "isRedirect": true
+        },
+        "fr": {
+          "size": 1105,
+          "isRedirect": true
+        },
+        "hi": {
+          "size": 1406,
+          "isRedirect": true
+        },
+        "it": {
+          "size": 1103,
+          "isRedirect": true
+        },
+        "ja": {
+          "size": 1146,
+          "isRedirect": true
+        },
+        "ko": {
+          "size": 1092,
+          "isRedirect": true
+        },
+        "pt": {
+          "size": 1098,
+          "isRedirect": true
+        },
+        "zh": {
+          "size": 1050,
+          "isRedirect": true
+        }
+      }
+    },
+    {
+      "page": "premium.html",
+      "path": "/premium.html",
+      "size": 23872,
+      "title": "Premium Capabilities — Datacendia | Strategic Add-On Modules",
+      "localeCount": 10,
+      "missingLocales": [],
+      "locales": {
+        "ar": {
+          "size": 1152,
+          "isRedirect": true
+        },
+        "de": {
+          "size": 1002,
+          "isRedirect": true
+        },
+        "es": {
+          "size": 1006,
+          "isRedirect": true
+        },
+        "fr": {
+          "size": 987,
+          "isRedirect": true
+        },
+        "hi": {
+          "size": 1254,
+          "isRedirect": true
+        },
+        "it": {
+          "size": 993,
+          "isRedirect": true
+        },
+        "ja": {
+          "size": 1080,
+          "isRedirect": true
+        },
+        "ko": {
+          "size": 1022,
+          "isRedirect": true
+        },
+        "pt": {
+          "size": 1002,
+          "isRedirect": true
+        },
+        "zh": {
+          "size": 966,
+          "isRedirect": true
+        }
+      }
+    },
+    {
+      "page": "pricing.html",
+      "path": "/pricing.html",
+      "size": 43864,
+      "title": "Pricing — Datacendia | Enterprise AI Platform Licensing & Deployment Options",
+      "localeCount": 10,
+      "missingLocales": [],
+      "locales": {
+        "ar": {
+          "size": 1530,
+          "isRedirect": true
+        },
+        "de": {
+          "size": 1352,
+          "isRedirect": true
+        },
+        "es": {
+          "size": 1373,
+          "isRedirect": true
+        },
+        "fr": {
+          "size": 1352,
+          "isRedirect": true
+        },
+        "hi": {
+          "size": 1900,
+          "isRedirect": true
+        },
+        "it": {
+          "size": 1368,
+          "isRedirect": true
+        },
+        "ja": {
+          "size": 1492,
+          "isRedirect": true
+        },
+        "ko": {
+          "size": 1368,
+          "isRedirect": true
+        },
+        "pt": {
+          "size": 1365,
+          "isRedirect": true
+        },
+        "zh": {
+          "size": 1249,
+          "isRedirect": true
+        }
+      }
+    },
+    {
+      "page": "privacy.html",
+      "path": "/privacy.html",
+      "size": 11494,
+      "title": "Privacy Policy — Datacendia | Data Protection & GDPR Compliance",
+      "localeCount": 10,
+      "missingLocales": [],
+      "locales": {
+        "ar": {
+          "size": 1096,
+          "isRedirect": true
+        },
+        "de": {
+          "size": 1030,
+          "isRedirect": true
+        },
+        "es": {
+          "size": 1030,
+          "isRedirect": true
+        },
+        "fr": {
+          "size": 1067,
+          "isRedirect": true
+        },
+        "hi": {
+          "size": 1340,
+          "isRedirect": true
+        },
+        "it": {
+          "size": 1039,
+          "isRedirect": true
+        },
+        "ja": {
+          "size": 1112,
+          "isRedirect": true
+        },
+        "ko": {
+          "size": 1080,
+          "isRedirect": true
+        },
+        "pt": {
+          "size": 1036,
+          "isRedirect": true
+        },
+        "zh": {
+          "size": 986,
+          "isRedirect": true
+        }
+      }
+    },
+    {
+      "page": "protocol.html",
+      "path": "/protocol.html",
+      "size": 43711,
+      "title": "Architecture Protocol — Datacendia Cortex Technical Specification",
+      "localeCount": 10,
+      "missingLocales": [],
+      "locales": {
+        "ar": {
+          "size": 1136,
+          "isRedirect": true
+        },
+        "de": {
+          "size": 1014,
+          "isRedirect": true
+        },
+        "es": {
+          "size": 1014,
+          "isRedirect": true
+        },
+        "fr": {
+          "size": 1021,
+          "isRedirect": true
+        },
+        "hi": {
+          "size": 1372,
+          "isRedirect": true
+        },
+        "it": {
+          "size": 1009,
+          "isRedirect": true
+        },
+        "ja": {
+          "size": 1078,
+          "isRedirect": true
+        },
+        "ko": {
+          "size": 1054,
+          "isRedirect": true
+        },
+        "pt": {
+          "size": 1006,
+          "isRedirect": true
+        },
+        "zh": {
+          "size": 976,
+          "isRedirect": true
+        }
+      }
+    },
+    {
+      "page": "regulators-receipt.html",
+      "path": "/regulators-receipt.html",
+      "size": 23960,
+      "title": "Regulator&rsquo;s Receipt&trade; &mdash; Court-Admissible AI Decision Evidence | Datacendia",
+      "localeCount": 0,
+      "missingLocales": [
+        "ar",
+        "de",
+        "es",
+        "fr",
+        "hi",
+        "it",
+        "ja",
+        "ko",
+        "pt",
+        "zh"
+      ],
+      "locales": {}
+    },
+    {
+      "page": "roi-calculator.html",
+      "path": "/roi-calculator.html",
+      "size": 22528,
+      "title": "ROI Calculator | Datacendia",
+      "localeCount": 10,
+      "missingLocales": [],
+      "locales": {
+        "ar": {
+          "size": 1158,
+          "isRedirect": true
+        },
+        "de": {
+          "size": 1026,
+          "isRedirect": true
+        },
+        "es": {
+          "size": 1020,
+          "isRedirect": true
+        },
+        "fr": {
+          "size": 1027,
+          "isRedirect": true
+        },
+        "hi": {
+          "size": 1258,
+          "isRedirect": true
+        },
+        "it": {
+          "size": 1035,
+          "isRedirect": true
+        },
+        "ja": {
+          "size": 1044,
+          "isRedirect": true
+        },
+        "ko": {
+          "size": 1010,
+          "isRedirect": true
+        },
+        "pt": {
+          "size": 1022,
+          "isRedirect": true
+        },
+        "zh": {
+          "size": 990,
+          "isRedirect": true
+        }
+      }
+    },
+    {
+      "page": "security-controls.html",
+      "path": "/security-controls.html",
+      "size": 21980,
+      "title": "Sovereign Architecture & Control Mapping — Datacendia",
+      "localeCount": 10,
+      "missingLocales": [],
+      "locales": {
+        "ar": {
+          "size": 1170,
+          "isRedirect": true
+        },
+        "de": {
+          "size": 1100,
+          "isRedirect": true
+        },
+        "es": {
+          "size": 1096,
+          "isRedirect": true
+        },
+        "fr": {
+          "size": 1099,
+          "isRedirect": true
+        },
+        "hi": {
+          "size": 1398,
+          "isRedirect": true
+        },
+        "it": {
+          "size": 1111,
+          "isRedirect": true
+        },
+        "ja": {
+          "size": 1176,
+          "isRedirect": true
+        },
+        "ko": {
+          "size": 1046,
+          "isRedirect": true
+        },
+        "pt": {
+          "size": 1106,
+          "isRedirect": true
+        },
+        "zh": {
+          "size": 1020,
+          "isRedirect": true
+        }
+      }
+    },
+    {
+      "page": "team.html",
+      "path": "/team.html",
+      "size": 13797,
+      "title": "Leadership — Datacendia | Founder & Team",
+      "localeCount": 10,
+      "missingLocales": [],
+      "locales": {
+        "ar": {
+          "size": 966,
+          "isRedirect": true
+        },
+        "de": {
+          "size": 920,
+          "isRedirect": true
+        },
+        "es": {
+          "size": 918,
+          "isRedirect": true
+        },
+        "fr": {
+          "size": 921,
+          "isRedirect": true
+        },
+        "hi": {
+          "size": 1050,
+          "isRedirect": true
+        },
+        "it": {
+          "size": 909,
+          "isRedirect": true
+        },
+        "ja": {
+          "size": 962,
+          "isRedirect": true
+        },
+        "ko": {
+          "size": 924,
+          "isRedirect": true
+        },
+        "pt": {
+          "size": 918,
+          "isRedirect": true
+        },
+        "zh": {
+          "size": 890,
+          "isRedirect": true
+        }
+      }
+    },
+    {
+      "page": "terms.html",
+      "path": "/terms.html",
+      "size": 12896,
+      "title": "Terms of Use — Datacendia | Enterprise Software Agreement",
+      "localeCount": 10,
+      "missingLocales": [],
+      "locales": {
+        "ar": {
+          "size": 1074,
+          "isRedirect": true
+        },
+        "de": {
+          "size": 1038,
+          "isRedirect": true
+        },
+        "es": {
+          "size": 1028,
+          "isRedirect": true
+        },
+        "fr": {
+          "size": 1049,
+          "isRedirect": true
+        },
+        "hi": {
+          "size": 1340,
+          "isRedirect": true
+        },
+        "it": {
+          "size": 1029,
+          "isRedirect": true
+        },
+        "ja": {
+          "size": 996,
+          "isRedirect": true
+        },
+        "ko": {
+          "size": 1004,
+          "isRedirect": true
+        },
+        "pt": {
+          "size": 1004,
+          "isRedirect": true
+        },
+        "zh": {
+          "size": 972,
+          "isRedirect": true
+        }
+      }
+    },
+    {
+      "page": "trading.html",
+      "path": "/trading.html",
+      "size": 15034,
+      "title": "Trading AI Governance | Position Risk & Compliance Decisions | Datacendia",
+      "localeCount": 10,
+      "missingLocales": [],
+      "locales": {
+        "ar": {
+          "size": 1138,
+          "isRedirect": true
+        },
+        "de": {
+          "size": 1014,
+          "isRedirect": true
+        },
+        "es": {
+          "size": 1032,
+          "isRedirect": true
+        },
+        "fr": {
+          "size": 1035,
+          "isRedirect": true
+        },
+        "hi": {
+          "size": 1306,
+          "isRedirect": true
+        },
+        "it": {
+          "size": 1021,
+          "isRedirect": true
+        },
+        "ja": {
+          "size": 1122,
+          "isRedirect": true
+        },
+        "ko": {
+          "size": 1048,
+          "isRedirect": true
+        },
+        "pt": {
+          "size": 1032,
+          "isRedirect": true
+        },
+        "zh": {
+          "size": 966,
+          "isRedirect": true
+        }
+      }
+    },
+    {
+      "page": "trust.html",
+      "path": "/trust.html",
+      "size": 48433,
+      "title": "Trust Center — Datacendia | Security, Compliance & Data Handling",
+      "localeCount": 10,
+      "missingLocales": [],
+      "locales": {
+        "ar": {
+          "size": 955,
+          "isRedirect": true
+        },
+        "de": {
+          "size": 917,
+          "isRedirect": true
+        },
+        "es": {
+          "size": 935,
+          "isRedirect": true
+        },
+        "fr": {
+          "size": 931,
+          "isRedirect": true
+        },
+        "hi": {
+          "size": 1179,
+          "isRedirect": true
+        },
+        "it": {
+          "size": 914,
+          "isRedirect": true
+        },
+        "ja": {
+          "size": 981,
+          "isRedirect": true
+        },
+        "ko": {
+          "size": 889,
+          "isRedirect": true
+        },
+        "pt": {
+          "size": 932,
+          "isRedirect": true
+        },
+        "zh": {
+          "size": 855,
+          "isRedirect": true
+        }
+      }
+    },
+    {
+      "page": "verticals.html",
+      "path": "/verticals.html",
+      "size": 59976,
+      "title": "Industry Verticals | Datacendia — Sovereign AI for Healthcare, Finance, Legal, Government",
+      "localeCount": 10,
+      "missingLocales": [],
+      "locales": {
+        "ar": {
+          "size": 1088,
+          "isRedirect": true
+        },
+        "de": {
+          "size": 1018,
+          "isRedirect": true
+        },
+        "es": {
+          "size": 1058,
+          "isRedirect": true
+        },
+        "fr": {
+          "size": 1040,
+          "isRedirect": true
+        },
+        "hi": {
+          "size": 1308,
+          "isRedirect": true
+        },
+        "it": {
+          "size": 1047,
+          "isRedirect": true
+        },
+        "ja": {
+          "size": 1124,
+          "isRedirect": true
+        },
+        "ko": {
+          "size": 1032,
+          "isRedirect": true
+        },
+        "pt": {
+          "size": 1037,
+          "isRedirect": true
+        },
+        "zh": {
+          "size": 1040,
+          "isRedirect": true
+        }
+      }
+    },
+    {
+      "page": "wargames.html",
+      "path": "/wargames.html",
+      "size": 35298,
+      "title": "War Game Simulations — Datacendia | Real Scenarios, Real Data",
+      "localeCount": 10,
+      "missingLocales": [],
+      "locales": {
+        "ar": {
+          "size": 1100,
+          "isRedirect": true
+        },
+        "de": {
+          "size": 1022,
+          "isRedirect": true
+        },
+        "es": {
+          "size": 1032,
+          "isRedirect": true
+        },
+        "fr": {
+          "size": 1037,
+          "isRedirect": true
+        },
+        "hi": {
+          "size": 1334,
+          "isRedirect": true
+        },
+        "it": {
+          "size": 1039,
+          "isRedirect": true
+        },
+        "ja": {
+          "size": 1096,
+          "isRedirect": true
+        },
+        "ko": {
+          "size": 1046,
+          "isRedirect": true
+        },
+        "pt": {
+          "size": 1028,
+          "isRedirect": true
+        },
+        "zh": {
+          "size": 976,
+          "isRedirect": true
+        }
+      }
+    }
+  ],
+  "resourcePages": [
+    {
+      "topic": "air-gapped-deployment",
+      "path": "/resources/air-gapped-deployment.html",
+      "localeCount": 11,
+      "missingLocales": [],
+      "locales": {
+        "ar": {
+          "file": "air-gapped-deployment.ar.html",
+          "size": 28170
+        },
+        "de": {
+          "file": "air-gapped-deployment.de.html",
+          "size": 24126
+        },
+        "es": {
+          "file": "air-gapped-deployment.es.html",
+          "size": 24703
+        },
+        "fr": {
+          "file": "air-gapped-deployment.fr.html",
+          "size": 25402
+        },
+        "hi": {
+          "file": "air-gapped-deployment.hi.html",
+          "size": 13799
+        },
+        "en": {
+          "file": "air-gapped-deployment.html",
+          "size": 24900
+        },
+        "it": {
+          "file": "air-gapped-deployment.it.html",
+          "size": 24294
+        },
+        "ja": {
+          "file": "air-gapped-deployment.ja.html",
+          "size": 26593
+        },
+        "ko": {
+          "file": "air-gapped-deployment.ko.html",
+          "size": 23942
+        },
+        "pt": {
+          "file": "air-gapped-deployment.pt.html",
+          "size": 24691
+        },
+        "zh": {
+          "file": "air-gapped-deployment.zh.html",
+          "size": 21081
+        }
+      }
+    },
+    {
+      "topic": "cascade",
+      "path": "/resources/cascade.html",
+      "localeCount": 1,
+      "missingLocales": [
+        "ar",
+        "de",
+        "es",
+        "fr",
+        "hi",
+        "it",
+        "ja",
+        "ko",
+        "pt",
+        "zh"
+      ],
+      "locales": {
+        "en": {
+          "file": "cascade.html",
+          "size": 6104
+        }
+      }
+    },
+    {
+      "topic": "compliance",
+      "path": "/resources/compliance.html",
+      "localeCount": 11,
+      "missingLocales": [],
+      "locales": {
+        "ar": {
+          "file": "compliance.ar.html",
+          "size": 11714
+        },
+        "de": {
+          "file": "compliance.de.html",
+          "size": 10846
+        },
+        "es": {
+          "file": "compliance.es.html",
+          "size": 23853
+        },
+        "fr": {
+          "file": "compliance.fr.html",
+          "size": 10183
+        },
+        "hi": {
+          "file": "compliance.hi.html",
+          "size": 13800
+        },
+        "en": {
+          "file": "compliance.html",
+          "size": 24305
+        },
+        "it": {
+          "file": "compliance.it.html",
+          "size": 10790
+        },
+        "ja": {
+          "file": "compliance.ja.html",
+          "size": 11417
+        },
+        "ko": {
+          "file": "compliance.ko.html",
+          "size": 10870
+        },
+        "pt": {
+          "file": "compliance.pt.html",
+          "size": 10914
+        },
+        "zh": {
+          "file": "compliance.zh.html",
+          "size": 10148
+        }
+      }
+    },
+    {
+      "topic": "data-sovereignty-guide",
+      "path": "/resources/data-sovereignty-guide.html",
+      "localeCount": 11,
+      "missingLocales": [],
+      "locales": {
+        "ar": {
+          "file": "data-sovereignty-guide.ar.html",
+          "size": 31052
+        },
+        "de": {
+          "file": "data-sovereignty-guide.de.html",
+          "size": 24008
+        },
+        "es": {
+          "file": "data-sovereignty-guide.es.html",
+          "size": 45294
+        },
+        "fr": {
+          "file": "data-sovereignty-guide.fr.html",
+          "size": 24924
+        },
+        "hi": {
+          "file": "data-sovereignty-guide.hi.html",
+          "size": 36959
+        },
+        "en": {
+          "file": "data-sovereignty-guide.html",
+          "size": 40723
+        },
+        "it": {
+          "file": "data-sovereignty-guide.it.html",
+          "size": 23938
+        },
+        "ja": {
+          "file": "data-sovereignty-guide.ja.html",
+          "size": 24867
+        },
+        "ko": {
+          "file": "data-sovereignty-guide.ko.html",
+          "size": 23657
+        },
+        "pt": {
+          "file": "data-sovereignty-guide.pt.html",
+          "size": 24031
+        },
+        "zh": {
+          "file": "data-sovereignty-guide.zh.html",
+          "size": 21458
+        }
+      }
+    },
+    {
+      "topic": "index",
+      "path": "/resources/index.html",
+      "localeCount": 1,
+      "missingLocales": [
+        "ar",
+        "de",
+        "es",
+        "fr",
+        "hi",
+        "it",
+        "ja",
+        "ko",
+        "pt",
+        "zh"
+      ],
+      "locales": {
+        "en": {
+          "file": "index.html",
+          "size": 18333
+        }
+      }
+    },
+    {
+      "topic": "integration-honesty-matrix",
+      "path": "/resources/integration-honesty-matrix.html",
+      "localeCount": 1,
+      "missingLocales": [
+        "ar",
+        "de",
+        "es",
+        "fr",
+        "hi",
+        "it",
+        "ja",
+        "ko",
+        "pt",
+        "zh"
+      ],
+      "locales": {
+        "en": {
+          "file": "integration-honesty-matrix.html",
+          "size": 22149
+        }
+      }
+    },
+    {
+      "topic": "omnitranslate",
+      "path": "/resources/omnitranslate.html",
+      "localeCount": 1,
+      "missingLocales": [
+        "ar",
+        "de",
+        "es",
+        "fr",
+        "hi",
+        "it",
+        "ja",
+        "ko",
+        "pt",
+        "zh"
+      ],
+      "locales": {
+        "en": {
+          "file": "omnitranslate.html",
+          "size": 6760
+        }
+      }
+    },
+    {
+      "topic": "sovereignty-matrix",
+      "path": "/resources/sovereignty-matrix.html",
+      "localeCount": 11,
+      "missingLocales": [],
+      "locales": {
+        "ar": {
+          "file": "sovereignty-matrix.ar.html",
+          "size": 12912
+        },
+        "de": {
+          "file": "sovereignty-matrix.de.html",
+          "size": 11742
+        },
+        "es": {
+          "file": "sovereignty-matrix.es.html",
+          "size": 17014
+        },
+        "fr": {
+          "file": "sovereignty-matrix.fr.html",
+          "size": 12044
+        },
+        "hi": {
+          "file": "sovereignty-matrix.hi.html",
+          "size": 15947
+        },
+        "en": {
+          "file": "sovereignty-matrix.html",
+          "size": 16796
+        },
+        "it": {
+          "file": "sovereignty-matrix.it.html",
+          "size": 11571
+        },
+        "ja": {
+          "file": "sovereignty-matrix.ja.html",
+          "size": 12202
+        },
+        "ko": {
+          "file": "sovereignty-matrix.ko.html",
+          "size": 11771
+        },
+        "pt": {
+          "file": "sovereignty-matrix.pt.html",
+          "size": 11589
+        },
+        "zh": {
+          "file": "sovereignty-matrix.zh.html",
+          "size": 10788
+        }
+      }
+    },
+    {
+      "topic": "the-council",
+      "path": "/resources/the-council.html",
+      "localeCount": 11,
+      "missingLocales": [],
+      "locales": {
+        "ar": {
+          "file": "the-council.ar.html",
+          "size": 41570
+        },
+        "de": {
+          "file": "the-council.de.html",
+          "size": 36971
+        },
+        "es": {
+          "file": "the-council.es.html",
+          "size": 37158
+        },
+        "fr": {
+          "file": "the-council.fr.html",
+          "size": 37879
+        },
+        "hi": {
+          "file": "the-council.hi.html",
+          "size": 52108
+        },
+        "en": {
+          "file": "the-council.html",
+          "size": 37066
+        },
+        "it": {
+          "file": "the-council.it.html",
+          "size": 36912
+        },
+        "ja": {
+          "file": "the-council.ja.html",
+          "size": 38833
+        },
+        "ko": {
+          "file": "the-council.ko.html",
+          "size": 36708
+        },
+        "pt": {
+          "file": "the-council.pt.html",
+          "size": 36984
+        },
+        "zh": {
+          "file": "the-council.zh.html",
+          "size": 33805
+        }
+      }
+    }
+  ],
+  "learnArticles": [
+    {
+      "slug": "ai-audit-trail",
+      "path": "/learn/ai-audit-trail/",
+      "title": "What is an AI Audit Trail? Complete Guide for Regulated Enterprises | Datacendia",
+      "localeCount": 1,
+      "missingLocales": [
+        "ar",
+        "de",
+        "es",
+        "fr",
+        "hi",
+        "it",
+        "ja",
+        "ko",
+        "pt",
+        "zh"
+      ],
+      "locales": {
+        "en": {
+          "file": "index.html",
+          "size": 30284
+        }
+      }
+    },
+    {
+      "slug": "ai-governance",
+      "path": "/learn/ai-governance/",
+      "title": "What is AI Governance? Complete Enterprise Guide 2026 | Datacendia",
+      "localeCount": 1,
+      "missingLocales": [
+        "ar",
+        "de",
+        "es",
+        "fr",
+        "hi",
+        "it",
+        "ja",
+        "ko",
+        "pt",
+        "zh"
+      ],
+      "locales": {
+        "en": {
+          "file": "index.html",
+          "size": 28643
+        }
+      }
+    },
+    {
+      "slug": "air-gapped-ai-deployment",
+      "path": "/learn/air-gapped-ai-deployment/",
+      "title": "Air-Gapped AI Deployment: Complete Guide for Enterprises | Datacendia",
+      "localeCount": 1,
+      "missingLocales": [
+        "ar",
+        "de",
+        "es",
+        "fr",
+        "hi",
+        "it",
+        "ja",
+        "ko",
+        "pt",
+        "zh"
+      ],
+      "locales": {
+        "en": {
+          "file": "index.html",
+          "size": 27421
+        }
+      }
+    },
+    {
+      "slug": "decision-intelligence",
+      "path": "/learn/decision-intelligence/",
+      "title": "What is Decision Intelligence? Complete Guide for Enterprises | Datacendia",
+      "localeCount": 1,
+      "missingLocales": [
+        "ar",
+        "de",
+        "es",
+        "fr",
+        "hi",
+        "it",
+        "ja",
+        "ko",
+        "pt",
+        "zh"
+      ],
+      "locales": {
+        "en": {
+          "file": "index.html",
+          "size": 28137
+        }
+      }
+    },
+    {
+      "slug": "dora-compliance",
+      "path": "/learn/dora-compliance/",
+      "title": "DORA Compliance for AI Systems | Enterprise Guide 2026 | Datacendia",
+      "localeCount": 1,
+      "missingLocales": [
+        "ar",
+        "de",
+        "es",
+        "fr",
+        "hi",
+        "it",
+        "ja",
+        "ko",
+        "pt",
+        "zh"
+      ],
+      "locales": {
+        "en": {
+          "file": "index.html",
+          "size": 34824
+        }
+      }
+    },
+    {
+      "slug": "eu-ai-act-compliance",
+      "path": "/learn/eu-ai-act-compliance/",
+      "title": "EU AI Act Compliance Guide for Enterprises | Requirements, Timeline, Penalties | Datacendia",
+      "localeCount": 1,
+      "missingLocales": [
+        "ar",
+        "de",
+        "es",
+        "fr",
+        "hi",
+        "it",
+        "ja",
+        "ko",
+        "pt",
+        "zh"
+      ],
+      "locales": {
+        "en": {
+          "file": "index.html",
+          "size": 35838
+        }
+      }
+    },
+    {
+      "slug": "eu-ai-act-high-risk",
+      "path": "/learn/eu-ai-act-high-risk/",
+      "title": "EU AI Act Article 6: High-Risk AI Classification Guide | Datacendia",
+      "localeCount": 1,
+      "missingLocales": [
+        "ar",
+        "de",
+        "es",
+        "fr",
+        "hi",
+        "it",
+        "ja",
+        "ko",
+        "pt",
+        "zh"
+      ],
+      "locales": {
+        "en": {
+          "file": "index.html",
+          "size": 27908
+        }
+      }
+    },
+    {
+      "slug": "explainable-ai",
+      "path": "/learn/explainable-ai/",
+      "title": "Explainable AI for Enterprises | Complete Guide 2026 | Datacendia",
+      "localeCount": 1,
+      "missingLocales": [
+        "ar",
+        "de",
+        "es",
+        "fr",
+        "hi",
+        "it",
+        "ja",
+        "ko",
+        "pt",
+        "zh"
+      ],
+      "locales": {
+        "en": {
+          "file": "index.html",
+          "size": 37005
+        }
+      }
+    },
+    {
+      "slug": "hipaa-ai-compliance",
+      "path": "/learn/hipaa-ai-compliance/",
+      "title": "HIPAA AI Compliance Guide: Using AI with Protected Health Information | Datacendia",
+      "localeCount": 1,
+      "missingLocales": [
+        "ar",
+        "de",
+        "es",
+        "fr",
+        "hi",
+        "it",
+        "ja",
+        "ko",
+        "pt",
+        "zh"
+      ],
+      "locales": {
+        "en": {
+          "file": "index.html",
+          "size": 25605
+        }
+      }
+    },
+    {
+      "slug": "multi-agent-ai",
+      "path": "/learn/multi-agent-ai/",
+      "title": "What is Multi-Agent AI? Complete Guide for Enterprise Systems | Datacendia",
+      "localeCount": 1,
+      "missingLocales": [
+        "ar",
+        "de",
+        "es",
+        "fr",
+        "hi",
+        "it",
+        "ja",
+        "ko",
+        "pt",
+        "zh"
+      ],
+      "locales": {
+        "en": {
+          "file": "index.html",
+          "size": 33128
+        }
+      }
+    },
+    {
+      "slug": "multi-agent-vs-single-model",
+      "path": "/learn/multi-agent-vs-single-model/",
+      "title": "Multi-Agent AI vs Single-Model: Why Multiple AI Agents Make Better Decisions | Datacendia",
+      "localeCount": 1,
+      "missingLocales": [
+        "ar",
+        "de",
+        "es",
+        "fr",
+        "hi",
+        "it",
+        "ja",
+        "ko",
+        "pt",
+        "zh"
+      ],
+      "locales": {
+        "en": {
+          "file": "index.html",
+          "size": 24454
+        }
+      }
+    },
+    {
+      "slug": "sovereign-ai",
+      "path": "/learn/sovereign-ai/",
+      "title": "What is Sovereign AI? Complete Guide for Enterprises | Datacendia",
+      "localeCount": 1,
+      "missingLocales": [
+        "ar",
+        "de",
+        "es",
+        "fr",
+        "hi",
+        "it",
+        "ja",
+        "ko",
+        "pt",
+        "zh"
+      ],
+      "locales": {
+        "en": {
+          "file": "index.html",
+          "size": 32076
+        }
+      }
+    }
+  ],
+  "warnings": [
+    {
+      "type": "missing_locale",
+      "page": "/resources/cascade.html",
+      "missing": [
+        "ar",
+        "de",
+        "es",
+        "fr",
+        "hi",
+        "it",
+        "ja",
+        "ko",
+        "pt",
+        "zh"
+      ]
+    },
+    {
+      "type": "missing_locale",
+      "page": "/resources/index.html",
+      "missing": [
+        "ar",
+        "de",
+        "es",
+        "fr",
+        "hi",
+        "it",
+        "ja",
+        "ko",
+        "pt",
+        "zh"
+      ]
+    },
+    {
+      "type": "missing_locale",
+      "page": "/resources/integration-honesty-matrix.html",
+      "missing": [
+        "ar",
+        "de",
+        "es",
+        "fr",
+        "hi",
+        "it",
+        "ja",
+        "ko",
+        "pt",
+        "zh"
+      ]
+    },
+    {
+      "type": "missing_locale",
+      "page": "/resources/omnitranslate.html",
+      "missing": [
+        "ar",
+        "de",
+        "es",
+        "fr",
+        "hi",
+        "it",
+        "ja",
+        "ko",
+        "pt",
+        "zh"
+      ]
+    },
+    {
+      "type": "missing_locale",
+      "page": "/learn/ai-audit-trail/",
+      "missing": [
+        "ar",
+        "de",
+        "es",
+        "fr",
+        "hi",
+        "it",
+        "ja",
+        "ko",
+        "pt",
+        "zh"
+      ]
+    },
+    {
+      "type": "missing_locale",
+      "page": "/learn/ai-governance/",
+      "missing": [
+        "ar",
+        "de",
+        "es",
+        "fr",
+        "hi",
+        "it",
+        "ja",
+        "ko",
+        "pt",
+        "zh"
+      ]
+    },
+    {
+      "type": "missing_locale",
+      "page": "/learn/air-gapped-ai-deployment/",
+      "missing": [
+        "ar",
+        "de",
+        "es",
+        "fr",
+        "hi",
+        "it",
+        "ja",
+        "ko",
+        "pt",
+        "zh"
+      ]
+    },
+    {
+      "type": "missing_locale",
+      "page": "/learn/decision-intelligence/",
+      "missing": [
+        "ar",
+        "de",
+        "es",
+        "fr",
+        "hi",
+        "it",
+        "ja",
+        "ko",
+        "pt",
+        "zh"
+      ]
+    },
+    {
+      "type": "missing_locale",
+      "page": "/learn/dora-compliance/",
+      "missing": [
+        "ar",
+        "de",
+        "es",
+        "fr",
+        "hi",
+        "it",
+        "ja",
+        "ko",
+        "pt",
+        "zh"
+      ]
+    },
+    {
+      "type": "missing_locale",
+      "page": "/learn/eu-ai-act-compliance/",
+      "missing": [
+        "ar",
+        "de",
+        "es",
+        "fr",
+        "hi",
+        "it",
+        "ja",
+        "ko",
+        "pt",
+        "zh"
+      ]
+    },
+    {
+      "type": "missing_locale",
+      "page": "/learn/eu-ai-act-high-risk/",
+      "missing": [
+        "ar",
+        "de",
+        "es",
+        "fr",
+        "hi",
+        "it",
+        "ja",
+        "ko",
+        "pt",
+        "zh"
+      ]
+    },
+    {
+      "type": "missing_locale",
+      "page": "/learn/explainable-ai/",
+      "missing": [
+        "ar",
+        "de",
+        "es",
+        "fr",
+        "hi",
+        "it",
+        "ja",
+        "ko",
+        "pt",
+        "zh"
+      ]
+    },
+    {
+      "type": "missing_locale",
+      "page": "/learn/hipaa-ai-compliance/",
+      "missing": [
+        "ar",
+        "de",
+        "es",
+        "fr",
+        "hi",
+        "it",
+        "ja",
+        "ko",
+        "pt",
+        "zh"
+      ]
+    },
+    {
+      "type": "missing_locale",
+      "page": "/learn/multi-agent-ai/",
+      "missing": [
+        "ar",
+        "de",
+        "es",
+        "fr",
+        "hi",
+        "it",
+        "ja",
+        "ko",
+        "pt",
+        "zh"
+      ]
+    },
+    {
+      "type": "missing_locale",
+      "page": "/learn/multi-agent-vs-single-model/",
+      "missing": [
+        "ar",
+        "de",
+        "es",
+        "fr",
+        "hi",
+        "it",
+        "ja",
+        "ko",
+        "pt",
+        "zh"
+      ]
+    },
+    {
+      "type": "missing_locale",
+      "page": "/learn/sovereign-ai/",
+      "missing": [
+        "ar",
+        "de",
+        "es",
+        "fr",
+        "hi",
+        "it",
+        "ja",
+        "ko",
+        "pt",
+        "zh"
+      ]
+    }
+  ],
+  "summary": {
+    "topLevelPages": 32,
+    "resourceTopics": 9,
+    "learnArticles": 12,
+    "totalWarnings": 16,
+    "missingLocaleWarnings": 16,
+    "sizeDriftWarnings": 0
+  }
+}

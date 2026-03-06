@@ -7,7 +7,8 @@ const fs = require('fs');
 const path = require('path');
 const ROOT = path.resolve(__dirname, '..');
 const LANGS = ['en','ar','de','es','fr','hi','it','ja','ko','pt','zh'];
-const CLOSE_PATTERN = '\n};\n\nif (typeof window';
+const CLOSE_PATTERN_LF = '\n};\n\nif (typeof window';
+const CLOSE_PATTERN_CRLF = '\r\n};\r\n\r\nif (typeof window';
 
 const NEW_KEYS = {
   trustDistributionTitle: 'Distribution vs Data Processing',
@@ -31,6 +32,16 @@ const NEW_KEYS = {
   trustResSecArch: 'Security Architecture',
   trustResSovereignty: 'Sovereignty Matrix',
   trustResCompliance: 'Compliance Documentation',
+  trustIso42001Desc: 'AI Management Systems. Self-attested conformance statement published (not third-party audited).',
+  trustIso42001Status: 'Self-Attested',
+  trustNistRmfDesc: 'AI Risk Management Framework. GOVERN, MAP, MEASURE, MANAGE functions mapped (self-attested).',
+  trustNistRmfStatus: 'Self-Attested',
+  trustEuAiActDesc: 'Regulation (EU) 2024/1689. Articles 5–15 mapped, deployer obligations addressed (self-attested).',
+  trustEuAiActStatus: 'Self-Attested',
+  trustCmmcDesc: 'Cybersecurity Maturity Model Certification. Architecture supports Level 2 (Advanced) controls for CUI protection. Level 3 (Expert) pathway documented for defense contractors.',
+  trustCmmcStatus: 'Architecture-Ready',
+  trustHipaaDesc: 'PHI never processed by Datacendia — runs entirely on customer infrastructure. BAA available for private cloud deployments where applicable.',
+  trustHipaaStatus: 'Architecture-Aligned',
 };
 
 let injected = 0;
@@ -44,7 +55,10 @@ for (const lang of LANGS) {
   const toAdd = Object.entries(NEW_KEYS).filter(([k]) => !content.includes(`  ${k}:`));
   if (toAdd.length === 0) { console.log(`SKIP ${lang} — all keys present`); skipped++; continue; }
 
-  const block = '\n' + toAdd.map(([k, v]) => `  ${k}: ${JSON.stringify(v)},`).join('\n');
+  let isCRLF = content.includes('\r\n');
+  let eol = isCRLF ? '\r\n' : '\n';
+  const CLOSE_PATTERN = isCRLF ? CLOSE_PATTERN_CRLF : CLOSE_PATTERN_LF;
+  const block = eol + toAdd.map(([k, v]) => `  ${k}: ${JSON.stringify(v)},`).join(eol);
   const idx = content.indexOf(CLOSE_PATTERN);
   if (idx === -1) { console.log('CLOSE PATTERN NOT FOUND: ' + lang); continue; }
 
@@ -52,7 +66,7 @@ for (const lang of LANGS) {
   const after = content.slice(idx);
   const trimmed = before.trimEnd();
   const needsComma = !trimmed.endsWith(',');
-  content = trimmed + (needsComma ? ',' : '') + block + '\n' + after.trimStart();
+  content = trimmed + (needsComma ? ',' : '') + block + eol + after.trimStart();
 
   fs.writeFileSync(file, content, 'utf8');
   console.log(`ADDED ${toAdd.length} keys to: translations/${lang}.js`);
