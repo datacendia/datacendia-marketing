@@ -34,33 +34,33 @@
 
 ### CLM-002 — AI Council agent count
 
-- **Claim text:** "45 AI Council Agents" (trust.html) / "15 AI agents" (llms.txt) / "15 C-Suite agents" (llms.txt)
-- **Published in:** `trust.html` (line 130), `llms.txt` (lines 9, 13, 30)
-- **Evidence source:** Count agent definitions in platform codebase
-- **Last verified:** Unverified
+- **Claim text:** "40+" (trust.html, index.html) — qualified range, not exact count
+- **Published in:** `trust.html`, `index.html`
+- **Evidence source:** 13 core seed agents + vertical-specific agent extensions across 13 verticals
+- **Last verified:** 2026-03-06
 - **Category:** A (Exact Metric)
 - **Owner:** Engineering
-- **Status:** ❌ Unverified — Inconsistent across surfaces (45 vs 15). Must be reconciled.
+- **Status:** ✅ Verified — Reconciled to "40+" across all surfaces. Trust.html changed from 45→40+. llms.txt uses "Multiple AI agents" (no number).
 
 ### CLM-003 — Language/locale count
 
-- **Claim text:** "26 Languages" (trust.html) / "11 languages" (README, llms.txt)
-- **Published in:** `trust.html` (line 134), `README.md` (line 19), `llms.txt`
-- **Evidence source:** Count locale directories + translations.js language keys
-- **Last verified:** Unverified
+- **Claim text:** "11" (trust.html, README)
+- **Published in:** `trust.html`, `README.md` (line 19)
+- **Evidence source:** 11 locale directories (en + ar, de, es, fr, hi, it, ja, ko, pt, zh)
+- **Last verified:** 2026-03-06
 - **Category:** A (Exact Metric)
 - **Owner:** Marketing
-- **Status:** ❌ Unverified — trust.html claims 26 languages but README/site structure shows 11 locale dirs. Must be reconciled.
+- **Status:** ✅ Verified — Reconciled to 11 across all surfaces. Trust.html changed from 26→11 to match actual locale directories.
 
 ### CLM-004 — REST API route count
 
-- **Claim text:** "REST API reference (156 route files)"
-- **Published in:** `llms.txt` (line 82)
-- **Evidence source:** Count route files in platform API codebase
-- **Last verified:** Unverified
+- **Claim text:** "REST API reference" (llms.txt — exact count removed)
+- **Published in:** `llms.txt`
+- **Evidence source:** `scripts/generate-trust-facts.cjs` → `docs/TRUST-FACTS.json` reports 156 route files
+- **Last verified:** 2026-03-06
 - **Category:** A (Exact Metric)
 - **Owner:** Engineering
-- **Status:** ❌ Unverified — Exact count cannot be verified from marketing repo.
+- **Status:** ✅ Verified — trust-facts pipeline confirmed 156 route files. Exact count removed from llms.txt to prevent drift; verified count in TRUST-FACTS.json.
 
 ### CLM-005 — Docker image availability
 
