@@ -29,17 +29,17 @@
         <div class="lang-selector">
           <button class="lang-btn"><span class="lang-current">English</span> ▾</button>
           <div class="lang-dropdown">
-            <button onclick="setLanguage('en')">English</button>
-            <button onclick="setLanguage('es')">Español</button>
-            <button onclick="setLanguage('fr')">Français</button>
-            <button onclick="setLanguage('de')">Deutsch</button>
-            <button onclick="setLanguage('pt')">Português</button>
-            <button onclick="setLanguage('it')">Italiano</button>
-            <button onclick="setLanguage('ja')">日本語</button>
-            <button onclick="setLanguage('ko')">한국어</button>
-            <button onclick="setLanguage('zh')">中文</button>
-            <button onclick="setLanguage('ar')">العربية</button>
-            <button onclick="setLanguage('hi')">हिन्दी</button>
+            <button data-lang="en">English</button>
+            <button data-lang="es">Español</button>
+            <button data-lang="fr">Français</button>
+            <button data-lang="de">Deutsch</button>
+            <button data-lang="pt">Português</button>
+            <button data-lang="it">Italiano</button>
+            <button data-lang="ja">日本語</button>
+            <button data-lang="ko">한국어</button>
+            <button data-lang="zh">中文</button>
+            <button data-lang="ar">العربية</button>
+            <button data-lang="hi">हिन्दी</button>
           </div>
         </div>
       </div>
@@ -54,6 +54,7 @@
           <div class="nav-dropdown">
             <a href="platform-capabilities.html"><span data-i18n="navPlatformOverview">Platform Overview</span><span class="nav-desc" data-i18n="navPlatformOverviewDesc">Full capability map</span></a>
             <a href="dcii.html"><span data-i18n="navDcii">DCII Framework</span><span class="nav-desc" data-i18n="navDciiDesc">9 primitives · Crisis immunization</span></a>
+            <a href="dgi.html"><span data-i18n="navDgi">DGI Framework</span><span class="nav-desc" data-i18n="navDgiDesc">Open standard · Vendor-neutral</span></a>
             <a href="diagrams.html"><span data-i18n="navArchitecture">Architecture</span><span class="nav-desc" data-i18n="navArchitectureDesc">12 system diagrams</span></a>
           </div>
         </div>
@@ -450,5 +451,6 @@
   </div>  <script src="translations-loader.js?v=7"></script>
   <script src="app.js"></script>
   <script src="nav-mobile.js"></script>
+  <script src="lang-switcher.js"></script>
 </body>
 </html>
