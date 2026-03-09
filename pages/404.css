@@ -1,4 +1,4 @@
-/* Page-specific styles for 404.html — extracted from inline <style> for CSP compliance */
+/* Page-specific styles for 404.html ï¿½ extracted from inline <style> for CSP compliance */
 .error-container {
       min-height: 100vh;
       display: flex;
@@ -59,3 +59,12 @@
       background: var(--color-card-bg);
       color: var(--color-text);
     }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .error-container { padding: 40px 16px; }
+  .error-title { font-size: 3rem; }
+}
+@media (max-width: 480px) {
+  .error-title { font-size: 2rem; }
+}

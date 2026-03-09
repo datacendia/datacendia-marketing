@@ -1,4 +1,4 @@
-/* Page-specific styles for verticals.html — extracted from inline <style> for CSP compliance */
+/* Page-specific styles for verticals.html ï¿½ extracted from inline <style> for CSP compliance */
 .verticals-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -154,3 +154,12 @@
       margin-left: 8px;
       vertical-align: middle;
     }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .verticals-grid { grid-template-columns: 1fr !important; }
+  .vertical-card { padding: 20px; }
+}
+@media (max-width: 480px) {
+  .verticals-hero h2 { font-size: 1.4rem; }
+}

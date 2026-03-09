@@ -3341,6 +3341,33 @@ header {
   .deploy-grid { grid-template-columns: 1fr; }
 }
 
+
+/* Universal Table Responsive */
+table:not(.matrix-table) {
+  display: block;
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Pre/Code Block Responsive */
+pre, code {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+/* Cross-Browser Flexbox */
+.nav-menu, .demo-grid, .tier-grid, .primitives-grid {
+  display: -webkit-flex;
+  display: flex;
+}
+
+/* Container responsive max-width */
+.page-container, .article-container, .legal-container {
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
 /* ══════════════════════════════════════════════════════════
    MOBILE POLISH — Enterprise Platinum Standard
    Touch targets, fluid typography, gesture handling
@@ -3475,5 +3502,53 @@ body {
 
   body {
     padding-bottom: env(safe-area-inset-bottom);
+  }
+}
+
+/* Ultra-Small Screens (320px-360px) */
+@media (max-width: 360px) {
+  .hero-title, h1 { font-size: 1.5rem; }
+  .nav-menu { padding: 0 8px; }
+  .nav-dropdown a { padding: 10px 12px; font-size: 0.8rem; }
+  .lang-dropdown button { font-size: 0.8rem; }
+  .cta-btn, .btn { padding: 10px 16px; font-size: 0.8rem; }
+  .section-title { font-size: 1.2rem; }
+  .card, .demo-card, .tier-card { padding: 16px; }
+  .primitives-grid, .deploy-grid { gap: 8px; }
+}
+
+/* Large Desktop (1920px+) */
+@media (min-width: 1920px) {
+  .container, .page-container { max-width: 1400px; }
+  body { font-size: 1.05rem; }
+}
+
+/* Ultra-Wide (2560px+) */
+@media (min-width: 2560px) {
+  .container, .page-container { max-width: 1600px; }
+  body { font-size: 1.1rem; }
+}
+
+/* Print Styles */
+@media print {
+  .main-nav, .nav-toggle, .lang-selector, .cta-btn, footer { display: none; }
+  body { color: #000; background: #fff; font-size: 12pt; }
+  a { color: #000; text-decoration: underline; }
+  .container { max-width: 100%; padding: 0; }
+}
+
+/* Landscape Mobile — prevent squished layouts */
+@media (max-height: 500px) and (orientation: landscape) {
+  .hero, .hero-section { min-height: auto; padding: 24px 16px; }
+  .main-nav { position: relative; }
+}
+
+/* Reduced Motion Preference */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }

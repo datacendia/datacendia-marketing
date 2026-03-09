@@ -1,4 +1,4 @@
-/* Page-specific styles for changelog.html — extracted from inline <style> for CSP compliance */
+/* Page-specific styles for changelog.html ï¿½ extracted from inline <style> for CSP compliance */
 .changelog-container {
       max-width: 800px;
       margin: 0 auto;
@@ -100,3 +100,12 @@
       color: var(--color-cyan);
       margin-top: 12px;
     }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .changelog-container { padding: 40px 16px; }
+  .changelog-entry { padding: 20px; }
+}
+@media (max-width: 480px) {
+  .changelog-container { padding: 24px 12px; }
+}

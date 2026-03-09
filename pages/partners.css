@@ -1,4 +1,4 @@
-/* Page-specific styles for partners.html — extracted from inline <style> for CSP compliance */
+/* Page-specific styles for partners.html ï¿½ extracted from inline <style> for CSP compliance */
 .page-container { max-width: 900px; margin: 0 auto; padding: 80px 24px; }
     .page-header { text-align: center; margin-bottom: 48px; }
     .page-icon { font-size: 2rem; margin-bottom: 16px; }
@@ -32,3 +32,12 @@
     .cta-box p { font-size: 0.85rem; color: var(--color-text-dim); margin-bottom: 20px; }
     .cta-btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; background: var(--color-gold); border: none; border-radius: 8px; color: var(--color-bg); font-weight: 600; text-decoration: none; transition: opacity 0.3s; }
     .cta-btn:hover { opacity: 0.9; }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .partners-grid, .partner-benefits-grid { grid-template-columns: 1fr; }
+  .partners-section { padding: 40px 16px; }
+}
+@media (max-width: 480px) {
+  .partners-hero h2 { font-size: 1.4rem; }
+}
