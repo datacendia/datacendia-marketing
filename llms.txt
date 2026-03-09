@@ -85,5 +85,6 @@ TypeScript, React 18, Express, PostgreSQL, Redis, Neo4j, Ollama (local LLM), Doc
 ## Contact
 
 - **Website**: https://datacendia.com
+- **Email**: contact@datacendia.com
 - **GitHub**: https://github.com/datacendia
 - **Sales**: sales@datacendia.com
