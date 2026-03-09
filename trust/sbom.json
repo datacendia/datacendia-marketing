@@ -2,7 +2,7 @@
   "bomFormat": "CycloneDX",
   "specVersion": "1.5",
   "serialNumber": "urn:uuid:datacendia-sbom-2026-02-06",
-  "version": 1,
+  "version": 2,
   "metadata": {
     "timestamp": "2026-02-06T17:00:00Z",
     "tools": [
@@ -16,7 +16,7 @@
       "type": "application",
       "name": "datacendia-platform",
       "version": "0.1.0",
-      "description": "AI decision governance, auditability, and verification infrastructure",
+      "description": "Datacendia platform application (React/Express/Node.js). This SBOM does NOT cover the datacendia.com marketing website, which is a static HTML/CSS/JS site with zero runtime dependencies.",
       "licenses": [
         {
           "license": {

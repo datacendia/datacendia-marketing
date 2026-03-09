@@ -6,11 +6,11 @@
 
 Datacendia created the Defensible AI category. When regulators, auditors, or courts ask "how did your AI make this decision?" -- Datacendia users produce a signed evidence packet. Everyone else has nothing.
 
-The platform replaces unstructured decision-making (email chains, meetings, hallway conversations) with AI-governed multi-agent deliberation. 15 AI agents with distinct mandates (CFO, CLO, CISO, CTO, CRO, Ethics, etc.) debate decisions from different perspectives, then produce a tamper-proof, court-admissible record proving how and why the decision was made.
+The platform replaces unstructured decision-making (email chains, meetings, hallway conversations) with AI-governed multi-agent deliberation. Multiple AI agents with distinct C-Suite mandates (CFO, CLO, CISO, CTO, CRO, Ethics, etc.) debate decisions from different perspectives, then produce a tamper-proof, court-admissible record proving how and why the decision was made.
 
 ## What Makes Datacendia Different
 
-1. **Multi-Agent Adversarial Deliberation** -- 15 AI agents argue with each other. Not one model giving one answer. Built-in devil's advocate, cross-examination, and formal dissent.
+1. **Multi-Agent Adversarial Deliberation** -- Multiple AI agents argue with each other. Not one model giving one answer. Built-in devil's advocate, cross-examination, and formal dissent.
 2. **Cryptographic Proof** -- Merkle trees, post-quantum KMS (Dilithium, SPHINCS+, Falcon), hardware TPM attestation. Every decision is signed with customer-owned keys.
 3. **DCII Framework** -- Decision Crisis Immunization Infrastructure. 9 primitives that make organizations structurally immune to decision crises: Discovery-Time Proof, Deliberation Capture, Override Accountability, Continuity Memory, Drift Detection, Cognitive Bias Mitigation, Quantum-Resistant Integrity, Synthetic Media Authentication, Cross-Jurisdiction Compliance.
 4. **Sovereign-First** -- Runs on Ollama locally. Air-gap deployable. No cloud dependency required. Your data never leaves your infrastructure.
@@ -27,7 +27,7 @@ The platform replaces unstructured decision-making (email chains, meetings, hall
 
 ## Core Products
 
-- **The Council**: Multi-agent AI deliberation engine. 15 C-Suite agents, 35+ deliberation modes, War Room, Quick Brief, Governed Deliberation.
+- **The Council**: Multi-agent AI deliberation engine. C-Suite agents across multiple mandates, 35+ deliberation modes, War Room, Quick Brief, Governed Deliberation.
 - **CendiaChronos**: Enterprise Time Machine -- replay past decisions, simulate future crisis scenarios.
 - **Ghost Board**: Rehearse high-stakes board meetings against AI directors.
 - **CendiaPreMortem**: AI analyzes why your decision will fail before you execute it.
@@ -38,9 +38,9 @@ The platform replaces unstructured decision-making (email chains, meetings, hall
 - **CendiaNotary**: Cryptographic signing authority with customer-owned keys.
 - **CendiaOversight**: Real-time regulatory radar -- FDA, GDPR, DORA, EU AI Act frameworks.
 
-## 30 Industry Verticals
+## Industry Verticals
 
-Legal (49 council modes, 14 agents), Healthcare (HIPAA), Financial Services (Basel III), Government/Defense (FedRAMP, air-gap), Insurance, Pharmaceutical, Manufacturing, Energy, Technology/SaaS, Retail, Real Estate, Transportation, Media, Professional Services, Higher Education, Sports Governance (FIFA/UEFA), Smart City, EU Banking, and more.
+Legal, Healthcare (HIPAA), Financial Services (Basel III), Government/Defense (FedRAMP, air-gap), Insurance, Pharmaceutical, Manufacturing, Energy, Technology/SaaS, Retail, Real Estate, Transportation, Media, Professional Services, Higher Education, Sports Governance (FIFA/UEFA), Smart City, EU Banking, and more. See verticals page for full list.
 
 ## Technology Stack
 
@@ -51,20 +51,12 @@ TypeScript, React 18, Express, PostgreSQL, Redis, Neo4j, Ollama (local LLM), Doc
 - **Self-hosted**: Docker Compose or Kubernetes (Helm chart provided)
 - **Private Cloud**: AWS, Azure, GCP with customer-managed keys
 - **Air-Gapped**: Zero external dependencies, bootable USB option
-- **Managed Cloud**: Hosted at app.datacendia.com (coming soon)
-
-## Docker
-
-```
-docker pull datacendia/datacendia-api:latest
-docker pull datacendia/datacendia-frontend:latest
-```
 
 ## Open Source
 
-- GitHub (Community Edition): https://github.com/datacendia/datacendia-core
+- GitHub: https://github.com/datacendia
 - DDGI Framework: https://github.com/datacendia/decision-governance-infrastructure
-- License: Apache 2.0
+- License: Apache 2.0 (Community Edition)
 
 ## Pages
 
@@ -74,12 +66,12 @@ docker pull datacendia/datacendia-frontend:latest
 - [DCII Framework](https://datacendia.com/dcii.html): The 9 crisis immunization primitives.
 - [DGI Framework](https://datacendia.com/dgi.html): Open vendor-neutral Decision Governance Infrastructure standard.
 - [Trust Center](https://datacendia.com/trust.html): Security posture, compliance artifacts, test results.
-- [Industry Verticals](https://datacendia.com/verticals.html): 30 sector-specific governance solutions.
+- [Industry Verticals](https://datacendia.com/verticals.html): Sector-specific governance solutions.
 - [War Games](https://datacendia.com/wargames.html): SVB, Boeing 737 MAX, Wirecard, Theranos, Everton PSR, NHS maternity.
 - [Architecture](https://datacendia.com/diagrams.html): 12 system architecture diagrams.
 - [ROI Calculator](https://datacendia.com/roi-calculator.html): Calculate the cost of ungoverned decisions.
 - [Case Studies](https://datacendia.com/case-studies.html): Implementation examples and outcomes.
-- [API Documentation](https://datacendia.com/api-docs.html): REST API reference (156 route files).
+- [API Documentation](https://datacendia.com/api-docs.html): REST API reference.
 
 ## Learn
 
@@ -94,5 +86,4 @@ docker pull datacendia/datacendia-frontend:latest
 
 - **Website**: https://datacendia.com
 - **GitHub**: https://github.com/datacendia
-- **Docker Hub**: https://hub.docker.com/u/datacendia
 - **Sales**: sales@datacendia.com

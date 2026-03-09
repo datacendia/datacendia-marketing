@@ -2054,6 +2054,16 @@ const translations_es = {
   trustResSovereignty: "Sovereignty Matrix",
   trustResCompliance: "Compliance Documentation",
   languages: "Languages",
+  trustIso42001Desc: "AI Management Systems. Self-attested conformance statement published (not third-party audited).",
+  trustIso42001Status: "Self-Attested",
+  trustNistRmfDesc: "AI Risk Management Framework. GOVERN, MAP, MEASURE, MANAGE functions mapped (self-attested).",
+  trustNistRmfStatus: "Self-Attested",
+  trustEuAiActDesc: "Regulation (EU) 2024/1689. Articles 5–15 mapped, deployer obligations addressed (self-attested).",
+  trustEuAiActStatus: "Self-Attested",
+  trustCmmcDesc: "Cybersecurity Maturity Model Certification. Architecture supports Level 2 (Advanced) controls for CUI protection. Level 3 (Expert) pathway documented for defense contractors.",
+  trustCmmcStatus: "Architecture-Ready",
+  trustHipaaDesc: "PHI never processed by Datacendia — runs entirely on customer infrastructure. BAA available for private cloud deployments where applicable.",
+  trustHipaaStatus: "Architecture-Aligned",
 };
 
 if (typeof window !== 'undefined') {

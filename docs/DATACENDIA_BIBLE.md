@@ -1,7 +1,9 @@
 # THE DATACENDIA BIBLE
 ## The Definitive Guide to Enterprise AI Decision Intelligence
 
-**Version 2.0** | **January 2026 Launch**
+**Version 3.0** | **March 2026**
+
+> **Governance:** Claims in this document are subject to the [Claim Governance Process](CLAIM-GOVERNANCE.md) and tracked in the [Unified Claim Registry](CLAIM-REGISTRY.md). For verified codebase metrics, see `datacendia-core/docs/TRUST-FACTS.json`. For feature-to-tier mapping, see `datacendia-components/docs/TIER-FEATURE-MATRIX.md`.
 
 ---
 
@@ -280,10 +282,10 @@ flowchart TB
 |------------|---------|---------|
 | React | UI Framework | 18.x |
 | TypeScript | Type Safety | 5.x |
-| Vite | Build Tool | 5.x |
+| Vite | Build Tool | 7.x |
 | TailwindCSS | Styling | 3.x |
 | React Router | Navigation | 6.x |
-| Zustand | State Management | 4.x |
+| Zustand | State Management | 5.x |
 | React Query | Server State | 5.x |
 | Lucide | Icons | Latest |
 
@@ -293,7 +295,7 @@ flowchart TB
 | Node.js | Runtime | 20.x LTS |
 | Express.js | Web Framework | 4.x |
 | TypeScript | Type Safety | 5.x |
-| Prisma | ORM | 5.x |
+| Prisma | ORM | 7.x |
 | Zod | Validation | 3.x |
 | Socket.io | Real-time | 4.x |
 | Bull | Job Queue | 4.x |
@@ -304,7 +306,7 @@ flowchart TB
 | PostgreSQL | Primary Database | Transactional data, decisions, users |
 | Neo4j | Graph Database | Knowledge graph, relationships, lineage |
 | Redis | Cache & Pub/Sub | Sessions, real-time updates, caching |
-| pgvector | Vector Store | Semantic search, RAG embeddings |
+| Qdrant | Vector Database | Semantic search, neural similarity |
 | Apache Druid | Time-series Analytics | CendiaChronos™ timeline events |
 
 ### AI/ML
@@ -313,7 +315,7 @@ flowchart TB
 | Ollama | Local LLM | Agent reasoning, on-premise deployment |
 | OpenAI API | Cloud LLM | Fallback, advanced capabilities |
 | Anthropic API | Cloud LLM | Specialized reasoning tasks |
-| LangChain | LLM Framework | Prompt management, chains |
+| NVIDIA NIM | Self-hosted LLM | Enterprise inference (optional) |
 
 ### Sovereign Stack™ (Self-Hosted Infrastructure)
 | Technology | Purpose | Use Case |
@@ -711,7 +713,7 @@ Capture and analyze stakeholder sentiment—employees, customers, partners, inve
 
 ## Product Tiers
 
-### Cortex Package (Core)
+### Foundation Tier
 **The Foundation of Decision Intelligence**
 
 | Product | Description |
@@ -727,10 +729,10 @@ Capture and analyze stakeholder sentiment—employees, customers, partners, inve
 
 ---
 
-### Apex Package (Advanced)
-**Predictive Power for Growing Enterprises**
+### Enterprise Tier
+**Full Sovereignty for Regulated Industries**
 
-Everything in Cortex, plus:
+Everything in Foundation, plus:
 
 | Product | Description |
 |---------|-------------|
@@ -744,10 +746,10 @@ Everything in Cortex, plus:
 
 ---
 
-### Sovereign Package (Enterprise)
-**Maximum Control for Sensitive Environments**
+### Strategic Tier
+**Nation-Scale Decision Infrastructure**
 
-Everything in Apex, plus:
+Everything in Enterprise, plus:
 
 | Product | Description |
 |---------|-------------|
@@ -763,10 +765,10 @@ Everything in Apex, plus:
 
 ---
 
-### Platinum Package (Ultimate)
-**The Complete Datacendia Universe**
+### Custom / Government Tier
+**Negotiated Engagement**
 
-Everything in Sovereign, plus:
+Everything in Strategic, plus:
 
 | Product | Description |
 |---------|-------------|
@@ -1100,8 +1102,8 @@ chronos_snapshots
 | Framework | Status | Notes |
 |-----------|--------|-------|
 | SOC 2 Type II | 🟡 In Progress | Audit scheduled Q2 2026 |
-| ISO 27001 | 🟡 In Progress | Expected Q1 2026 |
-| GDPR | ✅ Compliant | Data residency, consent management |
+| ISO 27001 | 🟡 In Progress | Gap assessment complete; target H2 2026 |
+| GDPR | 🟡 Aligned | Data processing controls implemented; DPA available |
 | HIPAA | 🟡 Designed for | BAA available, controls implemented |
 | FedRAMP | 🟡 In Progress | Government edition |
 | PCI-DSS | 🟡 Designed for | Architecture supports |
@@ -1364,9 +1366,9 @@ For legal proceedings, Datacendia can generate:
 | **SCIF-Ready** | ✅ Yes | ✅ Yes | ❌ No | ❌ No | ⚠️ Custom |
 | **Data Leaves Premises** | ❌ Never | ⚠️ Optional | ✅ Always | ✅ Always | ⚠️ Optional |
 | **Local LLM Support** | ✅ Native Ollama | ❌ No | ❌ No | ❌ No | ⚠️ Limited |
-| **Multi-Agent Council** | ✅ 14+ agents | ⚠️ Ontology | ❌ No | ❌ Single | ⚠️ Limited |
+| **Multi-Agent Council** | ✅ 40+ agents | ⚠️ Ontology | ❌ No | ❌ Single | ⚠️ Limited |
 | **Immutable Audit Trail** | ✅ Blockchain-style | ⚠️ Logs only | ⚠️ Logs only | ❌ No | ⚠️ Logs only |
-| **Entry Price** | **$35k pilot** | $100k+ | $100k+ | Per-seat | $50k+ |
+| **Entry Price** | **$50k pilot** | $100k+ | $100k+ | Per-seat | $50k+ |
 | **Time to Value** | **2-4 weeks** | 3-6 months | 3-6 months | 1-2 months | 2-4 months |
 
 **Legend:** ✅ Full support | ⚠️ Partial/Limited | ❌ Not available
@@ -1425,10 +1427,10 @@ The AI model landscape has shifted toward **fine-tuned Small Language Models (SL
 |-------|------------|----------------|--------------|
 | Llama 3.3 | 70B | General reasoning, analysis | Q4_K_M (42GB) |
 | Llama 3.2 | 3B | Fast queries, classification | Q8_0 (3GB) |
-| Qwen 2.5 | 32B | Coding, reasoning | Q4_K_M (20GB) |
-| QwQ | 32B | Deep reasoning, math | Q4_K_M (20GB) |
-| Mistral | 7B | Efficient general purpose | Q4_K_M (4GB) |
-| Mixtral | 8x7B | Mixture of experts, diverse tasks | Q4_K_M (26GB) |
+| Qwen 3 | 32B | Primary reasoning model | Q4_K_M (20GB) |
+| DeepSeek-R1 | 32B | Deep reasoning, math | Q4_K_M (20GB) |
+| Qwen 3 Coder | 30B | Code generation, analysis | Q4_K_M (19GB) |
+| Qwen 3 VL | 30B | Vision + text multimodal | Q4_K_M (19GB) |
 
 ### Tier 2: Cloud Models (Optional Fallback)
 **Use Cases:** Complex reasoning overflow (Hybrid tier only, never in Sovereign)
@@ -1744,7 +1746,7 @@ Content-Type: application/json
 
 | Model | Description | Price | Best For |
 |-------|-------------|-------|----------|
-| **90-Day Pilot** | Single use case, full platform access | **$35k one-time** | Prove value before commitment |
+| **90-Day Pilot** | Single use case, full platform access | **$50k one-time** | Prove value before commitment |
 | **Per-Department** | License 1-3 business units | **$25k/dept/year** | Expand after successful pilot |
 | **Starter License** | Full vertical package, all agents | **$60k–$150k/year** | Mid-market enterprise-wide |
 
@@ -1903,7 +1905,7 @@ These 4 verticals represent **90% of vertical AI spend**.^[1] Full sales, market
 
 ## Vertical-Specific Agents
 
-Each vertical includes 4 industry-specific agents in addition to the 14 core agents. See [The Council of Agents](#the-council-of-agents) for core agent details.
+Each vertical includes 4 industry-specific agents in addition to the core agents (40+ across all configurations). See [The Council of Agents](#the-council-of-agents) for core agent details.
 
 | Vertical | Agents | Cross-Reference |
 |----------|--------|-----------------|
@@ -2177,8 +2179,8 @@ ENABLE_CUSTOM_AGENTS=true
 | **HIPAA** | 🟡 Designed for | BAA template available; technical controls implemented |
 | **ITAR** | 🔴 Roadmap | Requires State Dept registration; target 2027 |
 | **21 CFR Part 11** | 🟡 Designed for | Audit trail, e-signatures, access controls implemented |
-| **GDPR** | 🟢 Compliant | Data residency, right to deletion, consent management |
-| **ISO 27001** | 🟡 In Progress | Certification expected Q1 2026 |
+| **GDPR** | � Aligned | Data processing controls implemented; DPA available on request |
+| **ISO 27001** | 🟡 In Progress | Gap assessment complete; target H2 2026 |
 | **PCI DSS** | 🟡 Designed for | No card data stored; architecture supports if needed |
 
 **Legend:** 🟢 Certified | 🟡 Designed for / In Progress | 🔴 Roadmap
