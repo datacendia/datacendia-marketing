@@ -3278,7 +3278,7 @@ const translations_it = {
   "protToc9": "Protocollo di integrazione",
   "protToc10": "Limiti noti",
   "protS1Title": "Panoramica del sistema",
-  "protStrongDatacendiaCortex": "Corteccia datacendia",
+  "protStrongDatacendiaCortex": "Corteccia Datacendia",
   "protStrongCendiaagents": "CendiaAgents",
   "protStrongCendiaethics": "CendiaEtica",
   "protStrongCendiaguard": "CendiaGuard",
