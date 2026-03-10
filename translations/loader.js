@@ -1,19 +1,6 @@
-// Translation loader - loads only the active language
-function loadTranslation(lang) {
-  return new Promise((resolve, reject) => {
-    if (window.translations && window.translations[lang]) {
-      resolve(window.translations[lang]);
-      return;
-    }
-    
-    const script = document.createElement('script');
-    script.src = `/translations/${lang}.js`;
-    script.onload = () => resolve(window.translations[lang]);
-    script.onerror = reject;
-    document.head.appendChild(script);
-  });
-}
-
-// Auto-load based on current language or default to English
-const currentLang = localStorage.getItem('language') || 'en';
-loadTranslation(currentLang).catch(() => loadTranslation('en'));
+// DEPRECATED: This loader is no longer used.
+// All pages now use /translations-loader.js which fetches /translations/{lang}.json.
+// Language preference is stored in localStorage key 'datacendia-lang'.
+// This file is kept for backward compatibility but does nothing.
+//
+// See translations-loader.js for the active implementation.
