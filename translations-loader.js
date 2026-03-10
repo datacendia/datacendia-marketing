@@ -34,7 +34,7 @@ async function loadLocale(lang) {
   }
 
   try {
-    const resp = await fetch(`/translations/${lang}.json?v=8`);
+    const resp = await fetch(`/translations/${lang}.json?v=10`);
     if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
     translations[lang] = await resp.json();
     _loadedLocales.add(lang);
