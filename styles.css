@@ -95,6 +95,7 @@ header {
   right: 0;
   top: 50%;
   transform: translateY(-50%);
+  z-index: 10001;
 }
 
 .page-top-bar {
