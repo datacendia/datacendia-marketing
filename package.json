@@ -1,5 +1,9 @@
 {
   "devDependencies": {
     "pdf-lib": "^1.17.1"
+  },
+  "dependencies": {
+    "@vitalets/google-translate-api": "^9.2.1",
+    "basic-ftp": "^5.2.0"
   }
 }
