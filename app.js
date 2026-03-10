@@ -164,12 +164,14 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  // Newsletter form — AJAX submit via Formspree so thanks message shows inline
+  // Newsletter form — AJAX submit to /api/subscribe.php
   const newsletterForm = document.getElementById('newsletter-form');
   if (newsletterForm) {
     newsletterForm.addEventListener('submit', function(e) {
       e.preventDefault();
       const formData = new FormData(newsletterForm);
+      formData.append('source', window.location.pathname || 'homepage');
+      formData.append('lang', localStorage.getItem('datacendia-lang') || 'en');
       fetch(newsletterForm.action, {
         method: 'POST',
         body: formData,
