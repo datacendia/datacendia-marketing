@@ -34,14 +34,9 @@ async function loadLocale(lang) {
   }
 
   try {
-    const resp = await fetch(`/translations/${lang}.json?v=7`);
+    const resp = await fetch(`/translations/${lang}.json?v=8`);
     if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
-    const text = await resp.text();
-    
-    // Parse the JS object notation (not strict JSON — has unquoted keys and trailing commas)
-    // We wrap it in a function to eval safely
-    const fn = new Function(`return ${text}`);
-    translations[lang] = fn();
+    translations[lang] = await resp.json();
     _loadedLocales.add(lang);
     return translations[lang];
   } catch (err) {
