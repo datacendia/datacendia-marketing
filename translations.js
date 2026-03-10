@@ -22800,28 +22800,5 @@ document.addEventListener('DOMContentLoaded', () => {
   const saved = urlLang || localStorage.getItem('datacendia-lang') || 'en';
   setLanguage(saved);
   
-  // Toggle dropdown on click for better mobile/touch support
-  const langBtn = document.querySelector('.lang-btn');
-  const langDropdown = document.querySelector('.lang-dropdown');
-  
-  if (langBtn && langDropdown) {
-    langBtn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      langDropdown.classList.toggle('show');
-    });
-    
-    // Close dropdown when clicking outside
-    document.addEventListener('click', (e) => {
-      if (!e.target.closest('.lang-selector')) {
-        langDropdown.classList.remove('show');
-      }
-    });
-    
-    // Close dropdown after selecting a language
-    langDropdown.querySelectorAll('button').forEach(btn => {
-      btn.addEventListener('click', () => {
-        langDropdown.classList.remove('show');
-      });
-    });
-  }
+  // Dropdown toggle is handled by lang-switcher.js
 });

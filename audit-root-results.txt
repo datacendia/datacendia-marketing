@@ -1,0 +1,522 @@
+﻿Auditing 49 main root pages for data-i18n coverage
+
+
+diagrams/index.html: 6 untranslatable text segments:
+  - "Would dissent have surfaced the risk?"
+  - "Click into any diagram to explore Datacendia's infrastructure. Every component i..."
+  - "The complete 8-layer infrastructure stack powering the Datacendia Cortex. From b..."
+  - "How The Council deliberates. Trace a decision from ingestion through multi-agent..."
+  - "The 9 crisis immunization primitives that make organizations structurally immune..."
+  - "Ready to own your AI decisionsÔÇöand prove them to regulators?"
+
+learn/ai-audit-trail/index.html: 44 untranslatable text segments:
+  - "What is an AI Audit Trail? Complete Guide for Regulated Enterprises | Datacendia"
+  - "Would dissent have surfaced the risk?"
+  - "An AI audit trail is a complete, immutable record of every AI decision ÔÇö capturi..."
+  - "When an AI system denies a loan, flags a transaction as fraud, or recommends a m..."
+  - "That question might come from a customer, a regulator, an auditor, or a court. W..."
+  - "AI audit trails solve this by capturing:"
+  - "What was decided"
+  - "When it was decided"
+  - "What data was used"
+  - "Why it was decided"
+  - "Multiple regulatory frameworks now mandate audit capabilities for AI systems:"
+  - "High-risk AI must maintain logs for traceability; 10-year retention for some sys..."
+  - "Right to explanation for automated decisions with legal or significant effects"
+  - "ICT risk management requires audit trails for digital operations"
+  - "Recommends logging and traceability for AI systems"
+  ... and 29 more
+
+learn/decision-intelligence/index.html: 28 untranslatable text segments:
+  - "What is Decision Intelligence? Complete Guide for Enterprises | Datacendia"
+  - "Would dissent have surfaced the risk?"
+  - "Decision intelligence is the discipline of turning data, AI models, and human ex..."
+  - "Why Does Decision Intelligence Matter for Enterprises?"
+  - "Modern enterprises face a fundamental challenge: they have more data than ever, ..."
+  - "Decision intelligence closes that gap by providing:"
+  - "How is Decision Intelligence Different from Business Intelligence?"
+  - "The distinction matters. Business intelligence (BI) is retrospective and descrip..."
+  - "Recommendations with rationale"
+  - "Full reasoning chains and evidence"
+  - "What Are the Core Components of a Decision Intelligence Platform?"
+  - "Connects to enterprise data sources (ERP, CRM, data lakes, real-time streams) an..."
+  - "Combines business rules, ML models, and domain logic into executable decision mo..."
+  - "Advanced platforms use multiple AI agents representing different perspectives (f..."
+  - "Generates human-readable explanations for every decision. Critical for regulated..."
+  ... and 13 more
+
+learn/dora-compliance/index.html: 45 untranslatable text segments:
+  - "DORA Compliance for AI Systems | Enterprise Guide 2026 | Datacendia"
+  - "The Defensible AI Platform"
+  - "Would dissent have surfaced the risk?"
+  - "DORA Compliance for AI Systems"
+  - "How the Digital Operational Resilience Act changes AI deployment in financial se..."
+  - "Why DORA Matters for AI in Financial Services"
+  - "Financial services has been the fastest-growing sector for enterprise AI adoptio..."
+  - "Before DORA, ICT risk management in EU financial services was fragmented ÔÇö each ..."
+  - "The practical impact: if your AI system goes down, produces incorrect outputs, o..."
+  - "DORA applies to virtually all regulated financial entities in the EU:"
+  - "Insurance and reinsurance undertakings"
+  - "Financial entities must establish and maintain an"
+  - "DORA mandates a standardized incident classification and reporting framework. AI..."
+  - "For AI systems specifically, resilience testing should cover:"
+  - "Model failover and rollback procedures"
+  ... and 30 more
+
+learn/eu-ai-act-compliance/index.html: 65 untranslatable text segments:
+  - "EU AI Act Compliance Guide for Enterprises | Requirements, Timeline, Penalties |..."
+  - "Would dissent have surfaced the risk?"
+  - "The EU AI Act is the world's first comprehensive AI regulation. This guide cover..."
+  - "What is the EU AI Act?"
+  - "The EU AI Act is the world's first comprehensive legal framework specifically re..."
+  - "Bans on social scoring, real-time biometric identification (with exceptions), ma..."
+  - "General-purpose AI (foundation models) must comply with transparency and systemi..."
+  - "Full compliance required for high-risk AI systems including risk management, dat..."
+  - "All provisions apply including to AI systems in Annex I (now Annex III)"
+  - "How Does the EU AI Act Classify Risk?"
+  - "The Act uses a four-tier risk classification:"
+  - "Transparency: users must be informed they're interacting with AI"
+  - "What Are High-Risk AI Systems?"
+  - "Annex III of the EU AI Act specifies high-risk use cases. If your AI system fall..."
+  - "Safety components for road traffic, water/gas/electricity supply, digital infras..."
+  ... and 48 more
+
+learn/explainable-ai/index.html: 51 untranslatable text segments:
+  - "Explainable AI for Enterprises | Complete Guide 2026 | Datacendia"
+  - "The Defensible AI Platform"
+  - "Would dissent have surfaced the risk?"
+  - "Explainable AI for Enterprises"
+  - "How to make AI decisions interpretable, auditable, and defensible ÔÇö reasoning ch..."
+  - "The era of "trust the algorithm" is over. Across every regulated industry, the s..."
+  - ""Why did the AI recommend this?""
+  - "If you cannot answer that question with specific, documented, reproducible reaso..."
+  - "The Explainability Spectrum"
+  - "Not all AI systems require the same level of explainability. The appropriate lev..."
+  - "Suitable For"
+  - "Key factors that influenced the decision"
+  - "Step-by-step logic from inputs to conclusion"
+  - ""Patient presents symptoms A, B, C ÔåÆ consistent with condition X per guideline Y..."
+  - "Full multi-perspective analysis with dissent, cross-examination, and evidence ci..."
+  ... and 36 more
+
+learn/multi-agent-ai/index.html: 44 untranslatable text segments:
+  - "What is Multi-Agent AI? Complete Guide for Enterprise Systems | Datacendia"
+  - "Would dissent have surfaced the risk?"
+  - "Multi-agent AI uses multiple specialized agents that collaborate, debate, and de..."
+  - "A single AI model, no matter how powerful, has inherent limitations. It has one ..."
+  - "Multi-agent AI addresses this by decomposing complex problems across specialized..."
+  - "Think of it like a well-run executive committee: the CFO, General Counsel, CTO, ..."
+  - "How Do Multi-Agent Systems Work?"
+  - "When a decision query arrives, it's distributed to all relevant agents. Each age..."
+  - "Each agent analyzes the query independently, producing an assessment with reason..."
+  - "Agents share their assessments and engage in structured debate. An agent might c..."
+  - "A synthesis mechanism combines agent outputs into a final recommendation. This m..."
+  - "Does this align with our mission and long-term goals?"
+  - "What's the ROI? Cash flow impact? Budget implications?"
+  - "Are there legal risks? Regulatory requirements?"
+  - "What are the security implications? Data risks?"
+  ... and 29 more
+
+learn/sovereign-ai/index.html: 39 untranslatable text segments:
+  - "What is Sovereign AI? Complete Guide for Enterprises | Datacendia"
+  - "Would dissent have surfaced the risk?"
+  - "Sovereign AI means your AI runs on your infrastructure, with your encryption key..."
+  - "Most enterprise AI today runs on hyperscaler clouds ÔÇö AWS, Azure, Google Cloud. ..."
+  - "For many organizations, this model is unacceptable:"
+  - "Sovereign AI solves these problems by keeping everything ÔÇö data, models, inferen..."
+  - "What Are the Levels of AI Sovereignty?"
+  - "Sovereignty exists on a spectrum. Organizations choose the level appropriate to ..."
+  - "Organization's hardware and software"
+  - "Air-gapped AI is the highest level of sovereignty. The system operates with no n..."
+  - "Air-gapped AI is standard for classified government systems, defense application..."
+  - "How Does Sovereign AI Handle Large Language Models?"
+  - "A common objection: "Don't you need cloud APIs for LLMs like GPT-4?""
+  - "Models like Llama 2/3, Mistral, Falcon, and Qwen are available for local deploym..."
+  - "Some vendors offer on-premises deployment of proprietary models under enterprise..."
+  ... and 24 more
+
+learn/index.html: 10 untranslatable text segments:
+  - "Would dissent have surfaced the risk?"
+  - "The framework of policies, processes, and controls that ensure AI systems are ac..."
+  - "Deploy AI with Protected Health Information without violating HIPAA. Privacy Rul..."
+  - "Deploy AI with zero internet connectivity. Architecture, model delivery, update ..."
+  - "Why multiple specialized AI agents that debate and cross-examine produce better ..."
+  - "Which AI systems are high-risk? Understanding Annex III categories, Article 6 cl..."
+  - "DORA Compliance for AI"
+  - "Digital Operational Resilience Act requirements for AI systems in financial serv..."
+  - "Explainable AI for Enterprises"
+  - "Techniques for making AI decisions interpretable: reasoning chains, confidence s..."
+
+404.html: 1 untranslatable text segments:
+  - "Page Not Found ÔÇö Datacendia | 404 Error"
+
+api-docs.html: 42 untranslatable text segments:
+  - "Datacendia exposes a comprehensive REST API for programmatic access to decision ..."
+  - "All API endpoints require authentication via Bearer token (JWT) or API key. In K..."
+  - "# Your deployment URL (on-premises, private cloud, or air-gapped)"
+  - "Multi-agent deliberation, cross-examination, dissent management, and decision sy..."
+  - "Get deliberation status, agent responses, and synthesis"
+  - "List recent deliberations with filtering"
+  - "Veto a deliberation outcome with reason"
+  - "List available governance agents and their roles"
+  - "Timeline analysis, pivotal moment detection, and consequence propagation modelin..."
+  - "Retrieve full decision timeline with filtering"
+  - "Get cascade analysis report with consequence chains"
+  - "Immutable audit trails, decision packets, evidence export, and audit provenance."
+  - "Build a signed decision packet from a deliberation"
+  - "Verify signature and Merkle tree integrity"
+  - "Generate an audit provenance packet with evidence chain"
+  ... and 27 more
+
+architecture.html: 37 untranslatable text segments:
+  - "Datacendia CortexÔäó Architecture | 8 Pillars of The Defensible AI Platform"
+  - "The CortexÔäó is the architectural foundation of Datacendia ÔÇö mapping"
+  - "The orchestration layer where "The Council" lives. Multiple specialized agents d..."
+  - "Multi-agent environment where deliberation occurs. Agents represent CFO, CISO, R..."
+  - "Project HUME. Adversarial agent that challenges consensus, probing for blind spo..."
+  - "Project SMITH. Strategic growth and efficiency optimizer. Synthesizes data into ..."
+  - "Stakeholder simulation agent. Models customer, employee, and regulator perspecti..."
+  - "Meta-model that resolves agent conflict into a final, defensible recommendation ..."
+  - "The governance layer that prevents liability. Binary logic gates and impartial o..."
+  - "The Kill Switch. Binary logic gate that blocks actions violating risk policy. No..."
+  - ""Impartial Observer" module (Adam Smith's model). Flags reputational and ethical..."
+  - "The security layer protecting sovereignty. Cryptographic audit trails, PII strip..."
+  - "Immutable ledger. Cryptographically hashes every decision for audit. Tamper-evid..."
+  - "Strips PII before it enters the context window. Data minimization by design."
+  - "Manages secure, unidirectional data flow. Optical diode logic for classified env..."
+  ... and 22 more
+
+briefing.html: 1 untranslatable text segments:
+  - "Would dissent have surfaced the risk?"
+
+case-studies.html: 46 untranslatable text segments:
+  - "An anonymized pilot demonstrating governed AI deliberation, dissent preservation..."
+  - "The organization faced a recurring challenge: strategic decisions were made by a..."
+  - ""We could explain what we decided, but not how we arrived there ÔÇö especially mon..."
+  - ""Who disagreed, why, and what evidence was considered ÔÇö in a way we can prove la..."
+  - "Deployment: on-premises, no external data transfer. Scope: governed review of op..."
+  - "Decisions became structured: question ÔåÆ evidence ÔåÆ perspectives ÔåÆ dissent ÔåÆ reso..."
+  - "Not Claimed"
+  - ""It's less about AI and more about discipline. The AI just enforces the discipli..."
+  - "The firm faced increasing scrutiny around risk committee decisions ÔÇö credit expo..."
+  - ""We could show the outcome, but not the reasoning path that led to it.""
+  - "Risk systems tracked metrics, not deliberation"
+  - "Minutes and summaries lacked structured dissent"
+  - "Risk discussions became explicit and structured. Minority concerns were recorded..."
+  - ""The value wasn't the recommendation ÔÇö it was the evidence trail.""
+  - "Improved audit readiness for selected decisions"
+  ... and 30 more
+
+changelog.html: 8 untranslatable text segments:
+  - "Website accuracy overhaul. Every claim on the marketing site verified against th..."
+  - "Enterprise Platinum v4.6 ÔÇö all industry verticals completed to the 6-layer stand..."
+  - "Enterprise Platinum ÔÇö 8 new services, sovereign architecture patterns, and compl..."
+  - "11 sovereign architectural patterns ÔÇö built for air-gapped, zero-trust environme..."
+  - "Defense vertical, visualization, adversarial red teaming, and formal dissent."
+  - "Core platform services and interpretability."
+  - "Security hardening and regulatory language review."
+  - "Initial platform architecture ÔÇö The CouncilÔäó, SGAS agent system, evidence ledger..."
+
+dcii.html: 10 untranslatable text segments:
+  - "Crisis Immunization Framework | The Defensible AI Platform | Datacendia"
+  - "Crisis Immunization inverts this"
+  - "Every primitive maps to a dimension of the"
+  - "A standardized 0ÔÇô1000 score measuring an organization's ability to survive insti..."
+  - "Proving digital evidence is authentic ÔÇö not synthetic, not manipulated, not fabr..."
+  - "When GDPR says delete and China's PIPL says retain, what do you do? CendiaJurisd..."
+  - "Internal timestamps can be disputed. External timestamps from trusted third-part..."
+  - ""A similar decision was made in 2019 by former CTO X. The dissenters were proven..."
+  - "Humans don't decide rationally ÔÇö they decide predictably irrationally. CendiaBia..."
+  - "Today's RSA and ECDSA signatures will be breakable by quantum computers. Decisio..."
+
+demos.html: 24 untranslatable text segments:
+  - "Type YOUR decision. Get multi-agent analysis in seconds. No login, no signup ÔÇö j..."
+  - "Type any business decision ÔÇö M&A, hiring, expansion, pricing, restructuring ÔÇö an..."
+  - "ÔûÂ Type Your Decision"
+  - "Assessment ┬À Your Organization"
+  - "Answer 6 questions about YOUR organization's decision governance. Get a maturity..."
+  - "See the difference between decisions made without governance and with Datacendia..."
+  - "Multi-agent deliberation, cascade analysis, dissent protection, and board rehear..."
+  - "Watch 6 AI agents deliberate a $200M acquisition decision in real time. 
+      ..."
+  - "Explore a 5-year timeline for a healthcare organization. See how AI detects the ..."
+  - "Choose a trigger decision (plant closure, price hike, or layoffs) and watch ripp..."
+  - "See how formal dissent is filed, protected from retaliation, and tracked to outc..."
+  - "Rehearse your board presentation against AI directors. Face tough questions from..."
+  - ""Assume this decision failed catastrophically. Why?" See failure narratives, roo..."
+  - "Adversarial stress testing, red team challenges, and compliance validation. Prov..."
+  - "Watch 8 adversarial perspectives tear apart a wire transfer decision: Pessimist ..."
+  ... and 9 more
+
+dgi.html: 4 untranslatable text segments:
+  - "Published by Datacendia in 2026, DDGI defines five core governance primitives en..."
+  - "Datacendia Decision Governance Infrastructure (DDGI): A Vendor-Neutral Framework..."
+  - "Decisions are modeled as a five-phase lifecycle, with each phase producing artif..."
+  - "┬® 2024-2026 Datacendia, LLC. All Rights Reserved."
+
+diagrams.html: 34 untranslatable text segments:
+  - "Decision question is submitted. Context is gathered from data sources, knowledge..."
+  - "Multi-agent council convenes. Agents analyze in parallel, then cross-examine eac..."
+  - "The Council"
+  - "Ethics review, stakeholder impact (CendiaVox), and veto rules are applied. Compl..."
+  - "Decision is attacked from 8 adversarial perspectives. Cascade analysis maps seco..."
+  - "Final recommendation is synthesized with confidence score, key conditions, and d..."
+  - "Decision packet is cryptographically signed, timestamped via RFC 3161, and store..."
+  - "CendiaEcho tracks what actually happened. CendiaChronos snapshots the state for ..."
+  - "Parallel deliberation on isolated network with sync protocol"
+  - "Hardware root of trust verification for compute nodes"
+  - "Customer-owned key management with HSM integration"
+  - "Time-locked encryption for embargoed decisions"
+  - "Real-time replication for disaster recovery"
+  - "Encrypted evidence storage with AES-256 at rest"
+  - "Service mesh for zero-trust inter-service communication"
+  ... and 19 more
+
+gateway.html: 30 untranslatable text segments:
+  - "The Defensible AI Platform"
+  - "Would dissent have surfaced the risk?"
+  - "See and Control Every"
+  - "A reverse proxy for enterprise AI traffic. Every prompt scanned for PII. Every i..."
+  - "The Problem You Have Right Now"
+  - "Most won't admit it. You have no visibility into what data they're sending to ex..."
+  - "Social security numbers, patient data, financial records, source code. Once it r..."
+  - "When a regulator asks "How is your organization governing AI usage?" ÔÇö what do y..."
+  - "Banning AI pushes usage to personal devices outside your perimeter. Approving sp..."
+  - "Route AI traffic through a single control point. Employees use their tools norma..."
+  - "Core high-risk PII classes scanned on every prompt ÔÇö SSN, credit card, email, ph..."
+  - "Every interaction signed with SHA-256 + HMAC. Merkle tree integrity. Tamper-evid..."
+  - "Track AI spend by department, team, project, and user. Per-model pricing for Ope..."
+  - "Self-hosted. Your infrastructure. Your keys. Air-gap capable. No cloud dependenc..."
+  - "For API-based model usage: change one environment variable. Point OPENAI_API_BAS..."
+  ... and 10 more
+
+honesty-matrices.html: 15 untranslatable text segments:
+  - "Would dissent have surfaced the risk?"
+  - "The CouncilÔäó"
+  - "our compliance frameworks and security posture"
+  - "how The Council works in a 90-day pilot"
+  - "OData API with OAuth2; entities, metadata, batch"
+  - "REST API with OAuth2; workers, orgs, jobs"
+  - "OData &amp; REST connectors with OAuth2; full field mapping"
+  - "What works where. Every mode has trade-offs ÔÇö here they are."
+  - "Setup times depend on infrastructure readiness and team availability."
+  - "Realistic timelines, not sales promises. What actually takes how long."
+  - "Ledger enabled from day one"
+  - "Ready to see the evidence yourself?"
+
+hospitality.html: 8 untranslatable text segments:
+  - "Multi-agent analysis of hotel acquisitions ÔÇö revenue potential, renovation costs..."
+  - "AI-assisted revenue management decisions with cross-examination between yield, b..."
+  - "Automated brand standard assessments across properties. Gap identification, reme..."
+  - "Concentration risk, market exposure, and renovation pipeline governance. Dissent..."
+  - "Guest data and financial models never leave your infrastructure. Air-gapped depl..."
+  - "Every investment decision produces a cryptographically sealed evidence packet ÔÇö ..."
+  - "Datacendia maps every hospitality decision against relevant compliance and gover..."
+  - "Try the interactive demo ÔÇö watch 6 AI agents deliberate a luxury hotel acquisiti..."
+
+manifesto.html: 21 untranslatable text segments:
+  - "Enterprise AI should not require surrendering your most sensitive data to third-..."
+  - "Deployment mode determines data residency and vendor access; our default posture..."
+  - "The enterprise software industry is plagued by inflated claims, hidden limitatio..."
+  - "Compliance status, not badges."
+  - "AI that cannot explain its reasoning is AI that cannot be trusted in regulated e..."
+  - "Your investment in understanding and configuring an enterprise platform should n..."
+  - "Your fine-tuning artifacts, training data, and prompt libraries"
+  - "Air-gapped deployment is a first-class citizen, not a checkbox feature. We archi..."
+  - "Telemetry is disabled by default. It can only be enabled by explicit customer co..."
+  - "Complex enterprise decisions deserve more than a single model's output. Our Coun..."
+  - "Agents are roles; they may share a configurable model stack."
+  - "Regulated industries face auditors, examiners, and compliance reviews. We build ..."
+  - "Evidence trails mapped to SOC 2 / ISO 27001 and aligned with NIST 800-53 control..."
+  - "Export formats that auditors actually understand"
+  - "Documentation that supports evidence collection for control effectiveness"
+  ... and 6 more
+
+platform-capabilities.html: 1 untranslatable text segments:
+  - "The Council&trade;"
+
+premium.html: 26 untranslatable text segments:
+  - "Real-time threat feed ingestion (cyber + geopolitical), attack scenario simulati..."
+  - "Contact for Pricing &rarr;"
+  - "Decisions, evidence, and institutional knowledge remain accessible and verifiabl..."
+  - "Maps your organization's ecosystem &mdash; customers, partners, vendors, competi..."
+  - "Organizations with 100+ partner networks"
+  - "Assembles stakeholder voices &mdash; employees, customers, shareholders, communi..."
+  - "Ensures your organization's narrative &mdash; mission, values, positioning, mess..."
+  - "Turns ethical principles into enforceable governance. Define your moral framewor..."
+  - "Public companies with ESG commitments"
+  - "B-Corps and values-aligned businesses"
+  - "Non-profits and foundations"
+  - "Defines sustainability BOUNDARIES &mdash; hard limits that AI decisions cannot c..."
+  - "Companies with net-zero commitments"
+  - "Public companies with ESG investor pressure"
+  - "Government agencies with environmental mandates"
+  ... and 5 more
+
+protocol.html: 85 untranslatable text segments:
+  - "The system comprises eight interdependent pillars, each addressing a distinct en..."
+  - "Together, these pillars transform the Cortex from "software" into "infrastructur..."
+  - "Every architectural decision prioritizes customer control over operational simpl..."
+  - "Air-gapped deployment is first-class, not an afterthought"
+  - "The system generates cryptographically signed evidence packets for every decisio..."
+  - "Traces are cryptographically hashed and chained (Merkle tree)"
+  - "The Council architecture institutionalizes disagreement. Multiple specialized ag..."
+  - "Consensus requires explicit agreement, not averaging"
+  - "Deadlocks escalate to human review with full context"
+  - "The Cortex is not a thin layer over third-party APIs. Each pillar contains propr..."
+  - "The orchestration layer where The Council lives."
+  - "The Council"
+  - "Project HUME. Adversarial agent that challenges consensus. Always active. Cannot..."
+  - "Project SMITH. Strategic analysis and efficiency optimization. Primary data synt..."
+  - "Meta-model that resolves agent conflict into final recommendation. Outputs inclu..."
+  ... and 70 more
+
+regulators-receipt.html: 29 untranslatable text segments:
+  - "The complete deliberation evidence dump. Every agent response, every citation, t..."
+  - "Citation chain with source references"
+  - "Dissent filings with per-agent rationale"
+  - "Workflow configuration and compliance profile"
+  - "Clean table-based layout for executive audiences. Same cryptographic anchoring a..."
+  - "Key recommendation and confidence level"
+  - "Dissent count and summary"
+  - "Receipt ID for cross-reference to full evidence package"
+  - "Should we proceed with the Q2 acquisition of TechCorp at $2.4B?"
+  - "Proceed with conditions &mdash; require escrow and IP audit"
+  - "2. Verify Merkle root: recompute from leaf hashes (deliberation, citations, resp..."
+  - "Any third party &mdash; a regulator, a court, an auditor &mdash; can verify the ..."
+  - "Every deliberation is hashed at completion. The hash covers the full decision pa..."
+  - "Four leaf hashes &mdash; deliberation, citations, agent responses, dissents &mda..."
+  - "Applied by the Datacendia KMS at generation time. Public key published for indep..."
+  ... and 14 more
+
+roi-calculator.html: 8 untranslatable text segments:
+  - "Our team will build a detailed model for your specific situation"
+  - "These benefits are expected but not yet validated with customer data. We're seek..."
+  - "estimate based on feature overlap, not measured"
+  - "estimate based on automation potential, not measured"
+  - "estimate based on workflow analysis, not measured"
+  - "estimate based on Audit Provenance capabilities, not measured"
+  - "Tier recommendations based on company size and decision volume"
+  - "Actual savings will vary significantly. Join our pilot program to measure real R..."
+
+security-controls.html: 10 untranslatable text segments:
+  - "Traditional SOC 2 validates that a"
+  - "your infrastructure"
+  - "This document maps our software controls to SOC 2 and NIST 800-53 frameworks, de..."
+  - "Datacendia is in the"
+  - ""We build the vault, you hold the key.""
+  - "Integrity of the software code"
+  - "Physical security of the hardware ("The Metal")"
+  - "Backup and disaster recovery"
+  - "For clients requiring formal legal assurance, we offer the following warranty cl..."
+  - "This warranty survives termination of the Agreement."
+
+team.html: 4 untranslatable text segments:
+  - "Stuart Rainey is the founder and principal architect of Datacendia. He designed ..."
+  - "Background in enterprise software architecture, cryptographic systems, and regul..."
+  - "The core thesis: modern enterprises have surrendered their cognitive infrastruct..."
+  - "Datacendia is actively building an advisory board spanning regulated industries...."
+
+trading.html: 11 untranslatable text segments:
+  - "Multi-agent analysis of every significant position ÔÇö macro thesis validation, ri..."
+  - "Real-time VaR calculations against desk limits. When positions breach thresholds..."
+  - "Currency, sector, and counterparty concentration tracked against limits. CRO dis..."
+  - "Basel III, MiFID II, Dodd-Frank, FRTB mapping on every trade decision. Complianc..."
+  - "Macro strategists challenged by risk managers. Compliance officers question exec..."
+  - "Cryptographically sealed decision packets for every trade. Regulators can verify..."
+  - ""The value wasn't the recommendation ÔÇö it was the evidence trail." ÔÇö Anonymized ..."
+  - "How Datacendia governs a $250M EUR/USD short position:"
+  - "Final recommendation: CONDITIONAL APPROVAL ÔÇö proceed at $180M with hard stop at ..."
+  - "Every trading decision is mapped against relevant regulatory and internal framew..."
+  - "Watch 6 AI agents deliberate a $250M position with real-time VaR checks and cros..."
+
+verticals.html: 19 untranslatable text segments:
+  - "Industry Verticals | Datacendia ÔÇö Sovereign AI for Healthcare, Finance, Legal, G..."
+  - "Clinical decision types with compliance mapping"
+  - "Compliance frameworks with automated evidence"
+  - "Compliance frameworks with citation enforcement"
+  - "Regulatory frameworks with audit-ready exports"
+  - "Claims & underwriting decision intelligence with bias detection and fairness art..."
+  - "Decision types with bias detection artifacts"
+  - "GxP compliance frameworks with audit trails"
+  - "On-premise legal decision intelligence with defensible audit trails. Attorney-cl..."
+  - "Research Counsel only cites from your ingested library"
+  - "Transfer governance, PSR/FFP compliance monitoring, wage-to-revenue drift detect..."
+  - "The 9 Primitives in Football"
+  - "Everton received a 10-point deduction for breaching PSR limits. Drift Detection ..."
+  - "Try the Transfer Decision Demo ÔåÆ"
+  - "Datacendia governs the decision process, not the clinical recommendation. It is ..."
+  ... and 4 more
+
+wargames.html: 43 untranslatable text segments:
+  - "These are not hypotheticals. Each simulation uses"
+  - ""Would structured multi-agent review have surfaced the material risk?""
+  - "These simulations do not claim inevitability. They demonstrate whether structure..."
+  - "These simulations are retrospective stress tests, not predictive models. They ar..."
+  - "Q4 2021: SVB Treasury team proposes extending duration on the Held-to-Maturity (..."
+  - "HTM classification masks $15B+ unrealized losses from balance sheet. If forced t..."
+  - "With hedges in place and diversified funding, structured risk detection would ha..."
+  - "This simulation does not claim the outcome was inevitable ÔÇö it demonstrates that..."
+  - "2015-2016: Boeing engineering team proposes MCAS (Maneuvering Characteristics Au..."
+  - "Single-point-of-failure architecture. AOA sensor failure rate: ~1 per 100,000 fl..."
+  - "Simulated: AOA sensor failure at V2+10 on takeoff. MCAS activates, pushes nose d..."
+  - "FAA delegation allows Boeing self-certification. MCAS authority increased from 0..."
+  - "Pilots not informed of MCAS existence. Runaway stabilizer checklist does not add..."
+  - "With dual-sensor architecture and proper training requirements, the simulation i..."
+  - "Q2 2019: Institutional investor (pension fund) considers Ôé¼50M position in Wireca..."
+  ... and 23 more
+
+dgi-dcii-comparison.html: 2 untranslatable text segments:
+  - "Explore the open standard or deploy the production implementation"
+  - "┬® 2024-2026 Datacendia, LLC. All Rights Reserved."
+
+pricing.html: 4 untranslatable text segments:
+  - "The Council&trade;"
+  - "Live deliberation with 3D avatars"
+  - "Contact for Briefing"
+
+index.html: 4 untranslatable text segments:
+  - "(target ÔÇö not yet verified by carriers)"
+  - "Right brain for the right job"
+  - "8 specialized AI model slots ÔÇö reasoning, coding, vision, translation, embedding..."
+  - "Runs entirely on your Ollama instance"
+
+partners.html: 16 untranslatable text segments:
+  - "System integrators, consultancies, and technology partners ÔÇö help your enterpris..."
+  - "Deploy Datacendia within your enterprise implementation practice. On-premises, p..."
+  - "Implementation training and certification"
+  - "AI governance, compliance, and risk advisory firms. Recommend Datacendia as the ..."
+  - "Build integrations between Datacendia and your enterprise platform ÔÇö ERP, GRC, S..."
+  - "API access and documentation"
+  - "Referral fees and implementation revenue. Enterprise AI governance is a growing ..."
+  - "Certified deployment training for your engineering team. Covers on-prem, air-gap..."
+  - "Co-branded materials, demo environments, ROI calculators, and competitive positi..."
+  - "Dedicated partner engineering contact. Escalation path for client implementation..."
+  - "Access to multiple industry verticals. Each with compliance frameworks, decision..."
+  - "204,079 automated tests. No competitor publishes their test count. Give your cli..."
+  - "We're looking for partners who serve regulated enterprise clients and understand..."
+  - "Experience with enterprise on-premises or private cloud deployments"
+  - "Our partner program is designed to be straightforward:"
+  ... and 1 more
+
+trust.html: 29 untranslatable text segments:
+  - "These metrics are verifiable by running"
+  - "Last verified: February 21, 2026 ┬À Metrics sourced from platform test suite ┬À"
+  - "Self-attested conformance statements mapping Datacendia's architecture to major ..."
+  - "not third-party audited"
+  - "All PDFs include SHA-256 content hashes on the final page for independent integr..."
+  - "Sovereign tier customers receive dedicated incident response with custom SLAs."
+  - "Your infrastructure (on-prem, private cloud, or air-gapped)"
+  - "Never hosted by Datacendia ÔÇö stays in your environment"
+  - "Retention policies are configurable per deployment. Default settings:"
+  - "PII can be purged independently of audit metadata"
+  - "Note: "Immutable" refers to tamper-evidence (append-only with cryptographic hash..."
+  - "Every decision, every audit entry, every evidence packet is cryptographically si..."
+  - "Native integration with AWS Key Management Service"
+  - "Full support for Azure's managed HSM service"
+  - "File-based keys for fully isolated deployments"
+  ... and 14 more
+
+=== TOTAL: 881 text segments without data-i18n across all root pages ===
+
+All data-i18n keys in HTML are present in en.json Ô£ô

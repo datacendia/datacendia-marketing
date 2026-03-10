@@ -1,38 +1,61 @@
 /**
  * Language Switcher — External Event Handler
  *
- * Replaces inline onclick="setLanguage('xx')" handlers
- * to comply with CSP script-src 'self' policy.
+ * Handles: dropdown toggle, language selection (button or anchor),
+ * click-outside-to-close.
  *
- * Requires: buttons inside .lang-dropdown with data-lang="xx" attributes.
+ * Requires: .lang-selector > .lang-btn + .lang-dropdown in HTML.
  * Depends on: setLanguage() from translations.js or translations-loader.js.
  */
 document.addEventListener('DOMContentLoaded', function() {
-  // Language dropdown buttons
-  var dropdown = document.querySelector('.lang-dropdown');
-  if (dropdown) {
-    dropdown.querySelectorAll('button[data-lang]').forEach(function(btn) {
-      btn.addEventListener('click', function() {
-        var lang = btn.getAttribute('data-lang');
-        if (typeof setLanguage === 'function') {
-          setLanguage(lang);
-        }
-      });
-    });
+  // ── Language dropdown toggle ──
+  var langBtn = document.querySelector('.lang-btn');
+  var langSel = document.querySelector('.lang-selector');
+
+  if (langBtn && langSel) {
+    langBtn.onclick = function(e) {
+      e.preventDefault();
+      langSel.classList.toggle('open');
+    };
   }
 
-  // Navigation via data-href (replaces onclick="window.location='...'")
+  // Close dropdown when clicking outside
+  document.addEventListener('mousedown', function(e) {
+    var sel = document.querySelector('.lang-selector');
+    if (sel && !sel.contains(e.target)) {
+      sel.classList.remove('open');
+    }
+  });
+
+  // Language option buttons (data-lang)
+  document.querySelectorAll('.lang-dropdown button[data-lang]').forEach(function(btn) {
+    btn.onclick = function() {
+      var sel = document.querySelector('.lang-selector');
+      if (sel) sel.classList.remove('open');
+      var lang = btn.getAttribute('data-lang');
+      if (typeof setLanguage === 'function') setLanguage(lang);
+    };
+  });
+
+  // Language option links (<a> in dropdown)
+  document.querySelectorAll('.lang-dropdown a').forEach(function(link) {
+    link.addEventListener('click', function() {
+      var sel = document.querySelector('.lang-selector');
+      if (sel) sel.classList.remove('open');
+    });
+  });
+
+  // ── Navigation via data-href ──
   document.querySelectorAll('[data-href]').forEach(function(el) {
     el.style.cursor = 'pointer';
     el.addEventListener('click', function(e) {
-      // Don't navigate if clicking a child that also has data-href
       if (e.target.closest('[data-href]') === el) {
         window.location = el.getAttribute('data-href');
       }
     });
   });
 
-  // Platform API actions (replaces onclick="window.DatacendiaPlatform?.xxx")
+  // ── Platform API actions ──
   document.querySelectorAll('[data-platform-action]').forEach(function(el) {
     el.addEventListener('click', function() {
       var action = el.getAttribute('data-platform-action');
