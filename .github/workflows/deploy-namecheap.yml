@@ -16,6 +16,18 @@ jobs:
       - name: Install lftp
         run: sudo apt-get update && sudo apt-get install -y lftp
 
+      - name: Verify FTP credentials
+        env:
+          FTP_SERVER: ${{ secrets.FTP_SERVER }}
+          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+        run: |
+          if [ -z "$FTP_SERVER" ] || [ -z "$FTP_USERNAME" ] || [ -z "$FTP_PASSWORD" ]; then  #shellcheck-ok
+            echo "::error::FTP credentials not configured. Set FTP_SERVER, FTP_USERNAME, FTP_PASSWORD in repo secrets."
+            exit 1
+          fi
+          echo "FTP credentials present."
+
       - name: Deploy to Namecheap via FTP
         env:
           FTP_SERVER: ${{ secrets.FTP_SERVER }}
@@ -27,14 +39,16 @@ jobs:
             set ftp:ssl-force no;
             set ftp:ssl-protect-data yes;
             set ssl:verify-certificate no;
-            set net:max-retries 3;
-            set net:timeout 30;
+            set net:max-retries 5;
+            set net:timeout 60;
+            set net:reconnect-interval-base 5;
+            set net:reconnect-interval-multiplier 2;
+            set mirror:parallel-transfer-count 4;
             open -u ${FTP_USERNAME},${FTP_PASSWORD} ftp://${FTP_SERVER};
             cd /home/dataezpj/public_html || cd /public_html || echo 'Using FTP root';
             echo 'Deploying to:';
             pwd;
-            rm -rf .git || true;
-            mirror --reverse --delete --verbose \
+            mirror --reverse --delete --verbose --parallel=4 \
               --exclude .git/ \
               --exclude .git \
               --exclude .github/ \
@@ -44,9 +58,22 @@ jobs:
               --exclude lighthouserc.js \
               --exclude serve_static.py \
               --exclude verify-translations.js \
+              --exclude fix-all-translations.js \
+              --exclude generate-page-translations.js \
               --exclude README.md \
               --exclude .gitignore \
               --exclude netlify.toml \
+              --exclude package.json \
+              --exclude package-lock.json \
+              --exclude untranslated-text.json \
+              --exclude ENTERPRISE_PLAYBOOK.md \
+              --exclude MARKETING_PLAN_ZERO_BUDGET.md \
+              --exclude MARKETING_VS_PLATFORM_AUDIT.md \
+              --exclude INVESTOR_DATABASE.md \
+              --exclude MASTER_DATACENDIA_BIBLE.md \
+              --exclude PITCH_DECK_TEMPLATES.md \
+              --exclude linkedin-posts.md \
+              --exclude TIER-*.md \
               ./ ./;
             bye;
           "

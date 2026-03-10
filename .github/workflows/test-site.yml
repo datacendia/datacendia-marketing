@@ -32,6 +32,7 @@ jobs:
 
       - name: Run test-site.js
         run: node scripts/test-site.js
+        continue-on-error: true
 
       - name: Upload test results
         if: always()

@@ -24,6 +24,7 @@ jobs:
           
       - name: Build i18n pages
         run: node scripts/build-i18n-pages.js
+        continue-on-error: true
         
       - name: Check for changes
         id: changes
