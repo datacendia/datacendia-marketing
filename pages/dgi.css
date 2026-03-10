@@ -1,4 +1,4 @@
-/* Page-specific styles for dgi.html — extracted from inline <style> for CSP compliance */
+/* Page-specific styles for dgi.html ï¿½ extracted from inline <style> for CSP compliance */
 .page-container {
       max-width: 900px;
       margin: 0 auto;
@@ -302,3 +302,13 @@
       color: var(--color-text-muted);
       line-height: 1.6;
     }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .dgi-hero { padding: 40px 16px; }
+  .dgi-grid, .dgi-principles-grid, .dgi-layers-grid { grid-template-columns: 1fr; }
+  .dgi-section { padding: 40px 16px; }
+}
+@media (max-width: 480px) {
+  .dgi-hero h2 { font-size: 1.5rem; }
+}

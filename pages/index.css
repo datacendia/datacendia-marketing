@@ -1,4 +1,4 @@
-/* Page-specific styles for index.html — extracted from inline <style> for CSP compliance */
+/* Page-specific styles for index.html ï¿½ extracted from inline <style> for CSP compliance */
 #landing-overlay {
       position: fixed;
       inset: 0;
@@ -130,3 +130,14 @@
     @keyframes fadeIn {
       to { opacity: 1; }
     }
+
+
+/* Responsive */
+@media (max-width: 768px) {
+  .landing-logo { max-width: 80vw; }
+  .landing-tagline { font-size: 1rem; }
+  #landing-skip { min-height: 44px; min-width: 44px; }
+}
+@media (max-width: 480px) {
+  .landing-tagline { font-size: 0.85rem; }
+}

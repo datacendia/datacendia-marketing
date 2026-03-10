@@ -96,6 +96,71 @@ async function setLanguage(lang) {
   if (langBtn && t.lang) {
     langBtn.textContent = t.lang;
   }
+
+  // Content-based translation for elements without data-i18n
+  translatePageContent(lang, t);
+}
+
+/**
+ * Translate page content that doesn't have data-i18n attributes.
+ * Uses content matching against a page-specific translation dictionary
+ * stored in the _page key of each locale's translation object.
+ *
+ * @param {string} lang - Target language code
+ * @param {object} t - Translation object for the language
+ */
+function translatePageContent(lang, t) {
+  if (lang === 'en' || !t || !t._page) return;
+
+  // Determine current page name
+  let pageName = window.location.pathname.replace(/^\//, '');
+  if (!pageName || pageName === '' || pageName === '/') pageName = 'index.html';
+  // Handle paths like /learn/ai-governance/ → learn/ai-governance/index.html
+  if (pageName.endsWith('/')) pageName += 'index.html';
+
+  // Build lookup map: English text → translated text
+  // Start with _global (shared across all pages), then overlay page-specific
+  const lookup = new Map();
+  const globalDict = t._page._global;
+  if (globalDict) {
+    for (const pair of globalDict) {
+      if (pair.length >= 2) lookup.set(pair[0].trim(), pair[1]);
+    }
+  }
+  const pageDict = t._page[pageName];
+  if (pageDict) {
+    for (const pair of pageDict) {
+      if (pair.length >= 2) lookup.set(pair[0].trim(), pair[1]);
+    }
+  }
+
+  if (lookup.size === 0) return;
+
+  // Walk translatable elements
+  const selectors = 'h1,h2,h3,h4,h5,h6,p,li,span,div,td,th,a,button,summary,label,caption,strong,em,dt,dd,figcaption';
+  const els = document.body.querySelectorAll(selectors);
+
+  for (const el of els) {
+    // Skip data-i18n elements and their children
+    if (el.hasAttribute('data-i18n') || el.closest('[data-i18n]')) continue;
+    // Skip script/style containers
+    if (el.closest('script') || el.closest('style')) continue;
+
+    // For leaf elements (no child elements): match textContent
+    if (el.children.length === 0) {
+      const text = el.textContent.trim();
+      if (text && lookup.has(text)) {
+        el.textContent = lookup.get(text);
+        continue;
+      }
+    }
+
+    // For elements with child HTML: match innerHTML
+    const html = el.innerHTML.trim();
+    if (html && lookup.has(html)) {
+      el.innerHTML = lookup.get(html);
+    }
+  }
 }
 
 /**
@@ -112,26 +177,5 @@ document.addEventListener('DOMContentLoaded', async function () {
   await loadLocale('en');
   await setLanguage(saved);
 
-  // Toggle dropdown on click for better mobile/touch support
-  const langBtn = document.querySelector('.lang-btn');
-  const langDropdown = document.querySelector('.lang-dropdown');
-
-  if (langBtn && langDropdown) {
-    langBtn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      langDropdown.classList.toggle('show');
-    });
-
-    document.addEventListener('click', (e) => {
-      if (!e.target.closest('.lang-selector')) {
-        langDropdown.classList.remove('show');
-      }
-    });
-
-    langDropdown.querySelectorAll('button').forEach(btn => {
-      btn.addEventListener('click', () => {
-        langDropdown.classList.remove('show');
-      });
-    });
-  }
+  // Dropdown toggle is handled by lang-switcher.js
 });

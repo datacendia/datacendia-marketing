@@ -1,0 +1,552 @@
+﻿
+=== TRANSLATION AUDIT ===
+Total HTML files: 555
+Root/demo/resource pages: 107
+Language folder pages: 430
+
+Total unique data-i18n keys found in HTML: 1869
+
+--- MISSING TRANSLATION KEYS BY LANGUAGE ---
+
+English translation keys: 2037
+
+  AR: All 2037 keys present Ô£ô
+
+  DE: All 2037 keys present Ô£ô
+
+  ES: All 2037 keys present Ô£ô
+
+  FR: All 2037 keys present Ô£ô
+
+  HI: All 2037 keys present Ô£ô
+
+  IT: All 2037 keys present Ô£ô
+
+  JA: All 2037 keys present Ô£ô
+
+  KO: All 2037 keys present Ô£ô
+
+  PT: All 2037 keys present Ô£ô
+
+  ZH: All 2037 keys present Ô£ô
+
+--- ROOT PAGES: TRANSLATION INFRASTRUCTURE ---
+
+  Pages WITHOUT language selector (18):
+    - demos/audit-provenance.html
+    - demos/before-after.html
+    - demos/cascade.html
+    - demos/chronos.html
+    - demos/council.html
+    - demos/crucible.html
+    - demos/dissent.html
+    - demos/ghost-board.html
+    - demos/hospitality-governance.html
+    - demos/legal-governance.html
+    - demos/maturity.html
+    - demos/pre-mortem.html
+    - demos/qr-bridge.html
+    - demos/sports-governance.html
+    - demos/trading-governance.html
+    - demos/try.html
+    - resources/cascade.html
+    - resources/omnitranslate.html
+
+--- LANGUAGE FOLDER PAGES: REMAINING ENGLISH TEXT ---
+  AR: No English text patterns found Ô£ô
+  DE: No English text patterns found Ô£ô
+  ES: No English text patterns found Ô£ô
+  FR: No English text patterns found Ô£ô
+  HI: No English text patterns found Ô£ô
+  IT: No English text patterns found Ô£ô
+  JA: No English text patterns found Ô£ô
+  KO: No English text patterns found Ô£ô
+  PT: No English text patterns found Ô£ô
+  ZH: No English text patterns found Ô£ô
+
+--- LANGUAGE FOLDER PAGES: INFRASTRUCTURE CHECK ---
+
+  AR issues:
+    - ar/404.html: missing lang-switcher.js
+    - ar/api-docs.html: missing lang-switcher.js
+    - ar/architecture.html: missing lang-switcher.js
+    - ar/briefing.html: missing lang-switcher.js
+    - ar/case-studies.html: missing lang-switcher.js
+    - ar/changelog.html: missing lang-switcher.js
+    - ar/dcii.html: missing lang-switcher.js
+    - ar/demos.html: missing lang-switcher.js
+    - ar/dgi-dcii-comparison.html: missing lang-switcher.js
+    - ar/dgi.html: missing lang-switcher.js
+    - ar/diagrams.html: missing lang-switcher.js
+    - ar/honesty-matrices.html: missing lang-switcher.js
+    - ar/hospitality.html: missing lang-switcher.js
+    - ar/manifesto.html: missing lang-switcher.js
+    - ar/partners.html: missing lang-switcher.js
+    - ar/pilot.html: missing lang-switcher.js
+    - ar/platform-capabilities.html: missing lang-switcher.js
+    - ar/premium.html: missing lang-switcher.js
+    - ar/pricing.html: missing lang-switcher.js
+    - ar/privacy.html: missing lang-switcher.js
+    - ar/protocol.html: missing lang-switcher.js
+    - ar/roi-calculator.html: missing lang-switcher.js
+    - ar/security-controls.html: missing lang-switcher.js
+    - ar/team.html: missing lang-switcher.js
+    - ar/terms.html: missing lang-switcher.js
+    - ar/trading.html: missing lang-switcher.js
+    - ar/trust.html: missing lang-switcher.js
+    - ar/verticals.html: missing lang-switcher.js
+    - ar/wargames.html: missing lang-switcher.js
+    - ar/learn/index.html: missing lang-switcher.js
+    - ar/learn/ai-audit-trail/index.html: missing lang-switcher.js
+    - ar/learn/ai-governance/index.html: missing lang-switcher.js
+    - ar/learn/air-gapped-ai-deployment/index.html: missing lang-switcher.js
+    - ar/learn/decision-intelligence/index.html: missing lang-switcher.js
+    - ar/learn/dora-compliance/index.html: missing lang-switcher.js
+    - ar/learn/eu-ai-act-compliance/index.html: missing lang-switcher.js
+    - ar/learn/eu-ai-act-high-risk/index.html: missing lang-switcher.js
+    - ar/learn/explainable-ai/index.html: missing lang-switcher.js
+    - ar/learn/hipaa-ai-compliance/index.html: missing lang-switcher.js
+    - ar/learn/multi-agent-ai/index.html: missing lang-switcher.js
+    - ar/learn/multi-agent-vs-single-model/index.html: missing lang-switcher.js
+    - ar/learn/sovereign-ai/index.html: missing lang-switcher.js
+
+  DE issues:
+    - de/404.html: missing lang-switcher.js
+    - de/api-docs.html: missing lang-switcher.js
+    - de/architecture.html: missing lang-switcher.js
+    - de/briefing.html: missing lang-switcher.js
+    - de/case-studies.html: missing lang-switcher.js
+    - de/changelog.html: missing lang-switcher.js
+    - de/dcii.html: missing lang-switcher.js
+    - de/demos.html: missing lang-switcher.js
+    - de/dgi-dcii-comparison.html: missing lang-switcher.js
+    - de/dgi.html: missing lang-switcher.js
+    - de/diagrams.html: missing lang-switcher.js
+    - de/honesty-matrices.html: missing lang-switcher.js
+    - de/hospitality.html: missing lang-switcher.js
+    - de/manifesto.html: missing lang-switcher.js
+    - de/partners.html: missing lang-switcher.js
+    - de/pilot.html: missing lang-switcher.js
+    - de/platform-capabilities.html: missing lang-switcher.js
+    - de/premium.html: missing lang-switcher.js
+    - de/pricing.html: missing lang-switcher.js
+    - de/privacy.html: missing lang-switcher.js
+    - de/protocol.html: missing lang-switcher.js
+    - de/roi-calculator.html: missing lang-switcher.js
+    - de/security-controls.html: missing lang-switcher.js
+    - de/team.html: missing lang-switcher.js
+    - de/terms.html: missing lang-switcher.js
+    - de/trading.html: missing lang-switcher.js
+    - de/trust.html: missing lang-switcher.js
+    - de/verticals.html: missing lang-switcher.js
+    - de/wargames.html: missing lang-switcher.js
+    - de/learn/index.html: missing lang-switcher.js
+    - de/learn/ai-audit-trail/index.html: missing lang-switcher.js
+    - de/learn/ai-governance/index.html: missing lang-switcher.js
+    - de/learn/air-gapped-ai-deployment/index.html: missing lang-switcher.js
+    - de/learn/decision-intelligence/index.html: missing lang-switcher.js
+    - de/learn/dora-compliance/index.html: missing lang-switcher.js
+    - de/learn/eu-ai-act-compliance/index.html: missing lang-switcher.js
+    - de/learn/eu-ai-act-high-risk/index.html: missing lang-switcher.js
+    - de/learn/explainable-ai/index.html: missing lang-switcher.js
+    - de/learn/hipaa-ai-compliance/index.html: missing lang-switcher.js
+    - de/learn/multi-agent-ai/index.html: missing lang-switcher.js
+    - de/learn/multi-agent-vs-single-model/index.html: missing lang-switcher.js
+    - de/learn/sovereign-ai/index.html: missing lang-switcher.js
+
+  ES issues:
+    - es/404.html: missing lang-switcher.js
+    - es/api-docs.html: missing lang-switcher.js
+    - es/architecture.html: missing lang-switcher.js
+    - es/briefing.html: missing lang-switcher.js
+    - es/case-studies.html: missing lang-switcher.js
+    - es/changelog.html: missing lang-switcher.js
+    - es/dcii.html: missing lang-switcher.js
+    - es/demos.html: missing lang-switcher.js
+    - es/dgi-dcii-comparison.html: missing lang-switcher.js
+    - es/dgi.html: missing lang-switcher.js
+    - es/diagrams.html: missing lang-switcher.js
+    - es/honesty-matrices.html: missing lang-switcher.js
+    - es/hospitality.html: missing lang-switcher.js
+    - es/manifesto.html: missing lang-switcher.js
+    - es/partners.html: missing lang-switcher.js
+    - es/pilot.html: missing lang-switcher.js
+    - es/platform-capabilities.html: missing lang-switcher.js
+    - es/premium.html: missing lang-switcher.js
+    - es/pricing.html: missing lang-switcher.js
+    - es/privacy.html: missing lang-switcher.js
+    - es/protocol.html: missing lang-switcher.js
+    - es/roi-calculator.html: missing lang-switcher.js
+    - es/security-controls.html: missing lang-switcher.js
+    - es/team.html: missing lang-switcher.js
+    - es/terms.html: missing lang-switcher.js
+    - es/trading.html: missing lang-switcher.js
+    - es/trust.html: missing lang-switcher.js
+    - es/verticals.html: missing lang-switcher.js
+    - es/wargames.html: missing lang-switcher.js
+    - es/learn/ai-audit-trail/index.html: missing lang-switcher.js
+    - es/learn/ai-governance/index.html: missing lang-switcher.js
+    - es/learn/air-gapped-ai-deployment/index.html: missing lang-switcher.js
+    - es/learn/decision-intelligence/index.html: missing lang-switcher.js
+    - es/learn/dora-compliance/index.html: missing lang-switcher.js
+    - es/learn/eu-ai-act-compliance/index.html: missing lang-switcher.js
+    - es/learn/eu-ai-act-high-risk/index.html: missing lang-switcher.js
+    - es/learn/explainable-ai/index.html: missing lang-switcher.js
+    - es/learn/hipaa-ai-compliance/index.html: missing lang-switcher.js
+    - es/learn/multi-agent-ai/index.html: missing lang-switcher.js
+    - es/learn/multi-agent-vs-single-model/index.html: missing lang-switcher.js
+    - es/learn/sovereign-ai/index.html: missing lang-switcher.js
+    - es/learn/index.html: missing lang-switcher.js
+
+  FR issues:
+    - fr/404.html: missing lang-switcher.js
+    - fr/api-docs.html: missing lang-switcher.js
+    - fr/architecture.html: missing lang-switcher.js
+    - fr/briefing.html: missing lang-switcher.js
+    - fr/case-studies.html: missing lang-switcher.js
+    - fr/changelog.html: missing lang-switcher.js
+    - fr/dcii.html: missing lang-switcher.js
+    - fr/demos.html: missing lang-switcher.js
+    - fr/dgi-dcii-comparison.html: missing lang-switcher.js
+    - fr/dgi.html: missing lang-switcher.js
+    - fr/diagrams.html: missing lang-switcher.js
+    - fr/honesty-matrices.html: missing lang-switcher.js
+    - fr/hospitality.html: missing lang-switcher.js
+    - fr/manifesto.html: missing lang-switcher.js
+    - fr/partners.html: missing lang-switcher.js
+    - fr/pilot.html: missing lang-switcher.js
+    - fr/platform-capabilities.html: missing lang-switcher.js
+    - fr/premium.html: missing lang-switcher.js
+    - fr/pricing.html: missing lang-switcher.js
+    - fr/privacy.html: missing lang-switcher.js
+    - fr/protocol.html: missing lang-switcher.js
+    - fr/roi-calculator.html: missing lang-switcher.js
+    - fr/security-controls.html: missing lang-switcher.js
+    - fr/team.html: missing lang-switcher.js
+    - fr/terms.html: missing lang-switcher.js
+    - fr/trading.html: missing lang-switcher.js
+    - fr/trust.html: missing lang-switcher.js
+    - fr/wargames.html: missing lang-switcher.js
+    - fr/learn/ai-audit-trail/index.html: missing lang-switcher.js
+    - fr/learn/ai-governance/index.html: missing lang-switcher.js
+    - fr/learn/air-gapped-ai-deployment/index.html: missing lang-switcher.js
+    - fr/learn/decision-intelligence/index.html: missing lang-switcher.js
+    - fr/learn/dora-compliance/index.html: missing lang-switcher.js
+    - fr/learn/eu-ai-act-compliance/index.html: missing lang-switcher.js
+    - fr/learn/eu-ai-act-high-risk/index.html: missing lang-switcher.js
+    - fr/learn/explainable-ai/index.html: missing lang-switcher.js
+    - fr/learn/hipaa-ai-compliance/index.html: missing lang-switcher.js
+    - fr/learn/multi-agent-ai/index.html: missing lang-switcher.js
+    - fr/learn/multi-agent-vs-single-model/index.html: missing lang-switcher.js
+    - fr/learn/sovereign-ai/index.html: missing lang-switcher.js
+    - fr/learn/index.html: missing lang-switcher.js
+    - fr/verticals.html: missing lang-switcher.js
+
+  HI issues:
+    - hi/404.html: missing lang-switcher.js
+    - hi/api-docs.html: missing lang-switcher.js
+    - hi/architecture.html: missing lang-switcher.js
+    - hi/briefing.html: missing lang-switcher.js
+    - hi/case-studies.html: missing lang-switcher.js
+    - hi/changelog.html: missing lang-switcher.js
+    - hi/dcii.html: missing lang-switcher.js
+    - hi/demos.html: missing lang-switcher.js
+    - hi/dgi-dcii-comparison.html: missing lang-switcher.js
+    - hi/dgi.html: missing lang-switcher.js
+    - hi/diagrams.html: missing lang-switcher.js
+    - hi/honesty-matrices.html: missing lang-switcher.js
+    - hi/hospitality.html: missing lang-switcher.js
+    - hi/manifesto.html: missing lang-switcher.js
+    - hi/partners.html: missing lang-switcher.js
+    - hi/pilot.html: missing lang-switcher.js
+    - hi/platform-capabilities.html: missing lang-switcher.js
+    - hi/premium.html: missing lang-switcher.js
+    - hi/pricing.html: missing lang-switcher.js
+    - hi/privacy.html: missing lang-switcher.js
+    - hi/protocol.html: missing lang-switcher.js
+    - hi/roi-calculator.html: missing lang-switcher.js
+    - hi/security-controls.html: missing lang-switcher.js
+    - hi/team.html: missing lang-switcher.js
+    - hi/terms.html: missing lang-switcher.js
+    - hi/trading.html: missing lang-switcher.js
+    - hi/trust.html: missing lang-switcher.js
+    - hi/verticals.html: missing lang-switcher.js
+    - hi/wargames.html: missing lang-switcher.js
+    - hi/learn/index.html: missing lang-switcher.js
+    - hi/learn/ai-audit-trail/index.html: missing lang-switcher.js
+    - hi/learn/ai-governance/index.html: missing lang-switcher.js
+    - hi/learn/air-gapped-ai-deployment/index.html: missing lang-switcher.js
+    - hi/learn/decision-intelligence/index.html: missing lang-switcher.js
+    - hi/learn/dora-compliance/index.html: missing lang-switcher.js
+    - hi/learn/eu-ai-act-compliance/index.html: missing lang-switcher.js
+    - hi/learn/eu-ai-act-high-risk/index.html: missing lang-switcher.js
+    - hi/learn/explainable-ai/index.html: missing lang-switcher.js
+    - hi/learn/hipaa-ai-compliance/index.html: missing lang-switcher.js
+    - hi/learn/multi-agent-ai/index.html: missing lang-switcher.js
+    - hi/learn/multi-agent-vs-single-model/index.html: missing lang-switcher.js
+    - hi/learn/sovereign-ai/index.html: missing lang-switcher.js
+
+  IT issues:
+    - it/404.html: missing lang-switcher.js
+    - it/api-docs.html: missing lang-switcher.js
+    - it/architecture.html: missing lang-switcher.js
+    - it/briefing.html: missing lang-switcher.js
+    - it/case-studies.html: missing lang-switcher.js
+    - it/changelog.html: missing lang-switcher.js
+    - it/dcii.html: missing lang-switcher.js
+    - it/demos.html: missing lang-switcher.js
+    - it/dgi-dcii-comparison.html: missing lang-switcher.js
+    - it/dgi.html: missing lang-switcher.js
+    - it/diagrams.html: missing lang-switcher.js
+    - it/honesty-matrices.html: missing lang-switcher.js
+    - it/hospitality.html: missing lang-switcher.js
+    - it/manifesto.html: missing lang-switcher.js
+    - it/partners.html: missing lang-switcher.js
+    - it/pilot.html: missing lang-switcher.js
+    - it/platform-capabilities.html: missing lang-switcher.js
+    - it/premium.html: missing lang-switcher.js
+    - it/pricing.html: missing lang-switcher.js
+    - it/privacy.html: missing lang-switcher.js
+    - it/protocol.html: missing lang-switcher.js
+    - it/roi-calculator.html: missing lang-switcher.js
+    - it/security-controls.html: missing lang-switcher.js
+    - it/team.html: missing lang-switcher.js
+    - it/terms.html: missing lang-switcher.js
+    - it/trading.html: missing lang-switcher.js
+    - it/trust.html: missing lang-switcher.js
+    - it/verticals.html: missing lang-switcher.js
+    - it/wargames.html: missing lang-switcher.js
+    - it/learn/index.html: missing lang-switcher.js
+    - it/learn/ai-audit-trail/index.html: missing lang-switcher.js
+    - it/learn/ai-governance/index.html: missing lang-switcher.js
+    - it/learn/air-gapped-ai-deployment/index.html: missing lang-switcher.js
+    - it/learn/decision-intelligence/index.html: missing lang-switcher.js
+    - it/learn/dora-compliance/index.html: missing lang-switcher.js
+    - it/learn/eu-ai-act-compliance/index.html: missing lang-switcher.js
+    - it/learn/eu-ai-act-high-risk/index.html: missing lang-switcher.js
+    - it/learn/explainable-ai/index.html: missing lang-switcher.js
+    - it/learn/hipaa-ai-compliance/index.html: missing lang-switcher.js
+    - it/learn/multi-agent-ai/index.html: missing lang-switcher.js
+    - it/learn/multi-agent-vs-single-model/index.html: missing lang-switcher.js
+    - it/learn/sovereign-ai/index.html: missing lang-switcher.js
+
+  JA issues:
+    - ja/404.html: missing lang-switcher.js
+    - ja/api-docs.html: missing lang-switcher.js
+    - ja/architecture.html: missing lang-switcher.js
+    - ja/briefing.html: missing lang-switcher.js
+    - ja/case-studies.html: missing lang-switcher.js
+    - ja/changelog.html: missing lang-switcher.js
+    - ja/dcii.html: missing lang-switcher.js
+    - ja/demos.html: missing lang-switcher.js
+    - ja/dgi-dcii-comparison.html: missing lang-switcher.js
+    - ja/dgi.html: missing lang-switcher.js
+    - ja/diagrams.html: missing lang-switcher.js
+    - ja/honesty-matrices.html: missing lang-switcher.js
+    - ja/hospitality.html: missing lang-switcher.js
+    - ja/manifesto.html: missing lang-switcher.js
+    - ja/partners.html: missing lang-switcher.js
+    - ja/pilot.html: missing lang-switcher.js
+    - ja/platform-capabilities.html: missing lang-switcher.js
+    - ja/premium.html: missing lang-switcher.js
+    - ja/pricing.html: missing lang-switcher.js
+    - ja/privacy.html: missing lang-switcher.js
+    - ja/protocol.html: missing lang-switcher.js
+    - ja/roi-calculator.html: missing lang-switcher.js
+    - ja/security-controls.html: missing lang-switcher.js
+    - ja/team.html: missing lang-switcher.js
+    - ja/terms.html: missing lang-switcher.js
+    - ja/trading.html: missing lang-switcher.js
+    - ja/trust.html: missing lang-switcher.js
+    - ja/verticals.html: missing lang-switcher.js
+    - ja/wargames.html: missing lang-switcher.js
+    - ja/learn/index.html: missing lang-switcher.js
+    - ja/learn/ai-audit-trail/index.html: missing lang-switcher.js
+    - ja/learn/ai-governance/index.html: missing lang-switcher.js
+    - ja/learn/air-gapped-ai-deployment/index.html: missing lang-switcher.js
+    - ja/learn/decision-intelligence/index.html: missing lang-switcher.js
+    - ja/learn/dora-compliance/index.html: missing lang-switcher.js
+    - ja/learn/eu-ai-act-compliance/index.html: missing lang-switcher.js
+    - ja/learn/eu-ai-act-high-risk/index.html: missing lang-switcher.js
+    - ja/learn/explainable-ai/index.html: missing lang-switcher.js
+    - ja/learn/hipaa-ai-compliance/index.html: missing lang-switcher.js
+    - ja/learn/multi-agent-ai/index.html: missing lang-switcher.js
+    - ja/learn/multi-agent-vs-single-model/index.html: missing lang-switcher.js
+    - ja/learn/sovereign-ai/index.html: missing lang-switcher.js
+
+  KO issues:
+    - ko/404.html: missing lang-switcher.js
+    - ko/api-docs.html: missing lang-switcher.js
+    - ko/architecture.html: missing lang-switcher.js
+    - ko/briefing.html: missing lang-switcher.js
+    - ko/case-studies.html: missing lang-switcher.js
+    - ko/changelog.html: missing lang-switcher.js
+    - ko/dcii.html: missing lang-switcher.js
+    - ko/demos.html: missing lang-switcher.js
+    - ko/dgi-dcii-comparison.html: missing lang-switcher.js
+    - ko/dgi.html: missing lang-switcher.js
+    - ko/diagrams.html: missing lang-switcher.js
+    - ko/honesty-matrices.html: missing lang-switcher.js
+    - ko/hospitality.html: missing lang-switcher.js
+    - ko/manifesto.html: missing lang-switcher.js
+    - ko/partners.html: missing lang-switcher.js
+    - ko/pilot.html: missing lang-switcher.js
+    - ko/platform-capabilities.html: missing lang-switcher.js
+    - ko/premium.html: missing lang-switcher.js
+    - ko/pricing.html: missing lang-switcher.js
+    - ko/privacy.html: missing lang-switcher.js
+    - ko/protocol.html: missing lang-switcher.js
+    - ko/roi-calculator.html: missing lang-switcher.js
+    - ko/security-controls.html: missing lang-switcher.js
+    - ko/team.html: missing lang-switcher.js
+    - ko/terms.html: missing lang-switcher.js
+    - ko/trading.html: missing lang-switcher.js
+    - ko/trust.html: missing lang-switcher.js
+    - ko/verticals.html: missing lang-switcher.js
+    - ko/wargames.html: missing lang-switcher.js
+    - ko/learn/index.html: missing lang-switcher.js
+    - ko/learn/ai-audit-trail/index.html: missing lang-switcher.js
+    - ko/learn/ai-governance/index.html: missing lang-switcher.js
+    - ko/learn/air-gapped-ai-deployment/index.html: missing lang-switcher.js
+    - ko/learn/decision-intelligence/index.html: missing lang-switcher.js
+    - ko/learn/dora-compliance/index.html: missing lang-switcher.js
+    - ko/learn/eu-ai-act-compliance/index.html: missing lang-switcher.js
+    - ko/learn/eu-ai-act-high-risk/index.html: missing lang-switcher.js
+    - ko/learn/explainable-ai/index.html: missing lang-switcher.js
+    - ko/learn/hipaa-ai-compliance/index.html: missing lang-switcher.js
+    - ko/learn/multi-agent-ai/index.html: missing lang-switcher.js
+    - ko/learn/multi-agent-vs-single-model/index.html: missing lang-switcher.js
+    - ko/learn/sovereign-ai/index.html: missing lang-switcher.js
+
+  PT issues:
+    - pt/404.html: missing lang-switcher.js
+    - pt/api-docs.html: missing lang-switcher.js
+    - pt/architecture.html: missing lang-switcher.js
+    - pt/briefing.html: missing lang-switcher.js
+    - pt/case-studies.html: missing lang-switcher.js
+    - pt/changelog.html: missing lang-switcher.js
+    - pt/dcii.html: missing lang-switcher.js
+    - pt/demos.html: missing lang-switcher.js
+    - pt/dgi-dcii-comparison.html: missing lang-switcher.js
+    - pt/dgi.html: missing lang-switcher.js
+    - pt/diagrams.html: missing lang-switcher.js
+    - pt/honesty-matrices.html: missing lang-switcher.js
+    - pt/hospitality.html: missing lang-switcher.js
+    - pt/manifesto.html: missing lang-switcher.js
+    - pt/partners.html: missing lang-switcher.js
+    - pt/pilot.html: missing lang-switcher.js
+    - pt/platform-capabilities.html: missing lang-switcher.js
+    - pt/premium.html: missing lang-switcher.js
+    - pt/pricing.html: missing lang-switcher.js
+    - pt/privacy.html: missing lang-switcher.js
+    - pt/protocol.html: missing lang-switcher.js
+    - pt/roi-calculator.html: missing lang-switcher.js
+    - pt/security-controls.html: missing lang-switcher.js
+    - pt/team.html: missing lang-switcher.js
+    - pt/terms.html: missing lang-switcher.js
+    - pt/trading.html: missing lang-switcher.js
+    - pt/trust.html: missing lang-switcher.js
+    - pt/wargames.html: missing lang-switcher.js
+    - pt/learn/index.html: missing lang-switcher.js
+    - pt/learn/ai-audit-trail/index.html: missing lang-switcher.js
+    - pt/learn/ai-governance/index.html: missing lang-switcher.js
+    - pt/learn/air-gapped-ai-deployment/index.html: missing lang-switcher.js
+    - pt/learn/decision-intelligence/index.html: missing lang-switcher.js
+    - pt/learn/dora-compliance/index.html: missing lang-switcher.js
+    - pt/learn/eu-ai-act-compliance/index.html: missing lang-switcher.js
+    - pt/learn/eu-ai-act-high-risk/index.html: missing lang-switcher.js
+    - pt/learn/explainable-ai/index.html: missing lang-switcher.js
+    - pt/learn/hipaa-ai-compliance/index.html: missing lang-switcher.js
+    - pt/learn/multi-agent-ai/index.html: missing lang-switcher.js
+    - pt/learn/multi-agent-vs-single-model/index.html: missing lang-switcher.js
+    - pt/learn/sovereign-ai/index.html: missing lang-switcher.js
+    - pt/verticals.html: missing lang-switcher.js
+
+  ZH issues:
+    - zh/404.html: missing lang-switcher.js
+    - zh/api-docs.html: missing lang-switcher.js
+    - zh/architecture.html: missing lang-switcher.js
+    - zh/briefing.html: missing lang-switcher.js
+    - zh/case-studies.html: missing lang-switcher.js
+    - zh/changelog.html: missing lang-switcher.js
+    - zh/dcii.html: missing lang-switcher.js
+    - zh/demos.html: missing lang-switcher.js
+    - zh/dgi-dcii-comparison.html: missing lang-switcher.js
+    - zh/dgi.html: missing lang-switcher.js
+    - zh/diagrams.html: missing lang-switcher.js
+    - zh/honesty-matrices.html: missing lang-switcher.js
+    - zh/hospitality.html: missing lang-switcher.js
+    - zh/manifesto.html: missing lang-switcher.js
+    - zh/partners.html: missing lang-switcher.js
+    - zh/pilot.html: missing lang-switcher.js
+    - zh/platform-capabilities.html: missing lang-switcher.js
+    - zh/premium.html: missing lang-switcher.js
+    - zh/pricing.html: missing lang-switcher.js
+    - zh/privacy.html: missing lang-switcher.js
+    - zh/protocol.html: missing lang-switcher.js
+    - zh/roi-calculator.html: missing lang-switcher.js
+    - zh/security-controls.html: missing lang-switcher.js
+    - zh/team.html: missing lang-switcher.js
+    - zh/terms.html: missing lang-switcher.js
+    - zh/trading.html: missing lang-switcher.js
+    - zh/trust.html: missing lang-switcher.js
+    - zh/verticals.html: missing lang-switcher.js
+    - zh/wargames.html: missing lang-switcher.js
+    - zh/learn/index.html: missing lang-switcher.js
+    - zh/learn/ai-audit-trail/index.html: missing lang-switcher.js
+    - zh/learn/ai-governance/index.html: missing lang-switcher.js
+    - zh/learn/air-gapped-ai-deployment/index.html: missing lang-switcher.js
+    - zh/learn/decision-intelligence/index.html: missing lang-switcher.js
+    - zh/learn/dora-compliance/index.html: missing lang-switcher.js
+    - zh/learn/eu-ai-act-compliance/index.html: missing lang-switcher.js
+    - zh/learn/eu-ai-act-high-risk/index.html: missing lang-switcher.js
+    - zh/learn/explainable-ai/index.html: missing lang-switcher.js
+    - zh/learn/hipaa-ai-compliance/index.html: missing lang-switcher.js
+    - zh/learn/multi-agent-ai/index.html: missing lang-switcher.js
+    - zh/learn/multi-agent-vs-single-model/index.html: missing lang-switcher.js
+    - zh/learn/sovereign-ai/index.html: missing lang-switcher.js
+
+--- DEEP SCAN: Hardcoded English visible text in lang pages ---
+
+  ar/index.html: 2 English text indicators:
+    - "How It Works"
+    - "Multi-agent deliberation"
+
+  de/index.html: 2 English text indicators:
+    - "How It Works"
+    - "Multi-agent deliberation"
+
+  es/index.html: 2 English text indicators:
+    - "How It Works"
+    - "Multi-agent deliberation"
+
+  fr/index.html: 2 English text indicators:
+    - "How It Works"
+    - "Multi-agent deliberation"
+
+  hi/index.html: 2 English text indicators:
+    - "How It Works"
+    - "Multi-agent deliberation"
+
+  it/index.html: 2 English text indicators:
+    - "How It Works"
+    - "Multi-agent deliberation"
+
+  ja/index.html: 2 English text indicators:
+    - "How It Works"
+    - "Multi-agent deliberation"
+
+  ko/index.html: 2 English text indicators:
+    - "How It Works"
+    - "Multi-agent deliberation"
+
+  pt/index.html: 2 English text indicators:
+    - "How It Works"
+    - "Multi-agent deliberation"
+
+  zh/index.html: 2 English text indicators:
+    - "How It Works"
+    - "Multi-agent deliberation"
+
+=== AUDIT COMPLETE ===
+

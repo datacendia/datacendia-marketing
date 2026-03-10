@@ -1,4 +1,4 @@
-/* Page-specific styles for terms.html — extracted from inline <style> for CSP compliance */
+/* Page-specific styles for terms.html ï¿½ extracted from inline <style> for CSP compliance */
 .page-container {
       max-width: 700px;
       margin: 0 auto;
@@ -69,3 +69,12 @@
       padding-top: 24px;
       border-top: 1px solid var(--color-border);
     }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .legal-container { padding: 40px 16px; }
+  .legal-section { padding: 20px; }
+}
+@media (max-width: 480px) {
+  .legal-title { font-size: 1.4rem; }
+}

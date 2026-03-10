@@ -158,7 +158,19 @@
 
     .ph-back{position:absolute;right:16px;top:50%;transform:translateY(-50%);font-size:.7rem;color:#71717a;text-decoration:none;padding:4px 10px;border:1px solid #27272a;border-radius:8px;transition:all .2s}
     .ph-back:hover{border-color:#6366f1;color:#6366f1}
-  </style>
+  
+    /* Responsive */
+    @media (max-width: 768px) {
+      .demo-container { padding: 20px 16px; }
+      .agent-cards, .agents-grid { grid-template-columns: 1fr; }
+      .deliberation-panel { padding: 16px; }
+      h1, h2 { font-size: 1.3rem; }
+    }
+    @media (max-width: 480px) {
+      body { font-size: 14px; }
+      .btn, button { min-height: 44px; }
+    }
+    </style>
 </head>
 <body>
   <!-- Platform Header -->

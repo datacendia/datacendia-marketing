@@ -29,17 +29,17 @@
         <div class="lang-selector">
           <button class="lang-btn"><span class="lang-current">English</span> ▾</button>
           <div class="lang-dropdown">
-            <button onclick="setLanguage('en')">English</button>
-            <button onclick="setLanguage('es')">Español</button>
-            <button onclick="setLanguage('fr')">Français</button>
-            <button onclick="setLanguage('de')">Deutsch</button>
-            <button onclick="setLanguage('pt')">Português</button>
-            <button onclick="setLanguage('it')">Italiano</button>
-            <button onclick="setLanguage('ja')">日本語</button>
-            <button onclick="setLanguage('ko')">한국어</button>
-            <button onclick="setLanguage('zh')">中文</button>
-            <button onclick="setLanguage('ar')">العربية</button>
-            <button onclick="setLanguage('hi')">हिन्दी</button>
+            <button data-lang="en">English</button>
+            <button data-lang="es">Español</button>
+            <button data-lang="fr">Français</button>
+            <button data-lang="de">Deutsch</button>
+            <button data-lang="pt">Português</button>
+            <button data-lang="it">Italiano</button>
+            <button data-lang="ja">日本語</button>
+            <button data-lang="ko">한국어</button>
+            <button data-lang="zh">中文</button>
+            <button data-lang="ar">العربية</button>
+            <button data-lang="hi">हिन्दी</button>
           </div>
         </div>
       </div>
@@ -54,6 +54,7 @@
           <div class="nav-dropdown">
             <a href="platform-capabilities.html"><span data-i18n="navPlatformOverview">Platform Overview</span><span class="nav-desc" data-i18n="navPlatformOverviewDesc">Full capability map</span></a>
             <a href="dcii.html"><span data-i18n="navDcii">DCII Framework</span><span class="nav-desc" data-i18n="navDciiDesc">9 primitives · Crisis immunization</span></a>
+            <a href="dgi.html"><span data-i18n="navDgi">DGI Framework</span><span class="nav-desc" data-i18n="navDgiDesc">Open standard · Vendor-neutral</span></a>
             <a href="diagrams.html"><span data-i18n="navArchitecture">Architecture</span><span class="nav-desc" data-i18n="navArchitectureDesc">12 system diagrams</span></a>
           </div>
         </div>
@@ -106,9 +107,9 @@
 
       <div class="demo-grid" style="margin-bottom:48px">
         <div class="demo-card featured-demo">
-          <div class="demo-thumbnail" style="cursor:pointer;background:linear-gradient(135deg,#0a0a1a,#1a1a2e)" onclick="window.location='demos/try.html'">
+          <div class="demo-thumbnail" style="cursor:pointer;background:linear-gradient(135deg,#0a0a1a,#1a1a2e)" data-href="demos/try.html">
             <img src="assets/logos/council.svg" alt="Try The Council" style="width:120px;height:120px;opacity:0.9">
-            <div class="demo-play-btn" onclick="window.location='demos/try.html'">
+            <div class="demo-play-btn" data-href="demos/try.html">
               <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
             </div>
           </div>
@@ -124,16 +125,16 @@
               <span><i class="mi mi-gold"></i> Your own data</span>
               <span><i class="mi mi-green"></i> Try it now</span>
             </div>
-            <button class="watch-btn" onclick="window.location='demos/try.html'">
+            <button class="watch-btn" data-href="demos/try.html">
               ▶ Type Your Decision
             </button>
           </div>
         </div>
 
         <div class="demo-card">
-          <div class="demo-thumbnail" style="cursor:pointer;background:linear-gradient(135deg,#0a0a1a,#1a1a2e)" onclick="window.location='demos/maturity.html'">
+          <div class="demo-thumbnail" style="cursor:pointer;background:linear-gradient(135deg,#0a0a1a,#1a1a2e)" data-href="demos/maturity.html">
             <img src="assets/logos/cortex.svg" alt="Decision Maturity" style="width:120px;height:120px;opacity:0.9">
-            <div class="demo-play-btn" onclick="window.location='demos/maturity.html'">
+            <div class="demo-play-btn" data-href="demos/maturity.html">
               <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
             </div>
           </div>
@@ -153,9 +154,9 @@
         </div>
 
         <div class="demo-card">
-          <div class="demo-thumbnail" style="cursor:pointer;background:linear-gradient(135deg,#0a0a1a,#1a1a2e)" onclick="window.location='demos/before-after.html'">
+          <div class="demo-thumbnail" style="cursor:pointer;background:linear-gradient(135deg,#0a0a1a,#1a1a2e)" data-href="demos/before-after.html">
             <img src="assets/logos/datacendia-platform.svg" alt="Before & After" style="width:120px;height:120px;opacity:0.9">
-            <div class="demo-play-btn" onclick="window.location='demos/before-after.html'">
+            <div class="demo-play-btn" data-href="demos/before-after.html">
               <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
             </div>
           </div>
@@ -205,7 +206,7 @@
               <span><i class="mi mi-cyan"></i> C-Suite, Board, Strategy</span>
               <span><i class="mi mi-green"></i> Try it now</span>
             </div>
-            <button class="watch-btn" onclick="window.location='demos/council.html'">
+            <button class="watch-btn" data-href="demos/council.html">
               ▶ Launch Interactive Demo
             </button>
           </div>
@@ -232,7 +233,7 @@
               <span><i class="mi mi-cyan"></i> Strategy, Compliance</span>
               <span><i class="mi mi-green"></i> Try it now</span>
             </div>
-            <button class="watch-btn" onclick="window.location='demos/chronos.html'" style="margin-top:12px">
+            <button class="watch-btn" data-href="demos/chronos.html" style="margin-top:12px">
               ▶ Launch Interactive Demo
             </button>
           </div>
@@ -240,9 +241,9 @@
 
         <!-- Demo 4: CendiaCascade (INTERACTIVE) -->
         <div class="demo-card">
-          <div class="demo-thumbnail" style="cursor:pointer" onclick="window.location='demos/cascade.html'">
+          <div class="demo-thumbnail" style="cursor:pointer" data-href="demos/cascade.html">
             <img src="assets/logos/cascade.svg" alt="CendiaCascade" style="width:120px;height:120px;opacity:0.9">
-            <div class="demo-play-btn" onclick="window.location='demos/cascade.html'">
+            <div class="demo-play-btn" data-href="demos/cascade.html">
               <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
             </div>
           </div>
@@ -263,9 +264,9 @@
 
         <!-- Demo 5: CendiaDissent (INTERACTIVE) -->
         <div class="demo-card">
-          <div class="demo-thumbnail" style="cursor:pointer" onclick="window.location='demos/dissent.html'">
+          <div class="demo-thumbnail" style="cursor:pointer" data-href="demos/dissent.html">
             <img src="assets/logos/dissent.svg" alt="CendiaDissent" style="width:120px;height:120px;opacity:0.9">
-            <div class="demo-play-btn" onclick="window.location='demos/dissent.html'">
+            <div class="demo-play-btn" data-href="demos/dissent.html">
               <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
             </div>
           </div>
@@ -286,9 +287,9 @@
 
         <!-- Ghost Board (Core Suite) -->
         <div class="demo-card">
-          <div class="demo-thumbnail" style="cursor:pointer" onclick="window.location='demos/ghost-board.html'">
+          <div class="demo-thumbnail" style="cursor:pointer" data-href="demos/ghost-board.html">
             <img src="assets/logos/ghost-board.svg" alt="Ghost Board" style="width:120px;height:120px;opacity:0.9">
-            <div class="demo-play-btn" onclick="window.location='demos/ghost-board.html'">
+            <div class="demo-play-btn" data-href="demos/ghost-board.html">
               <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
             </div>
           </div>
@@ -309,9 +310,9 @@
 
         <!-- Pre-Mortem Engine (Core Suite) -->
         <div class="demo-card">
-          <div class="demo-thumbnail" style="cursor:pointer" onclick="window.location='demos/pre-mortem.html'">
+          <div class="demo-thumbnail" style="cursor:pointer" data-href="demos/pre-mortem.html">
             <img src="assets/logos/pre-mortem.svg" alt="Pre-Mortem Engine" style="width:120px;height:120px;opacity:0.9">
-            <div class="demo-play-btn" onclick="window.location='demos/pre-mortem.html'">
+            <div class="demo-play-btn" data-href="demos/pre-mortem.html">
               <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
             </div>
           </div>
@@ -344,9 +345,9 @@
 
         <!-- CendiaCrucible (Oversight) -->
         <div class="demo-card">
-          <div class="demo-thumbnail" style="cursor:pointer" onclick="window.location='demos/crucible.html'">
+          <div class="demo-thumbnail" style="cursor:pointer" data-href="demos/crucible.html">
             <img src="assets/logos/crucible.svg" alt="CendiaCrucible" style="width:120px;height:120px;opacity:0.9">
-            <div class="demo-play-btn" onclick="window.location='demos/crucible.html'">
+            <div class="demo-play-btn" data-href="demos/crucible.html">
               <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
             </div>
           </div>
@@ -379,9 +380,9 @@
 
         <!-- Audit Provenance (Evidence) -->
         <div class="demo-card">
-          <div class="demo-thumbnail" style="cursor:pointer" onclick="window.location='demos/audit-provenance.html'">
+          <div class="demo-thumbnail" style="cursor:pointer" data-href="demos/audit-provenance.html">
             <img src="assets/logos/audit-provenance.svg" alt="Audit Provenance" style="width:120px;height:120px;opacity:0.9">
-            <div class="demo-play-btn" onclick="window.location='demos/audit-provenance.html'">
+            <div class="demo-play-btn" data-href="demos/audit-provenance.html">
               <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
             </div>
           </div>
@@ -402,9 +403,9 @@
 
         <!-- QR Air-Gap Bridge (Evidence) -->
         <div class="demo-card">
-          <div class="demo-thumbnail" style="cursor:pointer" onclick="window.location='demos/qr-bridge.html'">
+          <div class="demo-thumbnail" style="cursor:pointer" data-href="demos/qr-bridge.html">
             <img src="assets/logos/qr-bridge.svg" alt="QR Air-Gap Bridge" style="width:120px;height:120px;opacity:0.9">
-            <div class="demo-play-btn" onclick="window.location='demos/qr-bridge.html'">
+            <div class="demo-play-btn" data-href="demos/qr-bridge.html">
               <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
             </div>
           </div>
@@ -437,9 +438,9 @@
 
         <!-- Vertical 1: Sports Governance -->
         <div class="demo-card">
-          <div class="demo-thumbnail" style="cursor:pointer" onclick="window.location='demos/sports-governance.html'">
+          <div class="demo-thumbnail" style="cursor:pointer" data-href="demos/sports-governance.html">
             <img src="assets/logos/sports-governance.svg" alt="Sports Governance" style="width:120px;height:120px;opacity:0.9">
-            <div class="demo-play-btn" onclick="window.location='demos/sports-governance.html'">
+            <div class="demo-play-btn" data-href="demos/sports-governance.html">
               <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
             </div>
           </div>
@@ -460,9 +461,9 @@
 
         <!-- Vertical 2: Legal Governance -->
         <div class="demo-card">
-          <div class="demo-thumbnail" style="cursor:pointer" onclick="window.location='demos/legal-governance.html'">
+          <div class="demo-thumbnail" style="cursor:pointer" data-href="demos/legal-governance.html">
             <img src="assets/logos/legal-compliance.svg" alt="Legal Compliance" style="width:120px;height:120px;opacity:0.9">
-            <div class="demo-play-btn" onclick="window.location='demos/legal-governance.html'">
+            <div class="demo-play-btn" data-href="demos/legal-governance.html">
               <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
             </div>
           </div>
@@ -483,9 +484,9 @@
 
         <!-- Vertical 3: Hospitality Governance -->
         <div class="demo-card">
-          <div class="demo-thumbnail" style="cursor:pointer" onclick="window.location='demos/hospitality-governance.html'">
+          <div class="demo-thumbnail" style="cursor:pointer" data-href="demos/hospitality-governance.html">
             <img src="assets/logos/cendia-helm.svg" alt="Hospitality Governance" style="width:120px;height:120px;opacity:0.9">
-            <div class="demo-play-btn" onclick="window.location='demos/hospitality-governance.html'">
+            <div class="demo-play-btn" data-href="demos/hospitality-governance.html">
               <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
             </div>
           </div>
@@ -506,9 +507,9 @@
 
         <!-- Vertical 4: Trading Governance -->
         <div class="demo-card">
-          <div class="demo-thumbnail" style="cursor:pointer" onclick="window.location='demos/trading-governance.html'">
+          <div class="demo-thumbnail" style="cursor:pointer" data-href="demos/trading-governance.html">
             <img src="assets/logos/cendia-predict.svg" alt="Trading Governance" style="width:120px;height:120px;opacity:0.9">
-            <div class="demo-play-btn" onclick="window.location='demos/trading-governance.html'">
+            <div class="demo-play-btn" data-href="demos/trading-governance.html">
               <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
             </div>
           </div>
@@ -565,5 +566,6 @@
   </div>  <script src="translations-loader.js?v=7"></script>
   <script src="app.js"></script>
   <script src="nav-mobile.js"></script>
+  <script src="lang-switcher.js?v=2"></script>
 </body>
 </html>

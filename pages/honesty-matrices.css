@@ -1,4 +1,4 @@
-/* Page-specific styles for honesty-matrices.html — extracted from inline <style> for CSP compliance */
+/* Page-specific styles for honesty-matrices.html ï¿½ extracted from inline <style> for CSP compliance */
 .page-container { max-width: 900px; margin: 0 auto; padding: 60px 24px 80px; }
     .page-header { text-align: center; margin-bottom: 48px; }
     .page-title { font-family: var(--font-display); font-size: 2rem; font-weight: 300; color: var(--color-text); margin-bottom: 12px; }
@@ -15,3 +15,11 @@
     .matrix-section-header p { font-size: 0.8rem; color: var(--color-text-dim); margin: 4px 0 0; }
     .back-to-top { display: inline-block; font-size: 0.7rem; color: var(--color-text-dim); text-decoration: none; margin-top: 16px; }
     .back-to-top:hover { color: var(--color-gold); }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .honesty-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 480px) {
+  .honesty-hero h2 { font-size: 1.4rem; }
+}
