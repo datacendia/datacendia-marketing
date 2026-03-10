@@ -26,14 +26,14 @@
       <div class="page-top-bar">
         <a href="index.html" class="back-link" data-i18n="returnToDatacendia">← Return to Datacendia</a>
         <div class="lang-selector">
-          <button class="lang-btn"><span class="lang-current">English</span> ▾</button>
+          <button class="lang-btn"><span data-i18n="hmSpanEnglish" class="lang-current">English</span> ▾</button>
           <div class="lang-dropdown">
-            <button data-lang="en">English</button>
-            <button data-lang="es">Español</button>
-            <button data-lang="fr">Français</button>
-            <button data-lang="de">Deutsch</button>
-            <button data-lang="pt">Português</button>
-            <button data-lang="it">Italiano</button>
+            <button data-i18n="hmButtonEnglish" data-lang="en">English</button>
+            <button data-i18n="hmButtonEspaOl" data-lang="es">Español</button>
+            <button data-i18n="hmButtonFranAis" data-lang="fr">Français</button>
+            <button data-i18n="hmButtonDeutsch" data-lang="de">Deutsch</button>
+            <button data-i18n="hmButtonPortugu" data-lang="pt">Português</button>
+            <button data-i18n="hmButtonItaliano" data-lang="it">Italiano</button>
             <button data-lang="ja">日本語</button>
             <button data-lang="ko">한국어</button>
             <button data-lang="zh">中文</button>
@@ -101,7 +101,7 @@
           <p data-i18n="aiGovernanceDesc">Who's actually responsible when AI goes wrong?</p>
         </a>
         <a href="#council" class="matrix-nav-card">
-          <h3>The Council™</h3>
+          <h3 data-i18n="hmH3TheCouncil">The Council™</h3>
           <p data-i18n="councilSubtitle">Multi-agent deliberation system</p>
         </a>
         <a href="#integrations" class="matrix-nav-card">
@@ -140,7 +140,7 @@
             <div class="matrix-cell" data-i18n="capability">Capability</div>
             <div class="matrix-cell" data-i18n="cloudAI">Cloud AI</div>
             <div class="matrix-cell" data-i18n="privateCloud">Private Cloud</div>
-            <div class="matrix-cell" style="color: var(--color-gold);">Datacendia</div>
+            <div data-i18n="hmDivDatacendia" class="matrix-cell" style="color: var(--color-gold);">Datacendia</div>
           </div>
           <div class="matrix-row cols-4">
             <div class="matrix-cell" data-i18n="vendorSeesData">Vendor sees your data</div>
@@ -176,12 +176,12 @@
             <div class="matrix-cell" data-i18n="multiAgentDeliberation">Multi-agent deliberation</div>
             <div class="matrix-cell bad" data-i18n="no">No</div>
             <div class="matrix-cell bad" data-i18n="no">No</div>
-            <div class="matrix-cell good">The Council™</div>
+            <div data-i18n="hmDivTheCouncil" class="matrix-cell good">The Council™</div>
           </div>
         </div>
         <p class="table-footnote" data-i18n="cloudActFootnote">CLOUD Act exposure minimized (deployment-dependent). On-prem/air-gapped materially reduces third-party access surface.</p>
-        <p class="section-link">Learn more about <a href="trust.html">our compliance frameworks and security posture</a></p>
-        <a href="#top" class="back-to-top">↑ Back to top</a>
+        <p data-i18n="hmPLearnMoreAbout" class="section-link">Learn more about <a data-i18n="hmAOurComplianceFrameworksAndSecurity" href="trust.html">our compliance frameworks and security posture</a></p>
+        <a data-i18n="hmABackToTop" href="#top" class="back-to-top">↑ Back to top</a>
       </div>
 
       <!-- AI Governance Reality Check -->
@@ -198,7 +198,7 @@
             <div class="matrix-cell" data-i18n="governanceArea">Governance Area</div>
             <div class="matrix-cell" data-i18n="typicalAI">Typical AI</div>
             <div class="matrix-cell" data-i18n="enterpriseAI">Enterprise AI</div>
-            <div class="matrix-cell" style="color: var(--color-gold);">Datacendia</div>
+            <div data-i18n="hmDivDatacendia2" class="matrix-cell" style="color: var(--color-gold);">Datacendia</div>
           </div>
           <div class="matrix-row cols-4">
             <div class="matrix-cell" data-i18n="decisionAuditTrail">Decision audit trail</div>
@@ -222,7 +222,7 @@
             <div class="matrix-cell" data-i18n="dissentTracking">Dissent tracking</div>
             <div class="matrix-cell bad" data-i18n="no">No</div>
             <div class="matrix-cell bad" data-i18n="no">No</div>
-            <div class="matrix-cell good">CendiaDissent™</div>
+            <div data-i18n="hmDivCendiadissent" class="matrix-cell good">CendiaDissent™</div>
           </div>
           <div class="matrix-row cols-4">
             <div class="matrix-cell" data-i18n="regulatorReadyExports">Regulator-ready exports</div>
@@ -232,7 +232,7 @@
           </div>
         </div>
         <p class="table-footnote" data-i18n="aiAccountabilityFootnote">*What we're admitting: AI accountability is hard. We build the evidence trail so you can prove what happened.*</p>
-        <a href="#top" class="back-to-top">↑ Back to top</a>
+        <a data-i18n="hmABackToTop2" href="#top" class="back-to-top">↑ Back to top</a>
       </div>
 
       <!-- The Council -->
@@ -240,7 +240,7 @@
         <div class="matrix-section-header">
           <img src="assets/logos/council.svg" alt="The Council" width="36" height="36">
           <div>
-            <h2>The Council™</h2>
+            <h2 data-i18n="hmH2TheCouncil">The Council™</h2>
             <p data-i18n="councilSubtitle">Multi-agent deliberation. Not a single model — a system of specialized intelligences that debate, dissent, and decide.</p>
           </div>
         </div>
@@ -311,8 +311,8 @@
             </div>
           </div>
         </div>
-        <p class="section-link">See <a href="pilot.html">how The Council works in a 90-day pilot</a></p>
-        <a href="#top" class="back-to-top">↑ Back to top</a>
+        <p data-i18n="hmPSee" class="section-link">See <a data-i18n="hmAHowTheCouncilWorksIn" href="pilot.html">how The Council works in a 90-day pilot</a></p>
+        <a data-i18n="hmABackToTop3" href="#top" class="back-to-top">↑ Back to top</a>
       </div>
 
       <!-- Integration Reality Check -->
@@ -331,12 +331,12 @@
             <div class="matrix-cell" data-i18n="notes">Notes</div>
           </div>
           <div class="matrix-row cols-3">
-            <div class="matrix-cell">PostgreSQL / MySQL / SQL Server</div>
+            <div data-i18n="hmDivPostgresqlMysqlSqlServer" class="matrix-cell">PostgreSQL / MySQL / SQL Server</div>
             <div class="matrix-cell good" data-i18n="live">Live</div>
             <div class="matrix-cell neutral" data-i18n="fullReadWrite">Full read; write via stored procedures</div>
           </div>
           <div class="matrix-row cols-3">
-            <div class="matrix-cell">Snowflake / BigQuery / Redshift</div>
+            <div data-i18n="hmDivSnowflakeBigqueryRedshift" class="matrix-cell">Snowflake / BigQuery / Redshift</div>
             <div class="matrix-cell good" data-i18n="live">Live</div>
             <div class="matrix-cell neutral" data-i18n="readOnlyViews">Read-only; supports views</div>
           </div>
@@ -346,23 +346,23 @@
             <div class="matrix-cell neutral" data-i18n="oauth2ApiKey">OAuth2, API key, custom headers</div>
           </div>
           <div class="matrix-row cols-3">
-            <div class="matrix-cell">Salesforce / HubSpot</div>
+            <div data-i18n="hmDivSalesforceHubspot" class="matrix-cell">Salesforce / HubSpot</div>
             <div class="matrix-cell good" data-i18n="live">Live</div>
             <div class="matrix-cell neutral" data-i18n="objectsReports">Objects, reports, custom fields</div>
           </div>
           <div class="matrix-row cols-3">
-            <div class="matrix-cell">SAP S/4HANA</div>
+            <div data-i18n="hmDivSap4hana" class="matrix-cell">SAP S/4HANA</div>
             <div class="matrix-cell good" data-i18n="live">Live</div>
-            <div class="matrix-cell neutral">OData API with OAuth2; entities, metadata, batch</div>
+            <div data-i18n="hmDivOdataApiWithOauth2Entities" class="matrix-cell neutral">OData API with OAuth2; entities, metadata, batch</div>
           </div>
           <div class="matrix-row cols-3">
-            <div class="matrix-cell">Workday</div>
+            <div data-i18n="hmDivWorkday" class="matrix-cell">Workday</div>
             <div class="matrix-cell good" data-i18n="live">Live</div>
-            <div class="matrix-cell neutral">REST API with OAuth2; workers, orgs, jobs</div>
+            <div data-i18n="hmDivRestApiWithOauth2Workers" class="matrix-cell neutral">REST API with OAuth2; workers, orgs, jobs</div>
           </div>
         </div>
         <p class="table-footnote" data-i18n="connectorsFootnote">16 connector suites on 6 universal adapters as of February 2026.</p>
-        <a href="#top" class="back-to-top">↑ Back to top</a>
+        <a data-i18n="hmABackToTop4" href="#top" class="back-to-top">↑ Back to top</a>
       </div>
 
       <!-- What Breaks at 3 AM -->
@@ -402,7 +402,7 @@
           </div>
         </div>
         <p class="table-footnote" data-i18n="recoveryTimesFootnote">Recovery times are targets based on HA configurations.</p>
-        <a href="#top" class="back-to-top">↑ Back to top</a>
+        <a data-i18n="hmABackToTop5" href="#top" class="back-to-top">↑ Back to top</a>
       </div>
 
       <!-- Platform Category Comparison -->
@@ -420,7 +420,7 @@
             <div class="matrix-cell" data-i18n="enterpriseBI">Enterprise BI</div>
             <div class="matrix-cell" data-i18n="cloudDataPlatform">Cloud Data Platform</div>
             <div class="matrix-cell" data-i18n="aiApi">AI API</div>
-            <div class="matrix-cell" style="color: var(--color-gold);">Datacendia</div>
+            <div data-i18n="hmDivDatacendia3" class="matrix-cell" style="color: var(--color-gold);">Datacendia</div>
           </div>
           <div class="matrix-row cols-5">
             <div class="matrix-cell" data-i18n="canRunAirGapped">Can run air-gapped</div>
@@ -462,11 +462,11 @@
             <div class="matrix-cell bad" data-i18n="rarely">Rarely</div>
             <div class="matrix-cell bad" data-i18n="rarely">Rarely</div>
             <div class="matrix-cell warn" data-i18n="emerging">Emerging</div>
-            <div class="matrix-cell good">The Council™</div>
+            <div data-i18n="hmDivTheCouncil2" class="matrix-cell good">The Council™</div>
           </div>
         </div>
         <p class="table-footnote" data-i18n="comparisonFootnote">*What we're admitting: Different platform categories have different strengths. Know what you're trading off.*</p>
-        <a href="#top" class="back-to-top">↑ Back to top</a>
+        <a data-i18n="hmABackToTop6" href="#top" class="back-to-top">↑ Back to top</a>
       </div>
 
       <!-- What We Can't Do -->
@@ -502,11 +502,11 @@
           <div class="matrix-row cols-3">
             <div class="matrix-cell" data-i18n="sapOracleIntegration">SAP/Oracle deep integration</div>
             <div class="matrix-cell good" data-i18n="live">Live</div>
-            <div class="matrix-cell neutral">OData &amp; REST connectors with OAuth2; full field mapping</div>
+            <div data-i18n="hmDivOdataAmpRestConnectorsWith" class="matrix-cell neutral">OData &amp; REST connectors with OAuth2; full field mapping</div>
           </div>
         </div>
         <p class="table-footnote" data-i18n="limitationsFootnote">This list updated quarterly. Last review: February 2026.</p>
-        <a href="#top" class="back-to-top">↑ Back to top</a>
+        <a data-i18n="hmABackToTop7" href="#top" class="back-to-top">↑ Back to top</a>
       </div>
 
       <!-- Audit Evidence Summary -->
@@ -566,7 +566,7 @@
             </div>
           </div>
         </div>
-        <a href="#top" class="back-to-top">↑ Back to top</a>
+        <a data-i18n="hmABackToTop8" href="#top" class="back-to-top">↑ Back to top</a>
       </div>
 
       <!-- Deployment Truth Table -->
@@ -574,50 +574,50 @@
         <div class="matrix-section-header">
           <img src="assets/logos/air-gapped.svg" alt="Deployment" width="36" height="36">
           <div>
-            <h2>Deployment Truth Table</h2>
-            <p>What works where. Every mode has trade-offs — here they are.</p>
+            <h2 data-i18n="hmH2DeploymentTruthTable">Deployment Truth Table</h2>
+            <p data-i18n="hmPWhatWorksWhereEveryMode">What works where. Every mode has trade-offs — here they are.</p>
           </div>
         </div>
         <div class="matrix-table">
           <div class="matrix-row header cols-4">
-            <div class="matrix-cell">Capability</div>
-            <div class="matrix-cell">Private Cloud</div>
-            <div class="matrix-cell">On-Premises</div>
-            <div class="matrix-cell">Air-Gapped</div>
+            <div data-i18n="hmDivCapability" class="matrix-cell">Capability</div>
+            <div data-i18n="hmDivPrivateCloud" class="matrix-cell">Private Cloud</div>
+            <div data-i18n="hmDivOnPremises" class="matrix-cell">On-Premises</div>
+            <div data-i18n="hmDivAirGapped" class="matrix-cell">Air-Gapped</div>
           </div>
           <div class="matrix-row cols-4">
-            <div class="matrix-cell">Setup time</div>
-            <div class="matrix-cell warn">Days</div>
-            <div class="matrix-cell warn">Weeks</div>
-            <div class="matrix-cell neutral">Weeks+</div>
+            <div data-i18n="hmDivSetupTime" class="matrix-cell">Setup time</div>
+            <div data-i18n="hmDivDays" class="matrix-cell warn">Days</div>
+            <div data-i18n="hmDivWeeks" class="matrix-cell warn">Weeks</div>
+            <div data-i18n="hmDivWeeks2" class="matrix-cell neutral">Weeks+</div>
           </div>
           <div class="matrix-row cols-4">
-            <div class="matrix-cell">Auto-updates</div>
-            <div class="matrix-cell good">Yes</div>
-            <div class="matrix-cell warn">Manual</div>
-            <div class="matrix-cell neutral">Offline pkg</div>
+            <div data-i18n="hmDivAutoUpdates" class="matrix-cell">Auto-updates</div>
+            <div data-i18n="hmDivYes" class="matrix-cell good">Yes</div>
+            <div data-i18n="hmDivManual" class="matrix-cell warn">Manual</div>
+            <div data-i18n="hmDivOfflinePkg" class="matrix-cell neutral">Offline pkg</div>
           </div>
           <div class="matrix-row cols-4">
-            <div class="matrix-cell">Data leaves network</div>
-            <div class="matrix-cell warn">Metadata only</div>
+            <div data-i18n="hmDivDataLeavesNetwork" class="matrix-cell">Data leaves network</div>
+            <div data-i18n="hmDivMetadataOnly" class="matrix-cell warn">Metadata only</div>
             <div class="matrix-cell good">No</div>
             <div class="matrix-cell good">No</div>
           </div>
           <div class="matrix-row cols-4">
-            <div class="matrix-cell">Ops burden</div>
-            <div class="matrix-cell good">Low</div>
-            <div class="matrix-cell warn">Medium</div>
-            <div class="matrix-cell warn">High</div>
+            <div data-i18n="hmDivOpsBurden" class="matrix-cell">Ops burden</div>
+            <div data-i18n="hmDivLow" class="matrix-cell good">Low</div>
+            <div data-i18n="hmDivMedium" class="matrix-cell warn">Medium</div>
+            <div data-i18n="hmDivHigh" class="matrix-cell warn">High</div>
           </div>
           <div class="matrix-row cols-4">
-            <div class="matrix-cell">CLOUD Act exempt</div>
-            <div class="matrix-cell warn">Partial</div>
-            <div class="matrix-cell good">Yes</div>
-            <div class="matrix-cell good">Yes</div>
+            <div data-i18n="hmDivCloudActExempt" class="matrix-cell">CLOUD Act exempt</div>
+            <div data-i18n="hmDivPartial" class="matrix-cell warn">Partial</div>
+            <div data-i18n="hmDivYes2" class="matrix-cell good">Yes</div>
+            <div data-i18n="hmDivYes3" class="matrix-cell good">Yes</div>
           </div>
         </div>
-        <p class="table-footnote">Setup times depend on infrastructure readiness and team availability.</p>
-        <a href="#top" class="back-to-top">↑ Back to top</a>
+        <p data-i18n="hmPSetupTimesDependOnInfrastructure" class="table-footnote">Setup times depend on infrastructure readiness and team availability.</p>
+        <a data-i18n="hmABackToTop9" href="#top" class="back-to-top">↑ Back to top</a>
       </div>
 
       <!-- Time-to-Value -->
@@ -625,52 +625,52 @@
         <div class="matrix-section-header">
           <img src="assets/logos/chronos.svg" alt="Time-to-Value" width="36" height="36">
           <div>
-            <h2>Time-to-Value Honesty</h2>
-            <p>Realistic timelines, not sales promises. What actually takes how long.</p>
+            <h2 data-i18n="hmH2TimeToValueHonesty">Time-to-Value Honesty</h2>
+            <p data-i18n="hmPRealisticTimelinesNotSalesPromises">Realistic timelines, not sales promises. What actually takes how long.</p>
           </div>
         </div>
         <div class="matrix-table">
           <div class="matrix-row header cols-3">
-            <div class="matrix-cell">Milestone</div>
-            <div class="matrix-cell">Typical</div>
-            <div class="matrix-cell">Dependencies</div>
+            <div data-i18n="hmDivMilestone" class="matrix-cell">Milestone</div>
+            <div data-i18n="hmDivTypical" class="matrix-cell">Typical</div>
+            <div data-i18n="hmDivDependencies" class="matrix-cell">Dependencies</div>
           </div>
           <div class="matrix-row cols-3">
-            <div class="matrix-cell">First dashboard live</div>
-            <div class="matrix-cell good">1-2 weeks</div>
-            <div class="matrix-cell neutral">Data access granted; clean schema</div>
+            <div data-i18n="hmDivFirstDashboardLive" class="matrix-cell">First dashboard live</div>
+            <div data-i18n="hmDivWeeks3" class="matrix-cell good">1-2 weeks</div>
+            <div data-i18n="hmDivDataAccessGrantedCleanSchema" class="matrix-cell neutral">Data access granted; clean schema</div>
           </div>
           <div class="matrix-row cols-3">
-            <div class="matrix-cell">First agent recommendation</div>
-            <div class="matrix-cell warn">3-4 weeks</div>
-            <div class="matrix-cell neutral">Domain rules defined; SME available</div>
+            <div data-i18n="hmDivFirstAgentRecommendation" class="matrix-cell">First agent recommendation</div>
+            <div data-i18n="hmDivWeeks4" class="matrix-cell warn">3-4 weeks</div>
+            <div data-i18n="hmDivDomainRulesDefinedSmeAvailable" class="matrix-cell neutral">Domain rules defined; SME available</div>
           </div>
           <div class="matrix-row cols-3">
-            <div class="matrix-cell">Full Council™ deliberation</div>
-            <div class="matrix-cell warn">6-8 weeks</div>
-            <div class="matrix-cell neutral">Multiple data sources; agent tuning</div>
+            <div data-i18n="hmDivFullCouncilDeliberation" class="matrix-cell">Full Council™ deliberation</div>
+            <div data-i18n="hmDivWeeks5" class="matrix-cell warn">6-8 weeks</div>
+            <div data-i18n="hmDivMultipleDataSourcesAgentTuning" class="matrix-cell neutral">Multiple data sources; agent tuning</div>
           </div>
           <div class="matrix-row cols-3">
-            <div class="matrix-cell">Audit-ready evidence export</div>
-            <div class="matrix-cell good">Week 1</div>
-            <div class="matrix-cell neutral">Ledger enabled from day one</div>
+            <div data-i18n="hmDivAuditReadyEvidenceExport" class="matrix-cell">Audit-ready evidence export</div>
+            <div data-i18n="hmDivWeek" class="matrix-cell good">Week 1</div>
+            <div data-i18n="hmDivLedgerEnabledFromDayOne" class="matrix-cell neutral">Ledger enabled from day one</div>
           </div>
           <div class="matrix-row cols-3">
-            <div class="matrix-cell">Production rollout</div>
-            <div class="matrix-cell bad">8-12 weeks</div>
-            <div class="matrix-cell neutral">UAT complete; ops team trained</div>
+            <div data-i18n="hmDivProductionRollout" class="matrix-cell">Production rollout</div>
+            <div data-i18n="hmDiv12Weeks" class="matrix-cell bad">8-12 weeks</div>
+            <div data-i18n="hmDivUatCompleteOpsTeamTrained" class="matrix-cell neutral">UAT complete; ops team trained</div>
           </div>
         </div>
-        <p class="table-footnote">Timelines assume dedicated project resources.</p>
-        <a href="#top" class="back-to-top">↑ Back to top</a>
+        <p data-i18n="hmPTimelinesAssumeDedicatedProjectResources" class="table-footnote">Timelines assume dedicated project resources.</p>
+        <a data-i18n="hmABackToTop10" href="#top" class="back-to-top">↑ Back to top</a>
       </div>
 
       <!-- CTA -->
       <div style="text-align:center; padding:48px 0;">
-        <p style="font-size:0.85rem; color:var(--color-text-dim); margin-bottom:20px;">Ready to see the evidence yourself?</p>
+        <p data-i18n="hmPReadyToSeeTheEvidence" style="font-size:0.85rem; color:var(--color-text-dim); margin-bottom:20px;">Ready to see the evidence yourself?</p>
         <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
           <a href="briefing.html" class="cta-button" data-i18n="requestBriefing">Request Briefing</a>
-          <a href="pilot.html" class="cta-button secondary">See Results in 90 Days</a>
+          <a data-i18n="hmASeeResultsIn90Days" href="pilot.html" class="cta-button secondary">See Results in 90 Days</a>
           <a href="trust.html" class="cta-button secondary" data-i18n="trustCenter">Trust Center</a>
         </div>
       </div>

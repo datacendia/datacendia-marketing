@@ -20,9 +20,9 @@
     <!-- Header -->
     <header>
       <div class="header-top">
-        <a href="index.html" style="text-decoration: none;"><h1 class="logo">DATACENDIA</h1></a>
+        <a href="index.html" style="text-decoration: none;"><h1 data-i18n="roiH1Datacendia" class="logo">DATACENDIA</h1></a>
         <div class="lang-selector">
-          <button class="lang-btn"><span class="lang-current">English</span> ▾</button>
+          <button class="lang-btn"><span data-i18n="roiSpanEnglish" class="lang-current">English</span> ▾</button>
         </div>
       </div>
       <p class="tagline-sub" data-i18n="taglineSub">The Defensible AI Platform</p>
@@ -112,7 +112,7 @@
             <input type="range" id="decisions" min="10" max="500" value="100" onchange="calculate()" oninput="updateDecisionLabel()">
             <div class="range-value">
               <span>10</span>
-              <span id="decisionLabel">100 decisions</span>
+              <span data-i18n="roiSpan100Decisions" id="decisionLabel">100 decisions</span>
               <span>500</span>
             </div>
             <p class="hint" data-i18n="roiHintDecisions">M&A, product launches, major investments, regulatory responses, etc.</p>
@@ -182,7 +182,7 @@
         <div class="results-section">
           <h2 data-i18n="roiResultsTitle">📈 Your ROI with Datacendia</h2>
 
-          <div id="tierBadge" class="tier-badge tier-professional">Professional Tier Recommended</div>
+          <div data-i18n="roiDivProfessionalTierRecommended" id="tierBadge" class="tier-badge tier-professional">Professional Tier Recommended</div>
 
           <div class="result-card highlight">
             <div class="result-label" data-i18n="roiNetSavingsLabel">Annual Net Savings</div>
@@ -198,7 +198,7 @@
 
           <div class="result-card">
             <div class="result-label" data-i18n="roiPaybackLabel">Payback Period</div>
-            <div class="result-value neutral" id="payback">2.1 months</div>
+            <div data-i18n="roiDivMonths" class="result-value neutral" id="payback">2.1 months</div>
             <div class="payback-bar"><div class="payback-fill" id="paybackBar" style="width: 17%"></div></div>
           </div>
 
@@ -266,26 +266,26 @@
       <!-- Value Multipliers -->
       <div style="margin-top: 3rem; text-align: center;">
         <h2 style="color: var(--color-text); margin-bottom: 2rem;" data-i18n="roiAddValueTitle">Potential Additional Value</h2>
-        <p style="color: var(--color-text-muted); margin-bottom: 1.5rem; font-size: 0.9rem;">These benefits are expected but not yet validated with customer data. We're seeking pilot partners to measure real impact.</p>
+        <p data-i18n="roiPTheseBenefitsAreExpectedBut" style="color: var(--color-text-muted); margin-bottom: 1.5rem; font-size: 0.9rem;">These benefits are expected but not yet validated with customer data. We're seeking pilot partners to measure real impact.</p>
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem;">
           <div class="result-card">
             <div class="result-label" data-i18n="roiAddQ1Label">Decision Quality</div>
-            <div class="result-value neutral">TBD</div>
+            <div data-i18n="roiDivTbd" class="result-value neutral">TBD</div>
             <div class="result-sub" data-i18n="roiAddQ1Sub">Multi-agent deliberation surfaces blind spots</div>
           </div>
           <div class="result-card">
             <div class="result-label" data-i18n="roiAddQ2Label">Decision Speed</div>
-            <div class="result-value neutral">TBD</div>
+            <div data-i18n="roiDivTbd2" class="result-value neutral">TBD</div>
             <div class="result-sub" data-i18n="roiAddQ2Sub">Automated analysis vs. manual review</div>
           </div>
           <div class="result-card">
             <div class="result-label" data-i18n="roiAddQ3Label">Audit Prep Time</div>
-            <div class="result-value neutral">TBD</div>
+            <div data-i18n="roiDivTbd3" class="result-value neutral">TBD</div>
             <div class="result-sub" data-i18n="roiAddQ3Sub">Evidence packets generated automatically</div>
           </div>
           <div class="result-card">
             <div class="result-label" data-i18n="roiAddQ4Label">Risk Mitigation</div>
-            <div class="result-value neutral">TBD</div>
+            <div data-i18n="roiDivTbd4" class="result-value neutral">TBD</div>
             <div class="result-sub" data-i18n="roiAddQ4Sub">Dissent capture prevents groupthink</div>
           </div>
         </div>
@@ -295,14 +295,14 @@
       <div class="assumptions">
         <h4 data-i18n="roiAssumptionsTitle">⚠️ Important: These Are Estimates, Not Proven Results</h4>
         <ul>
-          <li><strong>We're a new platform without customer validation data yet.</strong></li>
-          <li>Team cost estimated at $175K fully-loaded per analyst/data scientist</li>
-          <li>BI tool reduction: 50% — <em>estimate based on feature overlap, not measured</em></li>
-          <li>Consulting reduction: 70% — <em>estimate based on automation potential, not measured</em></li>
-          <li>Team optimization: 40% — <em>estimate based on workflow analysis, not measured</em></li>
-          <li>Compliance automation: 80% — <em>estimate based on Audit Provenance capabilities, not measured</em></li>
-          <li>Tier recommendations based on company size and decision volume</li>
-          <li><strong>Actual savings will vary significantly. Join our pilot program to measure real ROI.</strong></li>
+          <li><strong data-i18n="roiStrongWeReNewPlatformWithout">We're a new platform without customer validation data yet.</strong></li>
+          <li data-i18n="roiLiTeamCostEstimatedAt175k">Team cost estimated at $175K fully-loaded per analyst/data scientist</li>
+          <li data-i18n="roiLiBiToolReduction50">BI tool reduction: 50% — <em data-i18n="roiEmEstimateBasedOnFeatureOverlap">estimate based on feature overlap, not measured</em></li>
+          <li data-i18n="roiLiConsultingReduction70">Consulting reduction: 70% — <em data-i18n="roiEmEstimateBasedOnAutomationPotential">estimate based on automation potential, not measured</em></li>
+          <li data-i18n="roiLiTeamOptimization40">Team optimization: 40% — <em data-i18n="roiEmEstimateBasedOnWorkflowAnalysis">estimate based on workflow analysis, not measured</em></li>
+          <li data-i18n="roiLiComplianceAutomation80">Compliance automation: 80% — <em data-i18n="roiEmEstimateBasedOnAuditProvenance">estimate based on Audit Provenance capabilities, not measured</em></li>
+          <li data-i18n="roiLiTierRecommendationsBasedOnCompany">Tier recommendations based on company size and decision volume</li>
+          <li><strong data-i18n="roiStrongActualSavingsWillVarySignificantly">Actual savings will vary significantly. Join our pilot program to measure real ROI.</strong></li>
         </ul>
       </div>
     </div>

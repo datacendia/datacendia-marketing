@@ -30,14 +30,14 @@
       <div class="page-top-bar">
         <a href="index.html" class="back-link" data-i18n="diagBackLink">&larr; Return to Datacendia</a>
         <div class="lang-selector">
-          <button class="lang-btn"><span class="lang-current">English</span> ▾</button>
+          <button class="lang-btn"><span data-i18n="diagSpanEnglish" class="lang-current">English</span> ▾</button>
           <div class="lang-dropdown">
-            <button data-lang="en">English</button>
-            <button data-lang="es">Español</button>
-            <button data-lang="fr">Français</button>
-            <button data-lang="de">Deutsch</button>
-            <button data-lang="pt">Português</button>
-            <button data-lang="it">Italiano</button>
+            <button data-i18n="diagButtonEnglish" data-lang="en">English</button>
+            <button data-i18n="diagButtonEspaOl" data-lang="es">Español</button>
+            <button data-i18n="diagButtonFranAis" data-lang="fr">Français</button>
+            <button data-i18n="diagButtonDeutsch" data-lang="de">Deutsch</button>
+            <button data-i18n="diagButtonPortugu" data-lang="pt">Português</button>
+            <button data-i18n="diagButtonItaliano" data-lang="it">Italiano</button>
             <button data-lang="ja">日本語</button>
             <button data-lang="ko">한국어</button>
             <button data-lang="zh">中文</button>
@@ -253,8 +253,8 @@
             <div class="step-num">01</div>
             <div class="step-content">
               <div class="step-title" data-i18n="diag3Step1Title">Ingest &amp; Frame</div>
-              <div class="step-detail">Decision question is submitted. Context is gathered from data sources, knowledge graph, and historical decisions. The question is framed for deliberation.</div>
-              <div class="step-services"><span>Data Sources</span><span>Neo4j</span><span>CendiaSimilarity</span></div>
+              <div data-i18n="diagDivDecisionQuestionIsSubmittedContext" class="step-detail">Decision question is submitted. Context is gathered from data sources, knowledge graph, and historical decisions. The question is framed for deliberation.</div>
+              <div class="step-services"><span data-i18n="diagSpanDataSources">Data Sources</span><span>Neo4j</span><span>CendiaSimilarity</span></div>
             </div>
           </div>
           <div class="lifecycle-arrow"></div>
@@ -262,8 +262,8 @@
             <div class="step-num">02</div>
             <div class="step-content">
               <div class="step-title" data-i18n="diag3Step2Title">Council Deliberation</div>
-              <div class="step-detail">Multi-agent council convenes. Agents analyze in parallel, then cross-examine each other's assumptions. Dissent is captured and preserved.</div>
-              <div class="step-services"><span>The Council</span><span>CendiaLive</span><span>CendiaDissent</span><span>Ollama LLM</span></div>
+              <div data-i18n="diagDivMultiAgentCouncilConvenesAgents" class="step-detail">Multi-agent council convenes. Agents analyze in parallel, then cross-examine each other's assumptions. Dissent is captured and preserved.</div>
+              <div class="step-services"><span data-i18n="diagSpanTheCouncil">The Council</span><span>CendiaLive</span><span>CendiaDissent</span><span>Ollama LLM</span></div>
             </div>
           </div>
           <div class="lifecycle-arrow"></div>
@@ -271,8 +271,8 @@
             <div class="step-num">03</div>
             <div class="step-content">
               <div class="step-title" data-i18n="diag3Step3Title">Governance &amp; Ethics Check</div>
-              <div class="step-detail">Ethics review, stakeholder impact (CendiaVox), and veto rules are applied. Compliance is checked against active regulatory frameworks.</div>
-              <div class="step-services"><span>CendiaVeto</span><span>CendiaVox</span><span>CendiaCompliance</span><span>Constitutional Court</span></div>
+              <div data-i18n="diagDivEthicsReviewStakeholderImpactCendiavox" class="step-detail">Ethics review, stakeholder impact (CendiaVox), and veto rules are applied. Compliance is checked against active regulatory frameworks.</div>
+              <div class="step-services"><span data-i18n="diagSpanCendiaveto">CendiaVeto</span><span>CendiaVox</span><span>CendiaCompliance</span><span>Constitutional Court</span></div>
             </div>
           </div>
           <div class="lifecycle-arrow"></div>
@@ -280,8 +280,8 @@
             <div class="step-num">04</div>
             <div class="step-content">
               <div class="step-title" data-i18n="diag3Step4Title">Stress Test &amp; Red Team</div>
-              <div class="step-detail">Decision is attacked from 8 adversarial perspectives. Cascade analysis maps second/third-order consequences. Pre-mortem identifies failure modes.</div>
-              <div class="step-services"><span>CendiaCrucible</span><span>CendiaRedTeam</span><span>CendiaCascade</span><span>CendiaPreMortem</span></div>
+              <div data-i18n="diagDivDecisionIsAttackedFromAdversarial" class="step-detail">Decision is attacked from 8 adversarial perspectives. Cascade analysis maps second/third-order consequences. Pre-mortem identifies failure modes.</div>
+              <div class="step-services"><span data-i18n="diagSpanCendiacrucible">CendiaCrucible</span><span>CendiaRedTeam</span><span>CendiaCascade</span><span>CendiaPreMortem</span></div>
             </div>
           </div>
           <div class="lifecycle-arrow"></div>
@@ -289,8 +289,8 @@
             <div class="step-num">05</div>
             <div class="step-content">
               <div class="step-title" data-i18n="diag3Step5Title">Synthesis &amp; Recommendation</div>
-              <div class="step-detail">Final recommendation is synthesized with confidence score, key conditions, and dissenting views preserved. Executive summary is generated.</div>
-              <div class="step-services"><span>Executive Summary</span><span>CendiaRecall</span><span>Decision Debt</span></div>
+              <div data-i18n="diagDivFinalRecommendationIsSynthesizedWith" class="step-detail">Final recommendation is synthesized with confidence score, key conditions, and dissenting views preserved. Executive summary is generated.</div>
+              <div class="step-services"><span data-i18n="diagSpanExecutiveSummary">Executive Summary</span><span>CendiaRecall</span><span>Decision Debt</span></div>
             </div>
           </div>
           <div class="lifecycle-arrow"></div>
@@ -298,8 +298,8 @@
             <div class="step-num">06</div>
             <div class="step-content">
               <div class="step-title" data-i18n="diag3Step6Title">Evidence &amp; Immutable Record</div>
-              <div class="step-detail">Decision packet is cryptographically signed, timestamped via RFC 3161, and stored in the immutable ledger. Full provenance chain is exportable as court-admissible evidence.</div>
-              <div class="step-services"><span>CendiaLedger</span><span>CendiaNotary</span><span>CendiaVault</span><span>CendiaTimestamp</span><span>CendiaProvenance</span></div>
+              <div data-i18n="diagDivDecisionPacketIsCryptographicallySigned" class="step-detail">Decision packet is cryptographically signed, timestamped via RFC 3161, and stored in the immutable ledger. Full provenance chain is exportable as court-admissible evidence.</div>
+              <div class="step-services"><span data-i18n="diagSpanCendialedger">CendiaLedger</span><span>CendiaNotary</span><span>CendiaVault</span><span>CendiaTimestamp</span><span>CendiaProvenance</span></div>
             </div>
           </div>
           <div class="lifecycle-arrow"></div>
@@ -307,8 +307,8 @@
             <div class="step-num">07</div>
             <div class="step-content">
               <div class="step-title" data-i18n="diag3Step7Title">Outcome Tracking &amp; Learning</div>
-              <div class="step-detail">CendiaEcho tracks what actually happened. CendiaChronos snapshots the state for time-travel replay. IISS score is recalculated. The institution gets smarter.</div>
-              <div class="step-services"><span>CendiaEcho</span><span>CendiaChronos</span><span>CendiaReplay</span><span>IISS</span></div>
+              <div data-i18n="diagDivCendiaechoTracksWhatActuallyHappened" class="step-detail">CendiaEcho tracks what actually happened. CendiaChronos snapshots the state for time-travel replay. IISS score is recalculated. The institution gets smarter.</div>
+              <div class="step-services"><span data-i18n="diagSpanCendiaecho">CendiaEcho</span><span>CendiaChronos</span><span>CendiaReplay</span><span>IISS</span></div>
             </div>
           </div>
         </div>
@@ -326,23 +326,23 @@
         <div class="sovereign-grid">
           <div class="sovereign-card">
             <div class="sov-num">01</div>
-            <div class="sov-name">Data Diode</div>
-            <div class="sov-desc">Unidirectional gateway &mdash; import only, no exfiltration</div>
+            <div data-i18n="diagDivDataDiode" class="sov-name">Data Diode</div>
+            <div data-i18n="diagDivUnidirectionalGatewayMdashImportOnly" class="sov-desc">Unidirectional gateway &mdash; import only, no exfiltration</div>
           </div>
           <div class="sovereign-card">
             <div class="sov-num">02</div>
-            <div class="sov-name">QR Air-Gap Bridge</div>
-            <div class="sov-desc">Transfer decisions across air gaps via QR code sequences</div>
+            <div data-i18n="diagDivQrAirGapBridge" class="sov-name">QR Air-Gap Bridge</div>
+            <div data-i18n="diagDivTransferDecisionsAcrossAirGaps" class="sov-desc">Transfer decisions across air gaps via QR code sequences</div>
           </div>
           <div class="sovereign-card">
             <div class="sov-num">03</div>
-            <div class="sov-name">Shadow Council</div>
-            <div class="sov-desc">Parallel deliberation on isolated network with sync protocol</div>
+            <div data-i18n="diagDivShadowCouncil" class="sov-name">Shadow Council</div>
+            <div data-i18n="diagDivParallelDeliberationOnIsolatedNetwork" class="sov-desc">Parallel deliberation on isolated network with sync protocol</div>
           </div>
           <div class="sovereign-card">
             <div class="sov-num">04</div>
-            <div class="sov-name">Portable Instance</div>
-            <div class="sov-desc">Self-contained deployment on removable media</div>
+            <div data-i18n="diagDivPortableInstance" class="sov-name">Portable Instance</div>
+            <div data-i18n="diagDivSelfContainedDeploymentOnRemovable" class="sov-desc">Self-contained deployment on removable media</div>
           </div>
         </div>
 
@@ -350,23 +350,23 @@
         <div class="sovereign-grid">
           <div class="sovereign-card">
             <div class="sov-num">05</div>
-            <div class="sov-name">TPM Attestation</div>
-            <div class="sov-desc">Hardware root of trust verification for compute nodes</div>
+            <div data-i18n="diagDivTpmAttestation" class="sov-name">TPM Attestation</div>
+            <div data-i18n="diagDivHardwareRootOfTrustVerification" class="sov-desc">Hardware root of trust verification for compute nodes</div>
           </div>
           <div class="sovereign-card">
             <div class="sov-num">06</div>
-            <div class="sov-name">CendiaKey</div>
-            <div class="sov-desc">Customer-owned key management with HSM integration</div>
+            <div data-i18n="diagDivCendiakey" class="sov-name">CendiaKey</div>
+            <div data-i18n="diagDivCustomerOwnedKeyManagementWith" class="sov-desc">Customer-owned key management with HSM integration</div>
           </div>
           <div class="sovereign-card">
             <div class="sov-num">07</div>
-            <div class="sov-name">CendiaBlackBox</div>
-            <div class="sov-desc">Tamper-evident sealed execution environment</div>
+            <div data-i18n="diagDivCendiablackbox" class="sov-name">CendiaBlackBox</div>
+            <div data-i18n="diagDivTamperEvidentSealedExecutionEnvironment" class="sov-desc">Tamper-evident sealed execution environment</div>
           </div>
           <div class="sovereign-card">
             <div class="sov-num">08</div>
-            <div class="sov-name">TimeLock</div>
-            <div class="sov-desc">Time-locked encryption for embargoed decisions</div>
+            <div data-i18n="diagDivTimelock" class="sov-name">TimeLock</div>
+            <div data-i18n="diagDivTimeLockedEncryptionForEmbargoed" class="sov-desc">Time-locked encryption for embargoed decisions</div>
           </div>
         </div>
 
@@ -374,23 +374,23 @@
         <div class="sovereign-grid">
           <div class="sovereign-card">
             <div class="sov-num">09</div>
-            <div class="sov-name">CendiaWitness</div>
-            <div class="sov-desc">Independent verification of decision integrity</div>
+            <div data-i18n="diagDivCendiawitness" class="sov-name">CendiaWitness</div>
+            <div data-i18n="diagDivIndependentVerificationOfDecisionIntegrity" class="sov-desc">Independent verification of decision integrity</div>
           </div>
           <div class="sovereign-card">
             <div class="sov-num">10</div>
-            <div class="sov-name">CendiaMirror</div>
-            <div class="sov-desc">Real-time replication for disaster recovery</div>
+            <div data-i18n="diagDivCendiamirror" class="sov-name">CendiaMirror</div>
+            <div data-i18n="diagDivRealTimeReplicationForDisaster" class="sov-desc">Real-time replication for disaster recovery</div>
           </div>
           <div class="sovereign-card">
             <div class="sov-num">11</div>
-            <div class="sov-name">CendiaVault</div>
-            <div class="sov-desc">Encrypted evidence storage with AES-256 at rest</div>
+            <div data-i18n="diagDivCendiavault" class="sov-name">CendiaVault</div>
+            <div data-i18n="diagDivEncryptedEvidenceStorageWithAes" class="sov-desc">Encrypted evidence storage with AES-256 at rest</div>
           </div>
           <div class="sovereign-card">
             <div class="sov-num">12</div>
-            <div class="sov-name">Canary Tripwire</div>
-            <div class="sov-desc">Intrusion detection via decision integrity canaries</div>
+            <div data-i18n="diagDivCanaryTripwire" class="sov-name">Canary Tripwire</div>
+            <div data-i18n="diagDivIntrusionDetectionViaDecisionIntegrity" class="sov-desc">Intrusion detection via decision integrity canaries</div>
           </div>
         </div>
 
@@ -398,23 +398,23 @@
         <div class="sovereign-grid">
           <div class="sovereign-card">
             <div class="sov-num">13</div>
-            <div class="sov-name">Federated Mesh</div>
-            <div class="sov-desc">Multi-site federation without centralized data store</div>
+            <div data-i18n="diagDivFederatedMesh" class="sov-name">Federated Mesh</div>
+            <div data-i18n="diagDivMultiSiteFederationWithoutCentralized" class="sov-desc">Multi-site federation without centralized data store</div>
           </div>
           <div class="sovereign-card">
             <div class="sov-num">14</div>
-            <div class="sov-name">CendiaMesh</div>
-            <div class="sov-desc">Service mesh for zero-trust inter-service communication</div>
+            <div data-i18n="diagDivCendiamesh" class="sov-name">CendiaMesh</div>
+            <div data-i18n="diagDivServiceMeshForZeroTrust" class="sov-desc">Service mesh for zero-trust inter-service communication</div>
           </div>
           <div class="sovereign-card">
             <div class="sov-num">15</div>
-            <div class="sov-name">CendiaMirage</div>
-            <div class="sov-desc">Decoy infrastructure to mislead attackers</div>
+            <div data-i18n="diagDivCendiamirage" class="sov-name">CendiaMirage</div>
+            <div data-i18n="diagDivDecoyInfrastructureToMisleadAttackers" class="sov-desc">Decoy infrastructure to mislead attackers</div>
           </div>
           <div class="sovereign-card">
             <div class="sov-num">16</div>
-            <div class="sov-name">CendiaGlass</div>
-            <div class="sov-desc">Transparent audit layer for all network traffic</div>
+            <div data-i18n="diagDivCendiaglass" class="sov-name">CendiaGlass</div>
+            <div data-i18n="diagDivTransparentAuditLayerForAll" class="sov-desc">Transparent audit layer for all network traffic</div>
           </div>
         </div>
 
@@ -422,28 +422,28 @@
         <div class="sovereign-grid">
           <div class="sovereign-card">
             <div class="sov-num">17</div>
-            <div class="sov-name">Local RLHF</div>
-            <div class="sov-desc">On-premise reinforcement learning from human feedback</div>
+            <div data-i18n="diagDivLocalRlhf" class="sov-name">Local RLHF</div>
+            <div data-i18n="diagDivOnPremiseReinforcementLearningFrom" class="sov-desc">On-premise reinforcement learning from human feedback</div>
           </div>
           <div class="sovereign-card">
             <div class="sov-num">18</div>
-            <div class="sov-name">Deterministic Replay</div>
-            <div class="sov-desc">Bit-exact reproduction of any past inference</div>
+            <div data-i18n="diagDivDeterministicReplay" class="sov-name">Deterministic Replay</div>
+            <div data-i18n="diagDivBitExactReproductionOfAny" class="sov-desc">Bit-exact reproduction of any past inference</div>
           </div>
           <div class="sovereign-card">
             <div class="sov-num">19</div>
-            <div class="sov-name">Decision DNA</div>
-            <div class="sov-desc">Portable decision fingerprint for cross-system verification</div>
+            <div data-i18n="diagDivDecisionDna" class="sov-name">Decision DNA</div>
+            <div data-i18n="diagDivPortableDecisionFingerprintForCross" class="sov-desc">Portable decision fingerprint for cross-system verification</div>
           </div>
           <div class="sovereign-card">
             <div class="sov-num">20</div>
-            <div class="sov-name">CendiaOracle</div>
-            <div class="sov-desc">Deterministic AI oracle for policy-bound inference</div>
+            <div data-i18n="diagDivCendiaoracle" class="sov-name">CendiaOracle</div>
+            <div data-i18n="diagDivDeterministicAiOracleForPolicy" class="sov-desc">Deterministic AI oracle for policy-bound inference</div>
           </div>
           <div class="sovereign-card">
             <div class="sov-num">21</div>
-            <div class="sov-name">CendiaLegacy</div>
-            <div class="sov-desc">Long-term archival with format migration guarantees</div>
+            <div data-i18n="diagDivCendialegacy" class="sov-name">CendiaLegacy</div>
+            <div data-i18n="diagDivLongTermArchivalWithFormat" class="sov-desc">Long-term archival with format migration guarantees</div>
           </div>
         </div>
       </section>
@@ -459,148 +459,148 @@
         <div class="verticals-grid">
           <div class="vert-cell flagship">
             <div class="vert-icon">&#9878;</div>
-            <div class="vert-name">Legal</div>
-            <div class="vert-agents">Flagship</div>
+            <div data-i18n="diagDivLegal" class="vert-name">Legal</div>
+            <div data-i18n="diagDivFlagship" class="vert-agents">Flagship</div>
           </div>
           <div class="vert-cell flagship">
             <div class="vert-icon">&#9917;</div>
-            <div class="vert-name">Sports</div>
-            <div class="vert-agents">Flagship</div>
+            <div data-i18n="diagDivSports" class="vert-name">Sports</div>
+            <div data-i18n="diagDivFlagship2" class="vert-agents">Flagship</div>
           </div>
           <div class="vert-cell flagship">
             <div class="vert-icon">&#9872;</div>
-            <div class="vert-name">Defense</div>
-            <div class="vert-agents">Flagship</div>
+            <div data-i18n="diagDivDefense" class="vert-name">Defense</div>
+            <div data-i18n="diagDivFlagship3" class="vert-agents">Flagship</div>
           </div>
           <div class="vert-cell">
             <div class="vert-icon">&#127973;</div>
-            <div class="vert-name">Financial</div>
-            <div class="vert-agents">Agents + Modes</div>
+            <div data-i18n="diagDivFinancial" class="vert-name">Financial</div>
+            <div data-i18n="diagDivAgentsModes" class="vert-agents">Agents + Modes</div>
           </div>
           <div class="vert-cell">
             <div class="vert-icon">&#127975;</div>
-            <div class="vert-name">Healthcare</div>
-            <div class="vert-agents">Agents + Modes</div>
+            <div data-i18n="diagDivHealthcare" class="vert-name">Healthcare</div>
+            <div data-i18n="diagDivAgentsModes2" class="vert-agents">Agents + Modes</div>
           </div>
           <div class="vert-cell">
             <div class="vert-icon">&#127979;</div>
-            <div class="vert-name">Government</div>
-            <div class="vert-agents">Agents + Modes</div>
+            <div data-i18n="diagDivGovernment" class="vert-name">Government</div>
+            <div data-i18n="diagDivAgentsModes3" class="vert-agents">Agents + Modes</div>
           </div>
           <div class="vert-cell">
             <div class="vert-icon">&#9889;</div>
-            <div class="vert-name">Energy</div>
-            <div class="vert-agents">Agents + Modes</div>
+            <div data-i18n="diagDivEnergy" class="vert-name">Energy</div>
+            <div data-i18n="diagDivAgentsModes4" class="vert-agents">Agents + Modes</div>
           </div>
           <div class="vert-cell">
             <div class="vert-icon">&#128187;</div>
-            <div class="vert-name">Technology</div>
-            <div class="vert-agents">Agents + Modes</div>
+            <div data-i18n="diagDivTechnology" class="vert-name">Technology</div>
+            <div data-i18n="diagDivAgentsModes5" class="vert-agents">Agents + Modes</div>
           </div>
           <div class="vert-cell">
             <div class="vert-icon">&#128640;</div>
-            <div class="vert-name">Aerospace</div>
-            <div class="vert-agents">Agents + Modes</div>
+            <div data-i18n="diagDivAerospace" class="vert-name">Aerospace</div>
+            <div data-i18n="diagDivAgentsModes6" class="vert-agents">Agents + Modes</div>
           </div>
           <div class="vert-cell">
             <div class="vert-icon">&#127981;</div>
-            <div class="vert-name">Manufacturing</div>
-            <div class="vert-agents">Agents + Modes</div>
+            <div data-i18n="diagDivManufacturing" class="vert-name">Manufacturing</div>
+            <div data-i18n="diagDivAgentsModes7" class="vert-agents">Agents + Modes</div>
           </div>
           <div class="vert-cell">
             <div class="vert-icon">&#128218;</div>
-            <div class="vert-name">Education</div>
-            <div class="vert-agents">Agents + Modes</div>
+            <div data-i18n="diagDivEducation" class="vert-name">Education</div>
+            <div data-i18n="diagDivAgentsModes8" class="vert-agents">Agents + Modes</div>
           </div>
           <div class="vert-cell">
             <div class="vert-icon">&#127968;</div>
-            <div class="vert-name">Real Estate</div>
-            <div class="vert-agents">Agents + Modes</div>
+            <div data-i18n="diagDivRealEstate" class="vert-name">Real Estate</div>
+            <div data-i18n="diagDivAgentsModes9" class="vert-agents">Agents + Modes</div>
           </div>
           <div class="vert-cell">
             <div class="vert-icon">&#128247;</div>
-            <div class="vert-name">Media</div>
-            <div class="vert-agents">Agents + Modes</div>
+            <div data-i18n="diagDivMedia" class="vert-name">Media</div>
+            <div data-i18n="diagDivAgentsModes10" class="vert-agents">Agents + Modes</div>
           </div>
           <div class="vert-cell">
             <div class="vert-icon">&#128241;</div>
-            <div class="vert-name">Telecom</div>
-            <div class="vert-agents">Agents + Modes</div>
+            <div data-i18n="diagDivTelecom" class="vert-name">Telecom</div>
+            <div data-i18n="diagDivAgentsModes11" class="vert-agents">Agents + Modes</div>
           </div>
           <div class="vert-cell">
             <div class="vert-icon">&#128661;</div>
-            <div class="vert-name">Automotive</div>
-            <div class="vert-agents">Agents + Modes</div>
+            <div data-i18n="diagDivAutomotive" class="vert-name">Automotive</div>
+            <div data-i18n="diagDivAgentsModes12" class="vert-agents">Agents + Modes</div>
           </div>
           <div class="vert-cell">
             <div class="vert-icon">&#128137;</div>
-            <div class="vert-name">Pharmaceutical</div>
-            <div class="vert-agents">Agents + Modes</div>
+            <div data-i18n="diagDivPharmaceutical" class="vert-name">Pharmaceutical</div>
+            <div data-i18n="diagDivAgentsModes13" class="vert-agents">Agents + Modes</div>
           </div>
           <div class="vert-cell">
             <div class="vert-icon">&#9968;</div>
-            <div class="vert-name">Insurance</div>
-            <div class="vert-agents">Agents + Modes</div>
+            <div data-i18n="diagDivInsurance" class="vert-name">Insurance</div>
+            <div data-i18n="diagDivAgentsModes14" class="vert-agents">Agents + Modes</div>
           </div>
           <div class="vert-cell">
             <div class="vert-icon">&#128690;</div>
-            <div class="vert-name">Transportation</div>
-            <div class="vert-agents">Agents + Modes</div>
+            <div data-i18n="diagDivTransportation" class="vert-name">Transportation</div>
+            <div data-i18n="diagDivAgentsModes15" class="vert-agents">Agents + Modes</div>
           </div>
           <div class="vert-cell">
             <div class="vert-icon">&#127806;</div>
-            <div class="vert-name">Agriculture</div>
-            <div class="vert-agents">Agents + Modes</div>
+            <div data-i18n="diagDivAgriculture" class="vert-name">Agriculture</div>
+            <div data-i18n="diagDivAgentsModes16" class="vert-agents">Agents + Modes</div>
           </div>
           <div class="vert-cell">
             <div class="vert-icon">&#128711;</div>
-            <div class="vert-name">Nonprofit</div>
-            <div class="vert-agents">Agents + Modes</div>
+            <div data-i18n="diagDivNonprofit" class="vert-name">Nonprofit</div>
+            <div data-i18n="diagDivAgentsModes17" class="vert-agents">Agents + Modes</div>
           </div>
           <div class="vert-cell">
             <div class="vert-icon">&#127960;</div>
-            <div class="vert-name">Construction</div>
-            <div class="vert-agents">Agents + Modes</div>
+            <div data-i18n="diagDivConstruction" class="vert-name">Construction</div>
+            <div data-i18n="diagDivAgentsModes18" class="vert-agents">Agents + Modes</div>
           </div>
           <div class="vert-cell">
             <div class="vert-icon">&#127958;</div>
-            <div class="vert-name">Hospitality</div>
-            <div class="vert-agents">Agents + Modes</div>
+            <div data-i18n="diagDivHospitality" class="vert-name">Hospitality</div>
+            <div data-i18n="diagDivAgentsModes19" class="vert-agents">Agents + Modes</div>
           </div>
           <div class="vert-cell">
             <div class="vert-icon">&#128717;</div>
-            <div class="vert-name">Retail</div>
-            <div class="vert-agents">Agents + Modes</div>
+            <div data-i18n="diagDivRetail" class="vert-name">Retail</div>
+            <div data-i18n="diagDivAgentsModes20" class="vert-agents">Agents + Modes</div>
           </div>
           <div class="vert-cell">
             <div class="vert-icon">&#127961;</div>
-            <div class="vert-name">Smart City</div>
-            <div class="vert-agents">Agents + Modes</div>
+            <div data-i18n="diagDivSmartCity" class="vert-name">Smart City</div>
+            <div data-i18n="diagDivAgentsModes21" class="vert-agents">Agents + Modes</div>
           </div>
           <div class="vert-cell">
             <div class="vert-icon">&#128188;</div>
-            <div class="vert-name">Professional Svcs</div>
-            <div class="vert-agents">Agents + Modes</div>
+            <div data-i18n="diagDivProfessionalSvcs" class="vert-name">Professional Svcs</div>
+            <div data-i18n="diagDivAgentsModes22" class="vert-agents">Agents + Modes</div>
           </div>
           <div class="vert-cell">
             <div class="vert-icon">&#9881;</div>
-            <div class="vert-name">Industrial Svcs</div>
-            <div class="vert-agents">Agents + Modes</div>
+            <div data-i18n="diagDivIndustrialSvcs" class="vert-name">Industrial Svcs</div>
+            <div data-i18n="diagDivAgentsModes23" class="vert-agents">Agents + Modes</div>
           </div>
           <div class="vert-cell">
             <div class="vert-icon">&#128736;</div>
-            <div class="vert-name">Core Platform</div>
-            <div class="vert-agents">Cross-vertical</div>
+            <div data-i18n="diagDivCorePlatform" class="vert-name">Core Platform</div>
+            <div data-i18n="diagDivCrossVertical" class="vert-agents">Cross-vertical</div>
           </div>
           <div class="vert-cell">
             <div class="vert-icon">&#128300;</div>
-            <div class="vert-name">Meta / R&amp;D</div>
-            <div class="vert-agents">Internal</div>
+            <div data-i18n="diagDivMetaAmp" class="vert-name">Meta / R&amp;D</div>
+            <div data-i18n="diagDivInternal" class="vert-agents">Internal</div>
           </div>
           <div class="vert-cell">
             <div class="vert-icon">&#128736;</div>
-            <div class="vert-name">Internal Ops</div>
-            <div class="vert-agents">Internal</div>
+            <div data-i18n="diagDivInternalOps" class="vert-name">Internal Ops</div>
+            <div data-i18n="diagDivInternal2" class="vert-agents">Internal</div>
           </div>
         </div>
       </section>
@@ -625,27 +625,27 @@
             <div class="sgas-agent-card">
               <div class="sgas-icon">&#128101;</div>
               <div class="sgas-agent-name" data-i18n="diag6Agent1Name">Institutional</div>
-              <div class="sgas-agent-role">Simulate organizations, governments, and regulatory bodies at macro scale</div>
+              <div data-i18n="diagDivSimulateOrganizationsGovernmentsAndRegulatory" class="sgas-agent-role">Simulate organizations, governments, and regulatory bodies at macro scale</div>
             </div>
             <div class="sgas-agent-card">
               <div class="sgas-icon">&#128269;</div>
               <div class="sgas-agent-name" data-i18n="diag6Agent2Name">Observer</div>
-              <div class="sgas-agent-role">Monitor simulation dynamics, detect emergent patterns, flag anomalies</div>
+              <div data-i18n="diagDivMonitorSimulationDynamicsDetectEmergent" class="sgas-agent-role">Monitor simulation dynamics, detect emergent patterns, flag anomalies</div>
             </div>
             <div class="sgas-agent-card">
               <div class="sgas-icon">&#9878;</div>
               <div class="sgas-agent-name" data-i18n="diag6Agent3Name">Decision</div>
-              <div class="sgas-agent-role">Execute governance decisions within simulated institutional frameworks</div>
+              <div data-i18n="diagDivExecuteGovernanceDecisionsWithinSimulated" class="sgas-agent-role">Execute governance decisions within simulated institutional frameworks</div>
             </div>
             <div class="sgas-agent-card">
               <div class="sgas-icon">&#128520;</div>
               <div class="sgas-agent-name" data-i18n="diag6Agent4Name">Adversarial</div>
-              <div class="sgas-agent-role">Attack governance structures, exploit weak policies, stress-test resilience</div>
+              <div data-i18n="diagDivAttackGovernanceStructuresExploitWeak" class="sgas-agent-role">Attack governance structures, exploit weak policies, stress-test resilience</div>
             </div>
             <div class="sgas-agent-card">
               <div class="sgas-icon">&#127760;</div>
               <div class="sgas-agent-name" data-i18n="diag6Agent5Name">Meta-Governance</div>
-              <div class="sgas-agent-role">Govern the governance &mdash; ensure simulation rules and agent behaviors remain valid</div>
+              <div data-i18n="diagDivGovernTheGovernanceMdashEnsure" class="sgas-agent-role">Govern the governance &mdash; ensure simulation rules and agent behaviors remain valid</div>
             </div>
           </div>
         </div>
@@ -727,7 +727,7 @@
             </thead>
             <tbody>
               <tr>
-                <td>SOC 2</td>
+                <td data-i18n="diagTdSoc">SOC 2</td>
                 <td><span class="dot full"></span></td>
                 <td><span class="dot partial"></span></td>
                 <td><span class="dot partial"></span></td>
@@ -747,7 +747,7 @@
                 <td><span class="dot partial"></span></td>
               </tr>
               <tr>
-                <td>GDPR</td>
+                <td data-i18n="diagTdGdpr">GDPR</td>
                 <td><span class="dot partial"></span></td>
                 <td><span class="dot full"></span></td>
                 <td><span class="dot full"></span></td>
@@ -767,7 +767,7 @@
                 <td><span class="dot partial"></span></td>
               </tr>
               <tr>
-                <td>HIPAA</td>
+                <td data-i18n="diagTdHipaa">HIPAA</td>
                 <td><span class="dot full"></span></td>
                 <td><span class="dot none"></span></td>
                 <td><span class="dot none"></span></td>
@@ -787,7 +787,7 @@
                 <td><span class="dot none"></span></td>
               </tr>
               <tr>
-                <td>FedRAMP</td>
+                <td data-i18n="diagTdFedramp">FedRAMP</td>
                 <td><span class="dot full"></span></td>
                 <td><span class="dot none"></span></td>
                 <td><span class="dot none"></span></td>
@@ -807,7 +807,7 @@
                 <td><span class="dot partial"></span></td>
               </tr>
               <tr>
-                <td>ISO 27001</td>
+                <td data-i18n="diagTdIso27001">ISO 27001</td>
                 <td><span class="dot full"></span></td>
                 <td><span class="dot full"></span></td>
                 <td><span class="dot full"></span></td>
@@ -827,7 +827,7 @@
                 <td><span class="dot full"></span></td>
               </tr>
               <tr>
-                <td>DORA</td>
+                <td data-i18n="diagTdDora">DORA</td>
                 <td><span class="dot none"></span></td>
                 <td><span class="dot full"></span></td>
                 <td><span class="dot partial"></span></td>
@@ -847,7 +847,7 @@
                 <td><span class="dot none"></span></td>
               </tr>
               <tr>
-                <td>EU AI Act</td>
+                <td data-i18n="diagTdEuAiAct">EU AI Act</td>
                 <td><span class="dot partial"></span></td>
                 <td><span class="dot full"></span></td>
                 <td><span class="dot partial"></span></td>
@@ -867,7 +867,7 @@
                 <td><span class="dot partial"></span></td>
               </tr>
               <tr>
-                <td>NIST AI RMF</td>
+                <td data-i18n="diagTdNistAiRmf">NIST AI RMF</td>
                 <td><span class="dot full"></span></td>
                 <td><span class="dot partial"></span></td>
                 <td><span class="dot partial"></span></td>
@@ -887,7 +887,7 @@
                 <td><span class="dot full"></span></td>
               </tr>
               <tr>
-                <td>PCI-DSS</td>
+                <td data-i18n="diagTdPciDss">PCI-DSS</td>
                 <td><span class="dot full"></span></td>
                 <td><span class="dot full"></span></td>
                 <td><span class="dot full"></span></td>
@@ -907,7 +907,7 @@
                 <td><span class="dot full"></span></td>
               </tr>
               <tr>
-                <td>CMMC / ITAR</td>
+                <td data-i18n="diagTdCmmcItar">CMMC / ITAR</td>
                 <td><span class="dot full"></span></td>
                 <td><span class="dot none"></span></td>
                 <td><span class="dot partial"></span></td>
@@ -941,67 +941,67 @@
       <!-- DIAGRAM 9: MULTI-MODEL ARCHITECTURE                         -->
       <!-- ============================================================ -->
       <section id="model-architecture" class="diagram-section">
-        <p class="diagram-section-label">Diagram 9 of 12</p>
-        <h2 class="diagram-section-title">Multi-Model AI Architecture</h2>
+        <p data-i18n="diagPDiagramOf12" class="diagram-section-label">Diagram 9 of 12</p>
+        <h2 data-i18n="diagH2MultiModelAiArchitecture" class="diagram-section-title">Multi-Model AI Architecture</h2>
         <p class="diagram-section-desc">&ldquo;Right Brain for the Right Job.&rdquo; 8 purpose-built AI model slots, each optimized for a specific task type. All running locally via Ollama on your infrastructure. No API calls to external providers.</p>
 
         <div class="model-arch-flow">
           <div class="model-arch-router">
-            <div class="router-title">QueryRouter &rarr; Task Classifier &rarr; Tier Gate &rarr; Ollama</div>
-            <div class="router-desc">Natural language query is classified by intent, routed to the optimal model slot, and tier-gated based on your license level</div>
+            <div data-i18n="diagDivQueryrouterRarrTaskClassifierRarr" class="router-title">QueryRouter &rarr; Task Classifier &rarr; Tier Gate &rarr; Ollama</div>
+            <div data-i18n="diagDivNaturalLanguageQueryIsClassified" class="router-desc">Natural language query is classified by intent, routed to the optimal model slot, and tier-gated based on your license level</div>
           </div>
           <div class="lifecycle-arrow"></div>
           <div class="model-slots-grid">
             <div class="model-slot">
-              <div class="slot-role">Large</div>
-              <div class="slot-model">llama3.3:70b</div>
-              <div class="slot-params">70B &middot; 128K ctx</div>
-              <div class="slot-use">Complex strategy, board-level analysis</div>
+              <div data-i18n="diagDivLarge" class="slot-role">Large</div>
+              <div data-i18n="diagDivLlama370b" class="slot-model">llama3.3:70b</div>
+              <div data-i18n="diagDiv70bMiddot128kCtx" class="slot-params">70B &middot; 128K ctx</div>
+              <div data-i18n="diagDivComplexStrategyBoardLevelAnalysis" class="slot-use">Complex strategy, board-level analysis</div>
             </div>
             <div class="model-slot">
-              <div class="slot-role">Flagship</div>
-              <div class="slot-model">qwen3:32b</div>
-              <div class="slot-params">32B &middot; 32K ctx</div>
-              <div class="slot-use">General deliberation, council agents</div>
+              <div data-i18n="diagDivFlagship4" class="slot-role">Flagship</div>
+              <div data-i18n="diagDivQwen332b" class="slot-model">qwen3:32b</div>
+              <div data-i18n="diagDiv32bMiddot32kCtx" class="slot-params">32B &middot; 32K ctx</div>
+              <div data-i18n="diagDivGeneralDeliberationCouncilAgents" class="slot-use">General deliberation, council agents</div>
             </div>
             <div class="model-slot">
-              <div class="slot-role">Reasoning</div>
-              <div class="slot-model">deepseek-r1:32b</div>
-              <div class="slot-params">32B &middot; 128K ctx</div>
-              <div class="slot-use">Compliance, risk analysis, logic chains</div>
+              <div data-i18n="diagDivReasoning" class="slot-role">Reasoning</div>
+              <div data-i18n="diagDivDeepseekR132b" class="slot-model">deepseek-r1:32b</div>
+              <div data-i18n="diagDiv32bMiddot128kCtx" class="slot-params">32B &middot; 128K ctx</div>
+              <div data-i18n="diagDivComplianceRiskAnalysisLogicChains" class="slot-use">Compliance, risk analysis, logic chains</div>
             </div>
             <div class="model-slot">
-              <div class="slot-role">Coder</div>
-              <div class="slot-model">qwen3-coder:30b</div>
-              <div class="slot-params">30B &middot; 131K ctx</div>
-              <div class="slot-use">SQL generation, data transforms, code</div>
+              <div data-i18n="diagDivCoder" class="slot-role">Coder</div>
+              <div data-i18n="diagDivQwen3Coder30b" class="slot-model">qwen3-coder:30b</div>
+              <div data-i18n="diagDiv30bMiddot131kCtx" class="slot-params">30B &middot; 131K ctx</div>
+              <div data-i18n="diagDivSqlGenerationDataTransformsCode" class="slot-use">SQL generation, data transforms, code</div>
             </div>
             <div class="model-slot">
-              <div class="slot-role">Fast</div>
-              <div class="slot-model">llama3.2:3b</div>
-              <div class="slot-params">3B &middot; 128K ctx</div>
-              <div class="slot-use">Classification, routing, quick lookups</div>
+              <div data-i18n="diagDivFast" class="slot-role">Fast</div>
+              <div data-i18n="diagDivLlama33b" class="slot-model">llama3.2:3b</div>
+              <div data-i18n="diagDiv3bMiddot128kCtx" class="slot-params">3B &middot; 128K ctx</div>
+              <div data-i18n="diagDivClassificationRoutingQuickLookups" class="slot-use">Classification, routing, quick lookups</div>
             </div>
             <div class="model-slot">
-              <div class="slot-role">Vision</div>
-              <div class="slot-model">qwen3-vl:30b</div>
-              <div class="slot-params">30B &middot; multimodal</div>
-              <div class="slot-use">Document OCR, image analysis, charts</div>
+              <div data-i18n="diagDivVision" class="slot-role">Vision</div>
+              <div data-i18n="diagDivQwen3Vl30b" class="slot-model">qwen3-vl:30b</div>
+              <div data-i18n="diagDiv30bMiddotMultimodal" class="slot-params">30B &middot; multimodal</div>
+              <div data-i18n="diagDivDocumentOcrImageAnalysisCharts" class="slot-use">Document OCR, image analysis, charts</div>
             </div>
             <div class="model-slot">
-              <div class="slot-role">Translator</div>
-              <div class="slot-model">qwen2.5:32b</div>
-              <div class="slot-params">32B &middot; 128K ctx</div>
-              <div class="slot-use">100+ languages, RTL, glossary-aware</div>
+              <div data-i18n="diagDivTranslator" class="slot-role">Translator</div>
+              <div data-i18n="diagDivQwen232b" class="slot-model">qwen2.5:32b</div>
+              <div data-i18n="diagDiv32bMiddot128kCtx2" class="slot-params">32B &middot; 128K ctx</div>
+              <div data-i18n="diagDiv100LanguagesRtlGlossaryAware" class="slot-use">100+ languages, RTL, glossary-aware</div>
             </div>
             <div class="model-slot">
-              <div class="slot-role">Embed</div>
-              <div class="slot-model">qwen3-embed:4b</div>
-              <div class="slot-params">4B &middot; 2560-dim</div>
-              <div class="slot-use">Semantic search, RAG, similarity</div>
+              <div data-i18n="diagDivEmbed" class="slot-role">Embed</div>
+              <div data-i18n="diagDivQwen3Embed4b" class="slot-model">qwen3-embed:4b</div>
+              <div data-i18n="diagDiv4bMiddot2560Dim" class="slot-params">4B &middot; 2560-dim</div>
+              <div data-i18n="diagDivSemanticSearchRagSimilarity" class="slot-use">Semantic search, RAG, similarity</div>
             </div>
           </div>
-          <p class="model-arch-footer">All models are env-var configurable &middot; Swap any model without code changes &middot; License tier controls which slots are available</p>
+          <p data-i18n="diagPAllModelsAreEnvVar" class="model-arch-footer">All models are env-var configurable &middot; Swap any model without code changes &middot; License tier controls which slots are available</p>
         </div>
       </section>
 
@@ -1009,58 +1009,58 @@
       <!-- DIAGRAM 10: EVIDENCE PACKET ANATOMY                          -->
       <!-- ============================================================ -->
       <section id="evidence-packet" class="diagram-section">
-        <p class="diagram-section-label">Diagram 10 of 12</p>
-        <h2 class="diagram-section-title">Evidence Packet Anatomy</h2>
-        <p class="diagram-section-desc">What&rsquo;s inside a Regulator&rsquo;s Receipt&trade;. Every layer is independently verifiable. This is what you hand to the auditor.</p>
+        <p data-i18n="diagPDiagram10Of12" class="diagram-section-label">Diagram 10 of 12</p>
+        <h2 data-i18n="diagH2EvidencePacketAnatomy" class="diagram-section-title">Evidence Packet Anatomy</h2>
+        <p data-i18n="diagPWhatRsquoInsideRegulatorRsquo" class="diagram-section-desc">What&rsquo;s inside a Regulator&rsquo;s Receipt&trade;. Every layer is independently verifiable. This is what you hand to the auditor.</p>
 
         <div class="packet-anatomy">
           <div class="packet-header">
-            <div class="packet-title">Decision Packet</div>
-            <div class="packet-id">run_id: 2026-0221-1430-a7f3b2</div>
+            <div data-i18n="diagDivDecisionPacket" class="packet-title">Decision Packet</div>
+            <div data-i18n="diagDivRun_id202602211430A7f3b2" class="packet-id">run_id: 2026-0221-1430-a7f3b2</div>
           </div>
           <div class="packet-layer">
             <div class="layer-icon">&#128279;</div>
-            <div class="layer-name">Merkle Root</div>
-            <div class="layer-detail">SHA-256 integrity tree &mdash; any single leaf change invalidates the root. Tamper-proof by construction.</div>
+            <div data-i18n="diagDivMerkleRoot" class="layer-name">Merkle Root</div>
+            <div data-i18n="diagDivSha256IntegrityTreeMdash" class="layer-detail">SHA-256 integrity tree &mdash; any single leaf change invalidates the root. Tamper-proof by construction.</div>
           </div>
           <div class="packet-layer">
             <div class="layer-icon">&#129302;</div>
-            <div class="layer-name">Agent Contributions</div>
-            <div class="layer-detail">Each agent&rsquo;s analysis, vote, confidence score, and reasoning chain. CFO, CLO, CISO, CTO, Ethics, Risk, Strategy&hellip;</div>
+            <div data-i18n="diagDivAgentContributions" class="layer-name">Agent Contributions</div>
+            <div data-i18n="diagDivEachAgentRsquoAnalysisVote" class="layer-detail">Each agent&rsquo;s analysis, vote, confidence score, and reasoning chain. CFO, CLO, CISO, CTO, Ethics, Risk, Strategy&hellip;</div>
           </div>
           <div class="packet-layer">
             <div class="layer-icon">&#9888;&#65039;</div>
-            <div class="layer-name">Dissenting Opinions</div>
-            <div class="layer-detail">Preserved, timestamped, non-suppressible. Tracked to outcome for institutional learning.</div>
+            <div data-i18n="diagDivDissentingOpinions" class="layer-name">Dissenting Opinions</div>
+            <div data-i18n="diagDivPreservedTimestampedNonSuppressibleTracked" class="layer-detail">Preserved, timestamped, non-suppressible. Tracked to outcome for institutional learning.</div>
           </div>
           <div class="packet-layer">
             <div class="layer-icon">&#128206;</div>
-            <div class="layer-name">Evidence Citations</div>
-            <div class="layer-detail">Source documents, data points, and knowledge base references &mdash; each with content hash and retrieval timestamp.</div>
+            <div data-i18n="diagDivEvidenceCitations" class="layer-name">Evidence Citations</div>
+            <div data-i18n="diagDivSourceDocumentsDataPointsAnd" class="layer-detail">Source documents, data points, and knowledge base references &mdash; each with content hash and retrieval timestamp.</div>
           </div>
           <div class="packet-layer">
             <div class="layer-icon">&#128736;&#65039;</div>
-            <div class="layer-name">Tool Call Traces</div>
-            <div class="layer-detail">Every external tool invoked during deliberation: database queries, API calls, calculations &mdash; with inputs, outputs, and duration.</div>
+            <div data-i18n="diagDivToolCallTraces" class="layer-name">Tool Call Traces</div>
+            <div data-i18n="diagDivEveryExternalToolInvokedDuring" class="layer-detail">Every external tool invoked during deliberation: database queries, API calls, calculations &mdash; with inputs, outputs, and duration.</div>
           </div>
           <div class="packet-layer">
             <div class="layer-icon">&#128275;</div>
-            <div class="layer-name">Policy Gate Results</div>
-            <div class="layer-detail">Which compliance frameworks were checked, which rules triggered, what approvals were required and obtained.</div>
+            <div data-i18n="diagDivPolicyGateResults" class="layer-name">Policy Gate Results</div>
+            <div data-i18n="diagDivWhichComplianceFrameworksWereChecked" class="layer-detail">Which compliance frameworks were checked, which rules triggered, what approvals were required and obtained.</div>
           </div>
           <div class="packet-layer">
             <div class="layer-icon">&#127919;</div>
-            <div class="layer-name">IISS Score Snapshot</div>
-            <div class="layer-detail">Institutional Immune System Score at time of decision &mdash; 9 primitive scores, weighted composite, certification band.</div>
+            <div data-i18n="diagDivIissScoreSnapshot" class="layer-name">IISS Score Snapshot</div>
+            <div data-i18n="diagDivInstitutionalImmuneSystemScoreAt" class="layer-detail">Institutional Immune System Score at time of decision &mdash; 9 primitive scores, weighted composite, certification band.</div>
           </div>
           <div class="packet-layer">
             <div class="layer-icon">&#128396;&#65039;</div>
-            <div class="layer-name">Digital Signature</div>
-            <div class="layer-detail">KMS/HSM-backed signature (AWS KMS, HashiCorp Vault, Azure Key Vault, or local). Post-quantum ready (Dilithium, SPHINCS+).</div>
+            <div data-i18n="diagDivDigitalSignature" class="layer-name">Digital Signature</div>
+            <div data-i18n="diagDivKmsHsmBackedSignatureAws" class="layer-detail">KMS/HSM-backed signature (AWS KMS, HashiCorp Vault, Azure Key Vault, or local). Post-quantum ready (Dilithium, SPHINCS+).</div>
           </div>
           <div class="packet-footer">
-            <span>Verification: any leaf &rarr; root provable</span>
-            <span>Export: PDF/A-3 &middot; JSON &middot; XML</span>
+            <span data-i18n="diagSpanVerificationAnyLeafRarrRoot">Verification: any leaf &rarr; root provable</span>
+            <span data-i18n="diagSpanExportPdfMiddotJsonMiddot">Export: PDF/A-3 &middot; JSON &middot; XML</span>
           </div>
         </div>
       </section>
@@ -1069,88 +1069,88 @@
       <!-- DIAGRAM 11: DEPLOYMENT STACK                                 -->
       <!-- ============================================================ -->
       <section id="deployment-stack" class="diagram-section">
-        <p class="diagram-section-label">Diagram 11 of 12</p>
-        <h2 class="diagram-section-title">Deployment Stack</h2>
-        <p class="diagram-section-desc">Everything runs on your infrastructure. Every component is a recognized, auditable technology. Nothing proprietary in the data path.</p>
+        <p data-i18n="diagPDiagram11Of12" class="diagram-section-label">Diagram 11 of 12</p>
+        <h2 data-i18n="diagH2DeploymentStack" class="diagram-section-title">Deployment Stack</h2>
+        <p data-i18n="diagPEverythingRunsOnYourInfrastructure" class="diagram-section-desc">Everything runs on your infrastructure. Every component is a recognized, auditable technology. Nothing proprietary in the data path.</p>
 
         <div class="stack-diagram">
-          <div class="stack-row-label">Presentation</div>
+          <div data-i18n="diagDivPresentation" class="stack-row-label">Presentation</div>
           <div class="stack-row" style="grid-template-columns: 1fr 1fr;">
             <div class="stack-item">
-              <div class="stack-name">React SPA</div>
-              <div class="stack-role">Dashboard, Council UI, DCII tabs</div>
+              <div data-i18n="diagDivReactSpa" class="stack-name">React SPA</div>
+              <div data-i18n="diagDivDashboardCouncilUiDciiTabs" class="stack-role">Dashboard, Council UI, DCII tabs</div>
             </div>
             <div class="stack-item">
-              <div class="stack-name">WebSocket</div>
-              <div class="stack-role">Live deliberation streaming</div>
+              <div data-i18n="diagDivWebsocket" class="stack-name">WebSocket</div>
+              <div data-i18n="diagDivLiveDeliberationStreaming" class="stack-role">Live deliberation streaming</div>
             </div>
           </div>
-          <div class="stack-row-label">API &amp; Auth</div>
+          <div data-i18n="diagDivApiAmpAuth" class="stack-row-label">API &amp; Auth</div>
           <div class="stack-row" style="grid-template-columns: 1fr 1fr 1fr;">
             <div class="stack-item">
-              <div class="stack-name">Express REST</div>
-              <div class="stack-role">59+ API endpoints</div>
+              <div data-i18n="diagDivExpressRest" class="stack-name">Express REST</div>
+              <div data-i18n="diagDiv59ApiEndpoints" class="stack-role">59+ API endpoints</div>
             </div>
             <div class="stack-item">
-              <div class="stack-name">JWT + Keycloak</div>
-              <div class="stack-role">SSO, RBAC, Casbin policy</div>
+              <div data-i18n="diagDivJwtKeycloak" class="stack-name">JWT + Keycloak</div>
+              <div data-i18n="diagDivSsoRbacCasbinPolicy" class="stack-role">SSO, RBAC, Casbin policy</div>
             </div>
             <div class="stack-item">
-              <div class="stack-name">Rate Limiter</div>
-              <div class="stack-role">CSRF, Helmet, OWASP</div>
+              <div data-i18n="diagDivRateLimiter" class="stack-name">Rate Limiter</div>
+              <div data-i18n="diagDivCsrfHelmetOwasp" class="stack-role">CSRF, Helmet, OWASP</div>
             </div>
           </div>
-          <div class="stack-row-label">AI Layer</div>
+          <div data-i18n="diagDivAiLayer" class="stack-row-label">AI Layer</div>
           <div class="stack-row" style="grid-template-columns: 1fr 1fr;">
             <div class="stack-item">
-              <div class="stack-name">Ollama</div>
-              <div class="stack-role">8 local AI models &middot; no cloud calls</div>
+              <div data-i18n="diagDivOllama" class="stack-name">Ollama</div>
+              <div data-i18n="diagDivLocalAiModelsMiddotNo" class="stack-role">8 local AI models &middot; no cloud calls</div>
             </div>
             <div class="stack-item">
-              <div class="stack-name">Qdrant</div>
-              <div class="stack-role">2560-dim vector search &middot; RAG</div>
+              <div data-i18n="diagDivQdrant" class="stack-name">Qdrant</div>
+              <div data-i18n="diagDiv2560DimVectorSearchMiddot" class="stack-role">2560-dim vector search &middot; RAG</div>
             </div>
           </div>
-          <div class="stack-row-label">Data</div>
+          <div data-i18n="diagDivData" class="stack-row-label">Data</div>
           <div class="stack-row" style="grid-template-columns: repeat(5, 1fr);">
             <div class="stack-item">
-              <div class="stack-name">PostgreSQL</div>
-              <div class="stack-role">Prisma ORM</div>
+              <div data-i18n="diagDivPostgresql" class="stack-name">PostgreSQL</div>
+              <div data-i18n="diagDivPrismaOrm" class="stack-role">Prisma ORM</div>
             </div>
             <div class="stack-item">
-              <div class="stack-name">Neo4j</div>
-              <div class="stack-role">Knowledge graph</div>
+              <div data-i18n="diagDivNeo4j" class="stack-name">Neo4j</div>
+              <div data-i18n="diagDivKnowledgeGraph" class="stack-role">Knowledge graph</div>
             </div>
             <div class="stack-item">
-              <div class="stack-name">Redis</div>
-              <div class="stack-role">Cache &middot; sessions</div>
+              <div data-i18n="diagDivRedis" class="stack-name">Redis</div>
+              <div data-i18n="diagDivCacheMiddotSessions" class="stack-role">Cache &middot; sessions</div>
             </div>
             <div class="stack-item">
-              <div class="stack-name">ClickHouse</div>
-              <div class="stack-role">Analytics &middot; OLAP</div>
+              <div data-i18n="diagDivClickhouse" class="stack-name">ClickHouse</div>
+              <div data-i18n="diagDivAnalyticsMiddotOlap" class="stack-role">Analytics &middot; OLAP</div>
             </div>
             <div class="stack-item">
-              <div class="stack-name">MinIO</div>
-              <div class="stack-role">Object storage</div>
+              <div data-i18n="diagDivMinio" class="stack-name">MinIO</div>
+              <div data-i18n="diagDivObjectStorage" class="stack-role">Object storage</div>
             </div>
           </div>
-          <div class="stack-row-label">Security &amp; Integrity</div>
+          <div data-i18n="diagDivSecurityAmpIntegrity" class="stack-row-label">Security &amp; Integrity</div>
           <div class="stack-row" style="grid-template-columns: repeat(4, 1fr);">
             <div class="stack-item">
-              <div class="stack-name">PostQuantum KMS</div>
-              <div class="stack-role">Dilithium &middot; SPHINCS+</div>
+              <div data-i18n="diagDivPostquantumKms" class="stack-name">PostQuantum KMS</div>
+              <div data-i18n="diagDivDilithiumMiddotSphincs" class="stack-role">Dilithium &middot; SPHINCS+</div>
             </div>
             <div class="stack-item">
-              <div class="stack-name">Apache Tika</div>
-              <div class="stack-role">Document extraction</div>
+              <div data-i18n="diagDivApacheTika" class="stack-name">Apache Tika</div>
+              <div data-i18n="diagDivDocumentExtraction" class="stack-role">Document extraction</div>
             </div>
             <div class="stack-item">
-              <div class="stack-name">ClamAV</div>
-              <div class="stack-role">Malware scanning</div>
+              <div data-i18n="diagDivClamav" class="stack-name">ClamAV</div>
+              <div data-i18n="diagDivMalwareScanning" class="stack-role">Malware scanning</div>
             </div>
             <div class="stack-item">
-              <div class="stack-name">OpenTelemetry</div>
-              <div class="stack-role">Observability &middot; tracing</div>
+              <div data-i18n="diagDivOpentelemetry" class="stack-name">OpenTelemetry</div>
+              <div data-i18n="diagDivObservabilityMiddotTracing" class="stack-role">Observability &middot; tracing</div>
             </div>
           </div>
           <div class="stack-sovereignty">&#128274; Nothing leaves this box. Your keys. Your data. Your infrastructure.</div>
@@ -1161,69 +1161,69 @@
       <!-- DIAGRAM 12: LICENSE TIER GATING                              -->
       <!-- ============================================================ -->
       <section id="tier-gating" class="diagram-section">
-        <p class="diagram-section-label">Diagram 12 of 12</p>
-        <h2 class="diagram-section-title">License Tier Model Gating</h2>
-        <p class="diagram-section-desc">Each license tier unlocks progressively more powerful AI models. Automatic downgrade ensures graceful degradation. No feature breaks &mdash; just smaller models.</p>
+        <p data-i18n="diagPDiagram12Of12" class="diagram-section-label">Diagram 12 of 12</p>
+        <h2 data-i18n="diagH2LicenseTierModelGating" class="diagram-section-title">License Tier Model Gating</h2>
+        <p data-i18n="diagPEachLicenseTierUnlocksProgressively" class="diagram-section-desc">Each license tier unlocks progressively more powerful AI models. Automatic downgrade ensures graceful degradation. No feature breaks &mdash; just smaller models.</p>
 
         <div class="tier-gating">
           <div class="tier-gate">
             <div class="tier-gate-header">
-              <div class="gate-name">Pilot</div>
-              <div class="gate-price">$50K &middot; 90 days</div>
+              <div data-i18n="diagDivPilot" class="gate-name">Pilot</div>
+              <div data-i18n="diagDiv50kMiddot90Days" class="gate-price">$50K &middot; 90 days</div>
             </div>
             <div class="tier-gate-body">
-              <div class="gate-row"><span class="gate-label">Max model size</span><span class="gate-value">14B</span></div>
-              <div class="gate-row"><span class="gate-label">Flagship</span><span class="gate-value">qwen2.5:14b</span></div>
-              <div class="gate-row"><span class="gate-label">Reasoning</span><span class="gate-value">deepseek-r1:14b</span></div>
-              <div class="gate-row"><span class="gate-label">Fast</span><span class="gate-value enabled">llama3.2:3b</span></div>
-              <div class="gate-row"><span class="gate-label">Embed</span><span class="gate-value enabled">qwen3-embed:4b</span></div>
-              <div class="gate-row"><span class="gate-label">Large (70B)</span><span class="gate-value disabled">&mdash;</span></div>
-              <div class="gate-row"><span class="gate-label">Coder</span><span class="gate-value disabled">&mdash;</span></div>
-              <div class="gate-row"><span class="gate-label">Vision</span><span class="gate-value disabled">&mdash;</span></div>
-              <div class="gate-row"><span class="gate-label">Consensus</span><span class="gate-value disabled">&mdash;</span></div>
-              <div class="gate-row"><span class="gate-label">Red-team</span><span class="gate-value disabled">&mdash;</span></div>
+              <div class="gate-row"><span data-i18n="diagSpanMaxModelSize" class="gate-label">Max model size</span><span class="gate-value">14B</span></div>
+              <div class="gate-row"><span data-i18n="diagSpanFlagship" class="gate-label">Flagship</span><span class="gate-value">qwen2.5:14b</span></div>
+              <div class="gate-row"><span data-i18n="diagSpanReasoning" class="gate-label">Reasoning</span><span class="gate-value">deepseek-r1:14b</span></div>
+              <div class="gate-row"><span data-i18n="diagSpanFast" class="gate-label">Fast</span><span class="gate-value enabled">llama3.2:3b</span></div>
+              <div class="gate-row"><span data-i18n="diagSpanEmbed" class="gate-label">Embed</span><span class="gate-value enabled">qwen3-embed:4b</span></div>
+              <div class="gate-row"><span data-i18n="diagSpanLarge70b" class="gate-label">Large (70B)</span><span class="gate-value disabled">&mdash;</span></div>
+              <div class="gate-row"><span data-i18n="diagSpanCoder" class="gate-label">Coder</span><span class="gate-value disabled">&mdash;</span></div>
+              <div class="gate-row"><span data-i18n="diagSpanVision" class="gate-label">Vision</span><span class="gate-value disabled">&mdash;</span></div>
+              <div class="gate-row"><span data-i18n="diagSpanConsensus" class="gate-label">Consensus</span><span class="gate-value disabled">&mdash;</span></div>
+              <div class="gate-row"><span data-i18n="diagSpanRedTeam" class="gate-label">Red-team</span><span class="gate-value disabled">&mdash;</span></div>
             </div>
-            <div class="tier-gate-footer">Prove it &mdash; 3 models + embed</div>
+            <div data-i18n="diagDivProveItMdashModelsEmbed" class="tier-gate-footer">Prove it &mdash; 3 models + embed</div>
           </div>
 
           <div class="tier-gate" style="border-color: var(--color-gold-border);">
             <div class="tier-gate-header" style="background: linear-gradient(135deg, rgba(201,162,39,0.1), transparent);">
-              <div class="gate-name">Enterprise</div>
-              <div class="gate-price">$150K&ndash;$500K / year</div>
+              <div data-i18n="diagDivEnterprise" class="gate-name">Enterprise</div>
+              <div data-i18n="diagDiv150kNdash500kYear" class="gate-price">$150K&ndash;$500K / year</div>
             </div>
             <div class="tier-gate-body">
-              <div class="gate-row"><span class="gate-label">Max model size</span><span class="gate-value">32B</span></div>
-              <div class="gate-row"><span class="gate-label">Flagship</span><span class="gate-value enabled">qwen3:32b</span></div>
-              <div class="gate-row"><span class="gate-label">Reasoning</span><span class="gate-value enabled">deepseek-r1:32b</span></div>
-              <div class="gate-row"><span class="gate-label">Fast</span><span class="gate-value enabled">llama3.2:3b</span></div>
-              <div class="gate-row"><span class="gate-label">Embed</span><span class="gate-value enabled">qwen3-embed:4b</span></div>
-              <div class="gate-row"><span class="gate-label">Large (70B)</span><span class="gate-value disabled">&mdash;</span></div>
-              <div class="gate-row"><span class="gate-label">Coder</span><span class="gate-value enabled">qwen3-coder:30b</span></div>
-              <div class="gate-row"><span class="gate-label">Vision</span><span class="gate-value enabled">qwen3-vl:30b</span></div>
-              <div class="gate-row"><span class="gate-label">Consensus</span><span class="gate-value enabled">&#10003;</span></div>
-              <div class="gate-row"><span class="gate-label">Red-team</span><span class="gate-value enabled">&#10003;</span></div>
+              <div class="gate-row"><span data-i18n="diagSpanMaxModelSize2" class="gate-label">Max model size</span><span class="gate-value">32B</span></div>
+              <div class="gate-row"><span data-i18n="diagSpanFlagship2" class="gate-label">Flagship</span><span class="gate-value enabled">qwen3:32b</span></div>
+              <div class="gate-row"><span data-i18n="diagSpanReasoning2" class="gate-label">Reasoning</span><span class="gate-value enabled">deepseek-r1:32b</span></div>
+              <div class="gate-row"><span data-i18n="diagSpanFast2" class="gate-label">Fast</span><span class="gate-value enabled">llama3.2:3b</span></div>
+              <div class="gate-row"><span data-i18n="diagSpanEmbed2" class="gate-label">Embed</span><span class="gate-value enabled">qwen3-embed:4b</span></div>
+              <div class="gate-row"><span data-i18n="diagSpanLarge70b2" class="gate-label">Large (70B)</span><span class="gate-value disabled">&mdash;</span></div>
+              <div class="gate-row"><span data-i18n="diagSpanCoder2" class="gate-label">Coder</span><span class="gate-value enabled">qwen3-coder:30b</span></div>
+              <div class="gate-row"><span data-i18n="diagSpanVision2" class="gate-label">Vision</span><span class="gate-value enabled">qwen3-vl:30b</span></div>
+              <div class="gate-row"><span data-i18n="diagSpanConsensus2" class="gate-label">Consensus</span><span class="gate-value enabled">&#10003;</span></div>
+              <div class="gate-row"><span data-i18n="diagSpanRedTeam2" class="gate-label">Red-team</span><span class="gate-value enabled">&#10003;</span></div>
             </div>
-            <div class="tier-gate-footer">Scale it &mdash; full 32B stack</div>
+            <div data-i18n="diagDivScaleItMdashFull32b" class="tier-gate-footer">Scale it &mdash; full 32B stack</div>
           </div>
 
           <div class="tier-gate">
             <div class="tier-gate-header">
-              <div class="gate-name">Sovereign</div>
-              <div class="gate-price">$500K&ndash;$1.5M / year</div>
+              <div data-i18n="diagDivSovereign" class="gate-name">Sovereign</div>
+              <div data-i18n="diagDiv500kNdash5mYear" class="gate-price">$500K&ndash;$1.5M / year</div>
             </div>
             <div class="tier-gate-body">
-              <div class="gate-row"><span class="gate-label">Max model size</span><span class="gate-value">70B+</span></div>
-              <div class="gate-row"><span class="gate-label">Flagship</span><span class="gate-value enabled">qwen3:32b</span></div>
-              <div class="gate-row"><span class="gate-label">Reasoning</span><span class="gate-value enabled">deepseek-r1:32b</span></div>
-              <div class="gate-row"><span class="gate-label">Fast</span><span class="gate-value enabled">llama3.2:3b</span></div>
-              <div class="gate-row"><span class="gate-label">Embed</span><span class="gate-value enabled">qwen3-embed:4b</span></div>
-              <div class="gate-row"><span class="gate-label">Large (70B)</span><span class="gate-value enabled">llama3.3:70b</span></div>
-              <div class="gate-row"><span class="gate-label">Coder</span><span class="gate-value enabled">qwen3-coder:30b</span></div>
-              <div class="gate-row"><span class="gate-label">Vision</span><span class="gate-value enabled">qwen3-vl:30b</span></div>
-              <div class="gate-row"><span class="gate-label">Consensus</span><span class="gate-value enabled">&#10003;</span></div>
-              <div class="gate-row"><span class="gate-label">Red-team</span><span class="gate-value enabled">&#10003;</span></div>
+              <div class="gate-row"><span data-i18n="diagSpanMaxModelSize3" class="gate-label">Max model size</span><span class="gate-value">70B+</span></div>
+              <div class="gate-row"><span data-i18n="diagSpanFlagship3" class="gate-label">Flagship</span><span class="gate-value enabled">qwen3:32b</span></div>
+              <div class="gate-row"><span data-i18n="diagSpanReasoning3" class="gate-label">Reasoning</span><span class="gate-value enabled">deepseek-r1:32b</span></div>
+              <div class="gate-row"><span data-i18n="diagSpanFast3" class="gate-label">Fast</span><span class="gate-value enabled">llama3.2:3b</span></div>
+              <div class="gate-row"><span data-i18n="diagSpanEmbed3" class="gate-label">Embed</span><span class="gate-value enabled">qwen3-embed:4b</span></div>
+              <div class="gate-row"><span data-i18n="diagSpanLarge70b3" class="gate-label">Large (70B)</span><span class="gate-value enabled">llama3.3:70b</span></div>
+              <div class="gate-row"><span data-i18n="diagSpanCoder3" class="gate-label">Coder</span><span class="gate-value enabled">qwen3-coder:30b</span></div>
+              <div class="gate-row"><span data-i18n="diagSpanVision3" class="gate-label">Vision</span><span class="gate-value enabled">qwen3-vl:30b</span></div>
+              <div class="gate-row"><span data-i18n="diagSpanConsensus3" class="gate-label">Consensus</span><span class="gate-value enabled">&#10003;</span></div>
+              <div class="gate-row"><span data-i18n="diagSpanRedTeam3" class="gate-label">Red-team</span><span class="gate-value enabled">&#10003;</span></div>
             </div>
-            <div class="tier-gate-footer">Own everything &mdash; 70B + air-gap + PQ crypto</div>
+            <div data-i18n="diagDivOwnEverythingMdash70bAir" class="tier-gate-footer">Own everything &mdash; 70B + air-gap + PQ crypto</div>
           </div>
         </div>
       </section>
@@ -1241,11 +1241,11 @@
   <footer style="text-align: center; padding: 48px 24px; font-size: 0.65rem; color: var(--color-text-dim);">
     <p data-i18n="diagFooterCopy">&copy; 2024–2026 Datacendia, LLC. All rights reserved.</p>
     <p style="margin-top: 8px;">
-      <a href="index.html" style="color: var(--color-text-dim); text-decoration: none;">Home</a> &middot;
-      <a href="pricing.html" style="color: var(--color-text-dim); text-decoration: none;">Pricing</a> &middot;
-      <a href="premium.html" style="color: var(--color-text-dim); text-decoration: none;">Premium</a> &middot;
-      <a href="trust.html" style="color: var(--color-text-dim); text-decoration: none;">Trust</a> &middot;
-      <a href="briefing.html" style="color: var(--color-text-dim); text-decoration: none;">Briefing</a>
+      <a data-i18n="diagAHome" href="index.html" style="color: var(--color-text-dim); text-decoration: none;">Home</a> &middot;
+      <a data-i18n="diagAPricing" href="pricing.html" style="color: var(--color-text-dim); text-decoration: none;">Pricing</a> &middot;
+      <a data-i18n="diagAPremium" href="premium.html" style="color: var(--color-text-dim); text-decoration: none;">Premium</a> &middot;
+      <a data-i18n="diagATrust" href="trust.html" style="color: var(--color-text-dim); text-decoration: none;">Trust</a> &middot;
+      <a data-i18n="diagABriefing" href="briefing.html" style="color: var(--color-text-dim); text-decoration: none;">Briefing</a>
     </p>
   </footer>
   <script src="nav-mobile.js"></script>

@@ -34,14 +34,14 @@
       <div class="page-top-bar">
         <a href="index.html" class="back-link" data-i18n="wgBackLink">← Return to Datacendia</a>
         <div class="lang-selector">
-          <button class="lang-btn"><span class="lang-current">English</span> ▾</button>
+          <button class="lang-btn"><span data-i18n="wgSpanEnglish" class="lang-current">English</span> ▾</button>
           <div class="lang-dropdown">
-            <button data-lang="en">English</button>
-            <button data-lang="es">Español</button>
-            <button data-lang="fr">Français</button>
-            <button data-lang="de">Deutsch</button>
-            <button data-lang="pt">Português</button>
-            <button data-lang="it">Italiano</button>
+            <button data-i18n="wgButtonEnglish" data-lang="en">English</button>
+            <button data-i18n="wgButtonEspaOl" data-lang="es">Español</button>
+            <button data-i18n="wgButtonFranAis" data-lang="fr">Français</button>
+            <button data-i18n="wgButtonDeutsch" data-lang="de">Deutsch</button>
+            <button data-i18n="wgButtonPortugu" data-lang="pt">Português</button>
+            <button data-i18n="wgButtonItaliano" data-lang="it">Italiano</button>
             <button data-lang="ja">日本語</button>
             <button data-lang="ko">한국어</button>
             <button data-lang="zh">中文</button>
@@ -101,7 +101,7 @@
 
       <div class="wargame-intro">
         <p>
-          These are not hypotheticals. Each simulation uses <strong>publicly available data</strong> — SEC filings, earnings calls, news reports, and regulatory documents — that existed <em>before</em> the outcome was known. We feed this data to The Council and ask: <strong>"Would structured multi-agent review have surfaced the material risk?"</strong><br><br><em style="font-size:0.82rem; color:var(--color-text-dim);">These simulations do not claim inevitability. They demonstrate whether structured review would have surfaced risk before outcome. Probability assessments are heuristic estimates derived from the simulation, not statistical models.</em><br><br><em style="font-size:0.82rem; color:var(--color-text-dim);">These simulations are retrospective stress tests, not predictive models. They are designed to evaluate whether material risk signals were present and surfaceable — not to assert that outcomes were certain or preventable.</em>
+          These are not hypotheticals. Each simulation uses <strong data-i18n="wgStrongPubliclyAvailableData">publicly available data</strong> — SEC filings, earnings calls, news reports, and regulatory documents — that existed <em>before</em> the outcome was known. We feed this data to The Council and ask: <strong>"Would structured multi-agent review have surfaced the material risk?"</strong><br><br><em data-i18n="wgEmTheseSimulationsDoNotClaim" style="font-size:0.82rem; color:var(--color-text-dim);">These simulations do not claim inevitability. They demonstrate whether structured review would have surfaced risk before outcome. Probability assessments are heuristic estimates derived from the simulation, not statistical models.</em><br><br><em style="font-size:0.82rem; color:var(--color-text-dim);">These simulations are retrospective stress tests, not predictive models. They are designed to evaluate whether material risk signals were present and surfaceable — not to assert that outcomes were certain or preventable.</em>
         </p>
       </div>
 
@@ -111,55 +111,55 @@
           <div class="wargame-title-group">
             <div class="wargame-label" data-i18n="wg1Label">Banking / Treasury Risk</div>
             <h3 class="wargame-title" data-i18n="wg1Title">Silicon Valley Bank Collapse</h3>
-            <p class="wargame-meta">March 2023 · 48-hour bank run · FDIC receivership</p>
+            <p data-i18n="wgPMarch202348HourBank" class="wargame-meta">March 2023 · 48-hour bank run · FDIC receivership</p>
           </div>
           <div class="wargame-loss">
             <div class="wargame-loss-label" data-i18n="wgLossLabel">Total Loss</div>
-            <div class="wargame-loss-value">$209B</div>
+            <div data-i18n="wgDiv209b" class="wargame-loss-value">$209B</div>
           </div>
         </div>
         
         <div class="wargame-scenario">
           <h4 data-i18n="wgDecisionHeading">The Decision Under Analysis</h4>
-          <p>Q4 2021: SVB Treasury team proposes extending duration on the Held-to-Maturity (HTM) securities portfolio to capture yield in a low-rate environment. The portfolio grows from $49B to $91B in long-dated bonds. No interest rate hedges are purchased.</p>
+          <p data-i18n="wgPQ42021SvbTreasuryTeam">Q4 2021: SVB Treasury team proposes extending duration on the Held-to-Maturity (HTM) securities portfolio to capture yield in a low-rate environment. The portfolio grows from $49B to $91B in long-dated bonds. No interest rate hedges are purchased.</p>
         </div>
 
         <div class="council-analysis">
           <h4 data-i18n="wgCouncilHeading">The Council's Analysis</h4>
           <div class="agent-grid">
             <div class="agent-item">
-              <div class="agent-name">CFO Agent</div>
-              <div class="agent-finding">HTM classification masks $15B+ unrealized losses from balance sheet. If forced to sell, capital ratios collapse below regulatory minimums.</div>
+              <div data-i18n="wgDivCfoAgent" class="agent-name">CFO Agent</div>
+              <div data-i18n="wgDivHtmClassificationMasks15bUnrealized" class="agent-finding">HTM classification masks $15B+ unrealized losses from balance sheet. If forced to sell, capital ratios collapse below regulatory minimums.</div>
             </div>
             <div class="agent-item">
-              <div class="agent-name">Risk Agent</div>
-              <div class="agent-finding">Deposit base is 97% uninsured. Concentration in tech/VC sector creates correlated withdrawal risk. Duration mismatch: 3.6yr assets vs. overnight liabilities.</div>
+              <div data-i18n="wgDivRiskAgent" class="agent-name">Risk Agent</div>
+              <div data-i18n="wgDivDepositBaseIs97Uninsured" class="agent-finding">Deposit base is 97% uninsured. Concentration in tech/VC sector creates correlated withdrawal risk. Duration mismatch: 3.6yr assets vs. overnight liabilities.</div>
             </div>
             <div class="agent-item">
-              <div class="agent-name">RedTeam Agent</div>
-              <div class="agent-finding">Simulated scenario: Fed raises rates 400bps over 18 months. Estimated result: $17B unrealized loss, negative tangible equity, potential bank failure within 72 hours of deposit acceleration.</div>
+              <div data-i18n="wgDivRedteamAgent" class="agent-name">RedTeam Agent</div>
+              <div data-i18n="wgDivSimulatedScenarioFedRaisesRates" class="agent-finding">Simulated scenario: Fed raises rates 400bps over 18 months. Estimated result: $17B unrealized loss, negative tangible equity, potential bank failure within 72 hours of deposit acceleration.</div>
             </div>
             <div class="agent-item">
-              <div class="agent-name">Compliance Agent</div>
-              <div class="agent-finding">No regulatory breach at time of decision. However, 10-K risk disclosures understate interest rate sensitivity. Potential securities law exposure if losses crystallize.</div>
+              <div data-i18n="wgDivComplianceAgent" class="agent-name">Compliance Agent</div>
+              <div data-i18n="wgDivNoRegulatoryBreachAtTime" class="agent-finding">No regulatory breach at time of decision. However, 10-K risk disclosures understate interest rate sensitivity. Potential securities law exposure if losses crystallize.</div>
             </div>
           </div>
         </div>
 
         <div class="veto-box">
           <h4 data-i18n="wgRiskEscalation">Material Risk Escalation Triggered</h4>
-          <p><strong>Rationale:</strong> Unhedged duration risk exceeds policy limits. Concentration of uninsured deposits creates liquidity risk that cannot be mitigated by Fed discount window (stigma effect). Recommendation: Cap HTM portfolio at $60B, purchase interest rate swaps, diversify deposit base.</p>
+          <p><strong data-i18n="wgStrongRationale">Rationale:</strong> Unhedged duration risk exceeds policy limits. Concentration of uninsured deposits creates liquidity risk that cannot be mitigated by Fed discount window (stigma effect). Recommendation: Cap HTM portfolio at $60B, purchase interest rate swaps, diversify deposit base.</p>
         </div>
 
         <div class="outcome-box">
           <h4 data-i18n="wgIfRiskAdopted">If Risk Controls Had Been Adopted</h4>
-          <p>With hedges in place and diversified funding, structured risk detection would have identified material duration risk and liquidity concentration before rate cycle stress. The simulation suggests significantly reduced exposure to the conditions that triggered the bank run.</p>
-          <p style="font-size:0.78rem; color:var(--color-text-dim); margin-top:8px; font-style:italic;">This simulation does not claim the outcome was inevitable — it demonstrates that structured review would have surfaced the risk before outcome.</p>
+          <p data-i18n="wgPWithHedgesInPlaceAnd">With hedges in place and diversified funding, structured risk detection would have identified material duration risk and liquidity concentration before rate cycle stress. The simulation suggests significantly reduced exposure to the conditions that triggered the bank run.</p>
+          <p data-i18n="wgPThisSimulationDoesNotClaim" style="font-size:0.78rem; color:var(--color-text-dim); margin-top:8px; font-style:italic;">This simulation does not claim the outcome was inevitable — it demonstrates that structured review would have surfaced the risk before outcome.</p>
         </div>
 
         <div class="data-sources">
           <h4 data-i18n="wgDataSources">Public Data Sources Used</h4>
-          <p>SVB 10-K (2021, 2022), FDIC Call Reports, Federal Reserve H.15 yield curve data, Pitchbook VC funding data, Twitter/X sentiment analysis (March 9-10, 2023).</p>
+          <p data-i18n="wgPSvb1020212022Fdic">SVB 10-K (2021, 2022), FDIC Call Reports, Federal Reserve H.15 yield curve data, Pitchbook VC funding data, Twitter/X sentiment analysis (March 9-10, 2023).</p>
         </div>
       </div>
 
@@ -169,55 +169,55 @@
           <div class="wargame-title-group">
             <div class="wargame-label" data-i18n="wg2Label">Aerospace / Safety Engineering</div>
             <h3 class="wargame-title" data-i18n="wg2Title">Boeing 737 MAX MCAS Failures</h3>
-            <p class="wargame-meta">2018-2019 · Lion Air 610 & Ethiopian 302 · 346 fatalities</p>
+            <p data-i18n="wgP20182019LionAir610" class="wargame-meta">2018-2019 · Lion Air 610 & Ethiopian 302 · 346 fatalities</p>
           </div>
           <div class="wargame-loss">
             <div class="wargame-loss-label" data-i18n="wgCostLabel">Total Cost</div>
-            <div class="wargame-loss-value">$20B+</div>
+            <div data-i18n="wgDiv20b" class="wargame-loss-value">$20B+</div>
           </div>
         </div>
         
         <div class="wargame-scenario">
           <h4 data-i18n="wgDecisionHeading">The Decision Under Analysis</h4>
-          <p>2015-2016: Boeing engineering team proposes MCAS (Maneuvering Characteristics Augmentation System) to compensate for aerodynamic changes from larger engines. System relies on single Angle of Attack (AOA) sensor. Pilot training classified as "Level B" (iPad course, no simulator time) to maintain 737 type rating compatibility.</p>
+          <p data-i18n="wgP20152016BoeingEngineeringTeam">2015-2016: Boeing engineering team proposes MCAS (Maneuvering Characteristics Augmentation System) to compensate for aerodynamic changes from larger engines. System relies on single Angle of Attack (AOA) sensor. Pilot training classified as "Level B" (iPad course, no simulator time) to maintain 737 type rating compatibility.</p>
         </div>
 
         <div class="council-analysis">
           <h4 data-i18n="wgCouncilHeading">The Council's Analysis</h4>
           <div class="agent-grid">
             <div class="agent-item">
-              <div class="agent-name">Risk Agent</div>
-              <div class="agent-finding">Single-point-of-failure architecture. AOA sensor failure rate: ~1 per 100,000 flight hours. With 4,000+ aircraft planned, statistical certainty of multiple sensor failures over fleet life.</div>
+              <div data-i18n="wgDivRiskAgent2" class="agent-name">Risk Agent</div>
+              <div data-i18n="wgDivSinglePointOfFailureArchitecture" class="agent-finding">Single-point-of-failure architecture. AOA sensor failure rate: ~1 per 100,000 flight hours. With 4,000+ aircraft planned, statistical certainty of multiple sensor failures over fleet life.</div>
             </div>
             <div class="agent-item">
-              <div class="agent-name">RedTeam Agent</div>
-              <div class="agent-finding">Simulated: AOA sensor failure at V2+10 on takeoff. MCAS activates, pushes nose down. Pilot has 10 seconds to diagnose and disable. Failure rate in simulator: 67% of pilots could not recover.</div>
+              <div data-i18n="wgDivRedteamAgent2" class="agent-name">RedTeam Agent</div>
+              <div data-i18n="wgDivSimulatedAoaSensorFailureAt" class="agent-finding">Simulated: AOA sensor failure at V2+10 on takeoff. MCAS activates, pushes nose down. Pilot has 10 seconds to diagnose and disable. Failure rate in simulator: 67% of pilots could not recover.</div>
             </div>
             <div class="agent-item">
-              <div class="agent-name">Compliance Agent</div>
-              <div class="agent-finding">FAA delegation allows Boeing self-certification. MCAS authority increased from 0.6° to 2.5° without updated safety analysis. Potential violation of 14 CFR 25.1309 (catastrophic failure probability).</div>
+              <div data-i18n="wgDivComplianceAgent2" class="agent-name">Compliance Agent</div>
+              <div data-i18n="wgDivFaaDelegationAllowsBoeingSelf" class="agent-finding">FAA delegation allows Boeing self-certification. MCAS authority increased from 0.6° to 2.5° without updated safety analysis. Potential violation of 14 CFR 25.1309 (catastrophic failure probability).</div>
             </div>
             <div class="agent-item">
-              <div class="agent-name">Mirror Agent (Pilot)</div>
-              <div class="agent-finding">Pilots not informed of MCAS existence. Runaway stabilizer checklist does not address MCAS-specific behavior. Training gap creates "automation surprise" risk.</div>
+              <div data-i18n="wgDivMirrorAgentPilot" class="agent-name">Mirror Agent (Pilot)</div>
+              <div data-i18n="wgDivPilotsNotInformedOfMcas" class="agent-finding">Pilots not informed of MCAS existence. Runaway stabilizer checklist does not address MCAS-specific behavior. Training gap creates "automation surprise" risk.</div>
             </div>
           </div>
         </div>
 
         <div class="veto-box">
           <h4 data-i18n="wgRiskEscalation">Material Risk Escalation Triggered</h4>
-          <p><strong>Rationale:</strong> Single-sensor architecture for flight-critical system violates fundamental safety engineering principles. Pilot training inadequate for system complexity. Recommendation: Dual AOA sensor requirement, disagree light standard, Level D simulator training mandatory.</p>
+          <p><strong data-i18n="wgStrongRationale2">Rationale:</strong> Single-sensor architecture for flight-critical system violates fundamental safety engineering principles. Pilot training inadequate for system complexity. Recommendation: Dual AOA sensor requirement, disagree light standard, Level D simulator training mandatory.</p>
         </div>
 
         <div class="outcome-box">
           <h4 data-i18n="wgIfRiskAdopted">If Risk Controls Had Been Adopted</h4>
-          <p>With dual-sensor architecture and proper training requirements, the simulation identifies that the single-point-of-failure risk and training gap would have been surfaced during structured review. Established safety engineering principles strongly caution against single-sensor flight-critical architectures.</p>
-          <p style="font-size:0.78rem; color:var(--color-text-dim); margin-top:8px; font-style:italic;">This simulation does not claim the outcome was inevitable — it demonstrates that structured review would have surfaced the risk before outcome.</p>
+          <p data-i18n="wgPWithDualSensorArchitectureAnd">With dual-sensor architecture and proper training requirements, the simulation identifies that the single-point-of-failure risk and training gap would have been surfaced during structured review. Established safety engineering principles strongly caution against single-sensor flight-critical architectures.</p>
+          <p data-i18n="wgPThisSimulationDoesNotClaim2" style="font-size:0.78rem; color:var(--color-text-dim); margin-top:8px; font-style:italic;">This simulation does not claim the outcome was inevitable — it demonstrates that structured review would have surfaced the risk before outcome.</p>
         </div>
 
         <div class="data-sources">
           <h4 data-i18n="wgDataSources">Public Data Sources Used</h4>
-          <p>House Transportation Committee Report (2020), JATR Report, Lion Air KNKT Final Report, Ethiopian AIB Report, Boeing internal emails (Congressional exhibits), FAA TARAM safety assessments.</p>
+          <p data-i18n="wgPHouseTransportationCommitteeReport2020">House Transportation Committee Report (2020), JATR Report, Lion Air KNKT Final Report, Ethiopian AIB Report, Boeing internal emails (Congressional exhibits), FAA TARAM safety assessments.</p>
         </div>
       </div>
 
@@ -227,55 +227,55 @@
           <div class="wargame-title-group">
             <div class="wargame-label" data-i18n="wg3Label">Financial Services / Fraud Detection</div>
             <h3 class="wargame-title" data-i18n="wg3Title">Wirecard Accounting Fraud</h3>
-            <p class="wargame-meta">2015-2020 · €1.9B "missing" · CEO arrested</p>
+            <p data-i18n="wgP201520209bMissingCeo" class="wargame-meta">2015-2020 · €1.9B "missing" · CEO arrested</p>
           </div>
           <div class="wargame-loss">
             <div class="wargame-loss-label" data-i18n="wgInvestorLoss">Investor Loss</div>
-            <div class="wargame-loss-value">€24B</div>
+            <div data-i18n="wgDiv24b" class="wargame-loss-value">€24B</div>
           </div>
         </div>
         
         <div class="wargame-scenario">
           <h4 data-i18n="wgDecisionHeading">The Decision Under Analysis</h4>
-          <p>Q2 2019: Institutional investor (pension fund) considers €50M position in Wirecard AG following strong earnings. FT has published allegations of accounting irregularities in Asia operations, but Wirecard denies and threatens legal action. EY has issued clean audits for 10+ years.</p>
+          <p data-i18n="wgPQ22019InstitutionalInvestorPension">Q2 2019: Institutional investor (pension fund) considers €50M position in Wirecard AG following strong earnings. FT has published allegations of accounting irregularities in Asia operations, but Wirecard denies and threatens legal action. EY has issued clean audits for 10+ years.</p>
         </div>
 
         <div class="council-analysis">
           <h4 data-i18n="wgCouncilHeading">The Council's Analysis</h4>
           <div class="agent-grid">
             <div class="agent-item">
-              <div class="agent-name">Analyst Agent</div>
-              <div class="agent-finding">Third-party acquiring (TPA) revenue in Asia represents 50%+ of EBITDA but only 5% of transaction volume. Margin profile (30%+) inconsistent with industry benchmarks (3-5%).</div>
+              <div data-i18n="wgDivAnalystAgent" class="agent-name">Analyst Agent</div>
+              <div data-i18n="wgDivThirdPartyAcquiringTpaRevenue" class="agent-finding">Third-party acquiring (TPA) revenue in Asia represents 50%+ of EBITDA but only 5% of transaction volume. Margin profile (30%+) inconsistent with industry benchmarks (3-5%).</div>
             </div>
             <div class="agent-item">
-              <div class="agent-name">Risk Agent</div>
-              <div class="agent-finding">TPA partners are shell companies in Philippines and Singapore. €1.9B in "escrow" cannot be independently verified. Auditor has not physically confirmed cash balances.</div>
+              <div data-i18n="wgDivRiskAgent3" class="agent-name">Risk Agent</div>
+              <div data-i18n="wgDivTpaPartnersAreShellCompanies" class="agent-finding">TPA partners are shell companies in Philippines and Singapore. €1.9B in "escrow" cannot be independently verified. Auditor has not physically confirmed cash balances.</div>
             </div>
             <div class="agent-item">
-              <div class="agent-name">RedTeam Agent</div>
-              <div class="agent-finding">Scenario: TPA revenue is fabricated. If removed, Wirecard is unprofitable and insolvent. Heuristic risk assessment: elevated likelihood of material fraud based on forensic accounting indicators.</div>
+              <div data-i18n="wgDivRedteamAgent3" class="agent-name">RedTeam Agent</div>
+              <div data-i18n="wgDivScenarioTpaRevenueIsFabricated" class="agent-finding">Scenario: TPA revenue is fabricated. If removed, Wirecard is unprofitable and insolvent. Heuristic risk assessment: elevated likelihood of material fraud based on forensic accounting indicators.</div>
             </div>
             <div class="agent-item">
-              <div class="agent-name">Compliance Agent</div>
-              <div class="agent-finding">BaFin (German regulator) has banned short-selling of Wirecard stock — regulatory capture risk. Legal threats against journalists indicate potential obstruction pattern.</div>
+              <div data-i18n="wgDivComplianceAgent3" class="agent-name">Compliance Agent</div>
+              <div data-i18n="wgDivBafinGermanRegulatorHasBanned" class="agent-finding">BaFin (German regulator) has banned short-selling of Wirecard stock — regulatory capture risk. Legal threats against journalists indicate potential obstruction pattern.</div>
             </div>
           </div>
         </div>
 
         <div class="veto-box">
           <h4 data-i18n="wgRiskEscalation">Material Risk Escalation Triggered</h4>
-          <p><strong>Rationale:</strong> Unverifiable cash balances in opaque jurisdictions. Margin profile statistically inconsistent with disclosed business model. Aggressive legal posture toward journalists is fraud indicator. Recommendation: Do not invest. If existing position, exit immediately.</p>
+          <p><strong data-i18n="wgStrongRationale3">Rationale:</strong> Unverifiable cash balances in opaque jurisdictions. Margin profile statistically inconsistent with disclosed business model. Aggressive legal posture toward journalists is fraud indicator. Recommendation: Do not invest. If existing position, exit immediately.</p>
         </div>
 
         <div class="outcome-box">
           <h4 data-i18n="wgIfRiskAdopted">If Risk Controls Had Been Adopted</h4>
-          <p>Structured multi-agent review would have identified unverifiable cash balances and margin profile inconsistencies as material red flags, recommending against the investment pending independent verification. The risk was surfaceable from public data alone.</p>
-          <p style="font-size:0.78rem; color:var(--color-text-dim); margin-top:8px; font-style:italic;">This simulation does not claim the outcome was inevitable — it demonstrates that structured review would have surfaced the risk before outcome.</p>
+          <p data-i18n="wgPStructuredMultiAgentReviewWould">Structured multi-agent review would have identified unverifiable cash balances and margin profile inconsistencies as material red flags, recommending against the investment pending independent verification. The risk was surfaceable from public data alone.</p>
+          <p data-i18n="wgPThisSimulationDoesNotClaim3" style="font-size:0.78rem; color:var(--color-text-dim); margin-top:8px; font-style:italic;">This simulation does not claim the outcome was inevitable — it demonstrates that structured review would have surfaced the risk before outcome.</p>
         </div>
 
         <div class="data-sources">
           <h4 data-i18n="wgDataSources">Public Data Sources Used</h4>
-          <p>Financial Times investigative series (2015-2019), Wirecard AG Annual Reports, EY audit opinions, BaFin regulatory filings, Philippine SEC corporate records, Singapore ACRA filings.</p>
+          <p data-i18n="wgPFinancialTimesInvestigativeSeries2015">Financial Times investigative series (2015-2019), Wirecard AG Annual Reports, EY audit opinions, BaFin regulatory filings, Philippine SEC corporate records, Singapore ACRA filings.</p>
         </div>
       </div>
 
@@ -285,55 +285,55 @@
           <div class="wargame-title-group">
             <div class="wargame-label" data-i18n="wg4Label">Healthcare / Due Diligence</div>
             <h3 class="wargame-title" data-i18n="wg4Title">Theranos Investment Due Diligence</h3>
-            <p class="wargame-meta">2013-2015 · $700M raised · Technology never worked</p>
+            <p data-i18n="wgP20132015700mRaisedTechnology" class="wargame-meta">2013-2015 · $700M raised · Technology never worked</p>
           </div>
           <div class="wargame-loss">
-            <div class="wargame-loss-label">Investor Loss</div>
-            <div class="wargame-loss-value">$600M+</div>
+            <div data-i18n="wgDivInvestorLoss" class="wargame-loss-label">Investor Loss</div>
+            <div data-i18n="wgDiv600m" class="wargame-loss-value">$600M+</div>
           </div>
         </div>
         
         <div class="wargame-scenario">
           <h4 data-i18n="wgDecisionHeading">The Decision Under Analysis</h4>
-          <p>Q3 2014: Family office considers $25M investment in Theranos Series C at $9B valuation. Company claims revolutionary blood testing from finger prick. Board includes Henry Kissinger, George Shultz, James Mattis. Walgreens partnership announced.</p>
+          <p data-i18n="wgPQ32014FamilyOfficeConsiders">Q3 2014: Family office considers $25M investment in Theranos Series C at $9B valuation. Company claims revolutionary blood testing from finger prick. Board includes Henry Kissinger, George Shultz, James Mattis. Walgreens partnership announced.</p>
         </div>
 
         <div class="council-analysis">
           <h4 data-i18n="wgCouncilHeading">The Council's Analysis</h4>
           <div class="agent-grid">
             <div class="agent-item">
-              <div class="agent-name">Analyst Agent</div>
-              <div class="agent-finding">No peer-reviewed publications validating technology. No FDA 510(k) clearances for proprietary device. Lab operations run on modified Siemens machines, not "Edison" device.</div>
+              <div data-i18n="wgDivAnalystAgent2" class="agent-name">Analyst Agent</div>
+              <div data-i18n="wgDivNoPeerReviewedPublicationsValidating" class="agent-finding">No peer-reviewed publications validating technology. No FDA 510(k) clearances for proprietary device. Lab operations run on modified Siemens machines, not "Edison" device.</div>
             </div>
             <div class="agent-item">
-              <div class="agent-name">Risk Agent</div>
-              <div class="agent-finding">Board composition: Zero healthcare/diagnostics expertise. Red flag: experienced operators avoid, celebrity/political figures accept. Classic "affinity fraud" pattern.</div>
+              <div data-i18n="wgDivRiskAgent4" class="agent-name">Risk Agent</div>
+              <div data-i18n="wgDivBoardCompositionZeroHealthcareDiagnostics" class="agent-finding">Board composition: Zero healthcare/diagnostics expertise. Red flag: experienced operators avoid, celebrity/political figures accept. Classic "affinity fraud" pattern.</div>
             </div>
             <div class="agent-item">
-              <div class="agent-name">RedTeam Agent</div>
-              <div class="agent-finding">Technical due diligence blocked. "Trade secret" justification used to prevent independent validation. Heuristic risk assessment: critically elevated risk based on absence of independent technical validation.</div>
+              <div data-i18n="wgDivRedteamAgent4" class="agent-name">RedTeam Agent</div>
+              <div data-i18n="wgDivTechnicalDueDiligenceBlockedTrade" class="agent-finding">Technical due diligence blocked. "Trade secret" justification used to prevent independent validation. Heuristic risk assessment: critically elevated risk based on absence of independent technical validation.</div>
             </div>
             <div class="agent-item">
-              <div class="agent-name">Compliance Agent</div>
-              <div class="agent-finding">CLIA lab certification obtained, but proficiency testing results not disclosed. CMS inspection records requested but not provided. Potential regulatory violations if results are inaccurate.</div>
+              <div data-i18n="wgDivComplianceAgent4" class="agent-name">Compliance Agent</div>
+              <div data-i18n="wgDivCliaLabCertificationObtainedBut" class="agent-finding">CLIA lab certification obtained, but proficiency testing results not disclosed. CMS inspection records requested but not provided. Potential regulatory violations if results are inaccurate.</div>
             </div>
           </div>
         </div>
 
         <div class="veto-box">
           <h4 data-i18n="wgRiskEscalation">Material Risk Escalation Triggered</h4>
-          <p><strong>Rationale:</strong> No independent technical validation. Refusal of due diligence access. Board lacks domain expertise. Recommendation: Pass on investment. Require peer-reviewed validation and FDA clearance before any future consideration.</p>
+          <p><strong data-i18n="wgStrongRationale4">Rationale:</strong> No independent technical validation. Refusal of due diligence access. Board lacks domain expertise. Recommendation: Pass on investment. Require peer-reviewed validation and FDA clearance before any future consideration.</p>
         </div>
 
         <div class="outcome-box">
           <h4 data-i18n="wgIfRiskAdopted">If Risk Controls Had Been Adopted</h4>
-          <p>Structured review would have flagged the refusal of technical due diligence, absence of peer review, and board composition lacking domain expertise as disqualifying risk factors. The simulation recommends declining the investment pending independent validation.</p>
-          <p style="font-size:0.78rem; color:var(--color-text-dim); margin-top:8px; font-style:italic;">This simulation does not claim the outcome was inevitable — it demonstrates that structured review would have surfaced the risk before outcome.</p>
+          <p data-i18n="wgPStructuredReviewWouldHaveFlagged">Structured review would have flagged the refusal of technical due diligence, absence of peer review, and board composition lacking domain expertise as disqualifying risk factors. The simulation recommends declining the investment pending independent validation.</p>
+          <p data-i18n="wgPThisSimulationDoesNotClaim4" style="font-size:0.78rem; color:var(--color-text-dim); margin-top:8px; font-style:italic;">This simulation does not claim the outcome was inevitable — it demonstrates that structured review would have surfaced the risk before outcome.</p>
         </div>
 
         <div class="data-sources">
           <h4 data-i18n="wgDataSources">Public Data Sources Used</h4>
-          <p>Theranos investor presentations (leaked), CMS inspection reports (2015-2016), FDA warning letters, John Carreyrou WSJ articles (2015), Patent filings (USPTO), Board member disclosures.</p>
+          <p data-i18n="wgPTheranosInvestorPresentationsLeakedCms">Theranos investor presentations (leaked), CMS inspection reports (2015-2016), FDA warning letters, John Carreyrou WSJ articles (2015), Patent filings (USPTO), Board member disclosures.</p>
         </div>
       </div>
 
@@ -343,55 +343,55 @@
           <div class="wargame-title-group">
             <div class="wargame-label" data-i18n="wg5Label">Football / Financial Fair Play</div>
             <h3 class="wargame-title" data-i18n="wg5Title">Everton FC PSR Breach</h3>
-            <p class="wargame-meta">2021-2023 · Premier League PSR violation · 10-point deduction</p>
+            <p data-i18n="wgP20212023PremierLeaguePsr" class="wargame-meta">2021-2023 · Premier League PSR violation · 10-point deduction</p>
           </div>
           <div class="wargame-loss">
             <div class="wargame-loss-label" data-i18n="wgConsequence">Consequence</div>
-            <div class="wargame-loss-value">-10 pts</div>
+            <div data-i18n="wgDiv10Pts" class="wargame-loss-value">-10 pts</div>
           </div>
         </div>
         
         <div class="wargame-scenario">
           <h4 data-i18n="wgDecisionHeading">The Decision Under Analysis</h4>
-          <p>2021-2022: Everton FC's board approves a series of transfer windows spending over £500M on player acquisitions across 3 years while revenue growth stagnates. Wage-to-revenue ratio climbs from 62% to over 90%. The club reports cumulative losses exceeding the Premier League's Profit &amp; Sustainability Rules (PSR) threshold of £105M over a rolling 3-year period.</p>
+          <p data-i18n="wgP20212022EvertonFcBoard">2021-2022: Everton FC's board approves a series of transfer windows spending over £500M on player acquisitions across 3 years while revenue growth stagnates. Wage-to-revenue ratio climbs from 62% to over 90%. The club reports cumulative losses exceeding the Premier League's Profit &amp; Sustainability Rules (PSR) threshold of £105M over a rolling 3-year period.</p>
         </div>
 
         <div class="council-analysis">
           <h4 data-i18n="wgCouncilHeading">The Council's Analysis</h4>
           <div class="agent-grid">
             <div class="agent-item">
-              <div class="agent-name">FFP Compliance Officer</div>
-              <div class="agent-finding">Wage-to-revenue ratio crossed 80% in January 2022 — 10 points above the industry safety threshold. Amortization burden from transfer fees compounds annually. PSR breach trajectory identifiable 18 months before the Premier League commission ruling.</div>
+              <div data-i18n="wgDivFfpComplianceOfficer" class="agent-name">FFP Compliance Officer</div>
+              <div data-i18n="wgDivWageToRevenueRatioCrossed" class="agent-finding">Wage-to-revenue ratio crossed 80% in January 2022 — 10 points above the industry safety threshold. Amortization burden from transfer fees compounds annually. PSR breach trajectory identifiable 18 months before the Premier League commission ruling.</div>
             </div>
             <div class="agent-item">
-              <div class="agent-name">Financial Controller</div>
-              <div class="agent-finding">Revenue projections assume Champions League qualification that transfer spending is designed to achieve — circular logic. If qualification fails, the financial model breaks. No downside scenario planning documented.</div>
+              <div data-i18n="wgDivFinancialController" class="agent-name">Financial Controller</div>
+              <div data-i18n="wgDivRevenueProjectionsAssumeChampionsLeague" class="agent-finding">Revenue projections assume Champions League qualification that transfer spending is designed to achieve — circular logic. If qualification fails, the financial model breaks. No downside scenario planning documented.</div>
             </div>
             <div class="agent-item">
-              <div class="agent-name">Enterprise Risk Agent</div>
-              <div class="agent-finding">Concentration risk: 4 players represent 45% of total wage bill. Single injury to a key player invalidates the sporting rationale for the entire spending programme. No performance-linked wage structures to limit downside.</div>
+              <div data-i18n="wgDivEnterpriseRiskAgent" class="agent-name">Enterprise Risk Agent</div>
+              <div data-i18n="wgDivConcentrationRiskPlayersRepresent45" class="agent-finding">Concentration risk: 4 players represent 45% of total wage bill. Single injury to a key player invalidates the sporting rationale for the entire spending programme. No performance-linked wage structures to limit downside.</div>
             </div>
             <div class="agent-item">
-              <div class="agent-name">Board Governance Review</div>
-              <div class="agent-finding">Transfer decisions approved without formal dissent capture. No documented override accountability when sporting director recommendations exceeded financial constraints. Board minutes do not record individual voting positions on high-value transfers.</div>
+              <div data-i18n="wgDivBoardGovernanceReview" class="agent-name">Board Governance Review</div>
+              <div data-i18n="wgDivTransferDecisionsApprovedWithoutFormal" class="agent-finding">Transfer decisions approved without formal dissent capture. No documented override accountability when sporting director recommendations exceeded financial constraints. Board minutes do not record individual voting positions on high-value transfers.</div>
             </div>
           </div>
         </div>
 
         <div class="veto-box">
           <h4 data-i18n="wgRiskEscalation">Material Risk Escalation Triggered</h4>
-          <p><strong>Rationale:</strong> Drift Detection (P5) would have flagged the wage-to-revenue ratio crossing 75% as an early warning. Discovery-Time Proof (P1) would have timestamped when the board was made aware of the PSR breach trajectory. Override Accountability (P3) would have documented every instance where financial constraints were overruled for sporting ambition. Recommendation: Cap transfer spend, restructure wages to performance-linked, conduct quarterly PSR projections.</p>
+          <p><strong data-i18n="wgStrongRationale5">Rationale:</strong> Drift Detection (P5) would have flagged the wage-to-revenue ratio crossing 75% as an early warning. Discovery-Time Proof (P1) would have timestamped when the board was made aware of the PSR breach trajectory. Override Accountability (P3) would have documented every instance where financial constraints were overruled for sporting ambition. Recommendation: Cap transfer spend, restructure wages to performance-linked, conduct quarterly PSR projections.</p>
         </div>
 
         <div class="outcome-box">
           <h4 data-i18n="wgIfCrisisImmune">If Crisis Immunization Had Been In Place</h4>
-          <p>The PSR breach was not a sudden event — it was a drift over 3 transfer windows. Drift Detection would have flagged the trajectory 18 months earlier. Continuity Memory (P4) would have preserved the financial analysis across ownership and management changes. The 10-point deduction was a governance failure, not a financial one — the money was there, the controls were not.</p>
-          <p style="font-size:0.78rem; color:var(--color-text-dim); margin-top:8px; font-style:italic;">This simulation does not claim the outcome was inevitable — it demonstrates that structured review would have surfaced the risk before outcome.</p>
+          <p data-i18n="wgPThePsrBreachWasNot">The PSR breach was not a sudden event — it was a drift over 3 transfer windows. Drift Detection would have flagged the trajectory 18 months earlier. Continuity Memory (P4) would have preserved the financial analysis across ownership and management changes. The 10-point deduction was a governance failure, not a financial one — the money was there, the controls were not.</p>
+          <p data-i18n="wgPThisSimulationDoesNotClaim5" style="font-size:0.78rem; color:var(--color-text-dim); margin-top:8px; font-style:italic;">This simulation does not claim the outcome was inevitable — it demonstrates that structured review would have surfaced the risk before outcome.</p>
         </div>
 
         <div class="data-sources">
           <h4 data-i18n="wgDataSources">Public Data Sources Used</h4>
-          <p>Premier League PSR Commission ruling (November 2023), Everton FC Annual Reports (2020-2023), Companies House filings, Transfermarkt squad valuations and fee data, Swiss Ramble financial analysis, Premier League financial reporting requirements.</p>
+          <p data-i18n="wgPPremierLeaguePsrCommissionRuling">Premier League PSR Commission ruling (November 2023), Everton FC Annual Reports (2020-2023), Companies House filings, Transfermarkt squad valuations and fee data, Swiss Ramble financial analysis, Premier League financial reporting requirements.</p>
         </div>
       </div>
 
@@ -401,7 +401,7 @@
           <div class="wargame-title-group">
             <div class="wargame-label" data-i18n="wg6Label">Healthcare / Patient Safety</div>
             <h3 class="wargame-title" data-i18n="wg6Title">NHS Maternity Failures (Shrewsbury &amp; Telford)</h3>
-            <p class="wargame-meta">2000-2019 · Ockenden Report · 201 babies &amp; 9 mothers died or harmed</p>
+            <p data-i18n="wgP20002019OckendenReport201" class="wargame-meta">2000-2019 · Ockenden Report · 201 babies &amp; 9 mothers died or harmed</p>
           </div>
           <div class="wargame-loss">
             <div class="wargame-loss-label" data-i18n="wgHarmScale">Harm Scale</div>
@@ -411,45 +411,45 @@
         
         <div class="wargame-scenario">
           <h4 data-i18n="wgDecisionHeading">The Decision Under Analysis</h4>
-          <p>2000-2019: Shrewsbury and Telford Hospital NHS Trust maternity unit repeatedly makes decisions to pursue "natural birth at any cost," overriding clinical safety protocols. Staff who raise concerns are marginalized. Clinical incidents are not formally documented or escalated. The same failure patterns recur across years because institutional memory is not preserved through staff turnover.</p>
+          <p data-i18n="wgP20002019ShrewsburyAndTelford">2000-2019: Shrewsbury and Telford Hospital NHS Trust maternity unit repeatedly makes decisions to pursue "natural birth at any cost," overriding clinical safety protocols. Staff who raise concerns are marginalized. Clinical incidents are not formally documented or escalated. The same failure patterns recur across years because institutional memory is not preserved through staff turnover.</p>
         </div>
 
         <div class="council-analysis">
           <h4 data-i18n="wgCouncilHeading">The Council's Analysis</h4>
           <div class="agent-grid">
             <div class="agent-item">
-              <div class="agent-name">Patient Safety Agent</div>
-              <div class="agent-finding">Clinical protocol deviations are repeated across multiple years with identical failure patterns. Root cause analyses, when conducted, are not linked to previous incidents. Institutional memory is absent — the same mistakes are made by successive clinical teams.</div>
+              <div data-i18n="wgDivPatientSafetyAgent" class="agent-name">Patient Safety Agent</div>
+              <div data-i18n="wgDivClinicalProtocolDeviationsAreRepeated" class="agent-finding">Clinical protocol deviations are repeated across multiple years with identical failure patterns. Root cause analyses, when conducted, are not linked to previous incidents. Institutional memory is absent — the same mistakes are made by successive clinical teams.</div>
             </div>
             <div class="agent-item">
-              <div class="agent-name">Compliance Agent</div>
-              <div class="agent-finding">CQC inspection findings from 2007 and 2012 identified maternity safety concerns. Improvement plans were submitted but not tracked to completion. No evidence of systematic follow-through on corrective actions.</div>
+              <div data-i18n="wgDivComplianceAgent5" class="agent-name">Compliance Agent</div>
+              <div data-i18n="wgDivCqcInspectionFindingsFrom2007" class="agent-finding">CQC inspection findings from 2007 and 2012 identified maternity safety concerns. Improvement plans were submitted but not tracked to completion. No evidence of systematic follow-through on corrective actions.</div>
             </div>
             <div class="agent-item">
-              <div class="agent-name">Risk Agent</div>
-              <div class="agent-finding">Staff who raised patient safety concerns were documented as "difficult" rather than having their clinical observations formally captured. Dissent was suppressed rather than institutionalized. This created a culture where early warnings were lost.</div>
+              <div data-i18n="wgDivRiskAgent5" class="agent-name">Risk Agent</div>
+              <div data-i18n="wgDivStaffWhoRaisedPatientSafety" class="agent-finding">Staff who raised patient safety concerns were documented as "difficult" rather than having their clinical observations formally captured. Dissent was suppressed rather than institutionalized. This created a culture where early warnings were lost.</div>
             </div>
             <div class="agent-item">
-              <div class="agent-name">Governance Review Agent</div>
-              <div class="agent-finding">Trust board received aggregated safety metrics that masked individual incident severity. No mechanism to surface recurring patterns across years. Leadership transitions resulted in loss of institutional awareness of historical safety events.</div>
+              <div data-i18n="wgDivGovernanceReviewAgent" class="agent-name">Governance Review Agent</div>
+              <div data-i18n="wgDivTrustBoardReceivedAggregatedSafety" class="agent-finding">Trust board received aggregated safety metrics that masked individual incident severity. No mechanism to surface recurring patterns across years. Leadership transitions resulted in loss of institutional awareness of historical safety events.</div>
             </div>
           </div>
         </div>
 
         <div class="veto-box">
           <h4 data-i18n="wgRiskEscalation">Material Risk Escalation Triggered</h4>
-          <p><strong>Rationale:</strong> Override Accountability (P3) would have formally documented every deviation from clinical protocols. Continuity Memory (P4) would have preserved incident history through staff turnover, preventing the same failures from recurring. Deliberation Capture (P2) would have ensured dissenting clinical opinions were sealed into the record. Drift Detection (P5) would have flagged declining protocol adherence rates.</p>
+          <p><strong data-i18n="wgStrongRationale6">Rationale:</strong> Override Accountability (P3) would have formally documented every deviation from clinical protocols. Continuity Memory (P4) would have preserved incident history through staff turnover, preventing the same failures from recurring. Deliberation Capture (P2) would have ensured dissenting clinical opinions were sealed into the record. Drift Detection (P5) would have flagged declining protocol adherence rates.</p>
         </div>
 
         <div class="outcome-box">
           <h4 data-i18n="wgIfCrisisImmune">If Crisis Immunization Had Been In Place</h4>
-          <p>The Ockenden Report found that the same failures recurred because there was no institutional memory, no protected dissent mechanism, and no systematic tracking of protocol deviations. These are exactly the gaps that the 9 primitives address. Continuity Memory prevents "we didn't know this happened before." Override Accountability prevents "no one documented the protocol deviation." Discovery-Time Proof prevents "we didn't know there was a pattern."</p>
-          <p style="font-size:0.78rem; color:var(--color-text-dim); margin-top:8px; font-style:italic;">This simulation does not claim the outcome was inevitable — it demonstrates that structured review would have surfaced the risk before outcome.</p>
+          <p data-i18n="wgPTheOckendenReportFoundThat">The Ockenden Report found that the same failures recurred because there was no institutional memory, no protected dissent mechanism, and no systematic tracking of protocol deviations. These are exactly the gaps that the 9 primitives address. Continuity Memory prevents "we didn't know this happened before." Override Accountability prevents "no one documented the protocol deviation." Discovery-Time Proof prevents "we didn't know there was a pattern."</p>
+          <p data-i18n="wgPThisSimulationDoesNotClaim6" style="font-size:0.78rem; color:var(--color-text-dim); margin-top:8px; font-style:italic;">This simulation does not claim the outcome was inevitable — it demonstrates that structured review would have surfaced the risk before outcome.</p>
         </div>
 
         <div class="data-sources">
           <h4 data-i18n="wgDataSources">Public Data Sources Used</h4>
-          <p>Ockenden Report — Final (March 2022), CQC Inspection Reports (2007, 2012, 2018), NHS England Patient Safety Incident Reports, Shrewsbury and Telford Hospital NHS Trust board minutes (public), Healthcare Safety Investigation Branch reports.</p>
+          <p data-i18n="wgPOckendenReportFinalMarch2022">Ockenden Report — Final (March 2022), CQC Inspection Reports (2007, 2012, 2018), NHS England Patient Safety Incident Reports, Shrewsbury and Telford Hospital NHS Trust board minutes (public), Healthcare Safety Investigation Branch reports.</p>
         </div>
       </div>
 
@@ -457,7 +457,7 @@
         <h2 data-i18n="wgCtaTitle">Run Your Own War Game</h2>
         <p data-i18n="wgCtaDesc">Bring us your strategic decision. We'll stress-test it with The Council using your real data — before it becomes a case study for someone else.</p>
         <a href="briefing.html" data-i18n="wgCtaBtn">Request a War Game Session</a>
-        <p style="font-family: var(--font-mono); font-size: 0.7rem; color: #2ecc71; margin-top: 24px; letter-spacing: 0.05em;">SYSTEM STATUS: AIR-GAP READY · NO TRACKER PIXELS DETECTED</p>
+        <p data-i18n="wgPSystemStatusAirGapReady" style="font-family: var(--font-mono); font-size: 0.7rem; color: #2ecc71; margin-top: 24px; letter-spacing: 0.05em;">SYSTEM STATUS: AIR-GAP READY · NO TRACKER PIXELS DETECTED</p>
       </div>
 
     </div>

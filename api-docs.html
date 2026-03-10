@@ -31,16 +31,16 @@
   <div class="container">
     <header>
       <div class="header-top">
-        <a href="index.html" style="text-decoration: none;"><h1 class="logo">DATACENDIA</h1></a>
+        <a href="index.html" style="text-decoration: none;"><h1 data-i18n="apiH1Datacendia" class="logo">DATACENDIA</h1></a>
         <div class="lang-selector">
-          <button class="lang-btn"><span class="lang-current">English</span> ▾</button>
+          <button class="lang-btn"><span data-i18n="apiSpanEnglish" class="lang-current">English</span> ▾</button>
           <div class="lang-dropdown">
-            <button data-lang="en">English</button>
-            <button data-lang="es">Español</button>
-            <button data-lang="fr">Français</button>
-            <button data-lang="de">Deutsch</button>
-            <button data-lang="pt">Português</button>
-            <button data-lang="it">Italiano</button>
+            <button data-i18n="apiButtonEnglish" data-lang="en">English</button>
+            <button data-i18n="apiButtonEspaOl" data-lang="es">Español</button>
+            <button data-i18n="apiButtonFranAis" data-lang="fr">Français</button>
+            <button data-i18n="apiButtonDeutsch" data-lang="de">Deutsch</button>
+            <button data-i18n="apiButtonPortugu" data-lang="pt">Português</button>
+            <button data-i18n="apiButtonItaliano" data-lang="it">Italiano</button>
             <button data-lang="ja">日本語</button>
             <button data-lang="ko">한국어</button>
             <button data-lang="zh">中文</button>
@@ -111,7 +111,7 @@
           <div class="stat-label" data-i18n="apiStatEndpoints">Endpoints</div>
         </div>
         <div class="stat-item">
-          <div class="stat-value">REST</div>
+          <div data-i18n="apiDivRest" class="stat-value">REST</div>
           <div class="stat-label" data-i18n="apiStatProtocol">Protocol</div>
         </div>
         <div class="stat-item">
@@ -119,7 +119,7 @@
           <div class="stat-label" data-i18n="apiStatSpec">OpenAPI Spec</div>
         </div>
         <div class="stat-item">
-          <div class="stat-value">JSON</div>
+          <div data-i18n="apiDivJson" class="stat-value">JSON</div>
           <div class="stat-label" data-i18n="apiStatFormat">Format</div>
         </div>
         <div class="stat-item">
@@ -131,14 +131,14 @@
       <!-- Auth -->
       <div class="auth-info">
         <h3 data-i18n="apiAuthTitle">Authentication</h3>
-        <p>All API endpoints require authentication via Bearer token (JWT) or API key. In Keycloak-enabled deployments, tokens are issued via OIDC. All requests must use HTTPS (or mTLS in air-gapped environments).</p>
+        <p data-i18n="apiPAllApiEndpointsRequireAuthentication">All API endpoints require authentication via Bearer token (JWT) or API key. In Keycloak-enabled deployments, tokens are issued via OIDC. All requests must use HTTPS (or mTLS in air-gapped environments).</p>
       </div>
 
       <!-- Base URL -->
       <div class="api-section">
         <h2 data-i18n="apiBaseUrl">Base URL</h2>
         <div class="code-block">
-<span class="comment"># Your deployment URL (on-premises, private cloud, or air-gapped)</span>
+<span data-i18n="apiSpanYourDeploymentUrlOnPremises" class="comment"># Your deployment URL (on-premises, private cloud, or air-gapped)</span>
 https://your-datacendia-instance.internal/api/v1
         </div>
       </div>
@@ -146,37 +146,37 @@ https://your-datacendia-instance.internal/api/v1
       <!-- Core Suite APIs -->
       <div class="api-section">
         <h2 data-i18n="apiSec1Title">Core Suite — The Council</h2>
-        <p>Multi-agent deliberation, cross-examination, dissent management, and decision synthesis.</p>
+        <p data-i18n="apiPMultiAgentDeliberationCrossExamination">Multi-agent deliberation, cross-examination, dissent management, and decision synthesis.</p>
         <div class="endpoint-group">
           <div class="endpoint">
-            <span class="method method-post">POST</span>
-            <span class="endpoint-path">/council/deliberate</span>
-            <span class="endpoint-desc">Start a new multi-agent deliberation session</span>
+            <span data-i18n="apiSpanPost" class="method method-post">POST</span>
+            <span data-i18n="apiSpanCouncilDeliberate" class="endpoint-path">/council/deliberate</span>
+            <span data-i18n="apiSpanStartNewMultiAgentDeliberation" class="endpoint-desc">Start a new multi-agent deliberation session</span>
           </div>
           <div class="endpoint">
-            <span class="method method-get">GET</span>
-            <span class="endpoint-path">/council/deliberations/:id</span>
-            <span class="endpoint-desc">Get deliberation status, agent responses, and synthesis</span>
+            <span data-i18n="apiSpanGet" class="method method-get">GET</span>
+            <span data-i18n="apiSpanCouncilDeliberationsId" class="endpoint-path">/council/deliberations/:id</span>
+            <span data-i18n="apiSpanGetDeliberationStatusAgentResponses" class="endpoint-desc">Get deliberation status, agent responses, and synthesis</span>
           </div>
           <div class="endpoint">
-            <span class="method method-get">GET</span>
-            <span class="endpoint-path">/council/deliberations</span>
-            <span class="endpoint-desc">List recent deliberations with filtering</span>
+            <span data-i18n="apiSpanGet2" class="method method-get">GET</span>
+            <span data-i18n="apiSpanCouncilDeliberations" class="endpoint-path">/council/deliberations</span>
+            <span data-i18n="apiSpanListRecentDeliberationsWithFiltering" class="endpoint-desc">List recent deliberations with filtering</span>
           </div>
           <div class="endpoint">
-            <span class="method method-post">POST</span>
-            <span class="endpoint-path">/council/deliberations/:id/approve</span>
-            <span class="endpoint-desc">Approve a deliberation outcome (human oversight)</span>
+            <span data-i18n="apiSpanPost2" class="method method-post">POST</span>
+            <span data-i18n="apiSpanCouncilDeliberationsIdApprove" class="endpoint-path">/council/deliberations/:id/approve</span>
+            <span data-i18n="apiSpanApproveDeliberationOutcomeHumanOversight" class="endpoint-desc">Approve a deliberation outcome (human oversight)</span>
           </div>
           <div class="endpoint">
-            <span class="method method-post">POST</span>
-            <span class="endpoint-path">/council/deliberations/:id/veto</span>
-            <span class="endpoint-desc">Veto a deliberation outcome with reason</span>
+            <span data-i18n="apiSpanPost3" class="method method-post">POST</span>
+            <span data-i18n="apiSpanCouncilDeliberationsIdVeto" class="endpoint-path">/council/deliberations/:id/veto</span>
+            <span data-i18n="apiSpanVetoDeliberationOutcomeWithReason" class="endpoint-desc">Veto a deliberation outcome with reason</span>
           </div>
           <div class="endpoint">
-            <span class="method method-get">GET</span>
-            <span class="endpoint-path">/council/agents</span>
-            <span class="endpoint-desc">List available governance agents and their roles</span>
+            <span data-i18n="apiSpanGet3" class="method method-get">GET</span>
+            <span data-i18n="apiSpanCouncilAgents" class="endpoint-path">/council/agents</span>
+            <span data-i18n="apiSpanListAvailableGovernanceAgentsAnd" class="endpoint-desc">List available governance agents and their roles</span>
           </div>
         </div>
       </div>
@@ -184,27 +184,27 @@ https://your-datacendia-instance.internal/api/v1
       <!-- Decision Intelligence APIs -->
       <div class="api-section">
         <h2 data-i18n="apiSec2Title">Decision Intelligence — Chronos &amp; Cascade</h2>
-        <p>Timeline analysis, pivotal moment detection, and consequence propagation modeling.</p>
+        <p data-i18n="apiPTimelineAnalysisPivotalMomentDetection">Timeline analysis, pivotal moment detection, and consequence propagation modeling.</p>
         <div class="endpoint-group">
           <div class="endpoint">
-            <span class="method method-post">POST</span>
-            <span class="endpoint-path">/decision-intel/chronos/ai/pivotal-moments</span>
-            <span class="endpoint-desc">Detect pivotal decision moments in organizational timeline</span>
+            <span data-i18n="apiSpanPost4" class="method method-post">POST</span>
+            <span data-i18n="apiSpanDecisionIntelChronosAiPivotal" class="endpoint-path">/decision-intel/chronos/ai/pivotal-moments</span>
+            <span data-i18n="apiSpanDetectPivotalDecisionMomentsIn" class="endpoint-desc">Detect pivotal decision moments in organizational timeline</span>
           </div>
           <div class="endpoint">
-            <span class="method method-get">GET</span>
-            <span class="endpoint-path">/decision-intel/chronos/timeline</span>
-            <span class="endpoint-desc">Retrieve full decision timeline with filtering</span>
+            <span data-i18n="apiSpanGet4" class="method method-get">GET</span>
+            <span data-i18n="apiSpanDecisionIntelChronosTimeline" class="endpoint-path">/decision-intel/chronos/timeline</span>
+            <span data-i18n="apiSpanRetrieveFullDecisionTimelineWith" class="endpoint-desc">Retrieve full decision timeline with filtering</span>
           </div>
           <div class="endpoint">
-            <span class="method method-post">POST</span>
-            <span class="endpoint-path">/cascade/analyze</span>
-            <span class="endpoint-desc">Run butterfly effect analysis on a proposed change</span>
+            <span data-i18n="apiSpanPost5" class="method method-post">POST</span>
+            <span data-i18n="apiSpanCascadeAnalyze" class="endpoint-path">/cascade/analyze</span>
+            <span data-i18n="apiSpanRunButterflyEffectAnalysisOn" class="endpoint-desc">Run butterfly effect analysis on a proposed change</span>
           </div>
           <div class="endpoint">
-            <span class="method method-get">GET</span>
-            <span class="endpoint-path">/cascade/reports/:id</span>
-            <span class="endpoint-desc">Get cascade analysis report with consequence chains</span>
+            <span data-i18n="apiSpanGet5" class="method method-get">GET</span>
+            <span data-i18n="apiSpanCascadeReportsId" class="endpoint-path">/cascade/reports/:id</span>
+            <span data-i18n="apiSpanGetCascadeAnalysisReportWith" class="endpoint-desc">Get cascade analysis report with consequence chains</span>
           </div>
         </div>
       </div>
@@ -212,37 +212,37 @@ https://your-datacendia-instance.internal/api/v1
       <!-- Audit & Evidence APIs -->
       <div class="api-section">
         <h2 data-i18n="apiSec3Title">Trust Layer — Audit &amp; Evidence</h2>
-        <p>Immutable audit trails, decision packets, evidence export, and audit provenance.</p>
+        <p data-i18n="apiPImmutableAuditTrailsDecisionPackets">Immutable audit trails, decision packets, evidence export, and audit provenance.</p>
         <div class="endpoint-group">
           <div class="endpoint">
-            <span class="method method-post">POST</span>
-            <span class="endpoint-path">/council-packets/build</span>
-            <span class="endpoint-desc">Build a signed decision packet from a deliberation</span>
+            <span data-i18n="apiSpanPost6" class="method method-post">POST</span>
+            <span data-i18n="apiSpanCouncilPacketsBuild" class="endpoint-path">/council-packets/build</span>
+            <span data-i18n="apiSpanBuildSignedDecisionPacketFrom" class="endpoint-desc">Build a signed decision packet from a deliberation</span>
           </div>
           <div class="endpoint">
-            <span class="method method-post">POST</span>
-            <span class="endpoint-path">/council-packets/:id/sign</span>
-            <span class="endpoint-desc">Cryptographically sign a decision packet (KMS/HSM)</span>
+            <span data-i18n="apiSpanPost7" class="method method-post">POST</span>
+            <span data-i18n="apiSpanCouncilPacketsIdSign" class="endpoint-path">/council-packets/:id/sign</span>
+            <span data-i18n="apiSpanCryptographicallySignDecisionPacketKms" class="endpoint-desc">Cryptographically sign a decision packet (KMS/HSM)</span>
           </div>
           <div class="endpoint">
-            <span class="method method-post">POST</span>
-            <span class="endpoint-path">/council-packets/:id/verify</span>
-            <span class="endpoint-desc">Verify signature and Merkle tree integrity</span>
+            <span data-i18n="apiSpanPost8" class="method method-post">POST</span>
+            <span data-i18n="apiSpanCouncilPacketsIdVerify" class="endpoint-path">/council-packets/:id/verify</span>
+            <span data-i18n="apiSpanVerifySignatureAndMerkleTree" class="endpoint-desc">Verify signature and Merkle tree integrity</span>
           </div>
           <div class="endpoint">
-            <span class="method method-get">GET</span>
-            <span class="endpoint-path">/council-packets/:id/export</span>
-            <span class="endpoint-desc">Export decision packet as JSON (evidentiary-grade format)</span>
+            <span data-i18n="apiSpanGet6" class="method method-get">GET</span>
+            <span data-i18n="apiSpanCouncilPacketsIdExport" class="endpoint-path">/council-packets/:id/export</span>
+            <span data-i18n="apiSpanExportDecisionPacketAsJson" class="endpoint-desc">Export decision packet as JSON (evidentiary-grade format)</span>
           </div>
           <div class="endpoint">
-            <span class="method method-post">POST</span>
-            <span class="endpoint-path">/audit-provenance/generate</span>
-            <span class="endpoint-desc">Generate an audit provenance packet with evidence chain</span>
+            <span data-i18n="apiSpanPost9" class="method method-post">POST</span>
+            <span data-i18n="apiSpanAuditProvenanceGenerate" class="endpoint-path">/audit-provenance/generate</span>
+            <span data-i18n="apiSpanGenerateAnAuditProvenancePacket" class="endpoint-desc">Generate an audit provenance packet with evidence chain</span>
           </div>
           <div class="endpoint">
-            <span class="method method-get">GET</span>
-            <span class="endpoint-path">/audit/ledger</span>
-            <span class="endpoint-desc">Query the immutable audit ledger</span>
+            <span data-i18n="apiSpanGet7" class="method method-get">GET</span>
+            <span data-i18n="apiSpanAuditLedger" class="endpoint-path">/audit/ledger</span>
+            <span data-i18n="apiSpanQueryTheImmutableAuditLedger" class="endpoint-desc">Query the immutable audit ledger</span>
           </div>
         </div>
       </div>
@@ -250,32 +250,32 @@ https://your-datacendia-instance.internal/api/v1
       <!-- Compliance APIs -->
       <div class="api-section">
         <h2 data-i18n="apiSec4Title">Compliance &amp; Governance</h2>
-        <p>Continuous compliance monitoring, cross-jurisdiction analysis, and policy enforcement.</p>
+        <p data-i18n="apiPContinuousComplianceMonitoringCrossJurisdiction">Continuous compliance monitoring, cross-jurisdiction analysis, and policy enforcement.</p>
         <div class="endpoint-group">
           <div class="endpoint">
-            <span class="method method-post">POST</span>
-            <span class="endpoint-path">/compliance-monitor/scan</span>
-            <span class="endpoint-desc">Run compliance scan against selected frameworks</span>
+            <span data-i18n="apiSpanPost10" class="method method-post">POST</span>
+            <span data-i18n="apiSpanComplianceMonitorScan" class="endpoint-path">/compliance-monitor/scan</span>
+            <span data-i18n="apiSpanRunComplianceScanAgainstSelected" class="endpoint-desc">Run compliance scan against selected frameworks</span>
           </div>
           <div class="endpoint">
-            <span class="method method-get">GET</span>
-            <span class="endpoint-path">/compliance-monitor/status</span>
-            <span class="endpoint-desc">Get current compliance posture across all frameworks</span>
+            <span data-i18n="apiSpanGet8" class="method method-get">GET</span>
+            <span data-i18n="apiSpanComplianceMonitorStatus" class="endpoint-path">/compliance-monitor/status</span>
+            <span data-i18n="apiSpanGetCurrentCompliancePostureAcross" class="endpoint-desc">Get current compliance posture across all frameworks</span>
           </div>
           <div class="endpoint">
-            <span class="method method-post">POST</span>
-            <span class="endpoint-path">/cross-jurisdiction/assess</span>
-            <span class="endpoint-desc">Cross-border transfer compliance assessment</span>
+            <span data-i18n="apiSpanPost11" class="method method-post">POST</span>
+            <span data-i18n="apiSpanCrossJurisdictionAssess" class="endpoint-path">/cross-jurisdiction/assess</span>
+            <span data-i18n="apiSpanCrossBorderTransferComplianceAssessment" class="endpoint-desc">Cross-border transfer compliance assessment</span>
           </div>
           <div class="endpoint">
-            <span class="method method-get">GET</span>
-            <span class="endpoint-path">/cross-jurisdiction/matrix</span>
-            <span class="endpoint-desc">Get compliance matrix across 17 jurisdictions</span>
+            <span data-i18n="apiSpanGet9" class="method method-get">GET</span>
+            <span data-i18n="apiSpanCrossJurisdictionMatrix" class="endpoint-path">/cross-jurisdiction/matrix</span>
+            <span data-i18n="apiSpanGetComplianceMatrixAcross17" class="endpoint-desc">Get compliance matrix across 17 jurisdictions</span>
           </div>
           <div class="endpoint">
-            <span class="method method-post">POST</span>
-            <span class="endpoint-path">/enterprise/check-permission</span>
-            <span class="endpoint-desc">Check Casbin policy for user action permission</span>
+            <span data-i18n="apiSpanPost12" class="method method-post">POST</span>
+            <span data-i18n="apiSpanEnterpriseCheckPermission" class="endpoint-path">/enterprise/check-permission</span>
+            <span data-i18n="apiSpanCheckCasbinPolicyForUser" class="endpoint-desc">Check Casbin policy for user action permission</span>
           </div>
         </div>
       </div>
@@ -283,37 +283,37 @@ https://your-datacendia-instance.internal/api/v1
       <!-- Security APIs -->
       <div class="api-section">
         <h2 data-i18n="apiSec5Title">Security &amp; Cryptography</h2>
-        <p>Key management, signing, verification, and post-quantum cryptographic operations.</p>
+        <p data-i18n="apiPKeyManagementSigningVerificationAnd">Key management, signing, verification, and post-quantum cryptographic operations.</p>
         <div class="endpoint-group">
           <div class="endpoint">
-            <span class="method method-post">POST</span>
-            <span class="endpoint-path">/kms/sign</span>
-            <span class="endpoint-desc">Sign data with KMS/HSM managed key</span>
+            <span data-i18n="apiSpanPost13" class="method method-post">POST</span>
+            <span data-i18n="apiSpanKmsSign" class="endpoint-path">/kms/sign</span>
+            <span data-i18n="apiSpanSignDataWithKmsHsm" class="endpoint-desc">Sign data with KMS/HSM managed key</span>
           </div>
           <div class="endpoint">
-            <span class="method method-post">POST</span>
-            <span class="endpoint-path">/kms/verify</span>
-            <span class="endpoint-desc">Verify a cryptographic signature</span>
+            <span data-i18n="apiSpanPost14" class="method method-post">POST</span>
+            <span data-i18n="apiSpanKmsVerify" class="endpoint-path">/kms/verify</span>
+            <span data-i18n="apiSpanVerifyCryptographicSignature" class="endpoint-desc">Verify a cryptographic signature</span>
           </div>
           <div class="endpoint">
-            <span class="method method-post">POST</span>
-            <span class="endpoint-path">/post-quantum/sign</span>
-            <span class="endpoint-desc">Sign with post-quantum algorithm (Dilithium, SPHINCS+)</span>
+            <span data-i18n="apiSpanPost15" class="method method-post">POST</span>
+            <span data-i18n="apiSpanPostQuantumSign" class="endpoint-path">/post-quantum/sign</span>
+            <span data-i18n="apiSpanSignWithPostQuantumAlgorithm" class="endpoint-desc">Sign with post-quantum algorithm (Dilithium, SPHINCS+)</span>
           </div>
           <div class="endpoint">
-            <span class="method method-post">POST</span>
-            <span class="endpoint-path">/post-quantum/verify</span>
-            <span class="endpoint-desc">Verify post-quantum signature</span>
+            <span data-i18n="apiSpanPost16" class="method method-post">POST</span>
+            <span data-i18n="apiSpanPostQuantumVerify" class="endpoint-path">/post-quantum/verify</span>
+            <span data-i18n="apiSpanVerifyPostQuantumSignature" class="endpoint-desc">Verify post-quantum signature</span>
           </div>
           <div class="endpoint">
-            <span class="method method-post">POST</span>
-            <span class="endpoint-path">/kms/keys</span>
-            <span class="endpoint-desc">Create a new cryptographic key</span>
+            <span data-i18n="apiSpanPost17" class="method method-post">POST</span>
+            <span data-i18n="apiSpanKmsKeys" class="endpoint-path">/kms/keys</span>
+            <span data-i18n="apiSpanCreateNewCryptographicKey" class="endpoint-desc">Create a new cryptographic key</span>
           </div>
           <div class="endpoint">
-            <span class="method method-post">POST</span>
-            <span class="endpoint-path">/kms/keys/:keyId/rotate</span>
-            <span class="endpoint-desc">Rotate an existing key</span>
+            <span data-i18n="apiSpanPost18" class="method method-post">POST</span>
+            <span data-i18n="apiSpanKmsKeysKeyidRotate" class="endpoint-path">/kms/keys/:keyId/rotate</span>
+            <span data-i18n="apiSpanRotateAnExistingKey" class="endpoint-desc">Rotate an existing key</span>
           </div>
         </div>
       </div>
@@ -321,37 +321,37 @@ https://your-datacendia-instance.internal/api/v1
       <!-- Sovereign Architecture APIs -->
       <div class="api-section">
         <h2 data-i18n="apiSec6Title">Sovereign Architecture</h2>
-        <p>Air-gap bridge, data diode, TPM attestation, and other sovereign deployment operations.</p>
+        <p data-i18n="apiPAirGapBridgeDataDiode">Air-gap bridge, data diode, TPM attestation, and other sovereign deployment operations.</p>
         <div class="endpoint-group">
           <div class="endpoint">
-            <span class="method method-post">POST</span>
-            <span class="endpoint-path">/sovereign-arch/qr/encode</span>
-            <span class="endpoint-desc">Encode data as animated QR sequence for air-gap transfer</span>
+            <span data-i18n="apiSpanPost19" class="method method-post">POST</span>
+            <span data-i18n="apiSpanSovereignArchQrEncode" class="endpoint-path">/sovereign-arch/qr/encode</span>
+            <span data-i18n="apiSpanEncodeDataAsAnimatedQr" class="endpoint-desc">Encode data as animated QR sequence for air-gap transfer</span>
           </div>
           <div class="endpoint">
-            <span class="method method-post">POST</span>
-            <span class="endpoint-path">/sovereign-arch/diode/ingest</span>
-            <span class="endpoint-desc">Ingest data through unidirectional data diode</span>
+            <span data-i18n="apiSpanPost20" class="method method-post">POST</span>
+            <span data-i18n="apiSpanSovereignArchDiodeIngest" class="endpoint-path">/sovereign-arch/diode/ingest</span>
+            <span data-i18n="apiSpanIngestDataThroughUnidirectionalData" class="endpoint-desc">Ingest data through unidirectional data diode</span>
           </div>
           <div class="endpoint">
-            <span class="method method-post">POST</span>
-            <span class="endpoint-path">/sovereign-arch/tpm/attest</span>
-            <span class="endpoint-desc">Get TPM hardware attestation for a decision</span>
+            <span data-i18n="apiSpanPost21" class="method method-post">POST</span>
+            <span data-i18n="apiSpanSovereignArchTpmAttest" class="endpoint-path">/sovereign-arch/tpm/attest</span>
+            <span data-i18n="apiSpanGetTpmHardwareAttestationFor" class="endpoint-desc">Get TPM hardware attestation for a decision</span>
           </div>
           <div class="endpoint">
-            <span class="method method-post">POST</span>
-            <span class="endpoint-path">/sovereign-arch/timelock/create</span>
-            <span class="endpoint-desc">Create time-locked encrypted decision (embargo)</span>
+            <span data-i18n="apiSpanPost22" class="method method-post">POST</span>
+            <span data-i18n="apiSpanSovereignArchTimelockCreate" class="endpoint-path">/sovereign-arch/timelock/create</span>
+            <span data-i18n="apiSpanCreateTimeLockedEncryptedDecision" class="endpoint-desc">Create time-locked encrypted decision (embargo)</span>
           </div>
           <div class="endpoint">
-            <span class="method method-post">POST</span>
-            <span class="endpoint-path">/sovereign-arch/canary/create</span>
-            <span class="endpoint-desc">Create canary tripwire for exfiltration detection</span>
+            <span data-i18n="apiSpanPost23" class="method method-post">POST</span>
+            <span data-i18n="apiSpanSovereignArchCanaryCreate" class="endpoint-path">/sovereign-arch/canary/create</span>
+            <span data-i18n="apiSpanCreateCanaryTripwireForExfiltration" class="endpoint-desc">Create canary tripwire for exfiltration detection</span>
           </div>
           <div class="endpoint">
-            <span class="method method-post">POST</span>
-            <span class="endpoint-path">/sovereign-arch/replay/capture</span>
-            <span class="endpoint-desc">Capture state for deterministic replay</span>
+            <span data-i18n="apiSpanPost24" class="method method-post">POST</span>
+            <span data-i18n="apiSpanSovereignArchReplayCapture" class="endpoint-path">/sovereign-arch/replay/capture</span>
+            <span data-i18n="apiSpanCaptureStateForDeterministicReplay" class="endpoint-desc">Capture state for deterministic replay</span>
           </div>
         </div>
       </div>
@@ -359,27 +359,27 @@ https://your-datacendia-instance.internal/api/v1
       <!-- Translation -->
       <div class="api-section">
         <h2 data-i18n="apiSec7Title">CendiaOmniTranslate</h2>
-        <p>100+ language enterprise translation with glossary management and translation memory.</p>
+        <p data-i18n="apiP100LanguageEnterpriseTranslationWith">100+ language enterprise translation with glossary management and translation memory.</p>
         <div class="endpoint-group">
           <div class="endpoint">
-            <span class="method method-post">POST</span>
-            <span class="endpoint-path">/omnitranslate/translate</span>
-            <span class="endpoint-desc">Translate text between 100+ languages</span>
+            <span data-i18n="apiSpanPost25" class="method method-post">POST</span>
+            <span data-i18n="apiSpanOmnitranslateTranslate" class="endpoint-path">/omnitranslate/translate</span>
+            <span data-i18n="apiSpanTranslateTextBetween100Languages" class="endpoint-desc">Translate text between 100+ languages</span>
           </div>
           <div class="endpoint">
-            <span class="method method-post">POST</span>
-            <span class="endpoint-path">/omnitranslate/detect</span>
-            <span class="endpoint-desc">Auto-detect source language</span>
+            <span data-i18n="apiSpanPost26" class="method method-post">POST</span>
+            <span data-i18n="apiSpanOmnitranslateDetect" class="endpoint-path">/omnitranslate/detect</span>
+            <span data-i18n="apiSpanAutoDetectSourceLanguage" class="endpoint-desc">Auto-detect source language</span>
           </div>
           <div class="endpoint">
-            <span class="method method-post">POST</span>
-            <span class="endpoint-path">/omnitranslate/batch</span>
-            <span class="endpoint-desc">Batch translate multiple text segments</span>
+            <span data-i18n="apiSpanPost27" class="method method-post">POST</span>
+            <span data-i18n="apiSpanOmnitranslateBatch" class="endpoint-path">/omnitranslate/batch</span>
+            <span data-i18n="apiSpanBatchTranslateMultipleTextSegments" class="endpoint-desc">Batch translate multiple text segments</span>
           </div>
           <div class="endpoint">
-            <span class="method method-get">GET</span>
-            <span class="endpoint-path">/omnitranslate/languages</span>
-            <span class="endpoint-desc">List supported languages and capabilities</span>
+            <span data-i18n="apiSpanGet10" class="method method-get">GET</span>
+            <span data-i18n="apiSpanOmnitranslateLanguages" class="endpoint-path">/omnitranslate/languages</span>
+            <span data-i18n="apiSpanListSupportedLanguagesAndCapabilities" class="endpoint-desc">List supported languages and capabilities</span>
           </div>
         </div>
       </div>
@@ -387,27 +387,27 @@ https://your-datacendia-instance.internal/api/v1
       <!-- Verticals -->
       <div class="api-section">
         <h2 data-i18n="apiSec8Title">Vertical-Specific APIs</h2>
-        <p>Industry-specific endpoints for compliance frameworks, decision schemas, and agent presets across multiple verticals.</p>
+        <p data-i18n="apiPIndustrySpecificEndpointsForCompliance">Industry-specific endpoints for compliance frameworks, decision schemas, and agent presets across multiple verticals.</p>
         <div class="endpoint-group">
           <div class="endpoint">
-            <span class="method method-get">GET</span>
-            <span class="endpoint-path">/verticals/:vertical/agents</span>
-            <span class="endpoint-desc">List agents for a specific industry vertical</span>
+            <span data-i18n="apiSpanGet11" class="method method-get">GET</span>
+            <span data-i18n="apiSpanVerticalsVerticalAgents" class="endpoint-path">/verticals/:vertical/agents</span>
+            <span data-i18n="apiSpanListAgentsForSpecificIndustry" class="endpoint-desc">List agents for a specific industry vertical</span>
           </div>
           <div class="endpoint">
-            <span class="method method-get">GET</span>
-            <span class="endpoint-path">/verticals/:vertical/compliance</span>
-            <span class="endpoint-desc">Get compliance frameworks for a vertical</span>
+            <span data-i18n="apiSpanGet12" class="method method-get">GET</span>
+            <span data-i18n="apiSpanVerticalsVerticalCompliance" class="endpoint-path">/verticals/:vertical/compliance</span>
+            <span data-i18n="apiSpanGetComplianceFrameworksForVertical" class="endpoint-desc">Get compliance frameworks for a vertical</span>
           </div>
           <div class="endpoint">
-            <span class="method method-get">GET</span>
-            <span class="endpoint-path">/verticals/:vertical/schemas</span>
-            <span class="endpoint-desc">Get decision schemas for a vertical</span>
+            <span data-i18n="apiSpanGet13" class="method method-get">GET</span>
+            <span data-i18n="apiSpanVerticalsVerticalSchemas" class="endpoint-path">/verticals/:vertical/schemas</span>
+            <span data-i18n="apiSpanGetDecisionSchemasForVertical" class="endpoint-desc">Get decision schemas for a vertical</span>
           </div>
           <div class="endpoint">
-            <span class="method method-post">POST</span>
-            <span class="endpoint-path">/:vertical/knowledge/query</span>
-            <span class="endpoint-desc">Query vertical-specific knowledge base (RAG)</span>
+            <span data-i18n="apiSpanPost28" class="method method-post">POST</span>
+            <span data-i18n="apiSpanVerticalKnowledgeQuery" class="endpoint-path">/:vertical/knowledge/query</span>
+            <span data-i18n="apiSpanQueryVerticalSpecificKnowledgeBase" class="endpoint-desc">Query vertical-specific knowledge base (RAG)</span>
           </div>
         </div>
       </div>
@@ -418,25 +418,25 @@ https://your-datacendia-instance.internal/api/v1
         <div class="code-block">
 <span class="comment">// POST /api/v1/council/deliberate</span>
 {
-  <span class="key">"question"</span>: <span class="string">"Should we acquire TargetCorp for $200M?"</span>,
-  <span class="key">"context"</span>: <span class="string">"TargetCorp has $45M ARR, 23% growth rate..."</span>,
-  <span class="key">"agents"</span>: [<span class="string">"financial-analyst"</span>, <span class="string">"legal-advisor"</span>, <span class="string">"risk-assessor"</span>, <span class="string">"operations-lead"</span>, <span class="string">"compliance-officer"</span>, <span class="string">"strategy-advisor"</span>],
-  <span class="key">"mode"</span>: <span class="string">"full-deliberation"</span>,
-  <span class="key">"options"</span>: {
-    <span class="key">"cross_examination"</span>: true,
-    <span class="key">"allow_dissent"</span>: true,
-    <span class="key">"confidence_threshold"</span>: <span class="number">0.7</span>
+  <span data-i18n="apiSpanQuestion" class="key">"question"</span>: <span class="string">"Should we acquire TargetCorp for $200M?"</span>,
+  <span data-i18n="apiSpanContext" class="key">"context"</span>: <span class="string">"TargetCorp has $45M ARR, 23% growth rate..."</span>,
+  <span data-i18n="apiSpanAgents" class="key">"agents"</span>: [<span class="string">"financial-analyst"</span>, <span class="string">"legal-advisor"</span>, <span class="string">"risk-assessor"</span>, <span class="string">"operations-lead"</span>, <span class="string">"compliance-officer"</span>, <span class="string">"strategy-advisor"</span>],
+  <span data-i18n="apiSpanMode" class="key">"mode"</span>: <span class="string">"full-deliberation"</span>,
+  <span data-i18n="apiSpanOptions" class="key">"options"</span>: {
+    <span data-i18n="apiSpanCross_examination" class="key">"cross_examination"</span>: true,
+    <span data-i18n="apiSpanAllow_dissent" class="key">"allow_dissent"</span>: true,
+    <span data-i18n="apiSpanConfidence_threshold" class="key">"confidence_threshold"</span>: <span class="number">0.7</span>
   }
 }
         </div>
         <div class="code-block">
 <span class="comment">// Response (200 OK)</span>
 {
-  <span class="key">"deliberation_id"</span>: <span class="string">"dlb_2026020812345"</span>,
-  <span class="key">"status"</span>: <span class="string">"in_progress"</span>,
-  <span class="key">"agents_assigned"</span>: <span class="number">6</span>,
-  <span class="key">"estimated_duration_seconds"</span>: <span class="number">45</span>,
-  <span class="key">"poll_url"</span>: <span class="string">"/api/v1/council/deliberations/dlb_2026020812345"</span>
+  <span data-i18n="apiSpanDeliberation_id" class="key">"deliberation_id"</span>: <span class="string">"dlb_2026020812345"</span>,
+  <span data-i18n="apiSpanStatus" class="key">"status"</span>: <span class="string">"in_progress"</span>,
+  <span data-i18n="apiSpanAgents_assigned" class="key">"agents_assigned"</span>: <span class="number">6</span>,
+  <span data-i18n="apiSpanEstimated_duration_seconds" class="key">"estimated_duration_seconds"</span>: <span class="number">45</span>,
+  <span data-i18n="apiSpanPoll_url" class="key">"poll_url"</span>: <span class="string">"/api/v1/council/deliberations/dlb_2026020812345"</span>
 }
         </div>
       </div>
@@ -453,19 +453,19 @@ https://your-datacendia-instance.internal/api/v1
           During your pilot evaluation, you'll receive:
         </p>
         <ul style="color: var(--color-text-dim); font-size: 0.85rem; line-height: 1.8; margin: 12px 0 0 24px;">
-          <li>Complete OpenAPI 3.0 specification (machine-readable)</li>
-          <li>Postman collection with example requests for every endpoint</li>
-          <li>TypeScript SDK with full type definitions</li>
-          <li>Integration guides for common enterprise patterns</li>
-          <li>Webhook configuration for event-driven architectures</li>
+          <li data-i18n="apiLiCompleteOpenapiSpecificationMachineReadable">Complete OpenAPI 3.0 specification (machine-readable)</li>
+          <li data-i18n="apiLiPostmanCollectionWithExampleRequests">Postman collection with example requests for every endpoint</li>
+          <li data-i18n="apiLiTypescriptSdkWithFullType">TypeScript SDK with full type definitions</li>
+          <li data-i18n="apiLiIntegrationGuidesForCommonEnterprise">Integration guides for common enterprise patterns</li>
+          <li data-i18n="apiLiWebhookConfigurationForEventDriven">Webhook configuration for event-driven architectures</li>
         </ul>
       </div>
 
       <div class="cta-box">
         <h3 data-i18n="apiCtaTitle">Get Full API Access</h3>
-        <p>Request a technical briefing and we'll walk you through the API, provide the OpenAPI spec, and set up a sandbox environment.</p>
+        <p data-i18n="apiPRequestTechnicalBriefingAndWe">Request a technical briefing and we'll walk you through the API, provide the OpenAPI spec, and set up a sandbox environment.</p>
         <a href="briefing.html" class="cta-btn" data-i18n="apiCtaBtn">Request Technical Briefing →</a>
-        <a href="trust/test-results.html" class="cta-btn secondary">See Test Results</a>
+        <a data-i18n="apiASeeTestResults" href="trust/test-results.html" class="cta-btn secondary">See Test Results</a>
       </div>
     </div>
     </main>
@@ -479,8 +479,8 @@ https://your-datacendia-instance.internal/api/v1
         <a href="pricing.html" class="cta-button secondary" data-i18n="navPricingShort">Pricing</a>
         <a href="trust.html" class="cta-button secondary" data-i18n="navTrustCenterShort">Trust Center</a>
       </div>
-      <p class="footer-contact"><a href="mailto:contact@datacendia.com">contact@datacendia.com</a> · <a href="team.html">Leadership</a> · <a href="protocol.html">Protocol</a> · <a href="trust.html">Trust</a> · <a href="roi-calculator.html">ROI Calculator</a> · <a href="changelog.html">Changelog</a> · <a href="pricing.html">Pricing</a> · <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a> · <a href="https://github.com/datacendia/datacendia-core" target="_blank" rel="noopener">GitHub</a> &middot; <a href="https://www.linkedin.com/company/datacendia/" target="_blank" rel="noopener">LinkedIn</a></p>
-      <p class="footer-status" style="font-family: var(--font-mono); font-size: 0.7rem; color: #2ecc71; margin-top: 16px; letter-spacing: 0.05em;">SYSTEM STATUS: AIR-GAP READY · NO TRACKER PIXELS DETECTED</p>
+      <p class="footer-contact"><a href="mailto:contact@datacendia.com">contact@datacendia.com</a> · <a data-i18n="apiALeadership" href="team.html">Leadership</a> · <a href="protocol.html">Protocol</a> · <a href="trust.html">Trust</a> · <a href="roi-calculator.html">ROI Calculator</a> · <a href="changelog.html">Changelog</a> · <a href="pricing.html">Pricing</a> · <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a> · <a href="https://github.com/datacendia/datacendia-core" target="_blank" rel="noopener">GitHub</a> &middot; <a href="https://www.linkedin.com/company/datacendia/" target="_blank" rel="noopener">LinkedIn</a></p>
+      <p data-i18n="apiPSystemStatusAirGapReady" class="footer-status" style="font-family: var(--font-mono); font-size: 0.7rem; color: #2ecc71; margin-top: 16px; letter-spacing: 0.05em;">SYSTEM STATUS: AIR-GAP READY · NO TRACKER PIXELS DETECTED</p>
     </div>
     </footer>
   </div>

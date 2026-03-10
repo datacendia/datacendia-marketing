@@ -48,14 +48,14 @@
       <div class="page-top-bar">
         <a href="index.html" class="back-link" data-i18n="returnToDatacendia">← Return to Datacendia</a>
         <div class="lang-selector">
-          <button class="lang-btn"><span class="lang-current">English</span> ▾</button>
+          <button class="lang-btn"><span data-i18n="trustSpanEnglish" class="lang-current">English</span> ▾</button>
           <div class="lang-dropdown">
-            <button data-lang="en">English</button>
-            <button data-lang="es">Español</button>
-            <button data-lang="fr">Français</button>
-            <button data-lang="de">Deutsch</button>
-            <button data-lang="pt">Português</button>
-            <button data-lang="it">Italiano</button>
+            <button data-i18n="trustButtonEnglish" data-lang="en">English</button>
+            <button data-i18n="trustButtonEspaOl" data-lang="es">Español</button>
+            <button data-i18n="trustButtonFranAis" data-lang="fr">Français</button>
+            <button data-i18n="trustButtonDeutsch" data-lang="de">Deutsch</button>
+            <button data-i18n="trustButtonPortugu" data-lang="pt">Português</button>
+            <button data-i18n="trustButtonItaliano" data-lang="it">Italiano</button>
             <button data-lang="ja">日本語</button>
             <button data-lang="ko">한국어</button>
             <button data-lang="zh">中文</button>
@@ -115,72 +115,72 @@
 
       <!-- Verified Build Status -->
       <div class="trust-section" style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(6, 182, 212, 0.05) 100%); border-color: rgba(16, 185, 129, 0.3);">
-        <h2 style="color: #10b981;">✅ Verified Build Status</h2>
-        <p style="color: var(--color-text-dim); margin-bottom: 1.5rem;">These metrics are verifiable by running <code style="background: rgba(0,0,0,0.3); padding: 2px 6px; border-radius: 4px;">npm test</code> in our repository.</p>
+        <h2 data-i18n="trustH2VerifiedBuildStatus" style="color: #10b981;">✅ Verified Build Status</h2>
+        <p data-i18n="trustPTheseMetricsAreVerifiableBy" style="color: var(--color-text-dim); margin-bottom: 1.5rem;">These metrics are verifiable by running <code style="background: rgba(0,0,0,0.3); padding: 2px 6px; border-radius: 4px;">npm test</code> in our repository.</p>
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem;">
           <div style="text-align: center; padding: 1rem; background: rgba(0,0,0,0.2); border-radius: 8px;">
             <a href="trust/test-results.html" style="text-decoration: none;"><div style="font-size: 2rem; font-weight: 700; color: #10b981;">204,079</div></a>
-            <div style="font-size: 0.75rem; color: var(--color-text-muted);"><a href="trust/test-results.html" style="color: var(--color-text-muted); text-decoration: none; border-bottom: 1px dashed rgba(255,255,255,0.2);">Automated Tests →</a></div>
+            <div style="font-size: 0.75rem; color: var(--color-text-muted);"><a data-i18n="trustAAutomatedTests" href="trust/test-results.html" style="color: var(--color-text-muted); text-decoration: none; border-bottom: 1px dashed rgba(255,255,255,0.2);">Automated Tests →</a></div>
           </div>
           <div style="text-align: center; padding: 1rem; background: rgba(0,0,0,0.2); border-radius: 8px;">
             <div style="font-size: 2rem; font-weight: 700; color: #10b981;">100%</div>
-            <div style="font-size: 0.75rem; color: var(--color-text-muted);">Pass Rate</div>
+            <div data-i18n="trustDivPassRate" style="font-size: 0.75rem; color: var(--color-text-muted);">Pass Rate</div>
           </div>
           <div style="text-align: center; padding: 1rem; background: rgba(0,0,0,0.2); border-radius: 8px;">
             <div style="font-size: 2rem; font-weight: 700; color: #10b981;">40+</div>
-            <div style="font-size: 0.75rem; color: var(--color-text-muted);">AI Council Agents</div>
+            <div data-i18n="trustDivAiCouncilAgents" style="font-size: 0.75rem; color: var(--color-text-muted);">AI Council Agents</div>
           </div>
           <div style="text-align: center; padding: 1rem; background: rgba(0,0,0,0.2); border-radius: 8px;">
             <div style="font-size: 2rem; font-weight: 700; color: #10b981;">11</div>
-            <div style="font-size: 0.75rem; color: var(--color-text-muted);">Languages</div>
+            <div data-i18n="trustDivLanguages" style="font-size: 0.75rem; color: var(--color-text-muted);">Languages</div>
           </div>
         </div>
         <details style="margin-top: 1.5rem;">
-          <summary style="cursor: pointer; color: var(--color-gold); font-size: 0.85rem;">View Security Test Details</summary>
+          <summary data-i18n="trustSummaryViewSecurityTestDetails" style="cursor: pointer; color: var(--color-gold); font-size: 0.85rem;">View Security Test Details</summary>
           <ul style="margin-top: 1rem; color: var(--color-text-dim); font-size: 0.85rem; line-height: 1.8;">
-            <li><strong>Prompt Injection:</strong> CendiaGuard™ blocks malicious prompts ✓</li>
-            <li><strong>Jailbreak Attempts:</strong> DAN/evil mode attacks refused ✓</li>
-            <li><strong>Data Extraction:</strong> System prompt revelation blocked ✓</li>
-            <li><strong>Bias Testing:</strong> 11 tests for discrimination, fraud, ethics ✓</li>
-            <li><strong>Air-Gap Verification:</strong> 11 tests confirm zero external calls ✓</li>
-            <li><strong>Rubric-Based Consistency:</strong> LLM nondeterminism tolerance validated ✓</li>
+            <li><strong data-i18n="trustStrongPromptInjection">Prompt Injection:</strong> CendiaGuard™ blocks malicious prompts ✓</li>
+            <li><strong data-i18n="trustStrongJailbreakAttempts">Jailbreak Attempts:</strong> DAN/evil mode attacks refused ✓</li>
+            <li><strong data-i18n="trustStrongDataExtraction">Data Extraction:</strong> System prompt revelation blocked ✓</li>
+            <li><strong data-i18n="trustStrongBiasTesting">Bias Testing:</strong> 11 tests for discrimination, fraud, ethics ✓</li>
+            <li><strong data-i18n="trustStrongAirGapVerification">Air-Gap Verification:</strong> 11 tests confirm zero external calls ✓</li>
+            <li><strong data-i18n="trustStrongRubricBasedConsistency">Rubric-Based Consistency:</strong> LLM nondeterminism tolerance validated ✓</li>
           </ul>
         </details>
-        <p style="margin-top: 1rem; font-size: 0.75rem; color: var(--color-text-muted);">Last verified: February 21, 2026 · Metrics sourced from platform test suite · <a href="https://github.com/datacendia" style="color: var(--color-gold);">View on GitHub</a></p>
+        <p data-i18n="trustPLastVerifiedFebruary212026" style="margin-top: 1rem; font-size: 0.75rem; color: var(--color-text-muted);">Last verified: February 21, 2026 · Metrics sourced from platform test suite · <a data-i18n="trustAViewOnGithub" href="https://github.com/datacendia" style="color: var(--color-gold);">View on GitHub</a></p>
       </div>
 
       <!-- Published Conformance Statements -->
       <div class="trust-section" id="conformance-statements" style="background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(139, 92, 246, 0.05) 100%); border-color: rgba(99, 102, 241, 0.3);">
-        <h2 style="color: #818cf8;">📜 Self-Attested Conformance Statements</h2>
+        <h2 data-i18n="trustH2SelfAttestedConformanceStatements" style="color: #818cf8;">📜 Self-Attested Conformance Statements</h2>
         <p style="font-size: 0.9rem; color: var(--color-text-muted); line-height: 1.6; margin-bottom: 1.5rem;">
           Self-attested conformance statements mapping Datacendia's architecture to major AI governance frameworks.
-          These are <strong style="color: var(--color-text);">not third-party audited</strong> — they document how our architecture maps to each framework's requirements.
+          These are <strong data-i18n="trustStrongNotThirdPartyAudited" style="color: var(--color-text);">not third-party audited</strong> — they document how our architecture maps to each framework's requirements.
           Each document includes cryptographic content hashes for integrity verification.
         </p>
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin-bottom: 1.5rem;">
           <a href="trust/iso-42001-conformance.pdf" style="text-decoration: none; padding: 1.25rem; background: rgba(0,0,0,0.2); border-radius: 8px; border: 1px solid rgba(99, 102, 241, 0.2); transition: all 0.3s ease;" onmouseover="this.style.borderColor='rgba(99,102,241,0.5)'" onmouseout="this.style.borderColor='rgba(99,102,241,0.2)'">
             <div style="font-size: 1.25rem; margin-bottom: 0.5rem;"><img src="assets/logos/compliance.svg" alt="ISO" width="32" height="32" style="border-radius:6px"></div>
-            <div style="font-weight: 600; color: var(--color-text); margin-bottom: 0.25rem;">ISO/IEC 42001:2023</div>
-            <div style="font-size: 0.75rem; color: var(--color-text-muted); margin-bottom: 0.75rem;">AI Management Systems — Conformance Statement</div>
-            <div style="font-family: var(--font-mono); font-size: 0.7rem; color: #818cf8;">PDF · Download →</div>
+            <div data-i18n="trustDivIsoIec420012023" style="font-weight: 600; color: var(--color-text); margin-bottom: 0.25rem;">ISO/IEC 42001:2023</div>
+            <div data-i18n="trustDivAiManagementSystemsConformanceStatement" style="font-size: 0.75rem; color: var(--color-text-muted); margin-bottom: 0.75rem;">AI Management Systems — Conformance Statement</div>
+            <div data-i18n="trustDivPdfDownload" style="font-family: var(--font-mono); font-size: 0.7rem; color: #818cf8;">PDF · Download →</div>
           </a>
           <a href="trust/nist-ai-rmf-alignment.pdf" style="text-decoration: none; padding: 1.25rem; background: rgba(0,0,0,0.2); border-radius: 8px; border: 1px solid rgba(99, 102, 241, 0.2); transition: all 0.3s ease;" onmouseover="this.style.borderColor='rgba(99,102,241,0.5)'" onmouseout="this.style.borderColor='rgba(99,102,241,0.2)'">
             <div style="font-size: 1.25rem; margin-bottom: 0.5rem;"><img src="assets/logos/compliance.svg" alt="NIST" width="32" height="32" style="border-radius:6px"></div>
-            <div style="font-weight: 600; color: var(--color-text); margin-bottom: 0.25rem;">NIST AI RMF</div>
-            <div style="font-size: 0.75rem; color: var(--color-text-muted); margin-bottom: 0.75rem;">AI Risk Management Framework — Alignment Document</div>
-            <div style="font-family: var(--font-mono); font-size: 0.7rem; color: #818cf8;">PDF · Download →</div>
+            <div data-i18n="trustDivNistAiRmf" style="font-weight: 600; color: var(--color-text); margin-bottom: 0.25rem;">NIST AI RMF</div>
+            <div data-i18n="trustDivAiRiskManagementFrameworkAlignment" style="font-size: 0.75rem; color: var(--color-text-muted); margin-bottom: 0.75rem;">AI Risk Management Framework — Alignment Document</div>
+            <div data-i18n="trustDivPdfDownload2" style="font-family: var(--font-mono); font-size: 0.7rem; color: #818cf8;">PDF · Download →</div>
           </a>
           <a href="trust/eu-ai-act-conformance.pdf" style="text-decoration: none; padding: 1.25rem; background: rgba(0,0,0,0.2); border-radius: 8px; border: 1px solid rgba(99, 102, 241, 0.2); transition: all 0.3s ease;" onmouseover="this.style.borderColor='rgba(99,102,241,0.5)'" onmouseout="this.style.borderColor='rgba(99,102,241,0.2)'">
             <div style="font-size: 1.25rem; margin-bottom: 0.5rem;"><img src="assets/logos/legal-compliance.svg" alt="EU AI Act" width="32" height="32" style="border-radius:6px"></div>
-            <div style="font-weight: 600; color: var(--color-text); margin-bottom: 0.25rem;">EU AI Act</div>
-            <div style="font-size: 0.75rem; color: var(--color-text-muted); margin-bottom: 0.75rem;">Regulation (EU) 2024/1689 — Conformance Statement</div>
-            <div style="font-family: var(--font-mono); font-size: 0.7rem; color: #818cf8;">PDF · Download →</div>
+            <div data-i18n="trustDivEuAiAct" style="font-weight: 600; color: var(--color-text); margin-bottom: 0.25rem;">EU AI Act</div>
+            <div data-i18n="trustDivRegulationEu20241689Conformance" style="font-size: 0.75rem; color: var(--color-text-muted); margin-bottom: 0.75rem;">Regulation (EU) 2024/1689 — Conformance Statement</div>
+            <div data-i18n="trustDivPdfDownload3" style="font-family: var(--font-mono); font-size: 0.7rem; color: #818cf8;">PDF · Download →</div>
           </a>
           <a href="trust/sbom.json" style="text-decoration: none; padding: 1.25rem; background: rgba(0,0,0,0.2); border-radius: 8px; border: 1px solid rgba(99, 102, 241, 0.2); transition: all 0.3s ease;" onmouseover="this.style.borderColor='rgba(99,102,241,0.5)'" onmouseout="this.style.borderColor='rgba(99,102,241,0.2)'">
             <div style="font-size: 1.25rem; margin-bottom: 0.5rem;"><img src="assets/logos/cendia-flow.svg" alt="SBOM" width="32" height="32" style="border-radius:6px"></div>
-            <div style="font-weight: 600; color: var(--color-text); margin-bottom: 0.25rem;">SBOM</div>
-            <div style="font-size: 0.75rem; color: var(--color-text-muted); margin-bottom: 0.75rem;">Software Bill of Materials — CycloneDX Format (Platform Application)</div>
-            <div style="font-family: var(--font-mono); font-size: 0.7rem; color: #818cf8;">JSON · Download →</div>
+            <div data-i18n="trustDivSbom" style="font-weight: 600; color: var(--color-text); margin-bottom: 0.25rem;">SBOM</div>
+            <div data-i18n="trustDivSoftwareBillOfMaterialsCyclonedx" style="font-size: 0.75rem; color: var(--color-text-muted); margin-bottom: 0.75rem;">Software Bill of Materials — CycloneDX Format (Platform Application)</div>
+            <div data-i18n="trustDivJsonDownload" style="font-family: var(--font-mono); font-size: 0.7rem; color: #818cf8;">JSON · Download →</div>
           </a>
         </div>
         <p style="font-size: 0.75rem; color: var(--color-text-dim);">
@@ -260,7 +260,7 @@
 
       <div class="trust-section">
         <h2 data-i18n="complianceRoadmap">Compliance Roadmap</h2>
-        <p style="font-size: 0.7rem; color: var(--color-text-dim); margin-bottom: 16px;">Last updated: 2026-03-06</p>
+        <p data-i18n="trustPLastUpdated20260306" style="font-size: 0.7rem; color: var(--color-text-dim); margin-bottom: 16px;">Last updated: 2026-03-06</p>
         <div class="trust-grid">
           <div class="trust-item">
             <div class="trust-item-title" data-i18n="trustIso42001">ISO/IEC 42001:2023</div>
@@ -317,20 +317,20 @@
           <div class="trust-item">
             <div class="trust-item-title" data-i18n="trustIrSla">Incident Response SLA</div>
             <div class="trust-item-desc">
-              <strong style="color: var(--color-text);">Critical (P1):</strong> 4-hour acknowledgment, 24-hour remediation target<br>
-              <strong style="color: var(--color-text);">High (P2):</strong> 8-hour acknowledgment, 72-hour remediation target<br>
-              <strong style="color: var(--color-text);">Medium (P3):</strong> 24-hour acknowledgment, next release remediation<br>
-              <em style="font-size: 0.75rem;">Sovereign tier customers receive dedicated incident response with custom SLAs.</em>
+              <strong data-i18n="trustStrongCriticalP1" style="color: var(--color-text);">Critical (P1):</strong> 4-hour acknowledgment, 24-hour remediation target<br>
+              <strong data-i18n="trustStrongHighP2" style="color: var(--color-text);">High (P2):</strong> 8-hour acknowledgment, 72-hour remediation target<br>
+              <strong data-i18n="trustStrongMediumP3" style="color: var(--color-text);">Medium (P3):</strong> 24-hour acknowledgment, next release remediation<br>
+              <em data-i18n="trustEmSovereignTierCustomersReceiveDedicated" style="font-size: 0.75rem;">Sovereign tier customers receive dedicated incident response with custom SLAs.</em>
             </div>
           </div>
           <div class="trust-item">
             <div class="trust-item-title" data-i18n="trustSecTesting">Security Testing Summary</div>
             <div class="trust-item-desc">
-              <strong style="color: var(--color-text);">SAST/DAST:</strong> Automated static and dynamic analysis on every build<br>
-              <strong style="color: var(--color-text);">Dependency Scanning:</strong> Continuous CVE monitoring via SBOM (CycloneDX)<br>
-              <strong style="color: var(--color-text);">AI-Specific Testing:</strong> Prompt injection, jailbreak, data extraction, bias — 204,000+ automated tests<br>
-              <strong style="color: var(--color-text);">Penetration Testing:</strong> Third-party pen test scheduled for H1 2026. Results will be available under NDA.<br>
-              <em style="font-size: 0.75rem;">Full test breakdown available at <a href="trust/test-results.html" style="color: var(--color-gold);">Test Results →</a></em>
+              <strong data-i18n="trustStrongSastDast" style="color: var(--color-text);">SAST/DAST:</strong> Automated static and dynamic analysis on every build<br>
+              <strong data-i18n="trustStrongDependencyScanning" style="color: var(--color-text);">Dependency Scanning:</strong> Continuous CVE monitoring via SBOM (CycloneDX)<br>
+              <strong data-i18n="trustStrongAiSpecificTesting" style="color: var(--color-text);">AI-Specific Testing:</strong> Prompt injection, jailbreak, data extraction, bias — 204,000+ automated tests<br>
+              <strong data-i18n="trustStrongPenetrationTesting" style="color: var(--color-text);">Penetration Testing:</strong> Third-party pen test scheduled for H1 2026. Results will be available under NDA.<br>
+              <em data-i18n="trustEmFullTestBreakdownAvailableAt" style="font-size: 0.75rem;">Full test breakdown available at <a data-i18n="trustATestResults" href="trust/test-results.html" style="color: var(--color-gold);">Test Results →</a></em>
             </div>
           </div>
         </div>
@@ -346,28 +346,28 @@
       <div class="trust-section">
         <h2 data-i18n="trustDistributionTitle">Distribution vs Data Processing</h2>
         <p style="font-size: 0.85rem; color: var(--color-text-muted); line-height: 1.6; margin-bottom: 16px;">
-          Datacendia separates <strong style="color: var(--color-text);">software distribution</strong> from <strong style="color: var(--color-text);">data processing</strong>:
+          Datacendia separates <strong data-i18n="trustStrongSoftwareDistribution" style="color: var(--color-text);">software distribution</strong> from <strong style="color: var(--color-text);">data processing</strong>:
         </p>
         <ul class="data-list">
           <li>
-            <span class="data-label">Software distribution</span>
-            <span class="data-value">Available via AWS Marketplace (procurement/delivery channel only)</span>
+            <span data-i18n="trustSpanSoftwareDistribution" class="data-label">Software distribution</span>
+            <span data-i18n="trustSpanAvailableViaAwsMarketplaceProcurement" class="data-value">Available via AWS Marketplace (procurement/delivery channel only)</span>
           </li>
           <li>
-            <span class="data-label">Runtime location</span>
-            <span class="data-value">Your infrastructure (on-prem, private cloud, or air-gapped)</span>
+            <span data-i18n="trustSpanRuntimeLocation" class="data-label">Runtime location</span>
+            <span data-i18n="trustSpanYourInfrastructureOnPremPrivate" class="data-value">Your infrastructure (on-prem, private cloud, or air-gapped)</span>
           </li>
           <li>
-            <span class="data-label">Customer data hosting</span>
-            <span class="data-value">Never hosted by Datacendia — stays in your environment</span>
+            <span data-i18n="trustSpanCustomerDataHosting" class="data-label">Customer data hosting</span>
+            <span data-i18n="trustSpanNeverHostedByDatacendiaStays" class="data-value">Never hosted by Datacendia — stays in your environment</span>
           </li>
           <li>
-            <span class="data-label">Air-gapped updates</span>
-            <span class="data-value">Offline install bundles available; no outbound connectivity required</span>
+            <span data-i18n="trustSpanAirGappedUpdates" class="data-label">Air-gapped updates</span>
+            <span data-i18n="trustSpanOfflineInstallBundlesAvailableNo" class="data-value">Offline install bundles available; no outbound connectivity required</span>
           </li>
           <li>
-            <span class="data-label">Telemetry / call-home</span>
-            <span class="data-value">None required; license validation supports offline mode</span>
+            <span data-i18n="trustSpanTelemetryCallHome" class="data-label">Telemetry / call-home</span>
+            <span data-i18n="trustSpanNoneRequiredLicenseValidationSupports" class="data-value">None required; license validation supports offline mode</span>
           </li>
         </ul>
       </div>
@@ -379,24 +379,24 @@
         </p>
         <ul class="data-list">
           <li>
-            <span class="data-label">Operational logs</span>
-            <span class="data-value">90 days default (configurable 30–365 days)</span>
+            <span data-i18n="trustSpanOperationalLogs" class="data-label">Operational logs</span>
+            <span data-i18n="trustSpan90DaysDefaultConfigurable30" class="data-value">90 days default (configurable 30–365 days)</span>
           </li>
           <li>
-            <span class="data-label">Audit ledger (decisions)</span>
-            <span class="data-value">Immutable by design; retention customer-controlled</span>
+            <span data-i18n="trustSpanAuditLedgerDecisions" class="data-label">Audit ledger (decisions)</span>
+            <span data-i18n="trustSpanImmutableByDesignRetentionCustomer" class="data-value">Immutable by design; retention customer-controlled</span>
           </li>
           <li>
-            <span class="data-label">Evidence packets</span>
-            <span class="data-value">Retained until customer-initiated purge</span>
+            <span data-i18n="trustSpanEvidencePackets" class="data-label">Evidence packets</span>
+            <span data-i18n="trustSpanRetainedUntilCustomerInitiatedPurge" class="data-value">Retained until customer-initiated purge</span>
           </li>
           <li>
-            <span class="data-label">Personal data separation</span>
-            <span class="data-value">PII can be purged independently of audit metadata</span>
+            <span data-i18n="trustSpanPersonalDataSeparation" class="data-label">Personal data separation</span>
+            <span data-i18n="trustSpanPiiCanBePurgedIndependently" class="data-value">PII can be purged independently of audit metadata</span>
           </li>
           <li>
-            <span class="data-label">Customer-controlled deletion</span>
-            <span class="data-value">Full data export + deletion available on request</span>
+            <span data-i18n="trustSpanCustomerControlledDeletion" class="data-label">Customer-controlled deletion</span>
+            <span data-i18n="trustSpanFullDataExportDeletionAvailable" class="data-value">Full data export + deletion available on request</span>
           </li>
         </ul>
         <p style="font-size: 0.75rem; color: var(--color-text-dim); margin-top: 12px;">
@@ -406,46 +406,46 @@
 
       <!-- CendiaNotary - Cryptographic Signing Authority -->
       <div class="trust-section" id="notary" style="background: linear-gradient(135deg, rgba(251, 191, 36, 0.1) 0%, rgba(245, 158, 11, 0.05) 100%); border-color: rgba(251, 191, 36, 0.3);">
-        <h2 style="color: #fbbf24;">✍️ CendiaNotary™ — Cryptographic Signing Authority</h2>
+        <h2 data-i18n="trustH2CendianotaryCryptographicSigningAuthority" style="color: #fbbf24;">✍️ CendiaNotary™ — Cryptographic Signing Authority</h2>
         <p style="font-size: 0.9rem; color: var(--color-text-muted); line-height: 1.6; margin-bottom: 1.5rem;">
-          Every decision, every audit entry, every evidence packet is cryptographically signed with <strong style="color: var(--color-text);">your keys</strong>. 
+          Every decision, every audit entry, every evidence packet is cryptographically signed with <strong data-i18n="trustStrongYourKeys" style="color: var(--color-text);">your keys</strong>. 
           We never see them. Non-repudiation supported by design.
         </p>
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-bottom: 1.5rem;">
           <div style="padding: 1rem; background: rgba(0,0,0,0.2); border-radius: 8px; border-left: 3px solid #fbbf24;">
-            <div style="font-weight: 600; color: var(--color-text); margin-bottom: 0.5rem;">AWS KMS</div>
-            <div style="font-size: 0.8rem; color: var(--color-text-muted);">Native integration with AWS Key Management Service</div>
+            <div data-i18n="trustDivAwsKms" style="font-weight: 600; color: var(--color-text); margin-bottom: 0.5rem;">AWS KMS</div>
+            <div data-i18n="trustDivNativeIntegrationWithAwsKey" style="font-size: 0.8rem; color: var(--color-text-muted);">Native integration with AWS Key Management Service</div>
           </div>
           <div style="padding: 1rem; background: rgba(0,0,0,0.2); border-radius: 8px; border-left: 3px solid #fbbf24;">
-            <div style="font-weight: 600; color: var(--color-text); margin-bottom: 0.5rem;">Azure Key Vault</div>
-            <div style="font-size: 0.8rem; color: var(--color-text-muted);">Full support for Azure's managed HSM service</div>
+            <div data-i18n="trustDivAzureKeyVault" style="font-weight: 600; color: var(--color-text); margin-bottom: 0.5rem;">Azure Key Vault</div>
+            <div data-i18n="trustDivFullSupportForAzureManaged" style="font-size: 0.8rem; color: var(--color-text-muted);">Full support for Azure's managed HSM service</div>
           </div>
           <div style="padding: 1rem; background: rgba(0,0,0,0.2); border-radius: 8px; border-left: 3px solid #fbbf24;">
-            <div style="font-weight: 600; color: var(--color-text); margin-bottom: 0.5rem;">HashiCorp Vault</div>
-            <div style="font-size: 0.8rem; color: var(--color-text-muted);">Enterprise secrets management integration</div>
+            <div data-i18n="trustDivHashicorpVault" style="font-weight: 600; color: var(--color-text); margin-bottom: 0.5rem;">HashiCorp Vault</div>
+            <div data-i18n="trustDivEnterpriseSecretsManagementIntegration" style="font-size: 0.8rem; color: var(--color-text-muted);">Enterprise secrets management integration</div>
           </div>
           <div style="padding: 1rem; background: rgba(0,0,0,0.2); border-radius: 8px; border-left: 3px solid #fbbf24;">
-            <div style="font-weight: 600; color: var(--color-text); margin-bottom: 0.5rem;">Local Air-Gapped</div>
-            <div style="font-size: 0.8rem; color: var(--color-text-muted);">File-based keys for fully isolated deployments</div>
+            <div data-i18n="trustDivLocalAirGapped" style="font-weight: 600; color: var(--color-text); margin-bottom: 0.5rem;">Local Air-Gapped</div>
+            <div data-i18n="trustDivFileBasedKeysForFully" style="font-size: 0.8rem; color: var(--color-text-muted);">File-based keys for fully isolated deployments</div>
           </div>
         </div>
         <details>
-          <summary style="cursor: pointer; color: var(--color-gold); font-size: 0.85rem;">What CendiaNotary Signs</summary>
+          <summary data-i18n="trustSummaryWhatCendianotarySigns" style="cursor: pointer; color: var(--color-gold); font-size: 0.85rem;">What CendiaNotary Signs</summary>
           <ul style="margin-top: 1rem; color: var(--color-text-dim); font-size: 0.85rem; line-height: 1.8;">
-            <li><strong>Decision Packets:</strong> Every Council deliberation outcome</li>
-            <li><strong>Audit Ledger Entries:</strong> Append-only log with chain integrity</li>
-            <li><strong>Evidence Bundles:</strong> Compliance exports for regulators</li>
-            <li><strong>Test Reports:</strong> Signed verification of system health</li>
+            <li><strong data-i18n="trustStrongDecisionPackets">Decision Packets:</strong> Every Council deliberation outcome</li>
+            <li><strong data-i18n="trustStrongAuditLedgerEntries">Audit Ledger Entries:</strong> Append-only log with chain integrity</li>
+            <li><strong data-i18n="trustStrongEvidenceBundles">Evidence Bundles:</strong> Compliance exports for regulators</li>
+            <li><strong data-i18n="trustStrongTestReports">Test Reports:</strong> Signed verification of system health</li>
           </ul>
         </details>
         <p style="margin-top: 1rem; font-size: 0.75rem; color: var(--color-text-dim);">
-          <strong>Zero-Trust Principle:</strong> Datacendia never has access to your signing keys. All cryptographic operations occur within your infrastructure.
+          <strong data-i18n="trustStrongZeroTrustPrinciple">Zero-Trust Principle:</strong> Datacendia never has access to your signing keys. All cryptographic operations occur within your infrastructure.
         </p>
       </div>
 
       <!-- CendiaVault - Unified Evidence Storage -->
       <div class="trust-section" id="vault" style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(20, 184, 166, 0.05) 100%); border-color: rgba(16, 185, 129, 0.3);">
-        <h2 style="color: #10b981;">🏛️ CendiaVault™ — Unified Evidence Storage</h2>
+        <h2 data-i18n="trustH2CendiavaultUnifiedEvidenceStorage" style="color: #10b981;">🏛️ CendiaVault™ — Unified Evidence Storage</h2>
         <p style="font-size: 0.9rem; color: var(--color-text-muted); line-height: 1.6; margin-bottom: 1.5rem;">
           All decision artifacts, audit trails, and compliance evidence in one searchable, retention-compliant vault. 
           Immutable storage with legal hold support.
@@ -453,47 +453,47 @@
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; margin-bottom: 1.5rem;">
           <div style="text-align: center; padding: 1rem; background: rgba(0,0,0,0.2); border-radius: 8px;">
             <div style="font-size: 1.5rem; margin-bottom: 0.5rem;"><img src="assets/logos/council.svg" alt="Decision Packets" width="32" height="32" style="border-radius:6px"></div>
-            <div style="font-weight: 600; color: var(--color-text); font-size: 0.9rem;">Decision Packets</div>
-            <div style="font-size: 0.75rem; color: var(--color-text-muted);">Council deliberation outcomes</div>
+            <div data-i18n="trustDivDecisionPackets" style="font-weight: 600; color: var(--color-text); font-size: 0.9rem;">Decision Packets</div>
+            <div data-i18n="trustDivCouncilDeliberationOutcomes" style="font-size: 0.75rem; color: var(--color-text-muted);">Council deliberation outcomes</div>
           </div>
           <div style="text-align: center; padding: 1rem; background: rgba(0,0,0,0.2); border-radius: 8px;">
             <div style="font-size: 1.5rem; margin-bottom: 0.5rem;"><img src="assets/logos/audit-provenance.svg" alt="Audit Ledger" width="32" height="32" style="border-radius:6px"></div>
-            <div style="font-weight: 600; color: var(--color-text); font-size: 0.9rem;">Audit Ledger</div>
-            <div style="font-size: 0.75rem; color: var(--color-text-muted);">Immutable action log</div>
+            <div data-i18n="trustDivAuditLedger" style="font-weight: 600; color: var(--color-text); font-size: 0.9rem;">Audit Ledger</div>
+            <div data-i18n="trustDivImmutableActionLog" style="font-size: 0.75rem; color: var(--color-text-muted);">Immutable action log</div>
           </div>
           <div style="text-align: center; padding: 1rem; background: rgba(0,0,0,0.2); border-radius: 8px;">
             <div style="font-size: 1.5rem; margin-bottom: 0.5rem;"><img src="assets/logos/cendia-guard.svg" alt="Evidence Bundles" width="32" height="32" style="border-radius:6px"></div>
-            <div style="font-weight: 600; color: var(--color-text); font-size: 0.9rem;">Evidence Bundles</div>
-            <div style="font-size: 0.75rem; color: var(--color-text-muted);">Regulator-ready exports</div>
+            <div data-i18n="trustDivEvidenceBundles" style="font-weight: 600; color: var(--color-text); font-size: 0.9rem;">Evidence Bundles</div>
+            <div data-i18n="trustDivRegulatorReadyExports" style="font-size: 0.75rem; color: var(--color-text-muted);">Regulator-ready exports</div>
           </div>
           <div style="text-align: center; padding: 1rem; background: rgba(0,0,0,0.2); border-radius: 8px;">
             <div style="font-size: 1.5rem; margin-bottom: 0.5rem;"><img src="assets/logos/compliance.svg" alt="Signed Reports" width="32" height="32" style="border-radius:6px"></div>
-            <div style="font-weight: 600; color: var(--color-text); font-size: 0.9rem;">Signed Reports</div>
-            <div style="font-size: 0.75rem; color: var(--color-text-muted);">Test & compliance PDFs</div>
+            <div data-i18n="trustDivSignedReports" style="font-weight: 600; color: var(--color-text); font-size: 0.9rem;">Signed Reports</div>
+            <div data-i18n="trustDivTestCompliancePdfs" style="font-size: 0.75rem; color: var(--color-text-muted);">Test & compliance PDFs</div>
           </div>
         </div>
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem;">
           <div style="padding: 1rem; background: rgba(0,0,0,0.2); border-radius: 8px;">
-            <div style="font-weight: 600; color: #10b981; margin-bottom: 0.5rem;">Retention Policies</div>
+            <div data-i18n="trustDivRetentionPolicies" style="font-weight: 600; color: #10b981; margin-bottom: 0.5rem;">Retention Policies</div>
             <ul style="font-size: 0.8rem; color: var(--color-text-muted); margin: 0; padding-left: 1.2rem;">
-              <li>Standard: 7 years (regulatory default)</li>
-              <li>Extended: 10 years (financial services)</li>
-              <li>Permanent: Legal hold / litigation</li>
-              <li>Custom: Per your compliance requirements</li>
+              <li data-i18n="trustLiStandardYearsRegulatoryDefault">Standard: 7 years (regulatory default)</li>
+              <li data-i18n="trustLiExtended10YearsFinancialServices">Extended: 10 years (financial services)</li>
+              <li data-i18n="trustLiPermanentLegalHoldLitigation">Permanent: Legal hold / litigation</li>
+              <li data-i18n="trustLiCustomPerYourComplianceRequirements">Custom: Per your compliance requirements</li>
             </ul>
           </div>
           <div style="padding: 1rem; background: rgba(0,0,0,0.2); border-radius: 8px;">
-            <div style="font-weight: 600; color: #10b981; margin-bottom: 0.5rem;">Integrity Guarantees</div>
+            <div data-i18n="trustDivIntegrityGuarantees" style="font-weight: 600; color: #10b981; margin-bottom: 0.5rem;">Integrity Guarantees</div>
             <ul style="font-size: 0.8rem; color: var(--color-text-muted); margin: 0; padding-left: 1.2rem;">
-              <li>SHA-256 content hashing</li>
-              <li>CendiaNotary™ signatures</li>
-              <li>Merkle tree verification</li>
-              <li>Tamper-evident append-only design</li>
+              <li data-i18n="trustLiSha256ContentHashing">SHA-256 content hashing</li>
+              <li data-i18n="trustLiCendianotarySignatures">CendiaNotary™ signatures</li>
+              <li data-i18n="trustLiMerkleTreeVerification">Merkle tree verification</li>
+              <li data-i18n="trustLiTamperEvidentAppendOnlyDesign">Tamper-evident append-only design</li>
             </ul>
           </div>
         </div>
         <p style="margin-top: 1rem; font-size: 0.75rem; color: var(--color-text-dim);">
-          <strong>Legal Hold:</strong> Artifacts can be placed on litigation hold, preventing deletion regardless of retention policy. Release requires explicit authorization.
+          <strong data-i18n="trustStrongLegalHold">Legal Hold:</strong> Artifacts can be placed on litigation hold, preventing deletion regardless of retention policy. Release requires explicit authorization.
         </p>
       </div>
 
@@ -505,46 +505,46 @@
         <table class="deployment-table">
           <thead>
             <tr>
-              <th>Responsibility</th>
-              <th>Air-Gapped / On-Prem</th>
-              <th>Private Cloud (VPC)</th>
+              <th data-i18n="trustThResponsibility">Responsibility</th>
+              <th data-i18n="trustThAirGappedOnPrem">Air-Gapped / On-Prem</th>
+              <th data-i18n="trustThPrivateCloudVpc">Private Cloud (VPC)</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td>Infrastructure security</td>
-              <td>Customer</td>
-              <td>Customer + Cloud Provider</td>
+              <td data-i18n="trustTdInfrastructureSecurity">Infrastructure security</td>
+              <td data-i18n="trustTdCustomer">Customer</td>
+              <td data-i18n="trustTdCustomerCloudProvider">Customer + Cloud Provider</td>
             </tr>
             <tr>
-              <td>Network security</td>
-              <td>Customer</td>
-              <td>Customer</td>
+              <td data-i18n="trustTdNetworkSecurity">Network security</td>
+              <td data-i18n="trustTdCustomer2">Customer</td>
+              <td data-i18n="trustTdCustomer3">Customer</td>
             </tr>
             <tr>
-              <td>Identity & access (IAM)</td>
-              <td>Customer</td>
-              <td>Customer</td>
+              <td data-i18n="trustTdIdentityAccessIam">Identity & access (IAM)</td>
+              <td data-i18n="trustTdCustomer4">Customer</td>
+              <td data-i18n="trustTdCustomer5">Customer</td>
             </tr>
             <tr>
-              <td>Encryption keys (KMS/HSM)</td>
-              <td>Customer</td>
-              <td>Customer</td>
+              <td data-i18n="trustTdEncryptionKeysKmsHsm">Encryption keys (KMS/HSM)</td>
+              <td data-i18n="trustTdCustomer6">Customer</td>
+              <td data-i18n="trustTdCustomer7">Customer</td>
             </tr>
             <tr>
-              <td>Application updates</td>
-              <td>Customer (offline bundles)</td>
-              <td>Customer (with Datacendia support)</td>
+              <td data-i18n="trustTdApplicationUpdates">Application updates</td>
+              <td data-i18n="trustTdCustomerOfflineBundles">Customer (offline bundles)</td>
+              <td data-i18n="trustTdCustomerWithDatacendiaSupport">Customer (with Datacendia support)</td>
             </tr>
             <tr>
-              <td>Application security</td>
-              <td>Datacendia</td>
-              <td>Datacendia</td>
+              <td data-i18n="trustTdApplicationSecurity">Application security</td>
+              <td data-i18n="trustTdDatacendia">Datacendia</td>
+              <td data-i18n="trustTdDatacendia2">Datacendia</td>
             </tr>
             <tr>
-              <td>Vulnerability patching</td>
-              <td>Datacendia (provides patches)</td>
-              <td>Datacendia (provides patches)</td>
+              <td data-i18n="trustTdVulnerabilityPatching">Vulnerability patching</td>
+              <td data-i18n="trustTdDatacendiaProvidesPatches">Datacendia (provides patches)</td>
+              <td data-i18n="trustTdDatacendiaProvidesPatches2">Datacendia (provides patches)</td>
             </tr>
           </tbody>
         </table>
@@ -557,44 +557,44 @@
         </p>
         <ul class="data-list">
           <li>
-            <span class="data-label">Report to</span>
+            <span data-i18n="trustSpanReportTo" class="data-label">Report to</span>
             <span class="data-value"><a href="mailto:security@datacendia.com" style="color: var(--color-gold);">security@datacendia.com</a></span>
           </li>
           <li>
-            <span class="data-label">Acknowledgment</span>
-            <span class="data-value">Within 48 hours</span>
+            <span data-i18n="trustSpanAcknowledgment" class="data-label">Acknowledgment</span>
+            <span data-i18n="trustSpanWithin48Hours" class="data-value">Within 48 hours</span>
           </li>
           <li>
-            <span class="data-label">Status updates</span>
-            <span class="data-value">Regular updates during remediation</span>
+            <span data-i18n="trustSpanStatusUpdates" class="data-label">Status updates</span>
+            <span data-i18n="trustSpanRegularUpdatesDuringRemediation" class="data-value">Regular updates during remediation</span>
           </li>
           <li>
-            <span class="data-label">Safe harbor</span>
-            <span class="data-value">No legal action for good-faith research</span>
+            <span data-i18n="trustSpanSafeHarbor" class="data-label">Safe harbor</span>
+            <span data-i18n="trustSpanNoLegalActionForGood" class="data-value">No legal action for good-faith research</span>
           </li>
         </ul>
         <p style="font-size: 0.75rem; color: var(--color-text-dim); margin-top: 12px;">
-          See <a href="/.well-known/security.txt" style="color: var(--color-gold);">security.txt</a> for machine-readable disclosure information.
+          See <a data-i18n="trustASecurityTxt" href="/.well-known/security.txt" style="color: var(--color-gold);">security.txt</a> for machine-readable disclosure information.
         </p>
       </div>
 
       <!-- Pilot Case Studies -->
       <div class="trust-section" style="background: linear-gradient(135deg, rgba(201,162,39,0.08) 0%, rgba(168,85,247,0.04) 100%); border-color: rgba(201,162,39,0.3);">
-        <h2 style="color: var(--color-gold);">Anonymized Pilot Case Studies</h2>
+        <h2 data-i18n="trustH2AnonymizedPilotCaseStudies" style="color: var(--color-gold);">Anonymized Pilot Case Studies</h2>
         <p style="font-size: 0.88rem; color: var(--color-text-muted); line-height: 1.6; margin-bottom: 1.25rem;">
           Four anonymized case studies from real pilots — industrial manufacturing, financial services, healthcare, and public-sector adjacent. No inflated metrics. No AI accuracy claims.
         </p>
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.25rem;">
           <div style="padding: 1rem; background: rgba(0,0,0,0.2); border-radius: 8px; border-left: 3px solid #f59e0b;">
-            <div style="font-size: 0.72rem; color: #f59e0b; font-weight: 600; margin-bottom: 4px;">Industrial Manufacturing</div>
-            <div style="font-size: 0.82rem; color: var(--color-text-dim); font-style: italic; line-height: 1.5;">"It forced us to be explicit about why we chose to do it."</div>
+            <div data-i18n="trustDivIndustrialManufacturing" style="font-size: 0.72rem; color: #f59e0b; font-weight: 600; margin-bottom: 4px;">Industrial Manufacturing</div>
+            <div data-i18n="trustDivItForcedUsToBe" style="font-size: 0.82rem; color: var(--color-text-dim); font-style: italic; line-height: 1.5;">"It forced us to be explicit about why we chose to do it."</div>
           </div>
           <div style="padding: 1rem; background: rgba(0,0,0,0.2); border-radius: 8px; border-left: 3px solid #3b82f6;">
-            <div style="font-size: 0.72rem; color: #3b82f6; font-weight: 600; margin-bottom: 4px;">Financial Services</div>
-            <div style="font-size: 0.82rem; color: var(--color-text-dim); font-style: italic; line-height: 1.5;">"The value wasn't the recommendation — it was the evidence trail."</div>
+            <div data-i18n="trustDivFinancialServices" style="font-size: 0.72rem; color: #3b82f6; font-weight: 600; margin-bottom: 4px;">Financial Services</div>
+            <div data-i18n="trustDivTheValueWasnTheRecommendation" style="font-size: 0.82rem; color: var(--color-text-dim); font-style: italic; line-height: 1.5;">"The value wasn't the recommendation — it was the evidence trail."</div>
           </div>
         </div>
-        <a href="case-studies.html" style="color: var(--color-gold); font-size: 0.85rem; text-decoration: none;">Read All 4 Case Studies →</a>
+        <a data-i18n="trustAReadAllCaseStudies" href="case-studies.html" style="color: var(--color-gold); font-size: 0.85rem; text-decoration: none;">Read All 4 Case Studies →</a>
       </div>
 
       <!-- Related Trust Resources -->
@@ -604,57 +604,57 @@
           <a href="dcii.html" style="text-decoration: none;">
             <div class="trust-item" style="cursor: pointer; transition: border-color 0.2s ease;" onmouseover="this.style.borderColor='var(--color-gold)'" onmouseout="this.style.borderColor='var(--color-border)'">
               <div class="trust-item-title" data-i18n="trustResDcii">DCII Framework</div>
-              <div class="trust-item-desc">9 crisis immunization primitives for decision governance.</div>
-              <span class="trust-item-status status-live">View →</span>
+              <div data-i18n="trustDivCrisisImmunizationPrimitivesForDecision" class="trust-item-desc">9 crisis immunization primitives for decision governance.</div>
+              <span data-i18n="trustSpanView" class="trust-item-status status-live">View →</span>
             </div>
           </a>
           <a href="wargames.html" style="text-decoration: none;">
             <div class="trust-item" style="cursor: pointer; transition: border-color 0.2s ease;" onmouseover="this.style.borderColor='var(--color-gold)'" onmouseout="this.style.borderColor='var(--color-border)'">
               <div class="trust-item-title" data-i18n="trustResWargames">War Games</div>
-              <div class="trust-item-desc">Would dissent have surfaced the risk? Real-world decision failures analyzed.</div>
-              <span class="trust-item-status status-live">View →</span>
+              <div data-i18n="trustDivWouldDissentHaveSurfacedThe" class="trust-item-desc">Would dissent have surfaced the risk? Real-world decision failures analyzed.</div>
+              <span data-i18n="trustSpanView2" class="trust-item-status status-live">View →</span>
             </div>
           </a>
           <a href="case-studies.html" style="text-decoration: none;">
             <div class="trust-item" style="cursor: pointer; transition: border-color 0.2s ease;" onmouseover="this.style.borderColor='var(--color-gold)'" onmouseout="this.style.borderColor='var(--color-border)'">
               <div class="trust-item-title" data-i18n="trustResCaseStudies">Case Studies</div>
-              <div class="trust-item-desc">Implementation examples and anonymized pilot outcomes.</div>
-              <span class="trust-item-status status-live">View →</span>
+              <div data-i18n="trustDivImplementationExamplesAndAnonymizedPilot" class="trust-item-desc">Implementation examples and anonymized pilot outcomes.</div>
+              <span data-i18n="trustSpanView3" class="trust-item-status status-live">View →</span>
             </div>
           </a>
           <a href="roi-calculator.html" style="text-decoration: none;">
             <div class="trust-item" style="cursor: pointer; transition: border-color 0.2s ease;" onmouseover="this.style.borderColor='var(--color-gold)'" onmouseout="this.style.borderColor='var(--color-border)'">
               <div class="trust-item-title" data-i18n="trustResRoi">ROI Calculator</div>
-              <div class="trust-item-desc">Quantify the cost of ungoverned decisions.</div>
-              <span class="trust-item-status status-live">View →</span>
+              <div data-i18n="trustDivQuantifyTheCostOfUngoverned" class="trust-item-desc">Quantify the cost of ungoverned decisions.</div>
+              <span data-i18n="trustSpanView4" class="trust-item-status status-live">View →</span>
             </div>
           </a>
           <a href="honesty-matrices.html" style="text-decoration: none;">
             <div class="trust-item" style="cursor: pointer; transition: border-color 0.2s ease;" onmouseover="this.style.borderColor='var(--color-gold)'" onmouseout="this.style.borderColor='var(--color-border)'">
               <div class="trust-item-title" data-i18n="trustResHonesty">Integration Honesty Matrix</div>
-              <div class="trust-item-desc">What's built, what's mocked, what's roadmap — no inflated claims.</div>
-              <span class="trust-item-status status-live">View →</span>
+              <div data-i18n="trustDivWhatBuiltWhatMockedWhat" class="trust-item-desc">What's built, what's mocked, what's roadmap — no inflated claims.</div>
+              <span data-i18n="trustSpanView5" class="trust-item-status status-live">View →</span>
             </div>
           </a>
           <a href="security-controls.html" style="text-decoration: none;">
             <div class="trust-item" style="cursor: pointer; transition: border-color 0.2s ease;" onmouseover="this.style.borderColor='var(--color-gold)'" onmouseout="this.style.borderColor='var(--color-border)'">
               <div class="trust-item-title" data-i18n="trustResSecArch">Security Architecture</div>
-              <div class="trust-item-desc">Technical security controls, encryption standards, and threat model.</div>
-              <span class="trust-item-status status-live">View →</span>
+              <div data-i18n="trustDivTechnicalSecurityControlsEncryptionStandards" class="trust-item-desc">Technical security controls, encryption standards, and threat model.</div>
+              <span data-i18n="trustSpanView6" class="trust-item-status status-live">View →</span>
             </div>
           </a>
           <a href="resources/sovereignty-matrix.html" style="text-decoration: none;">
             <div class="trust-item" style="cursor: pointer; transition: border-color 0.2s ease;" onmouseover="this.style.borderColor='var(--color-gold)'" onmouseout="this.style.borderColor='var(--color-border)'">
               <div class="trust-item-title" data-i18n="trustResSovereignty">Sovereignty Matrix</div>
-              <div class="trust-item-desc">Data residency, jurisdiction controls, and deployment sovereignty options.</div>
-              <span class="trust-item-status status-live">View →</span>
+              <div data-i18n="trustDivDataResidencyJurisdictionControlsAnd" class="trust-item-desc">Data residency, jurisdiction controls, and deployment sovereignty options.</div>
+              <span data-i18n="trustSpanView7" class="trust-item-status status-live">View →</span>
             </div>
           </a>
           <a href="resources/compliance.html" style="text-decoration: none;">
             <div class="trust-item" style="cursor: pointer; transition: border-color 0.2s ease;" onmouseover="this.style.borderColor='var(--color-gold)'" onmouseout="this.style.borderColor='var(--color-border)'">
               <div class="trust-item-title" data-i18n="trustResCompliance">Compliance Documentation</div>
-              <div class="trust-item-desc">Framework mappings, regulatory alignment, and audit readiness guides.</div>
-              <span class="trust-item-status status-live">View →</span>
+              <div data-i18n="trustDivFrameworkMappingsRegulatoryAlignmentAnd" class="trust-item-desc">Framework mappings, regulatory alignment, and audit readiness guides.</div>
+              <span data-i18n="trustSpanView8" class="trust-item-status status-live">View →</span>
             </div>
           </a>
         </div>
@@ -663,8 +663,8 @@
       <div class="contact-box">
         <p data-i18n="securityContact">Need to complete a security questionnaire or schedule a security review?</p>
         <p><a href="mailto:contact@datacendia.com">contact@datacendia.com</a></p>
-        <p style="font-family: var(--font-mono); font-size: 0.7rem; color: #2ecc71; margin-top: 16px; letter-spacing: 0.05em;">SYSTEM STATUS: AIR-GAP READY · NO TRACKER PIXELS DETECTED</p>
-        <p style="font-size: 0.65rem; color: var(--color-text-muted); margin-top: 12px;">Trust artifacts reviewed monthly. Compliance roadmap dates reflect current planning as of the date shown. Claims governed by our <a href="docs/CLAIM-GOVERNANCE.md" style="color: var(--color-gold);">claim governance process</a>.</p>
+        <p data-i18n="trustPSystemStatusAirGapReady" style="font-family: var(--font-mono); font-size: 0.7rem; color: #2ecc71; margin-top: 16px; letter-spacing: 0.05em;">SYSTEM STATUS: AIR-GAP READY · NO TRACKER PIXELS DETECTED</p>
+        <p data-i18n="trustPTrustArtifactsReviewedMonthlyCompliance" style="font-size: 0.65rem; color: var(--color-text-muted); margin-top: 12px;">Trust artifacts reviewed monthly. Compliance roadmap dates reflect current planning as of the date shown. Claims governed by our <a data-i18n="trustAClaimGovernanceProcess" href="docs/CLAIM-GOVERNANCE.md" style="color: var(--color-gold);">claim governance process</a>.</p>
       </div>
     </div>
   </div>  <script src="translations-loader.js?v=7"></script>
