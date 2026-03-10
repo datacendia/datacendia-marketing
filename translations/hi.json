@@ -747,7 +747,7 @@
   "apiSpanApproveDeliberationOutcomeHumanOversight": "विचार-विमर्श के परिणाम को मंजूरी दें (मानवीय निरीक्षण)",
   "apiSpanPost3": "पोस्ट",
   "apiSpanCouncilDeliberationsIdVeto": "/काउंसिल/विचार-विमर्श/:आईडी/वीटो",
-  "apiSpanVetoDeliberationOutcomeWithReason": "Veto a deliberation outcome with reason",
+  "apiSpanVetoDeliberationOutcomeWithReason": "विचार-विमर्श के परिणाम को तर्क सहित वीटो करें",
   "apiSpanGet3": "प्राप्त करें",
   "apiSpanCouncilAgents": "/काउंसिल/एजेंट",
   "apiSpanListAvailableGovernanceAgentsAnd": "उपलब्ध शासन एजेंटों और उनकी भूमिकाओं की सूची बनाएं",

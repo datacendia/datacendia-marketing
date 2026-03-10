@@ -3454,7 +3454,7 @@ const translations_ja = {
   "protThComponent2": "コンポーネント",
   "protTdGpu": "GPU",
   "protTdCpu": "CPU",
-  "protTdRam": "RAM",
+  "protTdRam": "ラム",
   "protTdStorage": "ストレージ",
   "protS8H2": "8.2 コンテナアーキテクチャ",
   "protPTheCortexDeploysAsSet": "Cortex は、コンテナ化されたサービスのセットとして展開されます。",
