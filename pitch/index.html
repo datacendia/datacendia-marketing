@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Datacendia — Investor Pitch Deck</title>
+  <meta name="robots" content="noindex, nofollow">
+  <style>
+    :root {
+      --gold: #d4af37;
+      --gold-dim: rgba(212,175,55,0.15);
+      --bg: #0a0a0a;
+      --card: #111;
+      --border: rgba(212,175,55,0.2);
+      --text: #e8e8e8;
+      --muted: #888;
+      --green: #4ade80;
+      --red: #f87171;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; overflow: hidden; height: 100vh; }
+    
+    /* Slide container */
+    .deck { width: 100vw; height: 100vh; position: relative; }
+    .slide { 
+      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+      display: flex; flex-direction: column; justify-content: center; align-items: center;
+      padding: 60px 80px; opacity: 0; pointer-events: none; transition: opacity 0.4s ease;
+    }
+    .slide.active { opacity: 1; pointer-events: all; }
+    
+    /* Navigation */
+    .nav-bar {
+      position: fixed; bottom: 0; left: 0; right: 0; z-index: 100;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 12px 32px; background: rgba(10,10,10,0.95); border-top: 1px solid var(--border);
+    }
+    .nav-bar button {
+      background: transparent; border: 1px solid var(--border); color: var(--gold);
+      padding: 8px 20px; border-radius: 6px; cursor: pointer; font-size: 0.85rem;
+    }
+    .nav-bar button:hover { background: var(--gold-dim); }
+    .slide-counter { color: var(--muted); font-size: 0.8rem; font-family: monospace; }
+    .progress { position: fixed; top: 0; left: 0; height: 3px; background: var(--gold); transition: width 0.3s ease; z-index: 100; }
+    
+    /* Typography */
+    h1 { font-size: 2.8rem; font-weight: 300; letter-spacing: 0.15em; margin-bottom: 16px; text-align: center; }
+    h2 { font-size: 1.8rem; font-weight: 300; color: var(--gold); margin-bottom: 24px; text-align: center; letter-spacing: 0.05em; }
+    h3 { font-size: 1.2rem; font-weight: 400; color: var(--gold); margin-bottom: 12px; }
+    p { font-size: 1.1rem; line-height: 1.7; color: var(--muted); max-width: 800px; text-align: center; }
+    .brand { color: var(--gold); font-weight: 300; letter-spacing: 0.35em; }
+    .subtitle { font-size: 1.2rem; color: var(--muted); letter-spacing: 0.1em; margin-bottom: 32px; }
+    blockquote { 
+      font-size: 1.3rem; font-style: italic; color: var(--text); max-width: 700px; 
+      text-align: center; line-height: 1.8; border-left: 3px solid var(--gold); padding-left: 24px; text-align: left;
+    }
+    
+    /* Tables */
+    table { border-collapse: collapse; margin: 20px auto; max-width: 900px; width: 100%; }
+    th { background: var(--gold-dim); color: var(--gold); padding: 12px 16px; text-align: left; font-weight: 500; font-size: 0.85rem; letter-spacing: 0.05em; border-bottom: 1px solid var(--border); }
+    td { padding: 10px 16px; border-bottom: 1px solid rgba(255,255,255,0.05); font-size: 0.9rem; color: var(--text); }
+    tr:hover td { background: rgba(212,175,55,0.05); }
+    
+    /* Grid */
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 900px; width: 100%; margin: 20px auto; }
+    .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; max-width: 800px; width: 100%; margin: 20px auto; }
+    .card {
+      background: var(--card); border: 1px solid var(--border); border-radius: 12px;
+      padding: 24px; text-align: center;
+    }
+    .card h3 { margin-bottom: 8px; }
+    .card p { font-size: 0.9rem; text-align: center; margin: 0 auto; }
+    
+    /* Stats */
+    .stat { text-align: center; }
+    .stat-num { font-size: 2.5rem; font-weight: 300; color: var(--gold); display: block; }
+    .stat-label { font-size: 0.8rem; color: var(--muted); letter-spacing: 0.05em; }
+    
+    /* Lists */
+    ul { list-style: none; max-width: 700px; text-align: left; }
+    ul li { padding: 8px 0; font-size: 1rem; color: var(--text); }
+    ul li::before { content: '→'; color: var(--gold); margin-right: 12px; }
+    
+    /* Moat items */
+    .moat-item { display: flex; align-items: flex-start; gap: 16px; margin: 12px 0; max-width: 700px; }
+    .moat-num { font-size: 1.5rem; color: var(--gold); font-weight: 300; min-width: 30px; }
+    .moat-text strong { color: var(--text); }
+    .moat-text p { text-align: left; font-size: 0.9rem; margin-top: 4px; }
+    
+    /* Tiers */
+    .tier { text-align: center; padding: 20px; }
+    .tier-price { font-size: 1.5rem; color: var(--gold); margin: 8px 0; }
+    .tier-label { font-size: 0.75rem; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; }
+    
+    /* Special */
+    .highlight { color: var(--gold); }
+    .tag { display: inline-block; padding: 4px 12px; border: 1px solid var(--border); border-radius: 20px; font-size: 0.75rem; color: var(--gold); margin: 4px; }
+    .green { color: var(--green); }
+    .logo-line { font-size: 3.5rem; font-weight: 200; letter-spacing: 0.4em; color: var(--text); margin-bottom: 8px; }
+    
+    @media (max-width: 768px) {
+      .slide { padding: 40px 24px; }
+      h1 { font-size: 1.8rem; }
+      h2 { font-size: 1.3rem; }
+      .grid-3 { grid-template-columns: 1fr; }
+      .grid-2 { grid-template-columns: 1fr; }
+      .logo-line { font-size: 2rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="progress" id="progress"></div>
+  <div class="deck" id="deck">
+
+    <!-- SLIDE 1: Title -->
+    <div class="slide active" data-slide="1">
+      <div class="logo-line">DATACENDIA</div>
+      <p class="subtitle">Decision Crisis Immunization Infrastructure</p>
+      <h2>Crisis Immunization for Enterprise Decisions</h2>
+      <blockquote>"Every institutional disaster in history traces back to the absence of one or more of nine decision primitives. We don't say organizations failed. We say the primitive didn't exist. Now it does."</blockquote>
+      <div style="margin-top:40px">
+        <span class="tag">Seed Round</span>
+        <span class="tag">$2–5M</span>
+        <span class="tag">New Category</span>
+      </div>
+    </div>
+
+    <!-- SLIDE 2: The 9 Primitives -->
+    <div class="slide" data-slide="2">
+      <h2>The 9 Primitives That Prevent Institutional Failure</h2>
+      <table>
+        <tr><th>#</th><th>Primitive</th><th>What It Proves</th></tr>
+        <tr><td>P1</td><td><strong>Discovery-Time Proof</strong></td><td>When knowledge became actionable</td></tr>
+        <tr><td>P2</td><td><strong>Deliberation Capture</strong></td><td>How the decision was reached</td></tr>
+        <tr><td>P3</td><td><strong>Override Accountability</strong></td><td>Who overrode whom, with rationale</td></tr>
+        <tr><td>P4</td><td><strong>Continuity Memory</strong></td><td>Knowledge independent of individuals</td></tr>
+        <tr><td>P5</td><td><strong>Drift Detection</strong></td><td>When compliance begins to slip</td></tr>
+        <tr><td>P6</td><td><strong>Cognitive Bias Mitigation</strong></td><td>Human biases identified and mitigated</td></tr>
+        <tr><td>P7</td><td><strong>Quantum-Resistant Integrity</strong></td><td>Evidence survives quantum attacks</td></tr>
+        <tr><td>P8</td><td><strong>Synthetic Media Auth</strong></td><td>Deepfakes detected in evidence chains</td></tr>
+        <tr><td>P9</td><td><strong>Cross-Jurisdiction Compliance</strong></td><td>17 jurisdictions simultaneously</td></tr>
+      </table>
+      <p style="margin-top:16px">These are like vaccines. Each immunizes against a specific class of institutional failure.</p>
+    </div>
+
+    <!-- SLIDE 3: Proof -->
+    <div class="slide" data-slide="3">
+      <h2>Every Scandal. A Missing Primitive.</h2>
+      <table>
+        <tr><th>Crisis</th><th>Cost</th><th>Missing Primitive</th></tr>
+        <tr><td><strong>Boeing 737 MAX</strong></td><td>$20B+ / 346 lives</td><td>Override Accountability + Dissent</td></tr>
+        <tr><td><strong>SVB Collapse</strong></td><td>$209B in deposits</td><td>Drift Detection + Cascade Analysis</td></tr>
+        <tr><td><strong>Post Office Horizon</strong></td><td>900 wrongful convictions</td><td>ALL NINE primitives</td></tr>
+        <tr><td><strong>Wirecard</strong></td><td>€1.9B fraud</td><td>Audit Trail + Truth Arbiter</td></tr>
+        <tr><td><strong>Everton FC PSR</strong></td><td>10-point deduction</td><td>Drift Detection</td></tr>
+      </table>
+      <blockquote style="margin-top:24px">"In every case, someone knew. In every case, there was no system to record their concern, track the decision, or prove what was known and when. We built that system."</blockquote>
+    </div>
+
+    <!-- SLIDE 4: The Solution -->
+    <div class="slide" data-slide="4">
+      <h2>The Decision Governance Operating System</h2>
+      <div class="grid-3">
+        <div class="card">
+          <h3>🧠 Deliberate</h3>
+          <p>14+ AI agents debate every decision from different perspectives — finance, legal, operations, ethics, strategy</p>
+        </div>
+        <div class="card">
+          <h3>📝 Record</h3>
+          <p>Every deliberation cryptographically signed with Merkle tree integrity. Tamper-proof. Auditable.</p>
+        </div>
+        <div class="card">
+          <h3>📊 Learn</h3>
+          <p>Track outcomes. The system gets smarter about YOUR organization with every decision.</p>
+        </div>
+      </div>
+      <p style="margin-top:24px">Not BI. Not another AI API. A <strong class="highlight">decision layer</strong> that proves why it decided what it decided.</p>
+    </div>
+
+    <!-- SLIDE 5: The Council Demo -->
+    <div class="slide" data-slide="5">
+      <h2>The Council™ in Action</h2>
+      <div class="card" style="max-width:700px;text-align:left;padding:32px">
+        <p style="text-align:left;color:var(--muted);margin-bottom:16px">Input: <em>"Should we restructure the engineering team?"</em></p>
+        <ul>
+          <li><strong class="highlight">Finance Agent:</strong> "Saves $12M annually. Recommend."</li>
+          <li><strong style="color:var(--red)">Operations Agent:</strong> "You lose 3 mission-critical engineers. HIGH RISK."</li>
+          <li><strong style="color:var(--red)">Legal Agent:</strong> "WARN Act requires 60-day notice. You haven't started."</li>
+          <li><strong style="color:#f59e0b">Ethics Agent:</strong> "Morale collapse. Glassdoor drops to 2.1."</li>
+          <li><strong style="color:#f59e0b">Strategy Agent:</strong> "Your competitor is hiring. Your best people go there."</li>
+        </ul>
+        <p style="text-align:left;margin-top:16px;color:var(--text);font-size:0.9rem">Full debate recorded → Cryptographically signed → CEO decision logged → Outcome tracked</p>
+      </div>
+    </div>
+
+    <!-- SLIDE 6: Platform -->
+    <div class="slide" data-slide="6">
+      <h2>The Platform</h2>
+      <div class="grid-3" style="max-width:800px">
+        <div class="stat"><span class="stat-num">53+</span><span class="stat-label">Enterprise Services</span></div>
+        <div class="stat"><span class="stat-num">204K+</span><span class="stat-label">Passing Tests</span></div>
+        <div class="stat"><span class="stat-num">0</span><span class="stat-label">TypeScript Errors</span></div>
+      </div>
+      <div class="grid-3" style="max-width:800px;margin-top:8px">
+        <div class="stat"><span class="stat-num">40+</span><span class="stat-label">Council Agents</span></div>
+        <div class="stat"><span class="stat-num">26</span><span class="stat-label">Languages</span></div>
+        <div class="stat"><span class="stat-num">4</span><span class="stat-label">Deployment Modes</span></div>
+      </div>
+      <p style="margin-top:24px">Cloud · Private Cloud · On-Premises · <strong class="highlight">Air-Gapped</strong></p>
+    </div>
+
+    <!-- SLIDE 7: The Moat -->
+    <div class="slide" data-slide="7">
+      <h2>Why This Is Defensible</h2>
+      <div style="max-width:700px">
+        <div class="moat-item">
+          <span class="moat-num">1</span>
+          <div class="moat-text"><strong>Knowledge Graph Network Effect</strong><p>Gets deeper with every decision. Impossible to replicate with a new install.</p></div>
+        </div>
+        <div class="moat-item">
+          <span class="moat-num">2</span>
+          <div class="moat-text"><strong>Compliance Lock-in</strong><p>Once regulators see the decision trail, they expect it to continue.</p></div>
+        </div>
+        <div class="moat-item">
+          <span class="moat-num">3</span>
+          <div class="moat-text"><strong>Institutional Memory</strong><p>The longer you use it, the smarter it gets about YOUR organization.</p></div>
+        </div>
+        <div class="moat-item">
+          <span class="moat-num">4</span>
+          <div class="moat-text"><strong>Switching Cost</strong><p>Your entire decision history lives here. Moving means losing your audit trail.</p></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 8: Market -->
+    <div class="slide" data-slide="8">
+      <h2>Market Opportunity</h2>
+      <div class="grid-3">
+        <div class="card">
+          <div class="tier-label">TAM</div>
+          <div class="tier-price">$64B</div>
+          <p>Enterprise GRC Software by 2028</p>
+        </div>
+        <div class="card" style="border-color:var(--gold)">
+          <div class="tier-label">SAM</div>
+          <div class="tier-price">$12B</div>
+          <p>AI Governance + Decision Intelligence</p>
+        </div>
+        <div class="card">
+          <div class="tier-label">SOM</div>
+          <div class="tier-price">$1.2B</div>
+          <p>Regulated Enterprise AI Governance (Year 1)</p>
+        </div>
+      </div>
+      <div style="margin-top:24px;text-align:center">
+        <span class="tag">4,000+ public companies (SOX)</span>
+        <span class="tag">5,000+ FDIC banks</span>
+        <span class="tag">6,000+ hospitals (HIPAA)</span>
+        <span class="tag">15,000+ govt agencies</span>
+      </div>
+    </div>
+
+    <!-- SLIDE 9: Business Model -->
+    <div class="slide" data-slide="9">
+      <h2>Business Model</h2>
+      <table>
+        <tr><th>Tier</th><th>Price</th><th>Target</th></tr>
+        <tr><td><strong>Foundation</strong></td><td class="highlight">Custom</td><td>The Council + Decide + DCII</td></tr>
+        <tr><td><strong>Enterprise</strong></td><td class="highlight">Custom</td><td>Stress-Test + Comply + Govern + Sovereign</td></tr>
+        <tr><td><strong>Strategic</strong></td><td class="highlight">Custom</td><td>Collapse + SGAS + Verticals + Frontier</td></tr>
+      </table>
+      <div class="grid-3" style="margin-top:32px;max-width:700px">
+        <div class="stat"><span class="stat-num">80%+</span><span class="stat-label">Gross Margins</span></div>
+        <div class="stat"><span class="stat-num">&lt;5%</span><span class="stat-label">Annual Churn (target)</span></div>
+        <div class="stat"><span class="stat-num">∞</span><span class="stat-label">Land → Expand</span></div>
+      </div>
+      <p style="margin-top:16px">Compliance lock-in = high LTV. Land with Audit → Expand to full platform.</p>
+    </div>
+
+    <!-- SLIDE 10: Traction -->
+    <div class="slide" data-slide="10">
+      <h2>Built. Tested. Ready.</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3>Platform</h3>
+          <ul>
+            <li><span class="green">✓</span> 53+ production services</li>
+            <li><span class="green">✓</span> 204,000+ passing tests</li>
+            <li><span class="green">✓</span> 0 TypeScript errors</li>
+            <li><span class="green">✓</span> Post-quantum cryptography live</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Verticals</h3>
+          <ul>
+            <li><span class="green">✓</span> Legal vertical: 100%</li>
+            <li><span class="green">✓</span> Financial vertical: 100%</li>
+            <li><span class="green">✓</span> Healthcare: ready</li>
+            <li><span class="green">✓</span> Government: 80% (FedRAMP path)</li>
+          </ul>
+        </div>
+      </div>
+      <div style="margin-top:24px;text-align:center">
+        <span class="tag">NVIDIA Inception Member</span>
+        <span class="tag">SOC 2 Type II → Q2 2026</span>
+        <span class="tag">4 pilot case studies</span>
+      </div>
+    </div>
+
+    <!-- SLIDE 11: The Founder -->
+    <div class="slide" data-slide="11">
+      <h2>One Person Built This</h2>
+      <blockquote>"I'm Stuart Rainey. I built every line of code — 53 services, 204,000+ tests, quantum-resistant cryptography, multi-agent deliberation, air-gap deployment — alone.<br><br>Not because I'm talented. Because I watched the Post Office Horizon scandal destroy 900 lives, and I got angry enough to build what should have existed.<br><br>Funding lets me build the team to take this to market."</blockquote>
+      <div class="grid-2" style="margin-top:32px;max-width:600px">
+        <div class="card"><p style="font-size:0.85rem">Proves <strong class="highlight">technical depth</strong> — one person built what funded teams haven't</p></div>
+        <div class="card"><p style="font-size:0.85rem">Proves <strong class="highlight">capital efficiency</strong> — $0 produced enterprise-grade platform</p></div>
+      </div>
+    </div>
+
+    <!-- SLIDE 12: The Ask -->
+    <div class="slide" data-slide="12">
+      <div class="logo-line">DATACENDIA</div>
+      <h2>Seed Round: $2–5M</h2>
+      <div class="grid-2" style="max-width:700px">
+        <div class="card">
+          <h3>Use of Funds</h3>
+          <ul>
+            <li><strong>40%</strong> Engineering (4-5 senior engineers)</li>
+            <li><strong>30%</strong> Go-to-Market (2 AEs + 1 SE)</li>
+            <li><strong>20%</strong> Infrastructure (SOC 2, FedRAMP)</li>
+            <li><strong>10%</strong> Operations</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>12-Month Milestones</h3>
+          <ul>
+            <li>5 enterprise pilot customers</li>
+            <li>SOC 2 Type II certification</li>
+            <li>FedRAMP authorization in progress</li>
+            <li>$500K ARR</li>
+          </ul>
+        </div>
+      </div>
+      <p style="margin-top:32px;font-size:1.2rem;color:var(--text)">contact@datacendia.com · <a href="https://datacendia.com" style="color:var(--gold)">datacendia.com</a></p>
+    </div>
+
+  </div>
+
+  <!-- Navigation -->
+  <div class="nav-bar">
+    <button onclick="prevSlide()">← Previous</button>
+    <span class="slide-counter" id="counter">1 / 12</span>
+    <button onclick="nextSlide()">Next →</button>
+  </div>
+
+  <script>
+    const slides = document.querySelectorAll('.slide');
+    const total = slides.length;
+    let current = 0;
+
+    function showSlide(n) {
+      if (n < 0 || n >= total) return;
+      slides[current].classList.remove('active');
+      current = n;
+      slides[current].classList.add('active');
+      document.getElementById('counter').textContent = (current + 1) + ' / ' + total;
+      document.getElementById('progress').style.width = ((current + 1) / total * 100) + '%';
+    }
+
+    function nextSlide() { showSlide(current + 1); }
+    function prevSlide() { showSlide(current - 1); }
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); nextSlide(); }
+      if (e.key === 'ArrowLeft') { e.preventDefault(); prevSlide(); }
+      if (e.key === 'Home') { e.preventDefault(); showSlide(0); }
+      if (e.key === 'End') { e.preventDefault(); showSlide(total - 1); }
+    });
+
+    // Touch swipe
+    let touchStartX = 0;
+    document.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; });
+    document.addEventListener('touchend', e => {
+      const diff = touchStartX - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 50) { diff > 0 ? nextSlide() : prevSlide(); }
+    });
+
+    showSlide(0);
+  </script>
+</body>
+</html>
