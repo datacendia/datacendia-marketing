@@ -29,7 +29,11 @@ const EXCLUDE_FILES = new Set([
   'ENTERPRISE_PLAYBOOK.md', 'MARKETING_PLAN_ZERO_BUDGET.md',
   'MARKETING_VS_PLATFORM_AUDIT.md', 'INVESTOR_DATABASE.md',
   'MASTER_DATACENDIA_BIBLE.md', 'PITCH_DECK_TEMPLATES.md',
-  'linkedin-posts.md'
+  'linkedin-posts.md',
+  'audit-results.txt', 'audit-results-2.txt', 'audit-root-results.txt',
+  'audit-root-pages-i18n.js', 'audit-translations-full.js',
+  'debug-coverage.js', 'show-uncovered.js', 'analyze-coverage.js',
+  'extract-untranslated.js', 'fix-nav-i18n.js'
 ]);
 
 function shouldExclude(name, isDir) {
