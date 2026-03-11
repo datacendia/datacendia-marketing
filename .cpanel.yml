@@ -1,6 +1,5 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/dataezpj/public_html/
-    - /bin/cp -R * $DEPLOYPATH
-    - /bin/cp .htaccess $DEPLOYPATH
+    - /bin/cp -R /home/dataezpj/repositories/datacendia-marketing/* /home/dataezpj/public_html/
+    - /bin/cp /home/dataezpj/repositories/datacendia-marketing/.htaccess /home/dataezpj/public_html/.htaccess
