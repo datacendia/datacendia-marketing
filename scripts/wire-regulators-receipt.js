@@ -19,7 +19,7 @@ rep('<a href="pricing.html">Pricing</a>','<a href="pricing.html" data-i18n="rrNa
 rep('<a href="briefing.html" class="nav-cta">Request Briefing</a>','<a href="briefing.html" class="nav-cta" data-i18n="navRequestBriefing">Request Briefing</a>','navRequestBriefing');
 
 // Hero
-rep('<h1>The <span>Regulator&rsquo;s Receipt&trade;</span><br>Every AI Decision. Court-Admissible.</h1>','<h1 data-i18n="rrHeroTitle">The <span>Regulator&rsquo;s Receipt&trade;</span><br>Every AI Decision. Court-Admissible.</h1>','rrHeroTitle');
+rep('<h1>The <span>Regulator&rsquo;s Receipt&trade;</span><br>Every AI Decision. forensic-grade, independently verifiable.</h1>','<h1 data-i18n="rrHeroTitle">The <span>Regulator&rsquo;s Receipt&trade;</span><br>Every AI Decision. forensic-grade, independently verifiable.</h1>','rrHeroTitle');
 rep('<p>Three cryptographically signed PDFs generated automatically from every council deliberation. SHA-256 hashed, Merkle tree verified, RFC&nbsp;3161 timestamped. Independently verifiable without Datacendia.</p>','<p data-i18n="rrHeroDesc">Three cryptographically signed PDFs generated automatically from every council deliberation. SHA-256 hashed, Merkle tree verified, RFC&nbsp;3161 timestamped. Independently verifiable without Datacendia.</p>','rrHeroDesc');
 rep('<a href="briefing.html" class="rr-cta-primary">See a Live Demo &rarr;</a>','<a href="briefing.html" class="rr-cta-primary" data-i18n="rrHeroCtaDemo">See a Live Demo →</a>','rrHeroCtaDemo');
 rep('<a href="dcii.html" class="rr-cta-secondary">DCII Framework</a>','<a href="dcii.html" class="rr-cta-secondary" data-i18n="rrHeroCtaDcii">DCII Framework</a>','rrHeroCtaDcii');
@@ -31,12 +31,12 @@ rep('<h2>One Decision. Three Documents.</h2>','<h2 data-i18n="rrSec1Title">One D
 rep('<p>Every council deliberation automatically generates three distinct PDFs &mdash; each purpose-built for a different audience. No manual export. No reformatting. Generated in under 2 seconds.</p>','<p data-i18n="rrSec1Desc">Every council deliberation automatically generates three distinct PDFs — each purpose-built for a different audience. No manual export. No reformatting. Generated in under 2 seconds.</p>','rrSec1Desc');
 
 // PDF card titles
-rep('<div class="pdf-card-title">Court-Admissible Record</div>','<div class="pdf-card-title" data-i18n="rrPdf1Title">Court-Admissible Record</div>','rrPdf1Title');
+rep('<div class="pdf-card-title">forensic-grade, independently verifiable Record</div>','<div class="pdf-card-title" data-i18n="rrPdf1Title">forensic-grade, independently verifiable Record</div>','rrPdf1Title');
 rep('<div class="pdf-card-title">Evidence Package</div>','<div class="pdf-card-title" data-i18n="rrPdf2Title">Evidence Package</div>','rrPdf2Title');
 rep('<div class="pdf-card-title">Executive Summary</div>','<div class="pdf-card-title" data-i18n="rrPdf3Title">Executive Summary</div>','rrPdf3Title');
 
 // PDF tags
-rep('<span class="pdf-tag court">Court Admissible</span>','<span class="pdf-tag court" data-i18n="rrPdf1Tag">Court Admissible</span>','rrPdf1Tag');
+rep('<span class="pdf-tag court">forensic-grade, independently verifiable</span>','<span class="pdf-tag court" data-i18n="rrPdf1Tag">forensic-grade, independently verifiable</span>','rrPdf1Tag');
 rep('<span class="pdf-tag evidence">Full Evidence</span>','<span class="pdf-tag evidence" data-i18n="rrPdf2Tag">Full Evidence</span>','rrPdf2Tag');
 rep('<span class="pdf-tag executive">Executive Ready</span>','<span class="pdf-tag executive" data-i18n="rrPdf3Tag">Executive Ready</span>','rrPdf3Tag');
 

@@ -4391,7 +4391,7 @@ const translations_de = {
   "vertStrongContractReview": "Vertragsprüfung:",
   "vertStrongHighStakesNegotiation": "Verhandlung mit hohen Einsätzen:",
   "vertStrongLitigationPrep": "Prozessvorbereitung:",
-  "vertStrongDueDiligence": "M&A Due Diligence:",
+  "vertStrongDueDiligence": "M&A-Due-Diligence:",
   "vertH4Pricing": "Preise",
   "vertStrongSandbox": "Sandkasten:",
   "vertStrongPilot": "Pilot:",
@@ -4598,5 +4598,7 @@ const translations_de = {
   "regDivCatDeliberationJsonCitationsJson": "regDivCatDeliberationJsonCitationsJson",
   "regDivOpensslDgstSha256VerifyDatacendia_public_key": "regDivOpensslDgstSha256VerifyDatacendia_public_key",
   "regDivOpensslTsVerifyInReceipt": "regDivOpensslTsVerifyInReceipt",
+  "navLaunchApp": "App starten →",
+  "btnLaunchApp": "App starten →",
 };
 if (typeof window !== 'undefined') window.translations_de = translations_de;

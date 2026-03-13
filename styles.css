@@ -89,6 +89,8 @@ header {
   margin-bottom: 12px;
   color: var(--color-text);
 }
+.logo a { display: inline-flex; align-items: center; }
+.logo-img { height: 32px; width: auto; display: block; }
 
 .lang-selector {
   position: absolute;
@@ -315,6 +317,23 @@ header {
 
 .nav-cta:hover {
   opacity: 0.9;
+}
+
+.nav-cta-secondary {
+  border: 1px solid var(--color-border, #333);
+  color: var(--color-text-muted, #999) !important;
+  border-radius: 6px;
+  font-weight: 500 !important;
+  padding: 8px 18px !important;
+  letter-spacing: 0.08em;
+  font-size: 0.75rem;
+  text-decoration: none;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.nav-cta-secondary:hover {
+  color: var(--color-gold, #c9a84c) !important;
+  border-color: var(--color-gold, #c9a84c);
 }
 
 /* Hamburger toggle */
@@ -3198,7 +3217,7 @@ header {
   font-family: var(--font-display); font-size: 1.5rem;
   font-weight: 300; color: var(--color-text); margin-bottom: 6px;
 }
-.iiss-subtitle { font-size: 0.92rem; color: var(--color-text-muted); margin-bottom: 24px; }
+.iiss-subtitle { font-size: 0.92rem; color: var(--color-text-muted); margin-bottom: 24px; text-align: center; }
 .iiss-desc {
   font-size: 0.82rem; color: var(--color-text-dim);
   line-height: 1.6; max-width: 520px; margin: 0 auto 24px;

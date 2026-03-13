@@ -3598,7 +3598,7 @@ const translations_pt = {
   "regSpanExpectedA3f8c2d1e4b7091f": "Esperado: a3f8c2d1e4b7091f...",
   "regSpanVerifyMerkleRootRecomputeFrom": "2. Verifique a raiz Merkle: recalcule a partir de hashes de folhas (deliberação, citações, respostas, dissidências)",
   "regSpanVerifyDigitalSignature": "3. Verifique a assinatura digital:",
-  "regSpanOpensslDgstSha256VerifyDatacendia_public_key": "$ openssl dgst -sha256 -verify datacendia_public_key.pem \\",
+  "regSpanOpensslDgstSha256VerifyDatacendia_public_key": "$ openssl dgst -sha256 -verify datacendia_public_key.pem\\",
   "regSpanSignatureReceiptSigReceiptJson": "-recibo de assinatura.sig recibo.json",
   "regSpanAccessFullEvidenceVaultCompliance": "4. Acesse o cofre completo de evidências: compliance@datacendia.com |  Ref.: RR-1771557046091-A4163C09",
   "regSpanDatacendiaTradeDciiFrameworkV2": "DATACENDIA™ |  Estrutura DCII v2.0 |  Infraestrutura de inteligência de conformidade decisória",
@@ -4598,5 +4598,7 @@ const translations_pt = {
   "regDivCatDeliberationJsonCitationsJson": "regDivCatDeliberationJsonCitationsJson",
   "regDivOpensslDgstSha256VerifyDatacendia_public_key": "regDivOpensslDgstSha256VerifyDatacendia_public_key",
   "regDivOpensslTsVerifyInReceipt": "regDivOpensslTsVerifyInReceipt",
+  "navLaunchApp": "Abrir App →",
+  "btnLaunchApp": "Abrir App →",
 };
 if (typeof window !== 'undefined') window.translations_pt = translations_pt;

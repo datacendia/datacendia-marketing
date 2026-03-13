@@ -4598,5 +4598,7 @@ const translations_it = {
   "regDivCatDeliberationJsonCitationsJson": "regDivCatDeliberationJsonCitationsJson",
   "regDivOpensslDgstSha256VerifyDatacendia_public_key": "regDivOpensslDgstSha256VerifyDatacendia_public_key",
   "regDivOpensslTsVerifyInReceipt": "regDivOpensslTsVerifyInReceipt",
+  "navLaunchApp": "Apri App →",
+  "btnLaunchApp": "Apri App →",
 };
 if (typeof window !== 'undefined') window.translations_it = translations_it;

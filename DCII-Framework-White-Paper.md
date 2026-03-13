@@ -34,7 +34,7 @@ Three converging regulatory regimes create urgent demand for decision evidence i
 
 - **NIST AI RMF (2023):** The "Govern" function requires "policies, processes, procedures, and practices are in place to manage AI risks" with "documentation and transparency" as core outcomes.
 
-**Gap:** None of these frameworks specify *how* to generate court-admissible evidence for AI-assisted decisions. DCII provides the implementation layer.
+**Gap:** None of these frameworks specify *how* to generate forensic-grade, independently verifiable evidence for AI-assisted decisions. DCII provides the implementation layer.
 
 ---
 
@@ -102,7 +102,7 @@ DCII is built on nine measurable primitives that collectively enable "crisis imm
 
 ### 2.4 Primitive 4: Provenance (Decision Lineage)
 
-**Definition:** Complete traceability of decision inputs, reasoning, and outputs with court-admissible export.
+**Definition:** Complete traceability of decision inputs, reasoning, and outputs with forensic-grade, independently verifiable export.
 
 **Implementation:**
 - Directed acyclic graph (DAG) of decision dependencies
@@ -294,7 +294,7 @@ Where:
                     │
 ┌───────────────────▼─────────────────────────────────────────┐
 │                  Evidence Export Layer                       │
-│  (Regulator's Receipt, Court-Admissible PDF, API)          │
+│  (Regulator's Receipt, forensic-grade, independently verifiable PDF, API)          │
 └─────────────────────────────────────────────────────────────┘
 ```
 
@@ -389,7 +389,7 @@ Where:
 
 **DCII Implementation:**
 - P8 (Similarity) identified 847 relevant decisions in 12 minutes
-- P4 (Provenance) generated court-admissible evidence bundles
+- P4 (Provenance) generated forensic-grade, independently verifiable evidence bundles
 - P9 (Bias) demonstrated proactive fairness monitoring
 
 **Outcome:**
@@ -454,7 +454,7 @@ Where:
 The Decision Crisis Immunization Infrastructure (DCII) addresses a critical gap in AI governance: the ability to prove that decisions were made correctly under adversarial scrutiny. By decomposing decision evidence into nine measurable primitives, DCII provides:
 
 1. **Regulatory compliance:** Reference implementation for EU AI Act, NIST AI RMF, DORA
-2. **Legal defensibility:** Court-admissible evidence with cryptographic integrity
+2. **Legal defensibility:** forensic-grade, independently verifiable evidence with cryptographic integrity
 3. **Quantifiable resilience:** IISS™ score enables board-level risk reporting
 4. **Vendor-neutral standard:** Can be implemented with any AI/ML stack
 
@@ -507,7 +507,7 @@ As AI systems become embedded in high-stakes decisions across healthcare, financ
 ```
 ═══════════════════════════════════════════════════════════════
                     REGULATOR'S RECEIPT
-          Decision Evidence Package - Court Admissible
+          Decision Evidence Package - forensic-grade, independently verifiable
 ═══════════════════════════════════════════════════════════════
 
 DECISION ID: DEC-2026-02-18-A7F3E9

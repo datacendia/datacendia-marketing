@@ -4391,7 +4391,7 @@
   "vertStrongContractReview": "Vertragsprüfung:",
   "vertStrongHighStakesNegotiation": "Verhandlung mit hohen Einsätzen:",
   "vertStrongLitigationPrep": "Prozessvorbereitung:",
-  "vertStrongDueDiligence": "M&A Due Diligence:",
+  "vertStrongDueDiligence": "M&A-Due-Diligence:",
   "vertH4Pricing": "Preise",
   "vertStrongSandbox": "Sandkasten:",
   "vertStrongPilot": "Pilot:",
@@ -4597,5 +4597,7 @@
   "iissBenefit4": "iissBenefit4",
   "regDivCatDeliberationJsonCitationsJson": "regDivCatDeliberationJsonCitationsJson",
   "regDivOpensslDgstSha256VerifyDatacendia_public_key": "regDivOpensslDgstSha256VerifyDatacendia_public_key",
-  "regDivOpensslTsVerifyInReceipt": "regDivOpensslTsVerifyInReceipt"
+  "regDivOpensslTsVerifyInReceipt": "regDivOpensslTsVerifyInReceipt",
+  "navLaunchApp": "App starten →",
+  "btnLaunchApp": "App starten →"
 }

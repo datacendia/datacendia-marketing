@@ -94,7 +94,7 @@
   "rrLabel": "DCII — Evidence Infrastructure",
   "rrTitle": "Regulator's Receipt™",
   "rrDesc": "Every council deliberation generates three cryptographically signed PDFs automatically. SHA-256 hashed, Merkle tree verified, RFC 3161 timestamped. Independently verifiable without Datacendia.",
-  "rrBadge1": "Court-Admissible Record",
+  "rrBadge1": "forensic-grade, independently verifiable Record",
   "rrBadge2": "Evidence Package",
   "rrBadge3": "Executive Summary",
   "rrFeature1": "SHA-256 hash + Merkle root across deliberation, citations, responses, dissents",

@@ -73,7 +73,7 @@ rep('<div class="dcii-desc">Cryptographic signing with customer-owned keys</div>
 rep('<div class="dcii-name">Vault</div>','<div class="dcii-name" data-i18n="diag2P3Name">Vault</div>','diag2P3Name');
 rep('<div class="dcii-desc">Unified evidence storage for decision packets</div>','<div class="dcii-desc" data-i18n="diag2P3Desc">Unified evidence storage for decision packets</div>','diag2P3Desc');
 rep('<div class="dcii-name">Provenance</div>','<div class="dcii-name" data-i18n="diag2P4Name">Provenance</div>','diag2P4Name');
-rep('<div class="dcii-desc">Full decision lineage and court-admissible export</div>','<div class="dcii-desc" data-i18n="diag2P4Desc">Full decision lineage and court-admissible export</div>','diag2P4Desc');
+rep('<div class="dcii-desc">Full decision lineage and forensic-grade, independently verifiable export</div>','<div class="dcii-desc" data-i18n="diag2P4Desc">Full decision lineage and forensic-grade, independently verifiable export</div>','diag2P4Desc');
 rep('<div class="dcii-name">Timestamp</div>','<div class="dcii-name" data-i18n="diag2P5Name">Timestamp</div>','diag2P5Name');
 rep('<div class="dcii-desc">RFC 3161 external timestamp authority with blockchain anchoring</div>','<div class="dcii-desc" data-i18n="diag2P5Desc">RFC 3161 external timestamp authority with blockchain anchoring</div>','diag2P5Desc');
 rep('<div class="dcii-name">MediaAuth</div>','<div class="dcii-name" data-i18n="diag2P6Name">MediaAuth</div>','diag2P6Name');
@@ -91,7 +91,7 @@ rep('<div class="iiss-scale">0&ndash;1000 scale &middot; 5-band certification</d
 // Diagram 3: Decision Lifecycle
 rep('<p class="diagram-section-label">Diagram 3 of 8</p>','<p class="diagram-section-label" data-i18n="diag3Label">Diagram 3 of 8</p>','diag3Label');
 rep('<h2 class="diagram-section-title">Decision Lifecycle</h2>','<h2 class="diagram-section-title" data-i18n="diag3Title">Decision Lifecycle</h2>','diag3Title');
-rep('<p class="diagram-section-desc">End-to-end flow from question to auditable, court-admissible decision record.</p>','<p class="diagram-section-desc" data-i18n="diag3Desc">End-to-end flow from question to auditable, court-admissible decision record.</p>','diag3Desc');
+rep('<p class="diagram-section-desc">End-to-end flow from question to auditable, forensic-grade, independently verifiable decision record.</p>','<p class="diagram-section-desc" data-i18n="diag3Desc">End-to-end flow from question to auditable, forensic-grade, independently verifiable decision record.</p>','diag3Desc');
 rep('<div class="step-title">Ingest &amp; Frame</div>','<div class="step-title" data-i18n="diag3Step1Title">Ingest &amp; Frame</div>','diag3Step1Title');
 rep('<div class="step-title">Council Deliberation</div>','<div class="step-title" data-i18n="diag3Step2Title">Council Deliberation</div>','diag3Step2Title');
 rep('<div class="step-title">Governance &amp; Ethics Check</div>','<div class="step-title" data-i18n="diag3Step3Title">Governance &amp; Ethics Check</div>','diag3Step3Title');

@@ -293,8 +293,8 @@ rep(
   'rrDesc'
 );
 rep(
-  '<span style="font-size:.7rem; background:rgba(239,68,68,.1); color:#f87171; border-radius:4px; padding:3px 9px; font-weight:600;">Court-Admissible Record</span>',
-  '<span style="font-size:.7rem; background:rgba(239,68,68,.1); color:#f87171; border-radius:4px; padding:3px 9px; font-weight:600;" data-i18n="rrBadge1">Court-Admissible Record</span>',
+  '<span style="font-size:.7rem; background:rgba(239,68,68,.1); color:#f87171; border-radius:4px; padding:3px 9px; font-weight:600;">forensic-grade, independently verifiable Record</span>',
+  '<span style="font-size:.7rem; background:rgba(239,68,68,.1); color:#f87171; border-radius:4px; padding:3px 9px; font-weight:600;" data-i18n="rrBadge1">forensic-grade, independently verifiable Record</span>',
   'rrBadge1'
 );
 rep(

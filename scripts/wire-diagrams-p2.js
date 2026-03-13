@@ -31,7 +31,7 @@ rep('<div class="sgas-agent-name">Meta-Governance</div>','<div class="sgas-agent
 // Diagram 7: Trust Chain
 rep('<p class="diagram-section-label">Diagram 7 of 8</p>','<p class="diagram-section-label" data-i18n="diag7Label">Diagram 7 of 8</p>','diag7Label');
 rep('<h2 class="diagram-section-title">Trust &amp; Evidence Chain</h2>','<h2 class="diagram-section-title" data-i18n="diag7Title">Trust &amp; Evidence Chain</h2>','diag7Title');
-rep('<p class="diagram-section-desc">Every decision passes through a cryptographic chain of custody. From deliberation to court-admissible evidence in 6 steps.</p>','<p class="diagram-section-desc" data-i18n="diag7Desc">Every decision passes through a cryptographic chain of custody. From deliberation to court-admissible evidence in 6 steps.</p>','diag7Desc');
+rep('<p class="diagram-section-desc">Every decision passes through a cryptographic chain of custody. From deliberation to forensic-grade, independently verifiable evidence in 6 steps.</p>','<p class="diagram-section-desc" data-i18n="diag7Desc">Every decision passes through a cryptographic chain of custody. From deliberation to forensic-grade, independently verifiable evidence in 6 steps.</p>','diag7Desc');
 rep('<div class="trust-name">Deliberation</div>','<div class="trust-name" data-i18n="diag7Node1Name">Deliberation</div>','diag7Node1Name');
 rep('<div class="trust-desc">Council produces reasoning, dissent, and recommendation</div>','<div class="trust-desc" data-i18n="diag7Node1Desc">Council produces reasoning, dissent, and recommendation</div>','diag7Node1Desc');
 rep('<div class="trust-name">Ledger</div>','<div class="trust-name" data-i18n="diag7Node2Name">Ledger</div>','diag7Node2Name');
@@ -43,7 +43,7 @@ rep('<div class="trust-desc">RFC 3161 external timestamp authority</div>','<div 
 rep('<div class="trust-name">Vault</div>','<div class="trust-name" data-i18n="diag7Node5Name">Vault</div>','diag7Node5Name');
 rep('<div class="trust-desc">Encrypted evidence bundle stored with AES-256</div>','<div class="trust-desc" data-i18n="diag7Node5Desc">Encrypted evidence bundle stored with AES-256</div>','diag7Node5Desc');
 rep('<div class="trust-name">Provenance</div>','<div class="trust-name" data-i18n="diag7Node6Name">Provenance</div>','diag7Node6Name');
-rep('<div class="trust-desc">Court-admissible export with full lineage</div>','<div class="trust-desc" data-i18n="diag7Node6Desc">Court-admissible export with full lineage</div>','diag7Node6Desc');
+rep('<div class="trust-desc">forensic-grade, independently verifiable export with full lineage</div>','<div class="trust-desc" data-i18n="diag7Node6Desc">forensic-grade, independently verifiable export with full lineage</div>','diag7Node6Desc');
 
 // Diagram 8: Compliance Matrix
 rep('<p class="diagram-section-label">Diagram 8 of 8</p>','<p class="diagram-section-label" data-i18n="diag8Label">Diagram 8 of 8</p>','diag8Label');

@@ -4598,5 +4598,7 @@
   "iissBenefit4": "iissBenefit4",
   "regDivCatDeliberationJsonCitationsJson": "regDivCatDeeliberationJsonCationsJson",
   "regDivOpensslDgstSha256VerifyDatacendia_public_key": "regDivOpenslDgstSha256VerifyDatacendia_public_key",
-  "regDivOpensslTsVerifyInReceipt": "regDivOpensslTsVerifyInReceipt"
+  "regDivOpensslTsVerifyInReceipt": "regDivOpensslTsVerifyInReceipt",
+  "navLaunchApp": "ऐप लॉन्च करें →",
+  "btnLaunchApp": "ऐप लॉन्च करें →"
 }

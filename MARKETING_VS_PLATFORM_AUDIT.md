@@ -173,7 +173,7 @@ These exist in the platform but are NOT mentioned on the marketing site:
 
 ### Remaining Overclaims / Gaps (not yet fixed)
 - **DCII dashboard screenshots** — platform has working 6-tab dashboard; `dcii.html` doesn't show it
-- **Regulator's Receipt** — now generates real court-admissible PDFs with Merkle trees; marketing says "1-click PDF" only
+- **Regulator's Receipt** — now generates real forensic-grade, independently verifiable PDFs with Merkle trees; marketing says "1-click PDF" only
 - **CendiaRecall™ (P10)** — added to platform post-v3 marketing; not yet on marketing site
 - **CendiaCommand™ / CendiaOps 19 co-pilots** — OPERATE pillar barely mentioned
 

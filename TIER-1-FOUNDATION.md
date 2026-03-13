@@ -181,8 +181,8 @@ DCII is Datacendia's identity and category. When regulators, courts, shareholder
 | **CendiaResponsibility™** | TPM-signed accountability records, delegation chains | P3 |
 | **Decision DNA / Provenance** | Full decision lineage, Merkle trees | P1, P2 |
 | **Decision Packets** | Cryptographically signed deliberation outputs | Package for regulators |
-| **Evidence Export** | Court-admissible PDF bundles | Output format |
-| **Regulator's Receipt™** | One-click court-admissible PDF | The demo moment |
+| **Evidence Export** | forensic-grade, independently verifiable PDF bundles | Output format |
+| **Regulator's Receipt™** | One-click forensic-grade, independently verifiable PDF | The demo moment |
 | **Signed Test Reports** | Cryptographically signed test results | Proving testing was done |
 | **Audit Provenance** | Visual audit trail viewer | Seeing the chain of evidence |
 | **Statement of Facts** | Auto-generated legal statement from deliberation data | Legal document output |

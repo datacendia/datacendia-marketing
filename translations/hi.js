@@ -4599,5 +4599,7 @@ const translations_hi = {
   "regDivCatDeliberationJsonCitationsJson": "regDivCatDeeliberationJsonCationsJson",
   "regDivOpensslDgstSha256VerifyDatacendia_public_key": "regDivOpenslDgstSha256VerifyDatacendia_public_key",
   "regDivOpensslTsVerifyInReceipt": "regDivOpensslTsVerifyInReceipt",
+  "navLaunchApp": "ऐप लॉन्च करें →",
+  "btnLaunchApp": "ऐप लॉन्च करें →",
 };
 if (typeof window !== 'undefined') window.translations_hi = translations_hi;
