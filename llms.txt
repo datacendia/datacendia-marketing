@@ -19,9 +19,9 @@ The platform replaces unstructured decision-making (email chains, meetings, hall
 ## Pricing
 
 - **Community**: Free forever (Apache 2.0, self-hosted)
-- **Foundation**: $499/month ($4,990/year) -- 15 agents, 35+ modes, DCII evidence infrastructure
-- **Enterprise**: $1,499/month ($14,990/year) -- adds adversarial testing, compliance, governance, sovereign, 19 co-pilots
-- **Strategic**: Custom pricing -- nation-scale, all 12 pillars, white-glove support
+- **Foundation**: $499/month ($4,990/year) -- 8 pillars, ~60 pages: Council, DECIDE, DCII, Gateway, Pulse, Bridge, Graph, Compliance Readiness
+- **Enterprise**: $1,499/month ($14,990/year) -- adds adversarial testing, continuous compliance, governance, sovereign, CendiaLens intelligence, Crown Jewels dashboards, 19 co-pilots
+- **Strategic**: Custom pricing -- nation-scale, all 12 pillars, 26 industry verticals, white-glove support
 
 3-year commitment saves 20%. Cancel anytime on monthly plans. Secure payment via Stripe.
 
@@ -32,10 +32,17 @@ The platform replaces unstructured decision-making (email chains, meetings, hall
 - **Ghost Board**: Rehearse high-stakes board meetings against AI directors.
 - **CendiaPreMortem**: AI analyzes why your decision will fail before you execute it.
 - **Decision Debt**: Real-time dashboard of stuck decisions and the financial cost of delay.
-- **CendiaCrucible**: Adversarial stress testing -- Monte Carlo red-teaming of decisions.
+- **CendiaGateway**: AI governance proxy with browser extensions -- control what AI sees and does.
+- **CendiaPulse**: System health & decision monitoring -- real-time alerts and metrics.
+- **CendiaBridge**: Workflow automation, approvals, and integrations.
+- **Knowledge Graph**: Entity lineage explorer -- relationships between decisions, agents, and evidence.
+- **Compliance Readiness**: Basic compliance checklist, framework status tracking (GDPR, HIPAA, SOC 2, EU AI Act, ISO 27001).
+- **CendiaCrucible**: Adversarial stress testing -- Monte Carlo red-teaming of decisions (Enterprise).
+- **CendiaLens**: AI explainability dashboard -- see why every decision was made (Enterprise).
 - **CendiaDCII**: Decision Crisis Immunization Infrastructure -- IISS scoring, 9 primitives, Regulator's Receipt.
 - **CendiaVault**: Immutable evidence storage with Merkle tree integrity.
 - **CendiaNotary**: Cryptographic signing authority with customer-owned keys.
+- **Crown Jewels**: CendiaEcho, CendiaRedTeam, CendiaGnosis -- premium executive dashboards (Enterprise).
 - **CendiaOversight**: Real-time regulatory radar -- FDA, GDPR, DORA, EU AI Act frameworks.
 
 ## Industry Verticals

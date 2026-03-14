@@ -1,11 +1,12 @@
 # TIER 1: FOUNDATION
 
-**"Make decisions → Understand them → Prove them"**
+**"Make decisions → Understand them → Prove them → Monitor them"**
 
 **Pricing:** $150,000 – $500,000 per year (enterprise license)  
 **Entry point:** $50,000 DCII pilot available  
 **Buyer:** Every organization making high-stakes decisions  
-**Sales cycle:** 2-4 weeks for pilot, 2-3 months for full Foundation
+**Sales cycle:** 2-4 weeks for pilot, 2-3 months for full Foundation  
+**Scope:** 8 pillars · ~60 pages · Council + DECIDE + DCII + Gateway + Pulse + Bridge + Graph + Compliance Readiness
 
 ---
 
