@@ -20,7 +20,7 @@ The platform replaces unstructured decision-making (email chains, meetings, hall
 
 - **Community**: Free forever (Apache 2.0, self-hosted)
 - **Foundation**: $499/month ($4,990/year) -- 8 pillars, ~60 pages: Council, DECIDE, DCII, Gateway, Pulse, Bridge, Graph, Compliance Readiness
-- **Enterprise**: $1,499/month ($14,990/year) -- adds adversarial testing, continuous compliance, governance, sovereign, CendiaLens intelligence, Crown Jewels dashboards, 19 co-pilots
+- **Enterprise**: $1,499/month ($14,990/year) -- adds CendiaCrucible adversarial testing, +8 advanced intelligence tools (Lens, AuditProvenance, Regulatory, Orbit, Consensus, What-If, Synthesis, RDP), 4 compliance services, governance, sovereign (18 routes), Crown Jewels dashboards (Echo, RedTeam, Gnosis), 19 co-pilots, SSO/CAC/PIV, ZKP/Escrow
 - **Strategic**: Custom pricing -- nation-scale, all 12 pillars, 26 industry verticals, white-glove support
 
 3-year commitment saves 20%. Cancel anytime on monthly plans. Secure payment via Stripe.
