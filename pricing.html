@@ -354,15 +354,129 @@
       color: var(--color-text);
     }
 
+    /* Tier accent borders */
+    .pricing-card.tier-foundation {
+      border-left: 3px solid var(--color-gold);
+    }
+    .pricing-card.tier-enterprise {
+      border-left: 3px solid #3b82f6;
+    }
+    .pricing-card.tier-enterprise.featured {
+      border-color: #3b82f6;
+      background: linear-gradient(180deg, rgba(59, 130, 246, 0.08) 0%, var(--color-card-bg) 100%);
+    }
+    .pricing-card.tier-strategic {
+      border-left: 3px solid #a855f7;
+    }
+    .pricing-card.tier-strategic.featured {
+      border-color: #a855f7;
+      background: linear-gradient(180deg, rgba(168, 85, 247, 0.08) 0%, var(--color-card-bg) 100%);
+    }
+    .pricing-card.tier-premium {
+      border-left: 3px solid #f59e0b;
+    }
+
+    /* Unified pillar grid: 4 columns, responsive */
+    .pillar-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    /* Comparison toggle table */
+    .comparison-section {
+      margin-bottom: 64px;
+    }
+    .comparison-toggle {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      cursor: pointer;
+      background: var(--color-card-bg);
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      padding: 16px 32px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--color-text-muted);
+      transition: all 0.2s ease;
+      width: 100%;
+    }
+    .comparison-toggle:hover {
+      border-color: var(--color-gold-border);
+      color: var(--color-text);
+    }
+    .comparison-toggle .arrow {
+      transition: transform 0.3s ease;
+      font-size: 0.7rem;
+    }
+    .comparison-toggle.open .arrow {
+      transform: rotate(180deg);
+    }
+    .comparison-table-wrap {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+    }
+    .comparison-table-wrap.open {
+      max-height: 2000px;
+    }
+    .comparison-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 16px;
+      font-size: 0.78rem;
+    }
+    .comparison-table th {
+      text-align: left;
+      padding: 12px 16px;
+      font-weight: 500;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--color-text-dim);
+      border-bottom: 1px solid var(--color-border);
+      background: var(--color-bg-elevated, var(--color-card-bg));
+    }
+    .comparison-table td {
+      padding: 10px 16px;
+      color: var(--color-text-muted);
+      border-bottom: 1px solid var(--color-border);
+    }
+    .comparison-table tr:hover td {
+      background: rgba(201, 162, 39, 0.03);
+    }
+    .comparison-table .check {
+      color: var(--color-gold);
+      font-weight: 600;
+    }
+    .comparison-table .tier-col-foundation { color: var(--color-gold); }
+    .comparison-table .tier-col-enterprise { color: #3b82f6; }
+    .comparison-table .tier-col-strategic { color: #a855f7; }
+
+    /* Procurement SVG icons */
+    .procurement-icon svg {
+      width: 32px;
+      height: 32px;
+      stroke: var(--color-gold);
+      stroke-width: 1.5;
+      fill: none;
+    }
+
     /* Responsive */
     @media (max-width: 1100px) {
       .pricing-grid {
         grid-template-columns: repeat(2, 1fr);
       }
+      .pillar-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
     }
     @media (max-width: 700px) {
-      .pricing-grid {
-        grid-template-columns: 1fr;
+      .pricing-grid,
+      .pillar-grid {
+        grid-template-columns: 1fr !important;
         max-width: 400px;
         margin-left: auto;
         margin-right: auto;
@@ -370,6 +484,10 @@
       .procurement-grid {
         grid-template-columns: 1fr;
         gap: 40px;
+      }
+      .comparison-table th:first-child,
+      .comparison-table td:first-child {
+        min-width: 140px;
       }
     }
     @media (max-width: 600px) {
@@ -467,7 +585,45 @@
       <div class="page-header">
         <h1 class="page-title" data-i18n="pricingPageTitle">Pricing &amp; Capabilities</h1>
         <p class="page-subtitle" data-i18n="pricingPageSubtitle">Enterprise software. Annual licenses. Sovereign deployment. Customer-owned infrastructure, keys, and proof.</p>
-        <p style="font-size: 0.75rem; color: var(--color-text-dim); margin-top: 16px;" data-i18n="pricingPageNote">12 pillars across 3 tiers. Start with Foundation, expand as your governance matures.</p>
+        <p style="font-size: 0.75rem; color: var(--color-text-dim); margin-top: 16px;" data-i18n="pricingPageNote">17 pillars across 3 tiers. Start with Foundation, expand as your governance matures.</p>
+      </div>
+
+      <!-- Feature Comparison Toggle -->
+      <div class="comparison-section">
+        <button class="comparison-toggle" id="comparisonToggle" data-i18n="comparisonToggleLabel">
+          Compare all tiers at a glance <span class="arrow">&#9660;</span>
+        </button>
+        <div class="comparison-table-wrap" id="comparisonTableWrap">
+          <table class="comparison-table">
+            <thead>
+              <tr>
+                <th data-i18n="compThCapability">Capability</th>
+                <th class="tier-col-foundation" data-i18n="compThFoundation">Foundation</th>
+                <th class="tier-col-enterprise" data-i18n="compThEnterprise">Enterprise</th>
+                <th class="tier-col-strategic" data-i18n="compThStrategic">Strategic</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td data-i18n="compRowCouncil">The Council (multi-agent deliberation)</td><td class="check">&#10003;</td><td class="check">&#10003;</td><td class="check">&#10003;</td></tr>
+              <tr><td data-i18n="compRowDecide">DECIDE (Chronos, PreMortem, Ghost Board)</td><td class="check">&#10003;</td><td class="check">&#10003;</td><td class="check">&#10003;</td></tr>
+              <tr><td data-i18n="compRowDcii">DCII (9 crisis immunization primitives)</td><td class="check">&#10003;</td><td class="check">&#10003;</td><td class="check">&#10003;</td></tr>
+              <tr><td data-i18n="compRowGateway">Gateway (AI governance proxy)</td><td class="check">&#10003;</td><td class="check">&#10003;</td><td class="check">&#10003;</td></tr>
+              <tr><td data-i18n="compRowPulse">Pulse (monitoring &amp; alerts)</td><td class="check">&#10003;</td><td class="check">&#10003;</td><td class="check">&#10003;</td></tr>
+              <tr><td data-i18n="compRowBridge">Bridge (workflow automation)</td><td class="check">&#10003;</td><td class="check">&#10003;</td><td class="check">&#10003;</td></tr>
+              <tr><td data-i18n="compRowGraph">Graph (knowledge graph explorer)</td><td class="check">&#10003;</td><td class="check">&#10003;</td><td class="check">&#10003;</td></tr>
+              <tr><td data-i18n="compRowComplyReady">Compliance Readiness (basic)</td><td class="check">&#10003;</td><td class="check">&#10003;</td><td class="check">&#10003;</td></tr>
+              <tr><td data-i18n="compRowStressTest">Stress-Test (CendiaCrucible, RedTeam)</td><td>&mdash;</td><td class="check">&#10003;</td><td class="check">&#10003;</td></tr>
+              <tr><td data-i18n="compRowComply">Full Compliance (10 frameworks, 17 jurisdictions)</td><td>&mdash;</td><td class="check">&#10003;</td><td class="check">&#10003;</td></tr>
+              <tr><td data-i18n="compRowGovern">Govern (RBAC, Court, Veto, Dissent)</td><td>&mdash;</td><td class="check">&#10003;</td><td class="check">&#10003;</td></tr>
+              <tr><td data-i18n="compRowSovereign">Sovereign (22 patterns, air-gap, CAC/PIV)</td><td>&mdash;</td><td class="check">&#10003;</td><td class="check">&#10003;</td></tr>
+              <tr><td data-i18n="compRowOperate">Operate (19 AI co-pilots)</td><td>&mdash;</td><td class="check">&#10003;</td><td class="check">&#10003;</td></tr>
+              <tr><td data-i18n="compRowCollapse">COLLAPSE (institutional failure simulation)</td><td>&mdash;</td><td>&mdash;</td><td class="check">&#10003;</td></tr>
+              <tr><td data-i18n="compRowSgas">SGAS (societal-scale governance)</td><td>&mdash;</td><td>&mdash;</td><td class="check">&#10003;</td></tr>
+              <tr><td data-i18n="compRowVerticals">26 industry verticals</td><td>&mdash;</td><td>&mdash;</td><td class="check">&#10003;</td></tr>
+              <tr><td data-i18n="compRowFrontier">Frontier (nation-scale infrastructure)</td><td>&mdash;</td><td>&mdash;</td><td class="check">&#10003;</td></tr>
+            </tbody>
+          </table>
+        </div>
       </div>
 
       <!-- Entry Point: Pilot -->
@@ -489,9 +645,9 @@
           <p style="font-family: var(--font-mono); font-size: 1rem; color: var(--color-gold); margin-bottom: 4px;" data-i18n="priceOnRequest">Price Available on Request</p>
           <p style="font-size: 0.72rem; color: var(--color-text-dim);" data-i18n="tier1Note">8 pillars · ~60 pages · Annual license · Customer-owned infrastructure</p>
         </div>
-        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;">
+        <div class="pillar-grid">
           <!-- The Council -->
-          <div class="pricing-card">
+          <div class="pricing-card tier-foundation">
             <div class="tier-label" data-i18n="pcP1Num">Pillar 1</div>
             <h2 data-i18n="priceH2TheCouncilTrade" class="tier-name">The Council&trade;</h2>
             <p class="tier-tagline" data-i18n="pcP1Tag">Multi-Agent Deliberation Engine</p>
@@ -507,7 +663,7 @@
             <a href="resources/the-council.html" class="tier-cta" data-i18n="learnMoreCta">Learn More</a>
           </div>
           <!-- Decide -->
-          <div class="pricing-card">
+          <div class="pricing-card tier-foundation">
             <div class="tier-label" data-i18n="pcP2Num">Pillar 2</div>
             <h2 data-i18n="priceH2DecideTrade" class="tier-name">Decide&trade;</h2>
             <p class="tier-tagline" data-i18n="pcP2Tag">Decision Intelligence Suite</p>
@@ -523,7 +679,7 @@
             <a href="demos.html" class="tier-cta" data-i18n="seeDemosCta">See Demos</a>
           </div>
           <!-- DCII -->
-          <div class="pricing-card featured">
+          <div class="pricing-card tier-foundation featured">
             <div class="tier-label" data-i18n="pcP3Num">Pillar 3</div>
             <h2 data-i18n="priceH2DciiTrade" class="tier-name">DCII&trade;</h2>
             <p class="tier-tagline" data-i18n="pcP3Tag">Crisis Immunization + Evidence Infrastructure</p>
@@ -538,73 +694,70 @@
             </ul>
             <a href="dcii.html" class="tier-cta primary" data-i18n="learnDciiCta">Learn DCII Framework</a>
           </div>
-        </div>
-        <!-- Row 2: Infrastructure pillars -->
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin-top: 16px;">
           <!-- Gateway -->
-          <div class="pricing-card">
-            <div class="tier-label">Pillar 4</div>
-            <h2 class="tier-name" style="font-size: 1.2rem;">Gateway&trade;</h2>
-            <p class="tier-tagline">AI Governance Proxy</p>
+          <div class="pricing-card tier-foundation">
+            <div class="tier-label" data-i18n="pcP4Num">Pillar 4</div>
+            <h2 data-i18n="priceH2GatewayTrade" class="tier-name">Gateway&trade;</h2>
+            <p class="tier-tagline" data-i18n="pcP4Tag">AI Governance Proxy</p>
             <ul class="tier-features">
-              <li>CendiaGateway&trade; governance proxy</li>
-              <li>Browser extensions (Chrome &amp; Firefox)</li>
-              <li>Policy enforcement at inference time</li>
-              <li>Request/response audit logging</li>
+              <li data-i18n="priceLiGatewayProxy">CendiaGateway&trade; governance proxy</li>
+              <li data-i18n="priceLiBrowserExtensions">Browser extensions (Chrome &amp; Firefox)</li>
+              <li data-i18n="priceLiPolicyEnforcement">Policy enforcement at inference time</li>
+              <li data-i18n="priceLiAuditLogging">Request/response audit logging</li>
             </ul>
-            <a href="gateway.html" class="tier-cta">Learn More</a>
+            <a href="gateway.html" class="tier-cta" data-i18n="learnMoreGateway">Learn More</a>
           </div>
           <!-- Pulse -->
-          <div class="pricing-card">
-            <div class="tier-label">Pillar 5</div>
-            <h2 class="tier-name" style="font-size: 1.2rem;">Pulse&trade;</h2>
-            <p class="tier-tagline">System Health &amp; Monitoring</p>
+          <div class="pricing-card tier-foundation">
+            <div class="tier-label" data-i18n="pcP5Num">Pillar 5</div>
+            <h2 data-i18n="priceH2PulseTrade" class="tier-name">Pulse&trade;</h2>
+            <p class="tier-tagline" data-i18n="pcP5Tag">System Health &amp; Monitoring</p>
             <ul class="tier-features">
-              <li>Real-time decision monitoring</li>
-              <li>Alert management &amp; escalation</li>
-              <li>System health metrics dashboard</li>
-              <li>Decision pipeline status tracking</li>
+              <li data-i18n="priceLiRealtimeMonitoring">Real-time decision monitoring</li>
+              <li data-i18n="priceLiAlertManagement">Alert management &amp; escalation</li>
+              <li data-i18n="priceLiHealthMetrics">System health metrics dashboard</li>
+              <li data-i18n="priceLiPipelineStatus">Decision pipeline status tracking</li>
             </ul>
-            <a href="demos.html" class="tier-cta">See Demos</a>
+            <a href="demos.html" class="tier-cta" data-i18n="seeDemosPulse">See Demos</a>
           </div>
           <!-- Bridge -->
-          <div class="pricing-card">
-            <div class="tier-label">Pillar 6</div>
-            <h2 class="tier-name" style="font-size: 1.2rem;">Bridge&trade;</h2>
-            <p class="tier-tagline">Workflow Automation</p>
+          <div class="pricing-card tier-foundation">
+            <div class="tier-label" data-i18n="pcP6Num">Pillar 6</div>
+            <h2 data-i18n="priceH2BridgeTrade" class="tier-name">Bridge&trade;</h2>
+            <p class="tier-tagline" data-i18n="pcP6Tag">Workflow Automation</p>
             <ul class="tier-features">
-              <li>Workflow builder &amp; templates</li>
-              <li>Approval chain management</li>
-              <li>Integration connectors (Slack, Teams, Jira)</li>
-              <li>Automated decision routing</li>
+              <li data-i18n="priceLiWorkflowBuilder">Workflow builder &amp; templates</li>
+              <li data-i18n="priceLiApprovalChain">Approval chain management</li>
+              <li data-i18n="priceLiIntegrationConnectors">Integration connectors (Slack, Teams, Jira)</li>
+              <li data-i18n="priceLiDecisionRouting">Automated decision routing</li>
             </ul>
-            <a href="demos.html" class="tier-cta">See Demos</a>
+            <a href="demos.html" class="tier-cta" data-i18n="seeDemosBridge">See Demos</a>
           </div>
           <!-- Graph -->
-          <div class="pricing-card">
-            <div class="tier-label">Pillar 7</div>
-            <h2 class="tier-name" style="font-size: 1.2rem;">Graph&trade;</h2>
-            <p class="tier-tagline">Knowledge Graph Explorer</p>
+          <div class="pricing-card tier-foundation">
+            <div class="tier-label" data-i18n="pcP7Num">Pillar 7</div>
+            <h2 data-i18n="priceH2GraphTrade" class="tier-name">Graph&trade;</h2>
+            <p class="tier-tagline" data-i18n="pcP7Tag">Knowledge Graph Explorer</p>
             <ul class="tier-features">
-              <li>Entity &amp; decision lineage visualization</li>
-              <li>Relationship mapping across decisions</li>
-              <li>Neo4j-powered graph traversal</li>
-              <li>Evidence chain navigation</li>
+              <li data-i18n="priceLiEntityLineage">Entity &amp; decision lineage visualization</li>
+              <li data-i18n="priceLiRelationshipMapping">Relationship mapping across decisions</li>
+              <li data-i18n="priceLiNeo4jTraversal">Neo4j-powered graph traversal</li>
+              <li data-i18n="priceLiEvidenceChain">Evidence chain navigation</li>
             </ul>
-            <a href="diagrams.html" class="tier-cta">View Architecture</a>
+            <a href="diagrams.html" class="tier-cta" data-i18n="viewArchGraph">View Architecture</a>
           </div>
           <!-- Compliance Readiness -->
-          <div class="pricing-card">
-            <div class="tier-label">Pillar 8</div>
-            <h2 class="tier-name" style="font-size: 1.2rem;">Comply Ready&trade;</h2>
-            <p class="tier-tagline">Compliance Readiness</p>
+          <div class="pricing-card tier-foundation">
+            <div class="tier-label" data-i18n="pcP8Num">Pillar 8</div>
+            <h2 data-i18n="priceH2ComplyReadyTrade" class="tier-name">Comply Ready&trade;</h2>
+            <p class="tier-tagline" data-i18n="pcP8Tag">Compliance Readiness</p>
             <ul class="tier-features">
-              <li>Framework status (GDPR, HIPAA, SOC 2, EU AI Act)</li>
-              <li>Governance &amp; audit trail checklist</li>
-              <li>Readiness scoring &amp; next-audit countdown</li>
-              <li>Enterprise compliance upgrade path</li>
+              <li data-i18n="priceLiFrameworkStatus">Framework status (GDPR, HIPAA, SOC 2, EU AI Act)</li>
+              <li data-i18n="priceLiAuditChecklist">Governance &amp; audit trail checklist</li>
+              <li data-i18n="priceLiReadinessScoring">Readiness scoring &amp; next-audit countdown</li>
+              <li data-i18n="priceLiComplianceUpgrade">Enterprise compliance upgrade path</li>
             </ul>
-            <a href="dcii.html" class="tier-cta">Learn More</a>
+            <a href="dcii.html" class="tier-cta" data-i18n="learnMoreComply">Learn More</a>
           </div>
         </div>
       </div>
@@ -618,12 +771,12 @@
           <p data-i18n="pricePPriceAvailableOnRequest" style="font-family: var(--font-mono); font-size: 1rem; color: var(--color-gold); margin-bottom: 4px;">Price Available on Request</p>
           <p style="font-size: 0.72rem; color: var(--color-text-dim);" data-i18n="tier2Note">5 pillars · Requires Foundation · 6–12 month adoption typical</p>
         </div>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px;">
+        <div class="pillar-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
           <!-- Stress-Test -->
-          <div class="pricing-card">
-            <div class="tier-label" style="color: #3b82f6;" data-i18n="pcP4Num">Pillar 4</div>
-            <h2 data-i18n="priceH2StressTest" class="tier-name" style="font-size: 1.2rem;">Stress-Test</h2>
-            <p class="tier-tagline" data-i18n="pcP4Tag">Adversarial Testing</p>
+          <div class="pricing-card tier-enterprise">
+            <div class="tier-label" style="color: #3b82f6;" data-i18n="pcP9Num">Pillar 9</div>
+            <h2 data-i18n="priceH2StressTest" class="tier-name">Stress-Test</h2>
+            <p class="tier-tagline" data-i18n="pcP9Tag">Adversarial Testing</p>
             <ul class="tier-features">
               <li data-i18n="priceLiCendiacrucibleTradeMonteCarloRed">CendiaCrucible&trade; Monte Carlo red-teaming</li>
               <li data-i18n="priceLiCendiaredteamTradePerspectiveAttack">CendiaRedTeam&trade; 8-perspective attack</li>
@@ -634,10 +787,10 @@
             <a data-i18n="priceARequestBriefing" href="briefing.html" class="tier-cta">Request Briefing</a>
           </div>
           <!-- Comply -->
-          <div class="pricing-card">
-            <div class="tier-label" style="color: #3b82f6;" data-i18n="pcP5Num">Pillar 5</div>
-            <h2 data-i18n="priceH2Comply" class="tier-name" style="font-size: 1.2rem;">Comply</h2>
-            <p class="tier-tagline" data-i18n="pcP5Tag">Regulatory Compliance</p>
+          <div class="pricing-card tier-enterprise">
+            <div class="tier-label" style="color: #3b82f6;" data-i18n="pcP10Num">Pillar 10</div>
+            <h2 data-i18n="priceH2Comply" class="tier-name">Comply</h2>
+            <p class="tier-tagline" data-i18n="pcP10Tag">Regulatory Compliance</p>
             <ul class="tier-features">
               <li data-i18n="priceLi10ComplianceFrameworks">10 compliance frameworks</li>
               <li data-i18n="priceLi17JurisdictionsSimultaneously">17 jurisdictions simultaneously</li>
@@ -648,10 +801,10 @@
             <a data-i18n="priceARequestBriefing2" href="briefing.html" class="tier-cta">Request Briefing</a>
           </div>
           <!-- Govern -->
-          <div class="pricing-card">
-            <div class="tier-label" style="color: #3b82f6;" data-i18n="pcP6Num">Pillar 6</div>
-            <h2 data-i18n="priceH2Govern" class="tier-name" style="font-size: 1.2rem;">Govern</h2>
-            <p class="tier-tagline" data-i18n="pcP6Tag">Policy Enforcement</p>
+          <div class="pricing-card tier-enterprise">
+            <div class="tier-label" style="color: #3b82f6;" data-i18n="pcP11Num">Pillar 11</div>
+            <h2 data-i18n="priceH2Govern" class="tier-name">Govern</h2>
+            <p class="tier-tagline" data-i18n="pcP11Tag">Policy Enforcement</p>
             <ul class="tier-features">
               <li data-i18n="priceLiCendiagovernTradeRbacApprovalWorkflows">CendiaGovern&trade; RBAC + approval workflows</li>
               <li data-i18n="priceLiCendiacourtTradeAiDisputeResolution">CendiaCourt&trade; AI dispute resolution</li>
@@ -662,12 +815,12 @@
             <a data-i18n="priceARequestBriefing3" href="briefing.html" class="tier-cta">Request Briefing</a>
           </div>
           <!-- Sovereign -->
-          <div class="pricing-card">
-            <div class="tier-label" style="color: #3b82f6;" data-i18n="pcP7Num">Pillar 7</div>
-            <h2 data-i18n="priceH2Sovereign" class="tier-name" style="font-size: 1.2rem;">Sovereign</h2>
-            <p class="tier-tagline" data-i18n="pcP7Tag">Air-Gap Architecture</p>
+          <div class="pricing-card tier-enterprise featured">
+            <div class="tier-label" style="color: #3b82f6;" data-i18n="pcP12Num">Pillar 12</div>
+            <h2 data-i18n="priceH2Sovereign" class="tier-name">Sovereign</h2>
+            <p class="tier-tagline" data-i18n="pcP12Tag">Air-Gap Architecture</p>
             <ul class="tier-features">
-              <li data-i18n="priceLi11SovereignArchitecturalPatterns">11 sovereign architectural patterns</li>
+              <li data-i18n="priceLi22SovereignArchitecturalPatterns">22 sovereign architectural patterns</li>
               <li data-i18n="priceLiPostQuantumKms">Post-quantum KMS</li>
               <li data-i18n="priceLiCendiablackboxTradeSealedRecords">CendiaBlackBox&trade; sealed records</li>
               <li data-i18n="priceLiCendiamirageTradeActiveDeception">CendiaMirage&trade; active deception</li>
@@ -676,10 +829,10 @@
             <a href="architecture.html" class="tier-cta" data-i18n="viewArchCta">View Architecture</a>
           </div>
           <!-- Operate -->
-          <div class="pricing-card">
-            <div class="tier-label" style="color: #3b82f6;" data-i18n="pcP8Num">Pillar 8</div>
-            <h2 data-i18n="priceH2Operate" class="tier-name" style="font-size: 1.2rem;">Operate</h2>
-            <p class="tier-tagline" data-i18n="pcP8Tag">CendiaOps™ — 19 AI Co-Pilots</p>
+          <div class="pricing-card tier-enterprise">
+            <div class="tier-label" style="color: #3b82f6;" data-i18n="pcP13Num">Pillar 13</div>
+            <h2 data-i18n="priceH2Operate" class="tier-name">Operate</h2>
+            <p class="tier-tagline" data-i18n="pcP13Tag">CendiaOps&trade; &mdash; 19 AI Co-Pilots</p>
             <ul class="tier-features">
               <li data-i18n="priceLi19DepartmentAiCoPilots">19 department AI co-pilots</li>
               <li data-i18n="priceLiCendiameshTradeSystemIntegration">CendiaMesh&trade; system integration</li>
@@ -752,12 +905,12 @@
           <p data-i18n="pricePPriceAvailableOnRequest3" style="font-family: var(--font-mono); font-size: 1rem; color: var(--color-gold); margin-bottom: 4px;">Price Available on Request</p>
           <p style="font-size: 0.72rem; color: var(--color-text-dim);" data-i18n="tier3Note">4 pillars · For institutions whose decisions shape industries and nations</p>
         </div>
-        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;">
+        <div class="pillar-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
           <!-- Collapse -->
-          <div class="pricing-card">
-            <div class="tier-label" style="color: #a855f7;" data-i18n="pcP9Num">Pillar 9</div>
-            <h2 data-i18n="priceH2Collapse" class="tier-name" style="font-size: 1.2rem;">Collapse</h2>
-            <p class="tier-tagline" data-i18n="pcP9Tag">Institutional Failure Simulation</p>
+          <div class="pricing-card tier-strategic featured">
+            <div class="tier-label" style="color: #a855f7;" data-i18n="pcP14Num">Pillar 14</div>
+            <h2 data-i18n="priceH2Collapse" class="tier-name">Collapse</h2>
+            <p class="tier-tagline" data-i18n="pcP14Tag">Institutional Failure Simulation</p>
             <ul class="tier-features">
               <li data-i18n="priceLi18AdversarialAgents">18 adversarial agents</li>
               <li data-i18n="priceLiSocietalFailureDomains">7 societal failure domains</li>
@@ -767,10 +920,10 @@
             <a href="briefing.html" class="tier-cta" data-i18n="contactForBriefing">Contact for Briefing</a>
           </div>
           <!-- SGAS -->
-          <div class="pricing-card">
-            <div class="tier-label" style="color: #a855f7;" data-i18n="pcP10Num">Pillar 10</div>
-            <h2 data-i18n="priceH2Sgas" class="tier-name" style="font-size: 1.2rem;">SGAS</h2>
-            <p class="tier-tagline" data-i18n="sgasTagline">Societal-Scale Governance Simulation</p>
+          <div class="pricing-card tier-strategic">
+            <div class="tier-label" style="color: #a855f7;" data-i18n="pcP15Num">Pillar 15</div>
+            <h2 data-i18n="priceH2Sgas" class="tier-name">SGAS</h2>
+            <p class="tier-tagline" data-i18n="pcP15Tag">Societal-Scale Governance Simulation</p>
             <ul class="tier-features">
               <li data-i18n="priceLiAgentClassesAtCivilizationalScale">5 agent classes at civilizational scale</li>
               <li data-i18n="priceLiPopulationLevelModeling">Population-level modeling</li>
@@ -780,10 +933,10 @@
             <a data-i18n="priceAContactForBriefing" href="briefing.html" class="tier-cta">Contact for Briefing</a>
           </div>
           <!-- Verticals -->
-          <div class="pricing-card">
-            <div class="tier-label" style="color: #a855f7;" data-i18n="pcP11Num">Pillar 11</div>
-            <h2 data-i18n="priceH2Verticals" class="tier-name" style="font-size: 1.2rem;">Verticals</h2>
-            <p class="tier-tagline" data-i18n="pcP11Tag">Industry Domination Infrastructure</p>
+          <div class="pricing-card tier-strategic">
+            <div class="tier-label" style="color: #a855f7;" data-i18n="pcP16Num">Pillar 16</div>
+            <h2 data-i18n="priceH2Verticals" class="tier-name">Verticals</h2>
+            <p class="tier-tagline" data-i18n="pcP16Tag">Industry Domination Infrastructure</p>
             <ul class="tier-features">
               <li data-i18n="priceLiDeepIndustryVerticals">26 industry verticals</li>
               <li data-i18n="priceLi13SectorTemplates">Full agent packs (12+ agents each)</li>
@@ -793,10 +946,10 @@
             <a href="verticals.html" class="tier-cta" data-i18n="viewIndustriesCta">View Industries</a>
           </div>
           <!-- Frontier -->
-          <div class="pricing-card">
-            <div class="tier-label" style="color: #a855f7;" data-i18n="pcP12Num">Pillar 12</div>
-            <h2 data-i18n="priceH2Frontier" class="tier-name" style="font-size: 1.2rem;">Frontier</h2>
-            <p class="tier-tagline" data-i18n="pcP12Tag">Nation-Scale Infrastructure</p>
+          <div class="pricing-card tier-strategic">
+            <div class="tier-label" style="color: #a855f7;" data-i18n="pcP17Num">Pillar 17</div>
+            <h2 data-i18n="priceH2Frontier" class="tier-name">Frontier</h2>
+            <p class="tier-tagline" data-i18n="pcP17Tag">Nation-Scale Infrastructure</p>
             <ul class="tier-features">
               <li data-i18n="priceLiCendianationTradeEconomicOs">CendiaNation&trade; economic OS</li>
               <li data-i18n="priceLiCendiaomnishieldTradeCyberDefense">CendiaOmniShield&trade; cyber defense</li>
@@ -826,17 +979,17 @@
         </div>
         <div class="procurement-grid">
           <div class="procurement-item">
-            <div class="procurement-icon">&#9729;&#65039;</div>
+            <div class="procurement-icon"><svg viewBox="0 0 24 24"><path d="M19.35 10.04A7.49 7.49 0 0 0 12 4C9.11 4 6.6 5.64 5.35 8.04A5.994 5.994 0 0 0 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96z"/></svg></div>
             <div class="procurement-title" data-i18n="cloudMarketplace">Cloud Marketplace</div>
             <p class="procurement-desc" data-i18n="cloudMarketplaceDesc">Buy Datacendia using your committed AWS or Azure spend. We support Private Offers to bypass vendor onboarding.</p>
           </div>
           <div class="procurement-item">
-            <div class="procurement-icon">&#127963;&#65039;</div>
+            <div class="procurement-icon"><svg viewBox="0 0 24 24"><path d="M12 2L2 7v10l10 5 10-5V7L12 2zm0 2.18L19.18 7 12 10.82 4.82 7 12 4.18zM4 8.82l7 3.5V19l-7-3.5V8.82zm9 10.18v-6.68l7-3.5V15.5l-7 3.5z"/></svg></div>
             <div class="procurement-title" data-i18n="govDefense">Gov / Defense</div>
             <p class="procurement-desc" data-i18n="govDefenseDesc">Architecture designed to FedRAMP Moderate controls. CAGE Code available for government contracting. IL4/IL5 pathway documented. CMMC 2.0 Level 2/3 architecture-ready.</p>
           </div>
           <div class="procurement-item">
-            <div class="procurement-icon">&#128203;</div>
+            <div class="procurement-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm-1 7V3.5L18.5 9H13zM7 17h10v2H7v-2zm0-4h10v2H7v-2zm0-4h7v2H7V9z"/></svg></div>
             <div class="procurement-title" data-i18n="standardTerms">Standard Terms</div>
             <p class="procurement-desc" data-i18n="standardTermsDesc">Industry-standard EULAs to speed up legal review. Net 30 / Net 45 terms accepted via Wire or ACH.</p>
           </div>
@@ -885,9 +1038,9 @@
         <a href="pilot.html" class="cta-button secondary" data-i18n="footerSeeResults">See Results in 90 Days</a>
         <a href="trust.html" class="cta-button secondary" data-i18n="trustCenter">Trust Center</a>
       </div>
-      <p class="footer-contact"><a href="mailto:contact@datacendia.com">contact@datacendia.com</a> &middot; <a data-i18n="priceALeadership" href="team.html">Leadership</a> &middot; <a href="protocol.html">Protocol</a> &middot; <a href="dcii.html">DCII</a>
-        <a data-i18n="priceAWarGames" href="wargames.html">War Games</a>
-        <a data-i18n="priceACaseStudies" href="case-studies.html">Case Studies</a>
+      <p class="footer-contact"><a href="mailto:contact@datacendia.com">contact@datacendia.com</a> &middot; <a data-i18n="priceALeadership" href="team.html">Leadership</a> &middot; <a href="protocol.html">Protocol</a> &middot; <a href="dcii.html">DCII</a> &middot;
+        <a data-i18n="priceAWarGames" href="wargames.html">War Games</a> &middot;
+        <a data-i18n="priceACaseStudies" href="case-studies.html">Case Studies</a> &middot;
         <a href="roi-calculator.html">ROI</a> &middot; <a href="security-controls.html">Security</a> &middot; <a href="pricing.html" data-i18n="pricing">Pricing</a> &middot; <a href="premium.html">Premium</a> &middot; <a href="privacy.html" data-i18n="privacy">Privacy</a> &middot; <a href="terms.html" data-i18n="terms">Terms</a> &middot; <a href="https://www.linkedin.com/company/datacendia/" target="_blank" rel="noopener" data-i18n="linkedin">LinkedIn</a></p>
       <p class="footer-status" style="font-family: var(--font-mono); font-size: 0.7rem; color: #2ecc71; margin-top: 16px; letter-spacing: 0.05em;" data-i18n="footerStatus">SYSTEM STATUS: AIR-GAP READY · NO TRACKER PIXELS DETECTED</p>
     </div>
@@ -898,5 +1051,11 @@
   <script src="app.js"></script>
   <script src="nav-mobile.js"></script>
   <script src="lang-switcher.js?v=2"></script>
+  <script>
+    document.getElementById('comparisonToggle').addEventListener('click', function() {
+      this.classList.toggle('open');
+      document.getElementById('comparisonTableWrap').classList.toggle('open');
+    });
+  </script>
 </body>
 </html>
