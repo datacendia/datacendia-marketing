@@ -17,7 +17,7 @@ const translations = {};
 const _loadedLocales = new Set();
 
 /* Available locales */
-const AVAILABLE_LOCALES = ['en', 'es', 'fr', 'de', 'pt', 'it', 'ja', 'ko', 'zh', 'ar', 'hi'];
+const AVAILABLE_LOCALES = ['en', 'es', 'fr', 'de', 'pt', 'pt-BR', 'it', 'ja', 'ko', 'zh', 'ar', 'hi', 'bn', 'he', 'id', 'nl', 'pl', 'ru', 'sv', 'sw', 'th', 'tl', 'tr', 'uk', 'ur', 'vi'];
 
 /**
  * Fetch and cache a locale's translations from /translations/{lang}.json.
@@ -58,7 +58,8 @@ async function setLanguage(lang) {
   if (!t) return;
 
   // Store preference
-  localStorage.setItem('datacendia-lang', lang);
+  localStorage.setItem('datacendia_language', lang);
+  localStorage.setItem('datacendia-lang', lang); // backward compat
 
   // Update URL parameter
   const url = new URL(window.location);
@@ -89,7 +90,7 @@ async function setLanguage(lang) {
   document.documentElement.lang = lang;
 
   // Update RTL direction for Arabic
-  document.documentElement.dir = (lang === 'ar') ? 'rtl' : 'ltr';
+  document.documentElement.dir = (['ar', 'he', 'ur'].includes(lang)) ? 'rtl' : 'ltr';
 
   // Update language selector button text
   const langBtn = document.querySelector('.lang-current');
@@ -170,7 +171,7 @@ function translatePageContent(lang, t) {
 document.addEventListener('DOMContentLoaded', async function () {
   const urlParams = new URLSearchParams(window.location.search);
   const urlLang = urlParams.get('lang');
-  const saved = urlLang || localStorage.getItem('datacendia-lang') || 'en';
+  const saved = urlLang || localStorage.getItem('datacendia_language') || localStorage.getItem('datacendia-lang') || 'en';
 
   // Pre-load English inline for instant display (no network request)
   // Other locales loaded on demand when user switches
