@@ -1,3 +1,17 @@
+# Environment files - NEVER COMMIT THESE
+.env
+.env.*
+!.env.example
+!.env.local.example
+!.env.*.example
+*.env
+
+# Cryptographic keys - NEVER COMMIT
+*.pem
+*.key
+*.crt
+*.p12
+
 # OS files
 .DS_Store
 Thumbs.db
