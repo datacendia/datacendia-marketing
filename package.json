@@ -4,6 +4,6 @@
   },
   "dependencies": {
     "@vitalets/google-translate-api": "^9.2.1",
-    "basic-ftp": "^5.2.0"
+    "basic-ftp": "^5.3.0"
   }
 }
