@@ -2,8 +2,8 @@
 
 **"Harden, comply, govern, own, and scale across the entire organization"**
 
-**Pricing:** $500,000 – $2,000,000 per year (enterprise license)  
-**Prerequisite:** Foundation tier adoption (6-12 months typical)  
+**Pricing:** $15,000 / month (Enterprise license — includes all Foundation pillars)  
+**Prerequisite:** 90-day Pilot ($2,500) or 1-month Test tier  
 **Buyer:** Enterprise scaling AI governance org-wide  
 **Sales cycle:** 3-6 months
 

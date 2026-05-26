@@ -1,9 +1,9 @@
-# TIER 3: STRATEGIC
+# TIER 3: SOVEREIGN
 
 **"Survive → Model → Dominate → Govern Nations"**
 
-**Pricing:** $2,000,000 – $100,000,000+ per year (enterprise license)  
-**Prerequisite:** Foundation + Enterprise tier maturity (12-24 months typical)  
+**Pricing:** $25,000 / month (Sovereign license — includes all Enterprise pillars + Premium add-ons)  
+**Prerequisite:** Active Enterprise tier or direct procurement engagement  
 **Buyer:** Institutions whose decisions shape industries, societies, and nations  
 **Sales cycle:** 6-18 months, often government/institutional procurement
 

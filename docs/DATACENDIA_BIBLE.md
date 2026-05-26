@@ -1735,62 +1735,51 @@ Content-Type: application/json
 
 ## Tier Overview
 
-| Tier | Description | Starting Price | Deployment |
-|------|-------------|----------------|------------|
-| **Starter** | Full platform, single vertical | $60k–$150k/year | Cloud or Self-hosted |
-| **Professional** | Multi-vertical, advanced agents | $500k–$2M/year | Self-hosted |
-| **Enterprise** | Full sovereignty, custom agents | $2M–$8M/year | Air-gapped available |
-| **Strategic** | Nation-scale, dedicated support | $8M–$25M+/year | Full sovereignty |
+| Tier | Description | Price | Deployment |
+|------|-------------|-------|------------|
+| **Test** | Full platform, evaluation only | **Free for 1 month** | Self-hosted |
+| **Pilot** | 90-day proof of value, 1 environment | **$2,500 / 90 days** | Self-hosted |
+| **Enterprise** | Full governance + sovereign deployment | **$15,000 / month** | Self-hosted or air-gapped |
+| **Sovereign** | Nation-scale, COLLAPSE, SGAS, 26 verticals | **$25,000 / month** | Full sovereignty |
 
 ## Entry Options
 
 | Model | Description | Price | Best For |
 |-------|-------------|-------|----------|
-| **90-Day Pilot** | Single use case, full platform access | **$50k one-time** | Prove value before commitment |
-| **Per-Department** | License 1-3 business units | **$25k/dept/year** | Expand after successful pilot |
-| **Starter License** | Full vertical package, all agents | **$60k–$150k/year** | Mid-market enterprise-wide |
+| **Test** | Self-serve evaluation, full feature access | **Free for 1 month** | Hands-on technical evaluation |
+| **90-Day Pilot** | Guided pilot with 1 environment, 2 workflows, dedicated support | **$2,500 one-time** | Prove value before commitment |
+| **Enterprise License** | Full Foundation + Enterprise pillars (13 pillars) | **$15,000 / month** | Production governance, regulated industries |
+| **Sovereign License** | Enterprise + COLLAPSE, SGAS, 26 verticals, Frontier | **$25,000 / month** | Nation-scale, civilizational decisions |
 
-## Consumption-Based Pricing
-
-For organizations with variable decision volumes:
-
-| Tier | Deliberations/Month | Price/Month | Per-Deliberation |
-|------|--------------------:|------------:|-----------------:|
-| **Lite** | Up to 50 | $2,500 | $50 |
-| **Standard** | Up to 200 | $8,000 | $40 |
-| **Growth** | Up to 500 | $15,000 | $30 |
-| **Scale** | Unlimited | $25,000 | — |
-
-**How Deliberations Are Counted:**
-- **1 Deliberation** = One AI Council session producing a recommendation
-- Multi-round sessions (cross-examination, dissent) count as 1 deliberation
-- Drop to Deliberate™ document analysis = 1 deliberation per batch
-- Dashboard queries and reports do **not** count
-
-**Overage:** Billed at tier rate. Auto-upgrade notification at 80%. Hard cap option available.
+**Pilot fee** is credited toward the first month of an Enterprise license if you proceed.
 
 ## Add-On Packages
 
-| Package | Price | Included |
-|---------|-------|----------|
-| **Premium Agent Packs** | $299–$399/mo | Healthcare, Finance, Legal, Audit agents |
-| **Guardian Suite** | $50k/year | CendiaAegis™, Veto System, enhanced monitoring |
-| **Sovereign Stack** | Included in Enterprise+ | MinIO, Tika, Druid, BullMQ, Casbin |
-| **Custom Agent Builder** | $25k setup | Domain-specific agents with your data |
+| Package | Included In | Notes |
+|---------|-------------|-------|
+| **Premium Agent Packs** | Enterprise+ | Healthcare, Finance, Legal, Audit agents |
+| **Guardian Suite** | Sovereign | CendiaAegis™, CendiaEternal™, CendiaSymbiont™, CendiaVox™ |
+| **Strategic Suite** | Sovereign | CendiaMythos™, CendiaEthos™, CendiaGaia™ |
+| **Sovereign Stack** | Enterprise+ | MinIO, Tika, Druid, BullMQ, Casbin |
+| **Custom Agent Builder** | Add-on | Domain-specific agents with your data — quoted per engagement |
 
 ## Vertical-Specific Pricing
 
-| Vertical | Starter | Professional | Enterprise | Strategic |
-|----------|---------|--------------|------------|-----------|
-| Healthcare | $100k | $1.2M | $5M | $12M+ |
-| Financial | $120k | $800k | $3M | $8M+ |
-| Government | $150k | $1.5M | $8M | $25M+ |
-| Pharma | $150k | $1.5M | $6M | $15M+ |
-| Insurance | $100k | $900k | $4M | $10M+ |
-| Manufacturing | $80k | $700k | $3M | $8M+ |
-| Energy | $120k | $1M | $5M | $15M+ |
+All vertical packs are included in the base Enterprise and Sovereign tiers. Vertical-specific configuration, agent tuning, and onboarding are bundled with the standard license — no per-vertical surcharge.
 
-*All prices USD. Volume discounts available for multi-year commitments.*
+| Vertical | Available In | Notes |
+|----------|--------------|-------|
+| Healthcare | Enterprise+ | HIPAA-ready, SaMD-aware deliberation modes |
+| Financial | Enterprise+ | Basel III, MiFID II, model risk governance |
+| Government | Sovereign | CAC/PIV auth, FedRAMP-aligned patterns |
+| Pharma | Enterprise+ | GxP, GCP, FDA submission evidence packs |
+| Insurance | Enterprise+ | Underwriting governance, claims dispute trails |
+| Manufacturing | Enterprise+ | Safety incident deliberation, recall decisions |
+| Energy | Enterprise+ | Grid emergency Council, regulatory reporting |
+| Legal | Enterprise+ | 14 agents, 48 deliberation modes |
+| Defense | Sovereign | Air-gapped only, sovereign architecture patterns |
+
+*All prices USD. Annual prepay = 2 months free (10× monthly = 12 months). Multi-year discounts available.*
 
 ---
 
