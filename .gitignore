@@ -16,3 +16,7 @@ node_modules/
 
 # Logs
 *.log
+
+# Local scratch / one-off tooling (underscore-prefixed, root only)
+/_*.py
+/_*.txt
