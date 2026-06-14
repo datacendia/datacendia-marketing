@@ -2,8 +2,8 @@
 
 **"Advanced modules for Enterprise licensees requiring capabilities beyond the core 5 pillars"**
 
-**Pricing:** $500,000 – $3,000,000 per module annually (Contact for pricing)  
-**Prerequisite:** Active Enterprise tier license  
+**Pricing:** Included in Sovereign tier ($25,000 / month) — or contact for individual module pricing  
+**Prerequisite:** Active Enterprise or Sovereign tier license  
 **Buyer:** Institutions requiring threat intelligence, long-term preservation, or strategic narrative control  
 **Sales approach:** Visible but gated — descriptions and "WHO NEEDS IT" public, pricing via consultation
 
@@ -11,7 +11,7 @@
 
 ## Why These Are Premium Add-Ons (Not Core Enterprise)
 
-These 7 modules are **conceptually strategic** but **priced like enterprise** ($500K-$3M). They don't fit in Tier 3 (where services are $2M-$100M+) and they don't fit in core Enterprise (where every customer needs the 5 pillars). They're for **specific institutional needs** — not everyone needs 100-year knowledge preservation or geopolitical threat simulation.
+These 7 modules are **conceptually strategic** but bundled into the Sovereign tier ($25,000/month). They don't fit in core Enterprise (where every customer needs the 5 pillars) but are required for institutions whose decisions shape industries and nations. They're for **specific institutional needs** — not everyone needs 100-year knowledge preservation or geopolitical threat simulation.
 
 **Why they're separate from the 5 core pillars:**
 - Core Enterprise pillars (STRESS-TEST, COMPLY, GOVERN, SOVEREIGN, OPERATE) are needed by virtually every enterprise customer scaling AI governance

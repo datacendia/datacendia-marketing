@@ -3379,7 +3379,11 @@ pre, code {
 }
 
 /* Cross-Browser Flexbox */
-.nav-menu, .demo-grid, .tier-grid, .primitives-grid {
+/* NOTE: .nav-menu intentionally excluded — its display is controlled by the
+   desktop rule above and the mobile @media block (display:none + .open).
+   Including it here (unscoped) overrode the mobile rule and left the menu
+   permanently expanded behind the hamburger. */
+.demo-grid, .tier-grid, .primitives-grid {
   display: -webkit-flex;
   display: flex;
 }

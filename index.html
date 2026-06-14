@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -197,7 +197,7 @@
           </div>
         </div>
         <a href="https://github.com/datacendia/datacendia-core" target="_blank" rel="noopener" class="nav-github" style="font-size:.78rem; color:var(--color-text-muted); text-decoration:none; display:flex; align-items:center; gap:5px;"><svg height="16" width="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>GitHub</a>
-        <a href="briefing.html" class="nav-cta-secondary" data-i18n="navRequestBriefing">Request Briefing</a>
+        <a href="briefing.html" class="nav-cta-secondary" data-i18n="navFreePilot" style="color:#10b981;">Free Pilot</a>
         <a href="https://app.datacendia.com/" target="_blank" rel="noopener" class="nav-cta" data-i18n="navLaunchApp">Launch App →</a>
         </div>
       </nav>
@@ -205,11 +205,16 @@
 
     <main>
     <!-- Pain Hook -->
+    <div style="text-align:center; margin-bottom:12px;">
+      <a href="https://www.nvidia.com/en-us/startups/" target="_blank" rel="noopener" title="NVIDIA Inception Program Member" style="display:inline-flex; align-items:center; gap:8px; background:rgba(118,185,0,.08); border:1px solid rgba(118,185,0,.2); border-radius:8px; padding:6px 16px; text-decoration:none; color:#76b900; font-size:.75rem; font-weight:600; letter-spacing:.06em;">
+        <img src="assets/images/nvidia-inception-badge.svg" alt="NVIDIA Inception" style="height:22px;"> NVIDIA Inception Program Member
+      </a>
+    </div>
     <div class="pain-hook">
       <p class="pain-hook-text" data-i18n="painHook">The evidentiary layer that proves AI decisions were made correctly — when challenged years later under adversarial scrutiny.</p>
       <div class="btn-bar">
-        <a href="https://app.datacendia.com/" target="_blank" rel="noopener" class="btn-gold" data-i18n="btnLaunchApp">Launch App →</a>
-        <a href="roi-calculator.html" class="btn-outline" data-i18n="btnCalculateRoi">Calculate Your ROI</a>
+        <a href="https://app.datacendia.com/" target="_blank" rel="noopener" class="btn-gold" data-i18n="btnLaunchApp">Try the Platform Free →</a>
+        <a href="pilot.html" class="btn-outline" style="border-color:#10b981; color:#10b981;" data-i18n="btnFreePilot">Request Free Pilot</a>
         <a href="demos/sports-governance.html" class="btn-outline" data-i18n="btnTryTransferDemo">Try Transfer Demo</a>
         <a href="briefing.html" class="btn-outline" data-i18n="btnRequestBriefing">Request Briefing</a>
       </div>
@@ -315,14 +320,18 @@
           <div class="pillar-icon">&#129504;</div>
           <h3 class="pillar-title" data-i18n="councilPillarTitle">The Council™</h3>
           <p class="pillar-subtitle" data-i18n="councilPillarSubtitle">Multi-Agent Deliberation</p>
-          <p class="pillar-desc" data-i18n="councilPillarDesc">14 C-suite AI agents debate every decision from their domain — surfacing blind spots, conflicts, and consensus before you commit.</p>
+          <p class="pillar-desc" data-i18n="councilPillarDesc">20 C-suite AI agents debate every decision from their domain — surfacing blind spots, conflicts, and consensus before you commit.</p>
           <ul class="pillar-features">
-            <li class="pillar-feature"><span class="check">&#10003;</span> <span data-i18n="councilFeature1">14 core agents + premium packs</span></li>
+            <li class="pillar-feature"><span class="check">&#10003;</span> <span data-i18n="councilFeature1">20 core agents + premium packs</span></li>
             <li class="pillar-feature"><span class="check">&#10003;</span> <span data-i18n="councilFeature2">12 deliberation modes</span></li>
             <li class="pillar-feature"><span class="check">&#10003;</span> <span data-i18n="councilFeature3">Live deliberation with avatars</span></li>
             <li class="pillar-feature"><span class="check">&#10003;</span> <span data-i18n="councilFeature4">60-trait personality system</span></li>
           </ul>
           <a href="resources/the-council.html" class="pillar-link" data-i18n="councilLearnMore">Learn more →</a>
+          <div style="margin-top:12px; padding-top:10px; border-top:1px solid rgba(255,255,255,.06);">
+            <div style="font-size:.65rem; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:#60a5fa; margin-bottom:6px;" data-i18n="opsAgentsLabel">+ 4 Ops Agents</div>
+            <div style="font-size:.72rem; color:var(--color-text-muted); line-height:1.5;" data-i18n="opsAgentsDesc">Report Automation &middot; Analytics &middot; NLP &middot; Pipeline Builder &mdash; everyday AI agents that execute tasks, not just deliberate.</div>
+          </div>
         </div>
         <!-- DECIDE -->
         <div class="pillar-card">
@@ -353,12 +362,8 @@
           <a href="dcii.html" class="pillar-link" data-i18n="dciiLearnFramework">Learn the framework →</a>
         </div>
       </div>
-      <p class="pillar-note"><span data-i18n="pillarNote">Foundation tier: Custom pricing ·</span> <a href="pilot.html" class="link-gold" data-i18n="pillarNoteLink">Start with a pilot →</a></p>
+      <p class="pillar-note"><span data-i18n="pillarNote">Foundation tier is free &mdash; no credit card, no commitment.</span> <a href="pilot.html" class="link-gold" data-i18n="pillarNoteLink">Start your free pilot &rarr;</a></p>
     </div>
-
-    <!-- REGULATOR'S RECEIPT SHOWCASE -->
-    <div class="section-narrow" style="padding-top:0;">
-      <div style="background:var(--color-card-bg); border:1px solid var(--color-border); border-radius:16px; padding:40px; display:flex; align-items:flex-start; gap:40px; flex-wrap:wrap;">
         <div style="flex:1; min-width:260px;">
           <p style="font-size:.65rem; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--color-gold); margin-bottom:10px;" data-i18n="rrLabel">DCII — Evidence Infrastructure</p>
           <h2 style="font-size:1.6rem; font-weight:700; margin-bottom:12px; letter-spacing:-.02em;" data-i18n="rrTitle">Regulator's Receipt™</h2>
@@ -409,19 +414,19 @@
             <div class="tier-name tier-name--gold" data-i18n="tier1Name">Tier 1: Foundation</div>
             <div class="tier-pillars" data-i18n="tier1Pillars">The Council · Decide · DCII</div>
             <div class="tier-flow" data-i18n="tier1Flow">Make → Understand → Prove</div>
-            <div data-i18n="idxDivCustomPricing" class="tier-price">Custom Pricing</div>
+            <div data-i18n="idxDivCustomPricing" class="tier-price" style="color:#10b981;">Free 1 Month / $2,500 Pilot</div>
           </div>
           <div>
             <div class="tier-name tier-name--blue" data-i18n="tier2Name">Tier 2: Enterprise</div>
             <div class="tier-pillars" data-i18n="tier2Pillars">Stress-Test · Comply · Govern · Sovereign · Operate</div>
             <div class="tier-flow" data-i18n="tier2Flow">Harden → Scale → Automate</div>
-            <div data-i18n="idxDivCustomPricing2" class="tier-price">Custom Pricing</div>
+            <div data-i18n="idxDivCustomPricing2" class="tier-price">$15,000 / month</div>
           </div>
           <div>
-            <div class="tier-name tier-name--purple" data-i18n="tier3Name">Tier 3: Strategic</div>
+            <div class="tier-name tier-name--purple" data-i18n="tier3Name">Tier 3: Sovereign</div>
             <div class="tier-pillars" data-i18n="tier3Pillars">Collapse · SGAS · Verticals · Frontier</div>
             <div class="tier-flow" data-i18n="tier3Flow">Survive → Model → Dominate → Govern</div>
-            <div data-i18n="idxDivCustomPricing3" class="tier-price">Custom Pricing</div>
+            <div data-i18n="idxDivCustomPricing3" class="tier-price">$25,000 / month</div>
           </div>
         </div>
         <div style="text-align:center; margin-top:20px;">
@@ -901,7 +906,7 @@
     </div>
 
     <!-- Honesty & Transparency -->
-    <div class="section-center max-w-680" style="padding:48px 24px; margin:0 auto;">
+    <div class="section-mid section-center" style="padding:48px 24px 0;">
       <p class="section-label" data-i18n="honestyMatrices">Honesty Matrices</p>
       <h2 class="section-headline" data-i18n="mostVendorsHide">Most vendors hide this. We lead with it.</h2>
       <p class="deploy-desc" style="margin-bottom:24px;" data-i18n="honestyDesc">Sovereignty comparisons, governance reality checks, integration truth tables, what breaks at 3 AM, and what we can't do — all documented honestly.</p>
@@ -995,4 +1000,8 @@
   <script src="tiktok-pixel.js" defer></script>
 </body>
 </html>
+
+
+
+
 
