@@ -5,6 +5,13 @@ on:
     branches: [master]
   workflow_dispatch:
 
+# Serialize deploys: never run two FTP mirrors at once. A mirror cancelled
+# mid-run could leave the live site half-updated, so let the in-flight deploy
+# finish and queue only the latest push (older queued runs are superseded).
+concurrency:
+  group: deploy-namecheap
+  cancel-in-progress: false
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
