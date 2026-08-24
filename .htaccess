@@ -14,7 +14,34 @@ ErrorDocument 404 /404.html
     Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
 
     # Content Security Policy
-    Header always set Content-Security-Policy "default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://formspree.io; frame-ancestors 'none'; base-uri 'self'; form-action 'self' https://formspree.io mailto:"
+    #
+    # 'unsafe-inline' is required by the site as it stands today. Do NOT remove it
+    # without doing the refactor described below first -- taking it out breaks the
+    # whole site, silently and badly:
+    #
+    #   script-src 'unsafe-inline'  33 executable inline <script> blocks across 33 files,
+    #                               plus 220 inline on*= handlers. demos/council.html keeps
+    #                               its entire engine in a 38KB inline script, so a strict
+    #                               script-src leaves AGENTS/renderAgents undefined and every
+    #                               interactive demo renders nothing at all.
+    #   style-src  'unsafe-inline'  4,591 inline style= attributes across 247 of 560 HTML
+    #                               files, plus 150 embedded <style> blocks. Nonces cannot
+    #                               help here: static files on LiteSpeed cannot mint a
+    #                               per-request nonce, and nonces never apply to style=
+    #                               attributes or on*= handlers in any case.
+    #
+    # To harden this properly: extract the 33 inline scripts to external .js files and
+    # convert the 220 on*= handlers to addEventListener, then drop 'unsafe-inline' from
+    # script-src only. style-src 'unsafe-inline' has to stay until the 4,591 style
+    # attributes are refactored, which is a much lower-value change.
+    #
+    # plausible.io needs BOTH script-src (to load script.js) and connect-src (it POSTs
+    # events to /api/event) -- script-src alone fails silently.
+    #
+    # analytics.tiktok.com is deliberately NOT allowed. tiktok-pixel.js still ships with
+    # PIXEL_ID = 'YOUR_TIKTOK_PIXEL_ID' and self-disables, so it does nothing today; enabling
+    # it means turning on third-party tracking, which needs a consent/privacy review first.
+    Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' https://plausible.io; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://formspree.io https://plausible.io; frame-ancestors 'none'; base-uri 'self'; form-action 'self' https://formspree.io mailto:"
 
     # Prevent clickjacking
     Header always set X-Frame-Options "DENY"
